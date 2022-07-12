@@ -642,11 +642,8 @@ impl IPresentationManager {
         (::windows::core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn EnablePresentStatisticsKind<'a, P0>(&self, presentstatisticskind: P0, enabled: u8) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PresentStatisticsKind>,
-    {
-        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), presentstatisticskind.into(), ::core::mem::transmute(enabled)).ok()
+    pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presentstatisticskind), ::core::mem::transmute(enabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
@@ -733,19 +730,13 @@ impl IPresentationSurface {
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetColorSpace<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), colorspace.into()).ok()
+    pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetAlphaMode<'a, P0>(&self, alphamode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), alphamode.into()).ok()
+    pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(alphamode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

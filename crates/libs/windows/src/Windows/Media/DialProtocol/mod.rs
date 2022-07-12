@@ -562,12 +562,9 @@ impl DialDevicePicker {
     }
     #[doc = "*Required features: `\"Media_DialProtocol\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowWithPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::UI::Popups::Placement>,
-    {
+    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
     #[doc = "*Required features: `\"Media_DialProtocol\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -580,14 +577,11 @@ impl DialDevicePicker {
     }
     #[doc = "*Required features: `\"Media_DialProtocol\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn PickSingleDialDeviceAsyncWithPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>>
-    where
-        P0: ::std::convert::Into<super::super::UI::Popups::Placement>,
-    {
+    pub fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PickSingleDialDeviceAsyncWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DialDevice>>(result__)
+            (::windows::core::Interface::vtable(this).PickSingleDialDeviceAsyncWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DialDevice>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -596,13 +590,12 @@ impl DialDevicePicker {
         unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
-    pub fn SetDisplayStatus<'a, P0, P1>(&self, device: P0, status: P1) -> ::windows::core::Result<()>
+    pub fn SetDisplayStatus<'a, P0>(&self, device: P0, status: DialDeviceDisplayStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, DialDevice>>,
-        P1: ::std::convert::Into<DialDeviceDisplayStatus>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayStatus)(::windows::core::Interface::as_raw(this), device.into().abi(), status.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayStatus)(::windows::core::Interface::as_raw(this), device.into().abi(), status).ok() }
     }
 }
 impl ::core::clone::Clone for DialDevicePicker {

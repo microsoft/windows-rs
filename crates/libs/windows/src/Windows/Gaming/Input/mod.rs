@@ -9,14 +9,11 @@ pub mod Preview;
 pub struct ArcadeStick(::windows::core::IUnknown);
 impl ArcadeStick {
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
-    pub fn GetButtonLabel<'a, P0>(&self, button: P0) -> ::windows::core::Result<GameControllerButtonLabel>
-    where
-        P0: ::std::convert::Into<ArcadeStickButtons>,
-    {
+    pub fn GetButtonLabel(&self, button: ArcadeStickButtons) -> ::windows::core::Result<GameControllerButtonLabel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<GameControllerButtonLabel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button.into(), result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
+            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button, result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
@@ -401,14 +398,11 @@ impl FlightStick {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
-    pub fn GetButtonLabel<'a, P0>(&self, button: P0) -> ::windows::core::Result<GameControllerButtonLabel>
-    where
-        P0: ::std::convert::Into<FlightStickButtons>,
-    {
+    pub fn GetButtonLabel(&self, button: FlightStickButtons) -> ::windows::core::Result<GameControllerButtonLabel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<GameControllerButtonLabel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button.into(), result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
+            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button, result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
@@ -1061,14 +1055,11 @@ impl Gamepad {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
-    pub fn GetButtonLabel<'a, P0>(&self, button: P0) -> ::windows::core::Result<GameControllerButtonLabel>
-    where
-        P0: ::std::convert::Into<GamepadButtons>,
-    {
+    pub fn GetButtonLabel(&self, button: GamepadButtons) -> ::windows::core::Result<GameControllerButtonLabel> {
         let this = &::windows::core::Interface::cast::<IGamepad2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<GameControllerButtonLabel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button.into(), result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
+            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button, result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`, `\"Foundation\"`*"]
@@ -2375,14 +2366,11 @@ impl RacingWheel {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
-    pub fn GetButtonLabel<'a, P0>(&self, button: P0) -> ::windows::core::Result<GameControllerButtonLabel>
-    where
-        P0: ::std::convert::Into<RacingWheelButtons>,
-    {
+    pub fn GetButtonLabel(&self, button: RacingWheelButtons) -> ::windows::core::Result<GameControllerButtonLabel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<GameControllerButtonLabel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button.into(), result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
+            (::windows::core::Interface::vtable(this).GetButtonLabel)(::windows::core::Interface::as_raw(this), button, result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
@@ -3199,25 +3187,19 @@ impl UINavigationController {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
-    pub fn GetOptionalButtonLabel<'a, P0>(&self, button: P0) -> ::windows::core::Result<GameControllerButtonLabel>
-    where
-        P0: ::std::convert::Into<OptionalUINavigationButtons>,
-    {
+    pub fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<GameControllerButtonLabel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetOptionalButtonLabel)(::windows::core::Interface::as_raw(this), button.into(), result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
+            (::windows::core::Interface::vtable(this).GetOptionalButtonLabel)(::windows::core::Interface::as_raw(this), button, result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`*"]
-    pub fn GetRequiredButtonLabel<'a, P0>(&self, button: P0) -> ::windows::core::Result<GameControllerButtonLabel>
-    where
-        P0: ::std::convert::Into<RequiredUINavigationButtons>,
-    {
+    pub fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> ::windows::core::Result<GameControllerButtonLabel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<GameControllerButtonLabel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetRequiredButtonLabel)(::windows::core::Interface::as_raw(this), button.into(), result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
+            (::windows::core::Interface::vtable(this).GetRequiredButtonLabel)(::windows::core::Interface::as_raw(this), button, result__.as_mut_ptr()).from_abi::<GameControllerButtonLabel>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input\"`, `\"Foundation\"`*"]

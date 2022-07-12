@@ -234,15 +234,12 @@ pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::c
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveSealData<'a, P0>(datatoencrypt: *const ::core::ffi::c_void, datatoencryptsize: u32, identitypolicy: P0, runtimepolicy: u32, protectedblob: *mut ::core::ffi::c_void, buffersize: u32, protectedblobsize: *mut u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<ENCLAVE_SEALING_IDENTITY_POLICY>,
-{
+pub unsafe fn EnclaveSealData(datatoencrypt: *const ::core::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: *mut ::core::ffi::c_void, buffersize: u32, protectedblobsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnclaveSealData(datatoencrypt: *const ::core::ffi::c_void, datatoencryptsize: u32, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: *mut ::core::ffi::c_void, buffersize: u32, protectedblobsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    EnclaveSealData(::core::mem::transmute(datatoencrypt), ::core::mem::transmute(datatoencryptsize), identitypolicy.into(), ::core::mem::transmute(runtimepolicy), ::core::mem::transmute(protectedblob), ::core::mem::transmute(buffersize), ::core::mem::transmute(protectedblobsize)).ok()
+    EnclaveSealData(::core::mem::transmute(datatoencrypt), ::core::mem::transmute(datatoencryptsize), ::core::mem::transmute(identitypolicy), ::core::mem::transmute(runtimepolicy), ::core::mem::transmute(protectedblob), ::core::mem::transmute(buffersize), ::core::mem::transmute(protectedblobsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]

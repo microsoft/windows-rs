@@ -871,19 +871,18 @@ pub struct IVpnDomainNameInfoFactory(::windows::core::IUnknown);
 impl IVpnDomainNameInfoFactory {
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnDomainNameInfo<'a, P0, P1, P2, E2, P3, E3>(&self, name: P0, nametype: P1, dnsserverlist: P2, proxyserverlist: P3) -> ::windows::core::Result<VpnDomainNameInfo>
+    pub fn CreateVpnDomainNameInfo<'a, P0, P1, E1, P2, E2>(&self, name: P0, nametype: VpnDomainNameType, dnsserverlist: P1, proxyserverlist: P2) -> ::windows::core::Result<VpnDomainNameInfo>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<VpnDomainNameType>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
         P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E3>,
-        E3: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateVpnDomainNameInfo)(::windows::core::Interface::as_raw(this), name.into().abi(), nametype.into(), dnsserverlist.try_into().map_err(|e| e.into())?.abi(), proxyserverlist.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VpnDomainNameInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateVpnDomainNameInfo)(::windows::core::Interface::as_raw(this), name.into().abi(), nametype, dnsserverlist.try_into().map_err(|e| e.into())?.abi(), proxyserverlist.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VpnDomainNameInfo>(result__)
         }
     }
 }
@@ -2053,12 +2052,9 @@ impl VpnAppId {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnAppIdType>,
-    {
+    pub fn SetType(&self, value: VpnAppIdType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2077,14 +2073,13 @@ impl VpnAppId {
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn Create<'a, P0, P1>(r#type: P0, value: P1) -> ::windows::core::Result<VpnAppId>
+    pub fn Create<'a, P0>(r#type: VpnAppIdType, value: P0) -> ::windows::core::Result<VpnAppId>
     where
-        P0: ::std::convert::Into<VpnAppIdType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IVpnAppIdFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), r#type.into(), value.into().abi(), result__.as_mut_ptr()).from_abi::<VpnAppId>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), r#type, value.into().abi(), result__.as_mut_ptr()).from_abi::<VpnAppId>(result__)
         })
     }
     #[doc(hidden)]
@@ -2263,24 +2258,20 @@ impl VpnChannel {
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn RequestCredentials<'a, P0, P1>(&self, credtype: P0, isretry: bool, issinglesignoncredential: bool, certificate: P1) -> ::windows::core::Result<VpnPickedCredential>
+    pub fn RequestCredentials<'a, P0>(&self, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: P0) -> ::windows::core::Result<VpnPickedCredential>
     where
-        P0: ::std::convert::Into<VpnCredentialType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCredentials)(::windows::core::Interface::as_raw(this), credtype.into(), isretry, issinglesignoncredential, certificate.into().abi(), result__.as_mut_ptr()).from_abi::<VpnPickedCredential>(result__)
+            (::windows::core::Interface::vtable(this).RequestCredentials)(::windows::core::Interface::as_raw(this), credtype, isretry, issinglesignoncredential, certificate.into().abi(), result__.as_mut_ptr()).from_abi::<VpnPickedCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn RequestVpnPacketBuffer<'a, P0>(&self, r#type: P0, vpnpacketbuffer: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnDataPathType>,
-    {
+    pub fn RequestVpnPacketBuffer(&self, r#type: VpnDataPathType, vpnpacketbuffer: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestVpnPacketBuffer)(::windows::core::Interface::as_raw(this), r#type.into(), vpnpacketbuffer as *mut _ as _).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestVpnPacketBuffer)(::windows::core::Interface::as_raw(this), r#type, vpnpacketbuffer as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn LogDiagnosticMessage<'a, P0>(&self, message: P0) -> ::windows::core::Result<()>
@@ -2454,39 +2445,32 @@ impl VpnChannel {
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
-    pub fn RequestCredentialsWithCertificateAsync<'a, P0, P1>(&self, credtype: P0, credoptions: u32, certificate: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
+    pub fn RequestCredentialsWithCertificateAsync<'a, P0>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
     where
-        P0: ::std::convert::Into<VpnCredentialType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>,
     {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(::windows::core::Interface::as_raw(this), credtype.into(), credoptions, certificate.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VpnCredential>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(::windows::core::Interface::as_raw(this), credtype, credoptions, certificate.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VpnCredential>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestCredentialsWithOptionsAsync<'a, P0>(&self, credtype: P0, credoptions: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
-    where
-        P0: ::std::convert::Into<VpnCredentialType>,
-    {
+    pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(::windows::core::Interface::as_raw(this), credtype.into(), credoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VpnCredential>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(::windows::core::Interface::as_raw(this), credtype, credoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VpnCredential>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestCredentialsSimpleAsync<'a, P0>(&self, credtype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
-    where
-        P0: ::std::convert::Into<VpnCredentialType>,
-    {
+    pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
         let this = &::windows::core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCredentialsSimpleAsync)(::windows::core::Interface::as_raw(this), credtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VpnCredential>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCredentialsSimpleAsync)(::windows::core::Interface::as_raw(this), credtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VpnCredential>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
@@ -4766,12 +4750,9 @@ impl VpnDomainNameInfo {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetDomainNameType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnDomainNameType>,
-    {
+    pub fn SetDomainNameType(&self, value: VpnDomainNameType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomainNameType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomainNameType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn DomainNameType(&self) -> ::windows::core::Result<VpnDomainNameType> {
@@ -4810,18 +4791,17 @@ impl VpnDomainNameInfo {
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateVpnDomainNameInfo<'a, P0, P1, P2, E2, P3, E3>(name: P0, nametype: P1, dnsserverlist: P2, proxyserverlist: P3) -> ::windows::core::Result<VpnDomainNameInfo>
+    pub fn CreateVpnDomainNameInfo<'a, P0, P1, E1, P2, E2>(name: P0, nametype: VpnDomainNameType, dnsserverlist: P1, proxyserverlist: P2) -> ::windows::core::Result<VpnDomainNameInfo>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<VpnDomainNameType>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
         P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::HostName>>, Error = E3>,
-        E3: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVpnDomainNameInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateVpnDomainNameInfo)(::windows::core::Interface::as_raw(this), name.into().abi(), nametype.into(), dnsserverlist.try_into().map_err(|e| e.into())?.abi(), proxyserverlist.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VpnDomainNameInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateVpnDomainNameInfo)(::windows::core::Interface::as_raw(this), name.into().abi(), nametype, dnsserverlist.try_into().map_err(|e| e.into())?.abi(), proxyserverlist.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VpnDomainNameInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -5852,12 +5832,9 @@ impl VpnNativeProfile {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetRoutingPolicyType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnRoutingPolicyType>,
-    {
+    pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRoutingPolicyType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRoutingPolicyType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn NativeProtocolType(&self) -> ::windows::core::Result<VpnNativeProtocolType> {
@@ -5868,12 +5845,9 @@ impl VpnNativeProfile {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetNativeProtocolType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnNativeProtocolType>,
-    {
+    pub fn SetNativeProtocolType(&self, value: VpnNativeProtocolType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNativeProtocolType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNativeProtocolType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn UserAuthenticationMethod(&self) -> ::windows::core::Result<VpnAuthenticationMethod> {
@@ -5884,12 +5858,9 @@ impl VpnNativeProfile {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetUserAuthenticationMethod<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnAuthenticationMethod>,
-    {
+    pub fn SetUserAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserAuthenticationMethod)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserAuthenticationMethod)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn TunnelAuthenticationMethod(&self) -> ::windows::core::Result<VpnAuthenticationMethod> {
@@ -5900,12 +5871,9 @@ impl VpnNativeProfile {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetTunnelAuthenticationMethod<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnAuthenticationMethod>,
-    {
+    pub fn SetTunnelAuthenticationMethod(&self, value: VpnAuthenticationMethod) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTunnelAuthenticationMethod)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTunnelAuthenticationMethod)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn EapConfiguration(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6153,12 +6121,9 @@ impl VpnPacketBuffer {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnPacketBufferStatus>,
-    {
+    pub fn SetStatus(&self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<VpnPacketBufferStatus> {
@@ -6334,12 +6299,9 @@ impl VpnPacketBufferList {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnPacketBufferStatus>,
-    {
+    pub fn SetStatus(&self, value: VpnPacketBufferStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<VpnPacketBufferStatus> {
@@ -7240,12 +7202,9 @@ impl VpnTrafficFilter {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetProtocol<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnIPProtocol>,
-    {
+    pub fn SetProtocol(&self, value: VpnIPProtocol) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtocol)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtocol)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -7292,12 +7251,9 @@ impl VpnTrafficFilter {
         }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
-    pub fn SetRoutingPolicyType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VpnRoutingPolicyType>,
-    {
+    pub fn SetRoutingPolicyType(&self, value: VpnRoutingPolicyType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRoutingPolicyType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRoutingPolicyType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Vpn\"`*"]
     pub fn Create<'a, P0>(appid: P0) -> ::windows::core::Result<VpnTrafficFilter>

@@ -1304,12 +1304,9 @@ pub struct INetConnectionConnectUi_Vtbl {
 pub struct INetConnectionManager(::windows::core::IUnknown);
 impl INetConnectionManager {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn EnumConnections<'a, P0>(&self, flags: P0) -> ::windows::core::Result<IEnumNetConnection>
-    where
-        P0: ::std::convert::Into<NETCONMGR_ENUM_FLAGS>,
-    {
+    pub unsafe fn EnumConnections(&self, flags: NETCONMGR_ENUM_FLAGS) -> ::windows::core::Result<IEnumNetConnection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumConnections)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetConnection>(result__)
+        (::windows::core::Interface::vtable(self).EnumConnections)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetConnection>(result__)
     }
 }
 impl ::core::convert::From<INetConnectionManager> for ::windows::core::IUnknown {
@@ -1515,11 +1512,8 @@ impl INetFwAuthorizedApplication {
         (::windows::core::Interface::vtable(self).IpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_IP_VERSION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetIpVersion<'a, P0>(&self, ipversion: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_VERSION>,
-    {
-        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ipversion.into()).ok()
+    pub unsafe fn SetIpVersion(&self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ipversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn Scope(&self) -> ::windows::core::Result<NET_FW_SCOPE> {
@@ -1527,11 +1521,8 @@ impl INetFwAuthorizedApplication {
         (::windows::core::Interface::vtable(self).Scope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_SCOPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetScope<'a, P0>(&self, scope: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_SCOPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), scope.into()).ok()
+    pub unsafe fn SetScope(&self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1984,23 +1975,20 @@ impl INetFwMgr {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsPortAllowed<'a, P0, P1, P2, P3>(&self, imagefilename: P0, ipversion: P1, portnumber: i32, localaddress: P2, ipprotocol: P3, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn IsPortAllowed<'a, P0, P1>(&self, imagefilename: P0, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: P1, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<NET_FW_IP_VERSION>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P3: ::std::convert::Into<NET_FW_IP_PROTOCOL>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).IsPortAllowed)(::windows::core::Interface::as_raw(self), imagefilename.into().abi(), ipversion.into(), ::core::mem::transmute(portnumber), localaddress.into().abi(), ipprotocol.into(), ::core::mem::transmute(allowed), ::core::mem::transmute(restricted)).ok()
+        (::windows::core::Interface::vtable(self).IsPortAllowed)(::windows::core::Interface::as_raw(self), imagefilename.into().abi(), ::core::mem::transmute(ipversion), ::core::mem::transmute(portnumber), localaddress.into().abi(), ::core::mem::transmute(ipprotocol), ::core::mem::transmute(allowed), ::core::mem::transmute(restricted)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsIcmpTypeAllowed<'a, P0, P1>(&self, ipversion: P0, localaddress: P1, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn IsIcmpTypeAllowed<'a, P0>(&self, ipversion: NET_FW_IP_VERSION, localaddress: P0, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<NET_FW_IP_VERSION>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).IsIcmpTypeAllowed)(::windows::core::Interface::as_raw(self), ipversion.into(), localaddress.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(allowed), ::core::mem::transmute(restricted)).ok()
+        (::windows::core::Interface::vtable(self).IsIcmpTypeAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ipversion), localaddress.into().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(allowed), ::core::mem::transmute(restricted)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2110,11 +2098,8 @@ impl INetFwOpenPort {
         (::windows::core::Interface::vtable(self).IpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_IP_VERSION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetIpVersion<'a, P0>(&self, ipversion: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_VERSION>,
-    {
-        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ipversion.into()).ok()
+    pub unsafe fn SetIpVersion(&self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ipversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn Protocol(&self) -> ::windows::core::Result<NET_FW_IP_PROTOCOL> {
@@ -2122,11 +2107,8 @@ impl INetFwOpenPort {
         (::windows::core::Interface::vtable(self).Protocol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_IP_PROTOCOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetProtocol<'a, P0>(&self, ipprotocol: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_PROTOCOL>,
-    {
-        (::windows::core::Interface::vtable(self).SetProtocol)(::windows::core::Interface::as_raw(self), ipprotocol.into()).ok()
+    pub unsafe fn SetProtocol(&self, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProtocol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ipprotocol)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn Port(&self) -> ::windows::core::Result<i32> {
@@ -2143,11 +2125,8 @@ impl INetFwOpenPort {
         (::windows::core::Interface::vtable(self).Scope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_SCOPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetScope<'a, P0>(&self, scope: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_SCOPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), scope.into()).ok()
+    pub unsafe fn SetScope(&self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2292,20 +2271,14 @@ impl INetFwOpenPorts {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), port.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn Remove<'a, P0>(&self, portnumber: i32, ipprotocol: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_PROTOCOL>,
-    {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portnumber), ipprotocol.into()).ok()
+    pub unsafe fn Remove(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portnumber), ::core::mem::transmute(ipprotocol)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item<'a, P0>(&self, portnumber: i32, ipprotocol: P0) -> ::windows::core::Result<INetFwOpenPort>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_PROTOCOL>,
-    {
+    pub unsafe fn Item(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<INetFwOpenPort> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portnumber), ipprotocol.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetFwOpenPort>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portnumber), ::core::mem::transmute(ipprotocol), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetFwOpenPort>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -2405,12 +2378,9 @@ impl INetFwPolicy {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetProfileByType<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<INetFwProfile>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE>,
-    {
+    pub unsafe fn GetProfileByType(&self, profiletype: NET_FW_PROFILE_TYPE) -> ::windows::core::Result<INetFwProfile> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProfileByType)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetFwProfile>(result__)
+        (::windows::core::Interface::vtable(self).GetProfileByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetFwProfile>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2500,82 +2470,54 @@ impl INetFwPolicy2 {
         (::windows::core::Interface::vtable(self).CurrentProfileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn get_FirewallEnabled<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_FirewallEnabled(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_FirewallEnabled)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_FirewallEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn put_FirewallEnabled<'a, P0>(&self, profiletype: P0, enabled: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
-        (::windows::core::Interface::vtable(self).put_FirewallEnabled)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(enabled)).ok()
+    pub unsafe fn put_FirewallEnabled(&self, profiletype: NET_FW_PROFILE_TYPE2, enabled: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_FirewallEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(enabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_ExcludedInterfaces<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ExcludedInterfaces)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_ExcludedInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_ExcludedInterfaces<'a, P0, P1>(&self, profiletype: P0, interfaces: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_ExcludedInterfaces<'a, P0>(&self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).put_ExcludedInterfaces)(::windows::core::Interface::as_raw(self), profiletype.into(), interfaces.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_ExcludedInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), interfaces.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn get_BlockAllInboundTraffic<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_BlockAllInboundTraffic(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_BlockAllInboundTraffic)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_BlockAllInboundTraffic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn put_BlockAllInboundTraffic<'a, P0>(&self, profiletype: P0, block: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
-        (::windows::core::Interface::vtable(self).put_BlockAllInboundTraffic)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(block)).ok()
+    pub unsafe fn put_BlockAllInboundTraffic(&self, profiletype: NET_FW_PROFILE_TYPE2, block: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_BlockAllInboundTraffic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(block)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn get_NotificationsDisabled<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_NotificationsDisabled(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_NotificationsDisabled)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_NotificationsDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn put_NotificationsDisabled<'a, P0>(&self, profiletype: P0, disabled: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
-        (::windows::core::Interface::vtable(self).put_NotificationsDisabled)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(disabled)).ok()
+    pub unsafe fn put_NotificationsDisabled(&self, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_NotificationsDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(disabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn get_UnicastResponsesToMulticastBroadcastDisabled<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_UnicastResponsesToMulticastBroadcastDisabled(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_UnicastResponsesToMulticastBroadcastDisabled)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_UnicastResponsesToMulticastBroadcastDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn put_UnicastResponsesToMulticastBroadcastDisabled<'a, P0>(&self, profiletype: P0, disabled: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
-        (::windows::core::Interface::vtable(self).put_UnicastResponsesToMulticastBroadcastDisabled)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(disabled)).ok()
+    pub unsafe fn put_UnicastResponsesToMulticastBroadcastDisabled(&self, profiletype: NET_FW_PROFILE_TYPE2, disabled: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_UnicastResponsesToMulticastBroadcastDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(disabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2611,36 +2553,22 @@ impl INetFwPolicy2 {
         (::windows::core::Interface::vtable(self).RestoreLocalFirewallDefaults)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn get_DefaultInboundAction<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<NET_FW_ACTION>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_DefaultInboundAction(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<NET_FW_ACTION> {
         let mut result__ = ::core::mem::MaybeUninit::<NET_FW_ACTION>::zeroed();
-        (::windows::core::Interface::vtable(self).get_DefaultInboundAction)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
+        (::windows::core::Interface::vtable(self).get_DefaultInboundAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn put_DefaultInboundAction<'a, P0, P1>(&self, profiletype: P0, action: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-        P1: ::std::convert::Into<NET_FW_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).put_DefaultInboundAction)(::windows::core::Interface::as_raw(self), profiletype.into(), action.into()).ok()
+    pub unsafe fn put_DefaultInboundAction(&self, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_DefaultInboundAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(action)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn get_DefaultOutboundAction<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<NET_FW_ACTION>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-    {
+    pub unsafe fn get_DefaultOutboundAction(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<NET_FW_ACTION> {
         let mut result__ = ::core::mem::MaybeUninit::<NET_FW_ACTION>::zeroed();
-        (::windows::core::Interface::vtable(self).get_DefaultOutboundAction)(::windows::core::Interface::as_raw(self), profiletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
+        (::windows::core::Interface::vtable(self).get_DefaultOutboundAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn put_DefaultOutboundAction<'a, P0, P1>(&self, profiletype: P0, action: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_PROFILE_TYPE2>,
-        P1: ::std::convert::Into<NET_FW_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).put_DefaultOutboundAction)(::windows::core::Interface::as_raw(self), profiletype.into(), action.into()).ok()
+    pub unsafe fn put_DefaultOutboundAction(&self, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_DefaultOutboundAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype), ::core::mem::transmute(action)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3190,11 +3118,8 @@ impl INetFwRemoteAdminSettings {
         (::windows::core::Interface::vtable(self).IpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_IP_VERSION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetIpVersion<'a, P0>(&self, ipversion: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_VERSION>,
-    {
-        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ipversion.into()).ok()
+    pub unsafe fn SetIpVersion(&self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ipversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn Scope(&self) -> ::windows::core::Result<NET_FW_SCOPE> {
@@ -3202,11 +3127,8 @@ impl INetFwRemoteAdminSettings {
         (::windows::core::Interface::vtable(self).Scope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_SCOPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetScope<'a, P0>(&self, scope: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_SCOPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), scope.into()).ok()
+    pub unsafe fn SetScope(&self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3460,11 +3382,8 @@ impl INetFwRule {
         (::windows::core::Interface::vtable(self).Direction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_RULE_DIRECTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetDirection<'a, P0>(&self, dir: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_RULE_DIRECTION>,
-    {
-        (::windows::core::Interface::vtable(self).SetDirection)(::windows::core::Interface::as_raw(self), dir.into()).ok()
+    pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDirection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dir)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3541,11 +3460,8 @@ impl INetFwRule {
         (::windows::core::Interface::vtable(self).Action)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetAction<'a, P0>(&self, action: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).SetAction)(::windows::core::Interface::as_raw(self), action.into()).ok()
+    pub unsafe fn SetAction(&self, action: NET_FW_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(action)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3870,11 +3786,8 @@ impl INetFwRule2 {
         (::windows::core::Interface::vtable(self).base__.Direction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_RULE_DIRECTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetDirection<'a, P0>(&self, dir: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_RULE_DIRECTION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetDirection)(::windows::core::Interface::as_raw(self), dir.into()).ok()
+    pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDirection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dir)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3951,11 +3864,8 @@ impl INetFwRule2 {
         (::windows::core::Interface::vtable(self).base__.Action)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetAction<'a, P0>(&self, action: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetAction)(::windows::core::Interface::as_raw(self), action.into()).ok()
+    pub unsafe fn SetAction(&self, action: NET_FW_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(action)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn EdgeTraversalOptions(&self) -> ::windows::core::Result<i32> {
@@ -4201,11 +4111,8 @@ impl INetFwRule3 {
         (::windows::core::Interface::vtable(self).base__.base__.Direction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_RULE_DIRECTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetDirection<'a, P0>(&self, dir: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_RULE_DIRECTION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDirection)(::windows::core::Interface::as_raw(self), dir.into()).ok()
+    pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDirection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dir)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4282,11 +4189,8 @@ impl INetFwRule3 {
         (::windows::core::Interface::vtable(self).base__.base__.Action)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_ACTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetAction<'a, P0>(&self, action: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetAction)(::windows::core::Interface::as_raw(self), action.into()).ok()
+    pub unsafe fn SetAction(&self, action: NET_FW_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(action)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn EdgeTraversalOptions(&self) -> ::windows::core::Result<i32> {
@@ -4673,11 +4577,8 @@ impl INetFwService {
         (::windows::core::Interface::vtable(self).IpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_IP_VERSION>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetIpVersion<'a, P0>(&self, ipversion: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_IP_VERSION>,
-    {
-        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ipversion.into()).ok()
+    pub unsafe fn SetIpVersion(&self, ipversion: NET_FW_IP_VERSION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIpVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ipversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn Scope(&self) -> ::windows::core::Result<NET_FW_SCOPE> {
@@ -4685,11 +4586,8 @@ impl INetFwService {
         (::windows::core::Interface::vtable(self).Scope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NET_FW_SCOPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn SetScope<'a, P0>(&self, scope: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NET_FW_SCOPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), scope.into()).ok()
+    pub unsafe fn SetScope(&self, scope: NET_FW_SCOPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4936,12 +4834,9 @@ impl INetFwServices {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item<'a, P0>(&self, svctype: P0) -> ::windows::core::Result<INetFwService>
-    where
-        P0: ::std::convert::Into<NET_FW_SERVICE_TYPE>,
-    {
+    pub unsafe fn Item(&self, svctype: NET_FW_SERVICE_TYPE) -> ::windows::core::Result<INetFwService> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), svctype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetFwService>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(svctype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetFwService>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -5043,11 +4938,8 @@ impl INetSharingConfiguration {
         (::windows::core::Interface::vtable(self).DisableSharing)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-    pub unsafe fn EnableSharing<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SHARINGCONNECTIONTYPE>,
-    {
-        (::windows::core::Interface::vtable(self).EnableSharing)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
+    pub unsafe fn EnableSharing(&self, r#type: SHARINGCONNECTIONTYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableSharing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub unsafe fn InternetFirewallEnabled(&self) -> ::windows::core::Result<i16> {
@@ -5064,23 +4956,19 @@ impl INetSharingConfiguration {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_EnumPortMappings<'a, P0>(&self, flags: P0) -> ::windows::core::Result<INetSharingPortMappingCollection>
-    where
-        P0: ::std::convert::Into<SHARINGCONNECTION_ENUM_FLAGS>,
-    {
+    pub unsafe fn get_EnumPortMappings(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPortMappingCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EnumPortMappings)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPortMappingCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_EnumPortMappings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPortMappingCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddPortMapping<'a, P0, P1, P2>(&self, bstrname: P0, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: P1, etargettype: P2) -> ::windows::core::Result<INetSharingPortMapping>
+    pub unsafe fn AddPortMapping<'a, P0, P1>(&self, bstrname: P0, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: P1, etargettype: ICS_TARGETTYPE) -> ::windows::core::Result<INetSharingPortMapping>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<ICS_TARGETTYPE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddPortMapping)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(ucipprotocol), ::core::mem::transmute(usexternalport), ::core::mem::transmute(usinternalport), ::core::mem::transmute(dwoptions), bstrtargetnameoripaddress.into().abi(), etargettype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPortMapping>(result__)
+        (::windows::core::Interface::vtable(self).AddPortMapping)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(ucipprotocol), ::core::mem::transmute(usexternalport), ::core::mem::transmute(usinternalport), ::core::mem::transmute(dwoptions), bstrtargetnameoripaddress.into().abi(), ::core::mem::transmute(etargettype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPortMapping>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5276,21 +5164,15 @@ impl INetSharingManager {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_EnumPublicConnections<'a, P0>(&self, flags: P0) -> ::windows::core::Result<INetSharingPublicConnectionCollection>
-    where
-        P0: ::std::convert::Into<SHARINGCONNECTION_ENUM_FLAGS>,
-    {
+    pub unsafe fn get_EnumPublicConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPublicConnectionCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EnumPublicConnections)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPublicConnectionCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_EnumPublicConnections)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPublicConnectionCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_EnumPrivateConnections<'a, P0>(&self, flags: P0) -> ::windows::core::Result<INetSharingPrivateConnectionCollection>
-    where
-        P0: ::std::convert::Into<SHARINGCONNECTION_ENUM_FLAGS>,
-    {
+    pub unsafe fn get_EnumPrivateConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPrivateConnectionCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EnumPrivateConnections)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPrivateConnectionCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_EnumPrivateConnections)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetSharingPrivateConnectionCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

@@ -8944,14 +8944,11 @@ impl MobileBroadbandPinManager {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn GetPin<'a, P0>(&self, pintype: P0) -> ::windows::core::Result<MobileBroadbandPin>
-    where
-        P0: ::std::convert::Into<MobileBroadbandPinType>,
-    {
+    pub fn GetPin(&self, pintype: MobileBroadbandPinType) -> ::windows::core::Result<MobileBroadbandPin> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPin)(::windows::core::Interface::as_raw(this), pintype.into(), result__.as_mut_ptr()).from_abi::<MobileBroadbandPin>(result__)
+            (::windows::core::Interface::vtable(this).GetPin)(::windows::core::Interface::as_raw(this), pintype, result__.as_mut_ptr()).from_abi::<MobileBroadbandPin>(result__)
         }
     }
 }
@@ -10817,26 +10814,20 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         unsafe { (::windows::core::Interface::vtable(this).SetPassphrase)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn IsBandSupported<'a, P0>(&self, band: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<TetheringWiFiBand>,
-    {
+    pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsBandSupported)(::windows::core::Interface::as_raw(this), band.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBandSupported)(::windows::core::Interface::as_raw(this), band, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsBandSupportedAsync<'a, P0>(&self, band: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<TetheringWiFiBand>,
-    {
+    pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).IsBandSupportedAsync)(::windows::core::Interface::as_raw(this), band.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsBandSupportedAsync)(::windows::core::Interface::as_raw(this), band, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10848,12 +10839,9 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn SetBand<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TetheringWiFiBand>,
-    {
+    pub fn SetBand(&self, value: TetheringWiFiBand) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBand)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBand)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringAccessPointConfiguration {
@@ -11531,12 +11519,9 @@ pub struct ProvisionedProfile(::windows::core::IUnknown);
 impl ProvisionedProfile {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
-    pub fn UpdateCost<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Connectivity::NetworkCostType>,
-    {
+    pub fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateCost)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateCost)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11629,15 +11614,14 @@ impl ProvisioningAgent {
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-    pub fn GetProvisionedProfile<'a, P0, P1>(&self, mediatype: P0, profilename: P1) -> ::windows::core::Result<ProvisionedProfile>
+    pub fn GetProvisionedProfile<'a, P0>(&self, mediatype: ProfileMediaType, profilename: P0) -> ::windows::core::Result<ProvisionedProfile>
     where
-        P0: ::std::convert::Into<ProfileMediaType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetProvisionedProfile)(::windows::core::Interface::as_raw(this), mediatype.into(), profilename.into().abi(), result__.as_mut_ptr()).from_abi::<ProvisionedProfile>(result__)
+            (::windows::core::Interface::vtable(this).GetProvisionedProfile)(::windows::core::Interface::as_raw(this), mediatype, profilename.into().abi(), result__.as_mut_ptr()).from_abi::<ProvisionedProfile>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]

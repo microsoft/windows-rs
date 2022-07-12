@@ -2490,16 +2490,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[inline]
-pub unsafe fn SwDeviceSetLifetime<'a, P0, P1>(hswdevice: P0, lifetime: P1) -> ::windows::core::Result<()>
+pub unsafe fn SwDeviceSetLifetime<'a, P0>(hswdevice: P0, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<SW_DEVICE_LIFETIME>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::HRESULT;
     }
-    SwDeviceSetLifetime(hswdevice.into(), lifetime.into()).ok()
+    SwDeviceSetLifetime(hswdevice.into(), ::core::mem::transmute(lifetime)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[inline]

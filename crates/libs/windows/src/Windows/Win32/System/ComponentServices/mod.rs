@@ -1795,15 +1795,12 @@ where
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CoGetDefaultContext<'a, P0>(apttype: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::Com::APTTYPE>,
-{
+pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CoGetDefaultContext(apttype.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    CoGetDefaultContext(::core::mem::transmute(apttype), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
@@ -2722,26 +2719,24 @@ impl ICOMAdminCatalog {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExportApplication<'a, P0, P1, P2>(&self, bstrapplidorname: P0, bstrapplicationfile: P1, loptions: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ExportApplication<'a, P0, P1>(&self, bstrapplidorname: P0, bstrapplicationfile: P1, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<COMAdminApplicationExportOptions>,
     {
-        (::windows::core::Interface::vtable(self).ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), loptions.into()).ok()
+        (::windows::core::Interface::vtable(self).ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), ::core::mem::transmute(loptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InstallApplication<'a, P0, P1, P2, P3, P4, P5>(&self, bstrapplicationfile: P0, bstrdestinationdirectory: P1, loptions: P2, bstruserid: P3, bstrpassword: P4, bstrrsn: P5) -> ::windows::core::Result<()>
+    pub unsafe fn InstallApplication<'a, P0, P1, P2, P3, P4>(&self, bstrapplicationfile: P0, bstrdestinationdirectory: P1, loptions: COMAdminApplicationInstallOptions, bstruserid: P2, bstrpassword: P3, bstrrsn: P4) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<COMAdminApplicationInstallOptions>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), loptions.into(), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), ::core::mem::transmute(loptions), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn StopRouter(&self) -> ::windows::core::Result<()> {
@@ -3065,26 +3060,24 @@ impl ICOMAdminCatalog2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExportApplication<'a, P0, P1, P2>(&self, bstrapplidorname: P0, bstrapplicationfile: P1, loptions: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ExportApplication<'a, P0, P1>(&self, bstrapplidorname: P0, bstrapplicationfile: P1, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<COMAdminApplicationExportOptions>,
     {
-        (::windows::core::Interface::vtable(self).base__.ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), loptions.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), ::core::mem::transmute(loptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InstallApplication<'a, P0, P1, P2, P3, P4, P5>(&self, bstrapplicationfile: P0, bstrdestinationdirectory: P1, loptions: P2, bstruserid: P3, bstrpassword: P4, bstrrsn: P5) -> ::windows::core::Result<()>
+    pub unsafe fn InstallApplication<'a, P0, P1, P2, P3, P4>(&self, bstrapplicationfile: P0, bstrdestinationdirectory: P1, loptions: COMAdminApplicationInstallOptions, bstruserid: P2, bstrpassword: P3, bstrrsn: P4) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<COMAdminApplicationInstallOptions>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), loptions.into(), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), ::core::mem::transmute(loptions), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn StopRouter(&self) -> ::windows::core::Result<()> {
@@ -3395,26 +3388,24 @@ impl ICOMAdminCatalog2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExportPartition<'a, P0, P1, P2>(&self, bstrpartitionidorname: P0, bstrpartitionfilename: P1, loptions: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ExportPartition<'a, P0, P1>(&self, bstrpartitionidorname: P0, bstrpartitionfilename: P1, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<COMAdminApplicationExportOptions>,
     {
-        (::windows::core::Interface::vtable(self).ExportPartition)(::windows::core::Interface::as_raw(self), bstrpartitionidorname.into().abi(), bstrpartitionfilename.into().abi(), loptions.into()).ok()
+        (::windows::core::Interface::vtable(self).ExportPartition)(::windows::core::Interface::as_raw(self), bstrpartitionidorname.into().abi(), bstrpartitionfilename.into().abi(), ::core::mem::transmute(loptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InstallPartition<'a, P0, P1, P2, P3, P4, P5>(&self, bstrfilename: P0, bstrdestdirectory: P1, loptions: P2, bstruserid: P3, bstrpassword: P4, bstrrsn: P5) -> ::windows::core::Result<()>
+    pub unsafe fn InstallPartition<'a, P0, P1, P2, P3, P4>(&self, bstrfilename: P0, bstrdestdirectory: P1, loptions: COMAdminApplicationInstallOptions, bstruserid: P2, bstrpassword: P3, bstrrsn: P4) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<COMAdminApplicationInstallOptions>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallPartition)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), bstrdestdirectory.into().abi(), loptions.into(), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InstallPartition)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), bstrdestdirectory.into().abi(), ::core::mem::transmute(loptions), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6585,11 +6576,8 @@ impl IContextState {
         (::windows::core::Interface::vtable(self).GetDeactivateOnReturn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbdeactivate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn SetMyTransactionVote<'a, P0>(&self, txvote: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TransactionVote>,
-    {
-        (::windows::core::Interface::vtable(self).SetMyTransactionVote)(::windows::core::Interface::as_raw(self), txvote.into()).ok()
+    pub unsafe fn SetMyTransactionVote(&self, txvote: TransactionVote) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMyTransactionVote)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(txvote)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMyTransactionVote(&self, ptxvote: *mut TransactionVote) -> ::windows::core::Result<()> {
@@ -10733,11 +10721,8 @@ pub struct IServiceCall_Vtbl {
 pub struct IServiceComTIIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceComTIIntrinsicsConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn ComTIIntrinsicsConfig<'a, P0>(&self, comtiintrinsicsconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_COMTIIntrinsicsConfig>,
-    {
-        (::windows::core::Interface::vtable(self).ComTIIntrinsicsConfig)(::windows::core::Interface::as_raw(self), comtiintrinsicsconfig.into()).ok()
+    pub unsafe fn ComTIIntrinsicsConfig(&self, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ComTIIntrinsicsConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(comtiintrinsicsconfig)).ok()
     }
 }
 impl ::core::convert::From<IServiceComTIIntrinsicsConfig> for ::windows::core::IUnknown {
@@ -10786,11 +10771,8 @@ pub struct IServiceComTIIntrinsicsConfig_Vtbl {
 pub struct IServiceIISIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceIISIntrinsicsConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn IISIntrinsicsConfig<'a, P0>(&self, iisintrinsicsconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_IISIntrinsicsConfig>,
-    {
-        (::windows::core::Interface::vtable(self).IISIntrinsicsConfig)(::windows::core::Interface::as_raw(self), iisintrinsicsconfig.into()).ok()
+    pub unsafe fn IISIntrinsicsConfig(&self, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IISIntrinsicsConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iisintrinsicsconfig)).ok()
     }
 }
 impl ::core::convert::From<IServiceIISIntrinsicsConfig> for ::windows::core::IUnknown {
@@ -10839,11 +10821,8 @@ pub struct IServiceIISIntrinsicsConfig_Vtbl {
 pub struct IServiceInheritanceConfig(::windows::core::IUnknown);
 impl IServiceInheritanceConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn ContainingContextTreatment<'a, P0>(&self, inheritanceconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_InheritanceConfig>,
-    {
-        (::windows::core::Interface::vtable(self).ContainingContextTreatment)(::windows::core::Interface::as_raw(self), inheritanceconfig.into()).ok()
+    pub unsafe fn ContainingContextTreatment(&self, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ContainingContextTreatment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inheritanceconfig)).ok()
     }
 }
 impl ::core::convert::From<IServiceInheritanceConfig> for ::windows::core::IUnknown {
@@ -10892,11 +10871,8 @@ pub struct IServiceInheritanceConfig_Vtbl {
 pub struct IServicePartitionConfig(::windows::core::IUnknown);
 impl IServicePartitionConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn PartitionConfig<'a, P0>(&self, partitionconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_PartitionConfig>,
-    {
-        (::windows::core::Interface::vtable(self).PartitionConfig)(::windows::core::Interface::as_raw(self), partitionconfig.into()).ok()
+    pub unsafe fn PartitionConfig(&self, partitionconfig: CSC_PartitionConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PartitionConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(partitionconfig)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn PartitionID(&self, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -11131,11 +11107,8 @@ pub struct IServicePoolConfig_Vtbl {
 pub struct IServiceSxsConfig(::windows::core::IUnknown);
 impl IServiceSxsConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn SxsConfig<'a, P0>(&self, scsconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_SxsConfig>,
-    {
-        (::windows::core::Interface::vtable(self).SxsConfig)(::windows::core::Interface::as_raw(self), scsconfig.into()).ok()
+    pub unsafe fn SxsConfig(&self, scsconfig: CSC_SxsConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SxsConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scsconfig)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SxsName<'a, P0>(&self, szsxsname: P0) -> ::windows::core::Result<()>
@@ -11200,11 +11173,8 @@ pub struct IServiceSxsConfig_Vtbl {
 pub struct IServiceSynchronizationConfig(::windows::core::IUnknown);
 impl IServiceSynchronizationConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn ConfigureSynchronization<'a, P0>(&self, synchconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_SynchronizationConfig>,
-    {
-        (::windows::core::Interface::vtable(self).ConfigureSynchronization)(::windows::core::Interface::as_raw(self), synchconfig.into()).ok()
+    pub unsafe fn ConfigureSynchronization(&self, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConfigureSynchronization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(synchconfig)).ok()
     }
 }
 impl ::core::convert::From<IServiceSynchronizationConfig> for ::windows::core::IUnknown {
@@ -11253,18 +11223,12 @@ pub struct IServiceSynchronizationConfig_Vtbl {
 pub struct IServiceSysTxnConfig(::windows::core::IUnknown);
 impl IServiceSysTxnConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn ConfigureTransaction<'a, P0>(&self, transactionconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_TransactionConfig>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), transactionconfig.into()).ok()
+    pub unsafe fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transactionconfig)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn IsolationLevel<'a, P0>(&self, option: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<COMAdminTxIsolationLevelOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.IsolationLevel)(::windows::core::Interface::as_raw(self), option.into()).ok()
+    pub unsafe fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.IsolationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
@@ -11376,18 +11340,12 @@ pub struct IServiceSysTxnConfig_Vtbl {
 pub struct IServiceThreadPoolConfig(::windows::core::IUnknown);
 impl IServiceThreadPoolConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn SelectThreadPool<'a, P0>(&self, threadpool: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_ThreadPool>,
-    {
-        (::windows::core::Interface::vtable(self).SelectThreadPool)(::windows::core::Interface::as_raw(self), threadpool.into()).ok()
+    pub unsafe fn SelectThreadPool(&self, threadpool: CSC_ThreadPool) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SelectThreadPool)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threadpool)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn SetBindingInfo<'a, P0>(&self, binding: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_Binding>,
-    {
-        (::windows::core::Interface::vtable(self).SetBindingInfo)(::windows::core::Interface::as_raw(self), binding.into()).ok()
+    pub unsafe fn SetBindingInfo(&self, binding: CSC_Binding) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBindingInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding)).ok()
     }
 }
 impl ::core::convert::From<IServiceThreadPoolConfig> for ::windows::core::IUnknown {
@@ -11437,13 +11395,12 @@ pub struct IServiceThreadPoolConfig_Vtbl {
 pub struct IServiceTrackerConfig(::windows::core::IUnknown);
 impl IServiceTrackerConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn TrackerConfig<'a, P0, P1, P2>(&self, trackerconfig: P0, sztrackerappname: P1, sztrackerctxname: P2) -> ::windows::core::Result<()>
+    pub unsafe fn TrackerConfig<'a, P0, P1>(&self, trackerconfig: CSC_TrackerConfig, sztrackerappname: P0, sztrackerctxname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CSC_TrackerConfig>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).TrackerConfig)(::windows::core::Interface::as_raw(self), trackerconfig.into(), sztrackerappname.into(), sztrackerctxname.into()).ok()
+        (::windows::core::Interface::vtable(self).TrackerConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(trackerconfig), sztrackerappname.into(), sztrackerctxname.into()).ok()
     }
 }
 impl ::core::convert::From<IServiceTrackerConfig> for ::windows::core::IUnknown {
@@ -11492,18 +11449,12 @@ pub struct IServiceTrackerConfig_Vtbl {
 pub struct IServiceTransactionConfig(::windows::core::IUnknown);
 impl IServiceTransactionConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn ConfigureTransaction<'a, P0>(&self, transactionconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_TransactionConfig>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), transactionconfig.into()).ok()
+    pub unsafe fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transactionconfig)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn IsolationLevel<'a, P0>(&self, option: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<COMAdminTxIsolationLevelOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.IsolationLevel)(::windows::core::Interface::as_raw(self), option.into()).ok()
+    pub unsafe fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.IsolationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
@@ -11596,18 +11547,12 @@ pub struct IServiceTransactionConfig_Vtbl {
 pub struct IServiceTransactionConfigBase(::windows::core::IUnknown);
 impl IServiceTransactionConfigBase {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn ConfigureTransaction<'a, P0>(&self, transactionconfig: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CSC_TransactionConfig>,
-    {
-        (::windows::core::Interface::vtable(self).ConfigureTransaction)(::windows::core::Interface::as_raw(self), transactionconfig.into()).ok()
+    pub unsafe fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConfigureTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transactionconfig)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub unsafe fn IsolationLevel<'a, P0>(&self, option: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<COMAdminTxIsolationLevelOptions>,
-    {
-        (::windows::core::Interface::vtable(self).IsolationLevel)(::windows::core::Interface::as_raw(self), option.into()).ok()
+    pub unsafe fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsolationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {

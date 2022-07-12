@@ -680,12 +680,9 @@ impl AppWindowFrame {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn SetFrameStyle<'a, P0>(&self, framestyle: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppWindowFrameStyle>,
-    {
+    pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowFrameStyle>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameStyle)(::windows::core::Interface::as_raw(this), framestyle.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameStyle)(::windows::core::Interface::as_raw(this), framestyle).ok() }
     }
 }
 impl ::core::clone::Clone for AppWindowFrame {
@@ -1000,14 +997,11 @@ impl AppWindowPresenter {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn IsPresentationSupported<'a, P0>(&self, presentationkind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<AppWindowPresentationKind>,
-    {
+    pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsPresentationSupported)(::windows::core::Interface::as_raw(this), presentationkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPresentationSupported)(::windows::core::Interface::as_raw(this), presentationkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1022,14 +1016,11 @@ impl AppWindowPresenter {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn RequestPresentationByKind<'a, P0>(&self, presentationkind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<AppWindowPresentationKind>,
-    {
+    pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPresentationByKind)(::windows::core::Interface::as_raw(this), presentationkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequestPresentationByKind)(::windows::core::Interface::as_raw(this), presentationkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1366,12 +1357,9 @@ impl AppWindowTitleBar {
         }
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-    pub fn SetPreferredVisibility<'a, P0>(&self, visibilitymode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppWindowTitleBarVisibility>,
-    {
+    pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredVisibility)(::windows::core::Interface::as_raw(this), visibilitymode.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredVisibility)(::windows::core::Interface::as_raw(this), visibilitymode).ok() }
     }
 }
 impl ::core::clone::Clone for AppWindowTitleBar {
@@ -2612,13 +2600,10 @@ impl WindowingEnvironment {
     }
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllWithKind<'a, P0>(kind: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>
-    where
-        P0: ::std::convert::Into<WindowingEnvironmentKind>,
-    {
+    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllWithKind)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllWithKind)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
         })
     }
     #[doc(hidden)]

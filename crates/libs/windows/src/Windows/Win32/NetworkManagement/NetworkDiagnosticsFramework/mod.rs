@@ -462,18 +462,12 @@ impl INetDiagHelper {
         (::windows::core::Interface::vtable(self).Repair)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn Validate<'a, P0>(&self, problem: P0, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PROBLEM_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), problem.into(), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+    pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(problem), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn GetRepairInfo<'a, P0>(&self, problem: P0, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PROBLEM_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).GetRepairInfo)(::windows::core::Interface::as_raw(self), problem.into(), ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
+    pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRepairInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(problem), ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -302,15 +302,12 @@ where
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FDICreate<'a, P0>(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: P0, perf: *mut ERF) -> *mut ::core::ffi::c_void
-where
-    P0: ::std::convert::Into<FDICREATE_CPU_TYPE>,
-{
+pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FDICreate(pfnalloc: *mut ::core::ffi::c_void, pfnfree: *mut ::core::ffi::c_void, pfnopen: *mut ::core::ffi::c_void, pfnread: *mut ::core::ffi::c_void, pfnwrite: *mut ::core::ffi::c_void, pfnclose: *mut ::core::ffi::c_void, pfnseek: *mut ::core::ffi::c_void, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(FDICreate(::core::mem::transmute(pfnalloc), ::core::mem::transmute(pfnfree), ::core::mem::transmute(pfnopen), ::core::mem::transmute(pfnread), ::core::mem::transmute(pfnwrite), ::core::mem::transmute(pfnclose), ::core::mem::transmute(pfnseek), cputype.into(), ::core::mem::transmute(perf)))
+    ::core::mem::transmute(FDICreate(::core::mem::transmute(pfnalloc), ::core::mem::transmute(pfnfree), ::core::mem::transmute(pfnopen), ::core::mem::transmute(pfnread), ::core::mem::transmute(pfnwrite), ::core::mem::transmute(pfnclose), ::core::mem::transmute(pfnseek), ::core::mem::transmute(cputype), ::core::mem::transmute(perf)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]

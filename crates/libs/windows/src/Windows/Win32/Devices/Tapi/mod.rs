@@ -4092,19 +4092,13 @@ impl ITAddress2 {
         (::windows::core::Interface::vtable(self).EnumeratePreferredPhones)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumPhone>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_EventFilter<'a, P0>(&self, tapievent: P0, lsubevent: i32) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<TAPI_EVENT>,
-    {
+    pub unsafe fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EventFilter)(::windows::core::Interface::as_raw(self), tapievent.into(), ::core::mem::transmute(lsubevent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_EventFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tapievent), ::core::mem::transmute(lsubevent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_EventFilter<'a, P0>(&self, tapievent: P0, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TAPI_EVENT>,
-    {
-        (::windows::core::Interface::vtable(self).put_EventFilter)(::windows::core::Interface::as_raw(self), tapievent.into(), ::core::mem::transmute(lsubevent), ::core::mem::transmute(benable)).ok()
+    pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_EventFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tapievent), ::core::mem::transmute(lsubevent), ::core::mem::transmute(benable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4246,21 +4240,15 @@ pub struct ITAddressCapabilities(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITAddressCapabilities {
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_AddressCapability<'a, P0>(&self, addresscap: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<ADDRESS_CAPABILITY>,
-    {
+    pub unsafe fn get_AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AddressCapability)(::windows::core::Interface::as_raw(self), addresscap.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_AddressCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresscap), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_AddressCapabilityString<'a, P0>(&self, addresscapstring: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<ADDRESS_CAPABILITY_STRING>,
-    {
+    pub unsafe fn get_AddressCapabilityString(&self, addresscapstring: ADDRESS_CAPABILITY_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AddressCapabilityString)(::windows::core::Interface::as_raw(self), addresscapstring.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_AddressCapabilityString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresscapstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4883,11 +4871,8 @@ impl ITAgent {
         (::windows::core::Interface::vtable(self).User)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetState<'a, P0>(&self, agentstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AGENT_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), agentstate.into()).ok()
+    pub unsafe fn SetState(&self, agentstate: AGENT_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(agentstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<AGENT_STATE> {
@@ -5393,11 +5378,8 @@ impl ITAgentSession {
         (::windows::core::Interface::vtable(self).ACDGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITACDGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetState<'a, P0>(&self, sessionstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AGENT_SESSION_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), sessionstate.into()).ok()
+    pub unsafe fn SetState(&self, sessionstate: AGENT_SESSION_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sessionstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<AGENT_SESSION_STATE> {
@@ -5756,11 +5738,8 @@ pub struct ITAutomatedPhoneControl(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITAutomatedPhoneControl {
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn StartTone<'a, P0>(&self, tone: P0, lduration: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONE_TONE>,
-    {
-        (::windows::core::Interface::vtable(self).StartTone)(::windows::core::Interface::as_raw(self), tone.into(), ::core::mem::transmute(lduration)).ok()
+    pub unsafe fn StartTone(&self, tone: PHONE_TONE, lduration: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartTone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tone), ::core::mem::transmute(lduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn StopTone(&self) -> ::windows::core::Result<()> {
@@ -6130,11 +6109,8 @@ impl ITBasicCallControl {
         (::windows::core::Interface::vtable(self).Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn Disconnect<'a, P0>(&self, code: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DISCONNECT_CODE>,
-    {
-        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), code.into()).ok()
+    pub unsafe fn Disconnect(&self, code: DISCONNECT_CODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(code)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn Hold(&self, fhold: i16) -> ::windows::core::Result<()> {
@@ -6203,11 +6179,8 @@ impl ITBasicCallControl {
         (::windows::core::Interface::vtable(self).Unpark)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetQOS<'a, P0>(&self, lmediatype: i32, servicelevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<QOS_SERVICE_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).SetQOS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), servicelevel.into()).ok()
+    pub unsafe fn SetQOS(&self, lmediatype: i32, servicelevel: QOS_SERVICE_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetQOS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), ::core::mem::transmute(servicelevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6226,11 +6199,8 @@ impl ITBasicCallControl {
         (::windows::core::Interface::vtable(self).Dial)(::windows::core::Interface::as_raw(self), pdestaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn Finish<'a, P0>(&self, finishmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FINISH_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), finishmode.into()).ok()
+    pub unsafe fn Finish(&self, finishmode: FINISH_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finishmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn RemoveFromConference(&self) -> ::windows::core::Result<()> {
@@ -6364,11 +6334,8 @@ impl ITBasicCallControl2 {
         (::windows::core::Interface::vtable(self).base__.Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn Disconnect<'a, P0>(&self, code: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DISCONNECT_CODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Disconnect)(::windows::core::Interface::as_raw(self), code.into()).ok()
+    pub unsafe fn Disconnect(&self, code: DISCONNECT_CODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(code)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn Hold(&self, fhold: i16) -> ::windows::core::Result<()> {
@@ -6437,11 +6404,8 @@ impl ITBasicCallControl2 {
         (::windows::core::Interface::vtable(self).base__.Unpark)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetQOS<'a, P0>(&self, lmediatype: i32, servicelevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<QOS_SERVICE_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetQOS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), servicelevel.into()).ok()
+    pub unsafe fn SetQOS(&self, lmediatype: i32, servicelevel: QOS_SERVICE_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetQOS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), ::core::mem::transmute(servicelevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6460,11 +6424,8 @@ impl ITBasicCallControl2 {
         (::windows::core::Interface::vtable(self).base__.Dial)(::windows::core::Interface::as_raw(self), pdestaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn Finish<'a, P0>(&self, finishmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FINISH_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Finish)(::windows::core::Interface::as_raw(self), finishmode.into()).ok()
+    pub unsafe fn Finish(&self, finishmode: FINISH_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Finish)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finishmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn RemoveFromConference(&self) -> ::windows::core::Result<()> {
@@ -6472,13 +6433,12 @@ impl ITBasicCallControl2 {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RequestTerminal<'a, P0, P1>(&self, bstrterminalclassguid: P0, lmediatype: i32, direction: P1) -> ::windows::core::Result<ITTerminal>
+    pub unsafe fn RequestTerminal<'a, P0>(&self, bstrterminalclassguid: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<TERMINAL_DIRECTION>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RequestTerminal)(::windows::core::Interface::as_raw(self), bstrterminalclassguid.into().abi(), ::core::mem::transmute(lmediatype), direction.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
+        (::windows::core::Interface::vtable(self).RequestTerminal)(::windows::core::Interface::as_raw(self), bstrterminalclassguid.into().abi(), ::core::mem::transmute(lmediatype), ::core::mem::transmute(direction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6830,69 +6790,49 @@ impl ITCallInfo {
         (::windows::core::Interface::vtable(self).CallHub)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITCallHub>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_CallInfoLong<'a, P0>(&self, callinfolong: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<CALLINFO_LONG>,
-    {
+    pub unsafe fn get_CallInfoLong(&self, callinfolong: CALLINFO_LONG) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_CallInfoLong)(::windows::core::Interface::as_raw(self), callinfolong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_CallInfoLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfolong), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_CallInfoLong<'a, P0>(&self, callinfolong: P0, lcallinfolongval: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CALLINFO_LONG>,
-    {
-        (::windows::core::Interface::vtable(self).put_CallInfoLong)(::windows::core::Interface::as_raw(self), callinfolong.into(), ::core::mem::transmute(lcallinfolongval)).ok()
+    pub unsafe fn put_CallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_CallInfoLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfolong), ::core::mem::transmute(lcallinfolongval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_CallInfoString<'a, P0>(&self, callinfostring: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<CALLINFO_STRING>,
-    {
+    pub unsafe fn get_CallInfoString(&self, callinfostring: CALLINFO_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_CallInfoString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfostring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_CallInfoString<'a, P0, P1>(&self, callinfostring: P0, pcallinfostring: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_CallInfoString<'a, P0>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CALLINFO_STRING>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring.into(), pcallinfostring.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_CallInfoString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfostring), pcallinfostring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_CallInfoBuffer<'a, P0>(&self, callinfobuffer: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-    {
+    pub unsafe fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_CallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_CallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_CallInfoBuffer<'a, P0, P1>(&self, callinfobuffer: P0, pcallinfobuffer: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_CallInfoBuffer<'a, P0>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).put_CallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), pcallinfobuffer.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_CallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn GetCallInfoBuffer<'a, P0>(&self, callinfobuffer: P0, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-    {
-        (::windows::core::Interface::vtable(self).GetCallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppcallinfobuffer)).ok()
+    pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppcallinfobuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetCallInfoBuffer<'a, P0>(&self, callinfobuffer: P0, pcallinfobuffer: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-    {
-        (::windows::core::Interface::vtable(self).SetCallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), pcallinfobuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcallinfobuffer))).ok()
+    pub unsafe fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcallinfobuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn ReleaseUserUserInfo(&self) -> ::windows::core::Result<()> {
@@ -7026,88 +6966,62 @@ impl ITCallInfo2 {
         (::windows::core::Interface::vtable(self).base__.CallHub)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITCallHub>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_CallInfoLong<'a, P0>(&self, callinfolong: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<CALLINFO_LONG>,
-    {
+    pub unsafe fn get_CallInfoLong(&self, callinfolong: CALLINFO_LONG) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_CallInfoLong)(::windows::core::Interface::as_raw(self), callinfolong.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_CallInfoLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfolong), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_CallInfoLong<'a, P0>(&self, callinfolong: P0, lcallinfolongval: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CALLINFO_LONG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.put_CallInfoLong)(::windows::core::Interface::as_raw(self), callinfolong.into(), ::core::mem::transmute(lcallinfolongval)).ok()
+    pub unsafe fn put_CallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_CallInfoLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfolong), ::core::mem::transmute(lcallinfolongval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_CallInfoString<'a, P0>(&self, callinfostring: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<CALLINFO_STRING>,
-    {
+    pub unsafe fn get_CallInfoString(&self, callinfostring: CALLINFO_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_CallInfoString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfostring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_CallInfoString<'a, P0, P1>(&self, callinfostring: P0, pcallinfostring: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_CallInfoString<'a, P0>(&self, callinfostring: CALLINFO_STRING, pcallinfostring: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CALLINFO_STRING>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_CallInfoString)(::windows::core::Interface::as_raw(self), callinfostring.into(), pcallinfostring.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_CallInfoString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfostring), pcallinfostring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_CallInfoBuffer<'a, P0>(&self, callinfobuffer: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-    {
+    pub unsafe fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_CallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_CallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_CallInfoBuffer<'a, P0, P1>(&self, callinfobuffer: P0, pcallinfobuffer: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_CallInfoBuffer<'a, P0>(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_CallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), pcallinfobuffer.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_CallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn GetCallInfoBuffer<'a, P0>(&self, callinfobuffer: P0, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetCallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppcallinfobuffer)).ok()
+    pub unsafe fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetCallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppcallinfobuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetCallInfoBuffer<'a, P0>(&self, callinfobuffer: P0, pcallinfobuffer: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CALLINFO_BUFFER>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetCallInfoBuffer)(::windows::core::Interface::as_raw(self), callinfobuffer.into(), pcallinfobuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcallinfobuffer))).ok()
+    pub unsafe fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCallInfoBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callinfobuffer), pcallinfobuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcallinfobuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn ReleaseUserUserInfo(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ReleaseUserUserInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_EventFilter<'a, P0>(&self, tapievent: P0, lsubevent: i32) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<TAPI_EVENT>,
-    {
+    pub unsafe fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EventFilter)(::windows::core::Interface::as_raw(self), tapievent.into(), ::core::mem::transmute(lsubevent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_EventFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tapievent), ::core::mem::transmute(lsubevent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_EventFilter<'a, P0>(&self, tapievent: P0, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TAPI_EVENT>,
-    {
-        (::windows::core::Interface::vtable(self).put_EventFilter)(::windows::core::Interface::as_raw(self), tapievent.into(), ::core::mem::transmute(lsubevent), ::core::mem::transmute(benable)).ok()
+    pub unsafe fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_EventFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tapievent), ::core::mem::transmute(lsubevent), ::core::mem::transmute(benable)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8593,23 +8507,21 @@ impl ITDirectory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_DirectoryObjects<'a, P0, P1>(&self, directoryobjecttype: P0, pname: P1) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn get_DirectoryObjects<'a, P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
-        P0: ::std::convert::Into<DIRECTORY_OBJECT_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_DirectoryObjects)(::windows::core::Interface::as_raw(self), directoryobjecttype.into(), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_DirectoryObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(directoryobjecttype), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumerateDirectoryObjects<'a, P0, P1>(&self, directoryobjecttype: P0, pname: P1) -> ::windows::core::Result<IEnumDirectoryObject>
+    pub unsafe fn EnumerateDirectoryObjects<'a, P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> ::windows::core::Result<IEnumDirectoryObject>
     where
-        P0: ::std::convert::Into<DIRECTORY_OBJECT_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumerateDirectoryObjects)(::windows::core::Interface::as_raw(self), directoryobjecttype.into(), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDirectoryObject>(result__)
+        (::windows::core::Interface::vtable(self).EnumerateDirectoryObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(directoryobjecttype), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDirectoryObject>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8889,11 +8801,8 @@ impl ITDirectoryObjectConference {
         (::windows::core::Interface::vtable(self).AdvertisingScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RND_ADVERTISING_SCOPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn SetAdvertisingScope<'a, P0>(&self, advertisingscope: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RND_ADVERTISING_SCOPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetAdvertisingScope)(::windows::core::Interface::as_raw(self), advertisingscope.into()).ok()
+    pub unsafe fn SetAdvertisingScope(&self, advertisingscope: RND_ADVERTISING_SCOPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAdvertisingScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(advertisingscope)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10244,11 +10153,8 @@ impl ITLegacyCallMediaControl2 {
         (::windows::core::Interface::vtable(self).DetectTonesByCollection)(::windows::core::Interface::as_raw(self), pdetecttonecollection.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn GenerateTone<'a, P0>(&self, tonemode: P0, lduration: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TAPI_TONEMODE>,
-    {
-        (::windows::core::Interface::vtable(self).GenerateTone)(::windows::core::Interface::as_raw(self), tonemode.into(), ::core::mem::transmute(lduration)).ok()
+    pub unsafe fn GenerateTone(&self, tonemode: TAPI_TONEMODE, lduration: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GenerateTone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tonemode), ::core::mem::transmute(lduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn GenerateCustomTones(&self, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> ::windows::core::Result<()> {
@@ -11121,12 +11027,9 @@ impl ITMultiTrackTerminal {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateTrackTerminal<'a, P0>(&self, mediatype: i32, terminaldirection: P0) -> ::windows::core::Result<ITTerminal>
-    where
-        P0: ::std::convert::Into<TERMINAL_DIRECTION>,
-    {
+    pub unsafe fn CreateTrackTerminal(&self, mediatype: i32, terminaldirection: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTrackTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mediatype), terminaldirection.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
+        (::windows::core::Interface::vtable(self).CreateTrackTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mediatype), ::core::mem::transmute(terminaldirection), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn MediaTypesInUse(&self) -> ::windows::core::Result<i32> {
@@ -11236,11 +11139,8 @@ pub struct ITPhone(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITPhone {
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn Open<'a, P0>(&self, privilege: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONE_PRIVILEGE>,
-    {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), privilege.into()).ok()
+    pub unsafe fn Open(&self, privilege: PHONE_PRIVILEGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(privilege)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -11258,21 +11158,15 @@ impl ITPhone {
         (::windows::core::Interface::vtable(self).EnumerateAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumAddress>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_PhoneCapsLong<'a, P0>(&self, pclcap: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<PHONECAPS_LONG>,
-    {
+    pub unsafe fn get_PhoneCapsLong(&self, pclcap: PHONECAPS_LONG) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PhoneCapsLong)(::windows::core::Interface::as_raw(self), pclcap.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_PhoneCapsLong)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclcap), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PhoneCapsString<'a, P0>(&self, pcscap: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<PHONECAPS_STRING>,
-    {
+    pub unsafe fn get_PhoneCapsString(&self, pcscap: PHONECAPS_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PhoneCapsString)(::windows::core::Interface::as_raw(self), pcscap.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PhoneCapsString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcscap), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11298,11 +11192,8 @@ impl ITPhone {
         (::windows::core::Interface::vtable(self).get_ButtonMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_BUTTON_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_ButtonMode<'a, P0>(&self, lbuttonid: i32, buttonmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONE_BUTTON_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).put_ButtonMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), buttonmode.into()).ok()
+    pub unsafe fn put_ButtonMode(&self, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_ButtonMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), ::core::mem::transmute(buttonmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn get_ButtonFunction(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_FUNCTION> {
@@ -11310,11 +11201,8 @@ impl ITPhone {
         (::windows::core::Interface::vtable(self).get_ButtonFunction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_BUTTON_FUNCTION>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_ButtonFunction<'a, P0>(&self, lbuttonid: i32, buttonfunction: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONE_BUTTON_FUNCTION>,
-    {
-        (::windows::core::Interface::vtable(self).put_ButtonFunction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), buttonfunction.into()).ok()
+    pub unsafe fn put_ButtonFunction(&self, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_ButtonFunction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), ::core::mem::transmute(buttonfunction)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11336,20 +11224,13 @@ impl ITPhone {
         (::windows::core::Interface::vtable(self).get_ButtonState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbuttonid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_BUTTON_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn get_HookSwitchState<'a, P0>(&self, hookswitchdevice: P0) -> ::windows::core::Result<PHONE_HOOK_SWITCH_STATE>
-    where
-        P0: ::std::convert::Into<PHONE_HOOK_SWITCH_DEVICE>,
-    {
+    pub unsafe fn get_HookSwitchState(&self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE) -> ::windows::core::Result<PHONE_HOOK_SWITCH_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::<PHONE_HOOK_SWITCH_STATE>::zeroed();
-        (::windows::core::Interface::vtable(self).get_HookSwitchState)(::windows::core::Interface::as_raw(self), hookswitchdevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_HOOK_SWITCH_STATE>(result__)
+        (::windows::core::Interface::vtable(self).get_HookSwitchState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hookswitchdevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_HOOK_SWITCH_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_HookSwitchState<'a, P0, P1>(&self, hookswitchdevice: P0, hookswitchstate: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONE_HOOK_SWITCH_DEVICE>,
-        P1: ::std::convert::Into<PHONE_HOOK_SWITCH_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).put_HookSwitchState)(::windows::core::Interface::as_raw(self), hookswitchdevice.into(), hookswitchstate.into()).ok()
+    pub unsafe fn put_HookSwitchState(&self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_HookSwitchState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hookswitchdevice), ::core::mem::transmute(hookswitchstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn SetRingMode(&self, lringmode: i32) -> ::windows::core::Result<()> {
@@ -11375,20 +11256,14 @@ impl ITPhone {
         (::windows::core::Interface::vtable(self).Privilege)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_PRIVILEGE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn GetPhoneCapsBuffer<'a, P0>(&self, pcbcaps: P0, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONECAPS_BUFFER>,
-    {
-        (::windows::core::Interface::vtable(self).GetPhoneCapsBuffer)(::windows::core::Interface::as_raw(self), pcbcaps.into(), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppphonecapsbuffer)).ok()
+    pub unsafe fn GetPhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPhoneCapsBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbcaps), ::core::mem::transmute(pdwsize), ::core::mem::transmute(ppphonecapsbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_PhoneCapsBuffer<'a, P0>(&self, pcbcaps: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<PHONECAPS_BUFFER>,
-    {
+    pub unsafe fn get_PhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PhoneCapsBuffer)(::windows::core::Interface::as_raw(self), pcbcaps.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_PhoneCapsBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbcaps), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
     pub unsafe fn get_LampMode(&self, llampid: i32) -> ::windows::core::Result<PHONE_LAMP_MODE> {
@@ -11396,11 +11271,8 @@ impl ITPhone {
         (::windows::core::Interface::vtable(self).get_LampMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llampid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PHONE_LAMP_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-    pub unsafe fn put_LampMode<'a, P0>(&self, llampid: i32, lampmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PHONE_LAMP_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).put_LampMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llampid), lampmode.into()).ok()
+    pub unsafe fn put_LampMode(&self, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_LampMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llampid), ::core::mem::transmute(lampmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12636,23 +12508,21 @@ impl ITRendezvous {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateDirectory<'a, P0, P1>(&self, directorytype: P0, pname: P1) -> ::windows::core::Result<ITDirectory>
+    pub unsafe fn CreateDirectory<'a, P0>(&self, directorytype: DIRECTORY_TYPE, pname: P0) -> ::windows::core::Result<ITDirectory>
     where
-        P0: ::std::convert::Into<DIRECTORY_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDirectory)(::windows::core::Interface::as_raw(self), directorytype.into(), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITDirectory>(result__)
+        (::windows::core::Interface::vtable(self).CreateDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(directorytype), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITDirectory>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateDirectoryObject<'a, P0, P1>(&self, directoryobjecttype: P0, pname: P1) -> ::windows::core::Result<ITDirectoryObject>
+    pub unsafe fn CreateDirectoryObject<'a, P0>(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: P0) -> ::windows::core::Result<ITDirectoryObject>
     where
-        P0: ::std::convert::Into<DIRECTORY_OBJECT_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDirectoryObject)(::windows::core::Interface::as_raw(self), directoryobjecttype.into(), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITDirectoryObject>(result__)
+        (::windows::core::Interface::vtable(self).CreateDirectoryObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(directoryobjecttype), pname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITDirectoryObject>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13329,12 +13199,9 @@ pub struct ITStreamControl(::windows::core::IUnknown);
 impl ITStreamControl {
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateStream<'a, P0>(&self, lmediatype: i32, td: P0) -> ::windows::core::Result<ITStream>
-    where
-        P0: ::std::convert::Into<TERMINAL_DIRECTION>,
-    {
+    pub unsafe fn CreateStream(&self, lmediatype: i32, td: TERMINAL_DIRECTION) -> ::windows::core::Result<ITStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), td.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITStream>(result__)
+        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), ::core::mem::transmute(td), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -14272,12 +14139,11 @@ pub struct ITTAPIEventNotification(::windows::core::IUnknown);
 impl ITTAPIEventNotification {
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Event<'a, P0, P1>(&self, tapievent: P0, pevent: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Event<'a, P0>(&self, tapievent: TAPI_EVENT, pevent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<TAPI_EVENT>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
     {
-        (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), tapievent.into(), pevent.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tapievent), pevent.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ITTAPIEventNotification> for ::windows::core::IUnknown {
@@ -14802,22 +14668,18 @@ impl ITTerminalSupport {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateTerminal<'a, P0, P1>(&self, pterminalclass: P0, lmediatype: i32, direction: P1) -> ::windows::core::Result<ITTerminal>
+    pub unsafe fn CreateTerminal<'a, P0>(&self, pterminalclass: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<TERMINAL_DIRECTION>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTerminal)(::windows::core::Interface::as_raw(self), pterminalclass.into().abi(), ::core::mem::transmute(lmediatype), direction.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
+        (::windows::core::Interface::vtable(self).CreateTerminal)(::windows::core::Interface::as_raw(self), pterminalclass.into().abi(), ::core::mem::transmute(lmediatype), ::core::mem::transmute(direction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetDefaultStaticTerminal<'a, P0>(&self, lmediatype: i32, direction: P0) -> ::windows::core::Result<ITTerminal>
-    where
-        P0: ::std::convert::Into<TERMINAL_DIRECTION>,
-    {
+    pub unsafe fn GetDefaultStaticTerminal(&self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultStaticTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), direction.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultStaticTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), ::core::mem::transmute(direction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14935,22 +14797,18 @@ impl ITTerminalSupport2 {
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateTerminal<'a, P0, P1>(&self, pterminalclass: P0, lmediatype: i32, direction: P1) -> ::windows::core::Result<ITTerminal>
+    pub unsafe fn CreateTerminal<'a, P0>(&self, pterminalclass: P0, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<TERMINAL_DIRECTION>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateTerminal)(::windows::core::Interface::as_raw(self), pterminalclass.into().abi(), ::core::mem::transmute(lmediatype), direction.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTerminal)(::windows::core::Interface::as_raw(self), pterminalclass.into().abi(), ::core::mem::transmute(lmediatype), ::core::mem::transmute(direction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetDefaultStaticTerminal<'a, P0>(&self, lmediatype: i32, direction: P0) -> ::windows::core::Result<ITTerminal>
-    where
-        P0: ::std::convert::Into<TERMINAL_DIRECTION>,
-    {
+    pub unsafe fn GetDefaultStaticTerminal(&self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDefaultStaticTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), direction.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDefaultStaticTerminal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatype), ::core::mem::transmute(direction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITTerminal>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

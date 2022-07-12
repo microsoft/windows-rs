@@ -534,12 +534,9 @@ impl IRdcLibrary {
         (::windows::core::Interface::vtable(self).ComputeDefaultRecursionDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CreateGeneratorParameters<'a, P0>(&self, parameterstype: P0, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters>
-    where
-        P0: ::std::convert::Into<GeneratorParametersType>,
-    {
+    pub unsafe fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeneratorParameters)(::windows::core::Interface::as_raw(self), parameterstype.into(), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
+        (::windows::core::Interface::vtable(self).CreateGeneratorParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameterstype), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> ::windows::core::Result<IRdcGeneratorParameters> {
@@ -1150,32 +1147,23 @@ impl ISimilarityTraitsMapping {
         (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn OpenMapping<'a, P0>(&self, accessmode: P0, begin: u64, end: u64) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<RdcMappingAccessMode>,
-    {
+    pub unsafe fn OpenMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenMapping)(::windows::core::Interface::as_raw(self), accessmode.into(), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).OpenMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn ResizeMapping<'a, P0>(&self, accessmode: P0, begin: u64, end: u64) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<RdcMappingAccessMode>,
-    {
+    pub unsafe fn ResizeMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).ResizeMapping)(::windows::core::Interface::as_raw(self), accessmode.into(), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).ResizeMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn GetPageSize(&self, pagesize: *mut u32) {
         (::windows::core::Interface::vtable(self).GetPageSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pagesize))
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CreateView<'a, P0>(&self, minimummappedpages: u32, accessmode: P0) -> ::windows::core::Result<ISimilarityTraitsMappedView>
-    where
-        P0: ::std::convert::Into<RdcMappingAccessMode>,
-    {
+    pub unsafe fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows::core::Result<ISimilarityTraitsMappedView> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minimummappedpages), accessmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
+        (::windows::core::Interface::vtable(self).CreateView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minimummappedpages), ::core::mem::transmute(accessmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
     }
 }
 impl ::core::convert::From<ISimilarityTraitsMapping> for ::windows::core::IUnknown {

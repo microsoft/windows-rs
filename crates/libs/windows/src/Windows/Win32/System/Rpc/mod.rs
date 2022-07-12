@@ -135,27 +135,21 @@ pub type CS_TYPE_TO_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn DceErrorInqTextA<'a, P0>(rpcstatus: P0, errortext: &mut [u8; 256]) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: &mut [u8; 256]) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(DceErrorInqTextA(rpcstatus.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
+    ::core::mem::transmute(DceErrorInqTextA(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn DceErrorInqTextW<'a, P0>(rpcstatus: P0, errortext: &mut [u16; 256]) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(DceErrorInqTextW(rpcstatus.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
+    ::core::mem::transmute(DceErrorInqTextW(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const EEInfoGCCOM: u32 = 11u32;
@@ -727,15 +721,12 @@ pub unsafe fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcMapWin32Status<'a, P0>(status: P0) -> i32
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32;
     }
-    ::core::mem::transmute(I_RpcMapWin32Status(status.into()))
+    ::core::mem::transmute(I_RpcMapWin32Status(::core::mem::transmute(status)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -802,15 +793,12 @@ pub unsafe fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcNsRaiseException<'a, P0>(message: *mut RPC_MESSAGE, status: P0)
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
     }
-    I_RpcNsRaiseException(::core::mem::transmute(message), status.into())
+    I_RpcNsRaiseException(::core::mem::transmute(message), ::core::mem::transmute(status))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -932,15 +920,12 @@ pub unsafe fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcRecordCalloutFailure<'a, P0>(rpcstatus: P0, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16)
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16);
     }
-    I_RpcRecordCalloutFailure(rpcstatus.into(), ::core::mem::transmute(calloutstate), ::core::mem::transmute(dllname))
+    I_RpcRecordCalloutFailure(::core::mem::transmute(rpcstatus), ::core::mem::transmute(calloutstate), ::core::mem::transmute(dllname))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1142,15 +1127,12 @@ pub unsafe fn I_RpcSsDontSerializeContext() {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn I_RpcSystemHandleTypeSpecificWork<'a, P0>(handle: *mut ::core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: P0) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION>,
-{
+pub unsafe fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcSystemHandleTypeSpecificWork(::core::mem::transmute(handle), ::core::mem::transmute(actualtype), ::core::mem::transmute(idltype), marshaldirection.into()))
+    ::core::mem::transmute(I_RpcSystemHandleTypeSpecificWork(::core::mem::transmute(handle), ::core::mem::transmute(actualtype), ::core::mem::transmute(idltype), ::core::mem::transmute(marshaldirection)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -2012,15 +1994,12 @@ pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
 pub const MaxNumberOfEEInfoParams: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn MesBufferHandleReset<'a, P0>(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: P0, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<MIDL_ES_CODE>,
-{
+pub unsafe fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesBufferHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(handlestyle), operation.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(pencodedsize)))
+    ::core::mem::transmute(MesBufferHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(handlestyle), ::core::mem::transmute(operation), ::core::mem::transmute(pbuffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(pencodedsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -2081,15 +2060,12 @@ pub unsafe fn MesHandleFree(handle: *mut ::core::ffi::c_void) -> RPC_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn MesIncrementalHandleReset<'a, P0>(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: P0) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<MIDL_ES_CODE>,
-{
+pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: MIDL_ES_CODE) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: *mut ::core::ffi::c_void, writefn: *mut ::core::ffi::c_void, readfn: *mut ::core::ffi::c_void, operation: MIDL_ES_CODE) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesIncrementalHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(readfn), operation.into()))
+    ::core::mem::transmute(MesIncrementalHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(readfn), ::core::mem::transmute(operation)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -5315,15 +5291,12 @@ pub unsafe fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES) {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn NdrFullPointerXlatInit<'a, P0>(numberofpointers: u32, xlatside: P0) -> *mut FULL_PTR_XLAT_TABLES
-where
-    P0: ::std::convert::Into<XLAT_SIDE>,
-{
+pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES;
     }
-    ::core::mem::transmute(NdrFullPointerXlatInit(::core::mem::transmute(numberofpointers), xlatside.into()))
+    ::core::mem::transmute(NdrFullPointerXlatInit(::core::mem::transmute(numberofpointers), ::core::mem::transmute(xlatside)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5408,15 +5381,12 @@ pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMapCommAndFaultStatus<'a, P0>(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: P0) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(NdrMapCommAndFaultStatus(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcommstatus), ::core::mem::transmute(pfaultstatus), status.into()))
+    ::core::mem::transmute(NdrMapCommAndFaultStatus(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcommstatus), ::core::mem::transmute(pfaultstatus), ::core::mem::transmute(status)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -11258,27 +11228,21 @@ pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, 
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn RpcNsGroupDeleteA<'a, P0>(groupnamesyntax: P0, groupname: *const u8) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<GROUP_NAME_SYNTAX>,
-{
+pub unsafe fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupDeleteA(groupnamesyntax.into(), ::core::mem::transmute(groupname)))
+    ::core::mem::transmute(RpcNsGroupDeleteA(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn RpcNsGroupDeleteW<'a, P0>(groupnamesyntax: P0, groupname: *const u16) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<GROUP_NAME_SYNTAX>,
-{
+pub unsafe fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupDeleteW(groupnamesyntax.into(), ::core::mem::transmute(groupname)))
+    ::core::mem::transmute(RpcNsGroupDeleteW(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11653,15 +11617,12 @@ impl ::core::fmt::Debug for RpcProxyPerfCounters {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn RpcRaiseException<'a, P0>(exception: P0)
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcRaiseException(exception: RPC_STATUS);
     }
-    RpcRaiseException(exception.into())
+    RpcRaiseException(::core::mem::transmute(exception))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11692,15 +11653,12 @@ pub unsafe fn RpcRevertToSelfEx(bindinghandle: *const ::core::ffi::c_void) -> RP
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn RpcServerCompleteSecurityCallback<'a, P0>(bindinghandle: *const ::core::ffi::c_void, status: P0) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<RPC_STATUS>,
-{
+pub unsafe fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::core::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::core::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerCompleteSecurityCallback(::core::mem::transmute(bindinghandle), status.into()))
+    ::core::mem::transmute(RpcServerCompleteSecurityCallback(::core::mem::transmute(bindinghandle), ::core::mem::transmute(status)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11894,16 +11852,12 @@ pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeu
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RpcServerSubscribeForNotification<'a, P0, P1>(binding: *const ::core::ffi::c_void, notification: P0, notificationtype: P1, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<RPC_NOTIFICATIONS>,
-    P1: ::std::convert::Into<RPC_NOTIFICATION_TYPES>,
-{
+pub unsafe fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerSubscribeForNotification(::core::mem::transmute(binding), notification.into(), notificationtype.into(), ::core::mem::transmute(notificationinfo)))
+    ::core::mem::transmute(RpcServerSubscribeForNotification(::core::mem::transmute(binding), ::core::mem::transmute(notification), ::core::mem::transmute(notificationtype), ::core::mem::transmute(notificationinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11934,15 +11888,12 @@ pub unsafe fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtyp
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
-pub unsafe fn RpcServerUnsubscribeForNotification<'a, P0>(binding: *const ::core::ffi::c_void, notification: P0, notificationsqueued: *mut u32) -> RPC_STATUS
-where
-    P0: ::std::convert::Into<RPC_NOTIFICATIONS>,
-{
+pub unsafe fn RpcServerUnsubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RpcServerUnsubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUnsubscribeForNotification(::core::mem::transmute(binding), notification.into(), ::core::mem::transmute(notificationsqueued)))
+    ::core::mem::transmute(RpcServerUnsubscribeForNotification(::core::mem::transmute(binding), ::core::mem::transmute(notification), ::core::mem::transmute(notificationsqueued)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]

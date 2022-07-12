@@ -309,11 +309,8 @@ impl IAudioEndpointOffloadStreamVolume {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_Media_KernelStreaming\"`*"]
     #[cfg(feature = "Win32_Media_KernelStreaming")]
-    pub unsafe fn SetChannelVolumes<'a, P0>(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: P0, pcurveduration: *const i64) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::KernelStreaming::AUDIO_CURVE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetChannelVolumes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32channelcount), ::core::mem::transmute(pf32volumes), u32curvetype.into(), ::core::mem::transmute(pcurveduration)).ok()
+    pub unsafe fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetChannelVolumes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32channelcount), ::core::mem::transmute(pf32volumes), ::core::mem::transmute(u32curvetype), ::core::mem::transmute(pcurveduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
     pub unsafe fn GetChannelVolumes(&self, u32channelcount: u32) -> ::windows::core::Result<f32> {

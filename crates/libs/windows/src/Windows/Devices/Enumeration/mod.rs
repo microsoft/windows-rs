@@ -131,13 +131,10 @@ impl DeviceAccessInformation {
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    pub fn CreateFromDeviceClass<'a, P0>(deviceclass: P0) -> ::windows::core::Result<DeviceAccessInformation>
-    where
-        P0: ::std::convert::Into<DeviceClass>,
-    {
+    pub fn CreateFromDeviceClass(deviceclass: DeviceClass) -> ::windows::core::Result<DeviceAccessInformation> {
         Self::IDeviceAccessInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass.into(), result__.as_mut_ptr()).from_abi::<DeviceAccessInformation>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass, result__.as_mut_ptr()).from_abi::<DeviceAccessInformation>(result__)
         })
     }
     #[doc(hidden)]
@@ -562,13 +559,10 @@ impl DeviceInformation {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncDeviceClass<'a, P0>(deviceclass: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
-    where
-        P0: ::std::convert::Into<DeviceClass>,
-    {
+    pub fn FindAllAsyncDeviceClass(deviceclass: DeviceClass) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>> {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
@@ -603,13 +597,10 @@ impl DeviceInformation {
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    pub fn CreateWatcherDeviceClass<'a, P0>(deviceclass: P0) -> ::windows::core::Result<DeviceWatcher>
-    where
-        P0: ::std::convert::Into<DeviceClass>,
-    {
+    pub fn CreateWatcherDeviceClass(deviceclass: DeviceClass) -> ::windows::core::Result<DeviceWatcher> {
         Self::IDeviceInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass.into(), result__.as_mut_ptr()).from_abi::<DeviceWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass, result__.as_mut_ptr()).from_abi::<DeviceWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -636,55 +627,49 @@ impl DeviceInformation {
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    pub fn GetAqsFilterFromDeviceClass<'a, P0>(deviceclass: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<DeviceClass>,
-    {
+    pub fn GetAqsFilterFromDeviceClass(deviceclass: DeviceClass) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAqsFilterFromDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAqsFilterFromDeviceClass)(::windows::core::Interface::as_raw(this), deviceclass, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<'a, P0, P1, E1, P2>(deviceid: P0, additionalproperties: P1, kind: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
+    pub fn CreateFromIdAsyncWithKindAndAdditionalProperties<'a, P0, P1, E1>(deviceid: P0, additionalproperties: P1, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<DeviceInformationKind>,
     {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIdAsyncWithKindAndAdditionalProperties)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), additionalproperties.try_into().map_err(|e| e.into())?.abi(), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIdAsyncWithKindAndAdditionalProperties)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), additionalproperties.try_into().map_err(|e| e.into())?.abi(), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<'a, P0, P1, E1, P2>(aqsfilter: P0, additionalproperties: P1, kind: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
+    pub fn FindAllAsyncWithKindAqsFilterAndAdditionalProperties<'a, P0, P1, E1>(aqsfilter: P0, additionalproperties: P1, kind: DeviceInformationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<DeviceInformationKind>,
     {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncWithKindAqsFilterAndAdditionalProperties)(::windows::core::Interface::as_raw(this), aqsfilter.into().abi(), additionalproperties.try_into().map_err(|e| e.into())?.abi(), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncWithKindAqsFilterAndAdditionalProperties)(::windows::core::Interface::as_raw(this), aqsfilter.into().abi(), additionalproperties.try_into().map_err(|e| e.into())?.abi(), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformationCollection>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<'a, P0, P1, E1, P2>(aqsfilter: P0, additionalproperties: P1, kind: P2) -> ::windows::core::Result<DeviceWatcher>
+    pub fn CreateWatcherWithKindAqsFilterAndAdditionalProperties<'a, P0, P1, E1>(aqsfilter: P0, additionalproperties: P1, kind: DeviceInformationKind) -> ::windows::core::Result<DeviceWatcher>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<DeviceInformationKind>,
     {
         Self::IDeviceInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherWithKindAqsFilterAndAdditionalProperties)(::windows::core::Interface::as_raw(this), aqsfilter.into().abi(), additionalproperties.try_into().map_err(|e| e.into())?.abi(), kind.into(), result__.as_mut_ptr()).from_abi::<DeviceWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherWithKindAqsFilterAndAdditionalProperties)(::windows::core::Interface::as_raw(this), aqsfilter.into().abi(), additionalproperties.try_into().map_err(|e| e.into())?.abi(), kind, result__.as_mut_ptr()).from_abi::<DeviceWatcher>(result__)
         })
     }
     #[doc(hidden)]
@@ -958,42 +943,33 @@ pub struct DeviceInformationCustomPairing(::windows::core::IUnknown);
 impl DeviceInformationCustomPairing {
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PairAsync<'a, P0>(&self, pairingkindssupported: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
-    where
-        P0: ::std::convert::Into<DevicePairingKinds>,
-    {
+    pub fn PairAsync(&self, pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PairAsync)(::windows::core::Interface::as_raw(this), pairingkindssupported.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            (::windows::core::Interface::vtable(this).PairAsync)(::windows::core::Interface::as_raw(this), pairingkindssupported, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PairWithProtectionLevelAsync<'a, P0, P1>(&self, pairingkindssupported: P0, minprotectionlevel: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
-    where
-        P0: ::std::convert::Into<DevicePairingKinds>,
-        P1: ::std::convert::Into<DevicePairingProtectionLevel>,
-    {
+    pub fn PairWithProtectionLevelAsync(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAsync)(::windows::core::Interface::as_raw(this), pairingkindssupported.into(), minprotectionlevel.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAsync)(::windows::core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PairWithProtectionLevelAndSettingsAsync<'a, P0, P1, P2, E2>(&self, pairingkindssupported: P0, minprotectionlevel: P1, devicepairingsettings: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
+    pub fn PairWithProtectionLevelAndSettingsAsync<'a, P0, E0>(&self, pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
     where
-        P0: ::std::convert::Into<DevicePairingKinds>,
-        P1: ::std::convert::Into<DevicePairingProtectionLevel>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, IDevicePairingSettings>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IDevicePairingSettings>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(::windows::core::Interface::as_raw(this), pairingkindssupported.into(), minprotectionlevel.into(), devicepairingsettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(::windows::core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, devicepairingsettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
@@ -1149,14 +1125,11 @@ impl DeviceInformationPairing {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PairWithProtectionLevelAsync<'a, P0>(&self, minprotectionlevel: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
-    where
-        P0: ::std::convert::Into<DevicePairingProtectionLevel>,
-    {
+    pub fn PairWithProtectionLevelAsync(&self, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAsync)(::windows::core::Interface::as_raw(this), minprotectionlevel.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAsync)(::windows::core::Interface::as_raw(this), minprotectionlevel, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1177,16 +1150,15 @@ impl DeviceInformationPairing {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PairWithProtectionLevelAndSettingsAsync<'a, P0, P1, E1>(&self, minprotectionlevel: P0, devicepairingsettings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
+    pub fn PairWithProtectionLevelAndSettingsAsync<'a, P0, E0>(&self, minprotectionlevel: DevicePairingProtectionLevel, devicepairingsettings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DevicePairingResult>>
     where
-        P0: ::std::convert::Into<DevicePairingProtectionLevel>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IDevicePairingSettings>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IDevicePairingSettings>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IDeviceInformationPairing2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(::windows::core::Interface::as_raw(this), minprotectionlevel.into(), devicepairingsettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
+            (::windows::core::Interface::vtable(this).PairWithProtectionLevelAndSettingsAsync)(::windows::core::Interface::as_raw(this), minprotectionlevel, devicepairingsettings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DevicePairingResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
@@ -1199,24 +1171,17 @@ impl DeviceInformationPairing {
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    pub fn TryRegisterForAllInboundPairingRequests<'a, P0>(pairingkindssupported: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<DevicePairingKinds>,
-    {
+    pub fn TryRegisterForAllInboundPairingRequests(pairingkindssupported: DevicePairingKinds) -> ::windows::core::Result<bool> {
         Self::IDeviceInformationPairingStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRegisterForAllInboundPairingRequests)(::windows::core::Interface::as_raw(this), pairingkindssupported.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryRegisterForAllInboundPairingRequests)(::windows::core::Interface::as_raw(this), pairingkindssupported, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    pub fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel<'a, P0, P1>(pairingkindssupported: P0, minprotectionlevel: P1) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<DevicePairingKinds>,
-        P1: ::std::convert::Into<DevicePairingProtectionLevel>,
-    {
+    pub fn TryRegisterForAllInboundPairingRequestsWithProtectionLevel(pairingkindssupported: DevicePairingKinds, minprotectionlevel: DevicePairingProtectionLevel) -> ::windows::core::Result<bool> {
         Self::IDeviceInformationPairingStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRegisterForAllInboundPairingRequestsWithProtectionLevel)(::windows::core::Interface::as_raw(this), pairingkindssupported.into(), minprotectionlevel.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryRegisterForAllInboundPairingRequestsWithProtectionLevel)(::windows::core::Interface::as_raw(this), pairingkindssupported, minprotectionlevel, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -1841,12 +1806,9 @@ impl DevicePicker {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowWithPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, placement: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::UI::Popups::Placement>,
-    {
+    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, placement.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, placement).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1859,14 +1821,11 @@ impl DevicePicker {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn PickSingleDeviceAsyncWithPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, placement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>>
-    where
-        P0: ::std::convert::Into<super::super::UI::Popups::Placement>,
-    {
+    pub fn PickSingleDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DeviceInformation>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PickSingleDeviceAsyncWithPlacement)(::windows::core::Interface::as_raw(this), selection, placement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
+            (::windows::core::Interface::vtable(this).PickSingleDeviceAsyncWithPlacement)(::windows::core::Interface::as_raw(this), selection, placement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DeviceInformation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
@@ -1875,14 +1834,13 @@ impl DevicePicker {
         unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    pub fn SetDisplayStatus<'a, P0, P1, P2>(&self, device: P0, status: P1, options: P2) -> ::windows::core::Result<()>
+    pub fn SetDisplayStatus<'a, P0, P1>(&self, device: P0, status: P1, options: DevicePickerDisplayStatusOptions) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, DeviceInformation>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<DevicePickerDisplayStatusOptions>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayStatus)(::windows::core::Interface::as_raw(this), device.into().abi(), status.into().abi(), options.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayStatus)(::windows::core::Interface::as_raw(this), device.into().abi(), status.into().abi(), options).ok() }
     }
 }
 impl ::core::clone::Clone for DevicePicker {
@@ -2367,16 +2325,15 @@ impl DeviceThumbnail {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0, P1>(&self, buffer: P0, count: u32, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::super::Storage::Streams::InputStreamOptions>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]

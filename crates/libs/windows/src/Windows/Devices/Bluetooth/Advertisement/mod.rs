@@ -1330,12 +1330,9 @@ impl BluetoothLEAdvertisementWatcher {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
-    pub fn SetScanningMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BluetoothLEScanningMode>,
-    {
+    pub fn SetScanningMode(&self, value: BluetoothLEScanningMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScanningMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScanningMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
     pub fn SignalStrengthFilter(&self) -> ::windows::core::Result<super::BluetoothSignalStrengthFilter> {

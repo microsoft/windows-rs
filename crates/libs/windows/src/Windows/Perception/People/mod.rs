@@ -443,15 +443,14 @@ pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoint<'a, P0, P1>(&self, coordinatesystem: P0, joint: P1, jointpose: &mut JointPose) -> ::windows::core::Result<bool>
+    pub fn TryGetJoint<'a, P0>(&self, coordinatesystem: P0, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>,
-        P1: ::std::convert::Into<HandJointKind>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetJoint)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joint.into(), jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetJoint)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joint, jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
@@ -468,15 +467,11 @@ impl HandPose {
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn GetRelativeJoint<'a, P0, P1>(&self, joint: P0, referencejoint: P1) -> ::windows::core::Result<JointPose>
-    where
-        P0: ::std::convert::Into<HandJointKind>,
-        P1: ::std::convert::Into<HandJointKind>,
-    {
+    pub fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> ::windows::core::Result<JointPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<JointPose>::zeroed();
-            (::windows::core::Interface::vtable(this).GetRelativeJoint)(::windows::core::Interface::as_raw(this), joint.into(), referencejoint.into(), result__.as_mut_ptr()).from_abi::<JointPose>(result__)
+            (::windows::core::Interface::vtable(this).GetRelativeJoint)(::windows::core::Interface::as_raw(this), joint, referencejoint, result__.as_mut_ptr()).from_abi::<JointPose>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]

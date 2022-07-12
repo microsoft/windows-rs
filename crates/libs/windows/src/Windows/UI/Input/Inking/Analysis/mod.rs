@@ -1727,14 +1727,11 @@ impl InkAnalysisRoot {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindNodes<'a, P0>(&self, nodekind: P0) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>
-    where
-        P0: ::std::convert::Into<InkAnalysisNodeKind>,
-    {
+    pub fn FindNodes(&self, nodekind: InkAnalysisNodeKind) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindNodes)(::windows::core::Interface::as_raw(this), nodekind.into(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).FindNodes)(::windows::core::Interface::as_raw(this), nodekind, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
 }
@@ -2116,12 +2113,9 @@ impl InkAnalyzer {
         unsafe { (::windows::core::Interface::vtable(this).ReplaceDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn SetStrokeDataKind<'a, P0>(&self, strokeid: u32, strokekind: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InkAnalysisStrokeKind>,
-    {
+    pub fn SetStrokeDataKind(&self, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDataKind)(::windows::core::Interface::as_raw(this), strokeid, strokekind.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDataKind)(::windows::core::Interface::as_raw(this), strokeid, strokekind).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

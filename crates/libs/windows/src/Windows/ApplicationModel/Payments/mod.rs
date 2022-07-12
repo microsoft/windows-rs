@@ -860,13 +860,10 @@ impl PaymentCanMakePaymentResult {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-    pub fn Create<'a, P0>(value: P0) -> ::windows::core::Result<PaymentCanMakePaymentResult>
-    where
-        P0: ::std::convert::Into<PaymentCanMakePaymentResultStatus>,
-    {
+    pub fn Create(value: PaymentCanMakePaymentResultStatus) -> ::windows::core::Result<PaymentCanMakePaymentResult> {
         Self::IPaymentCanMakePaymentResultFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<PaymentCanMakePaymentResult>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<PaymentCanMakePaymentResult>(result__)
         })
     }
     #[doc(hidden)]
@@ -1968,12 +1965,9 @@ impl PaymentOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-    pub fn SetRequestPayerEmail<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PaymentOptionPresence>,
-    {
+    pub fn SetRequestPayerEmail(&self, value: PaymentOptionPresence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestPayerEmail)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestPayerEmail)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
     pub fn RequestPayerName(&self) -> ::windows::core::Result<PaymentOptionPresence> {
@@ -1984,12 +1978,9 @@ impl PaymentOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-    pub fn SetRequestPayerName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PaymentOptionPresence>,
-    {
+    pub fn SetRequestPayerName(&self, value: PaymentOptionPresence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestPayerName)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestPayerName)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
     pub fn RequestPayerPhoneNumber(&self) -> ::windows::core::Result<PaymentOptionPresence> {
@@ -2000,12 +1991,9 @@ impl PaymentOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-    pub fn SetRequestPayerPhoneNumber<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PaymentOptionPresence>,
-    {
+    pub fn SetRequestPayerPhoneNumber(&self, value: PaymentOptionPresence) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestPayerPhoneNumber)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestPayerPhoneNumber)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
     pub fn RequestShipping(&self) -> ::windows::core::Result<bool> {
@@ -2029,12 +2017,9 @@ impl PaymentOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
-    pub fn SetShippingType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PaymentShippingType>,
-    {
+    pub fn SetShippingType(&self, value: PaymentShippingType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShippingType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShippingType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for PaymentOptions {
@@ -2838,14 +2823,11 @@ impl PaymentResponse {
     }
     #[doc = "*Required features: `\"ApplicationModel_Payments\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CompleteAsync<'a, P0>(&self, status: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<PaymentRequestCompletionStatus>,
-    {
+    pub fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CompleteAsync)(::windows::core::Interface::as_raw(this), status.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CompleteAsync)(::windows::core::Interface::as_raw(this), status, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }

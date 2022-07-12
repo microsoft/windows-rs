@@ -220,16 +220,15 @@ impl OnlineIdAuthenticator {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AuthenticateUserAsyncAdvanced<'a, P0, E0, P1>(&self, requests: P0, credentialprompttype: P1) -> ::windows::core::Result<UserAuthenticationOperation>
+    pub fn AuthenticateUserAsyncAdvanced<'a, P0, E0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<CredentialPromptType>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows::core::Interface::as_raw(this), requests.try_into().map_err(|e| e.into())?.abi(), credentialprompttype.into(), result__.as_mut_ptr()).from_abi::<UserAuthenticationOperation>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows::core::Interface::as_raw(this), requests.try_into().map_err(|e| e.into())?.abi(), credentialprompttype, result__.as_mut_ptr()).from_abi::<UserAuthenticationOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]

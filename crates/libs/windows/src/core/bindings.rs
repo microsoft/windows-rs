@@ -1726,15 +1726,12 @@ impl ::core::ops::Not for FORMAT_MESSAGE_OPTIONS {
     }
 }
 #[inline]
-pub unsafe fn FormatMessageW<'a, P0>(dwflags: P0, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32
-where
-    P0: ::std::convert::Into<FORMAT_MESSAGE_OPTIONS>,
-{
+pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
     }
-    ::core::mem::transmute(FormatMessageW(dwflags.into(), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
+    ::core::mem::transmute(FormatMessageW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
 }
 #[inline]
 pub unsafe fn FreeLibrary<'a, P0>(hlibmodule: P0) -> BOOL
@@ -1848,28 +1845,26 @@ impl ::core::ops::Not for HEAP_FLAGS {
     }
 }
 #[inline]
-pub unsafe fn HeapAlloc<'a, P0, P1>(hheap: P0, dwflags: P1, dwbytes: usize) -> *mut ::core::ffi::c_void
+pub unsafe fn HeapAlloc<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void
 where
     P0: ::std::convert::Into<HeapHandle>,
-    P1: ::std::convert::Into<HEAP_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HeapAlloc(hheap.into(), dwflags.into(), ::core::mem::transmute(dwbytes)))
+    ::core::mem::transmute(HeapAlloc(hheap.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwbytes)))
 }
 #[inline]
-pub unsafe fn HeapFree<'a, P0, P1>(hheap: P0, dwflags: P1, lpmem: *const ::core::ffi::c_void) -> BOOL
+pub unsafe fn HeapFree<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL
 where
     P0: ::std::convert::Into<HeapHandle>,
-    P1: ::std::convert::Into<HEAP_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL;
     }
-    ::core::mem::transmute(HeapFree(hheap.into(), dwflags.into(), ::core::mem::transmute(lpmem)))
+    ::core::mem::transmute(HeapFree(hheap.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2016,17 +2011,16 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
     }
 }
 #[inline]
-pub unsafe fn RoGetAgileReference<'a, P0, P1>(options: P0, riid: *const ::windows::core::GUID, punk: P1) -> ::windows::core::Result<IAgileReference>
+pub unsafe fn RoGetAgileReference<'a, P0>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: P0) -> ::windows::core::Result<IAgileReference>
 where
-    P0: ::std::convert::Into<AgileReferenceOptions>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    RoGetAgileReference(options.into(), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
+    RoGetAgileReference(::core::mem::transmute(options), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
 }
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);

@@ -882,17 +882,16 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeClientTransaction<'a, P0, P1, P2>(pdata: *const u8, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: P2, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA
+pub unsafe fn DdeClientTransaction<'a, P0, P1>(pdata: *const u8, cbdata: u32, hconv: P0, hszitem: P1, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA
 where
     P0: ::std::convert::Into<HCONV>,
     P1: ::std::convert::Into<HSZ>,
-    P2: ::std::convert::Into<DDE_CLIENT_TRANSACTION_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA;
     }
-    ::core::mem::transmute(DdeClientTransaction(::core::mem::transmute(pdata), ::core::mem::transmute(cbdata), hconv.into(), hszitem.into(), ::core::mem::transmute(wfmt), wtype.into(), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(pdwresult)))
+    ::core::mem::transmute(DdeClientTransaction(::core::mem::transmute(pdata), ::core::mem::transmute(cbdata), hconv.into(), hszitem.into(), ::core::mem::transmute(wfmt), ::core::mem::transmute(wtype), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(pdwresult)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -1001,16 +1000,15 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeEnableCallback<'a, P0, P1>(idinst: u32, hconv: P0, wcmd: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DdeEnableCallback<'a, P0>(idinst: u32, hconv: P0, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
-    P1: ::std::convert::Into<DDE_ENABLE_CALLBACK_CMD>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DdeEnableCallback(::core::mem::transmute(idinst), hconv.into(), wcmd.into()))
+    ::core::mem::transmute(DdeEnableCallback(::core::mem::transmute(idinst), hconv.into(), ::core::mem::transmute(wcmd)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1074,27 +1072,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeInitializeA<'a, P0>(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: P0, ulres: u32) -> u32
-where
-    P0: ::std::convert::Into<DDE_INITIALIZE_COMMAND>,
-{
+pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeInitializeA(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
     }
-    ::core::mem::transmute(DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd.into(), ::core::mem::transmute(ulres)))
+    ::core::mem::transmute(DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), ::core::mem::transmute(afcmd), ::core::mem::transmute(ulres)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeInitializeW<'a, P0>(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: P0, ulres: u32) -> u32
-where
-    P0: ::std::convert::Into<DDE_INITIALIZE_COMMAND>,
-{
+pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeInitializeW(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
     }
-    ::core::mem::transmute(DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd.into(), ::core::mem::transmute(ulres)))
+    ::core::mem::transmute(DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), ::core::mem::transmute(afcmd), ::core::mem::transmute(ulres)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1111,17 +1103,16 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
-pub unsafe fn DdeNameService<'a, P0, P1, P2>(idinst: u32, hsz1: P0, hsz2: P1, afcmd: P2) -> HDDEDATA
+pub unsafe fn DdeNameService<'a, P0, P1>(idinst: u32, hsz1: P0, hsz2: P1, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA
 where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
-    P2: ::std::convert::Into<DDE_NAME_SERVICE_CMD>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdeNameService(idinst: u32, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA;
     }
-    ::core::mem::transmute(DdeNameService(::core::mem::transmute(idinst), hsz1.into(), hsz2.into(), afcmd.into()))
+    ::core::mem::transmute(DdeNameService(::core::mem::transmute(idinst), hsz1.into(), hsz2.into(), ::core::mem::transmute(afcmd)))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

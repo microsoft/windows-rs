@@ -3096,16 +3096,15 @@ where
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustGetDefaultForUsage<'a, P0, P1>(dwaction: P0, pszusageoid: P1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL
+pub unsafe fn WintrustGetDefaultForUsage<'a, P0>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: P0, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: ::windows::core::PCSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustGetDefaultForUsage(dwaction.into(), pszusageoid.into(), ::core::mem::transmute(psusage)))
+    ::core::mem::transmute(WintrustGetDefaultForUsage(::core::mem::transmute(dwaction), pszusageoid.into(), ::core::mem::transmute(psusage)))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[inline]
@@ -3152,15 +3151,12 @@ where
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustSetRegPolicyFlags<'a, P0>(dwpolicyflags: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<WINTRUST_POLICY_FLAGS>,
-{
+pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WintrustSetRegPolicyFlags(dwpolicyflags.into()))
+    ::core::mem::transmute(WintrustSetRegPolicyFlags(::core::mem::transmute(dwpolicyflags)))
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const szOID_ENHANCED_HASH: &str = "1.3.6.1.4.1.311.2.5.1";

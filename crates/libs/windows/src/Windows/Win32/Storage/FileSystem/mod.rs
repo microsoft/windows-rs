@@ -205,15 +205,12 @@ pub unsafe fn BuildIoRingCancelRequest(ioring: *const HIORING__, file: IORING_HA
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildIoRingReadFile<'a, P0>(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<IORING_SQE_FLAGS>,
-{
+pub unsafe fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BuildIoRingReadFile(ioring: *const HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::HRESULT;
     }
-    BuildIoRingReadFile(::core::mem::transmute(ioring), ::core::mem::transmute(fileref), ::core::mem::transmute(dataref), ::core::mem::transmute(numberofbytestoread), ::core::mem::transmute(fileoffset), ::core::mem::transmute(userdata), flags.into()).ok()
+    BuildIoRingReadFile(::core::mem::transmute(ioring), ::core::mem::transmute(fileref), ::core::mem::transmute(dataref), ::core::mem::transmute(numberofbytestoread), ::core::mem::transmute(fileoffset), ::core::mem::transmute(userdata), ::core::mem::transmute(flags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -2555,18 +2552,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFile2<'a, P0, P1, P2, P3>(lpfilename: P0, dwdesiredaccess: P1, dwsharemode: P2, dwcreationdisposition: P3, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFile2<'a, P0>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FILE_ACCESS_FLAGS>,
-    P2: ::std::convert::Into<FILE_SHARE_MODE>,
-    P3: ::std::convert::Into<FILE_CREATION_DISPOSITION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFile2(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFile2(lpfilename.into(), dwdesiredaccess.into(), dwsharemode.into(), dwcreationdisposition.into(), ::core::mem::transmute(pcreateexparams));
+    let result__ = CreateFile2(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(pcreateexparams));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2585,20 +2579,16 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileA<'a, P0, P1, P2, P3, P4, P5>(lpfilename: P0, dwdesiredaccess: P1, dwsharemode: P2, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: P3, dwflagsandattributes: P4, htemplatefile: P5) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileA<'a, P0, P1>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<FILE_ACCESS_FLAGS>,
-    P2: ::std::convert::Into<FILE_SHARE_MODE>,
-    P3: ::std::convert::Into<FILE_CREATION_DISPOSITION>,
-    P4: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFileA(lpfilename: ::windows::core::PCSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileA(lpfilename.into(), dwdesiredaccess.into(), dwsharemode.into(), ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition.into(), dwflagsandattributes.into(), htemplatefile.into());
+    let result__ = CreateFileA(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2618,58 +2608,48 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileTransactedA<'a, P0, P1, P2, P3, P4, P5>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: P1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: P2, dwflagsandattributes: P3, htemplatefile: P4, htransaction: P5, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileTransactedA<'a, P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<FILE_SHARE_MODE>,
-    P2: ::std::convert::Into<FILE_CREATION_DISPOSITION>,
-    P3: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
-    P4: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFileTransactedA(lpfilename: ::windows::core::PCSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileTransactedA(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), dwsharemode.into(), ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition.into(), dwflagsandattributes.into(), htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
+    let result__ = CreateFileTransactedA(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileTransactedW<'a, P0, P1, P2, P3, P4, P5>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: P1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: P2, dwflagsandattributes: P3, htemplatefile: P4, htransaction: P5, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileTransactedW<'a, P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FILE_SHARE_MODE>,
-    P2: ::std::convert::Into<FILE_CREATION_DISPOSITION>,
-    P3: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
-    P4: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFileTransactedW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileTransactedW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), dwsharemode.into(), ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition.into(), dwflagsandattributes.into(), htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
+    let result__ = CreateFileTransactedW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileW<'a, P0, P1, P2, P3, P4, P5>(lpfilename: P0, dwdesiredaccess: P1, dwsharemode: P2, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: P3, dwflagsandattributes: P4, htemplatefile: P5) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateFileW<'a, P0, P1>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FILE_ACCESS_FLAGS>,
-    P2: ::std::convert::Into<FILE_SHARE_MODE>,
-    P3: ::std::convert::Into<FILE_CREATION_DISPOSITION>,
-    P4: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFileW(lpfilename: ::windows::core::PCWSTR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateFileW(lpfilename.into(), dwdesiredaccess.into(), dwsharemode.into(), ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition.into(), dwflagsandattributes.into(), htemplatefile.into());
+    let result__ = CreateFileW(lpfilename.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -2732,16 +2712,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn CreateIoRing<'a, P0>(ioringversion: P0, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__>
-where
-    P0: ::std::convert::Into<IORING_VERSION>,
-{
+pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut *mut HIORING__) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut HIORING__>::zeroed();
-    CreateIoRing(ioringversion.into(), ::core::mem::transmute(flags), ::core::mem::transmute(submissionqueuesize), ::core::mem::transmute(completionqueuesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HIORING__>(result__)
+    CreateIoRing(::core::mem::transmute(ioringversion), ::core::mem::transmute(flags), ::core::mem::transmute(submissionqueuesize), ::core::mem::transmute(completionqueuesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HIORING__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2759,19 +2736,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateLogFile<'a, P0, P1, P2, P3, P4>(pszlogfilename: P0, fdesiredaccess: P1, dwsharemode: P2, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: P3, fflagsandattributes: P4) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateLogFile<'a, P0>(pszlogfilename: P0, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FILE_ACCESS_FLAGS>,
-    P2: ::std::convert::Into<FILE_SHARE_MODE>,
-    P3: ::std::convert::Into<FILE_CREATION_DISPOSITION>,
-    P4: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateLogFile(pszlogfilename: ::windows::core::PCWSTR, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateLogFile(pszlogfilename.into(), fdesiredaccess.into(), dwsharemode.into(), ::core::mem::transmute(psalogfile), fcreatedisposition.into(), fflagsandattributes.into());
+    let result__ = CreateLogFile(pszlogfilename.into(), ::core::mem::transmute(fdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(psalogfile), ::core::mem::transmute(fcreatedisposition), ::core::mem::transmute(fflagsandattributes));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2805,78 +2778,73 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkA<'a, P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: P2) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkA<'a, P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<SYMBOLIC_LINK_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateSymbolicLinkA(lpsymlinkfilename: ::windows::core::PCSTR, lptargetfilename: ::windows::core::PCSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkA(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags.into()))
+    ::core::mem::transmute(CreateSymbolicLinkA(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedA<'a, P0, P1, P2, P3>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: P2, htransaction: P3) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkTransactedA<'a, P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P2) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<SYMBOLIC_LINK_FLAGS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateSymbolicLinkTransactedA(lpsymlinkfilename: ::windows::core::PCSTR, lptargetfilename: ::windows::core::PCSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkTransactedA(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags.into(), htransaction.into()))
+    ::core::mem::transmute(CreateSymbolicLinkTransactedA(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkTransactedW<'a, P0, P1, P2, P3>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: P2, htransaction: P3) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkTransactedW<'a, P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P2) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<SYMBOLIC_LINK_FLAGS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateSymbolicLinkTransactedW(lpsymlinkfilename: ::windows::core::PCWSTR, lptargetfilename: ::windows::core::PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkTransactedW(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags.into(), htransaction.into()))
+    ::core::mem::transmute(CreateSymbolicLinkTransactedW(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSymbolicLinkW<'a, P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: P2) -> super::super::Foundation::BOOLEAN
+pub unsafe fn CreateSymbolicLinkW<'a, P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<SYMBOLIC_LINK_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateSymbolicLinkW(lpsymlinkfilename: ::windows::core::PCWSTR, lptargetfilename: ::windows::core::PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN;
     }
-    ::core::mem::transmute(CreateSymbolicLinkW(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags.into()))
+    ::core::mem::transmute(CreateSymbolicLinkW(lpsymlinkfilename.into(), lptargetfilename.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateTapePartition<'a, P0, P1>(hdevice: P0, dwpartitionmethod: P1, dwcount: u32, dwsize: u32) -> u32
+pub unsafe fn CreateTapePartition<'a, P0>(hdevice: P0, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CREATE_TAPE_PARTITION_METHOD>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateTapePartition(hdevice: super::super::Foundation::HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32;
     }
-    ::core::mem::transmute(CreateTapePartition(hdevice.into(), dwpartitionmethod.into(), ::core::mem::transmute(dwcount), ::core::mem::transmute(dwsize)))
+    ::core::mem::transmute(CreateTapePartition(hdevice.into(), ::core::mem::transmute(dwpartitionmethod), ::core::mem::transmute(dwcount), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3143,32 +3111,30 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefineDosDeviceA<'a, P0, P1, P2>(dwflags: P0, lpdevicename: P1, lptargetpath: P2) -> super::super::Foundation::BOOL
+pub unsafe fn DefineDosDeviceA<'a, P0, P1>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P0, lptargetpath: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<DEFINE_DOS_DEVICE_FLAGS>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DefineDosDeviceA(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: ::windows::core::PCSTR, lptargetpath: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DefineDosDeviceA(dwflags.into(), lpdevicename.into(), lptargetpath.into()))
+    ::core::mem::transmute(DefineDosDeviceA(::core::mem::transmute(dwflags), lpdevicename.into(), lptargetpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefineDosDeviceW<'a, P0, P1, P2>(dwflags: P0, lpdevicename: P1, lptargetpath: P2) -> super::super::Foundation::BOOL
+pub unsafe fn DefineDosDeviceW<'a, P0, P1>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P0, lptargetpath: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<DEFINE_DOS_DEVICE_FLAGS>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DefineDosDeviceW(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: ::windows::core::PCWSTR, lptargetpath: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DefineDosDeviceW(dwflags.into(), lpdevicename.into(), lptargetpath.into()))
+    ::core::mem::transmute(DefineDosDeviceW(::core::mem::transmute(dwflags), lpdevicename.into(), lptargetpath.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3996,17 +3962,16 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EraseTape<'a, P0, P1, P2>(hdevice: P0, dwerasetype: P1, bimmediate: P2) -> u32
+pub unsafe fn EraseTape<'a, P0, P1>(hdevice: P0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<ERASE_TAPE_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EraseTape(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(EraseTape(hdevice.into(), dwerasetype.into(), bimmediate.into()))
+    ::core::mem::transmute(EraseTape(hdevice.into(), ::core::mem::transmute(dwerasetype), bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6204,33 +6169,31 @@ unsafe impl ::windows::core::Abi for FindFileNameHandle {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstChangeNotificationA<'a, P0, P1, P2>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: P2) -> ::windows::core::Result<FindChangeNotificationHandle>
+pub unsafe fn FindFirstChangeNotificationA<'a, P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> ::windows::core::Result<FindChangeNotificationHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<FILE_NOTIFY_CHANGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstChangeNotificationA(lppathname: ::windows::core::PCSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
     }
-    let result__ = FindFirstChangeNotificationA(lppathname.into(), bwatchsubtree.into(), dwnotifyfilter.into());
+    let result__ = FindFirstChangeNotificationA(lppathname.into(), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstChangeNotificationW<'a, P0, P1, P2>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: P2) -> ::windows::core::Result<FindChangeNotificationHandle>
+pub unsafe fn FindFirstChangeNotificationW<'a, P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> ::windows::core::Result<FindChangeNotificationHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<FILE_NOTIFY_CHANGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstChangeNotificationW(lppathname: ::windows::core::PCWSTR, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle;
     }
-    let result__ = FindFirstChangeNotificationW(lppathname.into(), bwatchsubtree.into(), dwnotifyfilter.into());
+    let result__ = FindFirstChangeNotificationW(lppathname.into(), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6249,49 +6212,41 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstFileExA<'a, P0, P1, P2, P3>(lpfilename: P0, finfolevelid: P1, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: P2, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: P3) -> ::windows::core::Result<FindFileHandle>
+pub unsafe fn FindFirstFileExA<'a, P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> ::windows::core::Result<FindFileHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<FINDEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<FINDEX_SEARCH_OPS>,
-    P3: ::std::convert::Into<FIND_FIRST_EX_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstFileExA(lpfilename: ::windows::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
     }
-    let result__ = FindFirstFileExA(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfindfiledata), fsearchop.into(), ::core::mem::transmute(lpsearchfilter), dwadditionalflags.into());
+    let result__ = FindFirstFileExA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileExFromAppW<'a, P0, P1, P2>(lpfilename: P0, finfolevelid: P1, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: P2, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE
+pub unsafe fn FindFirstFileExFromAppW<'a, P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FINDEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<FINDEX_SEARCH_OPS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstFileExFromAppW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(FindFirstFileExFromAppW(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfindfiledata), fsearchop.into(), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags)))
+    ::core::mem::transmute(FindFirstFileExFromAppW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstFileExW<'a, P0, P1, P2, P3>(lpfilename: P0, finfolevelid: P1, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: P2, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: P3) -> ::windows::core::Result<FindFileHandle>
+pub unsafe fn FindFirstFileExW<'a, P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> ::windows::core::Result<FindFileHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FINDEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<FINDEX_SEARCH_OPS>,
-    P3: ::std::convert::Into<FIND_FIRST_EX_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstFileExW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle;
     }
-    let result__ = FindFirstFileExW(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfindfiledata), fsearchop.into(), ::core::mem::transmute(lpsearchfilter), dwadditionalflags.into());
+    let result__ = FindFirstFileExW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6325,35 +6280,31 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedA<'a, P0, P1, P2, P3>(lpfilename: P0, finfolevelid: P1, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: P2, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: P3) -> ::windows::core::Result<FindFileHandle>
+pub unsafe fn FindFirstFileTransactedA<'a, P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: P1) -> ::windows::core::Result<FindFileHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<FINDEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<FINDEX_SEARCH_OPS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstFileTransactedA(lpfilename: ::windows::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
     }
-    let result__ = FindFirstFileTransactedA(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfindfiledata), fsearchop.into(), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into());
+    let result__ = FindFirstFileTransactedA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstFileTransactedW<'a, P0, P1, P2, P3>(lpfilename: P0, finfolevelid: P1, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: P2, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: P3) -> ::windows::core::Result<FindFileHandle>
+pub unsafe fn FindFirstFileTransactedW<'a, P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: P1) -> ::windows::core::Result<FindFileHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FINDEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<FINDEX_SEARCH_OPS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstFileTransactedW(lpfilename: ::windows::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindFileHandle;
     }
-    let result__ = FindFirstFileTransactedW(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfindfiledata), fsearchop.into(), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into());
+    let result__ = FindFirstFileTransactedW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfindfiledata), ::core::mem::transmute(fsearchop), ::core::mem::transmute(lpsearchfilter), ::core::mem::transmute(dwadditionalflags), htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -6373,31 +6324,29 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstStreamTransactedW<'a, P0, P1, P2>(lpfilename: P0, infolevel: P1, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: P2) -> ::windows::core::Result<FindStreamHandle>
+pub unsafe fn FindFirstStreamTransactedW<'a, P0, P1>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: P1) -> ::windows::core::Result<FindStreamHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<STREAM_INFO_LEVELS>,
-    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstStreamTransactedW(lpfilename: ::windows::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> FindStreamHandle;
     }
-    let result__ = FindFirstStreamTransactedW(lpfilename.into(), infolevel.into(), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags), htransaction.into());
+    let result__ = FindFirstStreamTransactedW(lpfilename.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags), htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn FindFirstStreamW<'a, P0, P1>(lpfilename: P0, infolevel: P1, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<FindStreamHandle>
+pub unsafe fn FindFirstStreamW<'a, P0>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<FindStreamHandle>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<STREAM_INFO_LEVELS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FindFirstStreamW(lpfilename: ::windows::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle;
     }
-    let result__ = FindFirstStreamW(lpfilename.into(), infolevel.into(), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags));
+    let result__ = FindFirstStreamW(lpfilename.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(lpfindstreamdata), ::core::mem::transmute(dwflags));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -7128,74 +7077,69 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExA<'a, P0, P1>(lpfilename: P0, finfolevelid: P1, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileAttributesExA<'a, P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<GET_FILEEX_INFO_LEVELS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileAttributesExA(lpfilename: ::windows::core::PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesExA(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfileinformation)))
+    ::core::mem::transmute(GetFileAttributesExA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExFromAppW<'a, P0, P1>(lpfilename: P0, finfolevelid: P1, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileAttributesExFromAppW<'a, P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<GET_FILEEX_INFO_LEVELS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileAttributesExFromAppW(lpfilename: ::windows::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesExFromAppW(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfileinformation)))
+    ::core::mem::transmute(GetFileAttributesExFromAppW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesExW<'a, P0, P1>(lpfilename: P0, finfolevelid: P1, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileAttributesExW<'a, P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<GET_FILEEX_INFO_LEVELS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileAttributesExW(lpfilename: ::windows::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesExW(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfileinformation)))
+    ::core::mem::transmute(GetFileAttributesExW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesTransactedA<'a, P0, P1, P2>(lpfilename: P0, finfolevelid: P1, lpfileinformation: *mut ::core::ffi::c_void, htransaction: P2) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileAttributesTransactedA<'a, P0, P1>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<GET_FILEEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileAttributesTransactedA(lpfilename: ::windows::core::PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesTransactedA(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfileinformation), htransaction.into()))
+    ::core::mem::transmute(GetFileAttributesTransactedA(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileAttributesTransactedW<'a, P0, P1, P2>(lpfilename: P0, finfolevelid: P1, lpfileinformation: *mut ::core::ffi::c_void, htransaction: P2) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileAttributesTransactedW<'a, P0, P1>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<GET_FILEEX_INFO_LEVELS>,
-    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileAttributesTransactedW(lpfilename: ::windows::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileAttributesTransactedW(lpfilename.into(), finfolevelid.into(), ::core::mem::transmute(lpfileinformation), htransaction.into()))
+    ::core::mem::transmute(GetFileAttributesTransactedW(lpfilename.into(), ::core::mem::transmute(finfolevelid), ::core::mem::transmute(lpfileinformation), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7238,16 +7182,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileInformationByHandleEx<'a, P0, P1>(hfile: P0, fileinformationclass: P1, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileInformationByHandleEx<'a, P0>(hfile: P0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FILE_INFO_BY_HANDLE_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileInformationByHandleEx(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileInformationByHandleEx(hfile.into(), fileinformationclass.into(), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(GetFileInformationByHandleEx(hfile.into(), ::core::mem::transmute(fileinformationclass), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7317,30 +7260,28 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoExA<'a, P0, P1>(dwflags: P0, lpwstrfilename: P1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileVersionInfoExA<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<GET_FILE_VERSION_INFO_FLAGS>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileVersionInfoExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileVersionInfoExA(dwflags.into(), lpwstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetFileVersionInfoExA(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileVersionInfoExW<'a, P0, P1>(dwflags: P0, lpwstrfilename: P1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn GetFileVersionInfoExW<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<GET_FILE_VERSION_INFO_FLAGS>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileVersionInfoExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetFileVersionInfoExW(dwflags.into(), lpwstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
+    ::core::mem::transmute(GetFileVersionInfoExW(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(dwhandle), ::core::mem::transmute(dwlen), ::core::mem::transmute(lpdata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7356,29 +7297,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeExA<'a, P0, P1>(dwflags: P0, lpwstrfilename: P1, lpdwhandle: *mut u32) -> u32
+pub unsafe fn GetFileVersionInfoSizeExA<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, lpdwhandle: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<GET_FILE_VERSION_INFO_FLAGS>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileVersionInfoSizeExA(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCSTR, lpdwhandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetFileVersionInfoSizeExA(dwflags.into(), lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
+    ::core::mem::transmute(GetFileVersionInfoSizeExA(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn GetFileVersionInfoSizeExW<'a, P0, P1>(dwflags: P0, lpwstrfilename: P1, lpdwhandle: *mut u32) -> u32
+pub unsafe fn GetFileVersionInfoSizeExW<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, lpdwhandle: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<GET_FILE_VERSION_INFO_FLAGS>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFileVersionInfoSizeExW(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: ::windows::core::PCWSTR, lpdwhandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetFileVersionInfoSizeExW(dwflags.into(), lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
+    ::core::mem::transmute(GetFileVersionInfoSizeExW(::core::mem::transmute(dwflags), lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7408,30 +7347,28 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleA<'a, P0, P1>(hfile: P0, lpszfilepath: &mut [u8], dwflags: P1) -> u32
+pub unsafe fn GetFinalPathNameByHandleA<'a, P0>(hfile: P0, lpszfilepath: &mut [u8], dwflags: FILE_NAME) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FILE_NAME>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFinalPathNameByHandleA(hfile: super::super::Foundation::HANDLE, lpszfilepath: ::windows::core::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
     }
-    ::core::mem::transmute(GetFinalPathNameByHandleA(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, dwflags.into()))
+    ::core::mem::transmute(GetFinalPathNameByHandleA(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFinalPathNameByHandleW<'a, P0, P1>(hfile: P0, lpszfilepath: &mut [u16], dwflags: P1) -> u32
+pub unsafe fn GetFinalPathNameByHandleW<'a, P0>(hfile: P0, lpszfilepath: &mut [u16], dwflags: FILE_NAME) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FILE_NAME>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFinalPathNameByHandleW(hfile: super::super::Foundation::HANDLE, lpszfilepath: ::windows::core::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32;
     }
-    ::core::mem::transmute(GetFinalPathNameByHandleW(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, dwflags.into()))
+    ::core::mem::transmute(GetFinalPathNameByHandleW(hfile.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilepath)), lpszfilepath.len() as _, ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -7525,16 +7462,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogIoStatistics<'a, P0, P1>(hlog: P0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: P1, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetLogIoStatistics<'a, P0>(hlog: P0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CLFS_IOSTATS_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetLogIoStatistics(hlog: super::super::Foundation::HANDLE, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLogIoStatistics(hlog.into(), ::core::mem::transmute(pvstatsbuffer), ::core::mem::transmute(cbstatsbuffer), estatsclass.into(), ::core::mem::transmute(pcbstatswritten)))
+    ::core::mem::transmute(GetLogIoStatistics(hlog.into(), ::core::mem::transmute(pvstatsbuffer), ::core::mem::transmute(cbstatsbuffer), ::core::mem::transmute(estatsclass), ::core::mem::transmute(pcbstatswritten)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7688,30 +7624,28 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTapeParameters<'a, P0, P1>(hdevice: P0, dwoperation: P1, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn GetTapeParameters<'a, P0>(hdevice: P0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<GET_TAPE_DRIVE_PARAMETERS_OPERATION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetTapeParameters(hdevice.into(), dwoperation.into(), ::core::mem::transmute(lpdwsize), ::core::mem::transmute(lptapeinformation)))
+    ::core::mem::transmute(GetTapeParameters(hdevice.into(), ::core::mem::transmute(dwoperation), ::core::mem::transmute(lpdwsize), ::core::mem::transmute(lptapeinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTapePosition<'a, P0, P1>(hdevice: P0, dwpositiontype: P1, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32
+pub unsafe fn GetTapePosition<'a, P0>(hdevice: P0, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<TAPE_POSITION_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetTapePosition(hdevice.into(), dwpositiontype.into(), ::core::mem::transmute(lpdwpartition), ::core::mem::transmute(lpdwoffsetlow), ::core::mem::transmute(lpdwoffsethigh)))
+    ::core::mem::transmute(GetTapePosition(hdevice.into(), ::core::mem::transmute(dwpositiontype), ::core::mem::transmute(lpdwpartition), ::core::mem::transmute(lpdwoffsetlow), ::core::mem::transmute(lpdwoffsethigh)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8062,22 +7996,20 @@ impl IDiskQuotaControl {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddUserSid<'a, P0, P1>(&self, pusersid: P0, fnameresolution: P1) -> ::windows::core::Result<IDiskQuotaUser>
+    pub unsafe fn AddUserSid<'a, P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
-        P1: ::std::convert::Into<DISKQUOTA_USERNAME_RESOLVE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), fnameresolution.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
+        (::windows::core::Interface::vtable(self).AddUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-    pub unsafe fn AddUserName<'a, P0, P1>(&self, pszlogonname: P0, fnameresolution: P1) -> ::windows::core::Result<IDiskQuotaUser>
+    pub unsafe fn AddUserName<'a, P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<DISKQUOTA_USERNAME_RESOLVE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), fnameresolution.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
+        (::windows::core::Interface::vtable(self).AddUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn DeleteUser<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
@@ -8088,13 +8020,12 @@ impl IDiskQuotaControl {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindUserSid<'a, P0, P1>(&self, pusersid: P0, fnameresolution: P1) -> ::windows::core::Result<IDiskQuotaUser>
+    pub unsafe fn FindUserSid<'a, P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
-        P1: ::std::convert::Into<DISKQUOTA_USERNAME_RESOLVE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), fnameresolution.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
+        (::windows::core::Interface::vtable(self).FindUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn FindUserName<'a, P0>(&self, pszlogonname: P0) -> ::windows::core::Result<IDiskQuotaUser>
@@ -8106,11 +8037,8 @@ impl IDiskQuotaControl {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateEnumUsers<'a, P0>(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: P0, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DISKQUOTA_USERNAME_RESOLVE>,
-    {
-        (::windows::core::Interface::vtable(self).CreateEnumUsers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), fnameresolution.into(), ::core::mem::transmute(ppenum)).ok()
+    pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEnumUsers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(ppenum)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch> {
@@ -9149,15 +9077,12 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsIoRingOpSupported<'a, P0>(ioring: *const HIORING__, op: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<IORING_OP_CODE>,
-{
+pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsIoRingOpSupported(::core::mem::transmute(ioring), op.into()))
+    ::core::mem::transmute(IsIoRingOpSupported(::core::mem::transmute(ioring), ::core::mem::transmute(op)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -9533,30 +9458,28 @@ impl ::core::ops::Not for LZOPENFILE_STYLE {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LZOpenFileA<'a, P0, P1>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: P1) -> i32
+pub unsafe fn LZOpenFileA<'a, P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<LZOPENFILE_STYLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LZOpenFileA(lpfilename: ::windows::core::PCSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
     }
-    ::core::mem::transmute(LZOpenFileA(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), wstyle.into()))
+    ::core::mem::transmute(LZOpenFileA(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), ::core::mem::transmute(wstyle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LZOpenFileW<'a, P0, P1>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: P1) -> i32
+pub unsafe fn LZOpenFileW<'a, P0>(lpfilename: P0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<LZOPENFILE_STYLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LZOpenFileW(lpfilename: ::windows::core::PCWSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
     }
-    ::core::mem::transmute(LZOpenFileW(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), wstyle.into()))
+    ::core::mem::transmute(LZOpenFileW(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), ::core::mem::transmute(wstyle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -9611,16 +9534,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn LockFileEx<'a, P0, P1>(hfile: P0, dwflags: P1, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
+pub unsafe fn LockFileEx<'a, P0>(hfile: P0, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<LOCK_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LockFileEx(hfile: super::super::Foundation::HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(LockFileEx(hfile.into(), dwflags.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(nnumberofbytestolocklow), ::core::mem::transmute(nnumberofbytestolockhigh), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(LockFileEx(hfile.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(nnumberofbytestolocklow), ::core::mem::transmute(nnumberofbytestolockhigh), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9853,32 +9775,30 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileExA<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn MoveFileExA<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<MOVE_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MoveFileExA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileExA(lpexistingfilename.into(), lpnewfilename.into(), dwflags.into()))
+    ::core::mem::transmute(MoveFileExA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileExW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn MoveFileExW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<MOVE_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MoveFileExW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileExW(lpexistingfilename.into(), lpnewfilename.into(), dwflags.into()))
+    ::core::mem::transmute(MoveFileExW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9897,34 +9817,32 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileTransactedA<'a, P0, P1, P2, P3>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: P2, htransaction: P3) -> super::super::Foundation::BOOL
+pub unsafe fn MoveFileTransactedA<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<MOVE_FILE_FLAGS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MoveFileTransactedA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags.into(), htransaction.into()))
+    ::core::mem::transmute(MoveFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileTransactedW<'a, P0, P1, P2, P3>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: P2, htransaction: P3) -> super::super::Foundation::BOOL
+pub unsafe fn MoveFileTransactedW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: P2) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<MOVE_FILE_FLAGS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MoveFileTransactedW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags.into(), htransaction.into()))
+    ::core::mem::transmute(MoveFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags), htransaction.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9943,32 +9861,30 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileWithProgressA<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn MoveFileWithProgressA<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<MOVE_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MoveFileWithProgressA(lpexistingfilename: ::windows::core::PCSTR, lpnewfilename: ::windows::core::PCSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags.into()))
+    ::core::mem::transmute(MoveFileWithProgressA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MoveFileWithProgressW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn MoveFileWithProgressW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<MOVE_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MoveFileWithProgressW(lpexistingfilename: ::windows::core::PCWSTR, lpnewfilename: ::windows::core::PCWSTR, lpprogressroutine: *mut ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags.into()))
+    ::core::mem::transmute(MoveFileWithProgressW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwflags)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -12557,16 +12473,12 @@ pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level:
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn NtCreateFile<'a, P0, P1>(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: P0, createdisposition: P1, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<FILE_SHARE_MODE>,
-    P1: ::std::convert::Into<NT_CREATE_FILE_DISPOSITION>,
-{
+pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtCreateFile(::core::mem::transmute(filehandle), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), ::core::mem::transmute(allocationsize), ::core::mem::transmute(fileattributes), shareaccess.into(), createdisposition.into(), ::core::mem::transmute(createoptions), ::core::mem::transmute(eabuffer), ::core::mem::transmute(ealength)).ok()
+    NtCreateFile(::core::mem::transmute(filehandle), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), ::core::mem::transmute(allocationsize), ::core::mem::transmute(fileattributes), ::core::mem::transmute(shareaccess), ::core::mem::transmute(createdisposition), ::core::mem::transmute(createoptions), ::core::mem::transmute(eabuffer), ::core::mem::transmute(ealength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
@@ -14005,32 +13917,28 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenFile<'a, P0, P1>(lpfilename: P0, lpreopenbuff: *mut OFSTRUCT, ustyle: P1) -> i32
+pub unsafe fn OpenFile<'a, P0>(lpfilename: P0, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<LZOPENFILE_STYLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenFile(lpfilename: ::windows::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32;
     }
-    ::core::mem::transmute(OpenFile(lpfilename.into(), ::core::mem::transmute(lpreopenbuff), ustyle.into()))
+    ::core::mem::transmute(OpenFile(lpfilename.into(), ::core::mem::transmute(lpreopenbuff), ::core::mem::transmute(ustyle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn OpenFileById<'a, P0, P1, P2, P3>(hvolumehint: P0, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: P1, dwsharemode: P2, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: P3) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn OpenFileById<'a, P0>(hvolumehint: P0, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FILE_ACCESS_FLAGS>,
-    P2: ::std::convert::Into<FILE_SHARE_MODE>,
-    P3: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenFileById(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenFileById(hvolumehint.into(), ::core::mem::transmute(lpfileid), dwdesiredaccess.into(), dwsharemode.into(), ::core::mem::transmute(lpsecurityattributes), dwflagsandattributes.into());
+    let result__ = OpenFileById(hvolumehint.into(), ::core::mem::transmute(lpfileid), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwflagsandattributes));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -14285,17 +14193,16 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrepareTape<'a, P0, P1, P2>(hdevice: P0, dwoperation: P1, bimmediate: P2) -> u32
+pub unsafe fn PrepareTape<'a, P0, P1>(hdevice: P0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<PREPARE_TAPE_OPERATION>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PrepareTape(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PrepareTape(hdevice.into(), dwoperation.into(), bimmediate.into()))
+    ::core::mem::transmute(PrepareTape(hdevice.into(), ::core::mem::transmute(dwoperation), bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -14334,16 +14241,15 @@ pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABI
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryLogPolicy<'a, P0, P1>(hlog: P0, epolicytype: P1, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QueryLogPolicy<'a, P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CLFS_MGMT_POLICY_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryLogPolicy(hlog.into(), epolicytype.into(), ::core::mem::transmute(ppolicybuffer), ::core::mem::transmute(pcbpolicybuffer)))
+    ::core::mem::transmute(QueryLogPolicy(hlog.into(), ::core::mem::transmute(epolicytype), ::core::mem::transmute(ppolicybuffer), ::core::mem::transmute(pcbpolicybuffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -14530,50 +14436,44 @@ pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReOpenFile<'a, P0, P1, P2, P3>(horiginalfile: P0, dwdesiredaccess: P1, dwsharemode: P2, dwflagsandattributes: P3) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn ReOpenFile<'a, P0>(horiginalfile: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FILE_ACCESS_FLAGS>,
-    P2: ::std::convert::Into<FILE_SHARE_MODE>,
-    P3: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReOpenFile(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = ReOpenFile(horiginalfile.into(), dwdesiredaccess.into(), dwsharemode.into(), dwflagsandattributes.into());
+    let result__ = ReOpenFile(horiginalfile.into(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwflagsandattributes));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadDirectoryChangesExW<'a, P0, P1, P2, P3>(hdirectory: P0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: P2, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: P3) -> super::super::Foundation::BOOL
+pub unsafe fn ReadDirectoryChangesExW<'a, P0, P1>(hdirectory: P0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<FILE_NOTIFY_CHANGE>,
-    P3: ::std::convert::Into<READ_DIRECTORY_NOTIFY_INFORMATION_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadDirectoryChangesExW(hdirectory.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into(), dwnotifyfilter.into(), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), readdirectorynotifyinformationclass.into()))
+    ::core::mem::transmute(ReadDirectoryChangesExW(hdirectory.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(readdirectorynotifyinformationclass)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadDirectoryChangesW<'a, P0, P1, P2>(hdirectory: P0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: P2, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
+pub unsafe fn ReadDirectoryChangesW<'a, P0, P1>(hdirectory: P0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<FILE_NOTIFY_CHANGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadDirectoryChangesW(hdirectory.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into(), dwnotifyfilter.into(), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
+    ::core::mem::transmute(ReadDirectoryChangesW(hdirectory.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -14649,15 +14549,12 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadLogRecord<'a, P0>(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: P0, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<CLFS_CONTEXT_MODE>,
-{
+pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReadLogRecord(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnfirst), econtextmode.into(), ::core::mem::transmute(ppvreadbuffer), ::core::mem::transmute(pcbreadbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(ppvreadcontext), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(ReadLogRecord(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnfirst), ::core::mem::transmute(econtextmode), ::core::mem::transmute(ppvreadbuffer), ::core::mem::transmute(pcbreadbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(ppvreadcontext), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -14867,16 +14764,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveLogPolicy<'a, P0, P1>(hlog: P0, epolicytype: P1) -> super::super::Foundation::BOOL
+pub unsafe fn RemoveLogPolicy<'a, P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CLFS_MGMT_POLICY_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RemoveLogPolicy(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RemoveLogPolicy(hlog.into(), epolicytype.into()))
+    ::core::mem::transmute(RemoveLogPolicy(hlog.into(), ::core::mem::transmute(epolicytype)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -14907,18 +14803,17 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileA<'a, P0, P1, P2, P3>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: P3, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn ReplaceFileA<'a, P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<REPLACE_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReplaceFileA(lpreplacedfilename: ::windows::core::PCSTR, lpreplacementfilename: ::windows::core::PCSTR, lpbackupfilename: ::windows::core::PCSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplaceFileA(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags.into(), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
+    ::core::mem::transmute(ReplaceFileA(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14938,44 +14833,37 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReplaceFileW<'a, P0, P1, P2, P3>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: P3, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn ReplaceFileW<'a, P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<REPLACE_FILE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReplaceFileW(lpreplacedfilename: ::windows::core::PCWSTR, lpreplacementfilename: ::windows::core::PCWSTR, lpbackupfilename: ::windows::core::PCWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReplaceFileW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags.into(), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
+    ::core::mem::transmute(ReplaceFileW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), ::core::mem::transmute(dwreplaceflags), ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReserveAndAppendLog<'a, P0>(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: P0, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<CLFS_FLAG>,
-{
+pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReserveAndAppendLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), fflags.into(), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(ReserveAndAppendLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(fflags), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReserveAndAppendLogAligned<'a, P0>(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: P0, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<CLFS_FLAG>,
-{
+pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReserveAndAppendLogAligned(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(cbentryalignment), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), fflags.into(), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(ReserveAndAppendLogAligned(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(cbentryalignment), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(fflags), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16410,16 +16298,15 @@ pub unsafe fn SetFileApisToOEM() {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesA<'a, P0, P1>(lpfilename: P0, dwfileattributes: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetFileAttributesA<'a, P0>(lpfilename: P0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFileAttributesA(lpfilename: ::windows::core::PCSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesA(lpfilename.into(), dwfileattributes.into()))
+    ::core::mem::transmute(SetFileAttributesA(lpfilename.into(), ::core::mem::transmute(dwfileattributes)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16465,16 +16352,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileAttributesW<'a, P0, P1>(lpfilename: P0, dwfileattributes: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetFileAttributesW<'a, P0>(lpfilename: P0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FILE_FLAGS_AND_ATTRIBUTES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFileAttributesW(lpfilename: ::windows::core::PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileAttributesW(lpfilename.into(), dwfileattributes.into()))
+    ::core::mem::transmute(SetFileAttributesW(lpfilename.into(), ::core::mem::transmute(dwfileattributes)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16506,16 +16392,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFileInformationByHandle<'a, P0, P1>(hfile: P0, fileinformationclass: P1, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetFileInformationByHandle<'a, P0>(hfile: P0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FILE_INFO_BY_HANDLE_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFileInformationByHandle(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFileInformationByHandle(hfile.into(), fileinformationclass.into(), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
+    ::core::mem::transmute(SetFileInformationByHandle(hfile.into(), ::core::mem::transmute(fileinformationclass), ::core::mem::transmute(lpfileinformation), ::core::mem::transmute(dwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16533,30 +16418,28 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFilePointer<'a, P0, P1>(hfile: P0, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: P1) -> u32
+pub unsafe fn SetFilePointer<'a, P0>(hfile: P0, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<SET_FILE_POINTER_MOVE_METHOD>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFilePointer(hfile: super::super::Foundation::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32;
     }
-    ::core::mem::transmute(SetFilePointer(hfile.into(), ::core::mem::transmute(ldistancetomove), ::core::mem::transmute(lpdistancetomovehigh), dwmovemethod.into()))
+    ::core::mem::transmute(SetFilePointer(hfile.into(), ::core::mem::transmute(ldistancetomove), ::core::mem::transmute(lpdistancetomovehigh), ::core::mem::transmute(dwmovemethod)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFilePointerEx<'a, P0, P1>(hfile: P0, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetFilePointerEx<'a, P0>(hfile: P0, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<SET_FILE_POINTER_MOVE_METHOD>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFilePointerEx(hfile: super::super::Foundation::HANDLE, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetFilePointerEx(hfile.into(), ::core::mem::transmute(lidistancetomove), ::core::mem::transmute(lpnewfilepointer), dwmovemethod.into()))
+    ::core::mem::transmute(SetFilePointerEx(hfile.into(), ::core::mem::transmute(lidistancetomove), ::core::mem::transmute(lpnewfilepointer), ::core::mem::transmute(dwmovemethod)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16628,16 +16511,15 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetLogArchiveMode<'a, P0, P1>(hlog: P0, emode: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetLogArchiveMode<'a, P0>(hlog: P0, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CLFS_LOG_ARCHIVE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLogArchiveMode(hlog: super::super::Foundation::HANDLE, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetLogArchiveMode(hlog.into(), emode.into()))
+    ::core::mem::transmute(SetLogArchiveMode(hlog.into(), ::core::mem::transmute(emode)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16692,31 +16574,29 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTapeParameters<'a, P0, P1>(hdevice: P0, dwoperation: P1, lptapeinformation: *const ::core::ffi::c_void) -> u32
+pub unsafe fn SetTapeParameters<'a, P0>(hdevice: P0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<TAPE_INFORMATION_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetTapeParameters(hdevice: super::super::Foundation::HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(SetTapeParameters(hdevice.into(), dwoperation.into(), ::core::mem::transmute(lptapeinformation)))
+    ::core::mem::transmute(SetTapeParameters(hdevice.into(), ::core::mem::transmute(dwoperation), ::core::mem::transmute(lptapeinformation)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTapePosition<'a, P0, P1, P2>(hdevice: P0, dwpositionmethod: P1, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: P2) -> u32
+pub unsafe fn SetTapePosition<'a, P0, P1>(hdevice: P0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<TAPE_POSITION_METHOD>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetTapePosition(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(SetTapePosition(hdevice.into(), dwpositionmethod.into(), ::core::mem::transmute(dwpartition), ::core::mem::transmute(dwoffsetlow), ::core::mem::transmute(dwoffsethigh), bimmediate.into()))
+    ::core::mem::transmute(SetTapePosition(hdevice.into(), ::core::mem::transmute(dwpositionmethod), ::core::mem::transmute(dwpartition), ::core::mem::transmute(dwoffsetlow), ::core::mem::transmute(dwoffsethigh), bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18840,67 +18720,63 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn VerFindFileA<'a, P0, P1, P2, P3>(uflags: P0, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: ::windows::core::PSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
+pub unsafe fn VerFindFileA<'a, P0, P1, P2>(uflags: VER_FIND_FILE_FLAGS, szfilename: P0, szwindir: P1, szappdir: P2, szcurdir: ::windows::core::PSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
 where
-    P0: ::std::convert::Into<VER_FIND_FILE_FLAGS>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerFindFileA(uflags: VER_FIND_FILE_FLAGS, szfilename: ::windows::core::PCSTR, szwindir: ::windows::core::PCSTR, szappdir: ::windows::core::PCSTR, szcurdir: ::windows::core::PSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
     }
-    ::core::mem::transmute(VerFindFileA(uflags.into(), szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
+    ::core::mem::transmute(VerFindFileA(::core::mem::transmute(uflags), szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn VerFindFileW<'a, P0, P1, P2, P3>(uflags: P0, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: ::windows::core::PWSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
+pub unsafe fn VerFindFileW<'a, P0, P1, P2>(uflags: VER_FIND_FILE_FLAGS, szfilename: P0, szwindir: P1, szappdir: P2, szcurdir: ::windows::core::PWSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS
 where
-    P0: ::std::convert::Into<VER_FIND_FILE_FLAGS>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerFindFileW(uflags: VER_FIND_FILE_FLAGS, szfilename: ::windows::core::PCWSTR, szwindir: ::windows::core::PCWSTR, szappdir: ::windows::core::PCWSTR, szcurdir: ::windows::core::PWSTR, pucurdirlen: *mut u32, szdestdir: ::windows::core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
     }
-    ::core::mem::transmute(VerFindFileW(uflags.into(), szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
+    ::core::mem::transmute(VerFindFileW(::core::mem::transmute(uflags), szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn VerInstallFileA<'a, P0, P1, P2, P3, P4, P5>(uflags: P0, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: ::windows::core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
+pub unsafe fn VerInstallFileA<'a, P0, P1, P2, P3, P4>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P0, szdestfilename: P1, szsrcdir: P2, szdestdir: P3, szcurdir: P4, sztmpfile: ::windows::core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
 where
-    P0: ::std::convert::Into<VER_INSTALL_FILE_FLAGS>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
     P3: ::std::convert::Into<::windows::core::PCSTR>,
     P4: ::std::convert::Into<::windows::core::PCSTR>,
-    P5: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerInstallFileA(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: ::windows::core::PCSTR, szdestfilename: ::windows::core::PCSTR, szsrcdir: ::windows::core::PCSTR, szdestdir: ::windows::core::PCSTR, szcurdir: ::windows::core::PCSTR, sztmpfile: ::windows::core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
     }
-    ::core::mem::transmute(VerInstallFileA(uflags.into(), szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
+    ::core::mem::transmute(VerInstallFileA(::core::mem::transmute(uflags), szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
-pub unsafe fn VerInstallFileW<'a, P0, P1, P2, P3, P4, P5>(uflags: P0, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: ::windows::core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
+pub unsafe fn VerInstallFileW<'a, P0, P1, P2, P3, P4>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P0, szdestfilename: P1, szsrcdir: P2, szdestdir: P3, szcurdir: P4, sztmpfile: ::windows::core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS
 where
-    P0: ::std::convert::Into<VER_INSTALL_FILE_FLAGS>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
     P4: ::std::convert::Into<::windows::core::PCWSTR>,
-    P5: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerInstallFileW(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: ::windows::core::PCWSTR, szdestfilename: ::windows::core::PCWSTR, szsrcdir: ::windows::core::PCWSTR, szdestdir: ::windows::core::PCWSTR, szcurdir: ::windows::core::PCWSTR, sztmpfile: ::windows::core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
     }
-    ::core::mem::transmute(VerInstallFileW(uflags.into(), szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
+    ::core::mem::transmute(VerInstallFileW(::core::mem::transmute(uflags), szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
@@ -19595,30 +19471,26 @@ where
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WriteLogRestartArea<'a, P0>(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: P0, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<CLFS_FLAG>,
-{
+pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WriteLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pvrestartbuffer), ::core::mem::transmute(cbrestartbuffer), ::core::mem::transmute(plsnbase), fflags.into(), ::core::mem::transmute(pcbwritten), ::core::mem::transmute(plsnnext), ::core::mem::transmute(poverlapped)))
+    ::core::mem::transmute(WriteLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pvrestartbuffer), ::core::mem::transmute(cbrestartbuffer), ::core::mem::transmute(plsnbase), ::core::mem::transmute(fflags), ::core::mem::transmute(pcbwritten), ::core::mem::transmute(plsnnext), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WriteTapemark<'a, P0, P1, P2>(hdevice: P0, dwtapemarktype: P1, dwtapemarkcount: u32, bimmediate: P2) -> u32
+pub unsafe fn WriteTapemark<'a, P0, P1>(hdevice: P0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: P1) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<TAPEMARK_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WriteTapemark(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(WriteTapemark(hdevice.into(), dwtapemarktype.into(), ::core::mem::transmute(dwtapemarkcount), bimmediate.into()))
+    ::core::mem::transmute(WriteTapemark(hdevice.into(), ::core::mem::transmute(dwtapemarktype), ::core::mem::transmute(dwtapemarkcount), bimmediate.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

@@ -599,16 +599,15 @@ pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofileli
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmQueryProperty<'a, P0, P1>(pinterface: *const ::windows::core::GUID, strprofilename: P0, property: P1, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
+pub unsafe fn WcmQueryProperty<'a, P0>(pinterface: *const ::windows::core::GUID, strprofilename: P0, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<WCM_PROPERTY>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcmQueryProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(WcmQueryProperty(::core::mem::transmute(pinterface), strprofilename.into(), property.into(), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata)))
+    ::core::mem::transmute(WcmQueryProperty(::core::mem::transmute(pinterface), strprofilename.into(), ::core::mem::transmute(property), ::core::mem::transmute(preserved), ::core::mem::transmute(pdwdatasize), ::core::mem::transmute(ppdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -625,16 +624,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectionManager\"`*"]
 #[inline]
-pub unsafe fn WcmSetProperty<'a, P0, P1>(pinterface: *const ::windows::core::GUID, strprofilename: P0, property: P1, preserved: *mut ::core::ffi::c_void, pbdata: &[u8]) -> u32
+pub unsafe fn WcmSetProperty<'a, P0>(pinterface: *const ::windows::core::GUID, strprofilename: P0, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pbdata: &[u8]) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<WCM_PROPERTY>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WcmSetProperty(pinterface: *const ::windows::core::GUID, strprofilename: ::windows::core::PCWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
     }
-    ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), strprofilename.into(), property.into(), ::core::mem::transmute(preserved), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))))
+    ::core::mem::transmute(WcmSetProperty(::core::mem::transmute(pinterface), strprofilename.into(), ::core::mem::transmute(property), ::core::mem::transmute(preserved), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

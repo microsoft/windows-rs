@@ -239,12 +239,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetAuthenticationType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CellularApnAuthenticationType>,
-    {
+    pub fn SetAuthenticationType(&self, value: CellularApnAuthenticationType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -496,14 +493,11 @@ impl ConnectionProfile {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetLocalUsagePerRoamingStates<'a, P0>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: P0) -> ::windows::core::Result<DataUsage>
-    where
-        P0: ::std::convert::Into<RoamingStates>,
-    {
+    pub fn GetLocalUsagePerRoamingStates(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLocalUsagePerRoamingStates)(::windows::core::Interface::as_raw(this), starttime, endtime, states.into(), result__.as_mut_ptr()).from_abi::<DataUsage>(result__)
+            (::windows::core::Interface::vtable(this).GetLocalUsagePerRoamingStates)(::windows::core::Interface::as_raw(this), starttime, endtime, states, result__.as_mut_ptr()).from_abi::<DataUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -574,14 +568,11 @@ impl ConnectionProfile {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNetworkUsageAsync<'a, P0>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: P0, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>
-    where
-        P0: ::std::convert::Into<DataUsageGranularity>,
-    {
+    pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
         let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime, endtime, granularity.into(), states, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>(result__)
+            (::windows::core::Interface::vtable(this).GetNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime, endtime, granularity, states, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
@@ -778,12 +769,9 @@ impl ConnectionProfileFilter {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetNetworkCostType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NetworkCostType>,
-    {
+    pub fn SetNetworkCostType(&self, value: NetworkCostType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNetworkCostType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNetworkCostType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn NetworkCostType(&self) -> ::windows::core::Result<NetworkCostType> {
@@ -2869,15 +2857,14 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSortedEndpointPairs<'a, P0, E0, P1>(destinationlist: P0, sortoptions: P1) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
+    pub fn GetSortedEndpointPairs<'a, P0, E0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::HostNameSortOptions>,
     {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSortedEndpointPairs)(::windows::core::Interface::as_raw(this), destinationlist.try_into().map_err(|e| e.into())?.abi(), sortoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
+            (::windows::core::Interface::vtable(this).GetSortedEndpointPairs)(::windows::core::Interface::as_raw(this), destinationlist.try_into().map_err(|e| e.into())?.abi(), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
@@ -3766,15 +3753,14 @@ impl RoutePolicy {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn CreateRoutePolicy<'a, P0, P1, P2>(connectionprofile: P0, hostname: P1, r#type: P2) -> ::windows::core::Result<RoutePolicy>
+    pub fn CreateRoutePolicy<'a, P0, P1>(connectionprofile: P0, hostname: P1, r#type: super::DomainNameType) -> ::windows::core::Result<RoutePolicy>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfile>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-        P2: ::std::convert::Into<super::DomainNameType>,
     {
         Self::IRoutePolicyFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRoutePolicy)(::windows::core::Interface::as_raw(this), connectionprofile.into().abi(), hostname.into().abi(), r#type.into(), result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)
+            (::windows::core::Interface::vtable(this).CreateRoutePolicy)(::windows::core::Interface::as_raw(this), connectionprofile.into().abi(), hostname.into().abi(), r#type, result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)
         })
     }
     #[doc(hidden)]

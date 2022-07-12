@@ -19,13 +19,12 @@ impl CompositionDebugHeatMaps {
         unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowOverdraw<'a, P0, P1>(&self, subtree: P0, contentkinds: P1) -> ::windows::core::Result<()>
+    pub fn ShowOverdraw<'a, P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
-        P1: ::std::convert::Into<CompositionDebugOverdrawContentKinds>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into().abi(), contentkinds.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into().abi(), contentkinds).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowRedraw<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>

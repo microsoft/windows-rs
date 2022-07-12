@@ -855,12 +855,9 @@ impl LampArrayBlinkEffect {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetRepetitionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LampArrayRepetitionMode>,
-    {
+    pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRepetitionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRepetitionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
     pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayBlinkEffect>
@@ -1030,12 +1027,9 @@ impl LampArrayColorRampEffect {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetCompletionBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LampArrayEffectCompletionBehavior>,
-    {
+    pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompletionBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompletionBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
     pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArrayColorRampEffect>
@@ -1401,12 +1395,9 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetEffectStartMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LampArrayEffectStartMode>,
-    {
+    pub fn SetEffectStartMode(&self, value: LampArrayEffectStartMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEffectStartMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEffectStartMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
     pub fn Occurrences(&self) -> ::windows::core::Result<i32> {
@@ -1430,12 +1421,9 @@ impl LampArrayEffectPlaylist {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetRepetitionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LampArrayRepetitionMode>,
-    {
+    pub fn SetRepetitionMode(&self, value: LampArrayRepetitionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRepetitionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRepetitionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1771,12 +1759,9 @@ impl LampArraySolidEffect {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-    pub fn SetCompletionBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LampArrayEffectCompletionBehavior>,
-    {
+    pub fn SetCompletionBehavior(&self, value: LampArrayEffectCompletionBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompletionBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompletionBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
     pub fn CreateInstance<'a, P0>(lamparray: P0, lampindexes: &[i32]) -> ::windows::core::Result<LampArraySolidEffect>

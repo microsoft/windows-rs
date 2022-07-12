@@ -332,12 +332,9 @@ impl BackgroundDownloader {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetCostPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferCostPolicy>,
-    {
+    pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
     pub fn IBackgroundDownloaderFactory<R, F: FnOnce(&IBackgroundDownloaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -898,12 +895,9 @@ impl BackgroundTransferGroup {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetTransferBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferBehavior>,
-    {
+    pub fn SetTransferBehavior(&self, value: BackgroundTransferBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTransferBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransferBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
     pub fn CreateGroup<'a, P0>(name: P0) -> ::windows::core::Result<BackgroundTransferGroup>
@@ -1295,12 +1289,9 @@ impl BackgroundUploader {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetCostPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferCostPolicy>,
-    {
+    pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -1722,12 +1713,9 @@ impl DownloadOperation {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetCostPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferCostPolicy>,
-    {
+    pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1755,12 +1743,9 @@ impl DownloadOperation {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferPriority>,
-    {
+    pub fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -2257,12 +2242,9 @@ impl IBackgroundTransferBase {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetCostPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferCostPolicy>,
-    {
+    pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::convert::From<IBackgroundTransferBase> for ::windows::core::IUnknown {
@@ -2595,12 +2577,9 @@ impl IBackgroundTransferOperation {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetCostPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferCostPolicy>,
-    {
+    pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -2712,12 +2691,9 @@ impl IBackgroundTransferOperationPriority {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferPriority>,
-    {
+    pub fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::convert::From<IBackgroundTransferOperationPriority> for ::windows::core::IUnknown {
@@ -3460,12 +3436,9 @@ impl UploadOperation {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetCostPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferCostPolicy>,
-    {
+    pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCostPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3493,12 +3466,9 @@ impl UploadOperation {
         }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-    pub fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BackgroundTransferPriority>,
-    {
+    pub fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]

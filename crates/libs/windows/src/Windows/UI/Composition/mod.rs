@@ -369,12 +369,9 @@ impl AnimationController {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetProgressBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationControllerProgressBehavior>,
-    {
+    pub fn SetProgressBehavior(&self, value: AnimationControllerProgressBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProgressBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProgressBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
@@ -847,12 +844,9 @@ impl AnimationPropertyInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetAccessMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationPropertyAccessMode>,
-    {
+    pub fn SetAccessMode(&self, value: AnimationPropertyAccessMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAccessMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAccessMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn GetResolvedCompositionObject(&self) -> ::windows::core::Result<CompositionObject> {
@@ -1733,12 +1727,9 @@ impl BooleanKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -1770,12 +1761,9 @@ impl BooleanKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -1803,12 +1791,9 @@ impl BooleanKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -1819,12 +1804,9 @@ impl BooleanKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for BooleanKeyFrameAnimation {
@@ -2584,12 +2566,9 @@ impl BounceScalarNaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2615,12 +2594,9 @@ impl BounceScalarNaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3157,12 +3133,9 @@ impl BounceVector2NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3188,12 +3161,9 @@ impl BounceVector2NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -3732,12 +3702,9 @@ impl BounceVector3NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3763,12 +3730,9 @@ impl BounceVector3NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -4307,12 +4271,9 @@ impl ColorKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetInterpolationColorSpace<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionColorSpace>,
-    {
+    pub fn SetInterpolationColorSpace(&self, value: CompositionColorSpace) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationColorSpace)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationColorSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::Color) -> ::windows::core::Result<()> {
@@ -4613,12 +4574,9 @@ impl ColorKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -4650,12 +4608,9 @@ impl ColorKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -4683,12 +4638,9 @@ impl ColorKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -4699,12 +4651,9 @@ impl ColorKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ColorKeyFrameAnimation {
@@ -8965,80 +8914,73 @@ impl CompositionEasingFunction {
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateBackEasingFunction<'a, P0, P1>(owner: P0, mode: P1, amplitude: f32) -> ::windows::core::Result<BackEasingFunction>
+    pub fn CreateBackEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode, amplitude: f32) -> ::windows::core::Result<BackEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBackEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), amplitude, result__.as_mut_ptr()).from_abi::<BackEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreateBackEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, amplitude, result__.as_mut_ptr()).from_abi::<BackEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateBounceEasingFunction<'a, P0, P1>(owner: P0, mode: P1, bounces: i32, bounciness: f32) -> ::windows::core::Result<BounceEasingFunction>
+    pub fn CreateBounceEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32) -> ::windows::core::Result<BounceEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBounceEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), bounces, bounciness, result__.as_mut_ptr()).from_abi::<BounceEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreateBounceEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, bounces, bounciness, result__.as_mut_ptr()).from_abi::<BounceEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateCircleEasingFunction<'a, P0, P1>(owner: P0, mode: P1) -> ::windows::core::Result<CircleEasingFunction>
+    pub fn CreateCircleEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<CircleEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCircleEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), result__.as_mut_ptr()).from_abi::<CircleEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreateCircleEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, result__.as_mut_ptr()).from_abi::<CircleEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateElasticEasingFunction<'a, P0, P1>(owner: P0, mode: P1, oscillations: i32, springiness: f32) -> ::windows::core::Result<ElasticEasingFunction>
+    pub fn CreateElasticEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32) -> ::windows::core::Result<ElasticEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateElasticEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), oscillations, springiness, result__.as_mut_ptr()).from_abi::<ElasticEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreateElasticEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, oscillations, springiness, result__.as_mut_ptr()).from_abi::<ElasticEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateExponentialEasingFunction<'a, P0, P1>(owner: P0, mode: P1, exponent: f32) -> ::windows::core::Result<ExponentialEasingFunction>
+    pub fn CreateExponentialEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode, exponent: f32) -> ::windows::core::Result<ExponentialEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateExponentialEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), exponent, result__.as_mut_ptr()).from_abi::<ExponentialEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreateExponentialEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, exponent, result__.as_mut_ptr()).from_abi::<ExponentialEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreatePowerEasingFunction<'a, P0, P1>(owner: P0, mode: P1, power: f32) -> ::windows::core::Result<PowerEasingFunction>
+    pub fn CreatePowerEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode, power: f32) -> ::windows::core::Result<PowerEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePowerEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), power, result__.as_mut_ptr()).from_abi::<PowerEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreatePowerEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, power, result__.as_mut_ptr()).from_abi::<PowerEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateSineEasingFunction<'a, P0, P1>(owner: P0, mode: P1) -> ::windows::core::Result<SineEasingFunction>
+    pub fn CreateSineEasingFunction<'a, P0>(owner: P0, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<SineEasingFunction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Compositor>>,
-        P1: ::std::convert::Into<CompositionEasingFunctionMode>,
     {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSineEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode.into(), result__.as_mut_ptr()).from_abi::<SineEasingFunction>(result__)
+            (::windows::core::Interface::vtable(this).CreateSineEasingFunction)(::windows::core::Interface::as_raw(this), owner.into().abi(), mode, result__.as_mut_ptr()).from_abi::<SineEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -11141,12 +11083,9 @@ impl CompositionGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetExtendMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionGradientExtendMode>,
-    {
+    pub fn SetExtendMode(&self, value: CompositionGradientExtendMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExtendMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExtendMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InterpolationSpace(&self) -> ::windows::core::Result<CompositionColorSpace> {
@@ -11157,12 +11096,9 @@ impl CompositionGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetInterpolationSpace<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionColorSpace>,
-    {
+    pub fn SetInterpolationSpace(&self, value: CompositionColorSpace) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -11244,12 +11180,9 @@ impl CompositionGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetMappingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionMappingMode>,
-    {
+    pub fn SetMappingMode(&self, value: CompositionMappingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
@@ -11553,15 +11486,11 @@ impl CompositionGraphicsDevice {
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub fn CreateDrawingSurface<'a, P0, P1>(&self, sizepixels: super::super::Foundation::Size, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<CompositionDrawingSurface>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P1: ::std::convert::Into<super::super::Graphics::DirectX::DirectXAlphaMode>,
-    {
+    pub fn CreateDrawingSurface(&self, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
+            (::windows::core::Interface::vtable(this).CreateDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
@@ -11584,41 +11513,29 @@ impl CompositionGraphicsDevice {
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateDrawingSurface2<'a, P0, P1>(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<CompositionDrawingSurface>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P1: ::std::convert::Into<super::super::Graphics::DirectX::DirectXAlphaMode>,
-    {
+    pub fn CreateDrawingSurface2(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDrawingSurface2)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
+            (::windows::core::Interface::vtable(this).CreateDrawingSurface2)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateVirtualDrawingSurface<'a, P0, P1>(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<CompositionVirtualDrawingSurface>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P1: ::std::convert::Into<super::super::Graphics::DirectX::DirectXAlphaMode>,
-    {
+    pub fn CreateVirtualDrawingSurface(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateVirtualDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<CompositionVirtualDrawingSurface>(result__)
+            (::windows::core::Interface::vtable(this).CreateVirtualDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionVirtualDrawingSurface>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateMipmapSurface<'a, P0, P1>(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<CompositionMipmapSurface>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P1: ::std::convert::Into<super::super::Graphics::DirectX::DirectXAlphaMode>,
-    {
+    pub fn CreateMipmapSurface(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMipmapSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<CompositionMipmapSurface>(result__)
+            (::windows::core::Interface::vtable(this).CreateMipmapSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionMipmapSurface>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -11628,16 +11545,14 @@ impl CompositionGraphicsDevice {
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub fn CaptureAsync<'a, P0, P1, P2>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: P1, alphamode: P2, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>
+    pub fn CaptureAsync<'a, P0>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Visual>>,
-        P1: ::std::convert::Into<super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P2: ::std::convert::Into<super::super::Graphics::DirectX::DirectXAlphaMode>,
     {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureAsync)(::windows::core::Interface::as_raw(this), capturevisual.into().abi(), size, pixelformat.into(), alphamode.into(), sdrboost, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ICompositionSurface>>(result__)
+            (::windows::core::Interface::vtable(this).CaptureAsync)(::windows::core::Interface::as_raw(this), capturevisual.into().abi(), size, pixelformat, alphamode, sdrboost, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ICompositionSurface>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -12550,12 +12465,9 @@ impl CompositionLinearGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetExtendMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionGradientExtendMode>,
-    {
+    pub fn SetExtendMode(&self, value: CompositionGradientExtendMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetExtendMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExtendMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InterpolationSpace(&self) -> ::windows::core::Result<CompositionColorSpace> {
@@ -12566,12 +12478,9 @@ impl CompositionLinearGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetInterpolationSpace<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionColorSpace>,
-    {
+    pub fn SetInterpolationSpace(&self, value: CompositionColorSpace) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -12653,12 +12562,9 @@ impl CompositionLinearGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetMappingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionMappingMode>,
-    {
+    pub fn SetMappingMode(&self, value: CompositionMappingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -16756,12 +16662,9 @@ impl CompositionRadialGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetExtendMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionGradientExtendMode>,
-    {
+    pub fn SetExtendMode(&self, value: CompositionGradientExtendMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetExtendMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExtendMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InterpolationSpace(&self) -> ::windows::core::Result<CompositionColorSpace> {
@@ -16772,12 +16675,9 @@ impl CompositionRadialGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetInterpolationSpace<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionColorSpace>,
-    {
+    pub fn SetInterpolationSpace(&self, value: CompositionColorSpace) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -16859,12 +16759,9 @@ impl CompositionRadialGradientBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetMappingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionMappingMode>,
-    {
+    pub fn SetMappingMode(&self, value: CompositionMappingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
@@ -19477,12 +19374,9 @@ impl CompositionSpriteShape {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStrokeDashCap<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionStrokeCap>,
-    {
+    pub fn SetStrokeDashCap(&self, value: CompositionStrokeCap) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDashCap)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDashCap)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn StrokeDashOffset(&self) -> ::windows::core::Result<f32> {
@@ -19506,12 +19400,9 @@ impl CompositionSpriteShape {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStrokeEndCap<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionStrokeCap>,
-    {
+    pub fn SetStrokeEndCap(&self, value: CompositionStrokeCap) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeEndCap)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeEndCap)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn StrokeLineJoin(&self) -> ::windows::core::Result<CompositionStrokeLineJoin> {
@@ -19522,12 +19413,9 @@ impl CompositionSpriteShape {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStrokeLineJoin<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionStrokeLineJoin>,
-    {
+    pub fn SetStrokeLineJoin(&self, value: CompositionStrokeLineJoin) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeLineJoin)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeLineJoin)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn StrokeMiterLimit(&self) -> ::windows::core::Result<f32> {
@@ -19551,12 +19439,9 @@ impl CompositionSpriteShape {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStrokeStartCap<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionStrokeCap>,
-    {
+    pub fn SetStrokeStartCap(&self, value: CompositionStrokeCap) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeStartCap)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeStartCap)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn StrokeThickness(&self) -> ::windows::core::Result<f32> {
@@ -20382,12 +20267,9 @@ impl CompositionSurfaceBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBitmapInterpolationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBitmapInterpolationMode>,
-    {
+    pub fn SetBitmapInterpolationMode(&self, value: CompositionBitmapInterpolationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn HorizontalAlignmentRatio(&self) -> ::windows::core::Result<f32> {
@@ -20411,12 +20293,9 @@ impl CompositionSurfaceBrush {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStretch<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionStretch>,
-    {
+    pub fn SetStretch(&self, value: CompositionStretch) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStretch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStretch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn Surface(&self) -> ::windows::core::Result<ICompositionSurface> {
@@ -21395,12 +21274,9 @@ impl CompositionViewBox {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStretch<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionStretch>,
-    {
+    pub fn SetStretch(&self, value: CompositionStretch) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStretch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStretch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn VerticalAlignmentRatio(&self) -> ::windows::core::Result<f32> {
@@ -22359,14 +22235,11 @@ impl Compositor {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn CreateScopedBatch<'a, P0>(&self, batchtype: P0) -> ::windows::core::Result<CompositionScopedBatch>
-    where
-        P0: ::std::convert::Into<CompositionBatchTypes>,
-    {
+    pub fn CreateScopedBatch(&self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionScopedBatch> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateScopedBatch)(::windows::core::Interface::as_raw(this), batchtype.into(), result__.as_mut_ptr()).from_abi::<CompositionScopedBatch>(result__)
+            (::windows::core::Interface::vtable(this).CreateScopedBatch)(::windows::core::Interface::as_raw(this), batchtype, result__.as_mut_ptr()).from_abi::<CompositionScopedBatch>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -22430,14 +22303,11 @@ impl Compositor {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn GetCommitBatch<'a, P0>(&self, batchtype: P0) -> ::windows::core::Result<CompositionCommitBatch>
-    where
-        P0: ::std::convert::Into<CompositionBatchTypes>,
-    {
+    pub fn GetCommitBatch(&self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionCommitBatch> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCommitBatch)(::windows::core::Interface::as_raw(this), batchtype.into(), result__.as_mut_ptr()).from_abi::<CompositionCommitBatch>(result__)
+            (::windows::core::Interface::vtable(this).GetCommitBatch)(::windows::core::Interface::as_raw(this), batchtype, result__.as_mut_ptr()).from_abi::<CompositionCommitBatch>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -23167,12 +23037,9 @@ impl ContainerVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -23183,12 +23050,9 @@ impl ContainerVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -23230,12 +23094,9 @@ impl ContainerVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -24081,12 +23942,9 @@ impl DelegatedInkTrailVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -24097,12 +23955,9 @@ impl DelegatedInkTrailVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -24144,12 +23999,9 @@ impl DelegatedInkTrailVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -25073,12 +24925,9 @@ impl DropShadow {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetSourcePolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionDropShadowSourcePolicy>,
-    {
+    pub fn SetSourcePolicy(&self, value: CompositionDropShadowSourcePolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDropShadow2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourcePolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourcePolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for DropShadow {
@@ -31720,12 +31569,9 @@ impl KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -31757,12 +31603,9 @@ impl KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -31790,12 +31633,9 @@ impl KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -31806,12 +31646,9 @@ impl KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for KeyFrameAnimation {
@@ -32161,12 +31998,9 @@ impl LayerVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -32177,12 +32011,9 @@ impl LayerVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -32224,12 +32055,9 @@ impl LayerVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -33142,12 +32970,9 @@ impl NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -33173,12 +32998,9 @@ impl NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for NaturalMotionAnimation {
@@ -33638,12 +33460,9 @@ impl PathKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -33675,12 +33494,9 @@ impl PathKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -33708,12 +33524,9 @@ impl PathKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -33724,12 +33537,9 @@ impl PathKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, path: P0) -> ::windows::core::Result<()>
@@ -34918,12 +34728,9 @@ impl QuaternionKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -34955,12 +34762,9 @@ impl QuaternionKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -34988,12 +34792,9 @@ impl QuaternionKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -35004,12 +34805,9 @@ impl QuaternionKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -35851,12 +35649,9 @@ impl RedirectVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -35867,12 +35662,9 @@ impl RedirectVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -35914,12 +35706,9 @@ impl RedirectVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -36855,12 +36644,9 @@ impl ScalarKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -36892,12 +36678,9 @@ impl ScalarKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -36925,12 +36708,9 @@ impl ScalarKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -36941,12 +36721,9 @@ impl ScalarKeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: f32) -> ::windows::core::Result<()> {
@@ -37404,12 +37181,9 @@ impl ScalarNaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -37435,12 +37209,9 @@ impl ScalarNaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -37849,12 +37620,9 @@ impl ShapeVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -37865,12 +37633,9 @@ impl ShapeVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -37912,12 +37677,9 @@ impl ShapeVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -39347,12 +39109,9 @@ impl SpringScalarNaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -39378,12 +39137,9 @@ impl SpringScalarNaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -39922,12 +39678,9 @@ impl SpringVector2NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -39953,12 +39706,9 @@ impl SpringVector2NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DampingRatio(&self) -> ::windows::core::Result<f32> {
@@ -40499,12 +40249,9 @@ impl SpringVector3NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -40530,12 +40277,9 @@ impl SpringVector3NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DampingRatio(&self) -> ::windows::core::Result<f32> {
@@ -40996,12 +40740,9 @@ impl SpriteVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -41012,12 +40753,9 @@ impl SpriteVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -41059,12 +40797,9 @@ impl SpriteVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
@@ -42072,12 +41807,9 @@ impl Vector2KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -42109,12 +41841,9 @@ impl Vector2KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -42142,12 +41871,9 @@ impl Vector2KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -42158,12 +41884,9 @@ impl Vector2KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -42623,12 +42346,9 @@ impl Vector2NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -42654,12 +42374,9 @@ impl Vector2NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -43187,12 +42904,9 @@ impl Vector3KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -43224,12 +42938,9 @@ impl Vector3KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -43257,12 +42968,9 @@ impl Vector3KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -43273,12 +42981,9 @@ impl Vector3KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -43738,12 +43443,9 @@ impl Vector3NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -43769,12 +43471,9 @@ impl Vector3NaturalMotionAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -44302,12 +44001,9 @@ impl Vector4KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetIterationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationIterationBehavior>,
-    {
+    pub fn SetIterationBehavior(&self, value: AnimationIterationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIterationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IterationCount(&self) -> ::windows::core::Result<i32> {
@@ -44339,12 +44035,9 @@ impl Vector4KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetStopBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationStopBehavior>,
-    {
+    pub fn SetStopBehavior(&self, value: AnimationStopBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn InsertExpressionKeyFrame<'a, P0>(&self, normalizedprogresskey: f32, value: P0) -> ::windows::core::Result<()>
@@ -44372,12 +44065,9 @@ impl Vector4KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDirection>,
-    {
+    pub fn SetDirection(&self, value: AnimationDirection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn DelayBehavior(&self) -> ::windows::core::Result<AnimationDelayBehavior> {
@@ -44388,12 +44078,9 @@ impl Vector4KeyFrameAnimation {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetDelayBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AnimationDelayBehavior>,
-    {
+    pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -44733,12 +44420,9 @@ impl Visual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<CompositionBorderMode> {
@@ -44749,12 +44433,9 @@ impl Visual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -44796,12 +44477,9 @@ impl Visual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {

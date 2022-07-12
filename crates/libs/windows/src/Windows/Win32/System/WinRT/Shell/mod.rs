@@ -33,19 +33,18 @@ pub struct IDDEInitializer(::windows::core::IUnknown);
 impl IDDEInitializer {
     #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`, `\"Win32_UI_Shell\"`*"]
     #[cfg(feature = "Win32_UI_Shell")]
-    pub unsafe fn Initialize<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8>(&self, fileextensionorprotocol: P0, method: P1, currentdirectory: P2, exectarget: P3, site: P4, application: P5, targetfile: P6, arguments: P7, verb: P8) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<'a, P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<CreateProcessMethod>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Shell::IShellItem>>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Shell::IShellItem>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P4: ::std::convert::Into<::windows::core::PCWSTR>,
         P5: ::std::convert::Into<::windows::core::PCWSTR>,
         P6: ::std::convert::Into<::windows::core::PCWSTR>,
         P7: ::std::convert::Into<::windows::core::PCWSTR>,
-        P8: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), fileextensionorprotocol.into(), method.into(), currentdirectory.into(), exectarget.into().abi(), site.into().abi(), application.into(), targetfile.into(), arguments.into(), verb.into()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), fileextensionorprotocol.into(), ::core::mem::transmute(method), currentdirectory.into(), exectarget.into().abi(), site.into().abi(), application.into(), targetfile.into(), arguments.into(), verb.into()).ok()
     }
 }
 impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {

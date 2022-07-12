@@ -333,16 +333,15 @@ pub struct UserDataProtectionManager(::windows::core::IUnknown);
 impl UserDataProtectionManager {
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ProtectStorageItemAsync<'a, P0, E0, P1>(&self, storageitem: P0, availability: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
+    pub fn ProtectStorageItemAsync<'a, P0, E0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<UserDataAvailability>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectStorageItemAsync)(::windows::core::Interface::as_raw(this), storageitem.try_into().map_err(|e| e.into())?.abi(), availability.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ProtectStorageItemAsync)(::windows::core::Interface::as_raw(this), storageitem.try_into().map_err(|e| e.into())?.abi(), availability, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage\"`*"]
@@ -360,16 +359,15 @@ impl UserDataProtectionManager {
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProtectBufferAsync<'a, P0, E0, P1>(&self, unprotectedbuffer: P0, availability: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    pub fn ProtectBufferAsync<'a, P0, E0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<UserDataAvailability>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectBufferAsync)(::windows::core::Interface::as_raw(this), unprotectedbuffer.try_into().map_err(|e| e.into())?.abi(), availability.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).ProtectBufferAsync)(::windows::core::Interface::as_raw(this), unprotectedbuffer.try_into().map_err(|e| e.into())?.abi(), availability, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -386,14 +384,11 @@ impl UserDataProtectionManager {
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`*"]
-    pub fn IsContinuedDataAvailabilityExpected<'a, P0>(&self, availability: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<UserDataAvailability>,
-    {
+    pub fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsContinuedDataAvailabilityExpected)(::windows::core::Interface::as_raw(this), availability.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsContinuedDataAvailabilityExpected)(::windows::core::Interface::as_raw(this), availability, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`*"]

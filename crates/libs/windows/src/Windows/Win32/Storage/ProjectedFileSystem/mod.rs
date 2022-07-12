@@ -1373,18 +1373,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
-pub unsafe fn PrjDeleteFile<'a, P0, P1, P2>(namespacevirtualizationcontext: P0, destinationfilename: P1, updateflags: P2) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES>
+pub unsafe fn PrjDeleteFile<'a, P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<PRJ_UPDATE_TYPES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows::core::PCWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<PRJ_UPDATE_FAILURE_CAUSES>::zeroed();
-    PrjDeleteFile(namespacevirtualizationcontext.into(), destinationfilename.into(), updateflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
+    PrjDeleteFile(namespacevirtualizationcontext.into(), destinationfilename.into(), ::core::mem::transmute(updateflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1531,18 +1530,17 @@ where
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrjUpdateFileIfNeeded<'a, P0, P1, P2>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: P2) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES>
+pub unsafe fn PrjUpdateFileIfNeeded<'a, P0, P1>(namespacevirtualizationcontext: P0, destinationfilename: P1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES>
 where
     P0: ::std::convert::Into<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<PRJ_UPDATE_TYPES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<PRJ_UPDATE_FAILURE_CAUSES>::zeroed();
-    PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into(), destinationfilename.into(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize), updateflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
+    PrjUpdateFileIfNeeded(namespacevirtualizationcontext.into(), destinationfilename.into(), ::core::mem::transmute(placeholderinfo), ::core::mem::transmute(placeholderinfosize), ::core::mem::transmute(updateflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PRJ_UPDATE_FAILURE_CAUSES>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]

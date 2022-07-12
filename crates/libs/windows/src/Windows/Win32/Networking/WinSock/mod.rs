@@ -11584,28 +11584,22 @@ where
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn SetServiceA<'a, P0>(dwnamespace: u32, dwoperation: P0, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32
-where
-    P0: ::std::convert::Into<SET_SERVICE_OPERATION>,
-{
+pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
     }
-    ::core::mem::transmute(SetServiceA(::core::mem::transmute(dwnamespace), dwoperation.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpserviceinfo), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpdwstatusflags)))
+    ::core::mem::transmute(SetServiceA(::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwoperation), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpserviceinfo), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpdwstatusflags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn SetServiceW<'a, P0>(dwnamespace: u32, dwoperation: P0, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32
-where
-    P0: ::std::convert::Into<SET_SERVICE_OPERATION>,
-{
+pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
     }
-    ::core::mem::transmute(SetServiceW(::core::mem::transmute(dwnamespace), dwoperation.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpserviceinfo), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpdwstatusflags)))
+    ::core::mem::transmute(SetServiceW(::core::mem::transmute(dwnamespace), ::core::mem::transmute(dwoperation), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpserviceinfo), ::core::mem::transmute(lpserviceasyncinfo), ::core::mem::transmute(lpdwstatusflags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15162,28 +15156,22 @@ pub unsafe fn WSASetLastError(ierror: i32) {
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn WSASetServiceA<'a, P0>(lpqsreginfo: *const WSAQUERYSETA, essoperation: P0, dwcontrolflags: u32) -> i32
-where
-    P0: ::std::convert::Into<WSAESETSERVICEOP>,
-{
+pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32;
     }
-    ::core::mem::transmute(WSASetServiceA(::core::mem::transmute(lpqsreginfo), essoperation.into(), ::core::mem::transmute(dwcontrolflags)))
+    ::core::mem::transmute(WSASetServiceA(::core::mem::transmute(lpqsreginfo), ::core::mem::transmute(essoperation), ::core::mem::transmute(dwcontrolflags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn WSASetServiceW<'a, P0>(lpqsreginfo: *const WSAQUERYSETW, essoperation: P0, dwcontrolflags: u32) -> i32
-where
-    P0: ::std::convert::Into<WSAESETSERVICEOP>,
-{
+pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32;
     }
-    ::core::mem::transmute(WSASetServiceW(::core::mem::transmute(lpqsreginfo), essoperation.into(), ::core::mem::transmute(dwcontrolflags)))
+    ::core::mem::transmute(WSASetServiceW(::core::mem::transmute(lpqsreginfo), ::core::mem::transmute(essoperation), ::core::mem::transmute(dwcontrolflags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -15771,28 +15759,22 @@ pub unsafe fn WSCGetApplicationCategory(path: &[u16], extra: &[u16], ppermittedl
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn WSCGetProviderInfo<'a, P0>(lpproviderid: *const ::windows::core::GUID, infotype: P0, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32
-where
-    P0: ::std::convert::Into<WSC_PROVIDER_INFO_TYPE>,
-{
+pub unsafe fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCGetProviderInfo(::core::mem::transmute(lpproviderid), infotype.into(), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCGetProviderInfo(::core::mem::transmute(lpproviderid), ::core::mem::transmute(infotype), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn WSCGetProviderInfo32<'a, P0>(lpproviderid: *const ::windows::core::GUID, infotype: P0, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32
-where
-    P0: ::std::convert::Into<WSC_PROVIDER_INFO_TYPE>,
-{
+pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCGetProviderInfo32(::core::mem::transmute(lpproviderid), infotype.into(), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCGetProviderInfo32(::core::mem::transmute(lpproviderid), ::core::mem::transmute(infotype), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -15920,28 +15902,22 @@ pub unsafe fn WSCSetApplicationCategory(path: &[u16], extra: &[u16], permittedls
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn WSCSetProviderInfo<'a, P0>(lpproviderid: *const ::windows::core::GUID, infotype: P0, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32
-where
-    P0: ::std::convert::Into<WSC_PROVIDER_INFO_TYPE>,
-{
+pub unsafe fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCSetProviderInfo(::core::mem::transmute(lpproviderid), infotype.into(), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCSetProviderInfo(::core::mem::transmute(lpproviderid), ::core::mem::transmute(infotype), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn WSCSetProviderInfo32<'a, P0>(lpproviderid: *const ::windows::core::GUID, infotype: P0, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32
-where
-    P0: ::std::convert::Into<WSC_PROVIDER_INFO_TYPE>,
-{
+pub unsafe fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32;
     }
-    ::core::mem::transmute(WSCSetProviderInfo32(::core::mem::transmute(lpproviderid), infotype.into(), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
+    ::core::mem::transmute(WSCSetProviderInfo32(::core::mem::transmute(lpproviderid), ::core::mem::transmute(infotype), ::core::mem::transmute(info), ::core::mem::transmute(infosize), ::core::mem::transmute(flags), ::core::mem::transmute(lperrno)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
@@ -18069,16 +18045,15 @@ impl ::core::default::Default for protoent {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn recv<'a, P0, P1>(s: P0, buf: ::windows::core::PSTR, len: i32, flags: P1) -> i32
+pub unsafe fn recv<'a, P0>(s: P0, buf: ::windows::core::PSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32
 where
     P0: ::std::convert::Into<SOCKET>,
-    P1: ::std::convert::Into<SEND_RECV_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn recv(s: SOCKET, buf: ::windows::core::PSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
     }
-    ::core::mem::transmute(recv(s.into(), ::core::mem::transmute(buf), ::core::mem::transmute(len), flags.into()))
+    ::core::mem::transmute(recv(s.into(), ::core::mem::transmute(buf), ::core::mem::transmute(len), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18104,17 +18079,16 @@ pub unsafe fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exc
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn send<'a, P0, P1, P2>(s: P0, buf: P1, len: i32, flags: P2) -> i32
+pub unsafe fn send<'a, P0, P1>(s: P0, buf: P1, len: i32, flags: SEND_RECV_FLAGS) -> i32
 where
     P0: ::std::convert::Into<SOCKET>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<SEND_RECV_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn send(s: SOCKET, buf: ::windows::core::PCSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
     }
-    ::core::mem::transmute(send(s.into(), buf.into(), ::core::mem::transmute(len), flags.into()))
+    ::core::mem::transmute(send(s.into(), buf.into(), ::core::mem::transmute(len), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

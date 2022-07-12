@@ -412,14 +412,11 @@ impl KeyCredential {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Security_Cryptography_Core", feature = "Storage_Streams"))]
-    pub fn RetrievePublicKeyWithBlobType<'a, P0>(&self, blobtype: P0) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>
-    where
-        P0: ::std::convert::Into<super::Cryptography::Core::CryptographicPublicKeyBlobType>,
-    {
+    pub fn RetrievePublicKeyWithBlobType(&self, blobtype: super::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RetrievePublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RetrievePublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -691,14 +688,13 @@ impl KeyCredentialManager {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestCreateAsync<'a, P0, P1>(name: P0, option: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>
+    pub fn RequestCreateAsync<'a, P0>(name: P0, option: KeyCredentialCreationOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<KeyCredentialCreationOption>,
     {
         Self::IKeyCredentialManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCreateAsync)(::windows::core::Interface::as_raw(this), name.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCreateAsync)(::windows::core::Interface::as_raw(this), name.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<KeyCredentialRetrievalResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation\"`*"]
@@ -1565,14 +1561,11 @@ impl WebAccount {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetPictureAsync<'a, P0>(&self, desizedsize: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<WebAccountPictureSize>,
-    {
+    pub fn GetPictureAsync(&self, desizedsize: WebAccountPictureSize) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &::windows::core::Interface::cast::<IWebAccount2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPictureAsync)(::windows::core::Interface::as_raw(this), desizedsize.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).GetPictureAsync)(::windows::core::Interface::as_raw(this), desizedsize, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation\"`*"]
@@ -1597,15 +1590,14 @@ impl WebAccount {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
-    pub fn CreateWebAccount<'a, P0, P1, P2>(webaccountprovider: P0, username: P1, state: P2) -> ::windows::core::Result<WebAccount>
+    pub fn CreateWebAccount<'a, P0, P1>(webaccountprovider: P0, username: P1, state: WebAccountState) -> ::windows::core::Result<WebAccount>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, WebAccountProvider>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<WebAccountState>,
     {
         Self::IWebAccountFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWebAccount)(::windows::core::Interface::as_raw(this), webaccountprovider.into().abi(), username.into().abi(), state.into(), result__.as_mut_ptr()).from_abi::<WebAccount>(result__)
+            (::windows::core::Interface::vtable(this).CreateWebAccount)(::windows::core::Interface::as_raw(this), webaccountprovider.into().abi(), username.into().abi(), state, result__.as_mut_ptr()).from_abi::<WebAccount>(result__)
         })
     }
     #[doc(hidden)]

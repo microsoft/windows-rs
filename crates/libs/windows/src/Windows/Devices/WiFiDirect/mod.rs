@@ -342,12 +342,9 @@ impl WiFiDirectAdvertisement {
         }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-    pub fn SetListenStateDiscoverability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WiFiDirectAdvertisementListenStateDiscoverability>,
-    {
+    pub fn SetListenStateDiscoverability(&self, value: WiFiDirectAdvertisementListenStateDiscoverability) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetListenStateDiscoverability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetListenStateDiscoverability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
     pub fn IsAutonomousGroupOwnerEnabled(&self) -> ::windows::core::Result<bool> {
@@ -883,22 +880,16 @@ impl WiFiDirectConnectionParameters {
         }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-    pub fn SetPreferredPairingProcedure<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WiFiDirectPairingProcedure>,
-    {
+    pub fn SetPreferredPairingProcedure(&self, value: WiFiDirectPairingProcedure) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWiFiDirectConnectionParameters2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredPairingProcedure)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredPairingProcedure)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn GetDevicePairingKinds<'a, P0>(configurationmethod: P0) -> ::windows::core::Result<super::Enumeration::DevicePairingKinds>
-    where
-        P0: ::std::convert::Into<WiFiDirectConfigurationMethod>,
-    {
+    pub fn GetDevicePairingKinds(configurationmethod: WiFiDirectConfigurationMethod) -> ::windows::core::Result<super::Enumeration::DevicePairingKinds> {
         Self::IWiFiDirectConnectionParametersStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Enumeration::DevicePairingKinds>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDevicePairingKinds)(::windows::core::Interface::as_raw(this), configurationmethod.into(), result__.as_mut_ptr()).from_abi::<super::Enumeration::DevicePairingKinds>(result__)
+            (::windows::core::Interface::vtable(this).GetDevicePairingKinds)(::windows::core::Interface::as_raw(this), configurationmethod, result__.as_mut_ptr()).from_abi::<super::Enumeration::DevicePairingKinds>(result__)
         })
     }
     #[doc(hidden)]
@@ -1276,13 +1267,10 @@ impl WiFiDirectDevice {
         })
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect\"`*"]
-    pub fn GetDeviceSelector2<'a, P0>(r#type: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<WiFiDirectDeviceSelectorType>,
-    {
+    pub fn GetDeviceSelector2(r#type: WiFiDirectDeviceSelectorType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IWiFiDirectDeviceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect\"`, `\"Foundation\"`*"]

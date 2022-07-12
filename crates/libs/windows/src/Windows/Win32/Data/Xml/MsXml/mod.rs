@@ -5943,21 +5943,17 @@ impl IServerXMLHTTPRequest {
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getOption<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<SERVERXMLHTTP_OPTION>,
-    {
+    pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).getOption)(::windows::core::Interface::as_raw(self), option.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).getOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setOption<'a, P0, P1>(&self, option: P0, value: P1) -> ::windows::core::Result<()>
+    pub unsafe fn setOption<'a, P0>(&self, option: SERVERXMLHTTP_OPTION, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SERVERXMLHTTP_OPTION>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).setOption)(::windows::core::Interface::as_raw(self), option.into(), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).setOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), value.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6175,31 +6171,26 @@ impl IServerXMLHTTPRequest2 {
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getOption<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<SERVERXMLHTTP_OPTION>,
-    {
+    pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getOption)(::windows::core::Interface::as_raw(self), option.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.getOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setOption<'a, P0, P1>(&self, option: P0, value: P1) -> ::windows::core::Result<()>
+    pub unsafe fn setOption<'a, P0>(&self, option: SERVERXMLHTTP_OPTION, value: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SERVERXMLHTTP_OPTION>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.setOption)(::windows::core::Interface::as_raw(self), option.into(), value.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setProxy<'a, P0, P1, P2>(&self, proxysetting: P0, varproxyserver: P1, varbypasslist: P2) -> ::windows::core::Result<()>
+    pub unsafe fn setProxy<'a, P0, P1>(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: P0, varbypasslist: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SXH_PROXY_SETTING>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).setProxy)(::windows::core::Interface::as_raw(self), proxysetting.into(), varproxyserver.into().abi(), varbypasslist.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).setProxy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(proxysetting), varproxyserver.into().abi(), varbypasslist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17516,11 +17507,8 @@ impl IXMLHTTPRequest2 {
         (::windows::core::Interface::vtable(self).SetCustomResponseStream)(::windows::core::Interface::as_raw(self), psequentialstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn SetProperty<'a, P0>(&self, eproperty: P0, ullvalue: u64) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XHR_PROPERTY>,
-    {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), eproperty.into(), ::core::mem::transmute(ullvalue)).ok()
+    pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eproperty), ::core::mem::transmute(ullvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetRequestHeader<'a, P0, P1>(&self, pwszheader: P0, pwszvalue: P1) -> ::windows::core::Result<()>
@@ -17756,11 +17744,8 @@ impl IXMLHTTPRequest3 {
         (::windows::core::Interface::vtable(self).base__.SetCustomResponseStream)(::windows::core::Interface::as_raw(self), psequentialstream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
-    pub unsafe fn SetProperty<'a, P0>(&self, eproperty: P0, ullvalue: u64) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XHR_PROPERTY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), eproperty.into(), ::core::mem::transmute(ullvalue)).ok()
+    pub unsafe fn SetProperty(&self, eproperty: XHR_PROPERTY, ullvalue: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eproperty), ::core::mem::transmute(ullvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     pub unsafe fn SetRequestHeader<'a, P0, P1>(&self, pwszheader: P0, pwszvalue: P1) -> ::windows::core::Result<()>

@@ -699,11 +699,8 @@ impl IXAPOHrtfParameters {
         (::windows::core::Interface::vtable(self).SetSourceGain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gain)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetEnvironment<'a, P0>(&self, environment: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HrtfEnvironment>,
-    {
-        (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), environment.into()).ok()
+    pub unsafe fn SetEnvironment(&self, environment: HrtfEnvironment) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(environment)).ok()
     }
 }
 impl ::core::convert::From<IXAPOHrtfParameters> for ::windows::core::IUnknown {
@@ -838,12 +835,11 @@ impl IXAudio2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateMasteringVoice<'a, P0, P1>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P0, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: P1) -> ::windows::core::Result<()>
+    pub unsafe fn CreateMasteringVoice<'a, P0>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P0, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<super::AUDIO_STREAM_CATEGORY>,
     {
-        (::windows::core::Interface::vtable(self).CreateMasteringVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppmasteringvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), szdeviceid.into(), ::core::mem::transmute(peffectchain), streamcategory.into()).ok()
+        (::windows::core::Interface::vtable(self).CreateMasteringVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppmasteringvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), szdeviceid.into(), ::core::mem::transmute(peffectchain), ::core::mem::transmute(streamcategory)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn StartEngine(&self) -> ::windows::core::Result<()> {

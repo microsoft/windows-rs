@@ -78,15 +78,14 @@ impl Compressor {
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressorEx<'a, P0, E0, P1>(underlyingstream: P0, algorithm: P1, blocksize: u32) -> ::windows::core::Result<Compressor>
+    pub fn CreateCompressorEx<'a, P0, E0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<CompressAlgorithm>,
     {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCompressorEx)(::windows::core::Interface::as_raw(this), underlyingstream.try_into().map_err(|e| e.into())?.abi(), algorithm.into(), blocksize, result__.as_mut_ptr()).from_abi::<Compressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateCompressorEx)(::windows::core::Interface::as_raw(this), underlyingstream.try_into().map_err(|e| e.into())?.abi(), algorithm, blocksize, result__.as_mut_ptr()).from_abi::<Compressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -256,16 +255,15 @@ impl Decompressor {
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0, P1>(&self, buffer: P0, count: u32, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
+    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::Streams::InputStreamOptions>,
     {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc(hidden)]

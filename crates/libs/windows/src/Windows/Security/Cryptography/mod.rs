@@ -136,27 +136,25 @@ impl CryptographicBuffer {
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertStringToBinary<'a, P0, P1>(value: P0, encoding: P1) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>
+    pub fn ConvertStringToBinary<'a, P0>(value: P0, encoding: BinaryStringEncoding) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<BinaryStringEncoding>,
     {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertStringToBinary)(::windows::core::Interface::as_raw(this), value.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ConvertStringToBinary)(::windows::core::Interface::as_raw(this), value.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertBinaryToString<'a, P0, P1, E1>(encoding: P0, buffer: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn ConvertBinaryToString<'a, P0, E0>(encoding: BinaryStringEncoding, buffer: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
-        P0: ::std::convert::Into<BinaryStringEncoding>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBinaryToString)(::windows::core::Interface::as_raw(this), encoding.into(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConvertBinaryToString)(::windows::core::Interface::as_raw(this), encoding, buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]

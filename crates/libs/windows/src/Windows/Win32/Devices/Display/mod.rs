@@ -6521,58 +6521,54 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorDisplayAreaPosition<'a, P0, P1>(hmonitor: P0, ptpositiontype: P1, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32
+pub unsafe fn GetMonitorDisplayAreaPosition<'a, P0>(hmonitor: P0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_POSITION_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetMonitorDisplayAreaPosition(hmonitor.into(), ptpositiontype.into(), ::core::mem::transmute(pdwminimumposition), ::core::mem::transmute(pdwcurrentposition), ::core::mem::transmute(pdwmaximumposition)))
+    ::core::mem::transmute(GetMonitorDisplayAreaPosition(hmonitor.into(), ::core::mem::transmute(ptpositiontype), ::core::mem::transmute(pdwminimumposition), ::core::mem::transmute(pdwcurrentposition), ::core::mem::transmute(pdwmaximumposition)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorDisplayAreaSize<'a, P0, P1>(hmonitor: P0, stsizetype: P1, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32
+pub unsafe fn GetMonitorDisplayAreaSize<'a, P0>(hmonitor: P0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_SIZE_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetMonitorDisplayAreaSize(hmonitor.into(), stsizetype.into(), ::core::mem::transmute(pdwminimumwidthorheight), ::core::mem::transmute(pdwcurrentwidthorheight), ::core::mem::transmute(pdwmaximumwidthorheight)))
+    ::core::mem::transmute(GetMonitorDisplayAreaSize(hmonitor.into(), ::core::mem::transmute(stsizetype), ::core::mem::transmute(pdwminimumwidthorheight), ::core::mem::transmute(pdwcurrentwidthorheight), ::core::mem::transmute(pdwmaximumwidthorheight)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, P0, P1>(hmonitor: P0, dtdrivetype: P1, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32
+pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, P0>(hmonitor: P0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_DRIVE_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetMonitorRedGreenOrBlueDrive(hmonitor.into(), dtdrivetype.into(), ::core::mem::transmute(pdwminimumdrive), ::core::mem::transmute(pdwcurrentdrive), ::core::mem::transmute(pdwmaximumdrive)))
+    ::core::mem::transmute(GetMonitorRedGreenOrBlueDrive(hmonitor.into(), ::core::mem::transmute(dtdrivetype), ::core::mem::transmute(pdwminimumdrive), ::core::mem::transmute(pdwcurrentdrive), ::core::mem::transmute(pdwmaximumdrive)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, P0, P1>(hmonitor: P0, gtgaintype: P1, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32
+pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, P0>(hmonitor: P0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_GAIN_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32;
     }
-    ::core::mem::transmute(GetMonitorRedGreenOrBlueGain(hmonitor.into(), gtgaintype.into(), ::core::mem::transmute(pdwminimumgain), ::core::mem::transmute(pdwcurrentgain), ::core::mem::transmute(pdwmaximumgain)))
+    ::core::mem::transmute(GetMonitorRedGreenOrBlueGain(hmonitor.into(), ::core::mem::transmute(gtgaintype), ::core::mem::transmute(pdwminimumgain), ::core::mem::transmute(pdwcurrentgain), ::core::mem::transmute(pdwmaximumgain)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10540,15 +10536,12 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDisplayAutoRotationPreferences<'a, P0>(orientation: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<ORIENTATION_PREFERENCE>,
-{
+pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDisplayAutoRotationPreferences(orientation.into()))
+    ::core::mem::transmute(SetDisplayAutoRotationPreferences(::core::mem::transmute(orientation)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10576,16 +10569,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorColorTemperature<'a, P0, P1>(hmonitor: P0, ctcurrentcolortemperature: P1) -> i32
+pub unsafe fn SetMonitorColorTemperature<'a, P0>(hmonitor: P0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_COLOR_TEMPERATURE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32;
     }
-    ::core::mem::transmute(SetMonitorColorTemperature(hmonitor.into(), ctcurrentcolortemperature.into()))
+    ::core::mem::transmute(SetMonitorColorTemperature(hmonitor.into(), ::core::mem::transmute(ctcurrentcolortemperature)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10603,58 +10595,54 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorDisplayAreaPosition<'a, P0, P1>(hmonitor: P0, ptpositiontype: P1, dwnewposition: u32) -> i32
+pub unsafe fn SetMonitorDisplayAreaPosition<'a, P0>(hmonitor: P0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_POSITION_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32;
     }
-    ::core::mem::transmute(SetMonitorDisplayAreaPosition(hmonitor.into(), ptpositiontype.into(), ::core::mem::transmute(dwnewposition)))
+    ::core::mem::transmute(SetMonitorDisplayAreaPosition(hmonitor.into(), ::core::mem::transmute(ptpositiontype), ::core::mem::transmute(dwnewposition)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorDisplayAreaSize<'a, P0, P1>(hmonitor: P0, stsizetype: P1, dwnewdisplayareawidthorheight: u32) -> i32
+pub unsafe fn SetMonitorDisplayAreaSize<'a, P0>(hmonitor: P0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_SIZE_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32;
     }
-    ::core::mem::transmute(SetMonitorDisplayAreaSize(hmonitor.into(), stsizetype.into(), ::core::mem::transmute(dwnewdisplayareawidthorheight)))
+    ::core::mem::transmute(SetMonitorDisplayAreaSize(hmonitor.into(), ::core::mem::transmute(stsizetype), ::core::mem::transmute(dwnewdisplayareawidthorheight)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, P0, P1>(hmonitor: P0, dtdrivetype: P1, dwnewdrive: u32) -> i32
+pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, P0>(hmonitor: P0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_DRIVE_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32;
     }
-    ::core::mem::transmute(SetMonitorRedGreenOrBlueDrive(hmonitor.into(), dtdrivetype.into(), ::core::mem::transmute(dwnewdrive)))
+    ::core::mem::transmute(SetMonitorRedGreenOrBlueDrive(hmonitor.into(), ::core::mem::transmute(dtdrivetype), ::core::mem::transmute(dwnewdrive)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, P0, P1>(hmonitor: P0, gtgaintype: P1, dwnewgain: u32) -> i32
+pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, P0>(hmonitor: P0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MC_GAIN_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32;
     }
-    ::core::mem::transmute(SetMonitorRedGreenOrBlueGain(hmonitor.into(), gtgaintype.into(), ::core::mem::transmute(dwnewgain)))
+    ::core::mem::transmute(SetMonitorRedGreenOrBlueGain(hmonitor.into(), ::core::mem::transmute(gtgaintype), ::core::mem::transmute(dwnewgain)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

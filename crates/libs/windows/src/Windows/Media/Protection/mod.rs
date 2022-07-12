@@ -286,14 +286,11 @@ impl HdcpSession {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
-    pub fn IsEffectiveProtectionAtLeast<'a, P0>(&self, protection: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<HdcpProtection>,
-    {
+    pub fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEffectiveProtectionAtLeast)(::windows::core::Interface::as_raw(this), protection.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEffectiveProtectionAtLeast)(::windows::core::Interface::as_raw(this), protection, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
@@ -307,14 +304,11 @@ impl HdcpSession {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDesiredMinProtectionAsync<'a, P0>(&self, protection: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>
-    where
-        P0: ::std::convert::Into<HdcpProtection>,
-    {
+    pub fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetDesiredMinProtectionAsync)(::windows::core::Interface::as_raw(this), protection.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetDesiredMinProtectionAsync)(::windows::core::Interface::as_raw(this), protection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]

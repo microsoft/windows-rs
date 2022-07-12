@@ -178,21 +178,17 @@ pub struct ISettingsContext_Vtbl {
 pub struct ISettingsEngine(::windows::core::IUnknown);
 impl ISettingsEngine {
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetNamespaces<'a, P0>(&self, flags: P0, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator>
-    where
-        P0: ::std::convert::Into<WcmNamespaceEnumerationFlags>,
-    {
+    pub unsafe fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<IItemEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).GetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn GetNamespace<'a, P0, P1>(&self, settingsid: P0, access: P1, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace>
+    pub unsafe fn GetNamespace<'a, P0>(&self, settingsid: P0, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<ISettingsNamespace>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISettingsIdentity>>,
-        P1: ::std::convert::Into<WcmNamespaceAccess>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), access.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsNamespace>(result__)
+        (::windows::core::Interface::vtable(self).GetNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), ::core::mem::transmute(access), ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -549,12 +545,9 @@ impl ISettingsItem {
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRestriction<'a, P0>(&self, restrictionfacet: P0) -> ::windows::core::Result<super::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<WcmRestrictionFacets>,
-    {
+    pub unsafe fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestriction)(::windows::core::Interface::as_raw(self), restrictionfacet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetRestriction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restrictionfacet), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -867,11 +860,8 @@ impl ITargetInfo {
         (::windows::core::Interface::vtable(self).GetTargetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WcmTargetMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-    pub unsafe fn SetTargetMode<'a, P0>(&self, targetmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WcmTargetMode>,
-    {
-        (::windows::core::Interface::vtable(self).SetTargetMode)(::windows::core::Interface::as_raw(self), targetmode.into()).ok()
+    pub unsafe fn SetTargetMode(&self, targetmode: WcmTargetMode) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

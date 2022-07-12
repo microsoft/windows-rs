@@ -1005,28 +1005,24 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, P0>(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>
-    where
-        P0: ::std::convert::Into<VideoFramePrecision>,
-    {
+    pub fn GetThumbnailAsync(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), timefromstart, scaledwidth, scaledheight, frameprecision.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), timefromstart, scaledwidth, scaledheight, frameprecision, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailsAsync<'a, P0, E0, P1>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
+    pub fn GetThumbnailsAsync<'a, P0, E0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<VideoFramePrecision>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailsAsync)(::windows::core::Interface::as_raw(this), timesfromstart.try_into().map_err(|e| e.into())?.abi(), scaledwidth, scaledheight, frameprecision.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailsAsync)(::windows::core::Interface::as_raw(this), timesfromstart.try_into().map_err(|e| e.into())?.abi(), scaledwidth, scaledheight, frameprecision, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
@@ -1044,31 +1040,29 @@ impl MediaComposition {
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithTrimmingPreferenceAsync<'a, P0, E0, P1>(&self, destination: P0, trimmingpreference: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithTrimmingPreferenceAsync<'a, P0, E0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<MediaTrimmingPreference>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
+            (::windows::core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Media_Transcoding\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithProfileAsync<'a, P0, E0, P1, P2>(&self, destination: P0, trimmingpreference: P1, encodingprofile: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithProfileAsync<'a, P0, E0, P1>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<MediaTrimmingPreference>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderToFileWithProfileAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference.into(), encodingprofile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
+            (::windows::core::Interface::vtable(this).RenderToFileWithProfileAsync)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), trimmingpreference, encodingprofile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Editing\"`, `\"Media_MediaProperties\"`*"]

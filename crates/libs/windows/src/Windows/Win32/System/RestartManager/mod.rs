@@ -365,17 +365,16 @@ pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RmAddFilter<'a, P0, P1, P2>(dwsessionhandle: u32, strmodulename: P0, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: P1, filteraction: P2) -> u32
+pub unsafe fn RmAddFilter<'a, P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: P1, filteraction: RM_FILTER_ACTION) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<RM_FILTER_ACTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RmAddFilter(dwsessionhandle: u32, strmodulename: ::windows::core::PCWSTR, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: ::windows::core::PCWSTR, filteraction: RM_FILTER_ACTION) -> u32;
     }
-    ::core::mem::transmute(RmAddFilter(::core::mem::transmute(dwsessionhandle), strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into(), filteraction.into()))
+    ::core::mem::transmute(RmAddFilter(::core::mem::transmute(dwsessionhandle), strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into(), ::core::mem::transmute(filteraction)))
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]

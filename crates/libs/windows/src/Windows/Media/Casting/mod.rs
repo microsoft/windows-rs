@@ -388,13 +388,10 @@ impl CastingDevice {
         }
     }
     #[doc = "*Required features: `\"Media_Casting\"`*"]
-    pub fn GetDeviceSelector<'a, P0>(r#type: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<CastingPlaybackTypes>,
-    {
+    pub fn GetDeviceSelector(r#type: CastingPlaybackTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
@@ -570,12 +567,9 @@ impl CastingDevicePicker {
     }
     #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowWithPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::UI::Popups::Placement>,
-    {
+    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
     #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Hide(&self) -> ::windows::core::Result<()> {

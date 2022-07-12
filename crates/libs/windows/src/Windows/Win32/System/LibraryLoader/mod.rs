@@ -621,33 +621,31 @@ where
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadLibraryExA<'a, P0, P1, P2>(lplibfilename: P0, hfile: P1, dwflags: P2) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
+pub unsafe fn LoadLibraryExA<'a, P0, P1>(lplibfilename: P0, hfile: P1, dwflags: LOAD_LIBRARY_FLAGS) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<LOAD_LIBRARY_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadLibraryExA(lplibfilename: ::windows::core::PCSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
     }
-    let result__ = LoadLibraryExA(lplibfilename.into(), hfile.into(), dwflags.into());
+    let result__ = LoadLibraryExA(lplibfilename.into(), hfile.into(), ::core::mem::transmute(dwflags));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadLibraryExW<'a, P0, P1, P2>(lplibfilename: P0, hfile: P1, dwflags: P2) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
+pub unsafe fn LoadLibraryExW<'a, P0, P1>(lplibfilename: P0, hfile: P1, dwflags: LOAD_LIBRARY_FLAGS) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<LOAD_LIBRARY_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadLibraryExW(lplibfilename: ::windows::core::PCWSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
     }
-    let result__ = LoadLibraryExW(lplibfilename.into(), hfile.into(), dwflags.into());
+    let result__ = LoadLibraryExW(lplibfilename.into(), hfile.into(), ::core::mem::transmute(dwflags));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -808,15 +806,12 @@ pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultDllDirectories<'a, P0>(directoryflags: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<LOAD_LIBRARY_FLAGS>,
-{
+pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDefaultDllDirectories(directoryflags.into()))
+    ::core::mem::transmute(SetDefaultDllDirectories(::core::mem::transmute(directoryflags)))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

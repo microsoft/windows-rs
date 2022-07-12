@@ -101,13 +101,10 @@ impl LicenseManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RefreshLicensesAsync<'a, P0>(refreshoption: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<LicenseRefreshOption>,
-    {
+    pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RefreshLicensesAsync)(::windows::core::Interface::as_raw(this), refreshoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RefreshLicensesAsync)(::windows::core::Interface::as_raw(this), refreshoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]

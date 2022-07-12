@@ -299,11 +299,8 @@ impl INetwork {
         (::windows::core::Interface::vtable(self).GetCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NLM_NETWORK_CATEGORY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn SetCategory<'a, P0>(&self, newcategory: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NLM_NETWORK_CATEGORY>,
-    {
-        (::windows::core::Interface::vtable(self).SetCategory)(::windows::core::Interface::as_raw(self), newcategory.into()).ok()
+    pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newcategory)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -642,18 +639,12 @@ pub struct INetworkConnectionCostEvents_Vtbl {
 pub struct INetworkConnectionEvents(::windows::core::IUnknown);
 impl INetworkConnectionEvents {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkConnectionConnectivityChanged<'a, P0>(&self, connectionid: ::windows::core::GUID, newconnectivity: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NLM_CONNECTIVITY>,
-    {
-        (::windows::core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), newconnectivity.into()).ok()
+    pub unsafe fn NetworkConnectionConnectivityChanged(&self, connectionid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), ::core::mem::transmute(newconnectivity)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkConnectionPropertyChanged<'a, P0>(&self, connectionid: ::windows::core::GUID, flags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NLM_CONNECTION_PROPERTY_CHANGE>,
-    {
-        (::windows::core::Interface::vtable(self).NetworkConnectionPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), flags.into()).ok()
+    pub unsafe fn NetworkConnectionPropertyChanged(&self, connectionid: ::windows::core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkConnectionPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), ::core::mem::transmute(flags)).ok()
     }
 }
 impl ::core::convert::From<INetworkConnectionEvents> for ::windows::core::IUnknown {
@@ -830,18 +821,12 @@ impl INetworkEvents {
         (::windows::core::Interface::vtable(self).NetworkDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkConnectivityChanged<'a, P0>(&self, networkid: ::windows::core::GUID, newconnectivity: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NLM_CONNECTIVITY>,
-    {
-        (::windows::core::Interface::vtable(self).NetworkConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid), newconnectivity.into()).ok()
+    pub unsafe fn NetworkConnectivityChanged(&self, networkid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid), ::core::mem::transmute(newconnectivity)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkPropertyChanged<'a, P0>(&self, networkid: ::windows::core::GUID, flags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NLM_NETWORK_PROPERTY_CHANGE>,
-    {
-        (::windows::core::Interface::vtable(self).NetworkPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid), flags.into()).ok()
+    pub unsafe fn NetworkPropertyChanged(&self, networkid: ::windows::core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid), ::core::mem::transmute(flags)).ok()
     }
 }
 impl ::core::convert::From<INetworkEvents> for ::windows::core::IUnknown {
@@ -896,12 +881,9 @@ pub struct INetworkListManager(::windows::core::IUnknown);
 impl INetworkListManager {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNetworks<'a, P0>(&self, flags: P0) -> ::windows::core::Result<IEnumNetworks>
-    where
-        P0: ::std::convert::Into<NLM_ENUM_NETWORK>,
-    {
+    pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows::core::Result<IEnumNetworks> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworks)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetworks>(result__)
+        (::windows::core::Interface::vtable(self).GetNetworks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetworks>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1038,11 +1020,8 @@ pub struct INetworkListManager_Vtbl {
 pub struct INetworkListManagerEvents(::windows::core::IUnknown);
 impl INetworkListManagerEvents {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn ConnectivityChanged<'a, P0>(&self, newconnectivity: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NLM_CONNECTIVITY>,
-    {
-        (::windows::core::Interface::vtable(self).ConnectivityChanged)(::windows::core::Interface::as_raw(self), newconnectivity.into()).ok()
+    pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newconnectivity)).ok()
     }
 }
 impl ::core::convert::From<INetworkListManagerEvents> for ::windows::core::IUnknown {

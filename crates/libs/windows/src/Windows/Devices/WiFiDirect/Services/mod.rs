@@ -391,14 +391,11 @@ impl WiFiDirectService {
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetProvisioningInfoAsync<'a, P0>(&self, selectedconfigurationmethod: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>>
-    where
-        P0: ::std::convert::Into<WiFiDirectServiceConfigurationMethod>,
-    {
+    pub fn GetProvisioningInfoAsync(&self, selectedconfigurationmethod: WiFiDirectServiceConfigurationMethod) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetProvisioningInfoAsync)(::windows::core::Interface::as_raw(this), selectedconfigurationmethod.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetProvisioningInfoAsync)(::windows::core::Interface::as_raw(this), selectedconfigurationmethod, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WiFiDirectServiceProvisioningInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`, `\"Foundation\"`*"]
@@ -644,12 +641,9 @@ impl WiFiDirectServiceAdvertiser {
         }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
-    pub fn SetServiceStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WiFiDirectServiceStatus>,
-    {
+    pub fn SetServiceStatus(&self, value: WiFiDirectServiceStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServiceStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServiceStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_WiFiDirect_Services\"`*"]
     pub fn CustomServiceStatusCode(&self) -> ::windows::core::Result<u32> {

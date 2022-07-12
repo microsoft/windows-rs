@@ -825,14 +825,11 @@ impl CoreComponentInputSource {
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetCurrentKeyState<'a, P0>(&self, virtualkey: P0) -> ::windows::core::Result<CoreVirtualKeyStates>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn GetCurrentKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = &::windows::core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<CoreVirtualKeyStates>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentKeyState)(::windows::core::Interface::as_raw(this), virtualkey.into(), result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentKeyState)(::windows::core::Interface::as_raw(this), virtualkey, result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
@@ -1234,13 +1231,10 @@ impl CoreCursor {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn CreateCursor<'a, P0>(r#type: P0, id: u32) -> ::windows::core::Result<CoreCursor>
-    where
-        P0: ::std::convert::Into<CoreCursorType>,
-    {
+    pub fn CreateCursor(r#type: CoreCursorType, id: u32) -> ::windows::core::Result<CoreCursor> {
         Self::ICoreCursorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCursor)(::windows::core::Interface::as_raw(this), r#type.into(), id, result__.as_mut_ptr()).from_abi::<CoreCursor>(result__)
+            (::windows::core::Interface::vtable(this).CreateCursor)(::windows::core::Interface::as_raw(this), r#type, id, result__.as_mut_ptr()).from_abi::<CoreCursor>(result__)
         })
     }
     #[doc(hidden)]
@@ -1390,24 +1384,20 @@ impl CoreDispatcher {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn ProcessEvents<'a, P0>(&self, options: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreProcessEventsOption>,
-    {
+    pub fn ProcessEvents(&self, options: CoreProcessEventsOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ProcessEvents)(::windows::core::Interface::as_raw(this), options.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ProcessEvents)(::windows::core::Interface::as_raw(this), options).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunAsync<'a, P0, P1>(&self, priority: P0, agilecallback: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunAsync<'a, P0>(&self, priority: CoreDispatcherPriority, agilecallback: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::Into<CoreDispatcherPriority>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DispatchedHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DispatchedHandler>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RunAsync)(::windows::core::Interface::as_raw(this), priority.into(), agilecallback.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RunAsync)(::windows::core::Interface::as_raw(this), priority, agilecallback.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
@@ -1424,15 +1414,14 @@ impl CoreDispatcher {
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryRunAsync<'a, P0, P1>(&self, priority: P0, agilecallback: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryRunAsync<'a, P0>(&self, priority: CoreDispatcherPriority, agilecallback: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::Into<CoreDispatcherPriority>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DispatchedHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DispatchedHandler>>,
     {
         let this = &::windows::core::Interface::cast::<ICoreDispatcher2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRunAsync)(::windows::core::Interface::as_raw(this), priority.into(), agilecallback.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRunAsync)(::windows::core::Interface::as_raw(this), priority, agilecallback.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"Foundation\"`*"]
@@ -1456,12 +1445,9 @@ impl CoreDispatcher {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn SetCurrentPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreDispatcherPriority>,
-    {
+    pub fn SetCurrentPriority(&self, value: CoreDispatcherPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurrentPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurrentPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn ShouldYield(&self) -> ::windows::core::Result<bool> {
@@ -1472,14 +1458,11 @@ impl CoreDispatcher {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn ShouldYieldToPriority<'a, P0>(&self, priority: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CoreDispatcherPriority>,
-    {
+    pub fn ShouldYieldToPriority(&self, priority: CoreDispatcherPriority) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreDispatcherWithTaskPriority>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldYieldToPriority)(::windows::core::Interface::as_raw(this), priority.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldYieldToPriority)(::windows::core::Interface::as_raw(this), priority, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -2130,22 +2113,14 @@ impl CoreIndependentInputSourceController {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn SetControlledInput<'a, P0>(&self, inputtypes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreInputDeviceTypes>,
-    {
+    pub fn SetControlledInput(&self, inputtypes: CoreInputDeviceTypes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetControlledInput)(::windows::core::Interface::as_raw(this), inputtypes.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetControlledInput)(::windows::core::Interface::as_raw(this), inputtypes).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn SetControlledInputWithFilters<'a, P0, P1, P2>(&self, inputtypes: P0, required: P1, excluded: P2) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreInputDeviceTypes>,
-        P1: ::std::convert::Into<CoreIndependentInputFilters>,
-        P2: ::std::convert::Into<CoreIndependentInputFilters>,
-    {
+    pub fn SetControlledInputWithFilters(&self, inputtypes: CoreInputDeviceTypes, required: CoreIndependentInputFilters, excluded: CoreIndependentInputFilters) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetControlledInputWithFilters)(::windows::core::Interface::as_raw(this), inputtypes.into(), required.into(), excluded.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetControlledInputWithFilters)(::windows::core::Interface::as_raw(this), inputtypes, required, excluded).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
@@ -2647,12 +2622,9 @@ impl CoreWindow {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn SetFlowDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreWindowFlowDirection>,
-    {
+    pub fn SetFlowDirection(&self, value: CoreWindowFlowDirection) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
@@ -2712,26 +2684,20 @@ impl CoreWindow {
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetAsyncKeyState<'a, P0>(&self, virtualkey: P0) -> ::windows::core::Result<CoreVirtualKeyStates>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<CoreVirtualKeyStates>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsyncKeyState)(::windows::core::Interface::as_raw(this), virtualkey.into(), result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
+            (::windows::core::Interface::vtable(this).GetAsyncKeyState)(::windows::core::Interface::as_raw(this), virtualkey, result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetKeyState<'a, P0>(&self, virtualkey: P0) -> ::windows::core::Result<CoreVirtualKeyStates>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<CoreVirtualKeyStates>::zeroed();
-            (::windows::core::Interface::vtable(this).GetKeyState)(::windows::core::Interface::as_raw(this), virtualkey.into(), result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
+            (::windows::core::Interface::vtable(this).GetKeyState)(::windows::core::Interface::as_raw(this), virtualkey, result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -5445,12 +5411,9 @@ impl ICoreWindow {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn SetFlowDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreWindowFlowDirection>,
-    {
+    pub fn SetFlowDirection(&self, value: CoreWindowFlowDirection) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn IsInputEnabled(&self) -> ::windows::core::Result<bool> {
@@ -5510,26 +5473,20 @@ impl ICoreWindow {
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetAsyncKeyState<'a, P0>(&self, virtualkey: P0) -> ::windows::core::Result<CoreVirtualKeyStates>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<CoreVirtualKeyStates>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsyncKeyState)(::windows::core::Interface::as_raw(this), virtualkey.into(), result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
+            (::windows::core::Interface::vtable(this).GetAsyncKeyState)(::windows::core::Interface::as_raw(this), virtualkey, result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetKeyState<'a, P0>(&self, virtualkey: P0) -> ::windows::core::Result<CoreVirtualKeyStates>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows::core::Result<CoreVirtualKeyStates> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<CoreVirtualKeyStates>::zeroed();
-            (::windows::core::Interface::vtable(this).GetKeyState)(::windows::core::Interface::as_raw(this), virtualkey.into(), result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
+            (::windows::core::Interface::vtable(this).GetKeyState)(::windows::core::Interface::as_raw(this), virtualkey, result__.as_mut_ptr()).from_abi::<CoreVirtualKeyStates>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -7285,12 +7242,9 @@ impl SystemNavigationManager {
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
-    pub fn SetAppViewBackButtonVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppViewBackButtonVisibility>,
-    {
+    pub fn SetAppViewBackButtonVisibility(&self, value: AppViewBackButtonVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemNavigationManager2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppViewBackButtonVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppViewBackButtonVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SystemNavigationManager> {

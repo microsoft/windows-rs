@@ -1344,13 +1344,10 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub fn GetAccountPicture<'a, P0>(kind: P0) -> ::windows::core::Result<super::super::Storage::IStorageFile>
-    where
-        P0: ::std::convert::Into<AccountPictureKind>,
-    {
+    pub fn GetAccountPicture(kind: AccountPictureKind) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAccountPicture)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Storage::IStorageFile>(result__)
+            (::windows::core::Interface::vtable(this).GetAccountPicture)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Storage::IStorageFile>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]

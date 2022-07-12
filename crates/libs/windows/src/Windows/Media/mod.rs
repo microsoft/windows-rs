@@ -239,14 +239,11 @@ unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
 pub struct AudioFrame(::windows::core::IUnknown);
 impl AudioFrame {
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn LockBuffer<'a, P0>(&self, mode: P0) -> ::windows::core::Result<AudioBuffer>
-    where
-        P0: ::std::convert::Into<AudioBufferAccessMode>,
-    {
+    pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::core::Result<AudioBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<AudioBuffer>(result__)
+            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<AudioBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
@@ -3520,12 +3517,9 @@ impl SystemMediaTransportControls {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetPlaybackStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaPlaybackStatus>,
-    {
+    pub fn SetPlaybackStatus(&self, value: MediaPlaybackStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn DisplayUpdater(&self) -> ::windows::core::Result<SystemMediaTransportControlsDisplayUpdater> {
@@ -3731,12 +3725,9 @@ impl SystemMediaTransportControls {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetAutoRepeatMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaPlaybackAutoRepeatMode>,
-    {
+    pub fn SetAutoRepeatMode(&self, value: MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoRepeatMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoRepeatMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn ShuffleEnabled(&self) -> ::windows::core::Result<bool> {
@@ -4049,12 +4040,9 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaPlaybackType>,
-    {
+    pub fn SetType(&self, value: MediaPlaybackType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn AppMediaId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4116,15 +4104,14 @@ impl SystemMediaTransportControlsDisplayUpdater {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CopyFromFileAsync<'a, P0, P1>(&self, r#type: P0, source: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
+    pub fn CopyFromFileAsync<'a, P0>(&self, r#type: MediaPlaybackType, source: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::Into<MediaPlaybackType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::StorageFile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::StorageFile>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyFromFileAsync)(::windows::core::Interface::as_raw(this), r#type.into(), source.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).CopyFromFileAsync)(::windows::core::Interface::as_raw(this), r#type, source.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
@@ -4737,49 +4724,38 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn Create<'a, P0>(format: P0, width: i32, height: i32) -> ::windows::core::Result<VideoFrame>
-    where
-        P0: ::std::convert::Into<super::Graphics::Imaging::BitmapPixelFormat>,
-    {
+    pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format.into(), width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format, width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CreateWithAlpha<'a, P0, P1>(format: P0, width: i32, height: i32, alpha: P1) -> ::windows::core::Result<VideoFrame>
-    where
-        P0: ::std::convert::Into<super::Graphics::Imaging::BitmapPixelFormat>,
-        P1: ::std::convert::Into<super::Graphics::Imaging::BitmapAlphaMode>,
-    {
+    pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format.into(), width, height, alpha.into(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format, width, height, alpha, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateAsDirect3D11SurfaceBacked<'a, P0>(format: P0, width: i32, height: i32) -> ::windows::core::Result<VideoFrame>
-    where
-        P0: ::std::convert::Into<super::Graphics::DirectX::DirectXPixelFormat>,
-    {
+    pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(::windows::core::Interface::as_raw(this), format.into(), width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(::windows::core::Interface::as_raw(this), format, width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, P0, P1, E1>(format: P0, width: i32, height: i32, device: P1) -> ::windows::core::Result<VideoFrame>
+    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, P0, E0>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: P0) -> ::windows::core::Result<VideoFrame>
     where
-        P0: ::std::convert::Into<super::Graphics::DirectX::DirectXPixelFormat>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(::windows::core::Interface::as_raw(this), format.into(), width, height, device.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(::windows::core::Interface::as_raw(this), format, width, height, device.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]

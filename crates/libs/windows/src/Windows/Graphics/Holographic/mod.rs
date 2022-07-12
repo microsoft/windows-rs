@@ -466,12 +466,9 @@ impl HolographicCameraRenderingParameters {
         }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
-    pub fn SetReprojectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HolographicReprojectionMode>,
-    {
+    pub fn SetReprojectionMode(&self, value: HolographicReprojectionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReprojectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReprojectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -505,12 +502,9 @@ impl HolographicCameraRenderingParameters {
         }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
-    pub fn SetDepthReprojectionMethod<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HolographicDepthReprojectionMethod>,
-    {
+    pub fn SetDepthReprojectionMethod(&self, value: HolographicDepthReprojectionMethod) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHolographicCameraRenderingParameters4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDepthReprojectionMethod)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDepthReprojectionMethod)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for HolographicCameraRenderingParameters {
@@ -757,14 +751,11 @@ impl HolographicDisplay {
         }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
-    pub fn TryGetViewConfiguration<'a, P0>(&self, kind: P0) -> ::windows::core::Result<HolographicViewConfiguration>
-    where
-        P0: ::std::convert::Into<HolographicViewConfigurationKind>,
-    {
+    pub fn TryGetViewConfiguration(&self, kind: HolographicViewConfigurationKind) -> ::windows::core::Result<HolographicViewConfiguration> {
         let this = &::windows::core::Interface::cast::<IHolographicDisplay3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetViewConfiguration)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<HolographicViewConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).TryGetViewConfiguration)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<HolographicViewConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -906,14 +897,11 @@ impl HolographicFrame {
         }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
-    pub fn PresentUsingCurrentPredictionWithBehavior<'a, P0>(&self, waitbehavior: P0) -> ::windows::core::Result<HolographicFramePresentResult>
-    where
-        P0: ::std::convert::Into<HolographicFramePresentWaitBehavior>,
-    {
+    pub fn PresentUsingCurrentPredictionWithBehavior(&self, waitbehavior: HolographicFramePresentWaitBehavior) -> ::windows::core::Result<HolographicFramePresentResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<HolographicFramePresentResult>::zeroed();
-            (::windows::core::Interface::vtable(this).PresentUsingCurrentPredictionWithBehavior)(::windows::core::Interface::as_raw(this), waitbehavior.into(), result__.as_mut_ptr()).from_abi::<HolographicFramePresentResult>(result__)
+            (::windows::core::Interface::vtable(this).PresentUsingCurrentPredictionWithBehavior)(::windows::core::Interface::as_raw(this), waitbehavior, result__.as_mut_ptr()).from_abi::<HolographicFramePresentResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
@@ -1805,13 +1793,10 @@ impl HolographicQuadLayer {
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub fn CreateWithPixelFormat<'a, P0>(size: super::super::Foundation::Size, pixelformat: P0) -> ::windows::core::Result<HolographicQuadLayer>
-    where
-        P0: ::std::convert::Into<super::DirectX::DirectXPixelFormat>,
-    {
+    pub fn CreateWithPixelFormat(size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<HolographicQuadLayer> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPixelFormat)(::windows::core::Interface::as_raw(this), size, pixelformat.into(), result__.as_mut_ptr()).from_abi::<HolographicQuadLayer>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithPixelFormat)(::windows::core::Interface::as_raw(this), size, pixelformat, result__.as_mut_ptr()).from_abi::<HolographicQuadLayer>(result__)
         })
     }
     #[doc(hidden)]
@@ -2602,12 +2587,9 @@ impl HolographicViewConfiguration {
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetPixelFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::DirectX::DirectXPixelFormat>,
-    {
+    pub fn SetPixelFormat(&self, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPixelFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPixelFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {

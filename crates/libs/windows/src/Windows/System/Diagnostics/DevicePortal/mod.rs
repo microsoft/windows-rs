@@ -63,31 +63,28 @@ impl DevicePortalConnection {
     }
     #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`, `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest2<'a, P0, P1, P2>(&self, request: P0, messagetype: P1, protocol: P2) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
+    pub fn GetServerMessageWebSocketForRequest2<'a, P0, P1>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: P1) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-        P1: ::std::convert::Into<super::super::super::Networking::Sockets::SocketMessageType>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(::windows::core::Interface::as_raw(this), request.into().abi(), messagetype.into(), protocol.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
+            (::windows::core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(::windows::core::Interface::as_raw(this), request.into().abi(), messagetype, protocol.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`, `\"Networking_Sockets\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest3<'a, P0, P1, P2, P3>(&self, request: P0, messagetype: P1, protocol: P2, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: P3) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
+    pub fn GetServerMessageWebSocketForRequest3<'a, P0, P1>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: P1, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows::core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Web::Http::HttpRequestMessage>>,
-        P1: ::std::convert::Into<super::super::super::Networking::Sockets::SocketMessageType>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<super::super::super::Networking::Sockets::MessageWebSocketReceiveMode>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(::windows::core::Interface::as_raw(this), request.into().abi(), messagetype.into(), protocol.into().abi(), outboundbuffersizeinbytes, maxmessagesize, receivemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
+            (::windows::core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(::windows::core::Interface::as_raw(this), request.into().abi(), messagetype, protocol.into().abi(), outboundbuffersizeinbytes, maxmessagesize, receivemode, result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::ServerMessageWebSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics_DevicePortal\"`, `\"Networking_Sockets\"`, `\"Web_Http\"`*"]

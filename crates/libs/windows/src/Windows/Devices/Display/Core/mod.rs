@@ -279,30 +279,26 @@ impl DisplayDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn IsCapabilitySupported<'a, P0>(&self, capability: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<DisplayDeviceCapability>,
-    {
+    pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsCapabilitySupported)(::windows::core::Interface::as_raw(this), capability.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCapabilitySupported)(::windows::core::Interface::as_raw(this), capability, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
-    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, P0, P1, P2, E2, P3>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: P3) -> ::windows::core::Result<DisplayScanout>
+    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, P0, P1, P2, E2>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, DisplaySource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, DisplaySurface>>,
         P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>, Error = E2>,
         E2: ::std::convert::Into<::windows::core::Error>,
-        P3: ::std::convert::Into<DisplayScanoutOptions>,
     {
         let this = &::windows::core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Interface::as_raw(this), source.into().abi(), surface.into().abi(), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options.into(), result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
+            (::windows::core::Interface::vtable(this).CreateSimpleScanoutWithDirtyRectsAndOptions)(::windows::core::Interface::as_raw(this), source.into().abi(), surface.into().abi(), subresourceindex, syncinterval, dirtyrects.try_into().map_err(|e| e.into())?.abi(), options, result__.as_mut_ptr()).from_abi::<DisplayScanout>(result__)
         }
     }
 }
@@ -656,13 +652,10 @@ impl DisplayManager {
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn Create<'a, P0>(options: P0) -> ::windows::core::Result<DisplayManager>
-    where
-        P0: ::std::convert::Into<DisplayManagerOptions>,
-    {
+    pub fn Create(options: DisplayManagerOptions) -> ::windows::core::Result<DisplayManager> {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayManager>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -1359,14 +1352,11 @@ impl DisplayModeInfo {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn GetWireFormatSupportedBitsPerChannel<'a, P0>(&self, encoding: P0) -> ::windows::core::Result<DisplayBitsPerChannel>
-    where
-        P0: ::std::convert::Into<DisplayWireFormatPixelEncoding>,
-    {
+    pub fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::core::Result<DisplayBitsPerChannel> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<DisplayBitsPerChannel>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Interface::as_raw(this), encoding.into(), result__.as_mut_ptr()).from_abi::<DisplayBitsPerChannel>(result__)
+            (::windows::core::Interface::vtable(this).GetWireFormatSupportedBitsPerChannel)(::windows::core::Interface::as_raw(this), encoding, result__.as_mut_ptr()).from_abi::<DisplayBitsPerChannel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1581,12 +1571,9 @@ impl DisplayPath {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetSourcePixelFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-    {
+    pub fn SetSourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourcePixelFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourcePixelFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
@@ -1683,12 +1670,9 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayRotation>,
-    {
+    pub fn SetRotation(&self, value: DisplayRotation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
     pub fn Scaling(&self) -> ::windows::core::Result<DisplayPathScaling> {
@@ -1699,23 +1683,17 @@ impl DisplayPath {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetScaling<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayPathScaling>,
-    {
+    pub fn SetScaling(&self, value: DisplayPathScaling) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaling)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaling)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindModes<'a, P0>(&self, flags: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>
-    where
-        P0: ::std::convert::Into<DisplayModeQueryOptions>,
-    {
+    pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindModes)(::windows::core::Interface::as_raw(this), flags.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
+            (::windows::core::Interface::vtable(this).FindModes)(::windows::core::Interface::as_raw(this), flags, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2044,28 +2022,22 @@ impl DisplayPrimaryDescription {
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateInstance<'a, P0, P1>(width: u32, height: u32, pixelformat: P0, colorspace: P1, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P1: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>,
-    {
+    pub fn CreateInstance(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, pixelformat.into(), colorspace.into(), isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateWithProperties<'a, P0, E0, P1, P2>(extraproperties: P0, width: u32, height: u32, pixelformat: P1, colorspace: P2, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>
+    pub fn CreateWithProperties<'a, P0, E0>(extraproperties: P0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P2: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXColorSpace>,
     {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), width, height, pixelformat.into(), colorspace.into(), isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
     #[doc(hidden)]
@@ -2574,25 +2546,19 @@ impl DisplayState {
         unsafe { (::windows::core::Interface::vtable(this).DisconnectTarget)(::windows::core::Interface::as_raw(this), target.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryFunctionalize<'a, P0>(&self, options: P0) -> ::windows::core::Result<DisplayStateOperationResult>
-    where
-        P0: ::std::convert::Into<DisplayStateFunctionalizeOptions>,
-    {
+    pub fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryFunctionalize)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
+            (::windows::core::Interface::vtable(this).TryFunctionalize)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn TryApply<'a, P0>(&self, options: P0) -> ::windows::core::Result<DisplayStateOperationResult>
-    where
-        P0: ::std::convert::Into<DisplayStateApplyOptions>,
-    {
+    pub fn TryApply(&self, options: DisplayStateApplyOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryApply)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
+            (::windows::core::Interface::vtable(this).TryApply)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3225,13 +3191,12 @@ impl DisplayTask {
         unsafe { (::windows::core::Interface::vtable(this).SetWait)(::windows::core::Interface::as_raw(this), readyfence.into().abi(), readyfencevalue).ok() }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn SetSignal<'a, P0, P1>(&self, signalkind: P0, fence: P1) -> ::windows::core::Result<()>
+    pub fn SetSignal<'a, P0>(&self, signalkind: DisplayTaskSignalKind, fence: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DisplayTaskSignalKind>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DisplayFence>>,
     {
         let this = &::windows::core::Interface::cast::<IDisplayTask2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignal)(::windows::core::Interface::as_raw(this), signalkind.into(), fence.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignal)(::windows::core::Interface::as_raw(this), signalkind, fence.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayTask {
@@ -3682,32 +3647,22 @@ impl DisplayWireFormat {
         }
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
-    pub fn CreateInstance<'a, P0, P1, P2, P3>(pixelencoding: P0, bitsperchannel: i32, colorspace: P1, eotf: P2, hdrmetadata: P3) -> ::windows::core::Result<DisplayWireFormat>
-    where
-        P0: ::std::convert::Into<DisplayWireFormatPixelEncoding>,
-        P1: ::std::convert::Into<DisplayWireFormatColorSpace>,
-        P2: ::std::convert::Into<DisplayWireFormatEotf>,
-        P3: ::std::convert::Into<DisplayWireFormatHdrMetadata>,
-    {
+    pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), pixelencoding.into(), bitsperchannel, colorspace.into(), eotf.into(), hdrmetadata.into(), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, P0, E0, P1, P2, P3, P4>(extraproperties: P0, pixelencoding: P1, bitsperchannel: i32, colorspace: P2, eotf: P3, hdrmetadata: P4) -> ::windows::core::Result<DisplayWireFormat>
+    pub fn CreateWithProperties<'a, P0, E0>(extraproperties: P0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<DisplayWireFormatPixelEncoding>,
-        P2: ::std::convert::Into<DisplayWireFormatColorSpace>,
-        P3: ::std::convert::Into<DisplayWireFormatEotf>,
-        P4: ::std::convert::Into<DisplayWireFormatHdrMetadata>,
     {
         Self::IDisplayWireFormatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), pixelencoding.into(), bitsperchannel, colorspace.into(), eotf.into(), hdrmetadata.into(), result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), extraproperties.try_into().map_err(|e| e.into())?.abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
         })
     }
     #[doc(hidden)]

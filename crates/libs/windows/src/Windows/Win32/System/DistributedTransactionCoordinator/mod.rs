@@ -460,25 +460,16 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
         (::windows::core::Interface::vtable(self).GetOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxln), ::core::mem::transmute(pourlogname), ::core::mem::transmute(premotelogname), ::core::mem::transmute(pdwprotocol)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleConfirmationFromOurXln<'a, P0>(&self, confirmation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_Xln_Confirmation>,
-    {
-        (::windows::core::Interface::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Interface::as_raw(self), confirmation.into()).ok()
+    pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(confirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleTheirXlnResponse<'a, P0>(&self, xln: P0, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_Xln>,
-    {
-        (::windows::core::Interface::vtable(self).HandleTheirXlnResponse)(::windows::core::Interface::as_raw(self), xln.into(), ::core::mem::transmute(premotelogname), ::core::mem::transmute(cbremotelogname), ::core::mem::transmute(dwprotocol), ::core::mem::transmute(pconfirmation)).ok()
+    pub unsafe fn HandleTheirXlnResponse(&self, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleTheirXlnResponse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xln), ::core::mem::transmute(premotelogname), ::core::mem::transmute(cbremotelogname), ::core::mem::transmute(dwprotocol), ::core::mem::transmute(pconfirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleErrorFromOurXln<'a, P0>(&self, error: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_Xln_Error>,
-    {
-        (::windows::core::Interface::vtable(self).HandleErrorFromOurXln)(::windows::core::Interface::as_raw(self), error.into()).ok()
+    pub unsafe fn HandleErrorFromOurXln(&self, error: _DtcLu_Xln_Error) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(error)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -494,18 +485,12 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
         (::windows::core::Interface::vtable(self).GetOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pourtransid), ::core::mem::transmute(pcomparestate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleTheirCompareStatesResponse<'a, P0>(&self, comparestate: P0, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_CompareState>,
-    {
-        (::windows::core::Interface::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Interface::as_raw(self), comparestate.into(), ::core::mem::transmute(pconfirmation)).ok()
+    pub unsafe fn HandleTheirCompareStatesResponse(&self, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(comparestate), ::core::mem::transmute(pconfirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleErrorFromOurCompareStates<'a, P0>(&self, error: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_CompareStates_Error>,
-    {
-        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error.into()).ok()
+    pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(error)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
@@ -632,11 +617,8 @@ pub struct IDtcLuRecoveryInitiatedByLu_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByLuWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleTheirXln<'a, P0>(&self, lrecoveryseqnum: i32, xln: P0, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_Xln>,
-    {
-        (::windows::core::Interface::vtable(self).HandleTheirXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrecoveryseqnum), xln.into(), ::core::mem::transmute(premotelogname), ::core::mem::transmute(cbremotelogname), ::core::mem::transmute(pourlogname), ::core::mem::transmute(cbourlogname), ::core::mem::transmute(dwprotocol), ::core::mem::transmute(presponse)).ok()
+    pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleTheirXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrecoveryseqnum), ::core::mem::transmute(xln), ::core::mem::transmute(premotelogname), ::core::mem::transmute(cbremotelogname), ::core::mem::transmute(pourlogname), ::core::mem::transmute(cbourlogname), ::core::mem::transmute(dwprotocol), ::core::mem::transmute(presponse)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> ::windows::core::Result<()> {
@@ -647,32 +629,20 @@ impl IDtcLuRecoveryInitiatedByLuWork {
         (::windows::core::Interface::vtable(self).GetOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxln), ::core::mem::transmute(pourlogname), ::core::mem::transmute(pdwprotocol)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleConfirmationOfOurXln<'a, P0>(&self, confirmation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_Xln_Confirmation>,
-    {
-        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Interface::as_raw(self), confirmation.into()).ok()
+    pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(confirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleTheirCompareStates<'a, P0>(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: P0, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_CompareState>,
-    {
-        (::windows::core::Interface::vtable(self).HandleTheirCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(premotetransid), ::core::mem::transmute(cbremotetransid), comparestate.into(), ::core::mem::transmute(presponse), ::core::mem::transmute(pcomparestate)).ok()
+    pub unsafe fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleTheirCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(premotetransid), ::core::mem::transmute(cbremotetransid), ::core::mem::transmute(comparestate), ::core::mem::transmute(presponse), ::core::mem::transmute(pcomparestate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleConfirmationOfOurCompareStates<'a, P0>(&self, confirmation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_CompareStates_Confirmation>,
-    {
-        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Interface::as_raw(self), confirmation.into()).ok()
+    pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(confirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn HandleErrorFromOurCompareStates<'a, P0>(&self, error: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<_DtcLu_CompareStates_Error>,
-    {
-        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error.into()).ok()
+    pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(error)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
@@ -1488,11 +1458,8 @@ impl IDtcNetworkAccessConfig2 {
         (::windows::core::Interface::vtable(self).GetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AUTHENTICATION_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn SetAuthenticationLevel<'a, P0>(&self, authlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AUTHENTICATION_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), authlevel.into()).ok()
+    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authlevel)).ok()
     }
 }
 impl ::core::convert::From<IDtcNetworkAccessConfig2> for ::windows::core::IUnknown {
@@ -1694,11 +1661,8 @@ impl IDtcNetworkAccessConfig3 {
         (::windows::core::Interface::vtable(self).base__.GetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AUTHENTICATION_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn SetAuthenticationLevel<'a, P0>(&self, authlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AUTHENTICATION_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), authlevel.into()).ok()
+    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3833,11 +3797,8 @@ pub struct ITransactionImportWhereabouts_Vtbl {
 pub struct ITransactionLastEnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionLastEnlistmentAsync {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
-    pub unsafe fn TransactionOutcome<'a, P0>(&self, xactstat: P0, pboidreason: *const BOID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XACTSTAT>,
-    {
-        (::windows::core::Interface::vtable(self).TransactionOutcome)(::windows::core::Interface::as_raw(self), xactstat.into(), ::core::mem::transmute(pboidreason)).ok()
+    pub unsafe fn TransactionOutcome(&self, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransactionOutcome)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xactstat), ::core::mem::transmute(pboidreason)).ok()
     }
 }
 impl ::core::convert::From<ITransactionLastEnlistmentAsync> for ::windows::core::IUnknown {

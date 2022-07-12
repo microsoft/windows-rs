@@ -109,13 +109,12 @@ impl IWPCProviderConfig {
     }
     #[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestOverride<'a, P0, P1, P2>(&self, hwnd: P0, bstrpath: P1, dwflags: P2) -> ::windows::core::Result<()>
+    pub unsafe fn RequestOverride<'a, P0, P1>(&self, hwnd: P0, bstrpath: P1, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<WPCFLAG_RESTRICTION>,
     {
-        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into(), bstrpath.into().abi(), dwflags.into()).ok()
+        (::windows::core::Interface::vtable(self).RequestOverride)(::windows::core::Interface::as_raw(self), hwnd.into(), bstrpath.into().abi(), ::core::mem::transmute(dwflags)).ok()
     }
 }
 impl ::core::convert::From<IWPCProviderConfig> for ::windows::core::IUnknown {

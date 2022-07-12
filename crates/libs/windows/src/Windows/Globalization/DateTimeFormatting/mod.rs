@@ -201,69 +201,44 @@ impl DateTimeFormatter {
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
-    pub fn CreateDateTimeFormatterDate<'a, P0, P1, P2, P3>(yearformat: P0, monthformat: P1, dayformat: P2, dayofweekformat: P3) -> ::windows::core::Result<DateTimeFormatter>
-    where
-        P0: ::std::convert::Into<YearFormat>,
-        P1: ::std::convert::Into<MonthFormat>,
-        P2: ::std::convert::Into<DayFormat>,
-        P3: ::std::convert::Into<DayOfWeekFormat>,
-    {
+    pub fn CreateDateTimeFormatterDate(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDate)(::windows::core::Interface::as_raw(this), yearformat.into(), monthformat.into(), dayformat.into(), dayofweekformat.into(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDate)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
-    pub fn CreateDateTimeFormatterTime<'a, P0, P1, P2>(hourformat: P0, minuteformat: P1, secondformat: P2) -> ::windows::core::Result<DateTimeFormatter>
-    where
-        P0: ::std::convert::Into<HourFormat>,
-        P1: ::std::convert::Into<MinuteFormat>,
-        P2: ::std::convert::Into<SecondFormat>,
-    {
+    pub fn CreateDateTimeFormatterTime(hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterTime)(::windows::core::Interface::as_raw(this), hourformat.into(), minuteformat.into(), secondformat.into(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterTime)(::windows::core::Interface::as_raw(this), hourformat, minuteformat, secondformat, result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeFormatterDateTimeLanguages<'a, P0, P1, P2, P3, P4, P5, P6, P7, E7>(yearformat: P0, monthformat: P1, dayformat: P2, dayofweekformat: P3, hourformat: P4, minuteformat: P5, secondformat: P6, languages: P7) -> ::windows::core::Result<DateTimeFormatter>
+    pub fn CreateDateTimeFormatterDateTimeLanguages<'a, P0, E0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0) -> ::windows::core::Result<DateTimeFormatter>
     where
-        P0: ::std::convert::Into<YearFormat>,
-        P1: ::std::convert::Into<MonthFormat>,
-        P2: ::std::convert::Into<DayFormat>,
-        P3: ::std::convert::Into<DayOfWeekFormat>,
-        P4: ::std::convert::Into<HourFormat>,
-        P5: ::std::convert::Into<MinuteFormat>,
-        P6: ::std::convert::Into<SecondFormat>,
-        P7: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E7>,
-        E7: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows::core::Interface::as_raw(this), yearformat.into(), monthformat.into(), dayformat.into(), dayofweekformat.into(), hourformat.into(), minuteformat.into(), secondformat.into(), languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeFormatterDateTimeContext<'a, P0, P1, P2, P3, P4, P5, P6, P7, E7, P8, P9, P10>(yearformat: P0, monthformat: P1, dayformat: P2, dayofweekformat: P3, hourformat: P4, minuteformat: P5, secondformat: P6, languages: P7, geographicregion: P8, calendar: P9, clock: P10) -> ::windows::core::Result<DateTimeFormatter>
+    pub fn CreateDateTimeFormatterDateTimeContext<'a, P0, E0, P1, P2, P3>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0, geographicregion: P1, calendar: P2, clock: P3) -> ::windows::core::Result<DateTimeFormatter>
     where
-        P0: ::std::convert::Into<YearFormat>,
-        P1: ::std::convert::Into<MonthFormat>,
-        P2: ::std::convert::Into<DayFormat>,
-        P3: ::std::convert::Into<DayOfWeekFormat>,
-        P4: ::std::convert::Into<HourFormat>,
-        P5: ::std::convert::Into<MinuteFormat>,
-        P6: ::std::convert::Into<SecondFormat>,
-        P7: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E7>,
-        E7: ::std::convert::Into<::windows::core::Error>,
-        P8: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P9: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P10: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeContext)(::windows::core::Interface::as_raw(this), yearformat.into(), monthformat.into(), dayformat.into(), dayofweekformat.into(), hourformat.into(), minuteformat.into(), secondformat.into(), languages.try_into().map_err(|e| e.into())?.abi(), geographicregion.into().abi(), calendar.into().abi(), clock.into().abi(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeContext)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.try_into().map_err(|e| e.into())?.abi(), geographicregion.into().abi(), calendar.into().abi(), clock.into().abi(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]

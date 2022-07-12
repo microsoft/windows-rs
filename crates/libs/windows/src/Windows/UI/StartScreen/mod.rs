@@ -613,12 +613,9 @@ impl JumpList {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetSystemGroupKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<JumpListSystemGroupKind>,
-    {
+    pub fn SetSystemGroupKind(&self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemGroupKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemGroupKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1125,12 +1122,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetTileOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TileOptions>,
-    {
+    pub fn SetTileOptions(&self, value: TileOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1143,12 +1137,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetForegroundText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ForegroundText>,
-    {
+    pub fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1203,14 +1194,11 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn RequestCreateAsyncWithRectAndPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<super::Popups::Placement>,
-    {
+    pub fn RequestCreateAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
@@ -1242,14 +1230,11 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn RequestDeleteAsyncWithRectAndPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<super::Popups::Placement>,
-    {
+    pub fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
@@ -1318,35 +1303,33 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateTile<'a, P0, P1, P2, P3, P4, P5>(tileid: P0, shortname: P1, displayname: P2, arguments: P3, tileoptions: P4, logoreference: P5) -> ::windows::core::Result<SecondaryTile>
+    pub fn CreateTile<'a, P0, P1, P2, P3, P4>(tileid: P0, shortname: P1, displayname: P2, arguments: P3, tileoptions: TileOptions, logoreference: P4) -> ::windows::core::Result<SecondaryTile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P4: ::std::convert::Into<TileOptions>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions.into(), logoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions, logoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateWideTile<'a, P0, P1, P2, P3, P4, P5, P6>(tileid: P0, shortname: P1, displayname: P2, arguments: P3, tileoptions: P4, logoreference: P5, widelogoreference: P6) -> ::windows::core::Result<SecondaryTile>
+    pub fn CreateWideTile<'a, P0, P1, P2, P3, P4, P5>(tileid: P0, shortname: P1, displayname: P2, arguments: P3, tileoptions: TileOptions, logoreference: P4, widelogoreference: P5) -> ::windows::core::Result<SecondaryTile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P4: ::std::convert::Into<TileOptions>,
+        P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWideTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions.into(), logoreference.into().abi(), widelogoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateWideTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions, logoreference.into().abi(), widelogoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1361,17 +1344,16 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMinimalTile<'a, P0, P1, P2, P3, P4>(tileid: P0, displayname: P1, arguments: P2, square150x150logo: P3, desiredsize: P4) -> ::windows::core::Result<SecondaryTile>
+    pub fn CreateMinimalTile<'a, P0, P1, P2, P3>(tileid: P0, displayname: P1, arguments: P2, square150x150logo: P3, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P4: ::std::convert::Into<TileSize>,
     {
         Self::ISecondaryTileFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMinimalTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), displayname.into().abi(), arguments.into().abi(), square150x150logo.into().abi(), desiredsize.into(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateMinimalTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), displayname.into().abi(), arguments.into().abi(), square150x150logo.into().abi(), desiredsize, result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1584,12 +1566,9 @@ impl SecondaryTileVisualElements {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetForegroundText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ForegroundText>,
-    {
+    pub fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ForegroundText(&self) -> ::windows::core::Result<ForegroundText> {
@@ -1959,12 +1938,9 @@ impl TileMixedRealityModel {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetActivationBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TileMixedRealityModelActivationBehavior>,
-    {
+    pub fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITileMixedRealityModel2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetActivationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetActivationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ActivationBehavior(&self) -> ::windows::core::Result<TileMixedRealityModelActivationBehavior> {

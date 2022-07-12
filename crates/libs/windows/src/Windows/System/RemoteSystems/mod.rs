@@ -1361,13 +1361,10 @@ impl RemoteSystem {
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn IsAuthorizationKindEnabled<'a, P0>(kind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<RemoteSystemAuthorizationKind>,
-    {
+    pub fn IsAuthorizationKindEnabled(kind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<bool> {
         Self::IRemoteSystemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsAuthorizationKindEnabled)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAuthorizationKindEnabled)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1868,13 +1865,10 @@ impl RemoteSystemAuthorizationKindFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, P0>(remotesystemauthorizationkind: P0) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter>
-    where
-        P0: ::std::convert::Into<RemoteSystemAuthorizationKind>,
-    {
+    pub fn Create(remotesystemauthorizationkind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter> {
         Self::IRemoteSystemAuthorizationKindFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemauthorizationkind.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemAuthorizationKindFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemauthorizationkind, result__.as_mut_ptr()).from_abi::<RemoteSystemAuthorizationKindFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -2251,13 +2245,10 @@ impl RemoteSystemDiscoveryTypeFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, P0>(discoverytype: P0) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter>
-    where
-        P0: ::std::convert::Into<RemoteSystemDiscoveryType>,
-    {
+    pub fn Create(discoverytype: RemoteSystemDiscoveryType) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter> {
         Self::IRemoteSystemDiscoveryTypeFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), discoverytype.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemDiscoveryTypeFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), discoverytype, result__.as_mut_ptr()).from_abi::<RemoteSystemDiscoveryTypeFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -4021,15 +4012,14 @@ impl RemoteSystemSessionMessageChannel {
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateWithReliability<'a, P0, P1, P2>(session: P0, channelname: P1, reliability: P2) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>
+    pub fn CreateWithReliability<'a, P0, P1>(session: P0, channelname: P1, reliability: RemoteSystemSessionMessageChannelReliability) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<RemoteSystemSessionMessageChannelReliability>,
     {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithReliability)(::windows::core::Interface::as_raw(this), session.into().abi(), channelname.into().abi(), reliability.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithReliability)(::windows::core::Interface::as_raw(this), session.into().abi(), channelname.into().abi(), reliability, result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
         })
     }
     #[doc(hidden)]
@@ -5126,13 +5116,10 @@ impl RemoteSystemStatusTypeFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, P0>(remotesystemstatustype: P0) -> ::windows::core::Result<RemoteSystemStatusTypeFilter>
-    where
-        P0: ::std::convert::Into<RemoteSystemStatusType>,
-    {
+    pub fn Create(remotesystemstatustype: RemoteSystemStatusType) -> ::windows::core::Result<RemoteSystemStatusTypeFilter> {
         Self::IRemoteSystemStatusTypeFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemstatustype.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemStatusTypeFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemstatustype, result__.as_mut_ptr()).from_abi::<RemoteSystemStatusTypeFilter>(result__)
         })
     }
     #[doc(hidden)]

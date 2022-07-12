@@ -1064,12 +1064,9 @@ impl FrameFlashControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FrameFlashMode>,
-    {
+    pub fn SetMode(&self, value: FrameFlashMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
     pub fn Auto(&self) -> ::windows::core::Result<bool> {

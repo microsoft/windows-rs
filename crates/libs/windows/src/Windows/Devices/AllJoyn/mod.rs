@@ -584,16 +584,15 @@ impl AllJoynAcceptSessionJoinerEventArgs {
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Create<'a, P0, P1, P2, E2>(uniquename: P0, sessionport: u16, traffictype: P1, proximity: u8, acceptsessionjoiner: P2) -> ::windows::core::Result<AllJoynAcceptSessionJoinerEventArgs>
+    pub fn Create<'a, P0, P1, E1>(uniquename: P0, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: P1) -> ::windows::core::Result<AllJoynAcceptSessionJoinerEventArgs>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AllJoynTrafficType>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, IAllJoynAcceptSessionJoiner>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IAllJoynAcceptSessionJoiner>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IAllJoynAcceptSessionJoinerEventArgsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into().abi(), sessionport, traffictype.into(), proximity, acceptsessionjoiner.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AllJoynAcceptSessionJoinerEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into().abi(), sessionport, traffictype, proximity, acceptsessionjoiner.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AllJoynAcceptSessionJoinerEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -2828,13 +2827,10 @@ impl AllJoynSessionLostEventArgs {
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Create<'a, P0>(reason: P0) -> ::windows::core::Result<AllJoynSessionLostEventArgs>
-    where
-        P0: ::std::convert::Into<AllJoynSessionLostReason>,
-    {
+    pub fn Create(reason: AllJoynSessionLostReason) -> ::windows::core::Result<AllJoynSessionLostEventArgs> {
         Self::IAllJoynSessionLostEventArgsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), reason.into(), result__.as_mut_ptr()).from_abi::<AllJoynSessionLostEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), reason, result__.as_mut_ptr()).from_abi::<AllJoynSessionLostEventArgs>(result__)
         })
     }
     #[doc(hidden)]

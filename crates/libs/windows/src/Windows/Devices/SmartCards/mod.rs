@@ -1504,12 +1504,9 @@ impl SmartCardAppletIdGroup {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetSmartCardEmulationCategory<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardEmulationCategory>,
-    {
+    pub fn SetSmartCardEmulationCategory(&self, value: SmartCardEmulationCategory) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationCategory)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationCategory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn SmartCardEmulationType(&self) -> ::windows::core::Result<SmartCardEmulationType> {
@@ -1520,12 +1517,9 @@ impl SmartCardAppletIdGroup {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetSmartCardEmulationType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardEmulationType>,
-    {
+    pub fn SetSmartCardEmulationType(&self, value: SmartCardEmulationType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn AutomaticEnablement(&self) -> ::windows::core::Result<bool> {
@@ -1599,17 +1593,15 @@ impl SmartCardAppletIdGroup {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Create<'a, P0, P1, E1, P2, P3>(displayname: P0, appletids: P1, emulationcategory: P2, emulationtype: P3) -> ::windows::core::Result<SmartCardAppletIdGroup>
+    pub fn Create<'a, P0, P1, E1>(displayname: P0, appletids: P1, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows::core::Result<SmartCardAppletIdGroup>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<SmartCardEmulationCategory>,
-        P3: ::std::convert::Into<SmartCardEmulationType>,
     {
         Self::ISmartCardAppletIdGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), displayname.into().abi(), appletids.try_into().map_err(|e| e.into())?.abi(), emulationcategory.into(), emulationtype.into(), result__.as_mut_ptr()).from_abi::<SmartCardAppletIdGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), displayname.into().abi(), appletids.try_into().map_err(|e| e.into())?.abi(), emulationcategory, emulationtype, result__.as_mut_ptr()).from_abi::<SmartCardAppletIdGroup>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1749,14 +1741,11 @@ impl SmartCardAppletIdGroupRegistration {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestActivationPolicyChangeAsync<'a, P0>(&self, policy: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>
-    where
-        P0: ::std::convert::Into<SmartCardAppletIdGroupActivationPolicy>,
-    {
+    pub fn RequestActivationPolicyChangeAsync(&self, policy: SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestActivationPolicyChangeAsync)(::windows::core::Interface::as_raw(this), policy.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestActivationPolicyChangeAsync)(::windows::core::Interface::as_raw(this), policy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2494,76 +2483,65 @@ impl SmartCardCryptogramGenerator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateCryptogramMaterialStorageKeyAsync<'a, P0, P1, P2, P3>(&self, promptingbehavior: P0, storagekeyname: P1, algorithm: P2, capabilities: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn CreateCryptogramMaterialStorageKeyAsync<'a, P0>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: P0, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<SmartCardCryptogramStorageKeyAlgorithm>,
-        P3: ::std::convert::Into<SmartCardCryptogramStorageKeyCapabilities>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCryptogramMaterialStorageKeyAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), storagekeyname.into().abi(), algorithm.into(), capabilities.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).CreateCryptogramMaterialStorageKeyAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, storagekeyname.into().abi(), algorithm, capabilities, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Security_Cryptography_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core"))]
-    pub fn RequestCryptogramMaterialStorageKeyInfoAsync<'a, P0, P1, P2>(&self, promptingbehavior: P0, storagekeyname: P1, format: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>
+    pub fn RequestCryptogramMaterialStorageKeyInfoAsync<'a, P0>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: P0, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>
     where
-        P0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCryptogramMaterialStorageKeyInfoAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), storagekeyname.into().abi(), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCryptogramMaterialStorageKeyInfoAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, storagekeyname.into().abi(), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ImportCryptogramMaterialPackageAsync<'a, P0, P1, P2, P3, E3>(&self, format: P0, storagekeyname: P1, materialpackagename: P2, cryptogrammaterialpackage: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn ImportCryptogramMaterialPackageAsync<'a, P0, P1, P2, E2>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: P0, materialpackagename: P1, cryptogrammaterialpackage: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::std::convert::Into<SmartCardCryptogramMaterialPackageFormat>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E3>,
-        E3: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), format.into(), storagekeyname.into().abi(), materialpackagename.into().abi(), cryptogrammaterialpackage.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), format, storagekeyname.into().abi(), materialpackagename.into().abi(), cryptogrammaterialpackage.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<'a, P0, P1, P2, P3, P4, E4>(&self, promptingbehavior: P0, responseformat: P1, materialpackagename: P2, materialname: P3, challenge: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
+    pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<'a, P0, P1, P2, E2>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: P0, materialname: P1, challenge: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
     where
-        P0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>,
-        P1: ::std::convert::Into<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E4>,
-        E4: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), responseformat.into(), materialpackagename.into().abi(), materialname.into().abi(), challenge.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>(result__)
+            (::windows::core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, responseformat, materialpackagename.into().abi(), materialname.into().abi(), challenge.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestUnlockCryptogramMaterialForUseAsync<'a, P0>(&self, promptingbehavior: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
-    where
-        P0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>,
-    {
+    pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUnlockCryptogramMaterialForUseAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestUnlockCryptogramMaterialForUseAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -2580,18 +2558,17 @@ impl SmartCardCryptogramGenerator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ValidateRequestApduAsync<'a, P0, P1, E1, P2, E2>(&self, promptingbehavior: P0, apdutovalidate: P1, cryptogramplacementsteps: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn ValidateRequestApduAsync<'a, P0, E0, P1, E1>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P0, cryptogramplacementsteps: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateRequestApduAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), apdutovalidate.try_into().map_err(|e| e.into())?.abi(), cryptogramplacementsteps.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ValidateRequestApduAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, apdutovalidate.try_into().map_err(|e| e.into())?.abi(), cryptogramplacementsteps.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -2626,15 +2603,14 @@ impl SmartCardCryptogramGenerator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAllCryptogramMaterialCharacteristicsAsync<'a, P0, P1>(&self, promptingbehavior: P0, materialpackagename: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>
+    pub fn GetAllCryptogramMaterialCharacteristicsAsync<'a, P0>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>
     where
-        P0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), materialpackagename.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, materialpackagename.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -3598,12 +3574,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardCryptogramAlgorithm>,
-    {
+    pub fn SetAlgorithm(&self, value: SmartCardCryptogramAlgorithm) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3704,12 +3677,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetCryptogramPlacementOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardCryptogramPlacementOptions>,
-    {
+    pub fn SetCryptogramPlacementOptions(&self, value: SmartCardCryptogramPlacementOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramPlacementOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramPlacementOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn ChainedOutputStep(&self) -> ::windows::core::Result<SmartCardCryptogramPlacementStep> {
@@ -4974,12 +4944,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetUppercaseLetters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>,
-    {
+    pub fn SetUppercaseLetters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUppercaseLetters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUppercaseLetters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn LowercaseLetters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption> {
@@ -4990,12 +4957,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetLowercaseLetters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>,
-    {
+    pub fn SetLowercaseLetters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLowercaseLetters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLowercaseLetters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn Digits(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption> {
@@ -5006,12 +4970,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetDigits<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>,
-    {
+    pub fn SetDigits(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDigits)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDigits)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn SpecialCharacters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption> {
@@ -5022,12 +4983,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetSpecialCharacters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>,
-    {
+    pub fn SetSpecialCharacters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSpecialCharacters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpecialCharacters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SmartCardPinPolicy {
@@ -5666,13 +5624,10 @@ impl SmartCardReader {
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn GetDeviceSelectorWithKind<'a, P0>(kind: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<SmartCardReaderKind>,
-    {
+    pub fn GetDeviceSelectorWithKind(kind: SmartCardReaderKind) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISmartCardReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithKind)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithKind)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -5916,15 +5871,14 @@ impl SmartCardTriggerDetails {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryLaunchCurrentAppWithBehaviorAsync<'a, P0, P1>(&self, arguments: P0, behavior: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryLaunchCurrentAppWithBehaviorAsync<'a, P0>(&self, arguments: P0, behavior: SmartCardLaunchBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<SmartCardLaunchBehavior>,
     {
         let this = &::windows::core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryLaunchCurrentAppWithBehaviorAsync)(::windows::core::Interface::as_raw(this), arguments.into().abi(), behavior.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryLaunchCurrentAppWithBehaviorAsync)(::windows::core::Interface::as_raw(this), arguments.into().abi(), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]

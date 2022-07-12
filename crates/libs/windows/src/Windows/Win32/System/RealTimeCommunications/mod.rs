@@ -337,12 +337,9 @@ impl IRTCBuddy2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty<'a, P0>(&self, enproperty: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
-    {
+    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn EnumeratePresenceDevices(&self) -> ::windows::core::Result<IRTCEnumPresenceDevices> {
@@ -913,21 +910,17 @@ impl IRTCClient {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSession<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<IRTCSession>
+    pub unsafe fn CreateSession<'a, P0, P1>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: P0, pprofile: P1, lflags: i32) -> ::windows::core::Result<IRTCSession>
     where
-        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
+        (::windows::core::Interface::vtable(self).CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetListenForIncomingSessions<'a, P0>(&self, enlisten: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_LISTEN_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), enlisten.into()).ok()
+    pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enlisten)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE> {
@@ -941,76 +934,51 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).get_NetworkAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ftcp), ::core::mem::transmute(fexternal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_Volume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
-        (::windows::core::Interface::vtable(self).put_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_Volume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AudioMuted<'a, P0>(&self, endevice: P0, fmuted: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
-        (::windows::core::Interface::vtable(self).put_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(fmuted)).ok()
+    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(fmuted)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AudioMuted<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>
-    where
-        P0: ::std::convert::Into<RTC_VIDEO_DEVICE>,
-    {
+    pub unsafe fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IVideoWindow)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
+        (::windows::core::Interface::vtable(self).get_IVideoWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PreferredAudioDevice<'a, P0, P1>(&self, endevice: P0, bstrdevicename: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_PreferredAudioDevice<'a, P0>(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), bstrdevicename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PreferredAudioDevice<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredVolume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
-        (::windows::core::Interface::vtable(self).put_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredVolume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SetPreferredAEC(&self, benable: i16) -> ::windows::core::Result<()> {
@@ -1064,23 +1032,17 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).NetworkQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn StartT120Applet<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_T120_APPLET>,
-    {
-        (::windows::core::Interface::vtable(self).StartT120Applet)(::windows::core::Interface::as_raw(self), enapplet.into()).ok()
+    pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartT120Applet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn StopT120Applets(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StopT120Applets)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_IsT120AppletRunning<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<RTC_T120_APPLET>,
-    {
+    pub unsafe fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), enapplet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1111,18 +1073,12 @@ impl IRTCClient {
         (::windows::core::Interface::vtable(self).SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn PlayRing<'a, P0>(&self, entype: P0, bplay: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_RING_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).PlayRing)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(bplay)).ok()
+    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PlayRing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(bplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendDTMF<'a, P0>(&self, endtmf: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_DTMF>,
-    {
-        (::windows::core::Interface::vtable(self).SendDTMF)(::windows::core::Interface::as_raw(self), endtmf.into()).ok()
+    pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendDTMF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endtmf)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::core::Result<()> {
@@ -1290,21 +1246,17 @@ impl IRTCClient2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSession<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<IRTCSession>
+    pub unsafe fn CreateSession<'a, P0, P1>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: P0, pprofile: P1, lflags: i32) -> ::windows::core::Result<IRTCSession>
     where
-        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetListenForIncomingSessions<'a, P0>(&self, enlisten: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_LISTEN_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), enlisten.into()).ok()
+    pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetListenForIncomingSessions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enlisten)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE> {
@@ -1318,76 +1270,51 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.get_NetworkAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ftcp), ::core::mem::transmute(fexternal), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_Volume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.put_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_Volume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_Volume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_Volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AudioMuted<'a, P0>(&self, endevice: P0, fmuted: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.put_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(fmuted)).ok()
+    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(fmuted)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AudioMuted<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_AudioMuted)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_AudioMuted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>
-    where
-        P0: ::std::convert::Into<RTC_VIDEO_DEVICE>,
-    {
+    pub unsafe fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IVideoWindow)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IVideoWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Media::DirectShow::IVideoWindow>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PreferredAudioDevice<'a, P0, P1>(&self, endevice: P0, bstrdevicename: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_PreferredAudioDevice<'a, P0>(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), bstrdevicename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PreferredAudioDevice<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_PreferredAudioDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredVolume<'a, P0>(&self, endevice: P0, lvolume: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.put_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(lvolume)).ok()
+    pub unsafe fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredVolume<'a, P0>(&self, endevice: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<RTC_AUDIO_DEVICE>,
-    {
+    pub unsafe fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_PreferredVolume)(::windows::core::Interface::as_raw(self), endevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_PreferredVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn SetPreferredAEC(&self, benable: i16) -> ::windows::core::Result<()> {
@@ -1441,23 +1368,17 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.NetworkQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn StartT120Applet<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_T120_APPLET>,
-    {
-        (::windows::core::Interface::vtable(self).base__.StartT120Applet)(::windows::core::Interface::as_raw(self), enapplet.into()).ok()
+    pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StartT120Applet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn StopT120Applets(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StopT120Applets)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_IsT120AppletRunning<'a, P0>(&self, enapplet: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<RTC_T120_APPLET>,
-    {
+    pub unsafe fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), enapplet.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IsT120AppletRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enapplet), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1488,18 +1409,12 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.SetLocalUserName)(::windows::core::Interface::as_raw(self), bstrusername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn PlayRing<'a, P0>(&self, entype: P0, bplay: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_RING_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.PlayRing)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(bplay)).ok()
+    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PlayRing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(bplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendDTMF<'a, P0>(&self, endtmf: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_DTMF>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SendDTMF)(::windows::core::Interface::as_raw(self), endtmf.into()).ok()
+    pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SendDTMF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(endtmf)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::core::Result<()> {
@@ -1511,20 +1426,13 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).base__.IsTuned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AnswerMode<'a, P0, P1>(&self, entype: P0, enmode: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
-        P1: ::std::convert::Into<RTC_ANSWER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).put_AnswerMode)(::windows::core::Interface::as_raw(self), entype.into(), enmode.into()).ok()
+    pub unsafe fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_AnswerMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(enmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_AnswerMode<'a, P0>(&self, entype: P0) -> ::windows::core::Result<RTC_ANSWER_MODE>
-    where
-        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
-    {
+    pub unsafe fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_ANSWER_MODE>::zeroed();
-        (::windows::core::Interface::vtable(self).get_AnswerMode)(::windows::core::Interface::as_raw(self), entype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_ANSWER_MODE>(result__)
+        (::windows::core::Interface::vtable(self).get_AnswerMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_ANSWER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::core::Result<()> {
@@ -1574,27 +1482,17 @@ impl IRTCClient2 {
         (::windows::core::Interface::vtable(self).SetSessionDescriptionManager)(::windows::core::Interface::as_raw(self), psessiondescriptionmanager.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredSecurityLevel<'a, P0, P1>(&self, ensecuritytype: P0, ensecuritylevel: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-        P1: ::std::convert::Into<RTC_SECURITY_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ensecuritylevel.into()).ok()
+    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(ensecuritylevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-    {
+    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_AllowedPorts<'a, P0>(&self, ltransport: i32, enlistenmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_LISTEN_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).put_AllowedPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltransport), enlistenmode.into()).ok()
+    pub unsafe fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_AllowedPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltransport), ::core::mem::transmute(enlistenmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn get_AllowedPorts(&self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE> {
@@ -1786,11 +1684,8 @@ impl IRTCClientPortManagement {
         (::windows::core::Interface::vtable(self).StopListenAddressAndPort)(::windows::core::Interface::as_raw(self), bstrinternallocaladdress.into().abi(), ::core::mem::transmute(linternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn GetPortRange<'a, P0>(&self, enporttype: P0, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_PORT_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).GetPortRange)(::windows::core::Interface::as_raw(self), enporttype.into(), ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
+    pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPortRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enporttype), ::core::mem::transmute(plminvalue), ::core::mem::transmute(plmaxvalue)).ok()
     }
 }
 impl ::core::convert::From<IRTCClientPortManagement> for ::windows::core::IUnknown {
@@ -1949,12 +1844,11 @@ impl IRTCClientPresence {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalPresenceInfo<'a, P0, P1>(&self, enstatus: P0, bstrnotes: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetLocalPresenceInfo<'a, P0>(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_PRESENCE_STATUS>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), enstatus.into(), bstrnotes.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstatus), bstrnotes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn OfferWatcherMode(&self) -> ::windows::core::Result<RTC_OFFER_WATCHER_MODE> {
@@ -1962,11 +1856,8 @@ impl IRTCClientPresence {
         (::windows::core::Interface::vtable(self).OfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetOfferWatcherMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
+    pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn PrivacyMode(&self) -> ::windows::core::Result<RTC_PRIVACY_MODE> {
@@ -1974,11 +1865,8 @@ impl IRTCClientPresence {
         (::windows::core::Interface::vtable(self).PrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPrivacyMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_PRIVACY_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetPrivacyMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
+    pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
     }
 }
 impl ::core::convert::From<IRTCClientPresence> for ::windows::core::IUnknown {
@@ -2176,12 +2064,11 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalPresenceInfo<'a, P0, P1>(&self, enstatus: P0, bstrnotes: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetLocalPresenceInfo<'a, P0>(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_PRESENCE_STATUS>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), enstatus.into(), bstrnotes.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLocalPresenceInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstatus), bstrnotes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn OfferWatcherMode(&self) -> ::windows::core::Result<RTC_OFFER_WATCHER_MODE> {
@@ -2189,11 +2076,8 @@ impl IRTCClientPresence2 {
         (::windows::core::Interface::vtable(self).base__.OfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_OFFER_WATCHER_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetOfferWatcherMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_OFFER_WATCHER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
+    pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetOfferWatcherMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn PrivacyMode(&self) -> ::windows::core::Result<RTC_PRIVACY_MODE> {
@@ -2201,11 +2085,8 @@ impl IRTCClientPresence2 {
         (::windows::core::Interface::vtable(self).base__.PrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_PRIVACY_MODE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetPrivacyMode<'a, P0>(&self, enmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_PRIVACY_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPrivacyMode)(::windows::core::Interface::as_raw(self), enmode.into()).ok()
+    pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPrivacyMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2260,45 +2141,38 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWatcherEx<'a, P0, P1, P2, P3, P4, P5>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, enstate: P3, fpersistent: i16, enscope: P4, pprofile: P5, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
+    pub unsafe fn AddWatcherEx<'a, P0, P1, P2, P3>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, enstate: RTC_WATCHER_STATE, fpersistent: i16, enscope: RTC_ACE_SCOPE, pprofile: P3, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P3: ::std::convert::Into<RTC_WATCHER_STATE>,
-        P4: ::std::convert::Into<RTC_ACE_SCOPE>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddWatcherEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), enstate.into(), ::core::mem::transmute(fpersistent), enscope.into(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
+        (::windows::core::Interface::vtable(self).AddWatcherEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(enstate), ::core::mem::transmute(fpersistent), ::core::mem::transmute(enscope), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_WatcherEx<'a, P0, P1>(&self, enmode: P0, bstrpresentityuri: P1) -> ::windows::core::Result<IRTCWatcher2>
+    pub unsafe fn get_WatcherEx<'a, P0>(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: P0) -> ::windows::core::Result<IRTCWatcher2>
     where
-        P0: ::std::convert::Into<RTC_WATCHER_MATCH_MODE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_WatcherEx)(::windows::core::Interface::as_raw(self), enmode.into(), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
+        (::windows::core::Interface::vtable(self).get_WatcherEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enmode), bstrpresentityuri.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCWatcher2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_PresenceProperty<'a, P0, P1>(&self, enproperty: P0, bstrproperty: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_PresenceProperty<'a, P0>(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), bstrproperty.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), bstrproperty.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty<'a, P0>(&self, enproperty: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
-    {
+    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2321,16 +2195,15 @@ impl IRTCClientPresence2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddBuddyEx<'a, P0, P1, P2, P3, P4>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fpersistent: i16, ensubscriptiontype: P3, pprofile: P4, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
+    pub unsafe fn AddBuddyEx<'a, P0, P1, P2, P3>(&self, bstrpresentityuri: P0, bstrusername: P1, bstrdata: P2, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P3, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P3: ::std::convert::Into<RTC_BUDDY_SUBSCRIPTION_TYPE>,
-        P4: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddBuddyEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), ensubscriptiontype.into(), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy2>(result__)
+        (::windows::core::Interface::vtable(self).AddBuddyEx)(::windows::core::Interface::as_raw(self), bstrpresentityuri.into().abi(), bstrusername.into().abi(), bstrdata.into().abi(), ::core::mem::transmute(fpersistent), ::core::mem::transmute(ensubscriptiontype), pprofile.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRTCBuddy2>(result__)
     }
 }
 impl ::core::convert::From<IRTCClientPresence2> for ::windows::core::IUnknown {
@@ -3305,12 +3178,11 @@ pub struct IRTCEventNotification(::windows::core::IUnknown);
 impl IRTCEventNotification {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Event<'a, P0, P1>(&self, rtcevent: P0, pevent: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Event<'a, P0>(&self, rtcevent: RTC_EVENT, pevent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_EVENT>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), rtcevent.into(), pevent.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Event)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rtcevent), pevent.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRTCEventNotification> for ::windows::core::IUnknown {
@@ -3679,12 +3551,9 @@ impl IRTCMediaRequestEvent {
         (::windows::core::Interface::vtable(self).Accept)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmediatypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_RemotePreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-    {
+    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Reject(&self) -> ::windows::core::Result<()> {
@@ -4069,12 +3938,11 @@ pub struct IRTCPortManager(::windows::core::IUnknown);
 impl IRTCPortManager {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMapping<'a, P0, P1>(&self, bstrremoteaddress: P0, enporttype: P1, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()>
+    pub unsafe fn GetMapping<'a, P0>(&self, bstrremoteaddress: P0, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<RTC_PORT_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).GetMapping)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into().abi(), enporttype.into(), ::core::mem::transmute(pbstrinternallocaladdress), ::core::mem::transmute(plinternallocalport), ::core::mem::transmute(pbstrexternallocaladdress), ::core::mem::transmute(plexternallocalport)).ok()
+        (::windows::core::Interface::vtable(self).GetMapping)(::windows::core::Interface::as_raw(self), bstrremoteaddress.into().abi(), ::core::mem::transmute(enporttype), ::core::mem::transmute(pbstrinternallocaladdress), ::core::mem::transmute(plinternallocalport), ::core::mem::transmute(pbstrexternallocaladdress), ::core::mem::transmute(plexternallocalport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4386,12 +4254,9 @@ impl IRTCPresenceDevice {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_PresenceProperty<'a, P0>(&self, enproperty: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_PRESENCE_PROPERTY>,
-    {
+    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), enproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_PresenceProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4687,12 +4552,9 @@ impl IRTCProfile {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_ProviderURI<'a, P0>(&self, enuri: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_PROVIDER_URI>,
-    {
+    pub unsafe fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_ProviderURI)(::windows::core::Interface::as_raw(self), enuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_ProviderURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4907,12 +4769,9 @@ impl IRTCProfile2 {
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_ProviderURI<'a, P0>(&self, enuri: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_PROVIDER_URI>,
-    {
+    pub unsafe fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_ProviderURI)(::windows::core::Interface::as_raw(self), enuri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_ProviderURI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuri), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5639,21 +5498,17 @@ impl IRTCSession {
         (::windows::core::Interface::vtable(self).Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn Terminate<'a, P0>(&self, enreason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_TERMINATE_REASON>,
-    {
-        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), enreason.into()).ok()
+    pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Redirect<'a, P0, P1>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: P0, pprofile: P1, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
     {
-        (::windows::core::Interface::vtable(self).Redirect)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
+        (::windows::core::Interface::vtable(self).Redirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5708,11 +5563,8 @@ impl IRTCSession {
         (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into().abi(), bstrmessage.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendMessageStatus<'a, P0>(&self, enuserstatus: P0, lcookie: isize) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>,
-    {
-        (::windows::core::Interface::vtable(self).SendMessageStatus)(::windows::core::Interface::as_raw(self), enuserstatus.into(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMessageStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuserstatus), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()> {
@@ -5847,21 +5699,17 @@ impl IRTCSession2 {
         (::windows::core::Interface::vtable(self).base__.Answer)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn Terminate<'a, P0>(&self, enreason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_TERMINATE_REASON>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self), enreason.into()).ok()
+    pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Redirect<'a, P0, P1, P2>(&self, entype: P0, bstrlocalphoneuri: P1, pprofile: P2, lflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Redirect<'a, P0, P1>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: P0, pprofile: P1, lflags: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RTC_SESSION_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IRTCProfile>>,
     {
-        (::windows::core::Interface::vtable(self).base__.Redirect)(::windows::core::Interface::as_raw(self), entype.into(), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Redirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(entype), bstrlocalphoneuri.into().abi(), pprofile.into().abi(), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5916,11 +5764,8 @@ impl IRTCSession2 {
         (::windows::core::Interface::vtable(self).base__.SendMessage)(::windows::core::Interface::as_raw(self), bstrmessageheader.into().abi(), bstrmessage.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SendMessageStatus<'a, P0>(&self, enuserstatus: P0, lcookie: isize) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_MESSAGING_USER_STATUS>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SendMessageStatus)(::windows::core::Interface::as_raw(self), enuserstatus.into(), ::core::mem::transmute(lcookie)).ok()
+    pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SendMessageStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enuserstatus), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()> {
@@ -5948,28 +5793,18 @@ impl IRTCSession2 {
         (::windows::core::Interface::vtable(self).SendInfo)(::windows::core::Interface::as_raw(self), bstrinfoheader.into().abi(), bstrinfo.into().abi(), ::core::mem::transmute(lcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_PreferredSecurityLevel<'a, P0, P1>(&self, ensecuritytype: P0, ensecuritylevel: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-        P1: ::std::convert::Into<RTC_SECURITY_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ensecuritylevel.into()).ok()
+    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(ensecuritylevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_PreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-    {
+    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_PreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn IsSecurityEnabled<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-    {
+    pub unsafe fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6671,11 +6506,8 @@ impl IRTCSessionReferredEvent {
         (::windows::core::Interface::vtable(self).Reject)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetReferredSessionState<'a, P0>(&self, enstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_SESSION_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetReferredSessionState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
+    pub unsafe fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReferredSessionState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstate)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6896,12 +6728,9 @@ impl IRTCSessionStateChangeEvent2 {
         (::windows::core::Interface::vtable(self).MediaTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_RemotePreferredSecurityLevel<'a, P0>(&self, ensecuritytype: P0) -> ::windows::core::Result<RTC_SECURITY_LEVEL>
-    where
-        P0: ::std::convert::Into<RTC_SECURITY_TYPE>,
-    {
+    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL> {
         let mut result__ = ::core::mem::MaybeUninit::<RTC_SECURITY_LEVEL>::zeroed();
-        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ensecuritytype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ensecuritytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_SECURITY_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn IsForked(&self) -> ::windows::core::Result<i16> {
@@ -7095,19 +6924,13 @@ impl IRTCUserSearchQuery {
         (::windows::core::Interface::vtable(self).SearchTerms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn put_SearchPreference<'a, P0>(&self, enpreference: P0, lvalue: i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>,
-    {
-        (::windows::core::Interface::vtable(self).put_SearchPreference)(::windows::core::Interface::as_raw(self), enpreference.into(), ::core::mem::transmute(lvalue)).ok()
+    pub unsafe fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_SearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enpreference), ::core::mem::transmute(lvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn get_SearchPreference<'a, P0>(&self, enpreference: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<RTC_USER_SEARCH_PREFERENCE>,
-    {
+    pub unsafe fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).get_SearchPreference)(::windows::core::Interface::as_raw(self), enpreference.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_SearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enpreference), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7192,12 +7015,9 @@ pub struct IRTCUserSearchResult(::windows::core::IUnknown);
 impl IRTCUserSearchResult {
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_Value<'a, P0>(&self, encolumn: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<RTC_USER_SEARCH_COLUMN>,
-    {
+    pub unsafe fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Value)(::windows::core::Interface::as_raw(self), encolumn.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(encolumn), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IRTCUserSearchResult> for ::windows::core::IUnknown {
@@ -7425,11 +7245,8 @@ impl IRTCWatcher {
         (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_WATCHER_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetState<'a, P0>(&self, enstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_WATCHER_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
+    pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstate)).ok()
     }
 }
 impl ::core::convert::From<IRTCWatcher> for ::windows::core::IUnknown {
@@ -7550,11 +7367,8 @@ impl IRTCWatcher2 {
         (::windows::core::Interface::vtable(self).base__.State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RTC_WATCHER_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
-    pub unsafe fn SetState<'a, P0>(&self, enstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RTC_WATCHER_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetState)(::windows::core::Interface::as_raw(self), enstate.into()).ok()
+    pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<IRTCProfile2> {

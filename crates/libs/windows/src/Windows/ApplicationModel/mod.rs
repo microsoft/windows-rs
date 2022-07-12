@@ -3324,16 +3324,15 @@ impl PackageCatalog {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddResourcePackageAsync<'a, P0, P1, P2>(&self, resourcepackagefamilyname: P0, resourceid: P1, options: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>
+    pub fn AddResourcePackageAsync<'a, P0, P1>(&self, resourcepackagefamilyname: P0, resourceid: P1, options: AddResourcePackageOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<AddResourcePackageOptions>,
     {
         let this = &::windows::core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddResourcePackageAsync)(::windows::core::Interface::as_raw(this), resourcepackagefamilyname.into().abi(), resourceid.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddResourcePackageAsync)(::windows::core::Interface::as_raw(this), resourcepackagefamilyname.into().abi(), resourceid.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]

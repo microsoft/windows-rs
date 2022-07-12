@@ -100,27 +100,24 @@ impl PreallocatedWorkItem {
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItemWithPriority<'a, P0, P1>(handler: P0, priority: P1) -> ::windows::core::Result<PreallocatedWorkItem>
+    pub fn CreateWorkItemWithPriority<'a, P0>(handler: P0, priority: super::WorkItemPriority) -> ::windows::core::Result<PreallocatedWorkItem>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::WorkItemHandler>>,
-        P1: ::std::convert::Into<super::WorkItemPriority>,
     {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority.into(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItemWithPriorityAndOptions<'a, P0, P1, P2>(handler: P0, priority: P1, options: P2) -> ::windows::core::Result<PreallocatedWorkItem>
+    pub fn CreateWorkItemWithPriorityAndOptions<'a, P0>(handler: P0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::core::Result<PreallocatedWorkItem>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::WorkItemHandler>>,
-        P1: ::std::convert::Into<super::WorkItemPriority>,
-        P2: ::std::convert::Into<super::WorkItemOptions>,
     {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority.into(), options.into(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, options, result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
     #[doc(hidden)]

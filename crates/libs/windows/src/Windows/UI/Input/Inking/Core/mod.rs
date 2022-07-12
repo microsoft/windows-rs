@@ -527,12 +527,9 @@ impl CoreWetStrokeUpdateEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
-    pub fn SetDisposition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreWetStrokeDisposition>,
-    {
+    pub fn SetDisposition(&self, value: CoreWetStrokeDisposition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisposition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisposition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CoreWetStrokeUpdateEventArgs {

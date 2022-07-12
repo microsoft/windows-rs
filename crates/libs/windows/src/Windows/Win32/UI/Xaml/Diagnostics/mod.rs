@@ -466,12 +466,9 @@ impl IVisualTreeService2 {
         (::windows::core::Interface::vtable(self).ReplaceResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcedictionary), ::core::mem::transmute(key), ::core::mem::transmute(newvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn RenderTargetBitmap<'a, P0>(&self, handle: u64, options: P0, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData>
-    where
-        P0: ::std::convert::Into<RenderTargetBitmapOptions>,
-    {
+    pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), options.into(), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Interface::vtable(self).RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(options), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
 }
 impl ::core::convert::From<IVisualTreeService2> for ::windows::core::IUnknown {
@@ -619,20 +616,16 @@ impl IVisualTreeService3 {
         (::windows::core::Interface::vtable(self).base__.ReplaceResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcedictionary), ::core::mem::transmute(key), ::core::mem::transmute(newvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn RenderTargetBitmap<'a, P0>(&self, handle: u64, options: P0, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData>
-    where
-        P0: ::std::convert::Into<RenderTargetBitmapOptions>,
-    {
+    pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), options.into(), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Interface::vtable(self).base__.RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(options), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn ResolveResource<'a, P0, P1>(&self, resourcecontext: u64, resourcename: P0, resourcetype: P1, propertyindex: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ResolveResource<'a, P0>(&self, resourcecontext: u64, resourcename: P0, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<ResourceType>,
     {
-        (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcecontext), resourcename.into(), resourcetype.into(), ::core::mem::transmute(propertyindex)).ok()
+        (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcecontext), resourcename.into(), ::core::mem::transmute(resourcetype), ::core::mem::transmute(propertyindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -736,12 +729,11 @@ pub struct IVisualTreeServiceCallback(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnVisualTreeChange<'a, P0, P1>(&self, relation: ParentChildRelation, element: P0, mutationtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnVisualTreeChange<'a, P0>(&self, relation: ParentChildRelation, element: P0, mutationtype: VisualMutationType) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, VisualElement>>,
-        P1: ::std::convert::Into<VisualMutationType>,
     {
-        (::windows::core::Interface::vtable(self).OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype.into()).ok()
+        (::windows::core::Interface::vtable(self).OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), ::core::mem::transmute(mutationtype)).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeServiceCallback> for ::windows::core::IUnknown {
@@ -794,20 +786,18 @@ pub struct IVisualTreeServiceCallback2(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback2 {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnVisualTreeChange<'a, P0, P1>(&self, relation: ParentChildRelation, element: P0, mutationtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnVisualTreeChange<'a, P0>(&self, relation: ParentChildRelation, element: P0, mutationtype: VisualMutationType) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, VisualElement>>,
-        P1: ::std::convert::Into<VisualMutationType>,
     {
-        (::windows::core::Interface::vtable(self).base__.OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), ::core::mem::transmute(mutationtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn OnElementStateChanged<'a, P0, P1>(&self, element: u64, elementstate: P0, context: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnElementStateChanged<'a, P0>(&self, element: u64, elementstate: VisualElementState, context: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<VisualElementState>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnElementStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(element), elementstate.into(), context.into()).ok()
+        (::windows::core::Interface::vtable(self).OnElementStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(element), ::core::mem::transmute(elementstate), context.into()).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeServiceCallback2> for ::windows::core::IUnknown {

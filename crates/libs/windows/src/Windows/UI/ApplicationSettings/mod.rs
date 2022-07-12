@@ -1584,15 +1584,14 @@ impl WebAccountCommand {
     }
     #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWebAccountCommand<'a, P0, P1, P2>(webaccount: P0, invoked: P1, actions: P2) -> ::windows::core::Result<WebAccountCommand>
+    pub fn CreateWebAccountCommand<'a, P0, P1>(webaccount: P0, invoked: P1, actions: SupportedWebAccountActions) -> ::windows::core::Result<WebAccountCommand>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, WebAccountCommandInvokedHandler>>,
-        P2: ::std::convert::Into<SupportedWebAccountActions>,
     {
         Self::IWebAccountCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWebAccountCommand)(::windows::core::Interface::as_raw(this), webaccount.into().abi(), invoked.into().abi(), actions.into(), result__.as_mut_ptr()).from_abi::<WebAccountCommand>(result__)
+            (::windows::core::Interface::vtable(this).CreateWebAccountCommand)(::windows::core::Interface::as_raw(this), webaccount.into().abi(), invoked.into().abi(), actions, result__.as_mut_ptr()).from_abi::<WebAccountCommand>(result__)
         })
     }
     #[doc(hidden)]

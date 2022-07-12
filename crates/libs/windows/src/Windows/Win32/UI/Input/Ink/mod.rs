@@ -112,13 +112,12 @@ pub struct IInkD2DRenderer_Vtbl {
 pub struct IInkD2DRenderer2(::windows::core::IUnknown);
 impl IInkD2DRenderer2 {
     #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
-    pub unsafe fn Draw<'a, P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Draw<'a, P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P2: ::std::convert::Into<INK_HIGH_CONTRAST_ADJUSTMENT>,
     {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), highcontrastadjustment.into()).ok()
+        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), pd2d1devicecontext.into().abi(), pinkstrokeiterable.into().abi(), ::core::mem::transmute(highcontrastadjustment)).ok()
     }
 }
 impl ::core::convert::From<IInkD2DRenderer2> for ::windows::core::IUnknown {

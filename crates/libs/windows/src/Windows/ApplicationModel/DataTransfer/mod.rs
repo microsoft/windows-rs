@@ -596,12 +596,9 @@ impl DataPackage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-    pub fn SetRequestedOperation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DataPackageOperation>,
-    {
+    pub fn SetRequestedOperation(&self, value: DataPackageOperation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestedOperation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestedOperation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1642,12 +1639,9 @@ impl DataPackageView {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-    pub fn ReportOperationCompleted<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DataPackageOperation>,
-    {
+    pub fn ReportOperationCompleted(&self, value: DataPackageOperation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportOperationCompleted)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportOperationCompleted)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4263,12 +4257,9 @@ impl ShareUIOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-    pub fn SetTheme<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ShareUITheme>,
-    {
+    pub fn SetTheme(&self, value: ShareUITheme) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTheme)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTheme)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

@@ -33,13 +33,10 @@ pub struct IStorageDeviceStatics_Vtbl {
 pub struct ServiceDevice;
 impl ServiceDevice {
     #[doc = "*Required features: `\"Devices_Portable\"`*"]
-    pub fn GetDeviceSelector<'a, P0>(servicetype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<ServiceDeviceType>,
-    {
+    pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), servicetype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), servicetype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Portable\"`*"]

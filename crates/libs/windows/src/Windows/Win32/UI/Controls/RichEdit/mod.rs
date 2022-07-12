@@ -2044,11 +2044,8 @@ impl IRichEditOle {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetObject<'a, P0>(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RICH_EDIT_GET_OBJECT_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(lpreobject), dwflags.into()).ok()
+    pub unsafe fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iob), ::core::mem::transmute(lpreobject), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
@@ -2275,12 +2272,11 @@ impl IRichEditOleCallback {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetContextMenu<'a, P0, P1>(&self, seltype: P0, lpoleobj: P1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>
+    pub unsafe fn GetContextMenu<'a, P0>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P0, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Ole::IOleObject>>,
     {
-        (::windows::core::Interface::vtable(self).GetContextMenu)(::windows::core::Interface::as_raw(self), seltype.into(), lpoleobj.into().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
+        (::windows::core::Interface::vtable(self).GetContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seltype), lpoleobj.into().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
     }
 }
 impl ::core::convert::From<IRichEditOleCallback> for ::windows::core::IUnknown {
@@ -2525,11 +2521,8 @@ impl ITextDocument {
         (::windows::core::Interface::vtable(self).GetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetSaved<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetSaved)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
@@ -2737,11 +2730,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).base__.GetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetSaved<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
@@ -2917,11 +2907,8 @@ impl ITextDocument2 {
         (::windows::core::Interface::vtable(self).GetCallManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn GetClientRect<'a, P0>(&self, r#type: P0, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).GetClientRect)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+    pub unsafe fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetClientRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<i32> {
@@ -3237,11 +3224,8 @@ impl ITextDocument2Old {
         (::windows::core::Interface::vtable(self).base__.GetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn SetSaved<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSaved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32> {
@@ -3579,11 +3563,8 @@ impl ITextFont {
         (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), pfont.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn Reset<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
@@ -3988,11 +3969,8 @@ impl ITextFont2 {
         (::windows::core::Interface::vtable(self).base__.IsEqual)(::windows::core::Interface::as_raw(self), pfont.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn Reset<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn GetStyle(&self) -> ::windows::core::Result<i32> {
@@ -4607,12 +4585,8 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxEnableScrollBar<'a, P0, P1>(&self, fusbflags: P0, fuarrowflags: P1) -> super::super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS>,
-        P1: ::std::convert::Into<super::ENABLE_SCROLL_BAR_ARROWS>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags.into(), fuarrowflags.into()))
+    pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusbflags), ::core::mem::transmute(fuarrowflags)))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4678,12 +4652,11 @@ impl ITextHost {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<'a, P0, P1>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: P1)
+    pub unsafe fn TxScrollWindowEx<'a, P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>,
-        P1: ::std::convert::Into<super::super::WindowsAndMessaging::SHOW_WINDOW_CMD>,
     {
-        (::windows::core::Interface::vtable(self).TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll.into())
+        (::windows::core::Interface::vtable(self).TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(fuscroll))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4978,12 +4951,8 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxEnableScrollBar<'a, P0, P1>(&self, fusbflags: P0, fuarrowflags: P1) -> super::super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS>,
-        P1: ::std::convert::Into<super::ENABLE_SCROLL_BAR_ARROWS>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags.into(), fuarrowflags.into()))
+    pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fusbflags), ::core::mem::transmute(fuarrowflags)))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5049,12 +5018,11 @@ impl ITextHost2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn TxScrollWindowEx<'a, P0, P1>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: P1)
+    pub unsafe fn TxScrollWindowEx<'a, P0>(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
     where
         P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HRGN>,
-        P1: ::std::convert::Into<super::super::WindowsAndMessaging::SHOW_WINDOW_CMD>,
     {
-        (::windows::core::Interface::vtable(self).base__.TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll.into())
+        (::windows::core::Interface::vtable(self).base__.TxScrollWindowEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(fuscroll))
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6928,12 +6896,9 @@ impl ITextRange2 {
         (::windows::core::Interface::vtable(self).base__.MoveDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn HomeKey<'a, P0>(&self, unit: P0, extend: i32) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
+    pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.HomeKey)(::windows::core::Interface::as_raw(self), unit.into(), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.HomeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
@@ -7158,13 +7123,12 @@ impl ITextRange2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<'a, P0, P1, P2>(&self, width: i32, height: i32, ascent: i32, r#type: P0, bstralttext: P1, pstream: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InsertImage<'a, P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: P0, pstream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), r#type.into(), bstralttext.into().abi(), pstream.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), ::core::mem::transmute(r#type), bstralttext.into().abi(), pstream.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7536,11 +7500,8 @@ impl ITextRow {
         (::windows::core::Interface::vtable(self).SetCellBorderWidths)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duleft), ::core::mem::transmute(dutop), ::core::mem::transmute(duright), ::core::mem::transmute(dubottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn Apply<'a, P0>(&self, crow: i32, flags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
-        (::windows::core::Interface::vtable(self).Apply)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crow), flags.into()).ok()
+    pub unsafe fn Apply(&self, crow: i32, flags: tomConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Apply)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crow), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn CanChange(&self) -> ::windows::core::Result<i32> {
@@ -8025,12 +7986,9 @@ impl ITextSelection {
         (::windows::core::Interface::vtable(self).MoveDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn HomeKey<'a, P0>(&self, unit: P0, extend: i32) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
+    pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).HomeKey)(::windows::core::Interface::as_raw(self), unit.into(), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HomeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
@@ -8479,12 +8437,9 @@ impl ITextSelection2 {
         (::windows::core::Interface::vtable(self).base__.base__.MoveDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-    pub unsafe fn HomeKey<'a, P0>(&self, unit: P0, extend: i32) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<tomConstants>,
-    {
+    pub unsafe fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.HomeKey)(::windows::core::Interface::as_raw(self), unit.into(), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.HomeKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(unit), ::core::mem::transmute(extend), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
     pub unsafe fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32> {
@@ -8709,13 +8664,12 @@ impl ITextSelection2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertImage<'a, P0, P1, P2>(&self, width: i32, height: i32, ascent: i32, r#type: P0, bstralttext: P1, pstream: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InsertImage<'a, P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: P0, pstream: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), r#type.into(), bstralttext.into().abi(), pstream.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InsertImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(ascent), ::core::mem::transmute(r#type), bstralttext.into().abi(), pstream.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8854,13 +8808,12 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<'a, P0, P1, P2>(&self, dwdrawaspect: P0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P1, hictargetdev: P2, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxDraw<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>,
+        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
-        P2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).TxDraw)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
+        (::windows::core::Interface::vtable(self).TxDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8874,23 +8827,21 @@ impl ITextServices {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<'a, P0, P1, P2>(&self, dwdrawaspect: P0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P1, hictargetdev: P2, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnTxSetCursor<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>,
+        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
-        P2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).OnTxSetCursor)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).OnTxSetCursor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<'a, P0, P1, P2>(&self, dwdrawaspect: P0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P1, hictargetdev: P2, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn TxQueryHitPoint<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>,
+        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
-        P2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).TxQueryHitPoint)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
+        (::windows::core::Interface::vtable(self).TxQueryHitPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9056,13 +9007,12 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxDraw<'a, P0, P1, P2>(&self, dwdrawaspect: P0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P1, hictargetdev: P2, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
+    pub unsafe fn TxDraw<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>,
+        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
-        P2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).base__.TxDraw)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
+        (::windows::core::Interface::vtable(self).base__.TxDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), ::core::mem::transmute(pfncontinue), ::core::mem::transmute(dwcontinue), ::core::mem::transmute(lviewid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9076,23 +9026,21 @@ impl ITextServices2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn OnTxSetCursor<'a, P0, P1, P2>(&self, dwdrawaspect: P0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P1, hictargetdev: P2, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
+    pub unsafe fn OnTxSetCursor<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>,
+        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
-        P2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).base__.OnTxSetCursor)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).base__.OnTxSetCursor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn TxQueryHitPoint<'a, P0, P1, P2>(&self, dwdrawaspect: P0, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P1, hictargetdev: P2, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn TxQueryHitPoint<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::System::Com::DVASPECT>,
+        P0: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
         P1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
-        P2: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>,
     {
-        (::windows::core::Interface::vtable(self).base__.TxQueryHitPoint)(::windows::core::Interface::as_raw(self), dwdrawaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
+        (::windows::core::Interface::vtable(self).base__.TxQueryHitPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdrawaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(phitresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -521,16 +521,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]
-pub unsafe fn DdqCreateSession<'a, P0>(accesslevel: P0) -> ::windows::core::Result<super::HDIAGNOSTIC_DATA_QUERY_SESSION>
-where
-    P0: ::std::convert::Into<DdqAccessLevel>,
-{
+pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> ::windows::core::Result<super::HDIAGNOSTIC_DATA_QUERY_SESSION> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DdqCreateSession(accesslevel: DdqAccessLevel, hsession: *mut super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>::zeroed();
-    DdqCreateSession(accesslevel.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>(result__)
+    DdqCreateSession(::core::mem::transmute(accesslevel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[inline]

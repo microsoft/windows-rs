@@ -826,12 +826,9 @@ impl GuidanceNavigator {
         }
     }
     #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
-    pub fn SetAudioMeasurementSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GuidanceAudioMeasurementSystem>,
-    {
+    pub fn SetAudioMeasurementSystem(&self, value: GuidanceAudioMeasurementSystem) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioMeasurementSystem)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioMeasurementSystem)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
     pub fn AudioNotifications(&self) -> ::windows::core::Result<GuidanceAudioNotifications> {
@@ -842,12 +839,9 @@ impl GuidanceNavigator {
         }
     }
     #[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
-    pub fn SetAudioNotifications<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GuidanceAudioNotifications>,
-    {
+    pub fn SetAudioNotifications(&self, value: GuidanceAudioNotifications) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioNotifications)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioNotifications)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps_Guidance\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

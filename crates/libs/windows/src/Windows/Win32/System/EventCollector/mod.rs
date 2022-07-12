@@ -461,15 +461,12 @@ pub unsafe fn EcEnumNextSubscription(subscriptionenum: isize, subscriptionnamebu
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcGetObjectArrayProperty<'a, P0>(objectarray: isize, propertyid: P0, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<EC_SUBSCRIPTION_PROPERTY_ID>,
-{
+pub unsafe fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcGetObjectArrayProperty(::core::mem::transmute(objectarray), propertyid.into(), ::core::mem::transmute(arrayindex), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    ::core::mem::transmute(EcGetObjectArrayProperty(::core::mem::transmute(objectarray), ::core::mem::transmute(propertyid), ::core::mem::transmute(arrayindex), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -484,30 +481,26 @@ pub unsafe fn EcGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcGetSubscriptionProperty<'a, P0>(subscription: isize, propertyid: P0, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<EC_SUBSCRIPTION_PROPERTY_ID>,
-{
+pub unsafe fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcGetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcGetSubscriptionProperty(::core::mem::transmute(subscription), propertyid.into(), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
+    ::core::mem::transmute(EcGetSubscriptionProperty(::core::mem::transmute(subscription), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, P0, P1, P2>(subscriptionname: P0, statusinfoid: P1, eventsourcename: P2, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, P0, P1>(subscriptionname: P0, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: P1, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcGetSubscriptionRunTimeStatus(subscriptionname: ::windows::core::PCWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: ::windows::core::PCWSTR, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcGetSubscriptionRunTimeStatus(subscriptionname.into(), statusinfoid.into(), eventsourcename.into(), ::core::mem::transmute(flags), ::core::mem::transmute(statusvaluebuffersize), ::core::mem::transmute(statusvaluebuffer), ::core::mem::transmute(statusvaluebufferused)))
+    ::core::mem::transmute(EcGetSubscriptionRunTimeStatus(subscriptionname.into(), ::core::mem::transmute(statusinfoid), eventsourcename.into(), ::core::mem::transmute(flags), ::core::mem::transmute(statusvaluebuffersize), ::core::mem::transmute(statusvaluebuffer), ::core::mem::transmute(statusvaluebufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -577,28 +570,22 @@ pub unsafe fn EcSaveSubscription(subscription: isize, flags: u32) -> super::supe
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcSetObjectArrayProperty<'a, P0>(objectarray: isize, propertyid: P0, arrayindex: u32, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<EC_SUBSCRIPTION_PROPERTY_ID>,
-{
+pub unsafe fn EcSetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcSetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcSetObjectArrayProperty(::core::mem::transmute(objectarray), propertyid.into(), ::core::mem::transmute(arrayindex), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvalue)))
+    ::core::mem::transmute(EcSetObjectArrayProperty(::core::mem::transmute(objectarray), ::core::mem::transmute(propertyid), ::core::mem::transmute(arrayindex), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EcSetSubscriptionProperty<'a, P0>(subscription: isize, propertyid: P0, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<EC_SUBSCRIPTION_PROPERTY_ID>,
-{
+pub unsafe fn EcSetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EcSetSubscriptionProperty(subscription: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, flags: u32, propertyvalue: *mut EC_VARIANT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EcSetSubscriptionProperty(::core::mem::transmute(subscription), propertyid.into(), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvalue)))
+    ::core::mem::transmute(EcSetSubscriptionProperty(::core::mem::transmute(subscription), ::core::mem::transmute(propertyid), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvalue)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

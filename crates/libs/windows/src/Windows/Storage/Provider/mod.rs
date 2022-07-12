@@ -100,16 +100,13 @@ unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
 pub struct CachedFileUpdater;
 impl CachedFileUpdater {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetUpdateInformation<'a, P0, E0, P1, P2, P3, P4>(file: P0, contentid: P1, readmode: P2, writemode: P3, options: P4) -> ::windows::core::Result<()>
+    pub fn SetUpdateInformation<'a, P0, E0, P1>(file: P0, contentid: P1, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<ReadActivationMode>,
-        P3: ::std::convert::Into<WriteActivationMode>,
-        P4: ::std::convert::Into<CachedFileOptions>,
     {
-        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contentid.into().abi(), readmode.into(), writemode.into(), options.into()).ok() })
+        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contentid.into().abi(), readmode, writemode, options).ok() })
     }
     #[doc(hidden)]
     pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -298,12 +295,9 @@ impl FileUpdateRequest {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FileUpdateStatus>,
-    {
+    pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
@@ -1889,12 +1883,9 @@ impl StorageProviderGetContentInfoForPathResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderUriSourceStatus>,
-    {
+    pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ContentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2011,12 +2002,9 @@ impl StorageProviderGetPathForContentUriResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderUriSourceStatus>,
-    {
+    pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2716,28 +2704,26 @@ impl StorageProviderStatus {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn CreateInstance<'a, P0, P1>(state: P0, message: P1) -> ::windows::core::Result<StorageProviderStatus>
+    pub fn CreateInstance<'a, P0>(state: StorageProviderState, message: P0) -> ::windows::core::Result<StorageProviderStatus>
     where
-        P0: ::std::convert::Into<StorageProviderState>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state.into(), message.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state, message.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance2<'a, P0, P1, P2, E2>(state: P0, message: P1, errormessages: P2) -> ::windows::core::Result<StorageProviderStatus>
+    pub fn CreateInstance2<'a, P0, P1, E1>(state: StorageProviderState, message: P0, errormessages: P1) -> ::windows::core::Result<StorageProviderStatus>
     where
-        P0: ::std::convert::Into<StorageProviderState>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance2)(::windows::core::Interface::as_raw(this), state.into(), message.into().abi(), errormessages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance2)(::windows::core::Interface::as_raw(this), state, message.into().abi(), errormessages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
     #[doc(hidden)]
@@ -2912,12 +2898,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetHydrationPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderHydrationPolicy>,
-    {
+    pub fn SetHydrationPolicy(&self, value: StorageProviderHydrationPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn HydrationPolicyModifier(&self) -> ::windows::core::Result<StorageProviderHydrationPolicyModifier> {
@@ -2928,12 +2911,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetHydrationPolicyModifier<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderHydrationPolicyModifier>,
-    {
+    pub fn SetHydrationPolicyModifier(&self, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicyModifier)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicyModifier)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn PopulationPolicy(&self) -> ::windows::core::Result<StorageProviderPopulationPolicy> {
@@ -2944,12 +2924,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetPopulationPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderPopulationPolicy>,
-    {
+    pub fn SetPopulationPolicy(&self, value: StorageProviderPopulationPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPopulationPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPopulationPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn InSyncPolicy(&self) -> ::windows::core::Result<StorageProviderInSyncPolicy> {
@@ -2960,12 +2937,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetInSyncPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderInSyncPolicy>,
-    {
+    pub fn SetInSyncPolicy(&self, value: StorageProviderInSyncPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInSyncPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInSyncPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn HardlinkPolicy(&self) -> ::windows::core::Result<StorageProviderHardlinkPolicy> {
@@ -2976,12 +2950,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetHardlinkPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderHardlinkPolicy>,
-    {
+    pub fn SetHardlinkPolicy(&self, value: StorageProviderHardlinkPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHardlinkPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHardlinkPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ShowSiblingsAsGroup(&self) -> ::windows::core::Result<bool> {
@@ -3021,12 +2992,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetProtectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StorageProviderProtectionMode>,
-    {
+    pub fn SetProtectionMode(&self, value: StorageProviderProtectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn AllowPinning(&self) -> ::windows::core::Result<bool> {

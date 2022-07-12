@@ -45,18 +45,17 @@ impl AppRecordingManager {
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SaveScreenshotToFilesAsync<'a, P0, P1, P2, P3, E3>(&self, folder: P0, filenameprefix: P1, option: P2, requestedformats: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    pub fn SaveScreenshotToFilesAsync<'a, P0, P1, P2, E2>(&self, folder: P0, filenameprefix: P1, option: AppRecordingSaveScreenshotOption, requestedformats: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFolder>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<AppRecordingSaveScreenshotOption>,
-        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E3>,
-        E3: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Interface::as_raw(this), folder.into().abi(), filenameprefix.into().abi(), option.into(), requestedformats.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>(result__)
+            (::windows::core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Interface::as_raw(this), folder.into().abi(), filenameprefix.into().abi(), option, requestedformats.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_AppRecording\"`*"]

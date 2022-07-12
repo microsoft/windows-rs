@@ -1787,12 +1787,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionXSourceMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionSourceRedirectionMode>,
-    {
+    pub fn SetPositionXSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
@@ -1803,12 +1800,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionYSourceMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionSourceRedirectionMode>,
-    {
+    pub fn SetPositionYSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
@@ -1819,12 +1813,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetScaleSourceMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionSourceRedirectionMode>,
-    {
+    pub fn SetScaleSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InteractionSourceConfiguration {
@@ -2454,26 +2445,20 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithOption<'a, P0>(&self, value: super::super::super::Foundation::Numerics::Vector3, option: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<InteractionTrackerClampingOption>,
-    {
+    pub fn TryUpdatePositionWithOption(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option.into(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionByWithOption<'a, P0>(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<InteractionTrackerClampingOption>,
-    {
+    pub fn TryUpdatePositionByWithOption(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionByWithOption)(::windows::core::Interface::as_raw(this), amount, option.into(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionByWithOption)(::windows::core::Interface::as_raw(this), amount, option, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2486,15 +2471,11 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithOption2<'a, P0, P1>(&self, value: super::super::super::Foundation::Numerics::Vector3, option: P0, posupdateoption: P1) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<InteractionTrackerClampingOption>,
-        P1: ::std::convert::Into<InteractionTrackerPositionUpdateOption>,
-    {
+    pub fn TryUpdatePositionWithOption2(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option.into(), posupdateoption.into(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option, posupdateoption, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2520,13 +2501,12 @@ impl InteractionTracker {
         })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetBindingMode<'a, P0, P1, P2>(boundtracker1: P0, boundtracker2: P1, axismode: P2) -> ::windows::core::Result<()>
+    pub fn SetBindingMode<'a, P0, P1>(boundtracker1: P0, boundtracker2: P1, axismode: InteractionBindingAxisModes) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>,
-        P2: ::std::convert::Into<InteractionBindingAxisModes>,
     {
-        Self::IInteractionTrackerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetBindingMode)(::windows::core::Interface::as_raw(this), boundtracker1.into().abi(), boundtracker2.into().abi(), axismode.into()).ok() })
+        Self::IInteractionTrackerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetBindingMode)(::windows::core::Interface::as_raw(this), boundtracker1.into().abi(), boundtracker2.into().abi(), axismode).ok() })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn GetBindingMode<'a, P0, P1>(boundtracker1: P0, boundtracker2: P1) -> ::windows::core::Result<InteractionBindingAxisModes>
@@ -5209,12 +5189,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetManipulationRedirectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VisualInteractionSourceRedirectionMode>,
-    {
+    pub fn SetManipulationRedirectionMode(&self, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetManipulationRedirectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetManipulationRedirectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionXChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
@@ -5225,12 +5202,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionXChainingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionChainingMode>,
-    {
+    pub fn SetPositionXChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionXChainingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionXChainingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionXSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
@@ -5241,12 +5215,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionXSourceMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionSourceMode>,
-    {
+    pub fn SetPositionXSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionYChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
@@ -5257,12 +5228,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionYChainingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionChainingMode>,
-    {
+    pub fn SetPositionYChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionYChainingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionYChainingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
@@ -5273,12 +5241,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionYSourceMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionSourceMode>,
-    {
+    pub fn SetPositionYSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
@@ -5289,12 +5254,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetScaleChainingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionChainingMode>,
-    {
+    pub fn SetScaleChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleChainingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleChainingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
@@ -5305,12 +5267,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetScaleSourceMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InteractionSourceMode>,
-    {
+    pub fn SetScaleSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<super::Visual> {

@@ -514,32 +514,30 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateTypeLib<'a, P0, P1>(syskind: P0, szfile: P1) -> ::windows::core::Result<ICreateTypeLib>
+pub unsafe fn CreateTypeLib<'a, P0>(syskind: super::Com::SYSKIND, szfile: P0) -> ::windows::core::Result<ICreateTypeLib>
 where
-    P0: ::std::convert::Into<super::Com::SYSKIND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateTypeLib(syskind: super::Com::SYSKIND, szfile: ::windows::core::PCWSTR, ppctlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateTypeLib(syskind.into(), szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib>(result__)
+    CreateTypeLib(::core::mem::transmute(syskind), szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateTypeLib2<'a, P0, P1>(syskind: P0, szfile: P1) -> ::windows::core::Result<ICreateTypeLib2>
+pub unsafe fn CreateTypeLib2<'a, P0>(syskind: super::Com::SYSKIND, szfile: P0) -> ::windows::core::Result<ICreateTypeLib2>
 where
-    P0: ::std::convert::Into<super::Com::SYSKIND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateTypeLib2(syskind: super::Com::SYSKIND, szfile: ::windows::core::PCWSTR, ppctlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateTypeLib2(syskind.into(), szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib2>(result__)
+    CreateTypeLib2(::core::mem::transmute(syskind), szfile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib2>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
@@ -944,16 +942,13 @@ impl ::core::fmt::Debug for DVASPECT2 {
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn DispCallFunc<'a, P0>(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: P0, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>
-where
-    P0: ::std::convert::Into<super::Com::CALLCONV>,
-{
+pub unsafe fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT, pvargresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-    DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), cc.into(), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -994,17 +989,16 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DoDragDrop<'a, P0, P1, P2>(pdataobj: P0, pdropsource: P1, dwokeffects: P2, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT
+pub unsafe fn DoDragDrop<'a, P0, P1>(pdataobj: P0, pdropsource: P1, dwokeffects: DROPEFFECT, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, IDropSource>>,
-    P2: ::std::convert::Into<DROPEFFECT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DoDragDrop(pdataobj: *mut ::core::ffi::c_void, pdropsource: *mut ::core::ffi::c_void, dwokeffects: DROPEFFECT, pdweffect: *mut DROPEFFECT) -> ::windows::core::HRESULT;
     }
-    ::core::mem::transmute(DoDragDrop(pdataobj.into().abi(), pdropsource.into().abi(), dwokeffects.into(), ::core::mem::transmute(pdweffect)))
+    ::core::mem::transmute(DoDragDrop(pdataobj.into().abi(), pdropsource.into().abi(), ::core::mem::transmute(dwokeffects), ::core::mem::transmute(pdweffect)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2269,11 +2263,8 @@ impl ICreateTypeInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteFuncDescByMemId<'a, P0>(&self, memid: i32, invkind: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Com::INVOKEKIND>,
-    {
-        (::windows::core::Interface::vtable(self).DeleteFuncDescByMemId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(memid), invkind.into()).ok()
+    pub unsafe fn DeleteFuncDescByMemId(&self, memid: i32, invkind: super::Com::INVOKEKIND) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFuncDescByMemId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(memid), ::core::mem::transmute(invkind)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub unsafe fn DeleteVarDesc(&self, index: u32) -> ::windows::core::Result<()> {
@@ -2430,13 +2421,12 @@ pub struct ICreateTypeLib(::windows::core::IUnknown);
 impl ICreateTypeLib {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateTypeInfo<'a, P0, P1>(&self, szname: P0, tkind: P1) -> ::windows::core::Result<ICreateTypeInfo>
+    pub unsafe fn CreateTypeInfo<'a, P0>(&self, szname: P0, tkind: super::Com::TYPEKIND) -> ::windows::core::Result<ICreateTypeInfo>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<super::Com::TYPEKIND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTypeInfo)(::windows::core::Interface::as_raw(self), szname.into(), tkind.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).CreateTypeInfo)(::windows::core::Interface::as_raw(self), szname.into(), ::core::mem::transmute(tkind), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub unsafe fn SetName<'a, P0>(&self, szname: P0) -> ::windows::core::Result<()>
@@ -2543,13 +2533,12 @@ pub struct ICreateTypeLib2(::windows::core::IUnknown);
 impl ICreateTypeLib2 {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateTypeInfo<'a, P0, P1>(&self, szname: P0, tkind: P1) -> ::windows::core::Result<ICreateTypeInfo>
+    pub unsafe fn CreateTypeInfo<'a, P0>(&self, szname: P0, tkind: super::Com::TYPEKIND) -> ::windows::core::Result<ICreateTypeInfo>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<super::Com::TYPEKIND>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateTypeInfo)(::windows::core::Interface::as_raw(self), szname.into(), tkind.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateTypeInfo)(::windows::core::Interface::as_raw(self), szname.into(), ::core::mem::transmute(tkind), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub unsafe fn SetName<'a, P0>(&self, szname: P0) -> ::windows::core::Result<()>
@@ -4701,12 +4690,11 @@ impl IOleCache2 {
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UpdateCache<'a, P0, P1>(&self, pdataobject: P0, grfupdf: P1, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateCache<'a, P0>(&self, pdataobject: P0, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDataObject>>,
-        P1: ::std::convert::Into<UPDFCACHE_FLAGS>,
     {
-        (::windows::core::Interface::vtable(self).UpdateCache)(::windows::core::Interface::as_raw(self), pdataobject.into().abi(), grfupdf.into(), ::core::mem::transmute(preserved)).ok()
+        (::windows::core::Interface::vtable(self).UpdateCache)(::windows::core::Interface::as_raw(self), pdataobject.into().abi(), ::core::mem::transmute(grfupdf), ::core::mem::transmute(preserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub unsafe fn DiscardCache(&self, dwdiscardoptions: u32) -> ::windows::core::Result<()> {
@@ -5177,11 +5165,8 @@ impl IOleControlSite {
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransformCoords<'a, P0>(&self, pptlhimetric: *mut super::super::Foundation::POINTL, pptfcontainer: *mut POINTF, dwflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XFORMCOORDS>,
-    {
-        (::windows::core::Interface::vtable(self).TransformCoords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pptlhimetric), ::core::mem::transmute(pptfcontainer), dwflags.into()).ok()
+    pub unsafe fn TransformCoords(&self, pptlhimetric: *mut super::super::Foundation::POINTL, pptfcontainer: *mut POINTF, dwflags: XFORMCOORDS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransformCoords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pptlhimetric), ::core::mem::transmute(pptfcontainer), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -9486,11 +9471,8 @@ pub struct IPropertyPage2_Vtbl {
 pub struct IPropertyPageSite(::windows::core::IUnknown);
 impl IPropertyPageSite {
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub unsafe fn OnStatusChange<'a, P0>(&self, dwflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PROPPAGESTATUS>,
-    {
-        (::windows::core::Interface::vtable(self).OnStatusChange)(::windows::core::Interface::as_raw(self), dwflags.into()).ok()
+    pub unsafe fn OnStatusChange(&self, dwflags: PROPPAGESTATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStatusChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub unsafe fn GetLocaleID(&self) -> ::windows::core::Result<u32> {
@@ -9841,11 +9823,8 @@ impl IProvideMultipleClassInfo {
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetInfoOfIndex<'a, P0>(&self, iti: u32, dwflags: P0, ppticoclass: *mut ::core::option::Option<super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::core::GUID, piidsource: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MULTICLASSINFO_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).GetInfoOfIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iti), dwflags.into(), ::core::mem::transmute(ppticoclass), ::core::mem::transmute(pdwtiflags), ::core::mem::transmute(pcdispidreserved), ::core::mem::transmute(piidprimary), ::core::mem::transmute(piidsource)).ok()
+    pub unsafe fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut ::core::option::Option<super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut ::windows::core::GUID, piidsource: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetInfoOfIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iti), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppticoclass), ::core::mem::transmute(pdwtiflags), ::core::mem::transmute(pcdispidreserved), ::core::mem::transmute(piidprimary), ::core::mem::transmute(piidsource)).ok()
     }
 }
 impl ::core::convert::From<IProvideMultipleClassInfo> for ::windows::core::IUnknown {
@@ -10353,24 +10332,22 @@ pub struct ITypeChangeEvents(::windows::core::IUnknown);
 impl ITypeChangeEvents {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RequestTypeChange<'a, P0, P1, P2>(&self, changekind: P0, ptinfobefore: P1, pstrname: P2) -> ::windows::core::Result<i32>
+    pub unsafe fn RequestTypeChange<'a, P0, P1>(&self, changekind: CHANGEKIND, ptinfobefore: P0, pstrname: P1) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<CHANGEKIND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).RequestTypeChange)(::windows::core::Interface::as_raw(self), changekind.into(), ptinfobefore.into().abi(), pstrname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RequestTypeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changekind), ptinfobefore.into().abi(), pstrname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AfterTypeChange<'a, P0, P1, P2>(&self, changekind: P0, ptinfoafter: P1, pstrname: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AfterTypeChange<'a, P0, P1>(&self, changekind: CHANGEKIND, ptinfoafter: P0, pstrname: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CHANGEKIND>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::ITypeInfo>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).AfterTypeChange)(::windows::core::Interface::as_raw(self), changekind.into(), ptinfoafter.into().abi(), pstrname.into()).ok()
+        (::windows::core::Interface::vtable(self).AfterTypeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changekind), ptinfoafter.into().abi(), pstrname.into()).ok()
     }
 }
 impl ::core::convert::From<ITypeChangeEvents> for ::windows::core::IUnknown {
@@ -10608,13 +10585,9 @@ pub struct IVBGetControl(::windows::core::IUnknown);
 impl IVBGetControl {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumControls<'a, P0, P1>(&self, dwolecontf: P0, dwwhich: P1) -> ::windows::core::Result<super::Com::IEnumUnknown>
-    where
-        P0: ::std::convert::Into<OLECONTF>,
-        P1: ::std::convert::Into<ENUM_CONTROLS_WHICH_FLAGS>,
-    {
+    pub unsafe fn EnumControls(&self, dwolecontf: OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS) -> ::windows::core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumControls)(::windows::core::Interface::as_raw(self), dwolecontf.into(), dwwhich.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
+        (::windows::core::Interface::vtable(self).EnumControls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwolecontf), ::core::mem::transmute(dwwhich), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumUnknown>(result__)
     }
 }
 impl ::core::convert::From<IVBGetControl> for ::windows::core::IUnknown {
@@ -10997,13 +10970,12 @@ impl IViewObjectEx {
     }
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn GetNaturalExtent<'a, P0, P1>(&self, dwaspect: P0, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: P1, pextentinfo: *const ExtentInfo) -> ::windows::core::Result<super::super::Foundation::SIZE>
+    pub unsafe fn GetNaturalExtent<'a, P0>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: P0, pextentinfo: *const ExtentInfo) -> ::windows::core::Result<super::super::Foundation::SIZE>
     where
-        P0: ::std::convert::Into<super::Com::DVASPECT>,
-        P1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
+        P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::SIZE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNaturalExtent)(::windows::core::Interface::as_raw(self), dwaspect.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), hictargetdev.into(), ::core::mem::transmute(pextentinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+        (::windows::core::Interface::vtable(self).GetNaturalExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaspect), ::core::mem::transmute(lindex), ::core::mem::transmute(ptd), hictargetdev.into(), ::core::mem::transmute(pextentinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
     }
 }
 impl ::core::convert::From<IViewObjectEx> for ::windows::core::IUnknown {
@@ -11159,30 +11131,28 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LHashValOfNameSys<'a, P0, P1>(syskind: P0, lcid: u32, szname: P1) -> u32
+pub unsafe fn LHashValOfNameSys<'a, P0>(syskind: super::Com::SYSKIND, lcid: u32, szname: P0) -> u32
 where
-    P0: ::std::convert::Into<super::Com::SYSKIND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LHashValOfNameSys(syskind: super::Com::SYSKIND, lcid: u32, szname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(LHashValOfNameSys(syskind.into(), ::core::mem::transmute(lcid), szname.into()))
+    ::core::mem::transmute(LHashValOfNameSys(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LHashValOfNameSysA<'a, P0, P1>(syskind: P0, lcid: u32, szname: P1) -> u32
+pub unsafe fn LHashValOfNameSysA<'a, P0>(syskind: super::Com::SYSKIND, lcid: u32, szname: P0) -> u32
 where
-    P0: ::std::convert::Into<super::Com::SYSKIND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LHashValOfNameSysA(syskind: super::Com::SYSKIND, lcid: u32, szname: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(LHashValOfNameSysA(syskind.into(), ::core::mem::transmute(lcid), szname.into()))
+    ::core::mem::transmute(LHashValOfNameSysA(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -11300,17 +11270,16 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LoadTypeLibEx<'a, P0, P1>(szfile: P0, regkind: P1) -> ::windows::core::Result<super::Com::ITypeLib>
+pub unsafe fn LoadTypeLibEx<'a, P0>(szfile: P0, regkind: REGKIND) -> ::windows::core::Result<super::Com::ITypeLib>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<REGKIND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadTypeLibEx(szfile: ::windows::core::PCWSTR, regkind: REGKIND, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    LoadTypeLibEx(szfile.into(), regkind.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    LoadTypeLibEx(szfile.into(), ::core::mem::transmute(regkind), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -17413,28 +17382,22 @@ impl ::core::fmt::Debug for USERCLASSTYPE {
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UnRegisterTypeLib<'a, P0>(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::Com::SYSKIND>,
-{
+pub unsafe fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
     }
-    UnRegisterTypeLib(::core::mem::transmute(libid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), syskind.into()).ok()
+    UnRegisterTypeLib(::core::mem::transmute(libid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn UnRegisterTypeLibForUser<'a, P0>(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::Com::SYSKIND>,
-{
+pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
     }
-    UnRegisterTypeLibForUser(::core::mem::transmute(libid), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum), ::core::mem::transmute(lcid), syskind.into()).ok()
+    UnRegisterTypeLibForUser(::core::mem::transmute(libid), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARCMP_EQ: u32 = 1u32;

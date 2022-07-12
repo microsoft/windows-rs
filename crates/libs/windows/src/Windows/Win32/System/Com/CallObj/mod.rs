@@ -348,13 +348,12 @@ impl ICallFrame {
         (::windows::core::Interface::vtable(self).GetParam)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iparam), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-    pub unsafe fn Copy<'a, P0, P1>(&self, copycontrol: P0, pwalker: P1) -> ::windows::core::Result<ICallFrame>
+    pub unsafe fn Copy<'a, P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> ::windows::core::Result<ICallFrame>
     where
-        P0: ::std::convert::Into<CALLFRAME_COPY>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), copycontrol.into(), pwalker.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICallFrame>(result__)
+        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copycontrol), pwalker.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICallFrame>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
     pub unsafe fn Free<'a, P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> ::windows::core::Result<()>
@@ -382,20 +381,14 @@ impl ICallFrame {
     }
     #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMarshalSizeMax<'a, P0>(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<super::MSHLFLAGS>,
-    {
+    pub unsafe fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmshlcontext), mshlflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmshlcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Marshal<'a, P0>(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: P0, pbuffer: &[u8], pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MSHLFLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).Marshal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmshlcontext), mshlflags.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer)), pbuffer.len() as _, ::core::mem::transmute(pcbbufferused), ::core::mem::transmute(pdatarep), ::core::mem::transmute(prpcflags)).ok()
+    pub unsafe fn Marshal(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: &[u8], pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Marshal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmshlcontext), ::core::mem::transmute(mshlflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer)), pbuffer.len() as _, ::core::mem::transmute(pcbbufferused), ::core::mem::transmute(pdatarep), ::core::mem::transmute(prpcflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

@@ -393,12 +393,9 @@ pub struct IPrintTaskOptionsCore_Vtbl {
 pub struct IPrintTaskOptionsCoreProperties(::windows::core::IUnknown);
 impl IPrintTaskOptionsCoreProperties {
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaSize<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintMediaSize>,
-    {
+    pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize> {
@@ -409,12 +406,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintMediaType>,
-    {
+    pub fn SetMediaType(&self, value: PrintMediaType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaType(&self) -> ::windows::core::Result<PrintMediaType> {
@@ -425,12 +419,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetOrientation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOrientation>,
-    {
+    pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PrintOrientation> {
@@ -441,12 +432,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetPrintQuality<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintQuality>,
-    {
+    pub fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn PrintQuality(&self) -> ::windows::core::Result<PrintQuality> {
@@ -457,12 +445,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetColorMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintColorMode>,
-    {
+    pub fn SetColorMode(&self, value: PrintColorMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<PrintColorMode> {
@@ -473,12 +458,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetDuplex<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintDuplex>,
-    {
+    pub fn SetDuplex(&self, value: PrintDuplex) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Duplex(&self) -> ::windows::core::Result<PrintDuplex> {
@@ -489,12 +471,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetCollation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintCollation>,
-    {
+    pub fn SetCollation(&self, value: PrintCollation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Collation(&self) -> ::windows::core::Result<PrintCollation> {
@@ -505,12 +484,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetStaple<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintStaple>,
-    {
+    pub fn SetStaple(&self, value: PrintStaple) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Staple(&self) -> ::windows::core::Result<PrintStaple> {
@@ -521,12 +497,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetHolePunch<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintHolePunch>,
-    {
+    pub fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn HolePunch(&self) -> ::windows::core::Result<PrintHolePunch> {
@@ -537,12 +510,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetBinding<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintBinding>,
-    {
+    pub fn SetBinding(&self, value: PrintBinding) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Binding(&self) -> ::windows::core::Result<PrintBinding> {
@@ -1628,12 +1598,9 @@ impl PrintPageInfo {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaSize<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintMediaSize>,
-    {
+    pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize> {
@@ -1685,12 +1652,9 @@ impl PrintPageInfo {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetOrientation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOrientation>,
-    {
+    pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PrintOrientation> {
@@ -2377,12 +2341,9 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
 pub struct PrintTaskOptions(::windows::core::IUnknown);
 impl PrintTaskOptions {
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetBordering<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintBordering>,
-    {
+    pub fn SetBordering(&self, value: PrintBordering) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptions>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBordering)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBordering)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Bordering(&self) -> ::windows::core::Result<PrintBordering> {
@@ -2431,12 +2392,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaSize<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintMediaSize>,
-    {
+    pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize> {
@@ -2447,12 +2405,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintMediaType>,
-    {
+    pub fn SetMediaType(&self, value: PrintMediaType) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaType(&self) -> ::windows::core::Result<PrintMediaType> {
@@ -2463,12 +2418,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetOrientation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOrientation>,
-    {
+    pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PrintOrientation> {
@@ -2479,12 +2431,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetPrintQuality<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintQuality>,
-    {
+    pub fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn PrintQuality(&self) -> ::windows::core::Result<PrintQuality> {
@@ -2495,12 +2444,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetColorMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintColorMode>,
-    {
+    pub fn SetColorMode(&self, value: PrintColorMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<PrintColorMode> {
@@ -2511,12 +2457,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetDuplex<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintDuplex>,
-    {
+    pub fn SetDuplex(&self, value: PrintDuplex) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Duplex(&self) -> ::windows::core::Result<PrintDuplex> {
@@ -2527,12 +2470,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetCollation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintCollation>,
-    {
+    pub fn SetCollation(&self, value: PrintCollation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Collation(&self) -> ::windows::core::Result<PrintCollation> {
@@ -2543,12 +2483,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetStaple<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintStaple>,
-    {
+    pub fn SetStaple(&self, value: PrintStaple) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Staple(&self) -> ::windows::core::Result<PrintStaple> {
@@ -2559,12 +2496,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetHolePunch<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintHolePunch>,
-    {
+    pub fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn HolePunch(&self) -> ::windows::core::Result<PrintHolePunch> {
@@ -2575,12 +2509,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetBinding<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintBinding>,
-    {
+    pub fn SetBinding(&self, value: PrintBinding) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Binding(&self) -> ::windows::core::Result<PrintBinding> {

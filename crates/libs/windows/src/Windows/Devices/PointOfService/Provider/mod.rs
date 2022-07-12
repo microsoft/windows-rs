@@ -1089,14 +1089,11 @@ impl BarcodeScannerProviderConnection {
     }
     #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportTriggerStateAsync<'a, P0>(&self, state: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<BarcodeScannerTriggerState>,
-    {
+    pub fn ReportTriggerStateAsync(&self, state: BarcodeScannerTriggerState) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReportTriggerStateAsync)(::windows::core::Interface::as_raw(this), state.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ReportTriggerStateAsync)(::windows::core::Interface::as_raw(this), state, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`, `\"Foundation\"`*"]
@@ -1279,26 +1276,20 @@ impl BarcodeScannerProviderConnection {
     }
     #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    pub fn CreateFrameReaderWithFormatAsync<'a, P0>(&self, preferredformat: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::Imaging::BitmapPixelFormat>,
-    {
+    pub fn CreateFrameReaderWithFormatAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderWithFormatAsync)(::windows::core::Interface::as_raw(this), preferredformat.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderWithFormatAsync)(::windows::core::Interface::as_raw(this), preferredformat, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    pub fn CreateFrameReaderWithFormatAndSizeAsync<'a, P0>(&self, preferredformat: P0, preferredsize: super::super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::Imaging::BitmapPixelFormat>,
-    {
+    pub fn CreateFrameReaderWithFormatAndSizeAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: super::super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderWithFormatAndSizeAsync)(::windows::core::Interface::as_raw(this), preferredformat.into(), preferredsize, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderWithFormatAndSizeAsync)(::windows::core::Interface::as_raw(this), preferredformat, preferredsize, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService_Provider\"`, `\"Foundation\"`*"]

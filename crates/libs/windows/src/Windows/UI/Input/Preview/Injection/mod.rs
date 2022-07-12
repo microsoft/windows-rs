@@ -270,12 +270,9 @@ impl InjectedInputGamepadInfo {
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
-    pub fn SetButtons<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::super::Gaming::Input::GamepadButtons>,
-    {
+    pub fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtons)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtons)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn LeftThumbstickX(&self) -> ::windows::core::Result<f64> {
@@ -514,12 +511,9 @@ impl InjectedInputKeyboardInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetKeyOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputKeyOptions>,
-    {
+    pub fn SetKeyOptions(&self, value: InjectedInputKeyOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn ScanCode(&self) -> ::windows::core::Result<u16> {
@@ -628,12 +622,9 @@ impl InjectedInputMouseInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetMouseOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputMouseOptions>,
-    {
+    pub fn SetMouseOptions(&self, value: InjectedInputMouseOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMouseOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMouseOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn MouseData(&self) -> ::windows::core::Result<u32> {
@@ -920,12 +911,9 @@ impl InjectedInputPenInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetPenButtons<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputPenButtons>,
-    {
+    pub fn SetPenButtons(&self, value: InjectedInputPenButtons) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenButtons)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenButtons)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn PenParameters(&self) -> ::windows::core::Result<InjectedInputPenParameters> {
@@ -936,12 +924,9 @@ impl InjectedInputPenInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetPenParameters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputPenParameters>,
-    {
+    pub fn SetPenParameters(&self, value: InjectedInputPenParameters) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenParameters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenParameters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
@@ -1420,12 +1405,9 @@ impl InjectedInputTouchInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetTouchParameters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputTouchParameters>,
-    {
+    pub fn SetTouchParameters(&self, value: InjectedInputTouchParameters) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTouchParameters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTouchParameters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InjectedInputTouchInfo {
@@ -1612,12 +1594,9 @@ impl InputInjector {
         unsafe { (::windows::core::Interface::vtable(this).InjectMouseInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InitializeTouchInjection<'a, P0>(&self, visualmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputVisualizationMode>,
-    {
+    pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InitializeTouchInjection)(::windows::core::Interface::as_raw(this), visualmode.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InitializeTouchInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1635,12 +1614,9 @@ impl InputInjector {
         unsafe { (::windows::core::Interface::vtable(this).UninitializeTouchInjection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InitializePenInjection<'a, P0>(&self, visualmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputVisualizationMode>,
-    {
+    pub fn InitializePenInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InitializePenInjection)(::windows::core::Interface::as_raw(this), visualmode.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InitializePenInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn InjectPenInput<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
@@ -1656,12 +1632,9 @@ impl InputInjector {
         unsafe { (::windows::core::Interface::vtable(this).UninitializePenInjection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InjectShortcut<'a, P0>(&self, shortcut: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InjectedInputShortcut>,
-    {
+    pub fn InjectShortcut(&self, shortcut: InjectedInputShortcut) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectShortcut)(::windows::core::Interface::as_raw(this), shortcut.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectShortcut)(::windows::core::Interface::as_raw(this), shortcut).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn InitializeGamepadInjection(&self) -> ::windows::core::Result<()> {

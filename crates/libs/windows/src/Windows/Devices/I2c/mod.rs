@@ -60,12 +60,9 @@ impl I2cConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn SetBusSpeed<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<I2cBusSpeed>,
-    {
+    pub fn SetBusSpeed(&self, value: I2cBusSpeed) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBusSpeed)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBusSpeed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
     pub fn SharingMode(&self) -> ::windows::core::Result<I2cSharingMode> {
@@ -76,12 +73,9 @@ impl I2cConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn SetSharingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<I2cSharingMode>,
-    {
+    pub fn SetSharingMode(&self, value: I2cSharingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
     pub fn Create(slaveaddress: i32) -> ::windows::core::Result<I2cConnectionSettings> {

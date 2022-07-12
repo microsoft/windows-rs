@@ -423,41 +423,38 @@ impl IStorageItemAccessList {
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetItemWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>
+    pub fn GetItemWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFileWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
+    pub fn GetFileWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFolderWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>
+    pub fn GetFolderWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
@@ -895,41 +892,38 @@ impl StorageItemAccessList {
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetItemWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>
+    pub fn GetItemWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFileWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
+    pub fn GetFileWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFolderWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>
+    pub fn GetFolderWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
@@ -1153,41 +1147,38 @@ impl StorageItemMostRecentlyUsedList {
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetItemWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>
+    pub fn GetItemWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFileWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
+    pub fn GetFileWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFolderWithOptionsAsync<'a, P0, P1>(&self, token: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>
+    pub fn GetFolderWithOptionsAsync<'a, P0>(&self, token: P0, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<AccessCacheOptions>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows::core::Interface::as_raw(this), token.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
@@ -1262,30 +1253,28 @@ impl StorageItemMostRecentlyUsedList {
         unsafe { (::windows::core::Interface::vtable(this).RemoveItemRemoved)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
-    pub fn AddWithMetadataAndVisibility<'a, P0, E0, P1, P2>(&self, file: P0, metadata: P1, visibility: P2) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn AddWithMetadataAndVisibility<'a, P0, E0, P1>(&self, file: P0, metadata: P1, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<RecentStorageItemVisibility>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).AddWithMetadataAndVisibility)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), metadata.into().abi(), visibility.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AddWithMetadataAndVisibility)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), metadata.into().abi(), visibility, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
-    pub fn AddOrReplaceWithMetadataAndVisibility<'a, P0, P1, E1, P2, P3>(&self, token: P0, file: P1, metadata: P2, visibility: P3) -> ::windows::core::Result<()>
+    pub fn AddOrReplaceWithMetadataAndVisibility<'a, P0, P1, E1, P2>(&self, token: P0, file: P1, metadata: P2, visibility: RecentStorageItemVisibility) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<RecentStorageItemVisibility>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddOrReplaceWithMetadataAndVisibility)(::windows::core::Interface::as_raw(this), token.into().abi(), file.try_into().map_err(|e| e.into())?.abi(), metadata.into().abi(), visibility.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddOrReplaceWithMetadataAndVisibility)(::windows::core::Interface::as_raw(this), token.into().abi(), file.try_into().map_err(|e| e.into())?.abi(), metadata.into().abi(), visibility).ok() }
     }
 }
 impl ::core::clone::Clone for StorageItemMostRecentlyUsedList {

@@ -235,11 +235,8 @@ impl IWdsTransportClient {
         (::windows::core::Interface::vtable(self).UserIdentity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn Disconnect<'a, P0>(&self, disconnectiontype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), disconnectiontype.into()).ok()
+    pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disconnectiontype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -476,11 +473,8 @@ impl IWdsTransportConfigurationManager {
         (::windows::core::Interface::vtable(self).RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn NotifyWdsTransportServices<'a, P0>(&self, servicenotification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>,
-    {
-        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification.into()).ok()
+    pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -609,11 +603,8 @@ impl IWdsTransportConfigurationManager2 {
         (::windows::core::Interface::vtable(self).base__.RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn NotifyWdsTransportServices<'a, P0>(&self, servicenotification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification.into()).ok()
+    pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1187,11 +1178,8 @@ impl IWdsTransportMulticastSessionPolicy {
         (::windows::core::Interface::vtable(self).SlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetSlowClientHandling<'a, P0>(&self, slowclienthandling: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), slowclienthandling.into()).ok()
+    pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(slowclienthandling)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn AutoDisconnectThreshold(&self) -> ::windows::core::Result<u32> {
@@ -1793,15 +1781,14 @@ pub struct IWdsTransportNamespaceManager(::windows::core::IUnknown);
 impl IWdsTransportNamespaceManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateNamespace<'a, P0, P1, P2, P3>(&self, namespacetype: P0, bsznamespacename: P1, bszcontentprovider: P2, bszconfiguration: P3) -> ::windows::core::Result<IWdsTransportNamespace>
+    pub unsafe fn CreateNamespace<'a, P0, P1, P2>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: P0, bszcontentprovider: P1, bszconfiguration: P2) -> ::windows::core::Result<IWdsTransportNamespace>
     where
-        P0: ::std::convert::Into<WDSTRANSPORT_NAMESPACE_TYPE>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), namespacetype.into(), bsznamespacename.into().abi(), bszcontentprovider.into().abi(), bszconfiguration.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespacetype), bsznamespacename.into().abi(), bszcontentprovider.into().abi(), bszconfiguration.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2652,11 +2639,8 @@ impl IWdsTransportServer {
         (::windows::core::Interface::vtable(self).NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn DisconnectClient<'a, P0>(&self, ulclientid: u32, disconnectiontype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), disconnectiontype.into()).ok()
+    pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2774,11 +2758,8 @@ impl IWdsTransportServer2 {
         (::windows::core::Interface::vtable(self).base__.NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn DisconnectClient<'a, P0>(&self, ulclientid: u32, disconnectiontype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), disconnectiontype.into()).ok()
+    pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2900,56 +2881,41 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn get_IpAddressSource<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-    {
+    pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn put_IpAddressSource<'a, P0, P1>(&self, addresstype: P0, sourcetype: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-        P1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), sourcetype.into()).ok()
+    pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-    {
+    pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_StartIpAddress<'a, P0, P1>(&self, addresstype: P0, bszstartipaddress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_StartIpAddress<'a, P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszstartipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_EndIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-    {
+    pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EndIpAddress<'a, P0, P1>(&self, addresstype: P0, bszendipaddress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_EndIpAddress<'a, P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszendipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
@@ -2975,11 +2941,8 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetNetworkProfile<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype.into()).ok()
+    pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3115,56 +3078,41 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn get_IpAddressSource<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-    {
+    pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn put_IpAddressSource<'a, P0, P1>(&self, addresstype: P0, sourcetype: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-        P1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), sourcetype.into()).ok()
+    pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-    {
+    pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_StartIpAddress<'a, P0, P1>(&self, addresstype: P0, bszstartipaddress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_StartIpAddress<'a, P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszstartipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_EndIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-    {
+    pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EndIpAddress<'a, P0, P1>(&self, addresstype: P0, bszendipaddress: P1) -> ::windows::core::Result<()>
+    pub unsafe fn put_EndIpAddress<'a, P0>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszendipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
@@ -3190,11 +3138,8 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base__.NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetNetworkProfile<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype.into()).ok()
+    pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn UdpPortPolicy(&self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY> {
@@ -3202,11 +3147,8 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).UdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_UDP_PORT_POLICY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetUdpPortPolicy<'a, P0>(&self, udpportpolicy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WDSTRANSPORT_UDP_PORT_POLICY>,
-    {
-        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), udpportpolicy.into()).ok()
+    pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(udpportpolicy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TftpMaximumBlockSize(&self) -> ::windows::core::Result<u32> {
@@ -6183,16 +6125,15 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageParameter<'a, P0, P1>(hifh: P0, paramtype: P1, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliGetImageParameter<'a, P0>(hifh: P0, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<WDS_CLI_IMAGE_PARAM_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
     }
-    WdsCliGetImageParameter(hifh.into(), paramtype.into(), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
+    WdsCliGetImageParameter(hifh.into(), ::core::mem::transmute(paramtype), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6267,18 +6208,17 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliInitializeLog<'a, P0, P1, P2, P3>(hsession: P0, ulclientarchitecture: P1, pwszclientid: P2, pwszclientaddress: P3) -> ::windows::core::Result<()>
+pub unsafe fn WdsCliInitializeLog<'a, P0, P1, P2>(hsession: P0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: P1, pwszclientaddress: P2) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CPU_ARCHITECTURE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    WdsCliInitializeLog(hsession.into(), ulclientarchitecture.into(), pwszclientid.into(), pwszclientaddress.into()).ok()
+    WdsCliInitializeLog(hsession.into(), ::core::mem::transmute(ulclientarchitecture), pwszclientid.into(), pwszclientaddress.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6481,16 +6421,15 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientRegisterCallback<'a, P0, P1>(hsessionkey: P0, callbackid: P1, pfncallback: *const ::core::ffi::c_void) -> u32
+pub unsafe fn WdsTransportClientRegisterCallback<'a, P0>(hsessionkey: P0, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<TRANSPORTCLIENT_CALLBACK_ID>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into(), callbackid.into(), ::core::mem::transmute(pfncallback)))
+    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -6592,16 +6531,15 @@ where
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerRegisterCallback<'a, P0, P1>(hprovider: P0, callbackid: P1, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WdsTransportServerRegisterCallback<'a, P0>(hprovider: P0, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<TRANSPORTPROVIDER_CALLBACK_ID>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerRegisterCallback(hprovider.into(), callbackid.into(), ::core::mem::transmute(pfncallback)).ok()
+    WdsTransportServerRegisterCallback(hprovider.into(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

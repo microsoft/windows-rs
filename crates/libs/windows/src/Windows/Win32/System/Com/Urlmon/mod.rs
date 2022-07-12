@@ -720,18 +720,17 @@ impl ::core::default::Default for CONFIRMSAFETY {
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoGetClassObjectFromURL<'a, P0, P1, P2, P3>(rclassid: *const ::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: P3, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CoGetClassObjectFromURL<'a, P0, P1, P2>(rclassid: *const ::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
-    P3: ::std::convert::Into<super::CLSCTX>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoGetClassObjectFromURL(rclassid: *const ::windows::core::GUID, szcode: ::windows::core::PCWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: ::windows::core::PCWSTR, pbindctx: *mut ::core::ffi::c_void, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CoGetClassObjectFromURL(::core::mem::transmute(rclassid), szcode.into(), ::core::mem::transmute(dwfileversionms), ::core::mem::transmute(dwfileversionls), sztype.into(), pbindctx.into().abi(), dwclscontext.into(), ::core::mem::transmute(pvreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    CoGetClassObjectFromURL(::core::mem::transmute(rclassid), szcode.into(), ::core::mem::transmute(dwfileversionms), ::core::mem::transmute(dwfileversionls), sztype.into(), pbindctx.into().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(pvreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -823,29 +822,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrl<'a, P0, P1>(pwszurl: P0, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: P1, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetGetSecurityUrl<'a, P0>(pwszurl: P0, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PSUACTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetGetSecurityUrl(pwszurl: ::windows::core::PCWSTR, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    CoInternetGetSecurityUrl(pwszurl.into(), ::core::mem::transmute(ppwszsecurl), psuaction.into(), ::core::mem::transmute(dwreserved)).ok()
+    CoInternetGetSecurityUrl(pwszurl.into(), ::core::mem::transmute(ppwszsecurl), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetGetSecurityUrlEx<'a, P0, P1>(puri: P0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: P1, dwreserved: usize) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetGetSecurityUrlEx<'a, P0>(puri: P0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
-    P1: ::std::convert::Into<PSUACTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetGetSecurityUrlEx(puri: *mut ::core::ffi::c_void, ppsecuri: *mut *mut ::core::ffi::c_void, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::HRESULT;
     }
-    CoInternetGetSecurityUrlEx(puri.into().abi(), ::core::mem::transmute(ppsecuri), psuaction.into(), ::core::mem::transmute(dwreserved)).ok()
+    CoInternetGetSecurityUrlEx(puri.into().abi(), ::core::mem::transmute(ppsecuri), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -858,43 +855,38 @@ pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut 
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabled<'a, P0>(featureentry: P0, dwflags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<INTERNETFEATURELIST>,
-{
+pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    CoInternetIsFeatureEnabled(featureentry.into(), ::core::mem::transmute(dwflags)).ok()
+    CoInternetIsFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, P0, P1, P2>(featureentry: P0, dwflags: u32, piuri: P1, psecmgr: P2) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, P0, P1>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: P0, psecmgr: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<INTERNETFEATURELIST>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManagerEx2>>,
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManagerEx2>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: *mut ::core::ffi::c_void, psecmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CoInternetIsFeatureEnabledForIUri(featureentry.into(), ::core::mem::transmute(dwflags), piuri.into().abi(), psecmgr.into().abi()).ok()
+    CoInternetIsFeatureEnabledForIUri(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), piuri.into().abi(), psecmgr.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, P0, P1, P2>(featureentry: P0, dwflags: u32, szurl: P1, psecmgr: P2) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, P0, P1>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: P0, psecmgr: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<INTERNETFEATURELIST>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManager>>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityManager>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: ::windows::core::PCWSTR, psecmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CoInternetIsFeatureEnabledForUrl(featureentry.into(), ::core::mem::transmute(dwflags), szurl.into(), psecmgr.into().abi()).ok()
+    CoInternetIsFeatureEnabledForUrl(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), szurl.into(), psecmgr.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -912,56 +904,52 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetParseIUri<'a, P0, P1>(piuri: P0, parseaction: P1, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetParseIUri<'a, P0>(piuri: P0, parseaction: PARSEACTION, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
-    P1: ::std::convert::Into<PARSEACTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetParseIUri(piuri: *mut ::core::ffi::c_void, parseaction: PARSEACTION, dwflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT;
     }
-    CoInternetParseIUri(piuri.into().abi(), parseaction.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwzresult)), pwzresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    CoInternetParseIUri(piuri.into().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwzresult)), pwzresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetParseUrl<'a, P0, P1>(pwzurl: P0, parseaction: P1, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetParseUrl<'a, P0>(pwzurl: P0, parseaction: PARSEACTION, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PARSEACTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetParseUrl(pwzurl: ::windows::core::PCWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    CoInternetParseUrl(pwzurl.into(), parseaction.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszresult)), pszresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    CoInternetParseUrl(pwzurl.into(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszresult)), pszresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoInternetQueryInfo<'a, P0, P1>(pwzurl: P0, queryoptions: P1, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetQueryInfo<'a, P0>(pwzurl: P0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<QUERYOPTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetQueryInfo(pwzurl: ::windows::core::PCWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    CoInternetQueryInfo(pwzurl.into(), queryoptions.into(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(dwreserved)).ok()
+    CoInternetQueryInfo(pwzurl.into(), ::core::mem::transmute(queryoptions), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CoInternetSetFeatureEnabled<'a, P0, P1>(featureentry: P0, dwflags: u32, fenable: P1) -> ::windows::core::Result<()>
+pub unsafe fn CoInternetSetFeatureEnabled<'a, P0>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<INTERNETFEATURELIST>,
-    P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    CoInternetSetFeatureEnabled(featureentry.into(), ::core::mem::transmute(dwflags), fenable.into()).ok()
+    CoInternetSetFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), fenable.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
@@ -1868,12 +1856,9 @@ pub struct IGetBindHandle(::windows::core::IUnknown);
 impl IGetBindHandle {
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBindHandle<'a, P0>(&self, enumrequestedhandle: P0) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
-    where
-        P0: ::std::convert::Into<BINDHANDLETYPES>,
-    {
+    pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBindHandle)(::windows::core::Interface::as_raw(self), enumrequestedhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).GetBindHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumrequestedhandle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IGetBindHandle> for ::windows::core::IUnknown {
@@ -2793,12 +2778,11 @@ pub struct IInternetProtocolEx_Vtbl {
 pub struct IInternetProtocolInfo(::windows::core::IUnknown);
 impl IInternetProtocolInfo {
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn ParseUrl<'a, P0, P1>(&self, pwzurl: P0, parseaction: P1, dwparseflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn ParseUrl<'a, P0>(&self, pwzurl: P0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<PARSEACTION>,
     {
-        (::windows::core::Interface::vtable(self).ParseUrl)(::windows::core::Interface::as_raw(self), pwzurl.into(), parseaction.into(), ::core::mem::transmute(dwparseflags), ::core::mem::transmute(pwzresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).ParseUrl)(::windows::core::Interface::as_raw(self), pwzurl.into(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwparseflags), ::core::mem::transmute(pwzresult), ::core::mem::transmute(cchresult), ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CombineUrl<'a, P0, P1, P2>(&self, pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pwzresult: P2, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
@@ -2818,12 +2802,11 @@ impl IInternetProtocolInfo {
         (::windows::core::Interface::vtable(self).CompareUrl)(::windows::core::Interface::as_raw(self), pwzurl1.into(), pwzurl2.into(), ::core::mem::transmute(dwcompareflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn QueryInfo<'a, P0, P1>(&self, pwzurl: P0, oueryoption: P1, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
+    pub unsafe fn QueryInfo<'a, P0>(&self, pwzurl: P0, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<QUERYOPTION>,
     {
-        (::windows::core::Interface::vtable(self).QueryInfo)(::windows::core::Interface::as_raw(self), pwzurl.into(), oueryoption.into(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).QueryInfo)(::windows::core::Interface::as_raw(self), pwzurl.into(), ::core::mem::transmute(oueryoption), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(dwreserved)).ok()
     }
 }
 impl ::core::convert::From<IInternetProtocolInfo> for ::windows::core::IUnknown {
@@ -3713,32 +3696,20 @@ impl IInternetZoneManager {
         (::windows::core::Interface::vtable(self).SetZoneAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneCustomPolicy<'a, P0>(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), urlzonereg.into()).ok()
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneCustomPolicy<'a, P0>(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneActionPolicy<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneActionPolicy<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3844,32 +3815,20 @@ impl IInternetZoneManagerEx {
         (::windows::core::Interface::vtable(self).base__.SetZoneAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneCustomPolicy<'a, P0>(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), urlzonereg.into()).ok()
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneCustomPolicy<'a, P0>(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneActionPolicy<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneActionPolicy<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3907,18 +3866,12 @@ impl IInternetZoneManagerEx {
         (::windows::core::Interface::vtable(self).base__.CopyTemplatePoliciesToZone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneActionPolicyEx<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: P0, dwflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).GetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneActionPolicyEx<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: P0, dwflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).SetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
 }
 impl ::core::convert::From<IInternetZoneManagerEx> for ::windows::core::IUnknown {
@@ -3991,32 +3944,20 @@ impl IInternetZoneManagerEx2 {
         (::windows::core::Interface::vtable(self).base__.base__.SetZoneAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneCustomPolicy<'a, P0>(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), urlzonereg.into()).ok()
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneCustomPolicy<'a, P0>(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneActionPolicy<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneActionPolicy<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into()).ok()
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4054,18 +3995,12 @@ impl IInternetZoneManagerEx2 {
         (::windows::core::Interface::vtable(self).base__.base__.CopyTemplatePoliciesToZone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn GetZoneActionPolicyEx<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: P0, dwflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn SetZoneActionPolicyEx<'a, P0>(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: P0, dwflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<URLZONEREG>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg.into(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()> {
@@ -4178,12 +4113,11 @@ pub struct IInternetZoneManagerEx2_Vtbl {
 pub struct IMonikerProp(::windows::core::IUnknown);
 impl IMonikerProp {
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
-    pub unsafe fn PutProperty<'a, P0, P1>(&self, mkp: P0, val: P1) -> ::windows::core::Result<()>
+    pub unsafe fn PutProperty<'a, P0>(&self, mkp: MONIKERPROPERTY, val: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<MONIKERPROPERTY>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutProperty)(::windows::core::Interface::as_raw(self), mkp.into(), val.into()).ok()
+        (::windows::core::Interface::vtable(self).PutProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mkp), val.into()).ok()
     }
 }
 impl ::core::convert::From<IMonikerProp> for ::windows::core::IUnknown {
@@ -6253,16 +6187,15 @@ pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetAccessForIEAppContainer<'a, P0, P1>(hobject: P0, ieobjecttype: P1, dwaccessmask: u32) -> ::windows::core::Result<()>
+pub unsafe fn SetAccessForIEAppContainer<'a, P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<IEObjectType>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
     }
-    SetAccessForIEAppContainer(hobject.into(), ieobjecttype.into(), ::core::mem::transmute(dwaccessmask)).ok()
+    SetAccessForIEAppContainer(hobject.into(), ::core::mem::transmute(ieobjecttype), ::core::mem::transmute(dwaccessmask)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]

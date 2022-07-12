@@ -699,12 +699,9 @@ impl InferencingOptionsPreview {
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetPreferredDeviceKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LearningModelDeviceKindPreview>,
-    {
+    pub fn SetPreferredDeviceKind(&self, value: LearningModelDeviceKindPreview) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredDeviceKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredDeviceKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]

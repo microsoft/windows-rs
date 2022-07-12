@@ -169,17 +169,15 @@ impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifierEnumerateResource<'a, P0, P1, P2>(process: P0, flags: P1, resourcetype: P2, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn VerifierEnumerateResource<'a, P0>(process: P0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<VERIFIER_ENUM_RESOURCE_FLAGS>,
-    P2: ::std::convert::Into<eAvrfResourceTypes>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(VerifierEnumerateResource(process.into(), flags.into(), resourcetype.into(), ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext)))
+    ::core::mem::transmute(VerifierEnumerateResource(process.into(), ::core::mem::transmute(flags), ::core::mem::transmute(resourcetype), ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]
 #[repr(transparent)]

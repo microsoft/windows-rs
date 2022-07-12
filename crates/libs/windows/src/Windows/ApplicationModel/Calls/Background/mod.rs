@@ -592,14 +592,11 @@ impl PhoneLineChangedTriggerDetails {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
-    pub fn HasLinePropertyChanged<'a, P0>(&self, lineproperty: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<PhoneLineProperties>,
-    {
+    pub fn HasLinePropertyChanged(&self, lineproperty: PhoneLineProperties) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasLinePropertyChanged)(::windows::core::Interface::as_raw(this), lineproperty.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasLinePropertyChanged)(::windows::core::Interface::as_raw(this), lineproperty, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }

@@ -1501,13 +1501,10 @@ impl IppResolution {
         }
     }
     #[doc = "*Required features: `\"Devices_Printers\"`*"]
-    pub fn CreateInstance<'a, P0>(width: i32, height: i32, unit: P0) -> ::windows::core::Result<IppResolution>
-    where
-        P0: ::std::convert::Into<IppResolutionUnit>,
-    {
+    pub fn CreateInstance(width: i32, height: i32, unit: IppResolutionUnit) -> ::windows::core::Result<IppResolution> {
         Self::IIppResolutionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, unit.into(), result__.as_mut_ptr()).from_abi::<IppResolution>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, unit, result__.as_mut_ptr()).from_abi::<IppResolution>(result__)
         })
     }
     #[doc(hidden)]

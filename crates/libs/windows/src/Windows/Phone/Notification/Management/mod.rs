@@ -43,22 +43,16 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCall)(::windows::core::Interface::as_raw(this), phonecallid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn AcceptPhoneCallOnEndpoint<'a, P0>(phonecallid: u32, endpoint: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallAudioEndpoint>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallOnEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint.into()).ok() })
+    pub fn AcceptPhoneCallOnEndpoint(phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallOnEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn AcceptPhoneCallWithVideo(phonecallid: u32) -> ::windows::core::Result<()> {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phonecallid).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn AcceptPhoneCallWithVideoOnAudioEndpoint<'a, P0>(phonecallid: u32, endpoint: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallAudioEndpoint>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint.into()).ok() })
+    pub fn AcceptPhoneCallWithVideoOnAudioEndpoint(phonecallid: u32, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).AcceptPhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phonecallid, endpoint).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn RejectPhoneCall(phonecallid: u32) -> ::windows::core::Result<()> {
@@ -76,12 +70,11 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCall)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallOnAudioEndpoint<'a, P0, P1>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: P1) -> ::windows::core::Result<()>
+    pub fn MakePhoneCallOnAudioEndpoint<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<PhoneCallAudioEndpoint>,
     {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint.into()).ok() })
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn MakePhoneCallWithVideo<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0) -> ::windows::core::Result<()>
@@ -91,12 +84,11 @@ impl AccessoryManager {
         Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideo)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, P0, P1>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: P1) -> ::windows::core::Result<()>
+    pub fn MakePhoneCallWithVideoOnAudioEndpoint<'a, P0>(phoneline: ::windows::core::GUID, phonenumber: P0, endpoint: PhoneCallAudioEndpoint) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<PhoneCallAudioEndpoint>,
     {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint.into()).ok() })
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).MakePhoneCallWithVideoOnAudioEndpoint)(::windows::core::Interface::as_raw(this), phoneline, phonenumber.into().abi(), endpoint).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn SwapPhoneCalls(phonecallidtohold: u32, phonecallidonhold: u32) -> ::windows::core::Result<()> {
@@ -122,11 +114,8 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn SetPhoneCallAudioEndpoint<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallAudioEndpoint>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SetPhoneCallAudioEndpoint)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn SetPhoneCallAudioEndpoint(value: PhoneCallAudioEndpoint) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).SetPhoneCallAudioEndpoint)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn PhoneCallAudioEndpoint() -> ::windows::core::Result<PhoneCallAudioEndpoint> {
@@ -183,11 +172,8 @@ impl AccessoryManager {
         })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-    pub fn PerformMediaPlaybackCommand<'a, P0>(command: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PlaybackCommand>,
-    {
-        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).PerformMediaPlaybackCommand)(::windows::core::Interface::as_raw(this), command.into()).ok() })
+    pub fn PerformMediaPlaybackCommand(command: PlaybackCommand) -> ::windows::core::Result<()> {
+        Self::IAccessoryManager(|this| unsafe { (::windows::core::Interface::vtable(this).PerformMediaPlaybackCommand)(::windows::core::Interface::as_raw(this), command).ok() })
     }
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn DoNotDisturbEnabled() -> ::windows::core::Result<bool> {

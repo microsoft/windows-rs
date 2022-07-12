@@ -166,12 +166,9 @@ impl IActionCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<IAction>
-    where
-        P0: ::std::convert::Into<TASK_ACTION_TYPE>,
-    {
+    pub unsafe fn Create(&self, r#type: TASK_ACTION_TYPE) -> ::windows::core::Result<IAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3067,11 +3064,8 @@ impl IPrincipal {
         (::windows::core::Interface::vtable(self).LogonType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plogon)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetLogonType<'a, P0>(&self, logon: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_LOGON_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), logon.into()).ok()
+    pub unsafe fn SetLogonType(&self, logon: TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logon)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3091,11 +3085,8 @@ impl IPrincipal {
         (::windows::core::Interface::vtable(self).RunLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prunlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetRunLevel<'a, P0>(&self, runlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_RUNLEVEL_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetRunLevel)(::windows::core::Interface::as_raw(self), runlevel.into()).ok()
+    pub unsafe fn SetRunLevel(&self, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRunLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runlevel)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3212,11 +3203,8 @@ impl IPrincipal2 {
         (::windows::core::Interface::vtable(self).ProcessTokenSidType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprocesstokensidtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetProcessTokenSidType<'a, P0>(&self, processtokensidtype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_PROCESSTOKENSID_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetProcessTokenSidType)(::windows::core::Interface::as_raw(self), processtokensidtype.into()).ok()
+    pub unsafe fn SetProcessTokenSidType(&self, processtokensidtype: TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProcessTokenSidType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(processtokensidtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn RequiredPrivilegeCount(&self, pcount: *mut i32) -> ::windows::core::Result<()> {
@@ -3320,13 +3308,12 @@ pub struct IProvideTaskPage(::windows::core::IUnknown);
 impl IProvideTaskPage {
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn GetPage<'a, P0, P1>(&self, tptype: P0, fpersistchanges: P1) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>
+    pub unsafe fn GetPage<'a, P0>(&self, tptype: TASKPAGE, fpersistchanges: P0) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>
     where
-        P0: ::std::convert::Into<TASKPAGE>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Controls::HPROPSHEETPAGE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPage)(::windows::core::Interface::as_raw(self), tptype.into(), fpersistchanges.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Controls::HPROPSHEETPAGE>(result__)
+        (::windows::core::Interface::vtable(self).GetPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tptype), fpersistchanges.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Controls::HPROPSHEETPAGE>(result__)
     }
 }
 impl ::core::convert::From<IProvideTaskPage> for ::windows::core::IUnknown {
@@ -4861,11 +4848,8 @@ impl ISessionStateChangeTrigger {
         (::windows::core::Interface::vtable(self).StateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetStateChange<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_SESSION_STATE_CHANGE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetStateChange)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
+    pub unsafe fn SetStateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5704,31 +5688,29 @@ impl ITaskFolder {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTask<'a, P0, P1, P2, P3, P4, P5>(&self, path: P0, xmltext: P1, flags: i32, userid: P2, password: P3, logontype: P4, sddl: P5) -> ::windows::core::Result<IRegisteredTask>
+    pub unsafe fn RegisterTask<'a, P0, P1, P2, P3, P4>(&self, path: P0, xmltext: P1, flags: i32, userid: P2, password: P3, logontype: TASK_LOGON_TYPE, sddl: P4) -> ::windows::core::Result<IRegisteredTask>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
-        P4: ::std::convert::Into<TASK_LOGON_TYPE>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+        P4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into().abi(), xmltext.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), logontype.into(), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into().abi(), xmltext.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), ::core::mem::transmute(logontype), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTaskDefinition<'a, P0, P1, P2, P3, P4, P5>(&self, path: P0, pdefinition: P1, flags: i32, userid: P2, password: P3, logontype: P4, sddl: P5) -> ::windows::core::Result<IRegisteredTask>
+    pub unsafe fn RegisterTaskDefinition<'a, P0, P1, P2, P3, P4>(&self, path: P0, pdefinition: P1, flags: i32, userid: P2, password: P3, logontype: TASK_LOGON_TYPE, sddl: P4) -> ::windows::core::Result<IRegisteredTask>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITaskDefinition>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
-        P4: ::std::convert::Into<TASK_LOGON_TYPE>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+        P4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into().abi(), pdefinition.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), logontype.into(), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
+        (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into().abi(), pdefinition.into().abi(), ::core::mem::transmute(flags), userid.into().abi(), password.into().abi(), ::core::mem::transmute(logontype), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6646,11 +6628,8 @@ impl ITaskSettings {
         (::windows::core::Interface::vtable(self).MultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppolicy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetMultipleInstances<'a, P0>(&self, policy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_INSTANCES_POLICY>,
-    {
-        (::windows::core::Interface::vtable(self).SetMultipleInstances)(::windows::core::Interface::as_raw(self), policy.into()).ok()
+    pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()> {
@@ -6752,11 +6731,8 @@ impl ITaskSettings {
         (::windows::core::Interface::vtable(self).Compatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcompatlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCompatibility<'a, P0>(&self, compatlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_COMPATIBILITY>,
-    {
-        (::windows::core::Interface::vtable(self).SetCompatibility)(::windows::core::Interface::as_raw(self), compatlevel.into()).ok()
+    pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCompatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compatlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()> {
@@ -7088,11 +7064,8 @@ impl ITaskSettings3 {
         (::windows::core::Interface::vtable(self).base__.MultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppolicy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetMultipleInstances<'a, P0>(&self, policy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_INSTANCES_POLICY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetMultipleInstances)(::windows::core::Interface::as_raw(self), policy.into()).ok()
+    pub unsafe fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMultipleInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()> {
@@ -7194,11 +7167,8 @@ impl ITaskSettings3 {
         (::windows::core::Interface::vtable(self).base__.Compatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcompatlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-    pub unsafe fn SetCompatibility<'a, P0>(&self, compatlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TASK_COMPATIBILITY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetCompatibility)(::windows::core::Interface::as_raw(self), compatlevel.into()).ok()
+    pub unsafe fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCompatibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compatlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
     pub unsafe fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()> {
@@ -7948,12 +7918,9 @@ impl ITriggerCollection {
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Create<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<ITrigger>
-    where
-        P0: ::std::convert::Into<TASK_TRIGGER_TYPE2>,
-    {
+    pub unsafe fn Create(&self, r#type: TASK_TRIGGER_TYPE2) -> ::windows::core::Result<ITrigger> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

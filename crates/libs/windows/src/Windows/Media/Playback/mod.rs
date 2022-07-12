@@ -2208,24 +2208,18 @@ impl MediaBreak {
         unsafe { (::windows::core::Interface::vtable(this).SetCanStart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn Create<'a, P0>(insertionmethod: P0) -> ::windows::core::Result<MediaBreak>
-    where
-        P0: ::std::convert::Into<MediaBreakInsertionMethod>,
-    {
+    pub fn Create(insertionmethod: MediaBreakInsertionMethod) -> ::windows::core::Result<MediaBreak> {
         Self::IMediaBreakFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), insertionmethod.into(), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), insertionmethod, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithPresentationPosition<'a, P0>(insertionmethod: P0, presentationposition: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaBreak>
-    where
-        P0: ::std::convert::Into<MediaBreakInsertionMethod>,
-    {
+    pub fn CreateWithPresentationPosition(insertionmethod: MediaBreakInsertionMethod, presentationposition: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaBreak> {
         Self::IMediaBreakFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPresentationPosition)(::windows::core::Interface::as_raw(this), insertionmethod.into(), presentationposition, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithPresentationPosition)(::windows::core::Interface::as_raw(this), insertionmethod, presentationposition, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         })
     }
     #[doc(hidden)]
@@ -3015,12 +3009,9 @@ impl MediaItemDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaPlaybackType>,
-    {
+    pub fn SetType(&self, value: super::MediaPlaybackType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn MusicProperties(&self) -> ::windows::core::Result<super::MusicDisplayProperties> {
@@ -3845,12 +3836,9 @@ impl MediaPlaybackCommandManagerCommandBehavior {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetEnablingRule<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaCommandEnablingRule>,
-    {
+    pub fn SetEnablingRule(&self, value: MediaCommandEnablingRule) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnablingRule)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnablingRule)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4938,12 +4926,9 @@ impl MediaPlaybackItem {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetAutoLoadedDisplayProperties<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoLoadedDisplayPropertyKind>,
-    {
+    pub fn SetAutoLoadedDisplayProperties(&self, value: AutoLoadedDisplayPropertyKind) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoLoadedDisplayProperties)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoLoadedDisplayProperties)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
@@ -6015,12 +6000,9 @@ impl MediaPlaybackSession {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetStereoscopicVideoPackingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::StereoscopicVideoPackingMode>,
-    {
+    pub fn SetStereoscopicVideoPackingMode(&self, value: super::MediaProperties::StereoscopicVideoPackingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoPackingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoPackingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6161,12 +6143,9 @@ impl MediaPlaybackSession {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetPlaybackRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::MediaRotation>,
-    {
+    pub fn SetPlaybackRotation(&self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn GetOutputDegradationPolicyState(&self) -> ::windows::core::Result<MediaPlaybackSessionOutputDegradationPolicyState> {
@@ -6456,12 +6435,9 @@ impl MediaPlaybackSphericalVideoProjection {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetFrameFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::SphericalVideoFrameFormat>,
-    {
+    pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64> {
@@ -6500,12 +6476,9 @@ impl MediaPlaybackSphericalVideoProjection {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetProjectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SphericalVideoProjectionMode>,
-    {
+    pub fn SetProjectionMode(&self, value: SphericalVideoProjectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for MediaPlaybackSphericalVideoProjection {
@@ -6649,12 +6622,9 @@ impl MediaPlaybackTimedMetadataTrackList {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetPresentationMode<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedMetadataTrackPresentationMode>,
-    {
+    pub fn SetPresentationMode(&self, index: u32, value: TimedMetadataTrackPresentationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPresentationMode)(::windows::core::Interface::as_raw(this), index, value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPresentationMode)(::windows::core::Interface::as_raw(this), index, value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7458,12 +7428,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetAudioCategory<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaPlayerAudioCategory>,
-    {
+    pub fn SetAudioCategory(&self, value: MediaPlayerAudioCategory) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioCategory)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioCategory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn AudioDeviceType(&self) -> ::windows::core::Result<MediaPlayerAudioDeviceType> {
@@ -7474,12 +7441,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetAudioDeviceType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaPlayerAudioDeviceType>,
-    {
+    pub fn SetAudioDeviceType(&self, value: MediaPlayerAudioDeviceType) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7552,12 +7516,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetStereoscopicVideoRenderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StereoscopicVideoRenderMode>,
-    {
+    pub fn SetStereoscopicVideoRenderMode(&self, value: StereoscopicVideoRenderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoRenderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoRenderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn BreakManager(&self) -> ::windows::core::Result<MediaBreakManager> {

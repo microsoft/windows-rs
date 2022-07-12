@@ -71,12 +71,9 @@ impl Accelerometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -140,13 +137,10 @@ impl Accelerometer {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithAccelerometerReadingType<'a, P0>(readingtype: P0) -> ::windows::core::Result<Accelerometer>
-    where
-        P0: ::std::convert::Into<AccelerometerReadingType>,
-    {
+    pub fn GetDefaultWithAccelerometerReadingType(readingtype: AccelerometerReadingType) -> ::windows::core::Result<Accelerometer> {
         Self::IAccelerometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
@@ -161,13 +155,10 @@ impl Accelerometer {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelector<'a, P0>(readingtype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<AccelerometerReadingType>,
-    {
+    pub fn GetDeviceSelector(readingtype: AccelerometerReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -2061,12 +2052,9 @@ impl Compass {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -2539,12 +2527,9 @@ impl Gyrometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -5683,12 +5668,9 @@ impl Inclinometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -5759,23 +5741,17 @@ impl Inclinometer {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithSensorReadingType<'a, P0>(sensorreadingtype: P0) -> ::windows::core::Result<Inclinometer>
-    where
-        P0: ::std::convert::Into<SensorReadingType>,
-    {
+    pub fn GetDefaultWithSensorReadingType(sensorreadingtype: SensorReadingType) -> ::windows::core::Result<Inclinometer> {
         Self::IInclinometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype.into(), result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype, result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelector<'a, P0>(readingtype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<SensorReadingType>,
-    {
+    pub fn GetDeviceSelector(readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
@@ -6688,12 +6664,9 @@ impl Magnetometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMagnetometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -7235,12 +7208,9 @@ impl OrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
@@ -7303,45 +7273,31 @@ impl OrientationSensor {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithSensorReadingType<'a, P0>(sensorreadingtype: P0) -> ::windows::core::Result<OrientationSensor>
-    where
-        P0: ::std::convert::Into<SensorReadingType>,
-    {
+    pub fn GetDefaultWithSensorReadingType(sensorreadingtype: SensorReadingType) -> ::windows::core::Result<OrientationSensor> {
         Self::IOrientationSensorStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype.into(), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype, result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal<'a, P0, P1>(sensorreadingtype: P0, optimizationgoal: P1) -> ::windows::core::Result<OrientationSensor>
-    where
-        P0: ::std::convert::Into<SensorReadingType>,
-        P1: ::std::convert::Into<SensorOptimizationGoal>,
-    {
+    pub fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal(sensorreadingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<OrientationSensor> {
         Self::IOrientationSensorStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), sensorreadingtype.into(), optimizationgoal.into(), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), sensorreadingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelector<'a, P0>(readingtype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<SensorReadingType>,
-    {
+    pub fn GetDeviceSelector(readingtype: SensorReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal<'a, P0, P1>(readingtype: P0, optimizationgoal: P1) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<SensorReadingType>,
-        P1: ::std::convert::Into<SensorOptimizationGoal>,
-    {
+    pub fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal(readingtype: SensorReadingType, optimizationgoal: SensorOptimizationGoal) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), readingtype.into(), optimizationgoal.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), readingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
@@ -9189,12 +9145,9 @@ impl SimpleOrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
-    {
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]

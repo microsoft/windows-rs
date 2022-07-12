@@ -11,13 +11,10 @@ impl GpioPinProviderValueChangedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn Create<'a, P0>(edge: P0) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs>
-    where
-        P0: ::std::convert::Into<ProviderGpioPinEdge>,
-    {
+    pub fn Create(edge: ProviderGpioPinEdge) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), edge.into(), result__.as_mut_ptr()).from_abi::<GpioPinProviderValueChangedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), edge, result__.as_mut_ptr()).from_abi::<GpioPinProviderValueChangedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -101,14 +98,11 @@ impl IGpioControllerProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn OpenPinProvider<'a, P0>(&self, pin: i32, sharingmode: P0) -> ::windows::core::Result<IGpioPinProvider>
-    where
-        P0: ::std::convert::Into<ProviderGpioSharingMode>,
-    {
+    pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> ::windows::core::Result<IGpioPinProvider> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPinProvider)(::windows::core::Interface::as_raw(this), pin, sharingmode.into(), result__.as_mut_ptr()).from_abi::<IGpioPinProvider>(result__)
+            (::windows::core::Interface::vtable(this).OpenPinProvider)(::windows::core::Interface::as_raw(this), pin, sharingmode, result__.as_mut_ptr()).from_abi::<IGpioPinProvider>(result__)
         }
     }
 }
@@ -230,14 +224,11 @@ impl IGpioPinProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn IsDriveModeSupported<'a, P0>(&self, drivemode: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<ProviderGpioPinDriveMode>,
-    {
+    pub fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsDriveModeSupported)(::windows::core::Interface::as_raw(this), drivemode.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDriveModeSupported)(::windows::core::Interface::as_raw(this), drivemode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
@@ -249,20 +240,14 @@ impl IGpioPinProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn SetDriveMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ProviderGpioPinDriveMode>,
-    {
+    pub fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDriveMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDriveMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn Write<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ProviderGpioPinValue>,
-    {
+    pub fn Write(&self, value: ProviderGpioPinValue) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
     pub fn Read(&self) -> ::windows::core::Result<ProviderGpioPinValue> {

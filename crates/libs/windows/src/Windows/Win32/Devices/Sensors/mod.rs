@@ -743,12 +743,11 @@ pub struct ISensorDataReport_Vtbl {
 pub struct ISensorEvents(::windows::core::IUnknown);
 impl ISensorEvents {
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn OnStateChanged<'a, P0, P1>(&self, psensor: P0, state: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnStateChanged<'a, P0>(&self, psensor: P0, state: SensorState) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
-        P1: ::std::convert::Into<SensorState>,
     {
-        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), psensor.into().abi(), state.into()).ok()
+        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), psensor.into().abi(), ::core::mem::transmute(state)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
     pub unsafe fn OnDataUpdated<'a, P0, P1>(&self, psensor: P0, pnewdata: P1) -> ::windows::core::Result<()>
@@ -909,12 +908,11 @@ pub struct ISensorManager_Vtbl {
 pub struct ISensorManagerEvents(::windows::core::IUnknown);
 impl ISensorManagerEvents {
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn OnSensorEnter<'a, P0, P1>(&self, psensor: P0, state: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnSensorEnter<'a, P0>(&self, psensor: P0, state: SensorState) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
-        P1: ::std::convert::Into<SensorState>,
     {
-        (::windows::core::Interface::vtable(self).OnSensorEnter)(::windows::core::Interface::as_raw(self), psensor.into().abi(), state.into()).ok()
+        (::windows::core::Interface::vtable(self).OnSensorEnter)(::windows::core::Interface::as_raw(self), psensor.into().abi(), ::core::mem::transmute(state)).ok()
     }
 }
 impl ::core::convert::From<ISensorManagerEvents> for ::windows::core::IUnknown {

@@ -1936,19 +1936,18 @@ pub const DXGI_STATUS_PRESENT_REQUIRED: ::windows::core::HRESULT = ::windows::co
 pub const DXGI_STATUS_UNOCCLUDED: ::windows::core::HRESULT = ::windows::core::HRESULT(142213129i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3, P4>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: P4) -> BOOL
+pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
     P1: ::std::convert::Into<HANDLE>,
     P2: ::std::convert::Into<HANDLE>,
     P3: ::std::convert::Into<BOOL>,
-    P4: ::std::convert::Into<DUPLICATE_HANDLE_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
     }
-    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into(), dwoptions.into()))
+    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141913080i32);
@@ -12812,40 +12811,33 @@ pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::core::HRESULT = ::windows::core::HRESULT(2556504i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetHandleInformation<'a, P0, P1>(hobject: P0, dwmask: u32, dwflags: P1) -> BOOL
+pub unsafe fn SetHandleInformation<'a, P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
-    P1: ::std::convert::Into<HANDLE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
     }
-    ::core::mem::transmute(SetHandleInformation(hobject.into(), ::core::mem::transmute(dwmask), dwflags.into()))
+    ::core::mem::transmute(SetHandleInformation(hobject.into(), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetLastError<'a, P0>(dwerrcode: P0)
-where
-    P0: ::std::convert::Into<WIN32_ERROR>,
-{
+pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLastError(dwerrcode: WIN32_ERROR);
     }
-    SetLastError(dwerrcode.into())
+    SetLastError(::core::mem::transmute(dwerrcode))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetLastErrorEx<'a, P0>(dwerrcode: P0, dwtype: u32)
-where
-    P0: ::std::convert::Into<WIN32_ERROR>,
-{
+pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
     }
-    SetLastErrorEx(dwerrcode.into(), ::core::mem::transmute(dwtype))
+    SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]

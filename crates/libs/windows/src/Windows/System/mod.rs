@@ -2223,15 +2223,14 @@ impl DispatcherQueue {
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
-    pub fn TryEnqueueWithPriority<'a, P0, P1>(&self, priority: P0, callback: P1) -> ::windows::core::Result<bool>
+    pub fn TryEnqueueWithPriority<'a, P0>(&self, priority: DispatcherQueuePriority, callback: P0) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<DispatcherQueuePriority>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DispatcherQueueHandler>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DispatcherQueueHandler>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnqueueWithPriority)(::windows::core::Interface::as_raw(this), priority.into(), callback.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryEnqueueWithPriority)(::windows::core::Interface::as_raw(this), priority, callback.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
@@ -2807,12 +2806,9 @@ impl FolderLauncherOptions {
     }
     #[doc = "*Required features: `\"System\"`, `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
-    pub fn SetDesiredRemainingView<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::UI::ViewManagement::ViewSizePreference>,
-    {
+    pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILauncherViewOptions>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for FolderLauncherOptions {
@@ -3965,12 +3961,9 @@ impl ILauncherViewOptions {
     }
     #[doc = "*Required features: `\"System\"`, `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
-    pub fn SetDesiredRemainingView<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::UI::ViewManagement::ViewSizePreference>,
-    {
+    pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::convert::From<ILauncherViewOptions> for ::windows::core::IUnknown {
@@ -5027,27 +5020,25 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QueryUriSupportAsync<'a, P0, P1>(uri: P0, launchquerysupporttype: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryUriSupportAsync<'a, P0>(uri: P0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P1: ::std::convert::Into<LaunchQuerySupportType>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).QueryUriSupportAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), launchquerysupporttype.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Interface::vtable(this).QueryUriSupportAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), launchquerysupporttype, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QueryUriSupportWithPackageFamilyNameAsync<'a, P0, P1, P2>(uri: P0, launchquerysupporttype: P1, packagefamilyname: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
+    pub fn QueryUriSupportWithPackageFamilyNameAsync<'a, P0, P1>(uri: P0, launchquerysupporttype: LaunchQuerySupportType, packagefamilyname: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>,
-        P1: ::std::convert::Into<LaunchQuerySupportType>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), launchquerysupporttype.into(), packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
+            (::windows::core::Interface::vtable(this).QueryUriSupportWithPackageFamilyNameAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), launchquerysupporttype, packagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`, `\"Storage\"`*"]
@@ -5086,14 +5077,13 @@ impl Launcher {
     }
     #[doc = "*Required features: `\"System\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync<'a, P0, P1>(scheme: P0, launchquerysupporttype: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>
+    pub fn FindUriSchemeHandlersWithLaunchUriTypeAsync<'a, P0>(scheme: P0, launchquerysupporttype: LaunchQuerySupportType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<LaunchQuerySupportType>,
     {
         Self::ILauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(::windows::core::Interface::as_raw(this), scheme.into().abi(), launchquerysupporttype.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
+            (::windows::core::Interface::vtable(this).FindUriSchemeHandlersWithLaunchUriTypeAsync)(::windows::core::Interface::as_raw(this), scheme.into().abi(), launchquerysupporttype, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -5491,12 +5481,9 @@ impl LauncherOptions {
     }
     #[doc = "*Required features: `\"System\"`, `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
-    pub fn SetDesiredRemainingView<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::UI::ViewManagement::ViewSizePreference>,
-    {
+    pub fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ILauncherViewOptions>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRemainingView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for LauncherOptions {
@@ -5633,12 +5620,9 @@ impl LauncherUIOptions {
     }
     #[doc = "*Required features: `\"System\"`, `\"UI_Popups\"`*"]
     #[cfg(feature = "UI_Popups")]
-    pub fn SetPreferredPlacement<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::UI::Popups::Placement>,
-    {
+    pub fn SetPreferredPlacement(&self, value: super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredPlacement)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredPlacement)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for LauncherUIOptions {
@@ -6549,40 +6533,28 @@ pub struct ShutdownManager;
 impl ShutdownManager {
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BeginShutdown<'a, P0>(shutdownkind: P0, timeout: super::Foundation::TimeSpan) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ShutdownKind>,
-    {
-        Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).BeginShutdown)(::windows::core::Interface::as_raw(this), shutdownkind.into(), timeout).ok() })
+    pub fn BeginShutdown(shutdownkind: ShutdownKind, timeout: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).BeginShutdown)(::windows::core::Interface::as_raw(this), shutdownkind, timeout).ok() })
     }
     #[doc = "*Required features: `\"System\"`*"]
     pub fn CancelShutdown() -> ::windows::core::Result<()> {
         Self::IShutdownManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).CancelShutdown)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"System\"`*"]
-    pub fn IsPowerStateSupported<'a, P0>(powerstate: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<PowerState>,
-    {
+    pub fn IsPowerStateSupported(powerstate: PowerState) -> ::windows::core::Result<bool> {
         Self::IShutdownManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsPowerStateSupported)(::windows::core::Interface::as_raw(this), powerstate.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPowerStateSupported)(::windows::core::Interface::as_raw(this), powerstate, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]
-    pub fn EnterPowerState<'a, P0>(powerstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PowerState>,
-    {
-        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnterPowerState)(::windows::core::Interface::as_raw(this), powerstate.into()).ok() })
+    pub fn EnterPowerState(powerstate: PowerState) -> ::windows::core::Result<()> {
+        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnterPowerState)(::windows::core::Interface::as_raw(this), powerstate).ok() })
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnterPowerStateWithTimeSpan<'a, P0>(powerstate: P0, wakeupafter: super::Foundation::TimeSpan) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PowerState>,
-    {
-        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnterPowerStateWithTimeSpan)(::windows::core::Interface::as_raw(this), powerstate.into(), wakeupafter).ok() })
+    pub fn EnterPowerStateWithTimeSpan(powerstate: PowerState, wakeupafter: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+        Self::IShutdownManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).EnterPowerStateWithTimeSpan)(::windows::core::Interface::as_raw(this), powerstate, wakeupafter).ok() })
     }
     #[doc(hidden)]
     pub fn IShutdownManagerStatics<R, F: FnOnce(&IShutdownManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6707,26 +6679,20 @@ impl User {
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetPictureAsync<'a, P0>(&self, desiredsize: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>
-    where
-        P0: ::std::convert::Into<UserPictureSize>,
-    {
+    pub fn GetPictureAsync(&self, desiredsize: UserPictureSize) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPictureAsync)(::windows::core::Interface::as_raw(this), desiredsize.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>(result__)
+            (::windows::core::Interface::vtable(this).GetPictureAsync)(::windows::core::Interface::as_raw(this), desiredsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckUserAgeConsentGroupAsync<'a, P0>(&self, consentgroup: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>>
-    where
-        P0: ::std::convert::Into<UserAgeConsentGroup>,
-    {
+    pub fn CheckUserAgeConsentGroupAsync(&self, consentgroup: UserAgeConsentGroup) -> ::windows::core::Result<super::Foundation::IAsyncOperation<UserAgeConsentResult>> {
         let this = &::windows::core::Interface::cast::<IUser2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckUserAgeConsentGroupAsync)(::windows::core::Interface::as_raw(this), consentgroup.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<UserAgeConsentResult>>(result__)
+            (::windows::core::Interface::vtable(this).CheckUserAgeConsentGroupAsync)(::windows::core::Interface::as_raw(this), consentgroup, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<UserAgeConsentResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -6746,25 +6712,18 @@ impl User {
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn FindAllAsyncByType<'a, P0>(r#type: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>
-    where
-        P0: ::std::convert::Into<UserType>,
-    {
+    pub fn FindAllAsyncByType(r#type: UserType) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncByType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncByType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn FindAllAsyncByTypeAndStatus<'a, P0, P1>(r#type: P0, status: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>
-    where
-        P0: ::std::convert::Into<UserType>,
-        P1: ::std::convert::Into<UserAuthenticationStatus>,
-    {
+    pub fn FindAllAsyncByTypeAndStatus(r#type: UserType, status: UserAuthenticationStatus) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>> {
         Self::IUserStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncByTypeAndStatus)(::windows::core::Interface::as_raw(this), r#type.into(), status.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncByTypeAndStatus)(::windows::core::Interface::as_raw(this), r#type, status, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>>(result__)
         })
     }
     #[doc = "*Required features: `\"System\"`*"]

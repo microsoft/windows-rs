@@ -122,16 +122,15 @@ where
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModulesEx<'a, P0, P1>(hprocess: P0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: P1) -> super::super::Foundation::BOOL
+pub unsafe fn K32EnumProcessModulesEx<'a, P0>(hprocess: P0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<ENUM_PROCESS_MODULES_EX_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn K32EnumProcessModulesEx(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule), ::core::mem::transmute(cb), ::core::mem::transmute(lpcbneeded), dwfilterflag.into()))
+    ::core::mem::transmute(K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule), ::core::mem::transmute(cb), ::core::mem::transmute(lpcbneeded), ::core::mem::transmute(dwfilterflag)))
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

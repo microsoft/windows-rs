@@ -1048,15 +1048,14 @@ impl XboxLiveEndpointPairTemplate {
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateEndpointPairWithBehaviorsAsync<'a, P0, P1>(&self, deviceaddress: P0, behaviors: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
+    pub fn CreateEndpointPairWithBehaviorsAsync<'a, P0>(&self, deviceaddress: P0, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>,
-        P1: ::std::convert::Into<XboxLiveEndpointPairCreationBehaviors>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), behaviors.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPairWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), behaviors, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
@@ -1075,17 +1074,16 @@ impl XboxLiveEndpointPairTemplate {
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateEndpointPairForPortsWithBehaviorsAsync<'a, P0, P1, P2, P3>(&self, deviceaddress: P0, initiatorport: P1, acceptorport: P2, behaviors: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
+    pub fn CreateEndpointPairForPortsWithBehaviorsAsync<'a, P0, P1, P2>(&self, deviceaddress: P0, initiatorport: P1, acceptorport: P2, behaviors: XboxLiveEndpointPairCreationBehaviors) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<XboxLiveEndpointPairCreationBehaviors>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPairForPortsWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), initiatorport.into().abi(), acceptorport.into().abi(), behaviors.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPairForPortsWithBehaviorsAsync)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), initiatorport.into().abi(), acceptorport.into().abi(), behaviors, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1375,26 +1373,22 @@ impl XboxLiveQualityOfServiceMeasurement {
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMetricResultsForMetric<'a, P0>(&self, metric: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>
-    where
-        P0: ::std::convert::Into<XboxLiveQualityOfServiceMetric>,
-    {
+    pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMetricResultsForMetric)(::windows::core::Interface::as_raw(this), metric.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetMetricResultsForMetric)(::windows::core::Interface::as_raw(this), metric, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
-    pub fn GetMetricResult<'a, P0, P1>(&self, deviceaddress: P0, metric: P1) -> ::windows::core::Result<XboxLiveQualityOfServiceMetricResult>
+    pub fn GetMetricResult<'a, P0>(&self, deviceaddress: P0, metric: XboxLiveQualityOfServiceMetric) -> ::windows::core::Result<XboxLiveQualityOfServiceMetricResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, XboxLiveDeviceAddress>>,
-        P1: ::std::convert::Into<XboxLiveQualityOfServiceMetric>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMetricResult)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), metric.into(), result__.as_mut_ptr()).from_abi::<XboxLiveQualityOfServiceMetricResult>(result__)
+            (::windows::core::Interface::vtable(this).GetMetricResult)(::windows::core::Interface::as_raw(this), deviceaddress.into().abi(), metric, result__.as_mut_ptr()).from_abi::<XboxLiveQualityOfServiceMetricResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_XboxLive\"`*"]

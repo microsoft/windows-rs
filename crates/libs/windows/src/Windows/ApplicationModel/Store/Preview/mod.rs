@@ -530,13 +530,10 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetStoreLogDataAsync<'a, P0>(options: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>
-    where
-        P0: ::std::convert::Into<StoreLogOptions>,
-    {
+    pub fn GetStoreLogDataAsync(options: StoreLogOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStoreLogDataAsync)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>(result__)
+            (::windows::core::Interface::vtable(this).GetStoreLogDataAsync)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"System\"`*"]

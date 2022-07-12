@@ -649,14 +649,11 @@ impl ContactListServerSearchReadBatchRequest {
     }
     #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportFailedAsync<'a, P0>(&self, batchstatus: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<super::ContactBatchStatus>,
-    {
+    pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), batchstatus.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ReportFailedAsync)(::windows::core::Interface::as_raw(this), batchstatus, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }

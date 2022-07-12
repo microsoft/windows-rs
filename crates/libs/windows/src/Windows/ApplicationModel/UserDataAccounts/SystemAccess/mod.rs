@@ -85,12 +85,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetServerType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountServerType>,
-    {
+    pub fn SetServerType(&self, value: DeviceAccountServerType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServerType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn EmailAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -353,12 +350,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetAccountIconId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountIconId>,
-    {
+    pub fn SetAccountIconId(&self, value: DeviceAccountIconId) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAccountIconId)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAccountIconId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn AuthenticationType(&self) -> ::windows::core::Result<DeviceAccountAuthenticationType> {
@@ -369,12 +363,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetAuthenticationType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountAuthenticationType>,
-    {
+    pub fn SetAuthenticationType(&self, value: DeviceAccountAuthenticationType) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsSsoAuthenticationSupported(&self) -> ::windows::core::Result<bool> {
@@ -430,12 +421,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetSyncScheduleKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountSyncScheduleKind>,
-    {
+    pub fn SetSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSyncScheduleKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSyncScheduleKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn MailAgeFilter(&self) -> ::windows::core::Result<DeviceAccountMailAgeFilter> {
@@ -446,12 +434,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetMailAgeFilter<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountMailAgeFilter>,
-    {
+    pub fn SetMailAgeFilter(&self, value: DeviceAccountMailAgeFilter) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMailAgeFilter)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMailAgeFilter)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsClientAuthenticationCertificateRequired(&self) -> ::windows::core::Result<bool> {
@@ -504,12 +489,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetCardDavSyncScheduleKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountSyncScheduleKind>,
-    {
+    pub fn SetCardDavSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCardDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCardDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn CalDavSyncScheduleKind(&self) -> ::windows::core::Result<DeviceAccountSyncScheduleKind> {
@@ -520,12 +502,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetCalDavSyncScheduleKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DeviceAccountSyncScheduleKind>,
-    {
+    pub fn SetCalDavSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCalDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCalDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

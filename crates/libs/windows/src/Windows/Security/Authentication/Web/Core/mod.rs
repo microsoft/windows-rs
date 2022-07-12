@@ -1097,16 +1097,15 @@ impl WebTokenRequest {
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateWithPromptType<'a, P0, P1, P2, P3>(provider: P0, scope: P1, clientid: P2, prompttype: P3) -> ::windows::core::Result<WebTokenRequest>
+    pub fn CreateWithPromptType<'a, P0, P1, P2>(provider: P0, scope: P1, clientid: P2, prompttype: WebTokenRequestPromptType) -> ::windows::core::Result<WebTokenRequest>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Credentials::WebAccountProvider>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<WebTokenRequestPromptType>,
     {
         Self::IWebTokenRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPromptType)(::windows::core::Interface::as_raw(this), provider.into().abi(), scope.into().abi(), clientid.into().abi(), prompttype.into(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithPromptType)(::windows::core::Interface::as_raw(this), provider.into().abi(), scope.into().abi(), clientid.into().abi(), prompttype, result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`*"]

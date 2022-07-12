@@ -573,11 +573,8 @@ impl SystemUpdateManager {
         })
     }
     #[doc = "*Required features: `\"System_Update\"`*"]
-    pub fn StartInstall<'a, P0>(action: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SystemUpdateStartInstallAction>,
-    {
-        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartInstall)(::windows::core::Interface::as_raw(this), action.into()).ok() })
+    pub fn StartInstall(action: SystemUpdateStartInstallAction) -> ::windows::core::Result<()> {
+        Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartInstall)(::windows::core::Interface::as_raw(this), action).ok() })
     }
     #[doc = "*Required features: `\"System_Update\"`*"]
     pub fn RebootToCompleteInstall() -> ::windows::core::Result<()> {

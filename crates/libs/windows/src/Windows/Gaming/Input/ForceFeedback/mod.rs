@@ -17,13 +17,10 @@ impl ConditionForceEffect {
         unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
-    pub fn CreateInstance<'a, P0>(effectkind: P0) -> ::windows::core::Result<ConditionForceEffect>
-    where
-        P0: ::std::convert::Into<ConditionForceEffectKind>,
-    {
+    pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect> {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind.into(), result__.as_mut_ptr()).from_abi::<ConditionForceEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, result__.as_mut_ptr()).from_abi::<ConditionForceEffect>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -926,13 +923,10 @@ impl PeriodicForceEffect {
         unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
-    pub fn CreateInstance<'a, P0>(effectkind: P0) -> ::windows::core::Result<PeriodicForceEffect>
-    where
-        P0: ::std::convert::Into<PeriodicForceEffectKind>,
-    {
+    pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind.into(), result__.as_mut_ptr()).from_abi::<PeriodicForceEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, result__.as_mut_ptr()).from_abi::<PeriodicForceEffect>(result__)
         })
     }
     #[doc(hidden)]

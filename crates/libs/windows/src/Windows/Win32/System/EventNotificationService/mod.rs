@@ -316,12 +316,11 @@ impl ISensNetwork {
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConnectionLost<'a, P0, P1>(&self, bstrconnection: P0, ultype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ConnectionLost<'a, P0>(&self, bstrconnection: P0, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<SENS_CONNECTION_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ConnectionLost)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ultype.into()).ok()
+        (::windows::core::Interface::vtable(self).ConnectionLost)(::windows::core::Interface::as_raw(self), bstrconnection.into().abi(), ::core::mem::transmute(ultype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

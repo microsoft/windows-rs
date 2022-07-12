@@ -352,13 +352,10 @@ impl BadgeUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<BadgeTemplateType>,
-    {
+    pub fn GetTemplateContent(r#type: BadgeTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"System\"`*"]
@@ -511,23 +508,21 @@ impl BadgeUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0, P1>(&self, badgecontent: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdate<'a, P0>(&self, badgecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0, P1>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), starttime, requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), starttime, requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
@@ -3072,12 +3067,9 @@ impl ScheduledToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetNotificationMirroring<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NotificationMirroring>,
-    {
+    pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScheduledToastNotification3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNotificationMirroring)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNotificationMirroring)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3552,13 +3544,10 @@ impl TileFlyoutUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<TileFlyoutTemplateType>,
-    {
+    pub fn GetTemplateContent(r#type: TileFlyoutTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         })
     }
     #[doc(hidden)]
@@ -3589,23 +3578,21 @@ impl TileFlyoutUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0, P1>(&self, tileflyoutcontent: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdate<'a, P0>(&self, tileflyoutcontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), tileflyoutcontent.into().abi(), requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), tileflyoutcontent.into().abi(), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0, P1>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), tileflyoutcontent.into().abi(), starttime, requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), tileflyoutcontent.into().abi(), starttime, requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
@@ -3998,13 +3985,10 @@ impl TileUpdateManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<TileTemplateType>,
-    {
+    pub fn GetTemplateContent(r#type: TileTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"System\"`*"]
@@ -4195,23 +4179,21 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0, P1>(&self, tilecontent: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdate<'a, P0>(&self, tilecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), tilecontent.into().abi(), requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), tilecontent.into().abi(), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0, P1>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), tilecontent.into().abi(), starttime, requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), tilecontent.into().abi(), starttime, requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
@@ -4220,25 +4202,23 @@ impl TileUpdater {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartPeriodicUpdateBatch<'a, P0, E0, P1>(&self, tilecontents: P0, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateBatch<'a, P0, E0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateBatch)(::windows::core::Interface::as_raw(this), tilecontents.try_into().map_err(|e| e.into())?.abi(), requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateBatch)(::windows::core::Interface::as_raw(this), tilecontents.try_into().map_err(|e| e.into())?.abi(), requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartPeriodicUpdateBatchAtTime<'a, P0, E0, P1>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: P1) -> ::windows::core::Result<()>
+    pub fn StartPeriodicUpdateBatchAtTime<'a, P0, E0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<PeriodicUpdateRecurrence>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(::windows::core::Interface::as_raw(this), tilecontents.try_into().map_err(|e| e.into())?.abi(), starttime, requestedinterval.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(::windows::core::Interface::as_raw(this), tilecontents.try_into().map_err(|e| e.into())?.abi(), starttime, requestedinterval).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn EnableNotificationQueueForSquare150x150(&self, enable: bool) -> ::windows::core::Result<()> {
@@ -5043,12 +5023,9 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetNotificationMirroring<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NotificationMirroring>,
-    {
+    pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IToastNotification3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNotificationMirroring)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNotificationMirroring)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5091,12 +5068,9 @@ impl ToastNotification {
         }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ToastNotificationPriority>,
-    {
+    pub fn SetPriority(&self, value: ToastNotificationPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IToastNotification4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn ExpiresOnReboot(&self) -> ::windows::core::Result<bool> {
@@ -5518,13 +5492,10 @@ impl ToastNotificationManager {
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent<'a, P0>(r#type: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<ToastTemplateType>,
-    {
+    pub fn GetTemplateContent(r#type: ToastTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -5546,11 +5517,8 @@ impl ToastNotificationManager {
         })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
-    pub fn ConfigureNotificationMirroring<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<NotificationMirroring>,
-    {
-        Self::IToastNotificationManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ConfigureNotificationMirroring)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn ConfigureNotificationMirroring(value: NotificationMirroring) -> ::windows::core::Result<()> {
+        Self::IToastNotificationManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).ConfigureNotificationMirroring)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<ToastNotificationManagerForUser> {

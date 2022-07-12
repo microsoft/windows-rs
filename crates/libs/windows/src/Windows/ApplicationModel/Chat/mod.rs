@@ -587,12 +587,9 @@ impl ChatConversationThreadingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ChatConversationThreadingKind>,
-    {
+    pub fn SetKind(&self, value: ChatConversationThreadingKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ChatConversationThreadingInfo {
@@ -980,12 +977,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetMessageKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ChatMessageKind>,
-    {
+    pub fn SetMessageKind(&self, value: ChatMessageKind) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMessageKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn MessageOperatorKind(&self) -> ::windows::core::Result<ChatMessageOperatorKind> {
@@ -996,12 +990,9 @@ impl ChatMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetMessageOperatorKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ChatMessageOperatorKind>,
-    {
+    pub fn SetMessageOperatorKind(&self, value: ChatMessageOperatorKind) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMessageOperatorKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageOperatorKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1031,12 +1022,9 @@ impl ChatMessage {
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ChatMessageStatus>,
-    {
+    pub fn SetStatus(&self, value: ChatMessageStatus) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IChatMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn SetSubject<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -3587,12 +3575,9 @@ impl ChatSyncConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn SetRestoreHistorySpan<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ChatRestoreHistorySpan>,
-    {
+    pub fn SetRestoreHistorySpan(&self, value: ChatRestoreHistorySpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRestoreHistorySpan)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRestoreHistorySpan)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ChatSyncConfiguration {
@@ -5743,25 +5728,19 @@ impl RcsTransport {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn IsStoreAndForwardEnabled<'a, P0>(&self, servicekind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<RcsServiceKind>,
-    {
+    pub fn IsStoreAndForwardEnabled(&self, servicekind: RcsServiceKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsStoreAndForwardEnabled)(::windows::core::Interface::as_raw(this), servicekind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsStoreAndForwardEnabled)(::windows::core::Interface::as_raw(this), servicekind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-    pub fn IsServiceKindSupported<'a, P0>(&self, servicekind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<RcsServiceKind>,
-    {
+    pub fn IsServiceKindSupported(&self, servicekind: RcsServiceKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsServiceKindSupported)(::windows::core::Interface::as_raw(this), servicekind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsServiceKindSupported)(::windows::core::Interface::as_raw(this), servicekind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]

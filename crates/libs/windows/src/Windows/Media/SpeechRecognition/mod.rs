@@ -144,12 +144,9 @@ impl ISpeechRecognitionConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SpeechRecognitionConstraintProbability>,
-    {
+    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IUnknown {
@@ -887,14 +884,11 @@ impl SpeechContinuousRecognitionSession {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartWithModeAsync<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<SpeechContinuousRecognitionMode>,
-    {
+    pub fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartWithModeAsync)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartWithModeAsync)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
@@ -1299,12 +1293,9 @@ impl SpeechRecognitionGrammarFileConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SpeechRecognitionConstraintProbability>,
-    {
+    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -1625,12 +1616,9 @@ impl SpeechRecognitionListConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SpeechRecognitionConstraintProbability>,
-    {
+    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2183,12 +2171,9 @@ impl SpeechRecognitionTopicConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SpeechRecognitionConstraintProbability>,
-    {
+    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Scenario(&self) -> ::windows::core::Result<SpeechRecognitionScenario> {
@@ -2207,26 +2192,24 @@ impl SpeechRecognitionTopicConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn Create<'a, P0, P1>(scenario: P0, topichint: P1) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>
+    pub fn Create<'a, P0>(scenario: SpeechRecognitionScenario, topichint: P0) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>
     where
-        P0: ::std::convert::Into<SpeechRecognitionScenario>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), scenario.into(), topichint.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), scenario, topichint.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn CreateWithTag<'a, P0, P1, P2>(scenario: P0, topichint: P1, tag: P2) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>
+    pub fn CreateWithTag<'a, P0, P1>(scenario: SpeechRecognitionScenario, topichint: P0, tag: P1) -> ::windows::core::Result<SpeechRecognitionTopicConstraint>
     where
-        P0: ::std::convert::Into<SpeechRecognitionScenario>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), scenario.into(), topichint.into().abi(), tag.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), scenario, topichint.into().abi(), tag.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
         })
     }
     #[doc(hidden)]
@@ -2366,12 +2349,9 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SpeechRecognitionConstraintProbability>,
-    {
+    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SpeechRecognitionVoiceCommandDefinitionConstraint {

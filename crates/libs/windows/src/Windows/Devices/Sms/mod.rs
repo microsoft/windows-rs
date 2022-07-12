@@ -1210,12 +1210,9 @@ impl ISmsBinaryMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmsDataFormat>,
-    {
+    pub fn SetFormat(&self, value: SmsDataFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2317,23 +2314,17 @@ impl ISmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetEncoding<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmsEncoding>,
-    {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn ToBinaryMessages<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>
-    where
-        P0: ::std::convert::Into<SmsDataFormat>,
-    {
+    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
+            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -2935,12 +2926,9 @@ impl SmsAppMessage {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetEncoding<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmsEncoding>,
-    {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn PortNumber(&self) -> ::windows::core::Result<i32> {
@@ -3146,12 +3134,9 @@ impl SmsBinaryMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmsDataFormat>,
-    {
+    pub fn SetFormat(&self, value: SmsDataFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -4066,14 +4051,11 @@ impl SmsDeviceMessageStore {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn DeleteMessagesAsync<'a, P0>(&self, messagefilter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<SmsMessageFilter>,
-    {
+    pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -4087,14 +4069,11 @@ impl SmsDeviceMessageStore {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetMessagesAsync<'a, P0>(&self, messagefilter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>
-    where
-        P0: ::std::convert::Into<SmsMessageFilter>,
-    {
+    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -4509,12 +4488,9 @@ impl SmsFilterRule {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetCellularClass<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CellularClass>,
-    {
+    pub fn SetCellularClass(&self, value: CellularClass) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCellularClass)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCellularClass)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4571,13 +4547,10 @@ impl SmsFilterRule {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn CreateFilterRule<'a, P0>(messagetype: P0) -> ::windows::core::Result<SmsFilterRule>
-    where
-        P0: ::std::convert::Into<SmsMessageType>,
-    {
+    pub fn CreateFilterRule(messagetype: SmsMessageType) -> ::windows::core::Result<SmsFilterRule> {
         Self::ISmsFilterRuleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFilterRule)(::windows::core::Interface::as_raw(this), messagetype.into(), result__.as_mut_ptr()).from_abi::<SmsFilterRule>(result__)
+            (::windows::core::Interface::vtable(this).CreateFilterRule)(::windows::core::Interface::as_raw(this), messagetype, result__.as_mut_ptr()).from_abi::<SmsFilterRule>(result__)
         })
     }
     #[doc(hidden)]
@@ -4670,13 +4643,10 @@ impl SmsFilterRules {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn CreateFilterRules<'a, P0>(actiontype: P0) -> ::windows::core::Result<SmsFilterRules>
-    where
-        P0: ::std::convert::Into<SmsFilterActionType>,
-    {
+    pub fn CreateFilterRules(actiontype: SmsFilterActionType) -> ::windows::core::Result<SmsFilterRules> {
         Self::ISmsFilterRulesFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFilterRules)(::windows::core::Interface::as_raw(this), actiontype.into(), result__.as_mut_ptr()).from_abi::<SmsFilterRules>(result__)
+            (::windows::core::Interface::vtable(this).CreateFilterRules)(::windows::core::Interface::as_raw(this), actiontype, result__.as_mut_ptr()).from_abi::<SmsFilterRules>(result__)
         })
     }
     #[doc(hidden)]
@@ -5962,23 +5932,17 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetEncoding<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmsEncoding>,
-    {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn ToBinaryMessages<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>
-    where
-        P0: ::std::convert::Into<SmsDataFormat>,
-    {
+    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
+            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -5994,13 +5958,10 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn FromBinaryData<'a, P0>(format: P0, value: &[u8]) -> ::windows::core::Result<SmsTextMessage>
-    where
-        P0: ::std::convert::Into<SmsDataFormat>,
-    {
+    pub fn FromBinaryData(format: SmsDataFormat, value: &[u8]) -> ::windows::core::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromBinaryData)(::windows::core::Interface::as_raw(this), format.into(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
+            (::windows::core::Interface::vtable(this).FromBinaryData)(::windows::core::Interface::as_raw(this), format, value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -6240,12 +6201,9 @@ impl SmsTextMessage2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetEncoding<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SmsEncoding>,
-    {
+    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn CallbackNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {

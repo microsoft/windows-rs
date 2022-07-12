@@ -736,12 +736,9 @@ impl WebViewControl {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
-    pub fn MoveFocus<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WebViewControlMoveFocusReason>,
-    {
+    pub fn MoveFocus(&self, reason: WebViewControlMoveFocusReason) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebViewControlSite>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).MoveFocus)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MoveFocus)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
     #[doc = "*Required features: `\"Web_UI_Interop\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1384,12 +1381,9 @@ impl WebViewControlProcessOptions {
         }
     }
     #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
-    pub fn SetPrivateNetworkClientServerCapability<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WebViewControlProcessCapabilityState>,
-    {
+    pub fn SetPrivateNetworkClientServerCapability(&self, value: WebViewControlProcessCapabilityState) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrivateNetworkClientServerCapability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrivateNetworkClientServerCapability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
     pub fn PrivateNetworkClientServerCapability(&self) -> ::windows::core::Result<WebViewControlProcessCapabilityState> {

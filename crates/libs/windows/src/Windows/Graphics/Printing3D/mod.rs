@@ -1713,12 +1713,9 @@ impl Printing3D3MFPackage {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-    pub fn SetCompression<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Printing3DPackageCompression>,
-    {
+    pub fn SetCompression(&self, value: Printing3DPackageCompression) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrinting3D3MFPackage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompression)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompression)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -2357,12 +2354,9 @@ impl Printing3DComponent {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Printing3DObjectType>,
-    {
+    pub fn SetType(&self, value: Printing3DObjectType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3165,14 +3159,11 @@ impl Printing3DMesh {
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VerifyAsync<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>
-    where
-        P0: ::std::convert::Into<Printing3DMeshVerificationMode>,
-    {
+    pub fn VerifyAsync(&self, value: Printing3DMeshVerificationMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).VerifyAsync)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>(result__)
+            (::windows::core::Interface::vtable(this).VerifyAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>(result__)
         }
     }
 }
@@ -3385,12 +3376,9 @@ impl Printing3DModel {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-    pub fn SetUnit<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Printing3DModelUnit>,
-    {
+    pub fn SetUnit(&self, value: Printing3DModelUnit) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3661,12 +3649,9 @@ impl Printing3DModelTexture {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-    pub fn SetTileStyleU<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Printing3DTextureEdgeBehavior>,
-    {
+    pub fn SetTileStyleU(&self, value: Printing3DTextureEdgeBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleU)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleU)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn TileStyleV(&self) -> ::windows::core::Result<Printing3DTextureEdgeBehavior> {
@@ -3677,12 +3662,9 @@ impl Printing3DModelTexture {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-    pub fn SetTileStyleV<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Printing3DTextureEdgeBehavior>,
-    {
+    pub fn SetTileStyleV(&self, value: Printing3DTextureEdgeBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleV)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleV)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DModelTexture {

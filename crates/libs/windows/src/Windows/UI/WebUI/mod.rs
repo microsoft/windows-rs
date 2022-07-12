@@ -707,12 +707,9 @@ impl HtmlPrintDocumentSource {
         }
     }
     #[doc = "*Required features: `\"UI_WebUI\"`*"]
-    pub fn SetContent<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintContent>,
-    {
+    pub fn SetContent(&self, value: PrintContent) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_WebUI\"`*"]
     pub fn LeftMargin(&self) -> ::windows::core::Result<f32> {

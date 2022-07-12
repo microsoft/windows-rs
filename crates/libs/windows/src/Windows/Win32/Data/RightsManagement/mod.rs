@@ -103,16 +103,15 @@ pub unsafe fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
-pub unsafe fn DRMAttest<'a, P0, P1>(henablingprincipal: u32, wszdata: P0, etype: P1, pcattestedblob: *mut u32, wszattestedblob: ::windows::core::PWSTR) -> ::windows::core::Result<()>
+pub unsafe fn DRMAttest<'a, P0>(henablingprincipal: u32, wszdata: P0, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<DRMATTESTTYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DRMAttest(henablingprincipal: u32, wszdata: ::windows::core::PCWSTR, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    DRMAttest(::core::mem::transmute(henablingprincipal), wszdata.into(), etype.into(), ::core::mem::transmute(pcattestedblob), ::core::mem::transmute(wszattestedblob)).ok()
+    DRMAttest(::core::mem::transmute(henablingprincipal), wszdata.into(), ::core::mem::transmute(etype), ::core::mem::transmute(pcattestedblob), ::core::mem::transmute(wszattestedblob)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
@@ -805,15 +804,12 @@ where
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetTime<'a, P0>(henv: u32, etimeridtype: P0, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<DRMTIMETYPE>,
-{
+pub unsafe fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
     }
-    DRMGetTime(::core::mem::transmute(henv), etimeridtype.into(), ::core::mem::transmute(potimeobject)).ok()
+    DRMGetTime(::core::mem::transmute(henv), ::core::mem::transmute(etimeridtype), ::core::mem::transmute(potimeobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
@@ -958,19 +954,17 @@ impl ::core::default::Default for DRMID {
 pub const DRMIDVERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
-pub unsafe fn DRMInitEnvironment<'a, P0, P1, P2, P3, P4>(esecurityprovidertype: P0, especification: P1, wszsecurityprovider: P2, wszmanifestcredentials: P3, wszmachinecredentials: P4, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn DRMInitEnvironment<'a, P0, P1, P2>(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: P0, wszmanifestcredentials: P1, wszmachinecredentials: P2, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<DRMSECURITYPROVIDERTYPE>,
-    P1: ::std::convert::Into<DRMSPECTYPE>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DRMInitEnvironment(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: ::windows::core::PCWSTR, wszmanifestcredentials: ::windows::core::PCWSTR, wszmachinecredentials: ::windows::core::PCWSTR, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::core::HRESULT;
     }
-    DRMInitEnvironment(esecurityprovidertype.into(), especification.into(), wszsecurityprovider.into(), wszmanifestcredentials.into(), wszmachinecredentials.into(), ::core::mem::transmute(phenv), ::core::mem::transmute(phdefaultlibrary)).ok()
+    DRMInitEnvironment(::core::mem::transmute(esecurityprovidertype), ::core::mem::transmute(especification), wszsecurityprovider.into(), wszmanifestcredentials.into(), wszmachinecredentials.into(), ::core::mem::transmute(phenv), ::core::mem::transmute(phdefaultlibrary)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
@@ -998,17 +992,16 @@ where
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
-pub unsafe fn DRMLoadLibrary<'a, P0, P1, P2>(henv: u32, especification: P0, wszlibraryprovider: P1, wszcredentials: P2, phlibrary: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn DRMLoadLibrary<'a, P0, P1>(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: P0, wszcredentials: P1, phlibrary: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<DRMSPECTYPE>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DRMLoadLibrary(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: ::windows::core::PCWSTR, wszcredentials: ::windows::core::PCWSTR, phlibrary: *mut u32) -> ::windows::core::HRESULT;
     }
-    DRMLoadLibrary(::core::mem::transmute(henv), especification.into(), wszlibraryprovider.into(), wszcredentials.into(), ::core::mem::transmute(phlibrary)).ok()
+    DRMLoadLibrary(::core::mem::transmute(henv), ::core::mem::transmute(especification), wszlibraryprovider.into(), wszcredentials.into(), ::core::mem::transmute(phlibrary)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
@@ -1142,15 +1135,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
-pub unsafe fn DRMSetGlobalOptions<'a, P0>(eglobaloptions: P0, pvdata: *mut ::core::ffi::c_void, dwlen: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<DRMGLOBALOPTIONS>,
-{
+pub unsafe fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::core::ffi::c_void, dwlen: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::core::ffi::c_void, dwlen: u32) -> ::windows::core::HRESULT;
     }
-    DRMSetGlobalOptions(eglobaloptions.into(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwlen)).ok()
+    DRMSetGlobalOptions(::core::mem::transmute(eglobaloptions), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwlen)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[inline]
@@ -1214,22 +1204,21 @@ where
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetUsagePolicy<'a, P0, P1, P2, P3, P4, P5, P6, P7>(hissuancelicense: u32, eusagepolicytype: P0, fdelete: P1, fexclusion: P2, wszname: P3, wszminversion: P4, wszmaxversion: P5, wszpublickey: P6, wszdigestalgorithm: P7, pbdigest: *mut u8, cbdigest: u32) -> ::windows::core::Result<()>
+pub unsafe fn DRMSetUsagePolicy<'a, P0, P1, P2, P3, P4, P5, P6>(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: P0, fexclusion: P1, wszname: P2, wszminversion: P3, wszmaxversion: P4, wszpublickey: P5, wszdigestalgorithm: P6, pbdigest: *mut u8, cbdigest: u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<DRM_USAGEPOLICY_TYPE>,
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
     P4: ::std::convert::Into<::windows::core::PCWSTR>,
     P5: ::std::convert::Into<::windows::core::PCWSTR>,
     P6: ::std::convert::Into<::windows::core::PCWSTR>,
-    P7: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DRMSetUsagePolicy(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: super::super::Foundation::BOOL, fexclusion: super::super::Foundation::BOOL, wszname: ::windows::core::PCWSTR, wszminversion: ::windows::core::PCWSTR, wszmaxversion: ::windows::core::PCWSTR, wszpublickey: ::windows::core::PCWSTR, wszdigestalgorithm: ::windows::core::PCWSTR, pbdigest: *mut u8, cbdigest: u32) -> ::windows::core::HRESULT;
     }
-    DRMSetUsagePolicy(::core::mem::transmute(hissuancelicense), eusagepolicytype.into(), fdelete.into(), fexclusion.into(), wszname.into(), wszminversion.into(), wszmaxversion.into(), wszpublickey.into(), wszdigestalgorithm.into(), ::core::mem::transmute(pbdigest), ::core::mem::transmute(cbdigest)).ok()
+    DRMSetUsagePolicy(::core::mem::transmute(hissuancelicense), ::core::mem::transmute(eusagepolicytype), fdelete.into(), fexclusion.into(), wszname.into(), wszminversion.into(), wszmaxversion.into(), wszpublickey.into(), wszdigestalgorithm.into(), ::core::mem::transmute(pbdigest), ::core::mem::transmute(cbdigest)).ok()
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]

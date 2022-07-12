@@ -2317,23 +2317,18 @@ impl SceneMesh {
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetPrimitiveTopology<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPrimitiveTopology>,
-    {
+    pub fn SetPrimitiveTopology(&self, value: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrimitiveTopology)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrimitiveTopology)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`, `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub fn FillMeshAttribute<'a, P0, P1, P2>(&self, semantic: P0, format: P1, memory: P2) -> ::windows::core::Result<()>
+    pub fn FillMeshAttribute<'a, P0>(&self, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SceneAttributeSemantic>,
-        P1: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::MemoryBuffer>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::MemoryBuffer>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).FillMeshAttribute)(::windows::core::Interface::as_raw(this), semantic.into(), format.into(), memory.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).FillMeshAttribute)(::windows::core::Interface::as_raw(this), semantic, format, memory.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneMesh>
@@ -2668,15 +2663,14 @@ impl SceneMeshMaterialAttributeMap {
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
+    pub fn Insert<'a, P0>(&self, key: P0, value: SceneAttributeSemantic) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<SceneAttributeSemantic>,
     {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, SceneAttributeSemantic>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`, `\"Foundation_Collections\"`*"]
@@ -3482,12 +3476,9 @@ impl SceneMetallicRoughnessMaterial {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetAlphaMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SceneAlphaMode>,
-    {
+    pub fn SetAlphaMode(&self, value: SceneAlphaMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScenePbrMaterial>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlphaMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlphaMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn EmissiveInput(&self) -> ::windows::core::Result<SceneMaterialInput> {
@@ -4277,14 +4268,11 @@ impl SceneNode {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn FindFirstComponentOfType<'a, P0>(&self, value: P0) -> ::windows::core::Result<SceneComponent>
-    where
-        P0: ::std::convert::Into<SceneComponentType>,
-    {
+    pub fn FindFirstComponentOfType(&self, value: SceneComponentType) -> ::windows::core::Result<SceneComponent> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindFirstComponentOfType)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<SceneComponent>(result__)
+            (::windows::core::Interface::vtable(this).FindFirstComponentOfType)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<SceneComponent>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
@@ -5298,12 +5286,9 @@ impl ScenePbrMaterial {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetAlphaMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SceneAlphaMode>,
-    {
+    pub fn SetAlphaMode(&self, value: SceneAlphaMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlphaMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlphaMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn EmissiveInput(&self) -> ::windows::core::Result<SceneMaterialInput> {
@@ -5984,12 +5969,9 @@ impl SceneSurfaceMaterialInput {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetBitmapInterpolationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::CompositionBitmapInterpolationMode>,
-    {
+    pub fn SetBitmapInterpolationMode(&self, value: super::CompositionBitmapInterpolationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn Surface(&self) -> ::windows::core::Result<super::ICompositionSurface> {
@@ -6017,12 +5999,9 @@ impl SceneSurfaceMaterialInput {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetWrappingUMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SceneWrappingMode>,
-    {
+    pub fn SetWrappingUMode(&self, value: SceneWrappingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWrappingUMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWrappingUMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn WrappingVMode(&self) -> ::windows::core::Result<SceneWrappingMode> {
@@ -6033,12 +6012,9 @@ impl SceneSurfaceMaterialInput {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetWrappingVMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SceneWrappingMode>,
-    {
+    pub fn SetWrappingVMode(&self, value: SceneWrappingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWrappingVMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWrappingVMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<SceneSurfaceMaterialInput>
@@ -6393,12 +6369,9 @@ impl SceneVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetBackfaceVisibility<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::CompositionBackfaceVisibility>,
-    {
+    pub fn SetBackfaceVisibility(&self, value: super::CompositionBackfaceVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackfaceVisibility)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn BorderMode(&self) -> ::windows::core::Result<super::CompositionBorderMode> {
@@ -6409,12 +6382,9 @@ impl SceneVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetBorderMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::CompositionBorderMode>,
-    {
+    pub fn SetBorderMode(&self, value: super::CompositionBorderMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -6456,12 +6426,9 @@ impl SceneVisual {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
-    pub fn SetCompositeMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::CompositionCompositeMode>,
-    {
+    pub fn SetCompositeMode(&self, value: super::CompositionCompositeMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IVisual>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompositeMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {

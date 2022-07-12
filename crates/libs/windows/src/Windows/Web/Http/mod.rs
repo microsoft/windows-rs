@@ -287,15 +287,14 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetWithOptionAsync<'a, P0, P1>(&self, uri: P0, completionoption: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn GetWithOptionAsync<'a, P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<HttpCompletionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWithOptionAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), completionoption.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).GetWithOptionAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), completionoption, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -376,15 +375,14 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendRequestWithOptionAsync<'a, P0, P1>(&self, request: P0, completionoption: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
+    pub fn SendRequestWithOptionAsync<'a, P0>(&self, request: P0, completionoption: HttpCompletionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpRequestMessage>>,
-        P1: ::std::convert::Into<HttpCompletionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendRequestWithOptionAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), completionoption.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestWithOptionAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), completionoption, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
@@ -422,15 +420,14 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryGetAsync2<'a, P0, P1>(&self, uri: P0, completionoption: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TryGetAsync2<'a, P0>(&self, uri: P0, completionoption: HttpCompletionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P1: ::std::convert::Into<HttpCompletionOption>,
     {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAsync2)(::windows::core::Interface::as_raw(this), uri.into().abi(), completionoption.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAsync2)(::windows::core::Interface::as_raw(this), uri.into().abi(), completionoption, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -511,15 +508,14 @@ impl HttpClient {
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySendRequestAsync2<'a, P0, P1>(&self, request: P0, completionoption: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
+    pub fn TrySendRequestAsync2<'a, P0>(&self, request: P0, completionoption: HttpCompletionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpRequestMessage>>,
-        P1: ::std::convert::Into<HttpCompletionOption>,
     {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySendRequestAsync2)(::windows::core::Interface::as_raw(this), request.into().abi(), completionoption.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TrySendRequestAsync2)(::windows::core::Interface::as_raw(this), request.into().abi(), completionoption, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Filters\"`*"]
@@ -3278,12 +3274,9 @@ impl HttpResponseMessage {
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
-    pub fn SetSource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HttpResponseMessageSource>,
-    {
+    pub fn SetSource(&self, value: HttpResponseMessageSource) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn StatusCode(&self) -> ::windows::core::Result<HttpStatusCode> {
@@ -3294,12 +3287,9 @@ impl HttpResponseMessage {
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
-    pub fn SetStatusCode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HttpStatusCode>,
-    {
+    pub fn SetStatusCode(&self, value: HttpStatusCode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatusCode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatusCode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Version(&self) -> ::windows::core::Result<HttpVersion> {
@@ -3310,12 +3300,9 @@ impl HttpResponseMessage {
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
-    pub fn SetVersion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HttpVersion>,
-    {
+    pub fn SetVersion(&self, value: HttpVersion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn EnsureSuccessStatusCode(&self) -> ::windows::core::Result<HttpResponseMessage> {
@@ -3326,13 +3313,10 @@ impl HttpResponseMessage {
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
-    pub fn Create<'a, P0>(statuscode: P0) -> ::windows::core::Result<HttpResponseMessage>
-    where
-        P0: ::std::convert::Into<HttpStatusCode>,
-    {
+    pub fn Create(statuscode: HttpStatusCode) -> ::windows::core::Result<HttpResponseMessage> {
         Self::IHttpResponseMessageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), statuscode.into(), result__.as_mut_ptr()).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), statuscode, result__.as_mut_ptr()).from_abi::<HttpResponseMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3897,27 +3881,25 @@ impl HttpStringContent {
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStringWithEncoding<'a, P0, P1>(content: P0, encoding: P1) -> ::windows::core::Result<HttpStringContent>
+    pub fn CreateFromStringWithEncoding<'a, P0>(content: P0, encoding: super::super::Storage::Streams::UnicodeEncoding) -> ::windows::core::Result<HttpStringContent>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::super::Storage::Streams::UnicodeEncoding>,
     {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStringWithEncoding)(::windows::core::Interface::as_raw(this), content.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<HttpStringContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStringWithEncoding)(::windows::core::Interface::as_raw(this), content.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<HttpStringContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromStringWithEncodingAndMediaType<'a, P0, P1, P2>(content: P0, encoding: P1, mediatype: P2) -> ::windows::core::Result<HttpStringContent>
+    pub fn CreateFromStringWithEncodingAndMediaType<'a, P0, P1>(content: P0, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: P1) -> ::windows::core::Result<HttpStringContent>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::super::Storage::Streams::UnicodeEncoding>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStringWithEncodingAndMediaType)(::windows::core::Interface::as_raw(this), content.into().abi(), encoding.into(), mediatype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpStringContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStringWithEncodingAndMediaType)(::windows::core::Interface::as_raw(this), content.into().abi(), encoding, mediatype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpStringContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]

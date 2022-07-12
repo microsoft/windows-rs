@@ -40,33 +40,29 @@ where
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn CreateNamedPipeA<'a, P0, P1, P2>(lpname: P0, dwopenmode: P1, dwpipemode: P2, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn CreateNamedPipeA<'a, P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES>,
-    P2: ::std::convert::Into<NAMED_PIPE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateNamedPipeA(lpname: ::windows::core::PCSTR, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateNamedPipeA(lpname.into(), dwopenmode.into(), dwpipemode.into(), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes));
+    let result__ = CreateNamedPipeA(lpname.into(), ::core::mem::transmute(dwopenmode), ::core::mem::transmute(dwpipemode), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn CreateNamedPipeW<'a, P0, P1, P2>(lpname: P0, dwopenmode: P1, dwpipemode: P2, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE
+pub unsafe fn CreateNamedPipeW<'a, P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES>,
-    P2: ::std::convert::Into<NAMED_PIPE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateNamedPipeW(lpname: ::windows::core::PCWSTR, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CreateNamedPipeW(lpname.into(), dwopenmode.into(), dwpipemode.into(), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes)))
+    ::core::mem::transmute(CreateNamedPipeW(lpname.into(), ::core::mem::transmute(dwopenmode), ::core::mem::transmute(dwpipemode), ::core::mem::transmute(nmaxinstances), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(ndefaulttimeout), ::core::mem::transmute(lpsecurityattributes)))
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

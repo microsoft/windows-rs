@@ -860,31 +860,29 @@ pub unsafe fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32,
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
-pub unsafe fn GetIScsiTargetInformationA<'a, P0, P1, P2>(targetname: P0, discoverymechanism: P1, infoclass: P2, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn GetIScsiTargetInformationA<'a, P0, P1>(targetname: P0, discoverymechanism: P1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<TARGET_INFORMATION_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetIScsiTargetInformationA(targetname: ::windows::core::PCSTR, discoverymechanism: ::windows::core::PCSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetIScsiTargetInformationA(targetname.into(), discoverymechanism.into(), infoclass.into(), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(GetIScsiTargetInformationA(targetname.into(), discoverymechanism.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]
-pub unsafe fn GetIScsiTargetInformationW<'a, P0, P1, P2>(targetname: P0, discoverymechanism: P1, infoclass: P2, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn GetIScsiTargetInformationW<'a, P0, P1>(targetname: P0, discoverymechanism: P1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<TARGET_INFORMATION_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetIScsiTargetInformationW(targetname: ::windows::core::PCWSTR, discoverymechanism: ::windows::core::PCWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(GetIScsiTargetInformationW(targetname.into(), discoverymechanism.into(), infoclass.into(), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(GetIScsiTargetInformationW(targetname.into(), discoverymechanism.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[inline]

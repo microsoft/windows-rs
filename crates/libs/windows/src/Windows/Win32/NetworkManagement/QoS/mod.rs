@@ -1957,17 +1957,16 @@ pub const PREDICTIVE_SERV: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn QOSAddSocketToFlow<'a, P0, P1, P2>(qoshandle: P0, socket: P1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: P2, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn QOSAddSocketToFlow<'a, P0, P1>(qoshandle: P0, socket: P1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Networking::WinSock::SOCKET>,
-    P2: ::std::convert::Into<QOS_TRAFFIC_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QOSAddSocketToFlow(qoshandle.into(), socket.into(), ::core::mem::transmute(destaddr), traffictype.into(), ::core::mem::transmute(flags), ::core::mem::transmute(flowid)))
+    ::core::mem::transmute(QOSAddSocketToFlow(qoshandle.into(), socket.into(), ::core::mem::transmute(destaddr), ::core::mem::transmute(traffictype), ::core::mem::transmute(flags), ::core::mem::transmute(flowid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2021,30 +2020,28 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSNotifyFlow<'a, P0, P1>(qoshandle: P0, flowid: u32, operation: P1, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
+pub unsafe fn QOSNotifyFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<QOS_NOTIFY_FLOW>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QOSNotifyFlow(qoshandle.into(), ::core::mem::transmute(flowid), operation.into(), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(QOSNotifyFlow(qoshandle.into(), ::core::mem::transmute(flowid), ::core::mem::transmute(operation), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSQueryFlow<'a, P0, P1>(qoshandle: P0, flowid: u32, operation: P1, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
+pub unsafe fn QOSQueryFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<QOS_QUERY_FLOW>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QOSQueryFlow(qoshandle.into(), ::core::mem::transmute(flowid), operation.into(), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(QOSQueryFlow(qoshandle.into(), ::core::mem::transmute(flowid), ::core::mem::transmute(operation), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2067,16 +2064,15 @@ pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn QOSSetFlow<'a, P0, P1>(qoshandle: P0, flowid: u32, operation: P1, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
+pub unsafe fn QOSSetFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<QOS_SET_FLOW>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QOSSetFlow(qoshandle.into(), ::core::mem::transmute(flowid), operation.into(), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(QOSSetFlow(qoshandle.into(), ::core::mem::transmute(flowid), ::core::mem::transmute(operation), ::core::mem::transmute(size), ::core::mem::transmute(buffer), ::core::mem::transmute(flags), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

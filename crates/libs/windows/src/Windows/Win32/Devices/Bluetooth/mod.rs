@@ -2352,17 +2352,16 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothAuthenticateDeviceEx<'a, P0, P1, P2>(hwndparentin: P0, hradioin: P1, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: P2) -> u32
+pub unsafe fn BluetoothAuthenticateDeviceEx<'a, P0, P1>(hwndparentin: P0, hradioin: P1, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<AUTHENTICATION_REQUIREMENTS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
     }
-    ::core::mem::transmute(BluetoothAuthenticateDeviceEx(hwndparentin.into(), hradioin.into(), ::core::mem::transmute(pbtdiinout), ::core::mem::transmute(pbtoobdata), authenticationrequirement.into()))
+    ::core::mem::transmute(BluetoothAuthenticateDeviceEx(hwndparentin.into(), hradioin.into(), ::core::mem::transmute(pbtdiinout), ::core::mem::transmute(pbtoobdata), ::core::mem::transmute(authenticationrequirement)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2612,16 +2611,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BluetoothGATTRegisterEvent<'a, P0, P1>(hservice: P0, eventtype: P1, eventparameterin: *const ::core::ffi::c_void, callback: PFNBLUETOOTH_GATT_EVENT_CALLBACK, callbackcontext: *const ::core::ffi::c_void, peventhandle: *mut isize, flags: u32) -> ::windows::core::Result<()>
+pub unsafe fn BluetoothGATTRegisterEvent<'a, P0>(hservice: P0, eventtype: BTH_LE_GATT_EVENT_TYPE, eventparameterin: *const ::core::ffi::c_void, callback: PFNBLUETOOTH_GATT_EVENT_CALLBACK, callbackcontext: *const ::core::ffi::c_void, peventhandle: *mut isize, flags: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<BTH_LE_GATT_EVENT_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BluetoothGATTRegisterEvent(hservice: super::super::Foundation::HANDLE, eventtype: BTH_LE_GATT_EVENT_TYPE, eventparameterin: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void, callbackcontext: *const ::core::ffi::c_void, peventhandle: *mut isize, flags: u32) -> ::windows::core::HRESULT;
     }
-    BluetoothGATTRegisterEvent(hservice.into(), eventtype.into(), ::core::mem::transmute(eventparameterin), ::core::mem::transmute(callback), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(peventhandle), ::core::mem::transmute(flags)).ok()
+    BluetoothGATTRegisterEvent(hservice.into(), ::core::mem::transmute(eventtype), ::core::mem::transmute(eventparameterin), ::core::mem::transmute(callback), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(peventhandle), ::core::mem::transmute(flags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

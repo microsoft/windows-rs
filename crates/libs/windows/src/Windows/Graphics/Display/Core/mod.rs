@@ -175,28 +175,26 @@ impl HdmiDisplayInformation {
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetCurrentDisplayModeWithHdrAsync<'a, P0, P1>(&self, mode: P0, hdroption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeWithHdrAsync<'a, P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>,
-        P1: ::std::convert::Into<HdmiDisplayHdrOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(::windows::core::Interface::as_raw(this), mode.into().abi(), hdroption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(::windows::core::Interface::as_raw(this), mode.into().abi(), hdroption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<'a, P0, P1>(&self, mode: P0, hdroption: P1, hdrmetadata: HdmiDisplayHdr2086Metadata) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<'a, P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HdmiDisplayMode>>,
-        P1: ::std::convert::Into<HdmiDisplayHdrOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(::windows::core::Interface::as_raw(this), mode.into().abi(), hdroption.into(), hdrmetadata, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(::windows::core::Interface::as_raw(this), mode.into().abi(), hdroption, hdrmetadata, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Display_Core\"`, `\"Foundation\"`*"]

@@ -120,12 +120,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MdmAlertDataType>,
-    {
+    pub fn SetFormat(&self, value: MdmAlertDataType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Mark(&self) -> ::windows::core::Result<MdmAlertMark> {
@@ -136,12 +133,9 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetMark<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MdmAlertMark>,
-    {
+    pub fn SetMark(&self, value: MdmAlertMark) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMark)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMark)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<::windows::core::HSTRING> {

@@ -272,12 +272,9 @@ impl FileOpenPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetViewMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PickerViewMode>,
-    {
+    pub fn SetViewMode(&self, value: PickerViewMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -304,12 +301,9 @@ impl FileOpenPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedStartLocation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PickerLocationId>,
-    {
+    pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -940,12 +934,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedStartLocation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PickerLocationId>,
-    {
+    pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1168,12 +1159,9 @@ impl FolderPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetViewMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PickerViewMode>,
-    {
+    pub fn SetViewMode(&self, value: PickerViewMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1200,12 +1188,9 @@ impl FolderPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedStartLocation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PickerLocationId>,
-    {
+    pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {

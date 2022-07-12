@@ -839,13 +839,10 @@ impl PlatformDiagnosticsAndUsageDataSettings {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"System_Profile\"`*"]
-    pub fn CanCollectDiagnostics<'a, P0>(level: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<PlatformDataCollectionLevel>,
-    {
+    pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> ::windows::core::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).CanCollectDiagnostics)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanCollectDiagnostics)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]

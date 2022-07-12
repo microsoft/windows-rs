@@ -404,25 +404,21 @@ impl IMDSPDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetFormatCapability<'a, P0>(&self, format: P0) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>
-    where
-        P0: ::std::convert::Into<WMDM_FORMATCODE>,
-    {
+    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = ::core::mem::MaybeUninit::<WMDM_FORMAT_CAPABILITY>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
+        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _, ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(pnoutbuffersize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, P0, P1>(&self, findscope: P0, pwszuniqueid: P1) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IMDSPStorage>
     where
-        P0: ::std::convert::Into<WMDM_FIND_SCOPE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
 impl ::core::convert::From<IMDSPDevice3> for ::windows::core::IUnknown {
@@ -1688,13 +1684,12 @@ impl IMDSPStorage4 {
         (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::windows::core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), pmetadata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, P0, P1>(&self, findscope: P0, pwszuniqueid: P1) -> ::windows::core::Result<IMDSPStorage>
+    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IMDSPStorage>
     where
-        P0: ::std::convert::Into<WMDM_FIND_SCOPE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetParent(&self) -> ::windows::core::Result<IMDSPStorage> {
@@ -3274,25 +3269,21 @@ impl IWMDMDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetFormatCapability<'a, P0>(&self, format: P0) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>
-    where
-        P0: ::std::convert::Into<WMDM_FORMATCODE>,
-    {
+    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY> {
         let mut result__ = ::core::mem::MaybeUninit::<WMDM_FORMAT_CAPABILITY>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
+        (::windows::core::Interface::vtable(self).GetFormatCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpinbuffer)), lpinbuffer.len() as _, ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(pnoutbuffersize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, P0, P1>(&self, findscope: P0, pwszuniqueid: P1) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IWMDMStorage>
     where
-        P0: ::std::convert::Into<WMDM_FIND_SCOPE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
 }
 impl ::core::convert::From<IWMDMDevice3> for ::windows::core::IUnknown {
@@ -3475,18 +3466,12 @@ pub struct IWMDMDeviceControl_Vtbl {
 pub struct IWMDMDeviceSession(::windows::core::IUnknown);
 impl IWMDMDeviceSession {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn BeginSession<'a, P0>(&self, r#type: P0, pctx: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WMDM_SESSION_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
+    pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn EndSession<'a, P0>(&self, r#type: P0, pctx: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WMDM_SESSION_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).EndSession)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
+    pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EndSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pctx)), pctx.len() as _).ok()
     }
 }
 impl ::core::convert::From<IWMDMDeviceSession> for ::windows::core::IUnknown {
@@ -3783,12 +3768,11 @@ pub struct IWMDMLogger_Vtbl {
 pub struct IWMDMMetaData(::windows::core::IUnknown);
 impl IWMDMMetaData {
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn AddItem<'a, P0, P1>(&self, r#type: P0, pwsztagname: P1, pvalue: &[u8]) -> ::windows::core::Result<()>
+    pub unsafe fn AddItem<'a, P0>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: P0, pvalue: &[u8]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<WMDM_TAG_DATATYPE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), r#type.into(), pwsztagname.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalue)), pvalue.len() as _).ok()
+        (::windows::core::Interface::vtable(self).AddItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), pwsztagname.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalue)), pvalue.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn QueryByName<'a, P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>
@@ -5114,13 +5098,12 @@ impl IWMDMStorage4 {
         (::windows::core::Interface::vtable(self).GetSpecifiedMetadata)(::windows::core::Interface::as_raw(self), ppwszpropnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppwszpropnames)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMMetaData>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
-    pub unsafe fn FindStorage<'a, P0, P1>(&self, findscope: P0, pwszuniqueid: P1) -> ::windows::core::Result<IWMDMStorage>
+    pub unsafe fn FindStorage<'a, P0>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P0) -> ::windows::core::Result<IWMDMStorage>
     where
-        P0: ::std::convert::Into<WMDM_FIND_SCOPE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), findscope.into(), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
+        (::windows::core::Interface::vtable(self).FindStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findscope), pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_DeviceManager\"`*"]
     pub unsafe fn GetParent(&self) -> ::windows::core::Result<IWMDMStorage> {

@@ -89,27 +89,24 @@ impl ThreadPool {
     }
     #[doc = "*Required features: `\"System_Threading\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunWithPriorityAsync<'a, P0, P1>(handler: P0, priority: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunWithPriorityAsync<'a, P0>(handler: P0, priority: WorkItemPriority) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, WorkItemHandler>>,
-        P1: ::std::convert::Into<WorkItemPriority>,
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RunWithPriorityAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RunWithPriorityAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Threading\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunWithPriorityAndOptionsAsync<'a, P0, P1, P2>(handler: P0, priority: P1, options: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RunWithPriorityAndOptionsAsync<'a, P0>(handler: P0, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, WorkItemHandler>>,
-        P1: ::std::convert::Into<WorkItemPriority>,
-        P2: ::std::convert::Into<WorkItemOptions>,
     {
         Self::IThreadPoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority.into(), options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
