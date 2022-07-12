@@ -44,6 +44,6 @@ impl From<&HSTRING> for PCWSTR {
 // with some Windows APIs.
 impl From<Option<PCWSTR>> for PCWSTR {
     fn from(from: Option<PCWSTR>) -> Self {
-        from.unwrap_or_else(||Self::default())
+        from.unwrap_or_else(|| Self::default())
     }
 }
