@@ -2,7 +2,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect,
 
 fn main() -> Result<()> {
     unsafe {
-        let instance = GetModuleHandleA(PCSTR::default())?;
+        let instance = GetModuleHandleA(None)?;
         debug_assert!(instance.0 != 0);
 
         let window_class = s!("window");

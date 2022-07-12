@@ -44,7 +44,11 @@ pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::std::convert::Into<super::super::TextServices::HKL>, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(hkl: Param0, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
+pub unsafe fn ActivateKeyboardLayout<'a, P0, P1>(hkl: P0, flags: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+    P1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ActivateKeyboardLayout(hkl: super::super::TextServices::HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
@@ -57,7 +61,10 @@ pub const BREVE: u32 = 774u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BlockInput<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(fblockit: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn BlockInput<'a, P0>(fblockit: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BlockInput(fblockit: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
@@ -123,7 +130,10 @@ pub const DOUBLE_ACUTE: u32 = 779u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DragDetect<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DragDetect<'a, P0>(hwnd: P0, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
@@ -135,7 +145,11 @@ pub const EXTENDED_BIT: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(hwnd: Param0, benable: Param1) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnableWindow<'a, P0, P1>(hwnd: P0, benable: P1) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnableWindow(hwnd: super::super::super::Foundation::HWND, benable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
@@ -336,7 +350,10 @@ pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super:
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn GetMouseMovePointsEx<'a, Param4: ::std::convert::Into<GET_MOUSE_MOVE_POINTS_EX_RESOLUTION>>(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: &mut [MOUSEMOVEPOINT], resolution: Param4) -> i32 {
+pub unsafe fn GetMouseMovePointsEx<'a, P0>(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: &mut [MOUSEMOVEPOINT], resolution: P0) -> i32
+where
+    P0: ::std::convert::Into<GET_MOUSE_MOVE_POINTS_EX_RESOLUTION>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32;
@@ -525,7 +542,10 @@ impl ::core::fmt::Debug for INPUT_TYPE {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsWindowEnabled<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn IsWindowEnabled<'a, P0>(hwnd: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
@@ -996,7 +1016,11 @@ impl ::core::default::Default for LIGATURE5 {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(pwszklid: Param0, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
+pub unsafe fn LoadKeyboardLayoutA<'a, P0, P1>(pwszklid: P0, flags: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadKeyboardLayoutA(pwszklid: ::windows::core::PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
@@ -1007,7 +1031,11 @@ pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::std::convert::Into<::windows::co
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>>(pwszklid: Param0, flags: Param1) -> ::windows::core::Result<super::super::TextServices::HKL> {
+pub unsafe fn LoadKeyboardLayoutW<'a, P0, P1>(pwszklid: P0, flags: P1) -> ::windows::core::Result<super::super::TextServices::HKL>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<ACTIVATE_KEYBOARD_LAYOUT_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadKeyboardLayoutW(pwszklid: ::windows::core::PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
@@ -1228,7 +1256,10 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExA<'a, Param2: ::std::convert::Into<super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
+pub unsafe fn MapVirtualKeyExA<'a, P0>(ucode: u32, umaptype: u32, dwhkl: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MapVirtualKeyExA(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
@@ -1238,7 +1269,10 @@ pub unsafe fn MapVirtualKeyExA<'a, Param2: ::std::convert::Into<super::super::Te
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExW<'a, Param2: ::std::convert::Into<super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
+pub unsafe fn MapVirtualKeyExW<'a, P0>(ucode: u32, umaptype: u32, dwhkl: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MapVirtualKeyExW(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
@@ -1308,7 +1342,11 @@ pub const RING: u32 = 778u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterHotKey<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param2: ::std::convert::Into<HOT_KEY_MODIFIERS>>(hwnd: Param0, id: i32, fsmodifiers: Param2, vk: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn RegisterHotKey<'a, P0, P1>(hwnd: P0, id: i32, fsmodifiers: P1, vk: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<HOT_KEY_MODIFIERS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL;
@@ -1359,7 +1397,10 @@ pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetActiveWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetActiveWindow<'a, P0>(hwnd: P0) -> super::super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetActiveWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
@@ -1369,7 +1410,10 @@ pub unsafe fn SetActiveWindow<'a, Param0: ::std::convert::Into<super::super::sup
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCapture<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetCapture<'a, P0>(hwnd: P0) -> super::super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCapture(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
@@ -1389,7 +1433,10 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFocus<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetFocus<'a, P0>(hwnd: P0) -> super::super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFocus(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
@@ -1409,7 +1456,10 @@ pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> super::super::super::F
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SwapMouseButton<'a, Param0: ::std::convert::Into<super::super::super::Foundation::BOOL>>(fswap: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SwapMouseButton<'a, P0>(fswap: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SwapMouseButton(fswap: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
@@ -1538,7 +1588,10 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpc
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ToAsciiEx<'a, Param5: ::std::convert::Into<super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
+pub unsafe fn ToAsciiEx<'a, P0>(uvirtkey: u32, uscancode: u32, lpkeystate: &[u8; 256], lpchar: *mut u16, uflags: u32, dwhkl: P0) -> i32
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
@@ -1557,7 +1610,10 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], p
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ToUnicodeEx<'a, Param6: ::std::convert::Into<super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: Param6) -> i32 {
+pub unsafe fn ToUnicodeEx<'a, P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: P0) -> i32
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: ::windows::core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
@@ -1579,7 +1635,10 @@ pub const UMLAUT: u32 = 776u32;
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::std::convert::Into<super::super::TextServices::HKL>>(hkl: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnloadKeyboardLayout<'a, P0>(hkl: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UnloadKeyboardLayout(hkl: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
@@ -1589,7 +1648,10 @@ pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterHotKey<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnregisterHotKey<'a, P0>(hwnd: P0, id: i32) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> super::super::super::Foundation::BOOL;
@@ -2592,7 +2654,10 @@ impl ::core::default::Default for VSC_VK {
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VkKeyScanA<'a, Param0: ::std::convert::Into<super::super::super::Foundation::CHAR>>(ch: Param0) -> i16 {
+pub unsafe fn VkKeyScanA<'a, P0>(ch: P0) -> i16
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::CHAR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VkKeyScanA(ch: super::super::super::Foundation::CHAR) -> i16;
@@ -2602,7 +2667,11 @@ pub unsafe fn VkKeyScanA<'a, Param0: ::std::convert::Into<super::super::super::F
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn VkKeyScanExA<'a, Param0: ::std::convert::Into<super::super::super::Foundation::CHAR>, Param1: ::std::convert::Into<super::super::TextServices::HKL>>(ch: Param0, dwhkl: Param1) -> i16 {
+pub unsafe fn VkKeyScanExA<'a, P0, P1>(ch: P0, dwhkl: P1) -> i16
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::CHAR>,
+    P1: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VkKeyScanExA(ch: super::super::super::Foundation::CHAR, dwhkl: super::super::TextServices::HKL) -> i16;
@@ -2612,7 +2681,10 @@ pub unsafe fn VkKeyScanExA<'a, Param0: ::std::convert::Into<super::super::super:
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn VkKeyScanExW<'a, Param1: ::std::convert::Into<super::super::TextServices::HKL>>(ch: u16, dwhkl: Param1) -> i16 {
+pub unsafe fn VkKeyScanExW<'a, P0>(ch: u16, dwhkl: P0) -> i16
+where
+    P0: ::std::convert::Into<super::super::TextServices::HKL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VkKeyScanExW(ch: u16, dwhkl: super::super::TextServices::HKL) -> i16;
@@ -2712,7 +2784,10 @@ impl ::core::default::Default for _VK_TO_FUNCTION_TABLE {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn keybd_event<'a, Param2: ::std::convert::Into<KEYBD_EVENT_FLAGS>>(bvk: u8, bscan: u8, dwflags: Param2, dwextrainfo: usize) {
+pub unsafe fn keybd_event<'a, P0>(bvk: u8, bscan: u8, dwflags: P0, dwextrainfo: usize)
+where
+    P0: ::std::convert::Into<KEYBD_EVENT_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
@@ -2721,7 +2796,10 @@ pub unsafe fn keybd_event<'a, Param2: ::std::convert::Into<KEYBD_EVENT_FLAGS>>(b
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
-pub unsafe fn mouse_event<'a, Param0: ::std::convert::Into<MOUSE_EVENT_FLAGS>>(dwflags: Param0, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize) {
+pub unsafe fn mouse_event<'a, P0>(dwflags: P0, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize)
+where
+    P0: ::std::convert::Into<MOUSE_EVENT_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);

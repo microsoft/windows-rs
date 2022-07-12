@@ -1662,7 +1662,10 @@ impl ImageFeatureValue {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Media\"`*"]
     #[cfg(feature = "Media")]
-    pub fn CreateFromVideoFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Media::VideoFrame>>>(image: Param0) -> ::windows::core::Result<ImageFeatureValue> {
+    pub fn CreateFromVideoFrame<'a, P0>(image: P0) -> ::windows::core::Result<ImageFeatureValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Media::VideoFrame>>,
+    {
         Self::IImageFeatureValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromVideoFrame)(::windows::core::Interface::as_raw(this), image.into().abi(), result__.as_mut_ptr()).from_abi::<ImageFeatureValue>(result__)
@@ -1842,7 +1845,11 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromStorageFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStorageFileAsync<'a, P0, E0>(modelfile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromStorageFileAsync)(::windows::core::Interface::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
@@ -1850,14 +1857,21 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStreamAsync<'a, P0, E0>(modelstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn LoadFromFilePath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(filepath: Param0) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromFilePath<'a, P0>(filepath: P0) -> ::windows::core::Result<LearningModel>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromFilePath)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
@@ -1865,7 +1879,11 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromStream<'a, P0, E0>(modelstream: P0) -> ::windows::core::Result<LearningModel>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromStream)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
@@ -1873,7 +1891,13 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromStorageFileWithOperatorProviderAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(modelfile: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStorageFileWithOperatorProviderAsync<'a, P0, E0, P1, E1>(modelfile: P0, operatorprovider: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
@@ -1881,14 +1905,25 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn LoadFromStreamWithOperatorProviderAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>> {
+    pub fn LoadFromStreamWithOperatorProviderAsync<'a, P0, E0, P1, E1>(modelstream: P0, operatorprovider: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LearningModel>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn LoadFromFilePathWithOperatorProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(filepath: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromFilePathWithOperatorProvider<'a, P0, P1, E1>(filepath: P0, operatorprovider: P1) -> ::windows::core::Result<LearningModel>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows::core::Interface::as_raw(this), filepath.into().abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
@@ -1896,7 +1931,13 @@ impl LearningModel {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProvider<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0, operatorprovider: Param1) -> ::windows::core::Result<LearningModel> {
+    pub fn LoadFromStreamWithOperatorProvider<'a, P0, E0, P1, E1>(modelstream: P0, operatorprovider: P1) -> ::windows::core::Result<LearningModel>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, ILearningModelOperatorProvider>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), operatorprovider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModel>(result__)
@@ -2006,13 +2047,23 @@ impl LearningModelBinding {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Bind<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn Bind<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BindWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, name: Param0, value: Param1, props: Param2) -> ::windows::core::Result<()> {
+    pub fn BindWithProperties<'a, P0, P1, P2, E2>(&self, name: P0, value: P1, props: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), props.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2022,7 +2073,10 @@ impl LearningModelBinding {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSession>>>(session: Param0) -> ::windows::core::Result<LearningModelBinding> {
+    pub fn CreateFromSession<'a, P0>(session: P0) -> ::windows::core::Result<LearningModelBinding>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSession>>,
+    {
         Self::ILearningModelBindingFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromSession)(::windows::core::Interface::as_raw(this), session.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBinding>(result__)
@@ -2030,7 +2084,10 @@ impl LearningModelBinding {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2048,7 +2105,10 @@ impl LearningModelBinding {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2212,7 +2272,10 @@ impl LearningModelDevice {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<LearningModelDeviceKind>>(devicekind: Param0) -> ::windows::core::Result<LearningModelDevice> {
+    pub fn Create<'a, P0>(devicekind: P0) -> ::windows::core::Result<LearningModelDevice>
+    where
+        P0: ::std::convert::Into<LearningModelDeviceKind>,
+    {
         Self::ILearningModelDeviceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), devicekind.into(), result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
@@ -2220,7 +2283,11 @@ impl LearningModelDevice {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromDirect3D11Device<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(device: Param0) -> ::windows::core::Result<LearningModelDevice> {
+    pub fn CreateFromDirect3D11Device<'a, P0, E0>(device: P0) -> ::windows::core::Result<LearningModelDevice>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ILearningModelDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromDirect3D11Device)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
@@ -2544,7 +2611,11 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EvaluateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
+    pub fn EvaluateAsync<'a, P0, P1>(&self, bindings: P0, correlationid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2553,7 +2624,12 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeaturesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>> {
+    pub fn EvaluateFeaturesAsync<'a, P0, E0, P1>(&self, features: P0, correlationid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2561,7 +2637,11 @@ impl LearningModelSession {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Evaluate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, bindings: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
+    pub fn Evaluate<'a, P0, P1>(&self, bindings: P0, correlationid: P1) -> ::windows::core::Result<LearningModelEvaluationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBinding>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2570,7 +2650,12 @@ impl LearningModelSession {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluateFeatures<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<LearningModelEvaluationResult> {
+    pub fn EvaluateFeatures<'a, P0, E0, P1>(&self, features: P0, correlationid: P1) -> ::windows::core::Result<LearningModelEvaluationResult>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2578,21 +2663,33 @@ impl LearningModelSession {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromModel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>>(model: Param0) -> ::windows::core::Result<LearningModelSession> {
+    pub fn CreateFromModel<'a, P0>(model: P0) -> ::windows::core::Result<LearningModelSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>,
+    {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromModel)(::windows::core::Interface::as_raw(this), model.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromModelOnDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>>(model: Param0, devicetorunon: Param1) -> ::windows::core::Result<LearningModelSession> {
+    pub fn CreateFromModelOnDevice<'a, P0, P1>(model: P0, devicetorunon: P1) -> ::windows::core::Result<LearningModelSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>,
+    {
         Self::ILearningModelSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromModelOnDevice)(::windows::core::Interface::as_raw(this), model.into().abi(), devicetorunon.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn CreateFromModelOnDeviceWithSessionOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSessionOptions>>>(model: Param0, devicetorunon: Param1, learningmodelsessionoptions: Param2) -> ::windows::core::Result<LearningModelSession> {
+    pub fn CreateFromModelOnDeviceWithSessionOptions<'a, P0, P1, P2>(model: P0, devicetorunon: P1, learningmodelsessionoptions: P2) -> ::windows::core::Result<LearningModelSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, LearningModel>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, LearningModelDevice>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, LearningModelSessionOptions>>,
+    {
         Self::ILearningModelSessionFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(::windows::core::Interface::as_raw(this), model.into().abi(), devicetorunon.into().abi(), learningmodelsessionoptions.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelSession>(result__)
@@ -2731,7 +2828,10 @@ impl LearningModelSessionOptions {
         unsafe { (::windows::core::Interface::vtable(this).SetCloseModelOnSessionCreation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn OverrideNamedDimension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, dimension: u32) -> ::windows::core::Result<()> {
+    pub fn OverrideNamedDimension<'a, P0>(&self, name: P0, dimension: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ILearningModelSessionOptions3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).OverrideNamedDimension)(::windows::core::Interface::as_raw(this), name.into().abi(), dimension).ok() }
     }
@@ -3120,7 +3220,11 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorBoolean> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorBoolean>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
@@ -3128,7 +3232,11 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[bool]) -> ::windows::core::Result<TensorBoolean> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[bool]) -> ::windows::core::Result<TensorBoolean>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
@@ -3136,7 +3244,13 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<bool>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorBoolean> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorBoolean>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<bool>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
@@ -3151,7 +3265,11 @@ impl TensorBoolean {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorBoolean> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorBoolean>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorBoolean>(result__)
@@ -3374,7 +3492,11 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorDouble> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorDouble>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
@@ -3382,7 +3504,11 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[f64]) -> ::windows::core::Result<TensorDouble> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[f64]) -> ::windows::core::Result<TensorDouble>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
@@ -3390,7 +3516,13 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f64>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorDouble> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorDouble>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f64>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
@@ -3405,7 +3537,11 @@ impl TensorDouble {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorDouble> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorDouble>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorDouble>(result__)
@@ -3763,7 +3899,11 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorFloat> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorFloat>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
@@ -3771,7 +3911,11 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[f32]) -> ::windows::core::Result<TensorFloat> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[f32]) -> ::windows::core::Result<TensorFloat>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
@@ -3779,7 +3923,13 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorFloat>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
@@ -3794,7 +3944,11 @@ impl TensorFloat {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorFloat> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorFloat>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat>(result__)
@@ -4017,7 +4171,11 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorFloat16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
@@ -4025,7 +4183,11 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[f32]) -> ::windows::core::Result<TensorFloat16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
@@ -4033,7 +4195,13 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorFloat16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<f32>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
@@ -4048,7 +4216,11 @@ impl TensorFloat16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorFloat16Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorFloat16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorFloat16Bit>(result__)
@@ -4271,7 +4443,11 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
@@ -4279,7 +4455,11 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[i16]) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[i16]) -> ::windows::core::Result<TensorInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
@@ -4287,7 +4467,13 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i16>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i16>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
@@ -4302,7 +4488,11 @@ impl TensorInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt16Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt16Bit>(result__)
@@ -4525,7 +4715,11 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
@@ -4533,7 +4727,11 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[i32]) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[i32]) -> ::windows::core::Result<TensorInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
@@ -4541,7 +4739,13 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i32>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
@@ -4556,7 +4760,11 @@ impl TensorInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt32Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt32Bit>(result__)
@@ -4779,7 +4987,11 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
@@ -4787,7 +4999,11 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[i64]) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[i64]) -> ::windows::core::Result<TensorInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
@@ -4795,7 +5011,13 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
@@ -4810,7 +5032,11 @@ impl TensorInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt64Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt64Bit>(result__)
@@ -5033,7 +5259,11 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
@@ -5041,7 +5271,11 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u8]) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u8]) -> ::windows::core::Result<TensorInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
@@ -5049,7 +5283,13 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
@@ -5064,7 +5304,11 @@ impl TensorInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorInt8Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorInt8Bit>(result__)
@@ -5335,7 +5579,11 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorString> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorString>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
@@ -5343,7 +5591,11 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[::windows::core::HSTRING]) -> ::windows::core::Result<TensorString>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
@@ -5351,7 +5603,13 @@ impl TensorString {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorString> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorString>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorString>(result__)
@@ -5581,7 +5839,11 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
@@ -5589,7 +5851,11 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u16]) -> ::windows::core::Result<TensorUInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
@@ -5597,7 +5863,13 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u16>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u16>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
@@ -5612,7 +5884,11 @@ impl TensorUInt16Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt16Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt16Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt16Bit>(result__)
@@ -5835,7 +6111,11 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
@@ -5843,7 +6123,11 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u32]) -> ::windows::core::Result<TensorUInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
@@ -5851,7 +6135,13 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
@@ -5866,7 +6156,11 @@ impl TensorUInt32Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt32Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt32Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt32Bit>(result__)
@@ -6089,7 +6383,11 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
@@ -6097,7 +6395,11 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u64]) -> ::windows::core::Result<TensorUInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
@@ -6105,7 +6407,13 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u64>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u64>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
@@ -6120,7 +6428,11 @@ impl TensorUInt64Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt64Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt64Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt64Bit>(result__)
@@ -6343,7 +6655,11 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create2<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn Create2<'a, P0, E0>(shape: P0) -> ::windows::core::Result<TensorUInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create2)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
@@ -6351,7 +6667,11 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn CreateFromArray<'a, P0, E0>(shape: P0, data: &[u8]) -> ::windows::core::Result<TensorUInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromArray)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.len() as u32, ::core::mem::transmute(data.as_ptr()), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
@@ -6359,7 +6679,13 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIterable<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: Param0, data: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn CreateFromIterable<'a, P0, E0, P1, E1>(shape: P0, data: P1) -> ::windows::core::Result<TensorUInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<i64>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u8>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromIterable)(::windows::core::Interface::as_raw(this), shape.try_into().map_err(|e| e.into())?.abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)
@@ -6374,7 +6700,11 @@ impl TensorUInt8Bit {
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(shape: &[i64], buffer: Param1) -> ::windows::core::Result<TensorUInt8Bit> {
+    pub fn CreateFromBuffer<'a, P0, E0>(shape: &[i64], buffer: P0) -> ::windows::core::Result<TensorUInt8Bit>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), shape.len() as u32, ::core::mem::transmute(shape.as_ptr()), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<TensorUInt8Bit>(result__)

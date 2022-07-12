@@ -6,7 +6,11 @@ pub struct IWSCDefaultProduct(::windows::core::IUnknown);
 impl IWSCDefaultProduct {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDefaultProduct<'a, Param0: ::std::convert::Into<SECURITY_PRODUCT_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, etype: Param0, pguid: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDefaultProduct<'a, P0, P1>(&self, etype: P0, pguid: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SECURITY_PRODUCT_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), etype.into(), pguid.into().abi()).ok()
     }
 }
@@ -88,7 +92,10 @@ pub struct IWSCProductList(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<WSC_SECURITY_PROVIDER>>(&self, provider: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Initialize<'a, P0>(&self, provider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WSC_SECURITY_PROVIDER>,
+    {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), provider.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
@@ -908,7 +915,10 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WscUnRegisterChanges<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hregistrationhandle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WscUnRegisterChanges<'a, P0>(hregistrationhandle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;

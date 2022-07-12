@@ -3,7 +3,10 @@ pub struct GameBar;
 impl GameBar {
     #[doc = "*Required features: `\"Gaming_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VisibilityChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VisibilityChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).VisibilityChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -16,7 +19,10 @@ impl GameBar {
     }
     #[doc = "*Required features: `\"Gaming_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsInputRedirectedChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn IsInputRedirectedChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).IsInputRedirectedChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -204,12 +210,20 @@ impl GameChatOverlay {
         }
     }
     #[doc = "*Required features: `\"Gaming_UI\"`*"]
-    pub fn SetDesiredPosition<'a, Param0: ::std::convert::Into<GameChatOverlayPosition>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDesiredPosition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GameChatOverlayPosition>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredPosition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_UI\"`*"]
-    pub fn AddMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<GameChatMessageOrigin>>(&self, sender: Param0, message: Param1, origin: Param2) -> ::windows::core::Result<()> {
+    pub fn AddMessage<'a, P0, P1, P2>(&self, sender: P0, message: P1, origin: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<GameChatMessageOrigin>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddMessage)(::windows::core::Interface::as_raw(this), sender.into().abi(), message.into().abi(), origin.into()).ok() }
     }
@@ -301,7 +315,10 @@ impl GameChatOverlayMessageSource {
     }
     #[doc = "*Required features: `\"Gaming_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -465,7 +482,10 @@ impl GameUIProviderActivatedEventArgs {
     }
     #[doc = "*Required features: `\"Gaming_UI\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(&self, results: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, P0>(&self, results: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), results.into().abi()).ok() }
     }

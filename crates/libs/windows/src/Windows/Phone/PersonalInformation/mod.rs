@@ -20,7 +20,10 @@ impl ContactAddress {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetCountry<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCountry<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCountry)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -33,7 +36,10 @@ impl ContactAddress {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetLocality<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocality<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocality)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -46,7 +52,10 @@ impl ContactAddress {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRegion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRegion)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -59,7 +68,10 @@ impl ContactAddress {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetPostalCode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPostalCode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPostalCode)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -72,7 +84,10 @@ impl ContactAddress {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetStreetAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStreetAddress<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStreetAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -293,7 +308,10 @@ impl ContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -306,7 +324,10 @@ impl ContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFamilyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFamilyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -319,7 +340,10 @@ impl ContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetGivenName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGivenName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGivenName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -332,7 +356,10 @@ impl ContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetHonorificPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHonorificPrefix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHonorificPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -345,7 +372,10 @@ impl ContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetHonorificSuffix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHonorificSuffix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHonorificSuffix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -360,7 +390,11 @@ impl ContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetDisplayPictureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetDisplayPictureAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -396,7 +430,10 @@ impl ContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ToVcardWithOptionsAsync<'a, Param0: ::std::convert::Into<VCardFormat>>(&self, format: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn ToVcardWithOptionsAsync<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
+    where
+        P0: ::std::convert::Into<VCardFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -405,7 +442,11 @@ impl ContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ParseVcardAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(vcard: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>> {
+    pub fn ParseVcardAsync<'a, P0, E0>(vcard: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IContactInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParseVcardAsync)(::windows::core::Interface::as_raw(this), vcard.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactInformation>>(result__)
@@ -527,7 +568,10 @@ impl ContactQueryOptions {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetOrderBy<'a, Param0: ::std::convert::Into<ContactQueryResultOrdering>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOrderBy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ContactQueryResultOrdering>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOrderBy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -737,7 +781,10 @@ pub struct ContactStore(::windows::core::IUnknown);
 impl ContactStore {
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FindContactByRemoteIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
+    pub fn FindContactByRemoteIdAsync<'a, P0>(&self, id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -746,7 +793,10 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FindContactByIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
+    pub fn FindContactByIdAsync<'a, P0>(&self, id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -755,7 +805,10 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteContactAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteContactAsync<'a, P0>(&self, id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -771,7 +824,10 @@ impl ContactStore {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn CreateContactQueryWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ContactQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<ContactQueryResult> {
+    pub fn CreateContactQueryWithOptions<'a, P0>(&self, options: P0) -> ::windows::core::Result<ContactQueryResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ContactQueryOptions>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -815,7 +871,11 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SaveExtendedPropertiesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, data: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveExtendedPropertiesAsync<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -824,7 +884,10 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMeContactAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>> {
+    pub fn CreateMeContactAsync<'a, P0>(&self, id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoredContact>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -841,7 +904,11 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateOrOpenWithOptionsAsync<'a, Param0: ::std::convert::Into<ContactStoreSystemAccessMode>, Param1: ::std::convert::Into<ContactStoreApplicationAccessMode>>(access: Param0, sharing: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
+    pub fn CreateOrOpenWithOptionsAsync<'a, P0, P1>(access: P0, sharing: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>
+    where
+        P0: ::std::convert::Into<ContactStoreSystemAccessMode>,
+        P1: ::std::convert::Into<ContactStoreApplicationAccessMode>,
+    {
         Self::IContactStoreStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateOrOpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), access.into(), sharing.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactStore>>(result__)
@@ -1034,7 +1101,10 @@ impl IContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1047,7 +1117,10 @@ impl IContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFamilyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFamilyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1060,7 +1133,10 @@ impl IContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetGivenName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGivenName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGivenName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1073,7 +1149,10 @@ impl IContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetHonorificPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHonorificPrefix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHonorificPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1086,7 +1165,10 @@ impl IContactInformation {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetHonorificSuffix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHonorificSuffix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHonorificSuffix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1101,7 +1183,11 @@ impl IContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetDisplayPictureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetDisplayPictureAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1137,7 +1223,10 @@ impl IContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ToVcardWithOptionsAsync<'a, Param0: ::std::convert::Into<VCardFormat>>(&self, format: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn ToVcardWithOptionsAsync<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
+    where
+        P0: ::std::convert::Into<VCardFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1828,7 +1917,10 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1841,7 +1933,10 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetFamilyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFamilyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFamilyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1854,7 +1949,10 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetGivenName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGivenName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetGivenName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1867,7 +1965,10 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetHonorificPrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHonorificPrefix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHonorificPrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1880,7 +1981,10 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetHonorificSuffix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHonorificSuffix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetHonorificSuffix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1895,7 +1999,11 @@ impl StoredContact {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetDisplayPictureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetDisplayPictureAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1931,7 +2039,10 @@ impl StoredContact {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ToVcardWithOptionsAsync<'a, Param0: ::std::convert::Into<VCardFormat>>(&self, format: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn ToVcardWithOptionsAsync<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
+    where
+        P0: ::std::convert::Into<VCardFormat>,
+    {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1978,7 +2089,10 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetRemoteId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2002,7 +2116,10 @@ impl StoredContact {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReplaceExistingContactAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ReplaceExistingContactAsync<'a, P0>(&self, id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2010,14 +2127,21 @@ impl StoredContact {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn CreateStoredContact<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ContactStore>>>(store: Param0) -> ::windows::core::Result<StoredContact> {
+    pub fn CreateStoredContact<'a, P0>(store: P0) -> ::windows::core::Result<StoredContact>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ContactStore>>,
+    {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStoredContact)(::windows::core::Interface::as_raw(this), store.into().abi(), result__.as_mut_ptr()).from_abi::<StoredContact>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn CreateStoredContactFromInformation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ContactStore>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ContactInformation>>>(store: Param0, contact: Param1) -> ::windows::core::Result<StoredContact> {
+    pub fn CreateStoredContactFromInformation<'a, P0, P1>(store: P0, contact: P1) -> ::windows::core::Result<StoredContact>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ContactStore>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ContactInformation>>,
+    {
         Self::IStoredContactFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStoredContactFromInformation)(::windows::core::Interface::as_raw(this), store.into().abi(), contact.into().abi(), result__.as_mut_ptr()).from_abi::<StoredContact>(result__)

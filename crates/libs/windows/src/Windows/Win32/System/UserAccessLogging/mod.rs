@@ -52,7 +52,12 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Resu
 }
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`*"]
 #[inline]
-pub unsafe fn UalRegisterProduct<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(wszproductname: Param0, wszrolename: Param1, wszguid: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn UalRegisterProduct<'a, P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UalRegisterProduct(wszproductname: ::windows::core::PCWSTR, wszrolename: ::windows::core::PCWSTR, wszguid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;

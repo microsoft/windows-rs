@@ -235,7 +235,10 @@ impl IWdsTransportClient {
         (::windows::core::Interface::vtable(self).UserIdentity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn Disconnect<'a, Param0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>>(&self, disconnectiontype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Disconnect<'a, P0>(&self, disconnectiontype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), disconnectiontype.into()).ok()
     }
 }
@@ -473,7 +476,10 @@ impl IWdsTransportConfigurationManager {
         (::windows::core::Interface::vtable(self).RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn NotifyWdsTransportServices<'a, Param0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>>(&self, servicenotification: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn NotifyWdsTransportServices<'a, P0>(&self, servicenotification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>,
+    {
         (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification.into()).ok()
     }
 }
@@ -603,7 +609,10 @@ impl IWdsTransportConfigurationManager2 {
         (::windows::core::Interface::vtable(self).base__.RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn NotifyWdsTransportServices<'a, Param0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>>(&self, servicenotification: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn NotifyWdsTransportServices<'a, P0>(&self, servicenotification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>,
+    {
         (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
@@ -1070,7 +1079,10 @@ pub struct IWdsTransportManager(::windows::core::IUnknown);
 impl IWdsTransportManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetWdsTransportServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszservername: Param0) -> ::windows::core::Result<IWdsTransportServer> {
+    pub unsafe fn GetWdsTransportServer<'a, P0>(&self, bszservername: P0) -> ::windows::core::Result<IWdsTransportServer>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::windows::core::Interface::as_raw(self), bszservername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportServer>(result__)
     }
@@ -1175,7 +1187,10 @@ impl IWdsTransportMulticastSessionPolicy {
         (::windows::core::Interface::vtable(self).SlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetSlowClientHandling<'a, Param0: ::std::convert::Into<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>>(&self, slowclienthandling: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSlowClientHandling<'a, P0>(&self, slowclienthandling: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), slowclienthandling.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -1323,7 +1338,10 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1334,7 +1352,10 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFriendlyName<'a, P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1345,7 +1366,10 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDescription<'a, P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1356,7 +1380,10 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetContentProvider<'a, P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1367,7 +1394,10 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetConfiguration<'a, P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -1563,7 +1593,10 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1574,7 +1607,10 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFriendlyName<'a, P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1585,7 +1621,10 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDescription<'a, P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1596,7 +1635,10 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetContentProvider<'a, P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1607,7 +1649,10 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetConfiguration<'a, P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -1748,19 +1793,32 @@ pub struct IWdsTransportNamespaceManager(::windows::core::IUnknown);
 impl IWdsTransportNamespaceManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateNamespace<'a, Param0: ::std::convert::Into<WDSTRANSPORT_NAMESPACE_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, namespacetype: Param0, bsznamespacename: Param1, bszcontentprovider: Param2, bszconfiguration: Param3) -> ::windows::core::Result<IWdsTransportNamespace> {
+    pub unsafe fn CreateNamespace<'a, P0, P1, P2, P3>(&self, namespacetype: P0, bsznamespacename: P1, bszcontentprovider: P2, bszconfiguration: P3) -> ::windows::core::Result<IWdsTransportNamespace>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_NAMESPACE_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), namespacetype.into(), bsznamespacename.into().abi(), bszcontentprovider.into().abi(), bszconfiguration.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RetrieveNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bsznamespacename: Param0) -> ::windows::core::Result<IWdsTransportNamespace> {
+    pub unsafe fn RetrieveNamespace<'a, P0>(&self, bsznamespacename: P0) -> ::windows::core::Result<IWdsTransportNamespace>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveNamespace)(::windows::core::Interface::as_raw(self), bsznamespacename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RetrieveNamespaces<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0, bsznamespacename: Param1, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection> {
+    pub unsafe fn RetrieveNamespaces<'a, P0, P1>(&self, bszcontentprovider: P0, bsznamespacename: P1, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi(), bsznamespacename.into().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportCollection>(result__)
     }
@@ -1868,7 +1926,10 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1879,7 +1940,10 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFriendlyName<'a, P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1890,7 +1954,10 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDescription<'a, P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1901,7 +1968,10 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetContentProvider<'a, P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -1912,7 +1982,10 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetConfiguration<'a, P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -2074,7 +2147,10 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2085,7 +2161,10 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFriendlyName<'a, P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2096,7 +2175,10 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDescription<'a, P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2107,7 +2189,10 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetContentProvider<'a, P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2118,7 +2203,10 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetConfiguration<'a, P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -2319,7 +2407,10 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetName<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2330,7 +2421,10 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetFriendlyName<'a, P0>(&self, bszfriendlyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2341,7 +2435,10 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDescription<'a, P0>(&self, bszdescription: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2352,7 +2449,10 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetContentProvider<'a, P0>(&self, bszcontentprovider: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
@@ -2363,7 +2463,10 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetConfiguration<'a, P0>(&self, bszconfiguration: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -2549,7 +2652,10 @@ impl IWdsTransportServer {
         (::windows::core::Interface::vtable(self).NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn DisconnectClient<'a, Param1: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>>(&self, ulclientid: u32, disconnectiontype: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn DisconnectClient<'a, P0>(&self, ulclientid: u32, disconnectiontype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), disconnectiontype.into()).ok()
     }
 }
@@ -2668,7 +2774,10 @@ impl IWdsTransportServer2 {
         (::windows::core::Interface::vtable(self).base__.NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn DisconnectClient<'a, Param1: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>>(&self, ulclientid: u32, disconnectiontype: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn DisconnectClient<'a, P0>(&self, ulclientid: u32, disconnectiontype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), disconnectiontype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
@@ -2791,34 +2900,55 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn get_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
+    pub unsafe fn get_IpAddressSource<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
         (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn put_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>>(&self, addresstype: Param0, sourcetype: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_IpAddressSource<'a, P0, P1>(&self, addresstype: P0, sourcetype: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+        P1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), sourcetype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_StartIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_StartIpAddress<'a, P0, P1>(&self, addresstype: P0, bszstartipaddress: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_EndIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszendipaddress: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_EndIpAddress<'a, P0, P1>(&self, addresstype: P0, bszendipaddress: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -2845,7 +2975,10 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetNetworkProfile<'a, Param0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>>(&self, profiletype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetNetworkProfile<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype.into()).ok()
     }
 }
@@ -2982,34 +3115,55 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn get_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
+    pub unsafe fn get_IpAddressSource<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn put_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>>(&self, addresstype: Param0, sourcetype: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_IpAddressSource<'a, P0, P1>(&self, addresstype: P0, sourcetype: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+        P1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), sourcetype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_StartIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_StartIpAddress<'a, P0, P1>(&self, addresstype: P0, bszstartipaddress: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_EndIpAddress<'a, P0>(&self, addresstype: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszendipaddress: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_EndIpAddress<'a, P0, P1>(&self, addresstype: P0, bszendipaddress: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -3036,7 +3190,10 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base__.NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetNetworkProfile<'a, Param0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>>(&self, profiletype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetNetworkProfile<'a, P0>(&self, profiletype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -3045,7 +3202,10 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).UdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_UDP_PORT_POLICY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetUdpPortPolicy<'a, Param0: ::std::convert::Into<WDSTRANSPORT_UDP_PORT_POLICY>>(&self, udpportpolicy: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUdpPortPolicy<'a, P0>(&self, udpportpolicy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WDSTRANSPORT_UDP_PORT_POLICY>,
+    {
         (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), udpportpolicy.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -3336,12 +3496,21 @@ impl IWdsTransportSetupManager {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterContentProvider<'a, P0, P1, P2, P3>(&self, bszname: P0, bszdescription: P1, bszfilepath: P2, bszinitializationroutine: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi(), bszdescription.into().abi(), bszfilepath.into().abi(), bszinitializationroutine.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeregisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn DeregisterContentProvider<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
 }
@@ -3446,12 +3615,21 @@ impl IWdsTransportSetupManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterContentProvider<'a, P0, P1, P2, P3>(&self, bszname: P0, bszdescription: P1, bszfilepath: P2, bszinitializationroutine: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi(), bszdescription.into().abi(), bszfilepath.into().abi(), bszinitializationroutine.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeregisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn DeregisterContentProvider<'a, P0>(&self, bszname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
@@ -4242,7 +4420,10 @@ pub const PXE_TRACE_WARNING: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hclientrequest: Param0, action: u32) -> u32 {
+pub unsafe fn PxeAsyncRecvDone<'a, P0>(hclientrequest: P0, action: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE, action: u32) -> u32;
@@ -4297,7 +4478,10 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpa
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeDhcpIsValid<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn PxeDhcpIsValid<'a, P0>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: P0, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
@@ -4361,7 +4545,10 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbreques
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn PxeDhcpv6IsValid<'a, P0>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: P0, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
@@ -4398,7 +4585,11 @@ pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_vo
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxePacketAllocate<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, usize: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn PxePacketAllocate<'a, P0, P1>(hprovider: P0, hclientrequest: P1, usize: u32) -> *mut ::core::ffi::c_void
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxePacketAllocate(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, usize: u32) -> *mut ::core::ffi::c_void;
@@ -4408,7 +4599,11 @@ pub unsafe fn PxePacketAllocate<'a, Param0: ::std::convert::Into<super::super::F
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxePacketFree<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, ppacket: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxePacketFree<'a, P0, P1>(hprovider: P0, hclientrequest: P1, ppacket: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxePacketFree(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void) -> u32;
@@ -4418,7 +4613,10 @@ pub unsafe fn PxePacketFree<'a, Param0: ::std::convert::Into<super::super::Found
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderEnumClose<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
+pub unsafe fn PxeProviderEnumClose<'a, P0>(henum: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderEnumClose(henum: super::super::Foundation::HANDLE) -> u32;
@@ -4438,7 +4636,10 @@ pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderEnumNext<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(henum: Param0, ppprovider: *mut *mut PXE_PROVIDER) -> u32 {
+pub unsafe fn PxeProviderEnumNext<'a, P0>(henum: P0, ppprovider: *mut *mut PXE_PROVIDER) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
@@ -4457,7 +4658,10 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pszprovidername: Param0, puindex: *mut u32) -> u32 {
+pub unsafe fn PxeProviderQueryIndex<'a, P0>(pszprovidername: P0, puindex: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderQueryIndex(pszprovidername: ::windows::core::PCWSTR, puindex: *mut u32) -> u32;
@@ -4467,7 +4671,12 @@ pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::std::convert::Into<::windows::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn PxeProviderRegister<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(pszprovidername: Param0, pszmodulepath: Param1, index: u32, biscritical: Param3, phproviderkey: *mut super::Registry::HKEY) -> u32 {
+pub unsafe fn PxeProviderRegister<'a, P0, P1, P2>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P2, phproviderkey: *mut super::Registry::HKEY) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderRegister(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
@@ -4477,7 +4686,10 @@ pub unsafe fn PxeProviderRegister<'a, Param0: ::std::convert::Into<::windows::co
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32 {
+pub unsafe fn PxeProviderSetAttribute<'a, P0>(hprovider: P0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32;
@@ -4486,7 +4698,10 @@ pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::std::convert::Into<super::su
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeProviderUnRegister<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pszprovidername: Param0) -> u32 {
+pub unsafe fn PxeProviderUnRegister<'a, P0>(pszprovidername: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderUnRegister(pszprovidername: ::windows::core::PCWSTR) -> u32;
@@ -4496,7 +4711,10 @@ pub unsafe fn PxeProviderUnRegister<'a, Param0: ::std::convert::Into<::windows::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeRegisterCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxeRegisterCallback<'a, P0>(hprovider: P0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
@@ -4506,7 +4724,10 @@ pub unsafe fn PxeRegisterCallback<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeSendReply<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hclientrequest: Param0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
+pub unsafe fn PxeSendReply<'a, P0>(hclientrequest: P0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32;
@@ -4516,7 +4737,11 @@ pub unsafe fn PxeSendReply<'a, Param0: ::std::convert::Into<super::super::Founda
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeTrace<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2) -> u32 {
+pub unsafe fn PxeTrace<'a, P0, P1>(hprovider: P0, severity: u32, pszformat: P1) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32;
@@ -4526,7 +4751,11 @@ pub unsafe fn PxeTrace<'a, Param0: ::std::convert::Into<super::super::Foundation
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeTraceV<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2, params: *const i8) -> u32 {
+pub unsafe fn PxeTraceV<'a, P0, P1>(hprovider: P0, severity: u32, pszformat: P1, params: *const i8) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR, params: *const i8) -> u32;
@@ -5572,7 +5801,10 @@ impl ::core::default::Default for WDS_TRANSPORTPROVIDER_SETTINGS {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpAddOption<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn WdsBpAddOption<'a, P0>(hhandle: P0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32;
@@ -5582,7 +5814,10 @@ pub unsafe fn WdsBpAddOption<'a, Param0: ::std::convert::Into<super::super::Foun
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpCloseHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0) -> u32 {
+pub unsafe fn WdsBpCloseHandle<'a, P0>(hhandle: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpCloseHandle(hhandle: super::super::Foundation::HANDLE) -> u32;
@@ -5592,7 +5827,10 @@ pub unsafe fn WdsBpCloseHandle<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
+pub unsafe fn WdsBpGetOptionBuffer<'a, P0>(hhandle: P0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpGetOptionBuffer(hhandle: super::super::Foundation::HANDLE, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
@@ -5632,7 +5870,10 @@ pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacke
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpQueryOption<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
+pub unsafe fn WdsBpQueryOption<'a, P0>(hhandle: P0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
@@ -5642,7 +5883,10 @@ pub unsafe fn WdsBpQueryOption<'a, Param0: ::std::convert::Into<super::super::Fo
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliAuthorizeSession<'a, P0>(hsession: P0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> ::windows::core::HRESULT;
@@ -5652,7 +5896,10 @@ pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliCancelTransfer<'a, P0>(htransfer: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5662,7 +5909,10 @@ pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliClose<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliClose<'a, P0>(handle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5672,7 +5922,10 @@ pub unsafe fn WdsCliClose<'a, Param0: ::std::convert::Into<super::super::Foundat
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliCreateSession<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwszserver: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliCreateSession<'a, P0>(pwszserver: P0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliCreateSession(pwszserver: ::windows::core::PCWSTR, pcred: *const WDS_CLI_CRED, phsession: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5683,7 +5936,10 @@ pub unsafe fn WdsCliCreateSession<'a, Param0: ::std::convert::Into<::windows::co
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliFindFirstImage<'a, P0>(hsession: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE, phfindhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5694,7 +5950,10 @@ pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliFindNextImage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliFindNextImage<'a, P0>(handle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5716,7 +5975,10 @@ pub unsafe fn WdsCliFreeStringArray(ppwszarray: &mut [::windows::core::PWSTR]) -
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(pwszwindirpath: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetDriverQueryXml<'a, P0>(pwszwindirpath: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetDriverQueryXml(pwszwindirpath: ::windows::core::PCWSTR, ppwszdriverquery: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5727,7 +5989,10 @@ pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::std::convert::Into<::windows
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<u32> {
+pub unsafe fn WdsCliGetEnumerationFlags<'a, P0>(handle: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetEnumerationFlags(handle: super::super::Foundation::HANDLE, pdwflags: *mut u32) -> ::windows::core::HRESULT;
@@ -5738,7 +6003,10 @@ pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<CPU_ARCHITECTURE> {
+pub unsafe fn WdsCliGetImageArchitecture<'a, P0>(hifh: P0) -> ::windows::core::Result<CPU_ARCHITECTURE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageArchitecture(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut CPU_ARCHITECTURE) -> ::windows::core::HRESULT;
@@ -5749,7 +6017,10 @@ pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageDescription<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5760,7 +6031,10 @@ pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliGetImageFiles<'a, P0>(hifh: P0, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::HRESULT;
@@ -5770,7 +6044,10 @@ pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageGroup<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5781,7 +6058,10 @@ pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageHalName<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageHalName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5792,7 +6072,10 @@ pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(findhandle: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, P0>(findhandle: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageHandleFromFindHandle(findhandle: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5803,7 +6086,10 @@ pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::std::convert::Int
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, P0>(htransfer: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageHandleFromTransferHandle(htransfer: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -5814,7 +6100,10 @@ pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::std::convert:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u32> {
+pub unsafe fn WdsCliGetImageIndex<'a, P0>(hifh: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageIndex(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
@@ -5825,7 +6114,10 @@ pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageLanguage<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5836,7 +6128,10 @@ pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliGetImageLanguages<'a, P0>(hifh: P0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
@@ -5846,7 +6141,10 @@ pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<*mut super::super::Foundation::SYSTEMTIME> {
+pub unsafe fn WdsCliGetImageLastModifiedTime<'a, P0>(hifh: P0) -> ::windows::core::Result<*mut super::super::Foundation::SYSTEMTIME>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HANDLE, ppsystimevalue: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
@@ -5857,7 +6155,10 @@ pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageName<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageName<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5868,7 +6169,10 @@ pub unsafe fn WdsCliGetImageName<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageNamespace<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5879,7 +6183,11 @@ pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<WDS_CLI_IMAGE_PARAM_TYPE>>(hifh: Param0, paramtype: Param1, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliGetImageParameter<'a, P0, P1>(hifh: P0, paramtype: P1, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<WDS_CLI_IMAGE_PARAM_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
@@ -5889,7 +6197,10 @@ pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImagePath<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImagePath<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5900,7 +6211,10 @@ pub unsafe fn WdsCliGetImagePath<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageSize<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
+pub unsafe fn WdsCliGetImageSize<'a, P0>(hifh: P0) -> ::windows::core::Result<u64>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
@@ -5911,7 +6225,10 @@ pub unsafe fn WdsCliGetImageSize<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageType<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<WDS_CLI_IMAGE_TYPE> {
+pub unsafe fn WdsCliGetImageType<'a, P0>(hifh: P0) -> ::windows::core::Result<WDS_CLI_IMAGE_TYPE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageType(hifh: super::super::Foundation::HANDLE, pimagetype: *mut WDS_CLI_IMAGE_TYPE) -> ::windows::core::HRESULT;
@@ -5922,7 +6239,10 @@ pub unsafe fn WdsCliGetImageType<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageVersion<'a, P0>(hifh: P0) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageVersion(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
@@ -5933,7 +6253,10 @@ pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
+pub unsafe fn WdsCliGetTransferSize<'a, P0>(hifh: P0) -> ::windows::core::Result<u64>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
@@ -5944,7 +6267,13 @@ pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliInitializeLog<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<CPU_ARCHITECTURE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(hsession: Param0, ulclientarchitecture: Param1, pwszclientid: Param2, pwszclientaddress: Param3) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliInitializeLog<'a, P0, P1, P2, P3>(hsession: P0, ulclientarchitecture: P1, pwszclientid: P2, pwszclientaddress: P3) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<CPU_ARCHITECTURE>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
@@ -5954,7 +6283,10 @@ pub unsafe fn WdsCliInitializeLog<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliLog<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliLog<'a, P0>(hsession: P0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
@@ -5964,7 +6296,10 @@ pub unsafe fn WdsCliLog<'a, Param0: ::std::convert::Into<super::super::Foundatio
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(himage: Param0, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliObtainDriverPackages<'a, P0>(himage: P0, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
@@ -5974,7 +6309,11 @@ pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hsession: Param0, pwszmachineinfo: Param1, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliObtainDriverPackagesEx<'a, P0, P1>(hsession: P0, pwszmachineinfo: P1, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliObtainDriverPackagesEx(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: ::windows::core::PCWSTR, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
@@ -6002,7 +6341,13 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(pwszserver: Param0, pwsznamespace: Param1, pwszremotefilepath: Param2, pwszlocalfilepath: Param3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliTransferFile<'a, P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -6013,7 +6358,11 @@ pub unsafe fn WdsCliTransferFile<'a, Param0: ::std::convert::Into<::windows::cor
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferImage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliTransferImage<'a, P0, P1>(himage: P0, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -6024,7 +6373,10 @@ pub unsafe fn WdsCliTransferImage<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliWaitForTransfer<'a, P0>(htransfer: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
@@ -6045,7 +6397,10 @@ pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_voi
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
+pub unsafe fn WdsTransportClientCancelSession<'a, P0>(hsessionkey: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCancelSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
@@ -6055,7 +6410,10 @@ pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::std::convert::Into<s
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, dwerrorcode: u32) -> u32 {
+pub unsafe fn WdsTransportClientCancelSessionEx<'a, P0>(hsessionkey: P0, dwerrorcode: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCancelSessionEx(hsessionkey: super::super::Foundation::HANDLE, dwerrorcode: u32) -> u32;
@@ -6065,7 +6423,10 @@ pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::std::convert::Into
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
+pub unsafe fn WdsTransportClientCloseSession<'a, P0>(hsessionkey: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCloseSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
@@ -6075,7 +6436,10 @@ pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, ulsize: u32, pulloffset: *const u64) -> u32 {
+pub unsafe fn WdsTransportClientCompleteReceive<'a, P0>(hsessionkey: P0, ulsize: u32, pulloffset: *const u64) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCompleteReceive(hsessionkey: super::super::Foundation::HANDLE, ulsize: u32, pulloffset: *const u64) -> u32;
@@ -6104,7 +6468,10 @@ pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TR
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32 {
+pub unsafe fn WdsTransportClientQueryStatus<'a, P0>(hsessionkey: P0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientQueryStatus(hsessionkey: super::super::Foundation::HANDLE, pustatus: *mut u32, puerrorcode: *mut u32) -> u32;
@@ -6114,7 +6481,11 @@ pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::std::convert::Into<sup
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<TRANSPORTCLIENT_CALLBACK_ID>>(hsessionkey: Param0, callbackid: Param1, pfncallback: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn WdsTransportClientRegisterCallback<'a, P0, P1>(hsessionkey: P0, callbackid: P1, pfncallback: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<TRANSPORTCLIENT_CALLBACK_ID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
@@ -6142,7 +6513,10 @@ pub unsafe fn WdsTransportClientShutdown() -> u32 {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
+pub unsafe fn WdsTransportClientStartSession<'a, P0>(hsessionkey: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientStartSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
@@ -6152,7 +6526,10 @@ pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, utimeout: u32) -> u32 {
+pub unsafe fn WdsTransportClientWaitForCompletion<'a, P0>(hsessionkey: P0, utimeout: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientWaitForCompletion(hsessionkey: super::super::Foundation::HANDLE, utimeout: u32) -> u32;
@@ -6176,7 +6553,10 @@ pub const WdsTransportServer: ::windows::core::GUID = ::windows::core::GUID::fro
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, ulbuffersize: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn WdsTransportServerAllocateBuffer<'a, P0>(hprovider: P0, ulbuffersize: u32) -> *mut ::core::ffi::c_void
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundation::HANDLE, ulbuffersize: u32) -> *mut ::core::ffi::c_void;
@@ -6186,7 +6566,10 @@ pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::std::convert::Into<
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerCompleteRead<'a, P0>(hprovider: P0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
@@ -6196,7 +6579,10 @@ pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::std::convert::Into<su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerFreeBuffer<'a, P0>(hprovider: P0, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -6206,7 +6592,11 @@ pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::std::convert::Into<supe
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<TRANSPORTPROVIDER_CALLBACK_ID>>(hprovider: Param0, callbackid: Param1, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerRegisterCallback<'a, P0, P1>(hprovider: P0, callbackid: P1, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<TRANSPORTPROVIDER_CALLBACK_ID>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -6216,7 +6606,11 @@ pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::std::convert::Int
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerTrace<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerTrace<'a, P0, P1>(hprovider: P0, severity: u32, pwszformat: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
@@ -6226,7 +6620,11 @@ pub unsafe fn WdsTransportServerTrace<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2, params: *const i8) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerTraceV<'a, P0, P1>(hprovider: P0, severity: u32, pwszformat: P1, params: *const i8) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR, params: *const i8) -> ::windows::core::HRESULT;

@@ -248,7 +248,10 @@ impl UserDataAccountProviderAddAccountOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
-    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, userdataaccountid: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, P0>(&self, userdataaccountid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), userdataaccountid.into().abi()).ok() }
     }

@@ -62,7 +62,10 @@ impl SceneLightingEffect {
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), name.into().abi()).ok() }
     }
@@ -103,7 +106,11 @@ impl SceneLightingEffect {
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
-    pub fn SetNormalMapSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNormalMapSource<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNormalMapSource)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -142,7 +149,10 @@ impl SceneLightingEffect {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
-    pub fn SetReflectanceModel<'a, Param0: ::std::convert::Into<SceneLightingEffectReflectanceModel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReflectanceModel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SceneLightingEffectReflectanceModel>,
+    {
         let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

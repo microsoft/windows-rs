@@ -19,7 +19,11 @@ impl AnalyticsInfo {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemPropertiesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(attributenames: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+    pub fn GetSystemPropertiesAsync<'a, P0, E0>(attributenames: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows::core::Interface::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
@@ -135,7 +139,11 @@ pub struct AppApplicability;
 impl AppApplicability {
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUnsupportedAppRequirements<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(capabilities: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>> {
+    pub fn GetUnsupportedAppRequirements<'a, P0, E0>(capabilities: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Interface::as_raw(this), capabilities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>(result__)
@@ -174,7 +182,11 @@ pub struct HardwareIdentification;
 impl HardwareIdentification {
     #[doc = "*Required features: `\"System_Profile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPackageSpecificToken<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(nonce: Param0) -> ::windows::core::Result<HardwareToken> {
+    pub fn GetPackageSpecificToken<'a, P0, E0>(nonce: P0) -> ::windows::core::Result<HardwareToken>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetPackageSpecificToken)(::windows::core::Interface::as_raw(this), nonce.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<HardwareToken>(result__)
@@ -812,7 +824,10 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CollectionLevelChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CollectionLevelChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).CollectionLevelChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -824,7 +839,10 @@ impl PlatformDiagnosticsAndUsageDataSettings {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"System_Profile\"`*"]
-    pub fn CanCollectDiagnostics<'a, Param0: ::std::convert::Into<PlatformDataCollectionLevel>>(level: Param0) -> ::windows::core::Result<bool> {
+    pub fn CanCollectDiagnostics<'a, P0>(level: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<PlatformDataCollectionLevel>,
+    {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).CanCollectDiagnostics)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -908,7 +926,10 @@ impl SystemIdentification {
         })
     }
     #[doc = "*Required features: `\"System_Profile\"`*"]
-    pub fn GetSystemIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<SystemIdentificationInfo> {
+    pub fn GetSystemIdForUser<'a, P0>(user: P0) -> ::windows::core::Result<SystemIdentificationInfo>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+    {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetSystemIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<SystemIdentificationInfo>(result__)
@@ -1090,7 +1111,10 @@ impl SystemSetupInfo {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OutOfBoxExperienceStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn OutOfBoxExperienceStateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -1288,7 +1312,10 @@ impl WindowsIntegrityPolicy {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PolicyChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PolicyChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)

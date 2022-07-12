@@ -11,9 +11,9 @@ fn test() -> Result<()> {
         writer.SetOutput(&stream)?;
 
         writer.WriteStartDocument(XmlStandalone_Omit)?;
-        writer.WriteStartElement(PCWSTR::default(), PCWSTR::from(&"html".into()), PCWSTR::default())?;
-        writer.WriteElementString(PCWSTR::default(), PCWSTR::from(&"head".into()), PCWSTR::default(), PCWSTR::from(&"The quick brown fox jumps over the lazy dog".into()))?;
-        writer.WriteStartElement(PCWSTR::default(), PCWSTR::from(&"body".into()), PCWSTR::default())?;
+        writer.WriteStartElement(PCWSTR::null(), w!("html"), PCWSTR::null())?;
+        writer.WriteElementString(PCWSTR::null(), w!("head"), PCWSTR::null(), w!("The quick brown fox jumps over the lazy dog"))?;
+        writer.WriteStartElement(PCWSTR::null(), w!("body"), PCWSTR::null())?;
         writer.WriteChars(&[])?;
         writer.WriteChars(&[0x52, 0x75, 0x73, 0x74])?;
         writer.WriteEndDocument()?;
@@ -31,7 +31,7 @@ fn test() -> Result<()> {
         reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_XmlDeclaration);
 
-        let mut name = PWSTR::default();
+        let mut name = PWSTR::null();
         let mut name_len = 0;
 
         let mut node_type = XmlNodeType_None;
@@ -108,7 +108,7 @@ fn lite() -> Result<()> {
         let reader = reader.unwrap();
         reader.SetInput(&stream)?;
 
-        let mut name = PWSTR::default();
+        let mut name = PWSTR::null();
         let mut name_len = 0;
 
         let mut node_type = XmlNodeType_None;

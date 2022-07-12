@@ -14,7 +14,10 @@ impl HttpDiagnosticProvider {
     }
     #[doc = "*Required features: `\"Web_Http_Diagnostics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RequestSent<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -29,7 +32,10 @@ impl HttpDiagnosticProvider {
     }
     #[doc = "*Required features: `\"Web_Http_Diagnostics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ResponseReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ResponseReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -44,7 +50,10 @@ impl HttpDiagnosticProvider {
     }
     #[doc = "*Required features: `\"Web_Http_Diagnostics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestResponseCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RequestResponseCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -59,7 +68,10 @@ impl HttpDiagnosticProvider {
     }
     #[doc = "*Required features: `\"Web_Http_Diagnostics\"`, `\"System_Diagnostics\"`*"]
     #[cfg(feature = "System_Diagnostics")]
-    pub fn CreateFromProcessDiagnosticInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Diagnostics::ProcessDiagnosticInfo>>>(processdiagnosticinfo: Param0) -> ::windows::core::Result<HttpDiagnosticProvider> {
+    pub fn CreateFromProcessDiagnosticInfo<'a, P0>(processdiagnosticinfo: P0) -> ::windows::core::Result<HttpDiagnosticProvider>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Diagnostics::ProcessDiagnosticInfo>>,
+    {
         Self::IHttpDiagnosticProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromProcessDiagnosticInfo)(::windows::core::Interface::as_raw(this), processdiagnosticinfo.into().abi(), result__.as_mut_ptr()).from_abi::<HttpDiagnosticProvider>(result__)

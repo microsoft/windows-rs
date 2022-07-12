@@ -104,7 +104,10 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -117,7 +120,10 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetFormat<'a, Param0: ::std::convert::Into<MdmAlertDataType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MdmAlertDataType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -130,7 +136,10 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetMark<'a, Param0: ::std::convert::Into<MdmAlertMark>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMark<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MdmAlertMark>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMark)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -143,7 +152,10 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -164,7 +176,10 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetTarget<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTarget<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -177,7 +192,10 @@ impl MdmAlert {
         }
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn SetType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -377,7 +395,11 @@ impl MdmSession {
     }
     #[doc = "*Required features: `\"Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StartWithAlertsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<MdmAlert>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, alerts: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn StartWithAlertsAsync<'a, P0, E0>(&self, alerts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<MdmAlert>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -464,11 +486,17 @@ impl MdmSessionManager {
         })
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn DeleteSessionById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(sessionid: Param0) -> ::windows::core::Result<()> {
+    pub fn DeleteSessionById<'a, P0>(sessionid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMdmSessionManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).DeleteSessionById)(::windows::core::Interface::as_raw(this), sessionid.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Management\"`*"]
-    pub fn GetSessionById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(sessionid: Param0) -> ::windows::core::Result<MdmSession> {
+    pub fn GetSessionById<'a, P0>(sessionid: P0) -> ::windows::core::Result<MdmSession>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMdmSessionManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetSessionById)(::windows::core::Interface::as_raw(this), sessionid.into().abi(), result__.as_mut_ptr()).from_abi::<MdmSession>(result__)

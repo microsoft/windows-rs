@@ -143,7 +143,10 @@ pub struct IPrintCustomItemListOptionDetails3_Vtbl {
 pub struct IPrintCustomOptionDetails(::windows::core::IUnknown);
 impl IPrintCustomOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -172,7 +175,10 @@ impl IPrintCustomOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -185,7 +191,10 @@ impl IPrintCustomOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -206,7 +215,10 @@ impl IPrintCustomOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -405,7 +417,10 @@ impl IPrintItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -418,7 +433,10 @@ impl IPrintItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -439,7 +457,10 @@ impl IPrintItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -601,7 +622,10 @@ impl IPrintNumberOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -614,7 +638,10 @@ impl IPrintNumberOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -635,7 +662,10 @@ impl IPrintNumberOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -747,7 +777,10 @@ impl IPrintOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -760,7 +793,10 @@ impl IPrintOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -781,7 +817,10 @@ impl IPrintOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1025,7 +1064,10 @@ impl IPrintTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1038,7 +1080,10 @@ impl IPrintTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1059,7 +1104,10 @@ impl IPrintTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1154,7 +1202,10 @@ pub struct IPrintTextOptionDetails_Vtbl {
 pub struct PrintBindingOptionDetails(::windows::core::IUnknown);
 impl PrintBindingOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintBindingOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1167,7 +1218,10 @@ impl PrintBindingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintBindingOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1205,7 +1259,10 @@ impl PrintBindingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1218,7 +1275,10 @@ impl PrintBindingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1239,7 +1299,10 @@ impl PrintBindingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1352,7 +1415,10 @@ unsafe impl ::core::marker::Sync for PrintBindingOptionDetails {}
 pub struct PrintBorderingOptionDetails(::windows::core::IUnknown);
 impl PrintBorderingOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1365,7 +1431,10 @@ impl PrintBorderingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1403,7 +1472,10 @@ impl PrintBorderingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1416,7 +1488,10 @@ impl PrintBorderingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1437,7 +1512,10 @@ impl PrintBorderingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1550,7 +1628,10 @@ unsafe impl ::core::marker::Sync for PrintBorderingOptionDetails {}
 pub struct PrintCollationOptionDetails(::windows::core::IUnknown);
 impl PrintCollationOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCollationOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1563,7 +1644,10 @@ impl PrintCollationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCollationOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1601,7 +1685,10 @@ impl PrintCollationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1614,7 +1701,10 @@ impl PrintCollationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1635,7 +1725,10 @@ impl PrintCollationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1748,7 +1841,10 @@ unsafe impl ::core::marker::Sync for PrintCollationOptionDetails {}
 pub struct PrintColorModeOptionDetails(::windows::core::IUnknown);
 impl PrintColorModeOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1761,7 +1857,10 @@ impl PrintColorModeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1799,7 +1898,10 @@ impl PrintColorModeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1812,7 +1914,10 @@ impl PrintColorModeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1833,7 +1938,10 @@ impl PrintColorModeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1946,7 +2054,10 @@ unsafe impl ::core::marker::Sync for PrintColorModeOptionDetails {}
 pub struct PrintCopiesOptionDetails(::windows::core::IUnknown);
 impl PrintCopiesOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1959,7 +2070,10 @@ impl PrintCopiesOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2004,7 +2118,10 @@ impl PrintCopiesOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2017,7 +2134,10 @@ impl PrintCopiesOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2038,7 +2158,10 @@ impl PrintCopiesOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2159,7 +2282,10 @@ impl PrintCustomItemDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetItemDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetItemDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetItemDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2239,18 +2365,32 @@ unsafe impl ::core::marker::Sync for PrintCustomItemDetails {}
 pub struct PrintCustomItemListOptionDetails(::windows::core::IUnknown);
 impl PrintCustomItemListOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn AddItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, itemid: Param0, displayname: Param1) -> ::windows::core::Result<()> {
+    pub fn AddItem<'a, P0, P1>(&self, itemid: P0, displayname: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddItem)(::windows::core::Interface::as_raw(this), itemid.into().abi(), displayname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn AddItem2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, itemid: Param0, displayname: Param1, description: Param2, icon: Param3) -> ::windows::core::Result<()> {
+    pub fn AddItem2<'a, P0, P1, P2, P3, E3>(&self, itemid: P0, displayname: P1, description: P2, icon: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>, Error = E3>,
+        E3: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddItem)(::windows::core::Interface::as_raw(this), itemid.into().abi(), displayname.into().abi(), description.into().abi(), icon.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2263,7 +2403,10 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2276,7 +2419,10 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2314,7 +2460,10 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2327,7 +2476,10 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2348,7 +2500,10 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2480,7 +2635,10 @@ unsafe impl ::core::marker::Sync for PrintCustomItemListOptionDetails {}
 pub struct PrintCustomTextOptionDetails(::windows::core::IUnknown);
 impl PrintCustomTextOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2506,7 +2664,10 @@ impl PrintCustomTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomTextOptionDetails2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2519,7 +2680,10 @@ impl PrintCustomTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomTextOptionDetails2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2548,7 +2712,10 @@ impl PrintCustomTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2561,7 +2728,10 @@ impl PrintCustomTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2582,7 +2752,10 @@ impl PrintCustomTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2695,7 +2868,10 @@ unsafe impl ::core::marker::Sync for PrintCustomTextOptionDetails {}
 pub struct PrintCustomToggleOptionDetails(::windows::core::IUnknown);
 impl PrintCustomToggleOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2708,7 +2884,10 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomToggleOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2721,7 +2900,10 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintCustomToggleOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2750,7 +2932,10 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2763,7 +2948,10 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2784,7 +2972,10 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2897,7 +3088,10 @@ unsafe impl ::core::marker::Sync for PrintCustomToggleOptionDetails {}
 pub struct PrintDuplexOptionDetails(::windows::core::IUnknown);
 impl PrintDuplexOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2910,7 +3104,10 @@ impl PrintDuplexOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2948,7 +3145,10 @@ impl PrintDuplexOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2961,7 +3161,10 @@ impl PrintDuplexOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2982,7 +3185,10 @@ impl PrintDuplexOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3095,7 +3301,10 @@ unsafe impl ::core::marker::Sync for PrintDuplexOptionDetails {}
 pub struct PrintHolePunchOptionDetails(::windows::core::IUnknown);
 impl PrintHolePunchOptionDetails {
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3108,7 +3317,10 @@ impl PrintHolePunchOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3146,7 +3358,10 @@ impl PrintHolePunchOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3159,7 +3374,10 @@ impl PrintHolePunchOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3180,7 +3398,10 @@ impl PrintHolePunchOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3302,7 +3523,10 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintMediaSizeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3315,7 +3539,10 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintMediaSizeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3344,7 +3571,10 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3357,7 +3587,10 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3378,7 +3611,10 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3500,7 +3736,10 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintMediaTypeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3513,7 +3752,10 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintMediaTypeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3542,7 +3784,10 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3555,7 +3800,10 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3576,7 +3824,10 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3814,7 +4065,10 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3827,7 +4081,10 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3848,7 +4105,10 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3856,7 +4116,10 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOrientationOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3869,7 +4132,10 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintOrientationOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4003,7 +4269,10 @@ impl PrintPageRangeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4016,7 +4285,10 @@ impl PrintPageRangeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4037,7 +4309,10 @@ impl PrintPageRangeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -4045,7 +4320,10 @@ impl PrintPageRangeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintPageRangeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4058,7 +4336,10 @@ impl PrintPageRangeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintPageRangeOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4182,7 +4463,10 @@ impl PrintQualityOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4195,7 +4479,10 @@ impl PrintQualityOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4216,7 +4503,10 @@ impl PrintQualityOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -4224,7 +4514,10 @@ impl PrintQualityOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintQualityOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4237,7 +4530,10 @@ impl PrintQualityOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintQualityOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4380,7 +4676,10 @@ impl PrintStapleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetErrorText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetErrorText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4393,7 +4692,10 @@ impl PrintStapleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, Param0: ::std::convert::Into<PrintOptionStates>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PrintOptionStates>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -4414,7 +4716,10 @@ impl PrintStapleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn TrySetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -4422,7 +4727,10 @@ impl PrintStapleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetWarningText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWarningText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintStapleOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWarningText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4435,7 +4743,10 @@ impl PrintStapleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintStapleOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -4637,7 +4948,11 @@ impl PrintTaskOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn CreateItemListOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, optionid: Param0, displayname: Param1) -> ::windows::core::Result<PrintCustomItemListOptionDetails> {
+    pub fn CreateItemListOption<'a, P0, P1>(&self, optionid: P0, displayname: P1) -> ::windows::core::Result<PrintCustomItemListOptionDetails>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4645,7 +4960,11 @@ impl PrintTaskOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn CreateTextOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, optionid: Param0, displayname: Param1) -> ::windows::core::Result<PrintCustomTextOptionDetails> {
+    pub fn CreateTextOption<'a, P0, P1>(&self, optionid: P0, displayname: P1) -> ::windows::core::Result<PrintCustomTextOptionDetails>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4654,7 +4973,10 @@ impl PrintTaskOptionDetails {
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn OptionChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4669,7 +4991,10 @@ impl PrintTaskOptionDetails {
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BeginValidation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn BeginValidation<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4683,7 +5008,11 @@ impl PrintTaskOptionDetails {
         unsafe { (::windows::core::Interface::vtable(this).RemoveBeginValidation)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn CreateToggleOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, optionid: Param0, displayname: Param1) -> ::windows::core::Result<PrintCustomToggleOptionDetails> {
+    pub fn CreateToggleOption<'a, P0, P1>(&self, optionid: P0, displayname: P1) -> ::windows::core::Result<PrintCustomToggleOptionDetails>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionDetails2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4691,7 +5020,10 @@ impl PrintTaskOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn GetFromPrintTaskOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTaskOptions>>>(printtaskoptions: Param0) -> ::windows::core::Result<PrintTaskOptionDetails> {
+    pub fn GetFromPrintTaskOptions<'a, P0>(printtaskoptions: P0) -> ::windows::core::Result<PrintTaskOptionDetails>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTaskOptions>>,
+    {
         Self::IPrintTaskOptionDetailsStatic(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetFromPrintTaskOptions)(::windows::core::Interface::as_raw(this), printtaskoptions.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTaskOptionDetails>(result__)

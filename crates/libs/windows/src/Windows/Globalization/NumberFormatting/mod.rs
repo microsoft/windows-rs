@@ -12,7 +12,10 @@ impl CurrencyFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetCurrency<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCurrency<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCurrency)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -25,17 +28,26 @@ impl CurrencyFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetMode<'a, Param0: ::std::convert::Into<CurrencyFormatterMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CurrencyFormatterMode>,
+    {
         let this = &::windows::core::Interface::cast::<ICurrencyFormatter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn ApplyRoundingForCurrency<'a, Param0: ::std::convert::Into<RoundingAlgorithm>>(&self, roundingalgorithm: Param0) -> ::windows::core::Result<()> {
+    pub fn ApplyRoundingForCurrency<'a, P0>(&self, roundingalgorithm: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RoundingAlgorithm>,
+    {
         let this = &::windows::core::Interface::cast::<ICurrencyFormatter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ApplyRoundingForCurrency)(::windows::core::Interface::as_raw(this), roundingalgorithm.into()).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn CreateCurrencyFormatterCode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(currencycode: Param0) -> ::windows::core::Result<CurrencyFormatter> {
+    pub fn CreateCurrencyFormatterCode<'a, P0>(currencycode: P0) -> ::windows::core::Result<CurrencyFormatter>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICurrencyFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCurrencyFormatterCode)(::windows::core::Interface::as_raw(this), currencycode.into().abi(), result__.as_mut_ptr()).from_abi::<CurrencyFormatter>(result__)
@@ -43,7 +55,13 @@ impl CurrencyFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCurrencyFormatterCodeContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(currencycode: Param0, languages: Param1, geographicregion: Param2) -> ::windows::core::Result<CurrencyFormatter> {
+    pub fn CreateCurrencyFormatterCodeContext<'a, P0, P1, E1, P2>(currencycode: P0, languages: P1, geographicregion: P2) -> ::windows::core::Result<CurrencyFormatter>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICurrencyFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCurrencyFormatterCodeContext)(::windows::core::Interface::as_raw(this), currencycode.into().abi(), languages.try_into().map_err(|e| e.into())?.abi(), geographicregion.into().abi(), result__.as_mut_ptr()).from_abi::<CurrencyFormatter>(result__)
@@ -175,7 +193,10 @@ impl CurrencyFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -197,7 +218,10 @@ impl CurrencyFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
+    pub fn ParseInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -206,7 +230,10 @@ impl CurrencyFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseUInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
+    pub fn ParseUInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -215,7 +242,10 @@ impl CurrencyFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseDouble<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn ParseDouble<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -231,7 +261,11 @@ impl CurrencyFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumberRounder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -509,7 +543,12 @@ impl DecimalFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDecimalFormatter<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languages: Param0, geographicregion: Param1) -> ::windows::core::Result<DecimalFormatter> {
+    pub fn CreateDecimalFormatter<'a, P0, E0, P1>(languages: P0, geographicregion: P1) -> ::windows::core::Result<DecimalFormatter>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IDecimalFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDecimalFormatter)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), geographicregion.into().abi(), result__.as_mut_ptr()).from_abi::<DecimalFormatter>(result__)
@@ -641,7 +680,10 @@ impl DecimalFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -663,7 +705,10 @@ impl DecimalFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
+    pub fn ParseInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -672,7 +717,10 @@ impl DecimalFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseUInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
+    pub fn ParseUInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -681,7 +729,10 @@ impl DecimalFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseDouble<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn ParseDouble<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -697,7 +748,11 @@ impl DecimalFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumberRounder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1279,7 +1334,10 @@ impl INumberFormatterOptions {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1385,7 +1443,10 @@ pub struct INumberParser(::windows::core::IUnknown);
 impl INumberParser {
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
+    pub fn ParseInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1394,7 +1455,10 @@ impl INumberParser {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseUInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
+    pub fn ParseUInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1403,7 +1467,10 @@ impl INumberParser {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseDouble<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn ParseDouble<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1619,7 +1686,11 @@ impl INumberRounderOption {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumberRounder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1956,7 +2027,10 @@ impl IncrementNumberRounder {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetRoundingAlgorithm<'a, Param0: ::std::convert::Into<RoundingAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRoundingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RoundingAlgorithm>,
+    {
         let this = &::windows::core::Interface::cast::<IIncrementNumberRounder>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRoundingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2140,12 +2214,18 @@ impl NumeralSystemTranslator {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn TranslateNumerals<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn TranslateNumerals<'a, P0>(&self, value: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -2154,7 +2234,11 @@ impl NumeralSystemTranslator {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(languages: Param0) -> ::windows::core::Result<NumeralSystemTranslator> {
+    pub fn Create<'a, P0, E0>(languages: P0) -> ::windows::core::Result<NumeralSystemTranslator>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<NumeralSystemTranslator>(result__)
@@ -2365,7 +2449,10 @@ impl PercentFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2387,7 +2474,10 @@ impl PercentFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
+    pub fn ParseInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2396,7 +2486,10 @@ impl PercentFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseUInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
+    pub fn ParseUInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2405,7 +2498,10 @@ impl PercentFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseDouble<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn ParseDouble<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2421,13 +2517,22 @@ impl PercentFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumberRounder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePercentFormatter<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languages: Param0, geographicregion: Param1) -> ::windows::core::Result<PercentFormatter> {
+    pub fn CreatePercentFormatter<'a, P0, E0, P1>(languages: P0, geographicregion: P1) -> ::windows::core::Result<PercentFormatter>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPercentFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePercentFormatter)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), geographicregion.into().abi(), result__.as_mut_ptr()).from_abi::<PercentFormatter>(result__)
@@ -2797,7 +2902,10 @@ impl PermilleFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumeralSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumeralSystem<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2819,7 +2927,10 @@ impl PermilleFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
+    pub fn ParseInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2828,7 +2939,10 @@ impl PermilleFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseUInt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
+    pub fn ParseUInt<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2837,7 +2951,10 @@ impl PermilleFormatter {
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ParseDouble<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn ParseDouble<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2853,13 +2970,22 @@ impl PermilleFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetNumberRounder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNumberRounder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INumberRounder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePermilleFormatter<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languages: Param0, geographicregion: Param1) -> ::windows::core::Result<PermilleFormatter> {
+    pub fn CreatePermilleFormatter<'a, P0, E0, P1>(languages: P0, geographicregion: P1) -> ::windows::core::Result<PermilleFormatter>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPermilleFormatterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePermilleFormatter)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), geographicregion.into().abi(), result__.as_mut_ptr()).from_abi::<PermilleFormatter>(result__)
@@ -3203,7 +3329,10 @@ impl SignificantDigitsNumberRounder {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetRoundingAlgorithm<'a, Param0: ::std::convert::Into<RoundingAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRoundingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RoundingAlgorithm>,
+    {
         let this = &::windows::core::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRoundingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

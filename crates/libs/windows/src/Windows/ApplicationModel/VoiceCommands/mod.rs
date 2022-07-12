@@ -561,7 +561,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -574,7 +577,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetTextLine1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTextLine1<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTextLine1)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -587,7 +593,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetTextLine2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTextLine2<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTextLine2)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -600,7 +609,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetTextLine3<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTextLine3<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTextLine3)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -615,7 +627,11 @@ impl VoiceCommandContentTile {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetImage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImage<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetImage)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -628,7 +644,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetAppContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppContext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAppContext)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -641,7 +660,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetAppLaunchArgument<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppLaunchArgument<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAppLaunchArgument)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -654,7 +676,10 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetContentTileType<'a, Param0: ::std::convert::Into<VoiceCommandContentTileType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentTileType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<VoiceCommandContentTileType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentTileType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -783,7 +808,12 @@ impl VoiceCommandDefinition {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPhraseListAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, phraselistname: Param0, phraselist: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPhraseListAsync<'a, P0, P1, E1>(&self, phraselistname: P0, phraselist: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -858,7 +888,10 @@ pub struct VoiceCommandDefinitionManager;
 impl VoiceCommandDefinitionManager {
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn InstallCommandDefinitionsFromStorageFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn InstallCommandDefinitionsFromStorageFileAsync<'a, P0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>,
+    {
         Self::IVoiceCommandDefinitionManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InstallCommandDefinitionsFromStorageFileAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
@@ -969,7 +1002,10 @@ impl VoiceCommandResponse {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMessage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -982,7 +1018,10 @@ impl VoiceCommandResponse {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetRepeatMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRepeatMessage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRepeatMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -995,7 +1034,10 @@ impl VoiceCommandResponse {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetAppLaunchArgument<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppLaunchArgument<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAppLaunchArgument)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1016,7 +1058,10 @@ impl VoiceCommandResponse {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn CreateResponse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>>(usermessage: Param0) -> ::windows::core::Result<VoiceCommandResponse> {
+    pub fn CreateResponse<'a, P0>(usermessage: P0) -> ::windows::core::Result<VoiceCommandResponse>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+    {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateResponse)(::windows::core::Interface::as_raw(this), usermessage.into().abi(), result__.as_mut_ptr()).from_abi::<VoiceCommandResponse>(result__)
@@ -1024,14 +1069,23 @@ impl VoiceCommandResponse {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateResponseWithTiles<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(message: Param0, contenttiles: Param1) -> ::windows::core::Result<VoiceCommandResponse> {
+    pub fn CreateResponseWithTiles<'a, P0, P1, E1>(message: P0, contenttiles: P1) -> ::windows::core::Result<VoiceCommandResponse>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateResponseWithTiles)(::windows::core::Interface::as_raw(this), message.into().abi(), contenttiles.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VoiceCommandResponse>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn CreateResponseForPrompt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>>(message: Param0, repeatmessage: Param1) -> ::windows::core::Result<VoiceCommandResponse> {
+    pub fn CreateResponseForPrompt<'a, P0, P1>(message: P0, repeatmessage: P1) -> ::windows::core::Result<VoiceCommandResponse>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+    {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateResponseForPrompt)(::windows::core::Interface::as_raw(this), message.into().abi(), repeatmessage.into().abi(), result__.as_mut_ptr()).from_abi::<VoiceCommandResponse>(result__)
@@ -1039,7 +1093,13 @@ impl VoiceCommandResponse {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateResponseForPromptWithTiles<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(message: Param0, repeatmessage: Param1, contenttiles: Param2) -> ::windows::core::Result<VoiceCommandResponse> {
+    pub fn CreateResponseForPromptWithTiles<'a, P0, P1, P2, E2>(message: P0, repeatmessage: P1, contenttiles: P2) -> ::windows::core::Result<VoiceCommandResponse>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandUserMessage>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateResponseForPromptWithTiles)(::windows::core::Interface::as_raw(this), message.into().abi(), repeatmessage.into().abi(), contenttiles.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VoiceCommandResponse>(result__)
@@ -1128,7 +1188,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestConfirmationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>> {
+    pub fn RequestConfirmationAsync<'a, P0>(&self, response: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1137,7 +1200,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestDisambiguationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>> {
+    pub fn RequestDisambiguationAsync<'a, P0>(&self, response: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1146,7 +1212,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportProgressAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ReportProgressAsync<'a, P0>(&self, response: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1155,7 +1224,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportSuccessAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ReportSuccessAsync<'a, P0>(&self, response: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1164,7 +1236,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReportFailureAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ReportFailureAsync<'a, P0>(&self, response: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1173,7 +1248,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAppLaunchAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn RequestAppLaunchAsync<'a, P0>(&self, response: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceCommandResponse>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1191,7 +1269,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VoiceCommandCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VoiceCommandCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1206,7 +1287,10 @@ impl VoiceCommandServiceConnection {
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn FromAppServiceTriggerDetails<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::AppService::AppServiceTriggerDetails>>>(triggerdetails: Param0) -> ::windows::core::Result<VoiceCommandServiceConnection> {
+    pub fn FromAppServiceTriggerDetails<'a, P0>(triggerdetails: P0) -> ::windows::core::Result<VoiceCommandServiceConnection>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AppService::AppServiceTriggerDetails>>,
+    {
         Self::IVoiceCommandServiceConnectionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromAppServiceTriggerDetails)(::windows::core::Interface::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<VoiceCommandServiceConnection>(result__)
@@ -1300,7 +1384,10 @@ impl VoiceCommandUserMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetDisplayMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayMessage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1313,7 +1400,10 @@ impl VoiceCommandUserMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetSpokenMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSpokenMessage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSpokenMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }

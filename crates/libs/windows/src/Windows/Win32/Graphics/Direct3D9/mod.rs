@@ -3730,7 +3730,10 @@ pub const D3DPBLENDCAPS_INVSRCCOLOR2: i32 = 32768i32;
 pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
-pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(col: u32, wszname: Param1) -> i32 {
+pub unsafe fn D3DPERF_BeginEvent<'a, P0>(col: u32, wszname: P0) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3DPERF_BeginEvent(col: u32, wszname: ::windows::core::PCWSTR) -> i32;
@@ -3767,7 +3770,10 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
-pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(col: u32, wszname: Param1) {
+pub unsafe fn D3DPERF_SetMarker<'a, P0>(col: u32, wszname: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3DPERF_SetMarker(col: u32, wszname: ::windows::core::PCWSTR);
@@ -3785,7 +3791,10 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
-pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(col: u32, wszname: Param1) {
+pub unsafe fn D3DPERF_SetRegion<'a, P0>(col: u32, wszname: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3DPERF_SetRegion(col: u32, wszname: ::windows::core::PCWSTR);
@@ -6313,11 +6322,17 @@ impl IDirect3D9 {
         (::windows::core::Interface::vtable(self).GetAdapterIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), ::core::mem::transmute(flags), ::core::mem::transmute(pidentifier)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetAdapterModeCount<'a, Param1: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, format: Param1) -> u32 {
+    pub unsafe fn GetAdapterModeCount<'a, P0>(&self, adapter: u32, format: P0) -> u32
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+    {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAdapterModeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), format.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn EnumAdapterModes<'a, Param1: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, format: Param1, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumAdapterModes<'a, P0>(&self, adapter: u32, format: P0, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).EnumAdapterModes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), format.into(), ::core::mem::transmute(mode), ::core::mem::transmute(pmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6326,28 +6341,60 @@ impl IDirect3D9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckDeviceType<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, adapter: u32, devtype: Param1, adapterformat: Param2, backbufferformat: Param3, bwindowed: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceType<'a, P0, P1, P2, P3>(&self, adapter: u32, devtype: P0, adapterformat: P1, backbufferformat: P2, bwindowed: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DFORMAT>,
+        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).CheckDeviceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devtype.into(), adapterformat.into(), backbufferformat.into(), bwindowed.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CheckDeviceFormat<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<D3DRESOURCETYPE>, Param5: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, devicetype: Param1, adapterformat: Param2, usage: u32, rtype: Param4, checkformat: Param5) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceFormat<'a, P0, P1, P2, P3>(&self, adapter: u32, devicetype: P0, adapterformat: P1, usage: u32, rtype: P2, checkformat: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DRESOURCETYPE>,
+        P3: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).CheckDeviceFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), adapterformat.into(), ::core::mem::transmute(usage), rtype.into(), checkformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckDeviceMultiSampleType<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<D3DMULTISAMPLE_TYPE>>(&self, adapter: u32, devicetype: Param1, surfaceformat: Param2, windowed: Param3, multisampletype: Param4, pqualitylevels: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceMultiSampleType<'a, P0, P1, P2, P3>(&self, adapter: u32, devicetype: P0, surfaceformat: P1, windowed: P2, multisampletype: P3, pqualitylevels: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).CheckDeviceMultiSampleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), surfaceformat.into(), windowed.into(), multisampletype.into(), ::core::mem::transmute(pqualitylevels)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CheckDepthStencilMatch<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, devicetype: Param1, adapterformat: Param2, rendertargetformat: Param3, depthstencilformat: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDepthStencilMatch<'a, P0, P1, P2, P3>(&self, adapter: u32, devicetype: P0, adapterformat: P1, rendertargetformat: P2, depthstencilformat: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DFORMAT>,
+        P3: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).CheckDepthStencilMatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), adapterformat.into(), rendertargetformat.into(), depthstencilformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CheckDeviceFormatConversion<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, devicetype: Param1, sourceformat: Param2, targetformat: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceFormatConversion<'a, P0, P1, P2>(&self, adapter: u32, devicetype: P0, sourceformat: P1, targetformat: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).CheckDeviceFormatConversion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), sourceformat.into(), targetformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetDeviceCaps<'a, Param1: ::std::convert::Into<D3DDEVTYPE>>(&self, adapter: u32, devicetype: Param1, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDeviceCaps<'a, P0>(&self, adapter: u32, devicetype: P0, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetDeviceCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), ::core::mem::transmute(pcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -6357,7 +6404,11 @@ impl IDirect3D9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDevice<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: Param1, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDevice<'a, P0, P1>(&self, adapter: u32, devicetype: P0, hfocuswindow: P1, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), hfocuswindow.into(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
 }
@@ -6448,11 +6499,17 @@ impl IDirect3D9Ex {
         (::windows::core::Interface::vtable(self).base__.GetAdapterIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), ::core::mem::transmute(flags), ::core::mem::transmute(pidentifier)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetAdapterModeCount<'a, Param1: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, format: Param1) -> u32 {
+    pub unsafe fn GetAdapterModeCount<'a, P0>(&self, adapter: u32, format: P0) -> u32
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+    {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetAdapterModeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), format.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn EnumAdapterModes<'a, Param1: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, format: Param1, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::Result<()> {
+    pub unsafe fn EnumAdapterModes<'a, P0>(&self, adapter: u32, format: P0, mode: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).base__.EnumAdapterModes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), format.into(), ::core::mem::transmute(mode), ::core::mem::transmute(pmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6461,28 +6518,60 @@ impl IDirect3D9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckDeviceType<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, adapter: u32, devtype: Param1, adapterformat: Param2, backbufferformat: Param3, bwindowed: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceType<'a, P0, P1, P2, P3>(&self, adapter: u32, devtype: P0, adapterformat: P1, backbufferformat: P2, bwindowed: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DFORMAT>,
+        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CheckDeviceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devtype.into(), adapterformat.into(), backbufferformat.into(), bwindowed.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CheckDeviceFormat<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<D3DRESOURCETYPE>, Param5: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, devicetype: Param1, adapterformat: Param2, usage: u32, rtype: Param4, checkformat: Param5) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceFormat<'a, P0, P1, P2, P3>(&self, adapter: u32, devicetype: P0, adapterformat: P1, usage: u32, rtype: P2, checkformat: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DRESOURCETYPE>,
+        P3: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).base__.CheckDeviceFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), adapterformat.into(), ::core::mem::transmute(usage), rtype.into(), checkformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckDeviceMultiSampleType<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<D3DMULTISAMPLE_TYPE>>(&self, adapter: u32, devicetype: Param1, surfaceformat: Param2, windowed: Param3, multisampletype: Param4, pqualitylevels: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceMultiSampleType<'a, P0, P1, P2, P3>(&self, adapter: u32, devicetype: P0, surfaceformat: P1, windowed: P2, multisampletype: P3, pqualitylevels: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.CheckDeviceMultiSampleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), surfaceformat.into(), windowed.into(), multisampletype.into(), ::core::mem::transmute(pqualitylevels)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CheckDepthStencilMatch<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, devicetype: Param1, adapterformat: Param2, rendertargetformat: Param3, depthstencilformat: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDepthStencilMatch<'a, P0, P1, P2, P3>(&self, adapter: u32, devicetype: P0, adapterformat: P1, rendertargetformat: P2, depthstencilformat: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DFORMAT>,
+        P3: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).base__.CheckDepthStencilMatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), adapterformat.into(), rendertargetformat.into(), depthstencilformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CheckDeviceFormatConversion<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DFORMAT>>(&self, adapter: u32, devicetype: Param1, sourceformat: Param2, targetformat: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceFormatConversion<'a, P0, P1, P2>(&self, adapter: u32, devicetype: P0, sourceformat: P1, targetformat: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+        P2: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).base__.CheckDeviceFormatConversion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), sourceformat.into(), targetformat.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetDeviceCaps<'a, Param1: ::std::convert::Into<D3DDEVTYPE>>(&self, adapter: u32, devicetype: Param1, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()> {
+    pub unsafe fn GetDeviceCaps<'a, P0>(&self, adapter: u32, devicetype: P0, pcaps: *mut D3DCAPS9) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetDeviceCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), ::core::mem::transmute(pcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -6492,7 +6581,11 @@ impl IDirect3D9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDevice<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: Param1, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDevice<'a, P0, P1>(&self, adapter: u32, devicetype: P0, hfocuswindow: P1, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), hfocuswindow.into(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6509,7 +6602,11 @@ impl IDirect3D9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDeviceEx<'a, Param1: ::std::convert::Into<D3DDEVTYPE>, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: Param1, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDeviceEx<'a, P0, P1>(&self, adapter: u32, devicetype: P0, hfocuswindow: P1, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DDEVTYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).CreateDeviceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), devicetype.into(), hfocuswindow.into(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(pfullscreendisplaymode), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -6634,7 +6731,10 @@ impl IDirect3DBaseTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLevelCount)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetAutoGenFilterType<'a, Param0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>>(&self, filtertype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAutoGenFilterType<'a, P0>(&self, filtertype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetAutoGenFilterType)(::windows::core::Interface::as_raw(self), filtertype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6757,7 +6857,10 @@ impl IDirect3DCubeTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetLevelCount)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetAutoGenFilterType<'a, Param0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>>(&self, filtertype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAutoGenFilterType<'a, P0>(&self, filtertype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetAutoGenFilterType)(::windows::core::Interface::as_raw(self), filtertype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6773,22 +6876,34 @@ impl IDirect3DCubeTexture9 {
         (::windows::core::Interface::vtable(self).GetLevelDesc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetCubeMapSurface<'a, Param0: ::std::convert::Into<D3DCUBEMAP_FACES>>(&self, facetype: Param0, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetCubeMapSurface<'a, P0>(&self, facetype: P0, level: u32) -> ::windows::core::Result<IDirect3DSurface9>
+    where
+        P0: ::std::convert::Into<D3DCUBEMAP_FACES>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetCubeMapSurface)(::windows::core::Interface::as_raw(self), facetype.into(), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockRect<'a, Param0: ::std::convert::Into<D3DCUBEMAP_FACES>>(&self, facetype: Param0, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn LockRect<'a, P0>(&self, facetype: P0, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DCUBEMAP_FACES>,
+    {
         (::windows::core::Interface::vtable(self).LockRect)(::windows::core::Interface::as_raw(self), facetype.into(), ::core::mem::transmute(level), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn UnlockRect<'a, Param0: ::std::convert::Into<D3DCUBEMAP_FACES>>(&self, facetype: Param0, level: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn UnlockRect<'a, P0>(&self, facetype: P0, level: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DCUBEMAP_FACES>,
+    {
         (::windows::core::Interface::vtable(self).UnlockRect)(::windows::core::Interface::as_raw(self), facetype.into(), ::core::mem::transmute(level)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDirtyRect<'a, Param0: ::std::convert::Into<D3DCUBEMAP_FACES>>(&self, facetype: Param0, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+    pub unsafe fn AddDirtyRect<'a, P0>(&self, facetype: P0, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DCUBEMAP_FACES>,
+    {
         (::windows::core::Interface::vtable(self).AddDirtyRect)(::windows::core::Interface::as_raw(self), facetype.into(), ::core::mem::transmute(pdirtyrect)).ok()
     }
 }
@@ -6908,7 +7023,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).GetCreationParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetCursorProperties<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCursorProperties<'a, P0>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).SetCursorProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xhotspot), ::core::mem::transmute(yhotspot), pcursorbitmap.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6917,7 +7035,10 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowCursor<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bshow: Param0) -> super::super::Foundation::BOOL {
+    pub unsafe fn ShowCursor<'a, P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).ShowCursor)(::windows::core::Interface::as_raw(self), bshow.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -6941,11 +7062,17 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Present<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows::core::Result<()> {
+    pub unsafe fn Present<'a, P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into(), ::core::mem::transmute(pdirtyregion)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetBackBuffer<'a, Param2: ::std::convert::Into<D3DBACKBUFFER_TYPE>>(&self, iswapchain: u32, ibackbuffer: u32, r#type: Param2) -> ::windows::core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer<'a, P0>(&self, iswapchain: u32, ibackbuffer: u32, r#type: P0) -> ::windows::core::Result<IDirect3DSurface9>
+    where
+        P0: ::std::convert::Into<D3DBACKBUFFER_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetBackBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(ibackbuffer), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
@@ -6956,7 +7083,10 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDialogBoxMode<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabledialogs: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDialogBoxMode<'a, P0>(&self, benabledialogs: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).SetDialogBoxMode)(::windows::core::Interface::as_raw(self), benabledialogs.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -6969,73 +7099,132 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTexture<'a, Param4: ::std::convert::Into<D3DFORMAT>, Param5: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, levels: u32, usage: u32, format: Param4, pool: Param5, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateTexture<'a, P0, P1>(&self, width: u32, height: u32, levels: u32, usage: u32, format: P0, pool: P1, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(levels), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(pptexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVolumeTexture<'a, Param5: ::std::convert::Into<D3DFORMAT>, Param6: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: Param5, pool: Param6, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVolumeTexture<'a, P0, P1>(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: P0, pool: P1, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateVolumeTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(depth), ::core::mem::transmute(levels), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(ppvolumetexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateCubeTexture<'a, Param3: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<D3DPOOL>>(&self, edgelength: u32, levels: u32, usage: u32, format: Param3, pool: Param4, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateCubeTexture<'a, P0, P1>(&self, edgelength: u32, levels: u32, usage: u32, format: P0, pool: P1, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateCubeTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edgelength), ::core::mem::transmute(levels), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(ppcubetexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVertexBuffer<'a, Param3: ::std::convert::Into<D3DPOOL>>(&self, length: u32, usage: u32, fvf: u32, pool: Param3, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVertexBuffer<'a, P0>(&self, length: u32, usage: u32, fvf: u32, pool: P0, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateVertexBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(length), ::core::mem::transmute(usage), ::core::mem::transmute(fvf), pool.into(), ::core::mem::transmute(ppvertexbuffer), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateIndexBuffer<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DPOOL>>(&self, length: u32, usage: u32, format: Param2, pool: Param3, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateIndexBuffer<'a, P0, P1>(&self, length: u32, usage: u32, format: P0, pool: P1, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateIndexBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(length), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(ppindexbuffer), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRenderTarget<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: Param2, multisample: Param3, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateRenderTarget<'a, P0, P1, P2>(&self, width: u32, height: u32, format: P0, multisample: P1, multisamplequality: u32, lockable: P2, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateRenderTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), multisample.into(), ::core::mem::transmute(multisamplequality), lockable.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDepthStencilSurface<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: Param2, multisample: Param3, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDepthStencilSurface<'a, P0, P1, P2>(&self, width: u32, height: u32, format: P0, multisample: P1, multisamplequality: u32, discard: P2, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateDepthStencilSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), multisample.into(), ::core::mem::transmute(multisamplequality), discard.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateSurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Param2, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+    pub unsafe fn UpdateSurface<'a, P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).UpdateSurface)(::windows::core::Interface::as_raw(self), psourcesurface.into().abi(), ::core::mem::transmute(psourcerect), pdestinationsurface.into().abi(), ::core::mem::transmute(pdestpoint)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn UpdateTexture<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>>(&self, psourcetexture: Param0, pdestinationtexture: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn UpdateTexture<'a, P0, P1>(&self, psourcetexture: P0, pdestinationtexture: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>,
+    {
         (::windows::core::Interface::vtable(self).UpdateTexture)(::windows::core::Interface::as_raw(self), psourcetexture.into().abi(), pdestinationtexture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetRenderTargetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, prendertarget: Param0, pdestsurface: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRenderTargetData<'a, P0, P1>(&self, prendertarget: P0, pdestsurface: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).GetRenderTargetData)(::windows::core::Interface::as_raw(self), prendertarget.into().abi(), pdestsurface.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetFrontBufferData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, iswapchain: u32, pdestsurface: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn GetFrontBufferData<'a, P0>(&self, iswapchain: u32, pdestsurface: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).GetFrontBufferData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iswapchain), pdestsurface.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StretchRect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param4: ::std::convert::Into<D3DTEXTUREFILTERTYPE>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: Param2, pdestrect: *const super::super::Foundation::RECT, filter: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn StretchRect<'a, P0, P1, P2>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P2: ::std::convert::Into<D3DTEXTUREFILTERTYPE>,
+    {
         (::windows::core::Interface::vtable(self).StretchRect)(::windows::core::Interface::as_raw(self), psourcesurface.into().abi(), ::core::mem::transmute(psourcerect), pdestsurface.into().abi(), ::core::mem::transmute(pdestrect), filter.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ColorFill<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, psurface: Param0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ColorFill<'a, P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).ColorFill)(::windows::core::Interface::as_raw(self), psurface.into().abi(), ::core::mem::transmute(prect), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOffscreenPlainSurface<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, format: Param2, pool: Param3, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateOffscreenPlainSurface<'a, P0, P1>(&self, width: u32, height: u32, format: P0, pool: P1, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateOffscreenPlainSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), pool.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetRenderTarget<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, rendertargetindex: u32, prendertarget: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRenderTarget<'a, P0>(&self, rendertargetindex: u32, prendertarget: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).SetRenderTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rendertargetindex), prendertarget.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7044,7 +7233,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).GetRenderTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rendertargetindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetDepthStencilSurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, pnewzstencil: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDepthStencilSurface<'a, P0>(&self, pnewzstencil: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).SetDepthStencilSurface)(::windows::core::Interface::as_raw(self), pnewzstencil.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7066,17 +7258,26 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn SetTransform<'a, Param0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>>(&self, state: Param0, pmatrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTransform<'a, P0>(&self, state: P0, pmatrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetTransform)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(pmatrix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetTransform<'a, Param0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>>(&self, state: Param0, pmatrix: *mut super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    pub unsafe fn GetTransform<'a, P0>(&self, state: P0, pmatrix: *mut super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetTransform)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(pmatrix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn MultiplyTransform<'a, Param0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>>(&self, param0: Param0, param1: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    pub unsafe fn MultiplyTransform<'a, P0>(&self, param0: P0, param1: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).MultiplyTransform)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7107,7 +7308,10 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LightEnable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, index: u32, enable: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn LightEnable<'a, P0>(&self, index: u32, enable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).LightEnable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), enable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -7124,15 +7328,24 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).GetClipPlane)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(pplane)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetRenderState<'a, Param0: ::std::convert::Into<D3DRENDERSTATETYPE>>(&self, state: Param0, value: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRenderState<'a, P0>(&self, state: P0, value: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DRENDERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetRenderState)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetRenderState<'a, Param0: ::std::convert::Into<D3DRENDERSTATETYPE>>(&self, state: Param0, pvalue: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRenderState<'a, P0>(&self, state: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DRENDERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetRenderState)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CreateStateBlock<'a, Param0: ::std::convert::Into<D3DSTATEBLOCKTYPE>>(&self, r#type: Param0) -> ::windows::core::Result<IDirect3DStateBlock9> {
+    pub unsafe fn CreateStateBlock<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<IDirect3DStateBlock9>
+    where
+        P0: ::std::convert::Into<D3DSTATEBLOCKTYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateStateBlock)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DStateBlock9>(result__)
     }
@@ -7159,23 +7372,38 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).GetTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DBaseTexture9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetTexture<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>>(&self, stage: u32, ptexture: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTexture<'a, P0>(&self, stage: u32, ptexture: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>,
+    {
         (::windows::core::Interface::vtable(self).SetTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), ptexture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetTextureStageState<'a, Param1: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>>(&self, stage: u32, r#type: Param1, pvalue: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetTextureStageState<'a, P0>(&self, stage: u32, r#type: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetTextureStageState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), r#type.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetTextureStageState<'a, Param1: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>>(&self, stage: u32, r#type: Param1, value: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTextureStageState<'a, P0>(&self, stage: u32, r#type: P0, value: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetTextureStageState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), r#type.into(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetSamplerState<'a, Param1: ::std::convert::Into<D3DSAMPLERSTATETYPE>>(&self, sampler: u32, r#type: Param1, pvalue: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSamplerState<'a, P0>(&self, sampler: u32, r#type: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DSAMPLERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).GetSamplerState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sampler), r#type.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetSamplerState<'a, Param1: ::std::convert::Into<D3DSAMPLERSTATETYPE>>(&self, sampler: u32, r#type: Param1, value: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSamplerState<'a, P0>(&self, sampler: u32, r#type: P0, value: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DSAMPLERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetSamplerState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sampler), r#type.into(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7212,7 +7440,10 @@ impl IDirect3DDevice9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSoftwareVertexProcessing<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bsoftware: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSoftwareVertexProcessing<'a, P0>(&self, bsoftware: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).SetSoftwareVertexProcessing)(::windows::core::Interface::as_raw(self), bsoftware.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -7229,23 +7460,40 @@ impl IDirect3DDevice9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNPatchMode)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawPrimitive<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>>(&self, primitivetype: Param0, startvertex: u32, primitivecount: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawPrimitive<'a, P0>(&self, primitivetype: P0, startvertex: u32, primitivecount: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+    {
         (::windows::core::Interface::vtable(self).DrawPrimitive)(::windows::core::Interface::as_raw(self), primitivetype.into(), ::core::mem::transmute(startvertex), ::core::mem::transmute(primitivecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawIndexedPrimitive<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>>(&self, param0: Param0, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawIndexedPrimitive<'a, P0>(&self, param0: P0, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+    {
         (::windows::core::Interface::vtable(self).DrawIndexedPrimitive)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(basevertexindex), ::core::mem::transmute(minvertexindex), ::core::mem::transmute(numvertices), ::core::mem::transmute(startindex), ::core::mem::transmute(primcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawPrimitiveUP<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>>(&self, primitivetype: Param0, primitivecount: u32, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawPrimitiveUP<'a, P0>(&self, primitivetype: P0, primitivecount: u32, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+    {
         (::windows::core::Interface::vtable(self).DrawPrimitiveUP)(::windows::core::Interface::as_raw(self), primitivetype.into(), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawIndexedPrimitiveUP<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>, Param5: ::std::convert::Into<D3DFORMAT>>(&self, primitivetype: Param0, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: Param5, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawIndexedPrimitiveUP<'a, P0, P1>(&self, primitivetype: P0, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: P1, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).DrawIndexedPrimitiveUP)(::windows::core::Interface::as_raw(self), primitivetype.into(), ::core::mem::transmute(minvertexindex), ::core::mem::transmute(numvertices), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pindexdata), indexdataformat.into(), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn ProcessVertices<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Param3, pvertexdecl: Param4, flags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ProcessVertices<'a, P0, P1>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: P0, pvertexdecl: P1, flags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>,
+    {
         (::windows::core::Interface::vtable(self).ProcessVertices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(srcstartindex), ::core::mem::transmute(destindex), ::core::mem::transmute(vertexcount), pdestbuffer.into().abi(), pvertexdecl.into().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7254,7 +7502,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).CreateVertexDeclaration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvertexelements), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexDeclaration9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetVertexDeclaration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>>(&self, pdecl: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetVertexDeclaration<'a, P0>(&self, pdecl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>,
+    {
         (::windows::core::Interface::vtable(self).SetVertexDeclaration)(::windows::core::Interface::as_raw(self), pdecl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7276,7 +7527,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).CreateVertexShader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexShader9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetVertexShader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexShader9>>>(&self, pshader: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetVertexShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexShader9>>,
+    {
         (::windows::core::Interface::vtable(self).SetVertexShader)(::windows::core::Interface::as_raw(self), pshader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7311,7 +7565,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).GetVertexShaderConstantB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startregister), ::core::mem::transmute(pconstantdata), ::core::mem::transmute(boolcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetStreamSource<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>>(&self, streamnumber: u32, pstreamdata: Param1, offsetinbytes: u32, stride: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetStreamSource<'a, P0>(&self, streamnumber: u32, pstreamdata: P0, offsetinbytes: u32, stride: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>,
+    {
         (::windows::core::Interface::vtable(self).SetStreamSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(streamnumber), pstreamdata.into().abi(), ::core::mem::transmute(offsetinbytes), ::core::mem::transmute(stride)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7327,7 +7584,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).GetStreamSourceFreq)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(streamnumber), ::core::mem::transmute(psetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetIndices<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DIndexBuffer9>>>(&self, pindexdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetIndices<'a, P0>(&self, pindexdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DIndexBuffer9>>,
+    {
         (::windows::core::Interface::vtable(self).SetIndices)(::windows::core::Interface::as_raw(self), pindexdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7341,7 +7601,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).CreatePixelShader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DPixelShader9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetPixelShader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DPixelShader9>>>(&self, pshader: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPixelShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DPixelShader9>>,
+    {
         (::windows::core::Interface::vtable(self).SetPixelShader)(::windows::core::Interface::as_raw(self), pshader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7388,7 +7651,10 @@ impl IDirect3DDevice9 {
         (::windows::core::Interface::vtable(self).DeletePatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CreateQuery<'a, Param0: ::std::convert::Into<D3DQUERYTYPE>>(&self, r#type: Param0) -> ::windows::core::Result<IDirect3DQuery9> {
+    pub unsafe fn CreateQuery<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<IDirect3DQuery9>
+    where
+        P0: ::std::convert::Into<D3DQUERYTYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateQuery)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DQuery9>(result__)
     }
@@ -7689,7 +7955,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.GetCreationParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetCursorProperties<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn SetCursorProperties<'a, P0>(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetCursorProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xhotspot), ::core::mem::transmute(yhotspot), pcursorbitmap.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7698,7 +7967,10 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowCursor<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bshow: Param0) -> super::super::Foundation::BOOL {
+    pub unsafe fn ShowCursor<'a, P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.ShowCursor)(::windows::core::Interface::as_raw(self), bshow.into()))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -7722,11 +7994,17 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Present<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows::core::Result<()> {
+    pub unsafe fn Present<'a, P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into(), ::core::mem::transmute(pdirtyregion)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetBackBuffer<'a, Param2: ::std::convert::Into<D3DBACKBUFFER_TYPE>>(&self, iswapchain: u32, ibackbuffer: u32, r#type: Param2) -> ::windows::core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer<'a, P0>(&self, iswapchain: u32, ibackbuffer: u32, r#type: P0) -> ::windows::core::Result<IDirect3DSurface9>
+    where
+        P0: ::std::convert::Into<D3DBACKBUFFER_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetBackBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(ibackbuffer), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
@@ -7737,7 +8015,10 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDialogBoxMode<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabledialogs: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDialogBoxMode<'a, P0>(&self, benabledialogs: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetDialogBoxMode)(::windows::core::Interface::as_raw(self), benabledialogs.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7750,73 +8031,132 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTexture<'a, Param4: ::std::convert::Into<D3DFORMAT>, Param5: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, levels: u32, usage: u32, format: Param4, pool: Param5, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateTexture<'a, P0, P1>(&self, width: u32, height: u32, levels: u32, usage: u32, format: P0, pool: P1, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(levels), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(pptexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVolumeTexture<'a, Param5: ::std::convert::Into<D3DFORMAT>, Param6: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: Param5, pool: Param6, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVolumeTexture<'a, P0, P1>(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: P0, pool: P1, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateVolumeTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(depth), ::core::mem::transmute(levels), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(ppvolumetexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateCubeTexture<'a, Param3: ::std::convert::Into<D3DFORMAT>, Param4: ::std::convert::Into<D3DPOOL>>(&self, edgelength: u32, levels: u32, usage: u32, format: Param3, pool: Param4, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateCubeTexture<'a, P0, P1>(&self, edgelength: u32, levels: u32, usage: u32, format: P0, pool: P1, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateCubeTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edgelength), ::core::mem::transmute(levels), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(ppcubetexture), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateVertexBuffer<'a, Param3: ::std::convert::Into<D3DPOOL>>(&self, length: u32, usage: u32, fvf: u32, pool: Param3, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateVertexBuffer<'a, P0>(&self, length: u32, usage: u32, fvf: u32, pool: P0, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateVertexBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(length), ::core::mem::transmute(usage), ::core::mem::transmute(fvf), pool.into(), ::core::mem::transmute(ppvertexbuffer), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateIndexBuffer<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DPOOL>>(&self, length: u32, usage: u32, format: Param2, pool: Param3, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateIndexBuffer<'a, P0, P1>(&self, length: u32, usage: u32, format: P0, pool: P1, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateIndexBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(length), ::core::mem::transmute(usage), format.into(), pool.into(), ::core::mem::transmute(ppindexbuffer), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRenderTarget<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: Param2, multisample: Param3, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateRenderTarget<'a, P0, P1, P2>(&self, width: u32, height: u32, format: P0, multisample: P1, multisamplequality: u32, lockable: P2, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateRenderTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), multisample.into(), ::core::mem::transmute(multisamplequality), lockable.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDepthStencilSurface<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: Param2, multisample: Param3, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDepthStencilSurface<'a, P0, P1, P2>(&self, width: u32, height: u32, format: P0, multisample: P1, multisamplequality: u32, discard: P2, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateDepthStencilSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), multisample.into(), ::core::mem::transmute(multisamplequality), discard.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateSurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: Param2, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+    pub unsafe fn UpdateSurface<'a, P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.UpdateSurface)(::windows::core::Interface::as_raw(self), psourcesurface.into().abi(), ::core::mem::transmute(psourcerect), pdestinationsurface.into().abi(), ::core::mem::transmute(pdestpoint)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn UpdateTexture<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>>(&self, psourcetexture: Param0, pdestinationtexture: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn UpdateTexture<'a, P0, P1>(&self, psourcetexture: P0, pdestinationtexture: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.UpdateTexture)(::windows::core::Interface::as_raw(self), psourcetexture.into().abi(), pdestinationtexture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetRenderTargetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, prendertarget: Param0, pdestsurface: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRenderTargetData<'a, P0, P1>(&self, prendertarget: P0, pdestsurface: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetRenderTargetData)(::windows::core::Interface::as_raw(self), prendertarget.into().abi(), pdestsurface.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetFrontBufferData<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, iswapchain: u32, pdestsurface: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn GetFrontBufferData<'a, P0>(&self, iswapchain: u32, pdestsurface: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetFrontBufferData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iswapchain), pdestsurface.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StretchRect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param4: ::std::convert::Into<D3DTEXTUREFILTERTYPE>>(&self, psourcesurface: Param0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: Param2, pdestrect: *const super::super::Foundation::RECT, filter: Param4) -> ::windows::core::Result<()> {
+    pub unsafe fn StretchRect<'a, P0, P1, P2>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P2: ::std::convert::Into<D3DTEXTUREFILTERTYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.StretchRect)(::windows::core::Interface::as_raw(self), psourcesurface.into().abi(), ::core::mem::transmute(psourcerect), pdestsurface.into().abi(), ::core::mem::transmute(pdestrect), filter.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ColorFill<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, psurface: Param0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ColorFill<'a, P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.ColorFill)(::windows::core::Interface::as_raw(self), psurface.into().abi(), ::core::mem::transmute(prect), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOffscreenPlainSurface<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, format: Param2, pool: Param3, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateOffscreenPlainSurface<'a, P0, P1>(&self, width: u32, height: u32, format: P0, pool: P1, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.CreateOffscreenPlainSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), pool.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetRenderTarget<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, rendertargetindex: u32, prendertarget: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRenderTarget<'a, P0>(&self, rendertargetindex: u32, prendertarget: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetRenderTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rendertargetindex), prendertarget.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7825,7 +8165,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.GetRenderTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rendertargetindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetDepthStencilSurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, pnewzstencil: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDepthStencilSurface<'a, P0>(&self, pnewzstencil: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetDepthStencilSurface)(::windows::core::Interface::as_raw(self), pnewzstencil.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7847,17 +8190,26 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn SetTransform<'a, Param0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>>(&self, state: Param0, pmatrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTransform<'a, P0>(&self, state: P0, pmatrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetTransform)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(pmatrix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetTransform<'a, Param0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>>(&self, state: Param0, pmatrix: *mut super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    pub unsafe fn GetTransform<'a, P0>(&self, state: P0, pmatrix: *mut super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetTransform)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(pmatrix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn MultiplyTransform<'a, Param0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>>(&self, param0: Param0, param1: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    pub unsafe fn MultiplyTransform<'a, P0>(&self, param0: P0, param1: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTRANSFORMSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.MultiplyTransform)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(param1)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7888,7 +8240,10 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LightEnable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, index: u32, enable: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn LightEnable<'a, P0>(&self, index: u32, enable: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.LightEnable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), enable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -7905,15 +8260,24 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.GetClipPlane)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(pplane)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetRenderState<'a, Param0: ::std::convert::Into<D3DRENDERSTATETYPE>>(&self, state: Param0, value: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRenderState<'a, P0>(&self, state: P0, value: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DRENDERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetRenderState)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetRenderState<'a, Param0: ::std::convert::Into<D3DRENDERSTATETYPE>>(&self, state: Param0, pvalue: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetRenderState<'a, P0>(&self, state: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DRENDERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetRenderState)(::windows::core::Interface::as_raw(self), state.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CreateStateBlock<'a, Param0: ::std::convert::Into<D3DSTATEBLOCKTYPE>>(&self, r#type: Param0) -> ::windows::core::Result<IDirect3DStateBlock9> {
+    pub unsafe fn CreateStateBlock<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<IDirect3DStateBlock9>
+    where
+        P0: ::std::convert::Into<D3DSTATEBLOCKTYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateStateBlock)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DStateBlock9>(result__)
     }
@@ -7940,23 +8304,38 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.GetTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DBaseTexture9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetTexture<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>>(&self, stage: u32, ptexture: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTexture<'a, P0>(&self, stage: u32, ptexture: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DBaseTexture9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetTexture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), ptexture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetTextureStageState<'a, Param1: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>>(&self, stage: u32, r#type: Param1, pvalue: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetTextureStageState<'a, P0>(&self, stage: u32, r#type: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetTextureStageState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), r#type.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetTextureStageState<'a, Param1: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>>(&self, stage: u32, r#type: Param1, value: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTextureStageState<'a, P0>(&self, stage: u32, r#type: P0, value: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTURESTAGESTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetTextureStageState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stage), r#type.into(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetSamplerState<'a, Param1: ::std::convert::Into<D3DSAMPLERSTATETYPE>>(&self, sampler: u32, r#type: Param1, pvalue: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSamplerState<'a, P0>(&self, sampler: u32, r#type: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DSAMPLERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetSamplerState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sampler), r#type.into(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetSamplerState<'a, Param1: ::std::convert::Into<D3DSAMPLERSTATETYPE>>(&self, sampler: u32, r#type: Param1, value: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSamplerState<'a, P0>(&self, sampler: u32, r#type: P0, value: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DSAMPLERSTATETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetSamplerState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sampler), r#type.into(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -7993,7 +8372,10 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSoftwareVertexProcessing<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bsoftware: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSoftwareVertexProcessing<'a, P0>(&self, bsoftware: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetSoftwareVertexProcessing)(::windows::core::Interface::as_raw(self), bsoftware.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -8010,23 +8392,40 @@ impl IDirect3DDevice9Ex {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetNPatchMode)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawPrimitive<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>>(&self, primitivetype: Param0, startvertex: u32, primitivecount: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawPrimitive<'a, P0>(&self, primitivetype: P0, startvertex: u32, primitivecount: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.DrawPrimitive)(::windows::core::Interface::as_raw(self), primitivetype.into(), ::core::mem::transmute(startvertex), ::core::mem::transmute(primitivecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawIndexedPrimitive<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>>(&self, param0: Param0, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawIndexedPrimitive<'a, P0>(&self, param0: P0, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.DrawIndexedPrimitive)(::windows::core::Interface::as_raw(self), param0.into(), ::core::mem::transmute(basevertexindex), ::core::mem::transmute(minvertexindex), ::core::mem::transmute(numvertices), ::core::mem::transmute(startindex), ::core::mem::transmute(primcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawPrimitiveUP<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>>(&self, primitivetype: Param0, primitivecount: u32, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawPrimitiveUP<'a, P0>(&self, primitivetype: P0, primitivecount: u32, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.DrawPrimitiveUP)(::windows::core::Interface::as_raw(self), primitivetype.into(), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn DrawIndexedPrimitiveUP<'a, Param0: ::std::convert::Into<D3DPRIMITIVETYPE>, Param5: ::std::convert::Into<D3DFORMAT>>(&self, primitivetype: Param0, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: Param5, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawIndexedPrimitiveUP<'a, P0, P1>(&self, primitivetype: P0, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const ::core::ffi::c_void, indexdataformat: P1, pvertexstreamzerodata: *const ::core::ffi::c_void, vertexstreamzerostride: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DPRIMITIVETYPE>,
+        P1: ::std::convert::Into<D3DFORMAT>,
+    {
         (::windows::core::Interface::vtable(self).base__.DrawIndexedPrimitiveUP)(::windows::core::Interface::as_raw(self), primitivetype.into(), ::core::mem::transmute(minvertexindex), ::core::mem::transmute(numvertices), ::core::mem::transmute(primitivecount), ::core::mem::transmute(pindexdata), indexdataformat.into(), ::core::mem::transmute(pvertexstreamzerodata), ::core::mem::transmute(vertexstreamzerostride)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn ProcessVertices<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: Param3, pvertexdecl: Param4, flags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn ProcessVertices<'a, P0, P1>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: P0, pvertexdecl: P1, flags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.ProcessVertices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(srcstartindex), ::core::mem::transmute(destindex), ::core::mem::transmute(vertexcount), pdestbuffer.into().abi(), pvertexdecl.into().abi(), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8035,7 +8434,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.CreateVertexDeclaration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvertexelements), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexDeclaration9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetVertexDeclaration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>>(&self, pdecl: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetVertexDeclaration<'a, P0>(&self, pdecl: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexDeclaration9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetVertexDeclaration)(::windows::core::Interface::as_raw(self), pdecl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8057,7 +8459,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.CreateVertexShader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DVertexShader9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetVertexShader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexShader9>>>(&self, pshader: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetVertexShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexShader9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetVertexShader)(::windows::core::Interface::as_raw(self), pshader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8092,7 +8497,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.GetVertexShaderConstantB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startregister), ::core::mem::transmute(pconstantdata), ::core::mem::transmute(boolcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetStreamSource<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>>(&self, streamnumber: u32, pstreamdata: Param1, offsetinbytes: u32, stride: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetStreamSource<'a, P0>(&self, streamnumber: u32, pstreamdata: P0, offsetinbytes: u32, stride: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetStreamSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(streamnumber), pstreamdata.into().abi(), ::core::mem::transmute(offsetinbytes), ::core::mem::transmute(stride)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8108,7 +8516,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.GetStreamSourceFreq)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(streamnumber), ::core::mem::transmute(psetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetIndices<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DIndexBuffer9>>>(&self, pindexdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetIndices<'a, P0>(&self, pindexdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DIndexBuffer9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetIndices)(::windows::core::Interface::as_raw(self), pindexdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8122,7 +8533,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.CreatePixelShader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfunction), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DPixelShader9>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetPixelShader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DPixelShader9>>>(&self, pshader: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPixelShader<'a, P0>(&self, pshader: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DPixelShader9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetPixelShader)(::windows::core::Interface::as_raw(self), pshader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8169,7 +8583,10 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).base__.DeletePatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn CreateQuery<'a, Param0: ::std::convert::Into<D3DQUERYTYPE>>(&self, r#type: Param0) -> ::windows::core::Result<IDirect3DQuery9> {
+    pub unsafe fn CreateQuery<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<IDirect3DQuery9>
+    where
+        P0: ::std::convert::Into<D3DQUERYTYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateQuery)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DQuery9>(result__)
     }
@@ -8178,12 +8595,22 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Interface::vtable(self).SetConvolutionMonoKernel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(rows), ::core::mem::transmute(columns)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn ComposeRects<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>, Param5: ::std::convert::Into<D3DCOMPOSERECTSOP>>(&self, psrc: Param0, pdst: Param1, psrcrectdescs: Param2, numrects: u32, pdstrectdescs: Param4, operation: Param5, xoffset: i32, yoffset: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn ComposeRects<'a, P0, P1, P2, P3, P4>(&self, psrc: P0, pdst: P1, psrcrectdescs: P2, numrects: u32, pdstrectdescs: P3, operation: P4, xoffset: i32, yoffset: i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DVertexBuffer9>>,
+        P4: ::std::convert::Into<D3DCOMPOSERECTSOP>,
+    {
         (::windows::core::Interface::vtable(self).ComposeRects)(::windows::core::Interface::as_raw(self), psrc.into().abi(), pdst.into().abi(), psrcrectdescs.into().abi(), ::core::mem::transmute(numrects), pdstrectdescs.into().abi(), operation.into(), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn PresentEx<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn PresentEx<'a, P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).PresentEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into(), ::core::mem::transmute(pdirtyregion), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -8212,22 +8639,39 @@ impl IDirect3DDevice9Ex {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckDeviceState<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hdestinationwindow: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CheckDeviceState<'a, P0>(&self, hdestinationwindow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).CheckDeviceState)(::windows::core::Interface::as_raw(self), hdestinationwindow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRenderTargetEx<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: Param2, multisample: Param3, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateRenderTargetEx<'a, P0, P1, P2>(&self, width: u32, height: u32, format: P0, multisample: P1, multisamplequality: u32, lockable: P2, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateRenderTargetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), multisample.into(), ::core::mem::transmute(multisamplequality), lockable.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOffscreenPlainSurfaceEx<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DPOOL>>(&self, width: u32, height: u32, format: Param2, pool: Param3, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateOffscreenPlainSurfaceEx<'a, P0, P1>(&self, width: u32, height: u32, format: P0, pool: P1, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DPOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), pool.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDepthStencilSurfaceEx<'a, Param2: ::std::convert::Into<D3DFORMAT>, Param3: ::std::convert::Into<D3DMULTISAMPLE_TYPE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: Param2, multisample: Param3, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateDepthStencilSurfaceEx<'a, P0, P1, P2>(&self, width: u32, height: u32, format: P0, multisample: P1, multisamplequality: u32, discard: P2, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DFORMAT>,
+        P1: ::std::convert::Into<D3DMULTISAMPLE_TYPE>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), multisample.into(), ::core::mem::transmute(multisamplequality), discard.into(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
@@ -8771,7 +9215,10 @@ impl IDirect3DSurface9 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<'a, Param0: ::std::convert::Into<super::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn ReleaseDC<'a, P0>(&self, hdc: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Gdi::HDC>,
+    {
         (::windows::core::Interface::vtable(self).ReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into()).ok()
     }
 }
@@ -8851,15 +9298,24 @@ pub struct IDirect3DSwapChain9(::windows::core::IUnknown);
 impl IDirect3DSwapChain9 {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Present<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Present<'a, P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into(), ::core::mem::transmute(pdirtyregion), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetFrontBufferData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, pdestsurface: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn GetFrontBufferData<'a, P0>(&self, pdestsurface: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).GetFrontBufferData)(::windows::core::Interface::as_raw(self), pdestsurface.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetBackBuffer<'a, Param1: ::std::convert::Into<D3DBACKBUFFER_TYPE>>(&self, ibackbuffer: u32, r#type: Param1) -> ::windows::core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer<'a, P0>(&self, ibackbuffer: u32, r#type: P0) -> ::windows::core::Result<IDirect3DSurface9>
+    where
+        P0: ::std::convert::Into<D3DBACKBUFFER_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetBackBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ibackbuffer), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
@@ -8945,15 +9401,24 @@ pub struct IDirect3DSwapChain9Ex(::windows::core::IUnknown);
 impl IDirect3DSwapChain9Ex {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Present<'a, Param2: ::std::convert::Into<super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Present<'a, P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).base__.Present)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into(), ::core::mem::transmute(pdirtyregion), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetFrontBufferData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>>(&self, pdestsurface: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn GetFrontBufferData<'a, P0>(&self, pdestsurface: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDirect3DSurface9>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetFrontBufferData)(::windows::core::Interface::as_raw(self), pdestsurface.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn GetBackBuffer<'a, Param1: ::std::convert::Into<D3DBACKBUFFER_TYPE>>(&self, ibackbuffer: u32, r#type: Param1) -> ::windows::core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer<'a, P0>(&self, ibackbuffer: u32, r#type: P0) -> ::windows::core::Result<IDirect3DSurface9>
+    where
+        P0: ::std::convert::Into<D3DBACKBUFFER_TYPE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetBackBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ibackbuffer), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DSurface9>(result__)
     }
@@ -9097,7 +9562,10 @@ impl IDirect3DTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetLevelCount)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetAutoGenFilterType<'a, Param0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>>(&self, filtertype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAutoGenFilterType<'a, P0>(&self, filtertype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetAutoGenFilterType)(::windows::core::Interface::as_raw(self), filtertype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -9569,7 +10037,10 @@ impl IDirect3DVolumeTexture9 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetLevelCount)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
-    pub unsafe fn SetAutoGenFilterType<'a, Param0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>>(&self, filtertype: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAutoGenFilterType<'a, P0>(&self, filtertype: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3DTEXTUREFILTERTYPE>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetAutoGenFilterType)(::windows::core::Interface::as_raw(self), filtertype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]

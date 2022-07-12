@@ -421,7 +421,10 @@ impl SystemUpdateManager {
     }
     #[doc = "*Required features: `\"System_Update\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -510,7 +513,10 @@ impl SystemUpdateManager {
     }
     #[doc = "*Required features: `\"System_Update\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BlockAutomaticRebootAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(lockid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn BlockAutomaticRebootAsync<'a, P0>(lockid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).BlockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), lockid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
@@ -518,7 +524,10 @@ impl SystemUpdateManager {
     }
     #[doc = "*Required features: `\"System_Update\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnblockAutomaticRebootAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(lockid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UnblockAutomaticRebootAsync<'a, P0>(lockid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).UnblockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), lockid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
@@ -547,7 +556,10 @@ impl SystemUpdateManager {
         })
     }
     #[doc = "*Required features: `\"System_Update\"`*"]
-    pub fn SetFlightRing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(flightring: Param0) -> ::windows::core::Result<bool> {
+    pub fn SetFlightRing<'a, P0>(flightring: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).SetFlightRing)(::windows::core::Interface::as_raw(this), flightring.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -561,7 +573,10 @@ impl SystemUpdateManager {
         })
     }
     #[doc = "*Required features: `\"System_Update\"`*"]
-    pub fn StartInstall<'a, Param0: ::std::convert::Into<SystemUpdateStartInstallAction>>(action: Param0) -> ::windows::core::Result<()> {
+    pub fn StartInstall<'a, P0>(action: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SystemUpdateStartInstallAction>,
+    {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartInstall)(::windows::core::Interface::as_raw(this), action.into()).ok() })
     }
     #[doc = "*Required features: `\"System_Update\"`*"]

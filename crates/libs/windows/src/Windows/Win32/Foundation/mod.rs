@@ -1360,7 +1360,10 @@ pub const CS_E_PACKAGE_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRE
 pub const CS_E_SCHEMA_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221138i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn CloseHandle<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Param0) -> BOOL {
+pub unsafe fn CloseHandle<'a, P0>(hobject: P0) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseHandle(hobject: HANDLE) -> BOOL;
@@ -1369,7 +1372,11 @@ pub unsafe fn CloseHandle<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Par
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn CompareObjectHandles<'a, Param0: ::std::convert::Into<HANDLE>, Param1: ::std::convert::Into<HANDLE>>(hfirstobjecthandle: Param0, hsecondobjecthandle: Param1) -> BOOL {
+pub unsafe fn CompareObjectHandles<'a, P0, P1>(hfirstobjecthandle: P0, hsecondobjecthandle: P1) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+    P1: ::std::convert::Into<HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
@@ -1929,7 +1936,14 @@ pub const DXGI_STATUS_PRESENT_REQUIRED: ::windows::core::HRESULT = ::windows::co
 pub const DXGI_STATUS_UNOCCLUDED: ::windows::core::HRESULT = ::windows::core::HRESULT(142213129i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn DuplicateHandle<'a, Param0: ::std::convert::Into<HANDLE>, Param1: ::std::convert::Into<HANDLE>, Param2: ::std::convert::Into<HANDLE>, Param5: ::std::convert::Into<BOOL>, Param6: ::std::convert::Into<DUPLICATE_HANDLE_OPTIONS>>(hsourceprocesshandle: Param0, hsourcehandle: Param1, htargetprocesshandle: Param2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: Param5, dwoptions: Param6) -> BOOL {
+pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3, P4>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: P4) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+    P1: ::std::convert::Into<HANDLE>,
+    P2: ::std::convert::Into<HANDLE>,
+    P3: ::std::convert::Into<BOOL>,
+    P4: ::std::convert::Into<DUPLICATE_HANDLE_OPTIONS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
@@ -3838,7 +3852,10 @@ pub const GCN_E_REQUEST_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core:
 pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143616988i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn GetHandleInformation<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Param0, lpdwflags: *mut u32) -> BOOL {
+pub unsafe fn GetHandleInformation<'a, P0>(hobject: P0, lpdwflags: *mut u32) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
@@ -6390,7 +6407,10 @@ pub const RPC_X_WRONG_PIPE_VERSION: i32 = 1832i32;
 pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::std::convert::Into<NTSTATUS>>(status: Param0) -> u32 {
+pub unsafe fn RtlNtStatusToDosError<'a, P0>(status: P0) -> u32
+where
+    P0: ::std::convert::Into<NTSTATUS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
@@ -12792,7 +12812,11 @@ pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::core::HRESULT = ::windows::core::HRESULT(2556504i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetHandleInformation<'a, Param0: ::std::convert::Into<HANDLE>, Param2: ::std::convert::Into<HANDLE_FLAGS>>(hobject: Param0, dwmask: u32, dwflags: Param2) -> BOOL {
+pub unsafe fn SetHandleInformation<'a, P0, P1>(hobject: P0, dwmask: u32, dwflags: P1) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+    P1: ::std::convert::Into<HANDLE_FLAGS>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
@@ -12801,7 +12825,10 @@ pub unsafe fn SetHandleInformation<'a, Param0: ::std::convert::Into<HANDLE>, Par
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetLastError<'a, Param0: ::std::convert::Into<WIN32_ERROR>>(dwerrcode: Param0) {
+pub unsafe fn SetLastError<'a, P0>(dwerrcode: P0)
+where
+    P0: ::std::convert::Into<WIN32_ERROR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLastError(dwerrcode: WIN32_ERROR);
@@ -12810,7 +12837,10 @@ pub unsafe fn SetLastError<'a, Param0: ::std::convert::Into<WIN32_ERROR>>(dwerrc
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetLastErrorEx<'a, Param0: ::std::convert::Into<WIN32_ERROR>>(dwerrcode: Param0, dwtype: u32) {
+pub unsafe fn SetLastErrorEx<'a, P0>(dwerrcode: P0, dwtype: u32)
+where
+    P0: ::std::convert::Into<WIN32_ERROR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
@@ -12819,7 +12849,10 @@ pub unsafe fn SetLastErrorEx<'a, Param0: ::std::convert::Into<WIN32_ERROR>>(dwer
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAddRefString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn SysAddRefString<'a, P0>(bstrstring: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
@@ -12828,7 +12861,10 @@ pub unsafe fn SysAddRefString<'a, Param0: ::std::convert::Into<::windows::core::
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocString<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(psz: Param0) -> BSTR {
+pub unsafe fn SysAllocString<'a, P0>(psz: P0) -> BSTR
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
@@ -12837,7 +12873,10 @@ pub unsafe fn SysAllocString<'a, Param0: ::std::convert::Into<::windows::core::P
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocStringByteLen<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
+pub unsafe fn SysAllocStringByteLen<'a, P0>(psz: P0, len: u32) -> BSTR
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
@@ -12855,7 +12894,10 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) {
+pub unsafe fn SysFreeString<'a, P0>(bstrstring: P0)
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
@@ -12864,7 +12906,10 @@ pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::In
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocString<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
+pub unsafe fn SysReAllocString<'a, P0>(pbstr: *mut BSTR, psz: P0) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
@@ -12873,7 +12918,10 @@ pub unsafe fn SysReAllocString<'a, Param1: ::std::convert::Into<::windows::core:
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocStringLen<'a, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
+pub unsafe fn SysReAllocStringLen<'a, P0>(pbstr: *mut BSTR, psz: P0, len: u32) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
@@ -12882,7 +12930,10 @@ pub unsafe fn SysReAllocStringLen<'a, Param1: ::std::convert::Into<::windows::co
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReleaseString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) {
+pub unsafe fn SysReleaseString<'a, P0>(bstrstring: P0)
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
@@ -12891,7 +12942,10 @@ pub unsafe fn SysReleaseString<'a, Param0: ::std::convert::Into<::windows::core:
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysStringByteLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstr: Param0) -> u32 {
+pub unsafe fn SysStringByteLen<'a, P0>(bstr: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
@@ -12900,7 +12954,10 @@ pub unsafe fn SysStringByteLen<'a, Param0: ::std::convert::Into<::windows::core:
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysStringLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(pbstr: Param0) -> u32 {
+pub unsafe fn SysStringLen<'a, P0>(pbstr: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;

@@ -169,7 +169,12 @@ impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifierEnumerateResource<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<VERIFIER_ENUM_RESOURCE_FLAGS>, Param2: ::std::convert::Into<eAvrfResourceTypes>>(process: Param0, flags: Param1, resourcetype: Param2, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn VerifierEnumerateResource<'a, P0, P1, P2>(process: P0, flags: P1, resourcetype: P2, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<VERIFIER_ENUM_RESOURCE_FLAGS>,
+    P2: ::std::convert::Into<eAvrfResourceTypes>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void) -> u32;

@@ -154,7 +154,10 @@ pub struct MicrosoftAccountMultiFactorAuthenticationManager(::windows::core::IUn
 impl MicrosoftAccountMultiFactorAuthenticationManager {
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetOneTimePassCodeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, useraccountid: Param0, codelength: u32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>> {
+    pub fn GetOneTimePassCodeAsync<'a, P0>(&self, useraccountid: P0, codelength: u32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -163,7 +166,12 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddDeviceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, useraccountid: Param0, authenticationtoken: Param1, wnschannelid: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn AddDeviceAsync<'a, P0, P1, P2>(&self, useraccountid: P0, authenticationtoken: P1, wnschannelid: P2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -172,7 +180,10 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDeviceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, useraccountid: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn RemoveDeviceAsync<'a, P0>(&self, useraccountid: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -181,7 +192,11 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateWnsChannelAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, useraccountid: Param0, channeluri: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn UpdateWnsChannelAsync<'a, P0, P1>(&self, useraccountid: P0, channeluri: P1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -190,7 +205,11 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSessionsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, useraccountidlist: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>> {
+    pub fn GetSessionsAsync<'a, P0, E0>(&self, useraccountidlist: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -199,7 +218,11 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSessionsAndUnregisteredAccountsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, useraccountidlist: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>> {
+    pub fn GetSessionsAndUnregisteredAccountsAsync<'a, P0, E0>(&self, useraccountidlist: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -208,7 +231,11 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApproveSessionUsingAuthSessionInfoAsync<'a, Param0: ::std::convert::Into<MicrosoftAccountMultiFactorSessionAuthenticationStatus>, Param1: ::std::convert::Into<::windows::core::InParam<'a, MicrosoftAccountMultiFactorSessionInfo>>>(&self, sessionauthentictionstatus: Param0, authenticationsessioninfo: Param1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn ApproveSessionUsingAuthSessionInfoAsync<'a, P0, P1>(&self, sessionauthentictionstatus: P0, authenticationsessioninfo: P1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<MicrosoftAccountMultiFactorSessionAuthenticationStatus>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, MicrosoftAccountMultiFactorSessionInfo>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -217,7 +244,13 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApproveSessionAsync<'a, Param0: ::std::convert::Into<MicrosoftAccountMultiFactorSessionAuthenticationStatus>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<MicrosoftAccountMultiFactorAuthenticationType>>(&self, sessionauthentictionstatus: Param0, useraccountid: Param1, sessionid: Param2, sessionauthenticationtype: Param3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn ApproveSessionAsync<'a, P0, P1, P2, P3>(&self, sessionauthentictionstatus: P0, useraccountid: P1, sessionid: P2, sessionauthenticationtype: P3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<MicrosoftAccountMultiFactorSessionAuthenticationStatus>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<MicrosoftAccountMultiFactorAuthenticationType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -226,7 +259,10 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DenySessionUsingAuthSessionInfoAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MicrosoftAccountMultiFactorSessionInfo>>>(&self, authenticationsessioninfo: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn DenySessionUsingAuthSessionInfoAsync<'a, P0>(&self, authenticationsessioninfo: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MicrosoftAccountMultiFactorSessionInfo>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -235,7 +271,12 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DenySessionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<MicrosoftAccountMultiFactorAuthenticationType>>(&self, useraccountid: Param0, sessionid: Param1, sessionauthenticationtype: Param2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn DenySessionAsync<'a, P0, P1, P2>(&self, useraccountid: P0, sessionid: P1, sessionauthenticationtype: P2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<MicrosoftAccountMultiFactorAuthenticationType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

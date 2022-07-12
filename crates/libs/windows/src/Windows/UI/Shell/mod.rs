@@ -2,7 +2,10 @@
 pub struct AdaptiveCardBuilder;
 impl AdaptiveCardBuilder {
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn CreateAdaptiveCardFromJson<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
+    pub fn CreateAdaptiveCardFromJson<'a, P0>(value: P0) -> ::windows::core::Result<IAdaptiveCard>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
@@ -98,7 +101,10 @@ pub struct IAdaptiveCard_Vtbl {
 pub struct IAdaptiveCardBuilderStatics(::windows::core::IUnknown);
 impl IAdaptiveCardBuilderStatics {
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn CreateAdaptiveCardFromJson<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
+    pub fn CreateAdaptiveCardFromJson<'a, P0>(&self, value: P0) -> ::windows::core::Result<IAdaptiveCard>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -362,7 +368,12 @@ impl SecurityAppManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Register<'a, Param0: ::std::convert::Into<SecurityAppKind>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, kind: Param0, displayname: Param1, detailsuri: Param2, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID> {
+    pub fn Register<'a, P0, P1, P2>(&self, kind: P0, displayname: P1, detailsuri: P2, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID>
+    where
+        P0: ::std::convert::Into<SecurityAppKind>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
@@ -370,13 +381,22 @@ impl SecurityAppManager {
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn Unregister<'a, Param0: ::std::convert::Into<SecurityAppKind>>(&self, kind: Param0, guidregistration: ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub fn Unregister<'a, P0>(&self, kind: P0, guidregistration: ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SecurityAppKind>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind.into(), guidregistration).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateState<'a, Param0: ::std::convert::Into<SecurityAppKind>, Param2: ::std::convert::Into<SecurityAppState>, Param3: ::std::convert::Into<SecurityAppSubstatus>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, kind: Param0, guidregistration: ::windows::core::GUID, state: Param2, substatus: Param3, detailsuri: Param4) -> ::windows::core::Result<()> {
+    pub fn UpdateState<'a, P0, P1, P2, P3>(&self, kind: P0, guidregistration: ::windows::core::GUID, state: P1, substatus: P2, detailsuri: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SecurityAppKind>,
+        P1: ::std::convert::Into<SecurityAppState>,
+        P2: ::std::convert::Into<SecurityAppSubstatus>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind.into(), guidregistration, state.into(), substatus.into(), detailsuri.into().abi()).ok() }
     }
@@ -569,7 +589,10 @@ impl ShareWindowCommandEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn SetCommand<'a, Param0: ::std::convert::Into<ShareWindowCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCommand<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ShareWindowCommand>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -657,7 +680,10 @@ impl ShareWindowCommandSource {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CommandRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CommandRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -672,7 +698,10 @@ impl ShareWindowCommandSource {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CommandInvoked<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CommandInvoked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -791,7 +820,10 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn IsAppListEntryPinnedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsAppListEntryPinnedAsync<'a, P0>(&self, applistentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -809,7 +841,10 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn RequestPinAppListEntryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinAppListEntryAsync<'a, P0>(&self, applistentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -818,7 +853,10 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsSecondaryTilePinnedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSecondaryTilePinnedAsync<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -827,7 +865,10 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`, `\"UI_StartScreen\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))]
-    pub fn RequestPinSecondaryTileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::StartScreen::SecondaryTile>>>(&self, secondarytile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinSecondaryTileAsync<'a, P0>(&self, secondarytile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::StartScreen::SecondaryTile>>,
+    {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -836,7 +877,10 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUnpinSecondaryTileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUnpinSecondaryTileAsync<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

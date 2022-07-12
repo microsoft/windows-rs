@@ -31,7 +31,7 @@ fn pstr() {
 
 #[test]
 fn pwstr() {
-    let handle = PWSTR(core::ptr::null_mut());
+    let handle = PWSTR::null();
     let _clone = handle.clone();
     let _copy: PWSTR = handle;
     assert!(handle.is_null());

@@ -651,12 +651,18 @@ impl TargetedContentCollection {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportInteraction<'a, Param0: ::std::convert::Into<TargetedContentInteraction>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportInteraction<'a, P0>(&self, interaction: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TargetedContentInteraction>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportCustomInteraction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCustomInteraction<'a, P0>(&self, custominteractionname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into().abi()).ok() }
     }
@@ -796,7 +802,10 @@ impl TargetedContentContainer {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn SelectSingleObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, path: Param0) -> ::windows::core::Result<TargetedContentObject> {
+    pub fn SelectSingleObject<'a, P0>(&self, path: P0) -> ::windows::core::Result<TargetedContentObject>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -805,7 +814,10 @@ impl TargetedContentContainer {
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(contentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
+    pub fn GetAsync<'a, P0>(contentid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITargetedContentContainerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), contentid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
@@ -1166,12 +1178,18 @@ impl TargetedContentItem {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportInteraction<'a, Param0: ::std::convert::Into<TargetedContentInteraction>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportInteraction<'a, P0>(&self, interaction: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TargetedContentInteraction>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportCustomInteraction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCustomInteraction<'a, P0>(&self, custominteractionname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into().abi()).ok() }
     }
@@ -1580,7 +1598,10 @@ impl TargetedContentSubscription {
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ContentChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1595,7 +1616,10 @@ impl TargetedContentSubscription {
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailabilityChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailabilityChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1610,7 +1634,10 @@ impl TargetedContentSubscription {
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1625,14 +1652,20 @@ impl TargetedContentSubscription {
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(subscriptionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
+    pub fn GetAsync<'a, P0>(subscriptionid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), subscriptionid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn GetOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(subscriptionid: Param0) -> ::windows::core::Result<TargetedContentSubscriptionOptions> {
+    pub fn GetOptions<'a, P0>(subscriptionid: P0) -> ::windows::core::Result<TargetedContentSubscriptionOptions>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetOptions)(::windows::core::Interface::as_raw(this), subscriptionid.into().abi(), result__.as_mut_ptr()).from_abi::<TargetedContentSubscriptionOptions>(result__)

@@ -82,7 +82,10 @@ impl DeviceArrivedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
@@ -167,7 +170,10 @@ impl DeviceDepartedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
@@ -543,7 +549,11 @@ impl MessageReceivedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ProximityMessage>>>(&self, sender: Param0, message: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, message: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ProximityMessage>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), message.into().abi()).ok() }
     }
@@ -628,7 +638,10 @@ impl MessageTransmittedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>>(&self, sender: Param0, messageid: i64) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, sender: P0, messageid: i64) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), messageid).ok() }
     }
@@ -811,7 +824,10 @@ impl PeerFinder {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -834,7 +850,10 @@ impl PeerFinder {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn StartWithMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(peermessage: Param0) -> ::windows::core::Result<()> {
+    pub fn StartWithMessage<'a, P0>(peermessage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartWithMessage)(::windows::core::Interface::as_raw(this), peermessage.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -843,7 +862,10 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggeredConnectionStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TriggeredConnectionStateChangedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggeredConnectionStateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TriggeredConnectionStateChangedEventArgs>>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -856,7 +878,10 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ConnectionRequestedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ConnectionRequested<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ConnectionRequestedEventArgs>>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
             (::windows::core::Interface::vtable(this).ConnectionRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
@@ -877,7 +902,10 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn ConnectAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PeerInformation>>>(peerinformation: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>> {
+    pub fn ConnectAsync<'a, P0>(peerinformation: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PeerInformation>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), peerinformation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>(result__)
@@ -891,7 +919,10 @@ impl PeerFinder {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SetRole<'a, Param0: ::std::convert::Into<PeerRole>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRole<'a, P0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PeerRole>,
+    {
         Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetRole)(::windows::core::Interface::as_raw(this), value.into()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
@@ -904,7 +935,11 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDiscoveryData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDiscoveryData<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetDiscoveryData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1077,7 +1112,10 @@ pub struct PeerWatcher(::windows::core::IUnknown);
 impl PeerWatcher {
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1092,7 +1130,10 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1107,7 +1148,10 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1122,7 +1166,10 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1137,7 +1184,10 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1274,7 +1324,11 @@ unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
 pub struct ProximityDevice(::windows::core::IUnknown);
 impl ProximityDevice {
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SubscribeForMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, MessageReceivedHandler>>>(&self, messagetype: Param0, messagereceivedhandler: Param1) -> ::windows::core::Result<i64> {
+    pub fn SubscribeForMessage<'a, P0, P1>(&self, messagetype: P0, messagereceivedhandler: P1) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, MessageReceivedHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1282,7 +1336,11 @@ impl ProximityDevice {
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn PublishMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messagetype: Param0, message: Param1) -> ::windows::core::Result<i64> {
+    pub fn PublishMessage<'a, P0, P1>(&self, messagetype: P0, message: P1) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1290,7 +1348,12 @@ impl ProximityDevice {
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn PublishMessageWithCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::core::Result<i64> {
+    pub fn PublishMessageWithCallback<'a, P0, P1, P2>(&self, messagetype: P0, message: P1, messagetransmittedhandler: P2) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1299,7 +1362,12 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, messagetype: Param0, message: Param1) -> ::windows::core::Result<i64> {
+    pub fn PublishBinaryMessage<'a, P0, P1, E1>(&self, messagetype: P0, message: P1) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1308,7 +1376,13 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessageWithCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::core::Result<i64> {
+    pub fn PublishBinaryMessageWithCallback<'a, P0, P1, E1, P2>(&self, messagetype: P0, message: P1, messagetransmittedhandler: P2) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1317,7 +1391,10 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PublishUriMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, message: Param0) -> ::windows::core::Result<i64> {
+    pub fn PublishUriMessage<'a, P0>(&self, message: P0) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1326,7 +1403,11 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PublishUriMessageWithCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>>(&self, message: Param0, messagetransmittedhandler: Param1) -> ::windows::core::Result<i64> {
+    pub fn PublishUriMessageWithCallback<'a, P0, P1>(&self, message: P0, messagetransmittedhandler: P1) -> ::windows::core::Result<i64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
@@ -1345,7 +1426,10 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceArrived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DeviceArrivedEventHandler>>>(&self, arrivedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceArrived<'a, P0>(&self, arrivedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DeviceArrivedEventHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1360,7 +1444,10 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceDeparted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DeviceDepartedEventHandler>>>(&self, departedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceDeparted<'a, P0>(&self, departedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DeviceDepartedEventHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1412,7 +1499,10 @@ impl ProximityDevice {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<ProximityDevice> {
+    pub fn FromId<'a, P0>(deviceid: P0) -> ::windows::core::Result<ProximityDevice>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<ProximityDevice>(result__)

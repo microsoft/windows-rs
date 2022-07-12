@@ -614,7 +614,10 @@ impl IXAPO {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Process<'a, Param4: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, pinputprocessparameters: &[XAPO_PROCESS_BUFFER_PARAMETERS], poutputprocessparameters: &mut [XAPO_PROCESS_BUFFER_PARAMETERS], isenabled: Param4) {
+    pub unsafe fn Process<'a, P0>(&self, pinputprocessparameters: &[XAPO_PROCESS_BUFFER_PARAMETERS], poutputprocessparameters: &mut [XAPO_PROCESS_BUFFER_PARAMETERS], isenabled: P0)
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), pinputprocessparameters.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputprocessparameters)), poutputprocessparameters.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poutputprocessparameters)), isenabled.into())
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -696,7 +699,10 @@ impl IXAPOHrtfParameters {
         (::windows::core::Interface::vtable(self).SetSourceGain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gain)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetEnvironment<'a, Param0: ::std::convert::Into<HrtfEnvironment>>(&self, environment: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetEnvironment<'a, P0>(&self, environment: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HrtfEnvironment>,
+    {
         (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), environment.into()).ok()
     }
 }
@@ -804,16 +810,25 @@ pub struct IXAPOParameters_Vtbl {
 pub struct IXAudio2(::windows::core::IUnknown);
 impl IXAudio2 {
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn RegisterForCallbacks<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2EngineCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterForCallbacks<'a, P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2EngineCallback>>,
+    {
         (::windows::core::Interface::vtable(self).RegisterForCallbacks)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn UnregisterForCallbacks<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2EngineCallback>>>(&self, pcallback: Param0) {
+    pub unsafe fn UnregisterForCallbacks<'a, P0>(&self, pcallback: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2EngineCallback>>,
+    {
         (::windows::core::Interface::vtable(self).UnregisterForCallbacks)(::windows::core::Interface::as_raw(self), pcallback.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSourceVoice<'a, Param4: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2VoiceCallback>>>(&self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: Param4, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateSourceVoice<'a, P0>(&self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: P0, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2VoiceCallback>>,
+    {
         (::windows::core::Interface::vtable(self).CreateSourceVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppsourcevoice), ::core::mem::transmute(psourceformat), ::core::mem::transmute(flags), ::core::mem::transmute(maxfrequencyratio), pcallback.into().abi(), ::core::mem::transmute(psendlist), ::core::mem::transmute(peffectchain)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
@@ -823,7 +838,11 @@ impl IXAudio2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateMasteringVoice<'a, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param6: ::std::convert::Into<super::AUDIO_STREAM_CATEGORY>>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: Param4, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: Param6) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateMasteringVoice<'a, P0, P1>(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: P0, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<super::AUDIO_STREAM_CATEGORY>,
+    {
         (::windows::core::Interface::vtable(self).CreateMasteringVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppmasteringvoice), ::core::mem::transmute(inputchannels), ::core::mem::transmute(inputsamplerate), ::core::mem::transmute(flags), szdeviceid.into(), ::core::mem::transmute(peffectchain), streamcategory.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1056,11 +1075,17 @@ impl IXAudio2MasteringVoice {
         (::windows::core::Interface::vtable(self).base__.GetFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
+    pub unsafe fn GetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1080,11 +1105,17 @@ impl IXAudio2MasteringVoice {
         (::windows::core::Interface::vtable(self).base__.GetChannelVolumes)(::windows::core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvolumes)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32) {
+    pub unsafe fn GetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1185,11 +1216,17 @@ impl IXAudio2SourceVoice {
         (::windows::core::Interface::vtable(self).base__.GetFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
+    pub unsafe fn GetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1209,11 +1246,17 @@ impl IXAudio2SourceVoice {
         (::windows::core::Interface::vtable(self).base__.GetChannelVolumes)(::windows::core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvolumes)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32) {
+    pub unsafe fn GetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1358,11 +1401,17 @@ impl IXAudio2SubmixVoice {
         (::windows::core::Interface::vtable(self).base__.GetFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
+    pub unsafe fn GetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1382,11 +1431,17 @@ impl IXAudio2SubmixVoice {
         (::windows::core::Interface::vtable(self).base__.GetChannelVolumes)(::windows::core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvolumes)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32) {
+    pub unsafe fn GetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).base__.GetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1481,11 +1536,17 @@ impl IXAudio2Voice {
         (::windows::core::Interface::vtable(self).GetFilterParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).SetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputFilterParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS) {
+    pub unsafe fn GetOutputFilterParameters<'a, P0>(&self, pdestinationvoice: P0, pparameters: *mut XAUDIO2_FILTER_PARAMETERS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).GetOutputFilterParameters)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(pparameters))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1505,11 +1566,17 @@ impl IXAudio2Voice {
         (::windows::core::Interface::vtable(self).GetChannelVolumes)(::windows::core::Interface::as_raw(self), pvolumes.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvolumes)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn SetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).SetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix), ::core::mem::transmute(operationset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub unsafe fn GetOutputMatrix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>>(&self, pdestinationvoice: Param0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32) {
+    pub unsafe fn GetOutputMatrix<'a, P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IXAudio2Voice>>,
+    {
         (::windows::core::Interface::vtable(self).GetOutputMatrix)(::windows::core::Interface::as_raw(self), pdestinationvoice.into().abi(), ::core::mem::transmute(sourcechannels), ::core::mem::transmute(destinationchannels), ::core::mem::transmute(plevelmatrix))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]

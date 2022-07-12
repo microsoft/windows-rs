@@ -3,7 +3,11 @@
 pub struct DesktopWindowTarget(::windows::core::IUnknown);
 impl DesktopWindowTarget {
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, P0, P1>(&self, propertyname: P0, propertyinfo: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
+    {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
@@ -39,12 +43,19 @@ impl DesktopWindowTarget {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, P0, P1>(&self, propertyname: P0, animation: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, P0>(&self, propertyname: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
@@ -57,7 +68,10 @@ impl DesktopWindowTarget {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -70,17 +84,28 @@ impl DesktopWindowTarget {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -94,7 +119,10 @@ impl DesktopWindowTarget {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, P0>(&self, propertyname: P0) -> ::windows::core::Result<super::AnimationController>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -110,7 +138,10 @@ impl DesktopWindowTarget {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
-    pub fn SetRoot<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRoot<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
+    {
         let this = &::windows::core::Interface::cast::<super::ICompositionTarget>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRoot)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }

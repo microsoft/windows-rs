@@ -60,7 +60,10 @@ impl I2cConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn SetBusSpeed<'a, Param0: ::std::convert::Into<I2cBusSpeed>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBusSpeed<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<I2cBusSpeed>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBusSpeed)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -73,7 +76,10 @@ impl I2cConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn SetSharingMode<'a, Param0: ::std::convert::Into<I2cSharingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSharingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<I2cSharingMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -157,7 +163,10 @@ unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
 pub struct I2cController(::windows::core::IUnknown);
 impl I2cController {
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn GetDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>>(&self, settings: Param0) -> ::windows::core::Result<I2cDevice> {
+    pub fn GetDevice<'a, P0>(&self, settings: P0) -> ::windows::core::Result<I2cDevice>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -166,7 +175,11 @@ impl I2cController {
     }
     #[doc = "*Required features: `\"Devices_I2c\"`, `\"Devices_I2c_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::II2cProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>> {
+    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::II2cProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>(result__)
@@ -321,7 +334,10 @@ impl I2cDevice {
         })
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName<'a, P0>(friendlyname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -329,7 +345,11 @@ impl I2cDevice {
     }
     #[doc = "*Required features: `\"Devices_I2c\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>>(deviceid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>> {
+    pub fn FromIdAsync<'a, P0, P1>(deviceid: P0, settings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>,
+    {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<I2cDevice>>(result__)
@@ -631,7 +651,10 @@ impl II2cDeviceStatics {
         }
     }
     #[doc = "*Required features: `\"Devices_I2c\"`*"]
-    pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName<'a, P0>(&self, friendlyname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -640,7 +663,11 @@ impl II2cDeviceStatics {
     }
     #[doc = "*Required features: `\"Devices_I2c\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>>(&self, deviceid: Param0, settings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>> {
+    pub fn FromIdAsync<'a, P0, P1>(&self, deviceid: P0, settings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, I2cConnectionSettings>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

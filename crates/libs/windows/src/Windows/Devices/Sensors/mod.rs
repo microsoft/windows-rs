@@ -35,7 +35,10 @@ impl Accelerometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -50,7 +53,10 @@ impl Accelerometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Shaken<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerShakenEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Shaken<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerShakenEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -65,7 +71,10 @@ impl Accelerometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -131,7 +140,10 @@ impl Accelerometer {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithAccelerometerReadingType<'a, Param0: ::std::convert::Into<AccelerometerReadingType>>(readingtype: Param0) -> ::windows::core::Result<Accelerometer> {
+    pub fn GetDefaultWithAccelerometerReadingType<'a, P0>(readingtype: P0) -> ::windows::core::Result<Accelerometer>
+    where
+        P0: ::std::convert::Into<AccelerometerReadingType>,
+    {
         Self::IAccelerometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
@@ -139,14 +151,20 @@ impl Accelerometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Accelerometer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelector<'a, Param0: ::std::convert::Into<AccelerometerReadingType>>(readingtype: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelector<'a, P0>(readingtype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<AccelerometerReadingType>,
+    {
         Self::IAccelerometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -697,7 +715,10 @@ impl ActivitySensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ActivitySensor, ActivitySensorReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ActivitySensor, ActivitySensorReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -727,7 +748,10 @@ impl ActivitySensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IActivitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
@@ -1252,7 +1276,10 @@ impl Altimeter {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1581,7 +1608,10 @@ impl Barometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1632,7 +1662,10 @@ impl Barometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IBarometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Barometer>>(result__)
@@ -2010,7 +2043,10 @@ impl Compass {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2025,7 +2061,10 @@ impl Compass {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2091,7 +2130,10 @@ impl Compass {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICompassStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Compass>>(result__)
@@ -2479,7 +2521,10 @@ impl Gyrometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2494,7 +2539,10 @@ impl Gyrometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2560,7 +2608,10 @@ impl Gyrometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IGyrometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Gyrometer>>(result__)
@@ -3075,7 +3126,10 @@ impl HingeAngleSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HingeAngleSensor, HingeAngleSensorReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HingeAngleSensor, HingeAngleSensorReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3105,7 +3159,11 @@ impl HingeAngleSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetRelatedToAdjacentPanelsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(firstpanelid: Param0, secondpanelid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn GetRelatedToAdjacentPanelsAsync<'a, P0, P1>(firstpanelid: P0, secondpanelid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(::windows::core::Interface::as_raw(this), firstpanelid.into().abi(), secondpanelid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
@@ -3113,7 +3171,10 @@ impl HingeAngleSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IHingeAngleSensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
@@ -5604,7 +5665,10 @@ impl Inclinometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Inclinometer, InclinometerReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Inclinometer, InclinometerReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5619,7 +5683,10 @@ impl Inclinometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -5692,14 +5759,20 @@ impl Inclinometer {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithSensorReadingType<'a, Param0: ::std::convert::Into<SensorReadingType>>(sensorreadingtype: Param0) -> ::windows::core::Result<Inclinometer> {
+    pub fn GetDefaultWithSensorReadingType<'a, P0>(sensorreadingtype: P0) -> ::windows::core::Result<Inclinometer>
+    where
+        P0: ::std::convert::Into<SensorReadingType>,
+    {
         Self::IInclinometerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype.into(), result__.as_mut_ptr()).from_abi::<Inclinometer>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelector<'a, Param0: ::std::convert::Into<SensorReadingType>>(readingtype: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelector<'a, P0>(readingtype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<SensorReadingType>,
+    {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -5707,7 +5780,10 @@ impl Inclinometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IInclinometerStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Inclinometer>>(result__)
@@ -6138,7 +6214,10 @@ impl LightSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6204,7 +6283,10 @@ impl LightSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LightSensor>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LightSensor>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ILightSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LightSensor>>(result__)
@@ -6588,7 +6670,10 @@ impl Magnetometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Magnetometer, MagnetometerReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Magnetometer, MagnetometerReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -6603,7 +6688,10 @@ impl Magnetometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<IMagnetometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -6669,7 +6757,10 @@ impl Magnetometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMagnetometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Magnetometer>>(result__)
@@ -7126,7 +7217,10 @@ impl OrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -7141,7 +7235,10 @@ impl OrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -7206,28 +7303,42 @@ impl OrientationSensor {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithSensorReadingType<'a, Param0: ::std::convert::Into<SensorReadingType>>(sensorreadingtype: Param0) -> ::windows::core::Result<OrientationSensor> {
+    pub fn GetDefaultWithSensorReadingType<'a, P0>(sensorreadingtype: P0) -> ::windows::core::Result<OrientationSensor>
+    where
+        P0: ::std::convert::Into<SensorReadingType>,
+    {
         Self::IOrientationSensorStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingType)(::windows::core::Interface::as_raw(this), sensorreadingtype.into(), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal<'a, Param0: ::std::convert::Into<SensorReadingType>, Param1: ::std::convert::Into<SensorOptimizationGoal>>(sensorreadingtype: Param0, optimizationgoal: Param1) -> ::windows::core::Result<OrientationSensor> {
+    pub fn GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal<'a, P0, P1>(sensorreadingtype: P0, optimizationgoal: P1) -> ::windows::core::Result<OrientationSensor>
+    where
+        P0: ::std::convert::Into<SensorReadingType>,
+        P1: ::std::convert::Into<SensorOptimizationGoal>,
+    {
         Self::IOrientationSensorStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefaultWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), sensorreadingtype.into(), optimizationgoal.into(), result__.as_mut_ptr()).from_abi::<OrientationSensor>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelector<'a, Param0: ::std::convert::Into<SensorReadingType>>(readingtype: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelector<'a, P0>(readingtype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<SensorReadingType>,
+    {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal<'a, Param0: ::std::convert::Into<SensorReadingType>, Param1: ::std::convert::Into<SensorOptimizationGoal>>(readingtype: Param0, optimizationgoal: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal<'a, P0, P1>(readingtype: P0, optimizationgoal: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<SensorReadingType>,
+        P1: ::std::convert::Into<SensorOptimizationGoal>,
+    {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), readingtype.into(), optimizationgoal.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -7235,7 +7346,10 @@ impl OrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IOrientationSensorStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<OrientationSensor>>(result__)
@@ -7560,7 +7674,10 @@ impl Pedometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Pedometer, PedometerReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Pedometer, PedometerReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -7584,7 +7701,10 @@ impl Pedometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPedometerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Pedometer>>(result__)
@@ -7623,7 +7743,10 @@ impl Pedometer {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetReadingsFromTriggerDetails<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SensorDataThresholdTriggerDetails>>>(triggerdetails: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>> {
+    pub fn GetReadingsFromTriggerDetails<'a, P0>(triggerdetails: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SensorDataThresholdTriggerDetails>>,
+    {
         Self::IPedometerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetReadingsFromTriggerDetails)(::windows::core::Interface::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PedometerReading>>(result__)
@@ -7707,7 +7830,10 @@ unsafe impl ::core::marker::Sync for Pedometer {}
 pub struct PedometerDataThreshold(::windows::core::IUnknown);
 impl PedometerDataThreshold {
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Pedometer>>>(sensor: Param0, stepgoal: i32) -> ::windows::core::Result<PedometerDataThreshold> {
+    pub fn Create<'a, P0>(sensor: P0, stepgoal: i32) -> ::windows::core::Result<PedometerDataThreshold>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Pedometer>>,
+    {
         Self::IPedometerDataThresholdFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), sensor.into().abi(), stepgoal, result__.as_mut_ptr()).from_abi::<PedometerDataThreshold>(result__)
@@ -8051,7 +8177,10 @@ impl ProximitySensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ProximitySensor, ProximitySensorReadingChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ProximitySensor, ProximitySensorReadingChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -8081,7 +8210,10 @@ impl ProximitySensor {
         })
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(sensorid: Param0) -> ::windows::core::Result<ProximitySensor> {
+    pub fn FromId<'a, P0>(sensorid: P0) -> ::windows::core::Result<ProximitySensor>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IProximitySensorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), sensorid.into().abi(), result__.as_mut_ptr()).from_abi::<ProximitySensor>(result__)
@@ -8089,7 +8221,10 @@ impl ProximitySensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetReadingsFromTriggerDetails<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SensorDataThresholdTriggerDetails>>>(triggerdetails: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>> {
+    pub fn GetReadingsFromTriggerDetails<'a, P0>(triggerdetails: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SensorDataThresholdTriggerDetails>>,
+    {
         Self::IProximitySensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetReadingsFromTriggerDetails)(::windows::core::Interface::as_raw(this), triggerdetails.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>(result__)
@@ -8173,7 +8308,10 @@ unsafe impl ::core::marker::Sync for ProximitySensor {}
 pub struct ProximitySensorDataThreshold(::windows::core::IUnknown);
 impl ProximitySensorDataThreshold {
     #[doc = "*Required features: `\"Devices_Sensors\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximitySensor>>>(sensor: Param0) -> ::windows::core::Result<ProximitySensorDataThreshold> {
+    pub fn Create<'a, P0>(sensor: P0) -> ::windows::core::Result<ProximitySensorDataThreshold>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ProximitySensor>>,
+    {
         Self::IProximitySensorDataThresholdFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), sensor.into().abi(), result__.as_mut_ptr()).from_abi::<ProximitySensorDataThreshold>(result__)
@@ -9033,7 +9171,10 @@ impl SimpleOrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OrientationChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn OrientationChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -9048,7 +9189,10 @@ impl SimpleOrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform<'a, Param0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadingTransform<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Graphics::Display::DisplayOrientations>,
+    {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -9085,7 +9229,10 @@ impl SimpleOrientationSensor {
     }
     #[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ISimpleOrientationSensorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>>(result__)

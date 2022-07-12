@@ -3027,7 +3027,10 @@ pub struct ICivicAddressReportFactory_Vtbl {
 pub struct IDefaultLocation(::windows::core::IUnknown);
 impl IDefaultLocation {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-    pub unsafe fn SetReport<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>>(&self, reporttype: *const ::windows::core::GUID, plocationreport: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetReport<'a, P0>(&self, reporttype: *const ::windows::core::GUID, plocationreport: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>,
+    {
         (::windows::core::Interface::vtable(self).SetReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), plocationreport.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
@@ -3583,7 +3586,10 @@ pub struct ILatLongReportFactory_Vtbl {
 pub struct ILocation(::windows::core::IUnknown);
 impl ILocation {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-    pub unsafe fn RegisterForReport<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ILocationEvents>>>(&self, pevents: Param0, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterForReport<'a, P0>(&self, pevents: P0, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationEvents>>,
+    {
         (::windows::core::Interface::vtable(self).RegisterForReport)(::windows::core::Interface::as_raw(self), pevents.into().abi(), ::core::mem::transmute(reporttype), ::core::mem::transmute(dwrequestedreportinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
@@ -3617,12 +3623,19 @@ impl ILocation {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Devices_Sensors\"`*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
-    pub unsafe fn SetDesiredAccuracy<'a, Param1: ::std::convert::Into<super::Sensors::LOCATION_DESIRED_ACCURACY>>(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetDesiredAccuracy<'a, P0>(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Sensors::LOCATION_DESIRED_ACCURACY>,
+    {
         (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), desiredaccuracy.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestPermissions<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, hparent: Param0, preporttypes: &[::windows::core::GUID], fmodal: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn RequestPermissions<'a, P0, P1>(&self, hparent: P0, preporttypes: &[::windows::core::GUID], fmodal: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).RequestPermissions)(::windows::core::Interface::as_raw(self), hparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(preporttypes)), preporttypes.len() as _, fmodal.into()).ok()
     }
 }
@@ -3689,11 +3702,17 @@ pub struct ILocation_Vtbl {
 pub struct ILocationEvents(::windows::core::IUnknown);
 impl ILocationEvents {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-    pub unsafe fn OnLocationChanged<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>>(&self, reporttype: *const ::windows::core::GUID, plocationreport: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnLocationChanged<'a, P0>(&self, reporttype: *const ::windows::core::GUID, plocationreport: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationReport>>,
+    {
         (::windows::core::Interface::vtable(self).OnLocationChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), plocationreport.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-    pub unsafe fn OnStatusChanged<'a, Param1: ::std::convert::Into<LOCATION_REPORT_STATUS>>(&self, reporttype: *const ::windows::core::GUID, newstatus: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnStatusChanged<'a, P0>(&self, reporttype: *const ::windows::core::GUID, newstatus: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LOCATION_REPORT_STATUS>,
+    {
         (::windows::core::Interface::vtable(self).OnStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), newstatus.into()).ok()
     }
 }

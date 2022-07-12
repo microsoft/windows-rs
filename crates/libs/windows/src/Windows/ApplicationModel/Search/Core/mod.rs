@@ -338,27 +338,45 @@ impl SearchSuggestionManager {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn SetSearchHistoryContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSearchHistoryContext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSearchHistoryContext)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn SetLocalContentSuggestionSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::LocalContentSuggestionSettings>>>(&self, settings: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocalContentSuggestionSettings<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::LocalContentSuggestionSettings>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalContentSuggestionSettings)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn SetQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, querytext: Param0) -> ::windows::core::Result<()> {
+    pub fn SetQuery<'a, P0>(&self, querytext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQuery)(::windows::core::Interface::as_raw(this), querytext.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn SetQueryWithLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, querytext: Param0, language: Param1) -> ::windows::core::Result<()> {
+    pub fn SetQueryWithLanguage<'a, P0, P1>(&self, querytext: P0, language: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQueryWithLanguage)(::windows::core::Interface::as_raw(this), querytext.into().abi(), language.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn SetQueryWithSearchQueryLinguisticDetails<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::SearchQueryLinguisticDetails>>>(&self, querytext: Param0, language: Param1, linguisticdetails: Param2) -> ::windows::core::Result<()> {
+    pub fn SetQueryWithSearchQueryLinguisticDetails<'a, P0, P1, P2>(&self, querytext: P0, language: P1, linguisticdetails: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::SearchQueryLinguisticDetails>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows::core::Interface::as_raw(this), querytext.into().abi(), language.into().abi(), linguisticdetails.into().abi()).ok() }
     }
@@ -372,12 +390,19 @@ impl SearchSuggestionManager {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn AddToHistory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, querytext: Param0) -> ::windows::core::Result<()> {
+    pub fn AddToHistory<'a, P0>(&self, querytext: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddToHistory)(::windows::core::Interface::as_raw(this), querytext.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
-    pub fn AddToHistoryWithLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, querytext: Param0, language: Param1) -> ::windows::core::Result<()> {
+    pub fn AddToHistoryWithLanguage<'a, P0, P1>(&self, querytext: P0, language: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddToHistoryWithLanguage)(::windows::core::Interface::as_raw(this), querytext.into().abi(), language.into().abi()).ok() }
     }
@@ -388,7 +413,10 @@ impl SearchSuggestionManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SuggestionsRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SuggestionsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -403,7 +431,10 @@ impl SearchSuggestionManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Search_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestingFocusOnKeyboardInput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RequestingFocusOnKeyboardInput<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();

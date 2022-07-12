@@ -17,7 +17,10 @@ impl ConditionForceEffect {
         unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), direction, positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<ConditionForceEffectKind>>(effectkind: Param0) -> ::windows::core::Result<ConditionForceEffect> {
+    pub fn CreateInstance<'a, P0>(effectkind: P0) -> ::windows::core::Result<ConditionForceEffect>
+    where
+        P0: ::std::convert::Into<ConditionForceEffectKind>,
+    {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind.into(), result__.as_mut_ptr()).from_abi::<ConditionForceEffect>(result__)
@@ -491,7 +494,11 @@ impl ForceFeedbackMotor {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadEffectAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, effect: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>> {
+    pub fn LoadEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -542,7 +549,11 @@ impl ForceFeedbackMotor {
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUnloadEffectAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, effect: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUnloadEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IForceFeedbackEffect>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -915,7 +926,10 @@ impl PeriodicForceEffect {
         unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<PeriodicForceEffectKind>>(effectkind: Param0) -> ::windows::core::Result<PeriodicForceEffect> {
+    pub fn CreateInstance<'a, P0>(effectkind: P0) -> ::windows::core::Result<PeriodicForceEffect>
+    where
+        P0: ::std::convert::Into<PeriodicForceEffectKind>,
+    {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind.into(), result__.as_mut_ptr()).from_abi::<PeriodicForceEffect>(result__)

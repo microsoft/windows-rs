@@ -4,7 +4,11 @@ pub struct Certificate(::windows::core::IUnknown);
 impl Certificate {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BuildChainAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, certificates: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>> {
+    pub fn BuildChainAsync<'a, P0, E0>(&self, certificates: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -13,7 +17,12 @@ impl Certificate {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BuildChainWithParametersAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ChainBuildingParameters>>>(&self, certificates: Param0, parameters: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>> {
+    pub fn BuildChainWithParametersAsync<'a, P0, E0, P1>(&self, certificates: P0, parameters: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ChainBuildingParameters>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -37,7 +46,10 @@ impl Certificate {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn GetHashValueWithAlgorithm<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, hashalgorithmname: Param0) -> ::windows::core::Result<::windows::core::Array<u8>> {
+    pub fn GetHashValueWithAlgorithm<'a, P0>(&self, hashalgorithmname: P0) -> ::windows::core::Result<::windows::core::Array<u8>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<u8>>::zeroed();
@@ -113,7 +125,10 @@ impl Certificate {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -199,7 +214,11 @@ impl Certificate {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCertificate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(certblob: Param0) -> ::windows::core::Result<Certificate> {
+    pub fn CreateCertificate<'a, P0, E0>(certblob: P0) -> ::windows::core::Result<Certificate>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICertificateFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCertificate)(::windows::core::Interface::as_raw(this), certblob.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Certificate>(result__)
@@ -286,7 +305,10 @@ impl CertificateChain {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn ValidateWithParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ChainValidationParameters>>>(&self, parameter: Param0) -> ::windows::core::Result<ChainValidationResult> {
+    pub fn ValidateWithParameters<'a, P0>(&self, parameter: P0) -> ::windows::core::Result<ChainValidationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ChainValidationParameters>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<ChainValidationResult>::zeroed();
@@ -406,7 +428,10 @@ pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateRequestAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CertificateRequestProperties>>>(request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CreateRequestAsync<'a, P0>(request: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CertificateRequestProperties>>,
+    {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRequestAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
@@ -414,7 +439,11 @@ impl CertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InstallCertificateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<InstallOptions>>(certificate: Param0, installoption: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn InstallCertificateAsync<'a, P0, P1>(certificate: P0, installoption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<InstallOptions>,
+    {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), installoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
@@ -422,7 +451,15 @@ impl CertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<ExportOption>, Param3: ::std::convert::Into<KeyProtectionLevel>, Param4: ::std::convert::Into<InstallOptions>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(pfxdata: Param0, password: Param1, exportable: Param2, keyprotectionlevel: Param3, installoption: Param4, friendlyname: Param5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportPfxDataAsync<'a, P0, P1, P2, P3, P4, P5>(pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<ExportOption>,
+        P3: ::std::convert::Into<KeyProtectionLevel>,
+        P4: ::std::convert::Into<InstallOptions>,
+        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable.into(), keyprotectionlevel.into(), installoption.into(), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
@@ -437,7 +474,16 @@ impl CertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataToKspAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<ExportOption>, Param3: ::std::convert::Into<KeyProtectionLevel>, Param4: ::std::convert::Into<InstallOptions>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(pfxdata: Param0, password: Param1, exportable: Param2, keyprotectionlevel: Param3, installoption: Param4, friendlyname: Param5, keystorageprovider: Param6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportPfxDataToKspAsync<'a, P0, P1, P2, P3, P4, P5, P6>(pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5, keystorageprovider: P6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<ExportOption>,
+        P3: ::std::convert::Into<KeyProtectionLevel>,
+        P4: ::std::convert::Into<InstallOptions>,
+        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable.into(), keyprotectionlevel.into(), installoption.into(), friendlyname.into().abi(), keystorageprovider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
@@ -445,7 +491,12 @@ impl CertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataToKspWithParametersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, PfxImportParameters>>>(pfxdata: Param0, password: Param1, pfximportparameters: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportPfxDataToKspWithParametersAsync<'a, P0, P1, P2>(pfxdata: P0, password: P1, pfximportparameters: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, PfxImportParameters>>,
+    {
         Self::ICertificateEnrollmentManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), pfximportparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
@@ -490,7 +541,10 @@ impl CertificateExtension {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetObjectId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetObjectId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetObjectId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -508,7 +562,10 @@ impl CertificateExtension {
         unsafe { (::windows::core::Interface::vtable(this).SetIsCritical)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn EncodeValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn EncodeValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).EncodeValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -795,7 +852,10 @@ impl CertificateQuery {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetIssuerName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIssuerName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIssuerName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -808,7 +868,10 @@ impl CertificateQuery {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -873,7 +936,10 @@ impl CertificateQuery {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetStoreName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStoreName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStoreName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -960,7 +1026,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubject<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -973,7 +1042,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyAlgorithmName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeyAlgorithmName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeyAlgorithmName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -999,7 +1071,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1012,7 +1087,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetHashAlgorithmName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHashAlgorithmName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHashAlgorithmName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1025,7 +1103,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetExportable<'a, Param0: ::std::convert::Into<ExportOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExportable<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ExportOption>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1038,7 +1119,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyUsages<'a, Param0: ::std::convert::Into<EnrollKeyUsages>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeyUsages<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<EnrollKeyUsages>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeyUsages)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1051,7 +1135,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyProtectionLevel<'a, Param0: ::std::convert::Into<KeyProtectionLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeyProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<KeyProtectionLevel>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1064,7 +1151,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyStorageProviderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeyStorageProviderName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeyStorageProviderName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1077,7 +1167,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetSmartcardReaderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSmartcardReaderName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSmartcardReaderName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1090,7 +1183,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetSigningCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSigningCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSigningCertificate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1103,7 +1199,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetAttestationCredentialCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAttestationCredentialCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAttestationCredentialCertificate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1116,7 +1215,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetCurveName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCurveName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCurveName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1142,7 +1244,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetContainerNamePrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContainerNamePrefix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContainerNamePrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1155,7 +1260,10 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetContainerName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContainerName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContainerName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1266,12 +1374,18 @@ unsafe impl ::core::marker::Sync for CertificateRequestProperties {}
 pub struct CertificateStore(::windows::core::IUnknown);
 impl CertificateStore {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, certificate: Param0) -> ::windows::core::Result<()> {
+    pub fn Add<'a, P0>(&self, certificate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), certificate.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, certificate: Param0) -> ::windows::core::Result<()> {
+    pub fn Delete<'a, P0>(&self, certificate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Delete)(::windows::core::Interface::as_raw(this), certificate.into().abi()).ok() }
     }
@@ -1359,7 +1473,10 @@ impl CertificateStores {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllWithQueryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CertificateQuery>>>(query: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
+    pub fn FindAllWithQueryAsync<'a, P0>(query: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CertificateQuery>>,
+    {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FindAllWithQueryAsync)(::windows::core::Interface::as_raw(this), query.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>(result__)
@@ -1380,14 +1497,20 @@ impl CertificateStores {
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn GetStoreByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(storename: Param0) -> ::windows::core::Result<CertificateStore> {
+    pub fn GetStoreByName<'a, P0>(storename: P0) -> ::windows::core::Result<CertificateStore>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetStoreByName)(::windows::core::Interface::as_raw(this), storename.into().abi(), result__.as_mut_ptr()).from_abi::<CertificateStore>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn GetUserStoreByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(storename: Param0) -> ::windows::core::Result<UserCertificateStore> {
+    pub fn GetUserStoreByName<'a, P0>(storename: P0) -> ::windows::core::Result<UserCertificateStore>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ICertificateStoresStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetUserStoreByName)(::windows::core::Interface::as_raw(this), storename.into().abi(), result__.as_mut_ptr()).from_abi::<UserCertificateStore>(result__)
@@ -1586,7 +1709,10 @@ impl ChainValidationParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetCertificateChainPolicy<'a, Param0: ::std::convert::Into<CertificateChainPolicy>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCertificateChainPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CertificateChainPolicy>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCertificateChainPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1601,7 +1727,10 @@ impl ChainValidationParameters {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
-    pub fn SetServerDnsName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Networking::HostName>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetServerDnsName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Networking::HostName>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetServerDnsName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1754,7 +1883,11 @@ impl CmsAttachedSignature {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCmsAttachedSignature<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(inputblob: Param0) -> ::windows::core::Result<CmsAttachedSignature> {
+    pub fn CreateCmsAttachedSignature<'a, P0, E0>(inputblob: P0) -> ::windows::core::Result<CmsAttachedSignature>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICmsAttachedSignatureFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCmsAttachedSignature)(::windows::core::Interface::as_raw(this), inputblob.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CmsAttachedSignature>(result__)
@@ -1762,7 +1895,15 @@ impl CmsAttachedSignature {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GenerateSignatureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(data: Param0, signers: Param1, certificates: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn GenerateSignatureAsync<'a, P0, E0, P1, E1, P2, E2>(data: P0, signers: P1, certificates: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICmsAttachedSignatureStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GenerateSignatureAsync)(::windows::core::Interface::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), signers.try_into().map_err(|e| e.into())?.abi(), certificates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
@@ -1865,7 +2006,11 @@ impl CmsDetachedSignature {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn VerifySignatureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>> {
+    pub fn VerifySignatureAsync<'a, P0, E0>(&self, data: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1874,7 +2019,11 @@ impl CmsDetachedSignature {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCmsDetachedSignature<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(inputblob: Param0) -> ::windows::core::Result<CmsDetachedSignature> {
+    pub fn CreateCmsDetachedSignature<'a, P0, E0>(inputblob: P0) -> ::windows::core::Result<CmsDetachedSignature>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICmsDetachedSignatureFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCmsDetachedSignature)(::windows::core::Interface::as_raw(this), inputblob.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CmsDetachedSignature>(result__)
@@ -1882,7 +2031,15 @@ impl CmsDetachedSignature {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GenerateSignatureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(data: Param0, signers: Param1, certificates: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn GenerateSignatureAsync<'a, P0, E0, P1, E1, P2, E2>(data: P0, signers: P1, certificates: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::ICmsDetachedSignatureStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GenerateSignatureAsync)(::windows::core::Interface::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), signers.try_into().map_err(|e| e.into())?.abi(), certificates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
@@ -1981,7 +2138,10 @@ impl CmsSignerInfo {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCertificate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1994,7 +2154,10 @@ impl CmsSignerInfo {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetHashAlgorithmName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHashAlgorithmName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHashAlgorithmName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3307,14 +3470,20 @@ pub struct KeyAttestationHelper;
 impl KeyAttestationHelper {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DecryptTpmAttestationCredentialAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(credential: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn DecryptTpmAttestationCredentialAsync<'a, P0>(credential: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DecryptTpmAttestationCredentialAsync)(::windows::core::Interface::as_raw(this), credential.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn GetTpmAttestationCredentialId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(credential: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetTpmAttestationCredentialId<'a, P0>(credential: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetTpmAttestationCredentialId)(::windows::core::Interface::as_raw(this), credential.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -3322,7 +3491,11 @@ impl KeyAttestationHelper {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DecryptTpmAttestationCredentialWithContainerNameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(credential: Param0, containername: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn DecryptTpmAttestationCredentialWithContainerNameAsync<'a, P0, P1>(credential: P0, containername: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IKeyAttestationHelperStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DecryptTpmAttestationCredentialWithContainerNameAsync)(::windows::core::Interface::as_raw(this), credential.into().abi(), containername.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
@@ -3478,7 +3651,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetExportable<'a, Param0: ::std::convert::Into<ExportOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExportable<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ExportOption>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3491,7 +3667,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyProtectionLevel<'a, Param0: ::std::convert::Into<KeyProtectionLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeyProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<KeyProtectionLevel>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3504,7 +3683,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetInstallOptions<'a, Param0: ::std::convert::Into<InstallOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInstallOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<InstallOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInstallOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3517,7 +3699,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3530,7 +3715,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyStorageProviderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeyStorageProviderName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeyStorageProviderName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3543,7 +3731,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetContainerNamePrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContainerNamePrefix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContainerNamePrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3556,7 +3747,10 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetReaderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReaderName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReaderName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3889,7 +4083,10 @@ pub struct UserCertificateEnrollmentManager(::windows::core::IUnknown);
 impl UserCertificateEnrollmentManager {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateRequestAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CertificateRequestProperties>>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CreateRequestAsync<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CertificateRequestProperties>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3898,7 +4095,11 @@ impl UserCertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InstallCertificateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<InstallOptions>>(&self, certificate: Param0, installoption: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn InstallCertificateAsync<'a, P0, P1>(&self, certificate: P0, installoption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<InstallOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3907,7 +4108,15 @@ impl UserCertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<ExportOption>, Param3: ::std::convert::Into<KeyProtectionLevel>, Param4: ::std::convert::Into<InstallOptions>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, pfxdata: Param0, password: Param1, exportable: Param2, keyprotectionlevel: Param3, installoption: Param4, friendlyname: Param5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportPfxDataAsync<'a, P0, P1, P2, P3, P4, P5>(&self, pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<ExportOption>,
+        P3: ::std::convert::Into<KeyProtectionLevel>,
+        P4: ::std::convert::Into<InstallOptions>,
+        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3916,7 +4125,16 @@ impl UserCertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataToKspAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<ExportOption>, Param3: ::std::convert::Into<KeyProtectionLevel>, Param4: ::std::convert::Into<InstallOptions>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, pfxdata: Param0, password: Param1, exportable: Param2, keyprotectionlevel: Param3, installoption: Param4, friendlyname: Param5, keystorageprovider: Param6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportPfxDataToKspAsync<'a, P0, P1, P2, P3, P4, P5, P6>(&self, pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5, keystorageprovider: P6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<ExportOption>,
+        P3: ::std::convert::Into<KeyProtectionLevel>,
+        P4: ::std::convert::Into<InstallOptions>,
+        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3925,7 +4143,12 @@ impl UserCertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataToKspWithParametersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, PfxImportParameters>>>(&self, pfxdata: Param0, password: Param1, pfximportparameters: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportPfxDataToKspWithParametersAsync<'a, P0, P1, P2>(&self, pfxdata: P0, password: P1, pfximportparameters: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, PfxImportParameters>>,
+    {
         let this = &::windows::core::Interface::cast::<IUserCertificateEnrollmentManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4001,7 +4224,10 @@ pub struct UserCertificateStore(::windows::core::IUnknown);
 impl UserCertificateStore {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAddAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, certificate: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAddAsync<'a, P0>(&self, certificate: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4010,7 +4236,10 @@ impl UserCertificateStore {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestDeleteAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>>(&self, certificate: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsync<'a, P0>(&self, certificate: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Certificate>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

@@ -164,7 +164,10 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintTicketValidationRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintTicketValidationRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -179,7 +182,10 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintDeviceCapabilitiesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintDeviceCapabilitiesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -350,7 +356,10 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceCapabilities<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::Dom::XmlDocument>>>(&self, updatedpdc: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdatePrintDeviceCapabilities<'a, P0>(&self, updatedpdc: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Data::Xml::Dom::XmlDocument>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows::core::Interface::as_raw(this), updatedpdc.into().abi()).ok() }
     }
@@ -440,7 +449,10 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
-    pub fn SetPrintTicketValidationStatus<'a, Param0: ::std::convert::Into<WorkflowPrintTicketValidationStatus>>(&self, status: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrintTicketValidationStatus<'a, P0>(&self, status: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<WorkflowPrintTicketValidationStatus>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Interface::as_raw(this), status.into()).ok() }
     }
@@ -796,7 +808,10 @@ impl PrintSupportSettingsUISession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn UpdatePrintTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTicket::WorkflowPrintTicket>>>(&self, printticket: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdatePrintTicket<'a, P0>(&self, printticket: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PrintTicket::WorkflowPrintTicket>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UpdatePrintTicket)(::windows::core::Interface::as_raw(this), printticket.into().abi()).ok() }
     }

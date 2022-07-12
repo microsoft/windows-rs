@@ -2021,7 +2021,11 @@ pub struct ID3DDestructionNotifier_Vtbl {
 pub struct ID3DInclude(::windows::core::IUnknown);
 impl ID3DInclude {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-    pub unsafe fn Open<'a, Param0: ::std::convert::Into<D3D_INCLUDE_TYPE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(&self, includetype: Param0, pfilename: Param1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Open<'a, P0, P1>(&self, includetype: P0, pfilename: P1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<D3D_INCLUDE_TYPE>,
+        P1: ::std::convert::Into<::windows::core::PCSTR>,
+    {
         (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), includetype.into(), pfilename.into(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]

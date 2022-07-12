@@ -10,7 +10,11 @@ impl HostMessageReceivedCallback {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -575,7 +579,12 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>>(&self, hostexepath: Param0, arguments: Param1, activator: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
+    pub fn StartProcessSilentlyAsync<'a, P0, P1, P2>(&self, hostexepath: P0, arguments: P1, activator: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -584,7 +593,13 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, hostexepath: Param0, arguments: Param1, activator: Param2, telemetryparameters: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
+    pub fn StartProcessSilentlyWithTelemetryAsync<'a, P0, P1, P2, P3>(&self, hostexepath: P0, arguments: P1, activator: P2, telemetryparameters: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -593,7 +608,11 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>>(&self, hostfolder: Param0, requestoptions: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
+    pub fn ShareFolderAsync<'a, P0, P1>(&self, hostfolder: P0, requestoptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -602,7 +621,12 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFolderWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, hostfolder: Param0, requestoptions: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
+    pub fn ShareFolderWithTelemetryAsync<'a, P0, P1, P2>(&self, hostfolder: P0, requestoptions: P1, telemetryparameters: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -611,7 +635,12 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFileWithUIAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, appexepath: Param0, argumentstemplate: Param1, filepath: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
+    pub fn LaunchFileWithUIAsync<'a, P0, P1, P2>(&self, appexepath: P0, argumentstemplate: P1, filepath: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -620,7 +649,13 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFileWithUIAndTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, appexepath: Param0, argumentstemplate: Param1, filepath: Param2, telemetryparameters: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
+    pub fn LaunchFileWithUIAndTelemetryAsync<'a, P0, P1, P2, P3>(&self, appexepath: P0, argumentstemplate: P1, filepath: P2, telemetryparameters: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -638,7 +673,10 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TerminateWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, telemetryparameters: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn TerminateWithTelemetryAsync<'a, P0>(&self, telemetryparameters: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -647,7 +685,10 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterMessageReceiver<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, MessageReceivedCallback>>>(&self, receiverid: ::windows::core::GUID, messagereceivedcallback: Param1) -> ::windows::core::Result<()> {
+    pub fn RegisterMessageReceiver<'a, P0>(&self, receiverid: ::windows::core::GUID, messagereceivedcallback: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MessageReceivedCallback>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid, messagereceivedcallback.into().abi()).ok() }
     }
@@ -658,7 +699,11 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
+    pub fn PostMessageToReceiverAsync<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -667,7 +712,12 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverWithTelemetryAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, receiverid: ::windows::core::GUID, message: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
+    pub fn PostMessageToReceiverWithTelemetryAsync<'a, P0, E0, P1>(&self, receiverid: ::windows::core::GUID, message: P0, telemetryparameters: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -684,7 +734,11 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>>(&self, filepath: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
+    pub fn ShareFileAsync<'a, P0, P1>(&self, filepath: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>,
+    {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -693,7 +747,12 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFileWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, filepath: Param0, options: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
+    pub fn ShareFileWithTelemetryAsync<'a, P0, P1, P2>(&self, filepath: P0, options: P1, telemetryparameters: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -702,7 +761,10 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOptions>>>(options: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
+    pub fn CreateAsync<'a, P0>(options: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOptions>>,
+    {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
@@ -710,14 +772,21 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOptions>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(options: Param0, telemetryparameters: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
+    pub fn CreateWithTelemetryAsync<'a, P0, P1>(options: P0, telemetryparameters: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOptions>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+    {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn GetById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(environmentid: Param0) -> ::windows::core::Result<IsolatedWindowsEnvironment> {
+    pub fn GetById<'a, P0>(environmentid: P0) -> ::windows::core::Result<IsolatedWindowsEnvironment>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetById)(::windows::core::Interface::as_raw(this), environmentid.into().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironment>(result__)
@@ -725,7 +794,10 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindByOwnerId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(environmentownerid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
+    pub fn FindByOwnerId<'a, P0>(environmentownerid: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FindByOwnerId)(::windows::core::Interface::as_raw(this), environmentownerid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>(result__)
@@ -1505,7 +1577,10 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetEnvironmentOwnerId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEnvironmentOwnerId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEnvironmentOwnerId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1518,7 +1593,10 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetAllowedClipboardFormats<'a, Param0: ::std::convert::Into<IsolatedWindowsEnvironmentAllowedClipboardFormats>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAllowedClipboardFormats<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<IsolatedWindowsEnvironmentAllowedClipboardFormats>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowedClipboardFormats)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1531,7 +1609,10 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetClipboardCopyPasteDirections<'a, Param0: ::std::convert::Into<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetClipboardCopyPasteDirections<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1544,7 +1625,10 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetAvailablePrinters<'a, Param0: ::std::convert::Into<IsolatedWindowsEnvironmentAvailablePrinters>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAvailablePrinters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<IsolatedWindowsEnvironmentAvailablePrinters>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAvailablePrinters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1565,7 +1649,11 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn ShareHostFolderForUntrustedItems<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, sharedhostfolderpath: Param0, sharefoldernameinenvironment: Param1) -> ::windows::core::Result<()> {
+    pub fn ShareHostFolderForUntrustedItems<'a, P0, P1>(&self, sharedhostfolderpath: P0, sharefoldernameinenvironment: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShareHostFolderForUntrustedItems)(::windows::core::Interface::as_raw(this), sharedhostfolderpath.into().abi(), sharefoldernameinenvironment.into().abi()).ok() }
     }
@@ -1617,7 +1705,10 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetWindowAnnotationOverride<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWindowAnnotationOverride<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWindowAnnotationOverride)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1688,14 +1779,21 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn Register<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOwnerRegistrationData>>>(ownername: Param0, ownerregistrationdata: Param1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
+    pub fn Register<'a, P0, P1>(ownername: P0, ownerregistrationdata: P1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOwnerRegistrationData>>,
+    {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), ownername.into().abi(), ownerregistrationdata.into().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentOwnerRegistrationResult>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn Unregister<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(ownername: Param0) -> ::windows::core::Result<()> {
+    pub fn Unregister<'a, P0>(ownername: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), ownername.into().abi()).ok() })
     }
     #[doc(hidden)]
@@ -2962,11 +3060,18 @@ pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiver<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<()> {
+    pub fn PostMessageToReceiver<'a, P0, E0>(receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).PostMessageToReceiver)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn GetFileId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(filepath: Param0) -> ::windows::core::Result<::windows::core::GUID> {
+    pub fn GetFileId<'a, P0>(filepath: P0) -> ::windows::core::Result<::windows::core::GUID>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).GetFileId)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
@@ -2974,7 +3079,10 @@ impl IsolatedWindowsHostMessenger {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterHostMessageReceiver<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, HostMessageReceivedCallback>>>(receiverid: ::windows::core::GUID, hostmessagereceivedcallback: Param1) -> ::windows::core::Result<()> {
+    pub fn RegisterHostMessageReceiver<'a, P0>(receiverid: ::windows::core::GUID, hostmessagereceivedcallback: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, HostMessageReceivedCallback>>,
+    {
         Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid, hostmessagereceivedcallback.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -3007,7 +3115,11 @@ impl MessageReceivedCallback {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() }
     }

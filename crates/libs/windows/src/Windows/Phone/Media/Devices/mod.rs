@@ -51,13 +51,19 @@ impl AudioRoutingManager {
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
-    pub fn SetAudioEndpoint<'a, Param0: ::std::convert::Into<AudioRoutingEndpoint>>(&self, endpoint: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudioEndpoint<'a, P0>(&self, endpoint: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AudioRoutingEndpoint>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), endpoint.into()).ok() }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioEndpointChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>>>>(&self, endpointchangehandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioEndpointChanged<'a, P0>(&self, endpointchangehandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();

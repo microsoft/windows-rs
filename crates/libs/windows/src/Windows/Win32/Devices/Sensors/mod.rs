@@ -445,7 +445,10 @@ impl ISensor {
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn GetProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>>(&self, pkeys: Param0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues> {
+    pub unsafe fn GetProperties<'a, P0>(&self, pkeys: P0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
@@ -457,7 +460,10 @@ impl ISensor {
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn SetProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceValues>>>(&self, pproperties: Param0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues> {
+    pub unsafe fn SetProperties<'a, P0>(&self, pproperties: P0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceValues>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).SetProperties)(::windows::core::Interface::as_raw(self), pproperties.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
@@ -491,7 +497,10 @@ impl ISensor {
         (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvalues)), pvalues.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn SetEventSink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensorEvents>>>(&self, pevents: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetEventSink<'a, P0>(&self, pevents: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensorEvents>>,
+    {
         (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), pevents.into().abi()).ok()
     }
 }
@@ -583,11 +592,17 @@ impl ISensorCollection {
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>>(&self, psensor: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Add<'a, P0>(&self, psensor: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
+    {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), psensor.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>>(&self, psensor: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Remove<'a, P0>(&self, psensor: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
+    {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), psensor.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -663,7 +678,10 @@ impl ISensorDataReport {
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn GetSensorValues<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>>(&self, pkeys: Param0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues> {
+    pub unsafe fn GetSensorValues<'a, P0>(&self, pkeys: P0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceKeyCollection>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSensorValues)(::windows::core::Interface::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
@@ -725,16 +743,28 @@ pub struct ISensorDataReport_Vtbl {
 pub struct ISensorEvents(::windows::core::IUnknown);
 impl ISensorEvents {
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn OnStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>, Param1: ::std::convert::Into<SensorState>>(&self, psensor: Param0, state: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnStateChanged<'a, P0, P1>(&self, psensor: P0, state: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
+        P1: ::std::convert::Into<SensorState>,
+    {
         (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), psensor.into().abi(), state.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn OnDataUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISensorDataReport>>>(&self, psensor: Param0, pnewdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnDataUpdated<'a, P0, P1>(&self, psensor: P0, pnewdata: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ISensorDataReport>>,
+    {
         (::windows::core::Interface::vtable(self).OnDataUpdated)(::windows::core::Interface::as_raw(self), psensor.into().abi(), pnewdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn OnEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceValues>>>(&self, psensor: Param0, eventid: *const ::windows::core::GUID, peventdata: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn OnEvent<'a, P0, P1>(&self, psensor: P0, eventid: *const ::windows::core::GUID, peventdata: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::PortableDevices::IPortableDeviceValues>>,
+    {
         (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), psensor.into().abi(), ::core::mem::transmute(eventid), peventdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -809,12 +839,20 @@ impl ISensorManager {
         (::windows::core::Interface::vtable(self).GetSensorByID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sensorid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISensor>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn SetEventSink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensorManagerEvents>>>(&self, pevents: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetEventSink<'a, P0>(&self, pevents: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensorManagerEvents>>,
+    {
         (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), pevents.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestPermissions<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISensorCollection>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, hparent: Param0, psensors: Param1, fmodal: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn RequestPermissions<'a, P0, P1, P2>(&self, hparent: P0, psensors: P1, fmodal: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ISensorCollection>>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).RequestPermissions)(::windows::core::Interface::as_raw(self), hparent.into(), psensors.into().abi(), fmodal.into()).ok()
     }
 }
@@ -871,7 +909,11 @@ pub struct ISensorManager_Vtbl {
 pub struct ISensorManagerEvents(::windows::core::IUnknown);
 impl ISensorManagerEvents {
     #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
-    pub unsafe fn OnSensorEnter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>, Param1: ::std::convert::Into<SensorState>>(&self, psensor: Param0, state: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnSensorEnter<'a, P0, P1>(&self, psensor: P0, state: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISensor>>,
+        P1: ::std::convert::Into<SensorState>,
+    {
         (::windows::core::Interface::vtable(self).OnSensorEnter)(::windows::core::Interface::as_raw(self), psensor.into().abi(), state.into()).ok()
     }
 }
@@ -1422,7 +1464,10 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, p
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
-pub unsafe fn PropKeyFindKeyGetPropVariant<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: Param2, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+pub unsafe fn PropKeyFindKeyGetPropVariant<'a, P0>(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PropKeyFindKeyGetPropVariant(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;
@@ -1452,7 +1497,10 @@ pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
-pub unsafe fn PropKeyFindKeySetPropVariant<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: Param2, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+pub unsafe fn PropKeyFindKeySetPropVariant<'a, P0>(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PropKeyFindKeySetPropVariant(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: super::super::Foundation::BOOLEAN, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::NTSTATUS;

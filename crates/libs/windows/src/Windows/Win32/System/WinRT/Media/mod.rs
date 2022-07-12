@@ -5,7 +5,10 @@ pub const CLSID_VideoFrameNativeFactory: ::windows::core::GUID = ::windows::core
 pub struct IAudioFrameNative(::windows::core::IUnknown);
 impl IAudioFrameNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
-    pub unsafe fn GetData<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn GetData<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -72,7 +75,12 @@ pub struct IAudioFrameNativeFactory(::windows::core::IUnknown);
 impl IAudioFrameNativeFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateFromMFSample<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFSample>>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFromMFSample<'a, P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFSample>>,
+        P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -141,12 +149,18 @@ pub struct IAudioFrameNativeFactory_Vtbl {
 pub struct IVideoFrameNative(::windows::core::IUnknown);
 impl IVideoFrameNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
-    pub unsafe fn GetData<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn GetData<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -214,7 +228,13 @@ pub struct IVideoFrameNativeFactory(::windows::core::IUnknown);
 impl IVideoFrameNativeFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateFromMFSample<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFSample>>, Param4: ::std::convert::Into<super::super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>>, T: ::windows::core::Interface>(&self, data: Param0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: Param6) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFromMFSample<'a, P0, P1, P2, T>(&self, data: P0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: P2) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFSample>>,
+        P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), ::core::mem::transmute(width), ::core::mem::transmute(height), forcereadonly.into(), ::core::mem::transmute(mindisplayaperture), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }

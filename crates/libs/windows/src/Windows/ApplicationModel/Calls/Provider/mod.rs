@@ -114,7 +114,10 @@ impl PhoneCallOrigin {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
-    pub fn SetCategory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCategory<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCategory)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -127,7 +130,10 @@ impl PhoneCallOrigin {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
-    pub fn SetCategoryDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCategoryDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCategoryDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -140,7 +146,10 @@ impl PhoneCallOrigin {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
-    pub fn SetLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -153,7 +162,10 @@ impl PhoneCallOrigin {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -168,7 +180,10 @@ impl PhoneCallOrigin {
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetDisplayPicture<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::StorageFile>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayPicture<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Storage::StorageFile>>,
+    {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayPicture)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -250,7 +265,10 @@ impl PhoneCallOriginManager {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowPhoneCallOriginSettingsUI)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
-    pub fn SetCallOrigin<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallOrigin>>>(requestid: ::windows::core::GUID, callorigin: Param1) -> ::windows::core::Result<()> {
+    pub fn SetCallOrigin<'a, P0>(requestid: ::windows::core::GUID, callorigin: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneCallOrigin>>,
+    {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetCallOrigin)(::windows::core::Interface::as_raw(this), requestid, callorigin.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`, `\"Foundation\"`*"]

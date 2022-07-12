@@ -1,7 +1,10 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>>(dxgidevice: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, P0>(dxgidevice: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice: *mut ::core::ffi::c_void, graphicsdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -12,7 +15,10 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::std::convert::I
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>>(dgxisurface: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, P0>(dgxisurface: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface: *mut ::core::ffi::c_void, graphicssurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -25,7 +31,10 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::std::convert:
 pub struct IDirect3DDxgiInterfaceAccess(::windows::core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
     #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]
-    pub unsafe fn GetInterface<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn GetInterface<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetInterface)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }

@@ -4,7 +4,10 @@ pub struct ICompositionCapabilitiesInteropFactory(::windows::core::IUnknown);
 impl ICompositionCapabilitiesInteropFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities> {
+    pub unsafe fn GetForWindow<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionCapabilities>(result__)
     }
@@ -74,7 +77,10 @@ pub struct ICompositionDrawingSurfaceInterop(::windows::core::IUnknown);
 impl ICompositionDrawingSurfaceInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginDraw<T: ::windows::core::Interface>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T> {
+    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
     }
@@ -162,7 +168,10 @@ pub struct ICompositionDrawingSurfaceInterop2(::windows::core::IUnknown);
 impl ICompositionDrawingSurfaceInterop2 {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginDraw<T: ::windows::core::Interface>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T> {
+    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(updateoffset)).and_some(result__)
     }
@@ -190,7 +199,10 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopySurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, destinationresource: Param0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+    pub unsafe fn CopySurface<'a, P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).CopySurface)(::windows::core::Interface::as_raw(self), destinationresource.into().abi(), ::core::mem::transmute(destinationoffsetx), ::core::mem::transmute(destinationoffsety), ::core::mem::transmute(sourcerectangle)).ok()
     }
 }
@@ -263,7 +275,10 @@ impl ICompositionGraphicsDeviceInterop {
         (::windows::core::Interface::vtable(self).GetRenderingDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
-    pub unsafe fn SetRenderingDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRenderingDevice<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetRenderingDevice)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
@@ -315,7 +330,11 @@ pub struct ICompositorDesktopInterop(::windows::core::IUnknown);
 impl ICompositorDesktopInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
-    pub unsafe fn CreateDesktopWindowTarget<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, hwndtarget: Param0, istopmost: Param1) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
+    pub unsafe fn CreateDesktopWindowTarget<'a, P0, P1>(&self, hwndtarget: P0, istopmost: P1) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateDesktopWindowTarget)(::windows::core::Interface::as_raw(self), hwndtarget.into(), istopmost.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>(result__)
     }
@@ -375,19 +394,28 @@ pub struct ICompositorInterop(::windows::core::IUnknown);
 impl ICompositorInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-    pub unsafe fn CreateCompositionSurfaceForHandle<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(&self, swapchain: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
+    pub unsafe fn CreateCompositionSurfaceForHandle<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(::windows::core::Interface::as_raw(self), swapchain.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForSwapChain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, swapchain: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
+    pub unsafe fn CreateCompositionSurfaceForSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateGraphicsDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, renderingdevice: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice> {
+    pub unsafe fn CreateGraphicsDevice<'a, P0>(&self, renderingdevice: P0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateGraphicsDevice)(::windows::core::Interface::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
     }
@@ -504,7 +532,10 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
 pub struct ISwapChainInterop(::windows::core::IUnknown);
 impl ISwapChainInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
-    pub unsafe fn SetSwapChain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi()).ok()
     }
 }

@@ -267,13 +267,21 @@ pub struct IMidiNoteOnMessageFactory_Vtbl {
 pub struct IMidiOutPort(::windows::core::IUnknown);
 impl IMidiOutPort {
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
-    pub fn SendMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
+    pub fn SendBuffer<'a, P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1156,7 +1164,10 @@ impl MidiInPort {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1179,7 +1190,10 @@ impl MidiInPort {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MidiInPort>>(result__)
@@ -1716,13 +1730,21 @@ impl MidiOutPort {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
-    pub fn SendMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
+    pub fn SendBuffer<'a, P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1736,7 +1758,10 @@ impl MidiOutPort {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IMidiOutPort>>(result__)
@@ -2799,13 +2824,21 @@ impl MidiSynthesizer {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
-    pub fn SendMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, P0, E0>(&self, midimessage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
+    pub fn SendBuffer<'a, P0, E0>(&self, mididata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2849,7 +2882,10 @@ impl MidiSynthesizer {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
-    pub fn CreateFromAudioDeviceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Enumeration::DeviceInformation>>>(audiodevice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
+    pub fn CreateFromAudioDeviceAsync<'a, P0>(audiodevice: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Enumeration::DeviceInformation>>,
+    {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::windows::core::Interface::as_raw(this), audiodevice.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
@@ -2857,7 +2893,10 @@ impl MidiSynthesizer {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn IsSynthesizer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Enumeration::DeviceInformation>>>(mididevice: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsSynthesizer<'a, P0>(mididevice: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Enumeration::DeviceInformation>>,
+    {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsSynthesizer)(::windows::core::Interface::as_raw(this), mididevice.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -3004,7 +3043,11 @@ impl MidiSystemExclusiveMessage {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMidiSystemExclusiveMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(rawdata: Param0) -> ::windows::core::Result<MidiSystemExclusiveMessage> {
+    pub fn CreateMidiSystemExclusiveMessage<'a, P0, E0>(rawdata: P0) -> ::windows::core::Result<MidiSystemExclusiveMessage>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(::windows::core::Interface::as_raw(this), rawdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<MidiSystemExclusiveMessage>(result__)

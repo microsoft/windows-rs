@@ -81,7 +81,10 @@ impl HttpBaseProtocolFilter {
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn SetClientCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Cryptography::Certificates::Certificate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetClientCertificate<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Cryptography::Certificates::Certificate>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClientCertificate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -118,7 +121,10 @@ impl HttpBaseProtocolFilter {
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProxyCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -133,7 +139,10 @@ impl HttpBaseProtocolFilter {
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetServerCredential<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -159,7 +168,10 @@ impl HttpBaseProtocolFilter {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetMaxVersion<'a, Param0: ::std::convert::Into<super::HttpVersion>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMaxVersion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::HttpVersion>,
+    {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxVersion)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -172,13 +184,19 @@ impl HttpBaseProtocolFilter {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetCookieUsageBehavior<'a, Param0: ::std::convert::Into<HttpCookieUsageBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCookieUsageBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HttpCookieUsageBehavior>,
+    {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCookieUsageBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServerCustomValidationRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ServerCustomValidationRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -207,7 +225,10 @@ impl HttpBaseProtocolFilter {
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<HttpBaseProtocolFilter> {
+    pub fn CreateForUser<'a, P0>(user: P0) -> ::windows::core::Result<HttpBaseProtocolFilter>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>,
+    {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<HttpBaseProtocolFilter>(result__)
@@ -215,7 +236,10 @@ impl HttpBaseProtocolFilter {
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendRequestAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::HttpRequestMessage>>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>> {
+    pub fn SendRequestAsync<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HttpRequestMessage>>,
+    {
         let this = &::windows::core::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -344,7 +368,10 @@ impl HttpCacheControl {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetReadBehavior<'a, Param0: ::std::convert::Into<HttpCacheReadBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HttpCacheReadBehavior>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReadBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -357,7 +384,10 @@ impl HttpCacheControl {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetWriteBehavior<'a, Param0: ::std::convert::Into<HttpCacheWriteBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWriteBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HttpCacheWriteBehavior>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWriteBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -808,7 +838,10 @@ pub struct IHttpFilter(::windows::core::IUnknown);
 impl IHttpFilter {
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendRequestAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::HttpRequestMessage>>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>> {
+    pub fn SendRequestAsync<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HttpRequestMessage>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

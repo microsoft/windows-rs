@@ -52,7 +52,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HSTRING::from(C::NAME);
 
-    let code = if let Ok(function) = unsafe { delay_load(b"combase.dll\0", b"RoGetActivationFactory\0") } {
+    let code = if let Ok(function) = unsafe { delay_load(s!("combase.dll"), s!("RoGetActivationFactory")) } {
         unsafe {
             let function: RoGetActivationFactory = core::mem::transmute(function);
             let mut code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
@@ -60,7 +60,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
             // automatically so that it "just works" for apartment-agnostic code.
             if code == CO_E_NOTINITIALIZED {
-                if let Ok(mta) = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0") {
+                if let Ok(mta) = delay_load(s!("ole32.dll"), s!("CoIncrementMTAUsage")) {
                     let mta: CoIncrementMTAUsage = core::mem::transmute(mta);
                     let mut cookie = core::ptr::null_mut();
                     let _ = mta(&mut cookie);
@@ -101,7 +101,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 ///   2. A.dll
 fn search_path<F, R>(mut path: &str, mut callback: F) -> Option<R>
 where
-    F: FnMut(&[u8]) -> Result<R>,
+    F: FnMut(PCSTR) -> Result<R>,
 {
     let suffix = b".dll\0";
     let mut library = vec![0; path.len() + suffix.len()];
@@ -111,7 +111,7 @@ where
         library[..path.len()].copy_from_slice(path.as_bytes());
         library[path.len()..].copy_from_slice(suffix);
 
-        if let Ok(r) = callback(&library) {
+        if let Ok(r) = callback(PCSTR::from_raw(library.as_ptr())) {
             return Some(r);
         }
     }
@@ -119,8 +119,8 @@ where
     None
 }
 
-unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
-    let function = delay_load(library, b"DllGetActivationFactory\0")?;
+unsafe fn get_activation_factory(library: PCSTR, name: &HSTRING) -> Result<IGenericFactory> {
+    let function = delay_load(library, s!("DllGetActivationFactory"))?;
     let function: DllGetActivationFactory = core::mem::transmute(function);
     let mut abi = core::mem::MaybeUninit::zeroed();
     function(core::mem::transmute_copy(name), abi.as_mut_ptr()).from_abi(abi)
@@ -141,23 +141,23 @@ mod tests {
         // Test library successfully found
         let mut results = Vec::new();
         let end_result = search_path(path, |library| {
-            results.push(library.to_vec());
-            if library == &b"A.dll\0"[..] {
+            results.push(unsafe { library.to_string().unwrap() });
+            if unsafe { library.as_bytes() } == &b"A.dll"[..] {
                 Ok(42)
             } else {
                 Err(Error::OK)
             }
         });
         assert!(matches!(end_result, Some(42)));
-        assert_eq!(results, vec![b"A.B.dll\0".to_vec(), b"A.dll\0".to_vec()]);
+        assert_eq!(results, vec!["A.B.dll", "A.dll"]);
 
         // Test library never successfully found
         let mut results = Vec::new();
         let end_result = search_path(path, |library| {
-            results.push(library.to_vec());
+            results.push(unsafe { library.to_string().unwrap() });
             Result::<()>::Err(Error::OK)
         });
         assert!(matches!(end_result, None));
-        assert_eq!(results, vec![b"A.B.dll\0".to_vec(), b"A.dll\0".to_vec()]);
+        assert_eq!(results, vec!["A.B.dll", "A.dll"]);
     }
 }

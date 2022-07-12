@@ -314,14 +314,20 @@ impl JsonArray {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0) -> ::windows::core::Result<JsonArray> {
+    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<JsonArray>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<JsonArray>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0, result: &mut ::core::option::Option<JsonArray>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, P0>(input: P0, result: &mut ::core::option::Option<JsonArray>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), result as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -421,7 +427,11 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -430,13 +440,21 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAt<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetAt<'a, P0, E0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InsertAt<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertAt<'a, P0, E0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -448,7 +466,11 @@ impl JsonArray {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Append<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Append<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -725,7 +747,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<JsonValue> {
+    pub fn GetNamedValue<'a, P0>(&self, name: P0) -> ::windows::core::Result<JsonValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -733,12 +758,20 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn SetNamedValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetNamedValue<'a, P0, P1, E1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNamedValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<JsonObject> {
+    pub fn GetNamedObject<'a, P0>(&self, name: P0) -> ::windows::core::Result<JsonObject>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -746,7 +779,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<JsonArray> {
+    pub fn GetNamedArray<'a, P0>(&self, name: P0) -> ::windows::core::Result<JsonArray>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -754,7 +790,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetNamedString<'a, P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -762,7 +801,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<f64> {
+    pub fn GetNamedNumber<'a, P0>(&self, name: P0) -> ::windows::core::Result<f64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
@@ -770,7 +812,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedBoolean<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<bool> {
+    pub fn GetNamedBoolean<'a, P0>(&self, name: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -778,21 +823,31 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0) -> ::windows::core::Result<JsonObject> {
+    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<JsonObject>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<JsonObject>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0, result: &mut ::core::option::Option<JsonObject>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, P0>(input: P0, result: &mut ::core::option::Option<JsonObject>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), result as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedValueOrDefault<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, JsonValue>>>(&self, name: Param0, defaultvalue: Param1) -> ::windows::core::Result<JsonValue> {
+    pub fn GetNamedValueOrDefault<'a, P0, P1>(&self, name: P0, defaultvalue: P1) -> ::windows::core::Result<JsonValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, JsonValue>>,
+    {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -800,7 +855,11 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedObjectOrDefault<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, JsonObject>>>(&self, name: Param0, defaultvalue: Param1) -> ::windows::core::Result<JsonObject> {
+    pub fn GetNamedObjectOrDefault<'a, P0, P1>(&self, name: P0, defaultvalue: P1) -> ::windows::core::Result<JsonObject>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, JsonObject>>,
+    {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -808,7 +867,11 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedStringOrDefault<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, defaultvalue: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetNamedStringOrDefault<'a, P0, P1>(&self, name: P0, defaultvalue: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -816,7 +879,11 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedArrayOrDefault<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, JsonArray>>>(&self, name: Param0, defaultvalue: Param1) -> ::windows::core::Result<JsonArray> {
+    pub fn GetNamedArrayOrDefault<'a, P0, P1>(&self, name: P0, defaultvalue: P1) -> ::windows::core::Result<JsonArray>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, JsonArray>>,
+    {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -824,7 +891,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedNumberOrDefault<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, defaultvalue: f64) -> ::windows::core::Result<f64> {
+    pub fn GetNamedNumberOrDefault<'a, P0>(&self, name: P0, defaultvalue: f64) -> ::windows::core::Result<f64>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
@@ -832,7 +902,10 @@ impl JsonObject {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn GetNamedBooleanOrDefault<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, defaultvalue: bool) -> ::windows::core::Result<bool> {
+    pub fn GetNamedBooleanOrDefault<'a, P0>(&self, name: P0, defaultvalue: bool) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -897,7 +970,10 @@ impl JsonObject {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<IJsonValue> {
+    pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<IJsonValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -915,7 +991,10 @@ impl JsonObject {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -933,7 +1012,12 @@ impl JsonObject {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, P0, P1, E1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, IJsonValue>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -942,7 +1026,10 @@ impl JsonObject {
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
@@ -1191,14 +1278,20 @@ impl JsonValue {
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0) -> ::windows::core::Result<JsonValue> {
+    pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<JsonValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<JsonValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0, result: &mut ::core::option::Option<JsonValue>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, P0>(input: P0, result: &mut ::core::option::Option<JsonValue>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), result as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
@@ -1219,7 +1312,10 @@ impl JsonValue {
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
-    pub fn CreateStringValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0) -> ::windows::core::Result<JsonValue> {
+    pub fn CreateStringValue<'a, P0>(input: P0) -> ::windows::core::Result<JsonValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStringValue)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<JsonValue>(result__)

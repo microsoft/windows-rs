@@ -154,3 +154,21 @@ fn combine_type<'a>(types: &mut BTreeMap<&'a str, TokenStream>, type_name: TypeN
         types.entry(type_name.name).or_default().combine(&tokens);
     }
 }
+
+/// Expand a possibly empty generics list with a new generic
+fn expand_generics(generics: TokenStream, new: TokenStream) -> TokenStream {
+    if generics.is_empty() {
+        quote!(#new)
+    } else {
+        quote!(#generics, #new)
+    }
+}
+
+/// Expand a possibly emppty where clause with a new generic constraint
+fn expand_where_clause(where_clause: TokenStream, generic: TokenStream) -> TokenStream {
+    if where_clause.is_empty() {
+        quote!(where #generic)
+    } else {
+        quote!(#where_clause #generic)
+    }
+}

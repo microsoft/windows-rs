@@ -125,7 +125,10 @@ impl ISideShowBulkCapabilities {
         (::windows::core::Interface::vtable(self).base__.GetCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn GetCapabilities<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowKeyCollection>>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetCapabilities<'a, P0>(&self, in_keycollection: P0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowKeyCollection>>,
+    {
         (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self), in_keycollection.into().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
 }
@@ -301,7 +304,10 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
 pub struct ISideShowContent(::windows::core::IUnknown);
 impl ISideShowContent {
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn GetContent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_picapabilities: Param0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
+    pub unsafe fn GetContent<'a, P0>(&self, in_picapabilities: P0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+    {
         (::windows::core::Interface::vtable(self).GetContent)(::windows::core::Interface::as_raw(self), in_picapabilities.into().abi(), ::core::mem::transmute(out_pdwsize), ::core::mem::transmute(out_ppbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -367,7 +373,10 @@ pub struct ISideShowContent_Vtbl {
 pub struct ISideShowContentManager(::windows::core::IUnknown);
 impl ISideShowContentManager {
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowContent>>>(&self, in_picontent: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Add<'a, P0>(&self, in_picontent: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowContent>>,
+    {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), in_picontent.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -379,7 +388,10 @@ impl ISideShowContentManager {
         (::windows::core::Interface::vtable(self).RemoveAll)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetEventSink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowEvents>>>(&self, in_pievents: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetEventSink<'a, P0>(&self, in_pievents: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowEvents>>,
+    {
         (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), in_pievents.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -443,15 +455,24 @@ impl ISideShowEvents {
         (::windows::core::Interface::vtable(self).ContentMissing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(in_contentid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowContent>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn ApplicationEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_picapabilities: Param0, in_dweventid: u32, in_pbeventdata: &[u8]) -> ::windows::core::Result<()> {
+    pub unsafe fn ApplicationEvent<'a, P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+    {
         (::windows::core::Interface::vtable(self).ApplicationEvent)(::windows::core::Interface::as_raw(self), in_picapabilities.into().abi(), ::core::mem::transmute(in_dweventid), in_pbeventdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(in_pbeventdata))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn DeviceAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn DeviceAdded<'a, P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+    {
         (::windows::core::Interface::vtable(self).DeviceAdded)(::windows::core::Interface::as_raw(self), in_pidevice.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn DeviceRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>>(&self, in_pidevice: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn DeviceRemoved<'a, P0>(&self, in_pidevice: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowCapabilities>>,
+    {
         (::windows::core::Interface::vtable(self).DeviceRemoved)(::windows::core::Interface::as_raw(self), in_pidevice.into().abi()).ok()
     }
 }
@@ -596,7 +617,10 @@ impl ISideShowNotification {
         (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, in_pwsztitle: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTitle<'a, P0>(&self, in_pwsztitle: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), in_pwsztitle.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -605,7 +629,10 @@ impl ISideShowNotification {
         (::windows::core::Interface::vtable(self).Message)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn SetMessage<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, in_pwszmessage: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetMessage<'a, P0>(&self, in_pwszmessage: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetMessage)(::windows::core::Interface::as_raw(self), in_pwszmessage.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -616,7 +643,10 @@ impl ISideShowNotification {
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetImage<'a, Param0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>>(&self, in_hicon: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetImage<'a, P0>(&self, in_hicon: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>,
+    {
         (::windows::core::Interface::vtable(self).SetImage)(::windows::core::Interface::as_raw(self), in_hicon.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`*"]
@@ -698,7 +728,10 @@ pub struct ISideShowNotification_Vtbl {
 pub struct ISideShowNotificationManager(::windows::core::IUnknown);
 impl ISideShowNotificationManager {
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-    pub unsafe fn Show<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowNotification>>>(&self, in_pinotification: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn Show<'a, P0>(&self, in_pinotification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISideShowNotification>>,
+    {
         (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), in_pinotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]

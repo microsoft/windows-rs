@@ -357,7 +357,11 @@ impl PrintTicketCapabilities {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetFeature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketFeature> {
+    pub fn GetFeature<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketFeature>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -365,7 +369,11 @@ impl PrintTicketCapabilities {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetParameterDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketParameterDefinition> {
+    pub fn GetParameterDefinition<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketParameterDefinition>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -473,7 +481,11 @@ impl PrintTicketFeature {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketOption> {
+    pub fn GetOption<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketOption>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -498,7 +510,10 @@ impl PrintTicketFeature {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetSelectedOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketOption>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSelectedOption<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketOption>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectedOption)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -646,7 +661,11 @@ impl PrintTicketOption {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetPropertyNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
+    pub fn GetPropertyNode<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -655,7 +674,11 @@ impl PrintTicketOption {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetScoredPropertyNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
+    pub fn GetScoredPropertyNode<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -663,7 +686,11 @@ impl PrintTicketOption {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetPropertyValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketValue> {
+    pub fn GetPropertyValue<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -671,7 +698,11 @@ impl PrintTicketOption {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetScoredPropertyValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketValue> {
+    pub fn GetScoredPropertyValue<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -930,7 +961,10 @@ impl PrintTicketParameterInitializer {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketValue>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketValue>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1289,7 +1323,11 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetFeature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketFeature> {
+    pub fn GetFeature<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketFeature>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1315,7 +1353,11 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetParameterInitializer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketParameterInitializer> {
+    pub fn GetParameterInitializer<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketParameterInitializer>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1323,7 +1365,11 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetParameterInitializerAsInteger<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer> {
+    pub fn SetParameterInitializerAsInteger<'a, P0, P1>(&self, name: P0, xmlnamespace: P1, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1331,7 +1377,12 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetParameterInitializerAsString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1, stringvalue: Param2) -> ::windows::core::Result<PrintTicketParameterInitializer> {
+    pub fn SetParameterInitializerAsString<'a, P0, P1, P2>(&self, name: P0, xmlnamespace: P1, stringvalue: P2) -> ::windows::core::Result<PrintTicketParameterInitializer>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1339,7 +1390,10 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn MergeAndValidateTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WorkflowPrintTicket>>>(&self, deltashematicket: Param0) -> ::windows::core::Result<WorkflowPrintTicket> {
+    pub fn MergeAndValidateTicket<'a, P0>(&self, deltashematicket: P0) -> ::windows::core::Result<WorkflowPrintTicket>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, WorkflowPrintTicket>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

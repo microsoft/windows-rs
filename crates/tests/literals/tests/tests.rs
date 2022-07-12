@@ -32,26 +32,26 @@ fn into() {
     let b: PCWSTR = a.into();
     // Even though an empty HSTRING is internally represented by a null pointer, the PCWSTR
     // will still be a non-null pointer to a null terminated empty string.
-    assert!(!b.0.is_null());
+    assert!(!b.is_null());
     assert_eq!(0, unsafe { wcslen(b) });
 
     let a = w!("123");
     assert!(!a.is_empty());
     let b: PCWSTR = a.into();
-    assert!(!b.0.is_null());
+    assert!(!b.is_null());
     assert_eq!(3, unsafe { wcslen(b) });
 }
 
 fn assert_utf8(left: PCSTR, right: &[u8]) {
     let len = unsafe { strlen(left) };
     assert_eq!(len, right.len() - 1);
-    let left = unsafe { std::slice::from_raw_parts(left.0, right.len()) };
+    let left = unsafe { std::slice::from_raw_parts(left.as_ptr(), right.len()) };
     assert_eq!(left, right);
 }
 
 fn assert_hstring(left: &HSTRING, right: &[u16]) {
     assert_eq!(left.len(), right.len() - 1);
-    assert_eq!(unsafe { wcslen(PCWSTR(left.as_ptr())) }, right.len() - 1);
+    assert_eq!(unsafe { wcslen(PCWSTR::from_raw(left.as_ptr())) }, right.len() - 1);
     let left = unsafe { std::slice::from_raw_parts(left.as_wide().as_ptr(), right.len()) };
     assert_eq!(left, right);
 }
