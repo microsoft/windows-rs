@@ -3,7 +3,7 @@ use windows::{core::*, Win32::System::Com::*, Win32::UI::Accessibility::*, Win32
 fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
-        let window = FindWindowA(PCSTR::default(), s!("Calculator"));
+        let window = FindWindowA(PCSTR::null(), s!("Calculator"));
 
         // Start with COM API
         let automation: IUIAutomation = CoCreateInstance(&CUIAutomation, None, CLSCTX_ALL)?;

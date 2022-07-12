@@ -1,4 +1,4 @@
-use windows::core::{w, s};
+use windows::core::{s, w};
 use windows::{Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::UI::Input::KeyboardAndMouse::*};
 
 #[test]

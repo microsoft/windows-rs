@@ -217,24 +217,20 @@ fn callback() {
 }
 
 extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BOOL {
-        assert!(param0.0 == 123);
-        assert!(param2.0 == 456);
+    assert!(param0.0 == 123);
+    assert!(param2.0 == 456);
 
-    let s = unsafe {
-        param1.to_string().unwrap()
-    };
-        assert!(s == "hello a");
-        BOOL(789)
+    let s = unsafe { param1.to_string().unwrap() };
+    assert!(s == "hello a");
+    BOOL(789)
 }
 
 extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> BOOL {
-        assert!(param0.0 == 123);
-        assert!(param2.0 == 456);
-    let s = unsafe {
-        param1.to_string().unwrap()
-    };
-        assert!(s == "hello w");
-        BOOL(789)
+    assert!(param0.0 == 123);
+    assert!(param2.0 == 456);
+    let s = unsafe { param1.to_string().unwrap() };
+    assert!(s == "hello w");
+    BOOL(789)
 }
 
 #[test]

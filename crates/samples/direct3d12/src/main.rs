@@ -44,7 +44,7 @@ fn run_sample<S>() -> Result<()>
 where
     S: DXSample,
 {
-    let instance = unsafe { GetModuleHandleA(PCSTR::default())? };
+    let instance = unsafe { GetModuleHandleA(PCSTR::null())? };
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
@@ -306,7 +306,7 @@ mod d3d12_hello_triangle {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, PCSTR::default())? };
+            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, PCSTR::null())? };
 
             self.resources = Some(Resources {
                 command_queue,
