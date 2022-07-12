@@ -1,14 +1,10 @@
 use windows::core::*;
 use windows::Win32::UI::WindowsAndMessaging::*;
+use windows::*;
 
 fn main() {
     unsafe {
-        // TODO: these can now be replaced with the s! and w! macros (coming up next).
-
-        MessageBoxA(None, PCSTR("Ansi\0".as_bytes().as_ptr()), PCSTR("World\0".as_bytes().as_ptr()), MB_OK);
-
-        let hello = HSTRING::from("Wide");
-        let world = HSTRING::from("World");
-        MessageBoxW(None, &hello, &world, MB_OK);
+        MessageBoxA(None, s!("Ansi"), s!("World"), MB_OK);
+        MessageBoxW(None, w!("Wide"), w!("World"), MB_OK);
     }
 }

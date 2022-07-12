@@ -9,7 +9,7 @@ impl HSTRING {
     /// Create an empty `HSTRING`.
     ///
     /// This function does not allocate memory.
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self(core::ptr::null_mut())
     }
 
@@ -36,6 +36,17 @@ impl HSTRING {
 
         let header = self.0;
         unsafe { core::slice::from_raw_parts((*header).data, (*header).len as usize) }
+    }
+
+    #[doc(hidden)]
+    pub fn as_ptr(&self) -> *const u16 {
+        if self.is_empty() {
+            const EMPTY: [u16; 1] = [0];
+            EMPTY.as_ptr()
+        } else {
+            let header = self.0;
+            unsafe { (*header).data }
+        }
     }
 
     /// Create a `HSTRING` from a slice of 16 bit characters (wchars).
@@ -114,14 +125,9 @@ impl Drop for HSTRING {
 
         unsafe {
             let header = std::mem::replace(&mut self.0, core::ptr::null_mut());
-            // This flag indicates a "fast pass" string created by some languages where the
-            // header is allocated on the stack. "Fast pass" strings can only ever be used
-            // as non-owned input params and as such `drop` will never be called. This check
-            // just ensures the Rust translation never accidentally modeled "fast pass" input
-            // params as owned `HSTRING` types which would be a bug in the translation.
-            debug_assert!((*header).flags & REFERENCE_FLAG == 0);
-
-            if (*header).count.release() == 0 {
+            // REFERENCE_FLAG indicates a string backed by static or stack memory that is
+            // thus not reference-counted and does not need to be free.
+            if (*header).flags & REFERENCE_FLAG == 0 && (*header).count.release() == 0 {
                 heap_free(header as *mut core::ffi::c_void);
             }
         }
