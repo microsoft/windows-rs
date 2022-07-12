@@ -16,7 +16,7 @@ impl Error {
     /// point of failure.
     pub fn new(code: HRESULT, message: HSTRING) -> Self {
         unsafe {
-            if let Ok(function) = delay_load(b"combase.dll\0", b"RoOriginateError\0") {
+            if let Ok(function) = delay_load(s!("combase.dll"), s!("RoOriginateError")) {
                 let function: RoOriginateError = core::mem::transmute(function);
                 function(code, core::mem::transmute_copy(&message));
             }
