@@ -22,7 +22,7 @@ pub fn rustfmt(name: &str, tokens: &mut String) {
     if output.status.success() {
         *tokens = String::from_utf8(output.stdout).expect("Failed to parse UTF-8");
     } else {
-        println!("rustfmt failed: for `{}`\nError:\n{}", name, String::from_utf8_lossy(&output.stderr));
+        println!("rustfmt failed for `{}` with status {}\nError:\n{}", name, output.status, String::from_utf8_lossy(&output.stderr));
     }
 }
 

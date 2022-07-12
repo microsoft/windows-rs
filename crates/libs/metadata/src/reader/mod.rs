@@ -1141,16 +1141,22 @@ impl<'a> Reader<'a> {
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_borrowed(&param.ty) && param.array_info == ArrayInfo::None
+        self.signature_param_maybe_generic(param) && self.type_is_borrowed(&param.ty)
     }
     pub fn signature_param_is_param(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_in_class_hierarchy(&param.ty) && param.array_info == ArrayInfo::None
+        self.signature_param_maybe_generic(param) && self.type_is_in_class_hierarchy(&param.ty)
     }
     pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_non_exclusive_winrt_interface(&param.ty) && param.array_info == ArrayInfo::None
+        self.signature_param_maybe_generic(param) && self.type_is_non_exclusive_winrt_interface(&param.ty)
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
+        self.signature_param_maybe_generic(param) && self.type_is_convertible(&param.ty)
+    }
+    pub fn signature_param_is_generic(&self, param: &SignatureParam) -> bool {
+        self.signature_param_maybe_generic(param) && (self.signature_param_is_borrowed(param) || self.signature_param_is_param(param) || self.signature_param_is_failible_param(param) || self.signature_param_is_convertible(param))
+    }
+    pub fn signature_param_maybe_generic(&self, param: &SignatureParam) -> bool {
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed

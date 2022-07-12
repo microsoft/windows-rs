@@ -275,33 +275,67 @@ impl<'a> Gen<'a> {
         }
         tokens
     }
+    /// The signature params which are generic (along with their relative index)
+    pub fn generic_params<'b>(&'b self, params: &'b [SignatureParam]) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
+        params.iter().filter(move |param| self.reader.signature_param_is_generic(param)).enumerate()
+    }
+    /// The generic param names (i.e., `T` in `fn foo<T>()`)
+    pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
+        let mut generics = self
+            .generic_params(params)
+            .map(|(position, param)| -> TokenStream {
+                let mut p = format!("P{}", position);
+                if self.reader.signature_param_is_failible_param(param) {
+                    p.push_str(&format!(", E{}", position));
+                }
+
+                p.into()
+            })
+            .peekable();
+
+        if generics.peek().is_some() {
+            quote!('a, #(#generics),*)
+        } else {
+            TokenStream::new()
+        }
+    }
+    /// A `where` clause for some constrained generic params
+    pub fn where_clause(&self, params: &[SignatureParam]) -> TokenStream {
+        let constraints = self.param_constraints(params);
+
+        if !constraints.is_empty() {
+            quote!(where #constraints)
+        } else {
+            quote!()
+        }
+    }
     pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
-        for (position, param) in params.iter().enumerate() {
+        let gen_name = |position| {
+            let name: TokenStream = format!("P{}", position).into();
+            name
+        };
+        for (position, param) in self.generic_params(params) {
             if self.reader.signature_param_is_param(param) {
-                let name: TokenStream = format!("Param{}", position).into();
+                let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
             } else if self.reader.signature_param_is_failible_param(param) {
-                let name: TokenStream = format!("Param{}", position).into();
+                let name: TokenStream = gen_name(position);
                 let error_name: TokenStream = format!("E{}", position).into();
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
             } else if self.reader.signature_param_is_borrowed(param) {
-                let name: TokenStream = format!("Param{}", position).into();
+                let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
             } else if self.reader.signature_param_is_convertible(param) {
-                let name: TokenStream = format!("Param{}", position).into();
+                let name: TokenStream = gen_name(position);
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
             }
         }
-        if !tokens.is_empty() {
-            quote! { 'a, #tokens }
-        } else {
-            tokens
-        }
+        tokens
     }
 
     //
@@ -908,6 +942,7 @@ impl<'a> Gen<'a> {
     pub fn win32_params(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 
+        let mut generic_params = self.generic_params(params);
         for (position, param) in params.iter().enumerate() {
             match kind {
                 SignatureKind::Query(query) | SignatureKind::QueryOptional(query) => {
@@ -954,8 +989,9 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if self.reader.signature_param_is_borrowed(param) || self.reader.signature_param_is_convertible(param) {
-                let kind: TokenStream = format!("Param{}", position).into();
+            if self.reader.signature_param_is_generic(param) {
+                let (position, _) = generic_params.next().unwrap();
+                let kind: TokenStream = format!("P{}", position).into();
                 tokens.combine(&quote! { #name: #kind, });
                 continue;
             }
