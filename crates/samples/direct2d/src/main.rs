@@ -311,11 +311,12 @@ impl Window {
         unsafe {
             let instance = GetModuleHandleA(PCSTR::default())?;
             debug_assert!(instance.0 != 0);
+            let window_class = s!("window");
 
             let wc = WNDCLASSA {
                 hCursor: LoadCursorW(None, IDC_HAND)?,
                 hInstance: instance,
-                lpszClassName: PCSTR(b"window\0".as_ptr()),
+                lpszClassName: window_class,
 
                 style: CS_HREDRAW | CS_VREDRAW,
                 lpfnWndProc: Some(Self::wndproc),
@@ -325,7 +326,7 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
+            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), window_class, s!("Sample Window"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
 
             debug_assert!(handle.0 != 0);
             debug_assert!(handle == self.handle);

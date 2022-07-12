@@ -6,7 +6,7 @@ fn main() -> Result<()> {
 
         let window = HWND(0); // <== replace with your app's window handle
 
-        let operation: IAsyncOperation<UserConsentVerificationResult> = interop.RequestVerificationForWindowAsync(window, &HSTRING::from("Hello from Rust"))?;
+        let operation: IAsyncOperation<UserConsentVerificationResult> = interop.RequestVerificationForWindowAsync(window, w!("Hello from Rust"))?;
 
         let result: UserConsentVerificationResult = operation.get()?;
 

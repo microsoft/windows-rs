@@ -1,12 +1,11 @@
 use windows::{
-    core::PCWSTR,
     Win32::Foundation::{CloseHandle, WAIT_OBJECT_0},
     Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
 };
 
 fn main() -> windows::core::Result<()> {
     unsafe {
-        let event = CreateEventW(std::ptr::null(), true, false, PCWSTR::default())?;
+        let event = CreateEventW(std::ptr::null(), true, false, None)?;
 
         SetEvent(event).ok()?;
 

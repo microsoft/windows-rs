@@ -52,7 +52,7 @@ where
         lpfnWndProc: Some(wndproc::<S>),
         hInstance: instance,
         hCursor: unsafe { LoadCursorW(None, IDC_ARROW)? },
-        lpszClassName: PCSTR(b"RustWindowClass\0".as_ptr()),
+        lpszClassName: s!("RustWindowClass"),
         ..Default::default()
     };
 
@@ -78,7 +78,7 @@ where
     let hwnd = unsafe {
         CreateWindowExA(
             WINDOW_EX_STYLE::default(),
-            PCSTR(b"RustWindowClass\0".as_ptr()),
+            s!("RustWindowClass"),
             PCSTR(title.as_ptr()),
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,

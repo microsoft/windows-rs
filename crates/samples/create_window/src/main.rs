@@ -5,12 +5,12 @@ fn main() -> Result<()> {
         let instance = GetModuleHandleA(PCSTR::default())?;
         debug_assert!(instance.0 != 0);
 
-        let window_class = PCSTR(b"window\0".as_ptr());
+        let window_class = s!("window");
 
         let wc = WNDCLASSA {
             hCursor: LoadCursorW(None, IDC_ARROW)?,
             hInstance: instance,
-            lpszClassName: PCSTR(b"window\0".as_ptr()),
+            lpszClassName: window_class,
 
             style: CS_HREDRAW | CS_VREDRAW,
             lpfnWndProc: Some(wndproc),
@@ -20,7 +20,7 @@ fn main() -> Result<()> {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(WINDOW_EX_STYLE::default(), window_class, PCSTR(b"This is a sample window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, std::ptr::null());
+        CreateWindowExA(WINDOW_EX_STYLE::default(), window_class, s!("This is a sample window"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, std::ptr::null());
 
         let mut message = MSG::default();
 

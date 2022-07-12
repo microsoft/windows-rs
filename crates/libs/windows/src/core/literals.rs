@@ -48,6 +48,10 @@ macro_rules! w {
     }};
 }
 
+// Ensures that the macros are exported from the `windows::core` module.
+pub use s;
+pub use w;
+
 #[doc(hidden)]
 pub const fn decode_utf8(bytes: &[u8], mut pos: usize) -> Option<(u32, usize)> {
     if bytes.len() == pos {

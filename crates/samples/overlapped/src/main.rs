@@ -11,7 +11,7 @@ fn main() -> Result<()> {
 
         let mut overlapped = OVERLAPPED {
             Anonymous: OVERLAPPED_0 { Anonymous: OVERLAPPED_0_0 { Offset: 9, OffsetHigh: 0 } },
-            hEvent: CreateEventA(std::ptr::null(), true, false, PCSTR::default())?,
+            hEvent: CreateEventA(std::ptr::null(), true, false, None)?,
             Internal: 0,
             InternalHigh: 0,
         };
