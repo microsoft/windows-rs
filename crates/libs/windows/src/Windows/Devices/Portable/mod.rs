@@ -33,7 +33,10 @@ pub struct IStorageDeviceStatics_Vtbl {
 pub struct ServiceDevice;
 impl ServiceDevice {
     #[doc = "*Required features: `\"Devices_Portable\"`*"]
-    pub fn GetDeviceSelector<'a, Param0: ::std::convert::Into<ServiceDeviceType>>(servicetype: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelector<'a, P0>(servicetype: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<ServiceDeviceType>,
+    {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), servicetype.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -99,7 +102,10 @@ pub struct StorageDevice;
 impl StorageDevice {
     #[doc = "*Required features: `\"Devices_Portable\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
+    pub fn FromId<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Storage::StorageFolder>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFolder>(result__)

@@ -52,7 +52,11 @@ pub struct XsltProcessor(::windows::core::IUnknown);
 impl XsltProcessor {
     #[doc = "*Required features: `\"Data_Xml_Xsl\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToString<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Dom::IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, inputnode: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn TransformToString<'a, P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Dom::IXmlNode>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -61,7 +65,11 @@ impl XsltProcessor {
     }
     #[doc = "*Required features: `\"Data_Xml_Xsl\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToDocument<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Dom::IXmlNode>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, inputnode: Param0) -> ::windows::core::Result<super::Dom::XmlDocument> {
+    pub fn TransformToDocument<'a, P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<super::Dom::XmlDocument>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Dom::IXmlNode>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -70,7 +78,10 @@ impl XsltProcessor {
     }
     #[doc = "*Required features: `\"Data_Xml_Xsl\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Dom::XmlDocument>>>(document: Param0) -> ::windows::core::Result<XsltProcessor> {
+    pub fn CreateInstance<'a, P0>(document: P0) -> ::windows::core::Result<XsltProcessor>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dom::XmlDocument>>,
+    {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), document.into().abi(), result__.as_mut_ptr()).from_abi::<XsltProcessor>(result__)

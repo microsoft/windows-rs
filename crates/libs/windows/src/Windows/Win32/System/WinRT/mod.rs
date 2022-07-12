@@ -237,7 +237,10 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::window
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn CreateControlInput<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
+pub unsafe fn CreateControlInput<T>() -> ::windows::core::Result<T>
+where
+    T: ::windows::core::Interface,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateControlInput(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -247,7 +250,11 @@ pub unsafe fn CreateControlInput<T: ::windows::core::Interface>() -> ::windows::
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn CreateControlInputEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, T: ::windows::core::Interface>(pcorewindow: Param0) -> ::windows::core::Result<T> {
+pub unsafe fn CreateControlInputEx<'a, P0, T>(pcorewindow: P0) -> ::windows::core::Result<T>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    T: ::windows::core::Interface,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateControlInputEx(pcorewindow: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -268,7 +275,11 @@ pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn CreateRandomAccessStreamOnFile<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, T: ::windows::core::Interface>(filepath: Param0, accessmode: u32) -> ::windows::core::Result<T> {
+pub unsafe fn CreateRandomAccessStreamOnFile<'a, P0, T>(filepath: P0, accessmode: u32) -> ::windows::core::Result<T>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    T: ::windows::core::Interface,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateRandomAccessStreamOnFile(filepath: ::windows::core::PCWSTR, accessmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -279,7 +290,12 @@ pub unsafe fn CreateRandomAccessStreamOnFile<'a, Param0: ::std::convert::Into<::
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateRandomAccessStreamOverStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>, Param1: ::std::convert::Into<BSOS_OPTIONS>, T: ::windows::core::Interface>(stream: Param0, options: Param1) -> ::windows::core::Result<T> {
+pub unsafe fn CreateRandomAccessStreamOverStream<'a, P0, P1, T>(stream: P0, options: P1) -> ::windows::core::Result<T>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>,
+    P1: ::std::convert::Into<BSOS_OPTIONS>,
+    T: ::windows::core::Interface,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateRandomAccessStreamOverStream(stream: *mut ::core::ffi::c_void, options: BSOS_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -289,7 +305,11 @@ pub unsafe fn CreateRandomAccessStreamOverStream<'a, Param0: ::std::convert::Int
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn CreateStreamOverRandomAccessStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, T: ::windows::core::Interface>(randomaccessstream: Param0) -> ::windows::core::Result<T> {
+pub unsafe fn CreateStreamOverRandomAccessStream<'a, P0, T>(randomaccessstream: P0) -> ::windows::core::Result<T>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    T: ::windows::core::Interface,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateStreamOverRandomAccessStream(randomaccessstream: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -569,19 +589,31 @@ pub struct IAccountsSettingsPaneInterop(::windows::core::IUnknown);
 impl IAccountsSettingsPaneInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowManageAccountsForWindowAsync<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn ShowManageAccountsForWindowAsync<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowAddAccountForWindowAsync<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn ShowAddAccountForWindowAsync<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).ShowAddAccountForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -724,7 +756,10 @@ pub struct IActivationFactory_Vtbl {
 pub struct IAgileReference(::windows::core::IUnknown);
 impl IAgileReference {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn Resolve<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn Resolve<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -825,7 +860,10 @@ pub struct IApartmentShutdown_Vtbl {
 pub struct IAppServiceConnectionExtendedExecution(::windows::core::IUnknown);
 impl IAppServiceConnectionExtendedExecution {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn OpenForExtendedExecutionAsync<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn OpenForExtendedExecutionAsync<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).OpenForExtendedExecutionAsync)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -927,7 +965,11 @@ pub struct IBufferByteAccess_Vtbl {
 pub struct ICastingController(::windows::core::IUnknown);
 impl ICastingController {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, castingengine: Param0, castingsource: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Initialize<'a, P0, P1>(&self, castingengine: P0, castingsource: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), castingengine.into().abi(), castingsource.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -939,7 +981,10 @@ impl ICastingController {
         (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn Advise<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ICastingEventHandler>>>(&self, eventhandler: Param0) -> ::windows::core::Result<u32> {
+    pub unsafe fn Advise<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<u32>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ICastingEventHandler>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), eventhandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
@@ -998,11 +1043,18 @@ pub struct ICastingController_Vtbl {
 pub struct ICastingEventHandler(::windows::core::IUnknown);
 impl ICastingEventHandler {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn OnStateChanged<'a, Param0: ::std::convert::Into<CASTING_CONNECTION_STATE>>(&self, newstate: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn OnStateChanged<'a, P0>(&self, newstate: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CASTING_CONNECTION_STATE>,
+    {
         (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), newstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn OnError<'a, Param0: ::std::convert::Into<CASTING_CONNECTION_ERROR_STATUS>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, errorstatus: Param0, errormessage: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OnError<'a, P0, P1>(&self, errorstatus: P0, errormessage: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CASTING_CONNECTION_ERROR_STATUS>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), errorstatus.into(), errormessage.into()).ok()
     }
 }
@@ -1114,7 +1166,10 @@ pub struct ICastingSourceInfo_Vtbl {
 pub struct ICoreInputInterop(::windows::core::IUnknown);
 impl ICoreInputInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetInputSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetInputSource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetInputSource)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -1204,7 +1259,10 @@ impl ICoreWindowAdapterInterop {
         (::windows::core::Interface::vtable(self).TitleBarClientAdapter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetWindowClientAdapter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetWindowClientAdapter<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetWindowClientAdapter)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
@@ -1277,7 +1335,11 @@ pub struct ICoreWindowComponentInterop(::windows::core::IUnknown);
 impl ICoreWindowComponentInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureComponentInput<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, hostviewinstanceid: u32, hwndhost: Param1, inputsourcevisual: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn ConfigureComponentInput<'a, P0, P1>(&self, hostviewinstanceid: u32, hwndhost: P0, inputsourcevisual: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).ConfigureComponentInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hostviewinstanceid), hwndhost.into(), inputsourcevisual.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -1406,7 +1468,10 @@ impl ICorrelationVectorInformation {
         (::windows::core::Interface::vtable(self).NextCorrelationVectorForThread)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetNextCorrelationVectorForThread<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, cv: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetNextCorrelationVectorForThread<'a, P0>(&self, cv: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         (::windows::core::Interface::vtable(self).SetNextCorrelationVectorForThread)(::windows::core::Interface::as_raw(self), cv.into().abi()).ok()
     }
 }
@@ -1525,7 +1590,11 @@ pub struct IDragDropManagerInterop(::windows::core::IUnknown);
 impl IDragDropManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -1595,7 +1664,11 @@ pub struct IHolographicSpaceInterop(::windows::core::IUnknown);
 impl IHolographicSpaceInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, window: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -1665,7 +1738,11 @@ pub struct IInputPaneInterop(::windows::core::IUnknown);
 impl IInputPaneInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -1795,7 +1872,10 @@ impl ILanguageExceptionErrorInfo2 {
         (::windows::core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn CapturePropagationContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, languageexception: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CapturePropagationContext<'a, P0>(&self, languageexception: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).CapturePropagationContext)(::windows::core::Interface::as_raw(self), languageexception.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -2084,13 +2164,20 @@ pub struct IPlayToManagerInterop(::windows::core::IUnknown);
 impl IPlayToManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowPlayToUIForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, appwindow: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn ShowPlayToUIForWindow<'a, P0>(&self, appwindow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).ShowPlayToUIForWindow)(::windows::core::Interface::as_raw(self), appwindow.into()).ok()
     }
 }
@@ -2228,7 +2315,11 @@ pub struct IRestrictedErrorInfo_Vtbl {
 pub struct IRoMetaDataLocator(::windows::core::IUnknown);
 impl IRoMetaDataLocator {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn Locate<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IRoSimpleMetaDataBuilder>>>(&self, nameelement: Param0, metadatadestination: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Locate<'a, P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IRoSimpleMetaDataBuilder>>,
+    {
         (::windows::core::Interface::vtable(self).Locate)(::windows::core::Interface::as_raw(self), nameelement.into(), metadatadestination.into().abi()).ok()
     }
 }
@@ -2270,27 +2361,48 @@ impl IRoSimpleMetaDataBuilder {
         (::windows::core::Interface::vtable(self).SetDelegate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetInterfaceGroupSimpleDefault<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacename: Param1, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetInterfaceGroupSimpleDefault<'a, P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetInterfaceGroupSimpleDefault)(::windows::core::Interface::as_raw(self), name.into(), defaultinterfacename.into(), ::core::mem::transmute(defaultinterfaceiid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetInterfaceGroupParameterizedDefault<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacenameelements: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetInterfaceGroupParameterizedDefault<'a, P0>(&self, name: P0, defaultinterfacenameelements: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(::windows::core::Interface::as_raw(self), name.into(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(defaultinterfacenameelements))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetRuntimeClassSimpleDefault<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacename: Param1, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRuntimeClassSimpleDefault<'a, P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetRuntimeClassSimpleDefault)(::windows::core::Interface::as_raw(self), name.into(), defaultinterfacename.into(), ::core::mem::transmute(defaultinterfaceiid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetRuntimeClassParameterizedDefault<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, defaultinterfacenameelements: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRuntimeClassParameterizedDefault<'a, P0>(&self, name: P0, defaultinterfacenameelements: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(::windows::core::Interface::as_raw(self), name.into(), defaultinterfacenameelements.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(defaultinterfacenameelements))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetStruct<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, fieldtypenames: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetStruct<'a, P0>(&self, name: P0, fieldtypenames: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetStruct)(::windows::core::Interface::as_raw(self), name.into(), fieldtypenames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(fieldtypenames))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetEnum<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, name: Param0, basetype: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetEnum<'a, P0, P1>(&self, name: P0, basetype: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).SetEnum)(::windows::core::Interface::as_raw(self), name.into(), basetype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -2397,7 +2509,11 @@ pub struct IShareWindowCommandSourceInterop(::windows::core::IUnknown);
 impl IShareWindowCommandSourceInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2452,7 +2568,11 @@ pub struct ISpatialInteractionManagerInterop(::windows::core::IUnknown);
 impl ISpatialInteractionManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, window: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2522,7 +2642,11 @@ pub struct ISystemMediaTransportControlsInterop(::windows::core::IUnknown);
 impl ISystemMediaTransportControlsInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2592,7 +2716,11 @@ pub struct IUIViewSettingsInterop(::windows::core::IUnknown);
 impl IUIViewSettingsInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2662,7 +2790,11 @@ pub struct IUserActivityInterop(::windows::core::IUnknown);
 impl IUserActivityInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSessionForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, window: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateSessionForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateSessionForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2732,7 +2864,11 @@ pub struct IUserActivityRequestManagerInterop(::windows::core::IUnknown);
 impl IUserActivityRequestManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, window: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2801,7 +2937,10 @@ pub struct IUserActivityRequestManagerInterop_Vtbl {
 pub struct IUserActivitySourceHostInterop(::windows::core::IUnknown);
 impl IUserActivitySourceHostInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn SetActivitySourceHost<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activitysourcehost: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetActivitySourceHost<'a, P0>(&self, activitysourcehost: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         (::windows::core::Interface::vtable(self).SetActivitySourceHost)(::windows::core::Interface::as_raw(self), activitysourcehost.into().abi()).ok()
     }
 }
@@ -2867,7 +3006,12 @@ pub struct IUserConsentVerifierInterop(::windows::core::IUnknown);
 impl IUserConsentVerifierInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestVerificationForWindowAsync<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, T: ::windows::core::Interface>(&self, appwindow: Param0, message: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn RequestVerificationForWindowAsync<'a, P0, P1, T>(&self, appwindow: P0, message: P1) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestVerificationForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), message.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -2936,7 +3080,10 @@ pub struct IUserConsentVerifierInterop_Vtbl {
 pub struct IWeakReference(::windows::core::IUnknown);
 impl IWeakReference {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn Resolve<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn Resolve<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -3039,13 +3186,24 @@ pub struct IWebAuthenticationCoreManagerInterop(::windows::core::IUnknown);
 impl IWebAuthenticationCoreManagerInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestTokenForWindowAsync<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, T: ::windows::core::Interface>(&self, appwindow: Param0, request: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn RequestTokenForWindowAsync<'a, P0, P1, T>(&self, appwindow: P0, request: P1) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestTokenForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), request.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestTokenWithWebAccountForWindowAsync<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, T: ::windows::core::Interface>(&self, appwindow: Param0, request: Param1, webaccount: Param2) -> ::windows::core::Result<T> {
+    pub unsafe fn RequestTokenWithWebAccountForWindowAsync<'a, P0, P1, P2, T>(&self, appwindow: P0, request: P1, webaccount: P2) -> ::windows::core::Result<T>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+        T: ::windows::core::Interface,
+    {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestTokenWithWebAccountForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), request.into().abi(), webaccount.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
@@ -3262,7 +3420,10 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoActivateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+pub unsafe fn RoActivateInstance<'a, P0>(activatableclassid: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoActivateInstance(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3299,7 +3460,10 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::std::convert::Into<ROPARAMIIDHANDLE>>(extra: Param0) {
+pub unsafe fn RoFreeParameterizedTypeExtra<'a, P0>(extra: P0)
+where
+    P0: ::std::convert::Into<ROPARAMIIDHANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
@@ -3308,7 +3472,11 @@ pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::std::convert::Into<ROPA
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetActivationFactory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, T: ::windows::core::Interface>(activatableclassid: Param0) -> ::windows::core::Result<T> {
+pub unsafe fn RoGetActivationFactory<'a, P0, T>(activatableclassid: P0) -> ::windows::core::Result<T>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    T: ::windows::core::Interface,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetActivationFactory(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3318,7 +3486,11 @@ pub unsafe fn RoGetActivationFactory<'a, Param0: ::std::convert::Into<::windows:
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetAgileReference<'a, Param0: ::std::convert::Into<AgileReferenceOptions>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(options: Param0, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
+pub unsafe fn RoGetAgileReference<'a, P0, P1>(options: P0, riid: *const ::windows::core::GUID, punk: P1) -> ::windows::core::Result<IAgileReference>
+where
+    P0: ::std::convert::Into<AgileReferenceOptions>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3369,7 +3541,10 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IRoMetaDataLocator>>>(nameelements: &[::windows::core::PWSTR], metadatalocator: Param2, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::Result<()> {
+pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, P0>(nameelements: &[::windows::core::PWSTR], metadatalocator: P0, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRoMetaDataLocator>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const ::windows::core::PWSTR, metadatalocator: *mut ::core::ffi::c_void, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::HRESULT;
@@ -3378,7 +3553,10 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::std::convert::Into
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetServerActivatableClasses<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(servername: Param0, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn RoGetServerActivatableClasses<'a, P0>(servername: P0, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetServerActivatableClasses(servername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activatableclassids: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, count: *mut u32) -> ::windows::core::HRESULT;
@@ -3387,7 +3565,10 @@ pub unsafe fn RoGetServerActivatableClasses<'a, Param0: ::std::convert::Into<::w
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoInitialize<'a, Param0: ::std::convert::Into<RO_INIT_TYPE>>(inittype: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn RoInitialize<'a, P0>(inittype: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<RO_INIT_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::HRESULT;
@@ -3416,7 +3597,10 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoOriginateError<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(error: ::windows::core::HRESULT, message: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn RoOriginateError<'a, P0>(error: ::windows::core::HRESULT, message: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoOriginateError(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
@@ -3436,7 +3620,11 @@ pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, me
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoOriginateLanguageException<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(error: ::windows::core::HRESULT, message: Param1, languageexception: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn RoOriginateLanguageException<'a, P0, P1>(error: ::windows::core::HRESULT, message: P0, languageexception: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoOriginateLanguageException(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languageexception: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -3445,7 +3633,10 @@ pub unsafe fn RoOriginateLanguageException<'a, Param1: ::std::convert::Into<::wi
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, Param0: ::std::convert::Into<ROPARAMIIDHANDLE>>(extra: Param0) -> ::windows::core::PSTR {
+pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, P0>(extra: P0) -> ::windows::core::PSTR
+where
+    P0: ::std::convert::Into<ROPARAMIIDHANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> ::windows::core::PSTR;
@@ -3464,7 +3655,10 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::window
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoRegisterForApartmentShutdown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IApartmentShutdown>>>(callbackobject: Param0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::Result<()> {
+pub unsafe fn RoRegisterForApartmentShutdown<'a, P0>(callbackobject: P0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IApartmentShutdown>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoRegisterForApartmentShutdown(callbackobject: *mut ::core::ffi::c_void, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
@@ -3473,7 +3667,11 @@ pub unsafe fn RoRegisterForApartmentShutdown<'a, Param0: ::std::convert::Into<::
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoReportFailedDelegate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>>(punkdelegate: Param0, prestrictederrorinfo: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn RoReportFailedDelegate<'a, P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoReportFailedDelegate(punkdelegate: *mut ::core::ffi::c_void, prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3482,7 +3680,10 @@ pub unsafe fn RoReportFailedDelegate<'a, Param0: ::std::convert::Into<::windows:
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoReportUnhandledError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>>(prestrictederrorinfo: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn RoReportUnhandledError<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoReportUnhandledError(prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3491,7 +3692,10 @@ pub unsafe fn RoReportUnhandledError<'a, Param0: ::std::convert::Into<::windows:
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(reference: Param0) -> ::windows::core::Result<IRestrictedErrorInfo> {
+pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, P0>(reference: P0) -> ::windows::core::Result<IRestrictedErrorInfo>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoResolveRestrictedErrorInfoReference(reference: ::windows::core::PCWSTR, pprestrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3520,7 +3724,10 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RoTransformError<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn RoTransformError<'a, P0>(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
@@ -3548,7 +3755,10 @@ pub unsafe fn RoUninitialize() {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoUnregisterForApartmentShutdown<'a, Param0: ::std::convert::Into<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>>(regcookie: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn RoUnregisterForApartmentShutdown<'a, P0>(regcookie: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
@@ -3589,7 +3799,10 @@ impl ::core::default::Default for ServerInformation {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn SetRestrictedErrorInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>>(prestrictederrorinfo: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn SetRestrictedErrorInfo<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRestrictedErrorInfo>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetRestrictedErrorInfo(prestrictederrorinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -3627,7 +3840,11 @@ impl ::core::fmt::Debug for TrustLevel {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string1: Param0, string2: Param1) -> ::windows::core::Result<i32> {
+pub unsafe fn WindowsCompareStringOrdinal<'a, P0, P1>(string1: P0, string2: P1) -> ::windows::core::Result<i32>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsCompareStringOrdinal(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut i32) -> ::windows::core::HRESULT;
@@ -3637,7 +3854,11 @@ pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::std::convert::Into<::win
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsConcatString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string1: Param0, string2: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsConcatString<'a, P0, P1>(string1: P0, string2: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsConcatString(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3657,7 +3878,10 @@ pub unsafe fn WindowsCreateString(sourcestring: &[u16]) -> ::windows::core::Resu
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsCreateStringReference<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(sourcestring: Param0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
+pub unsafe fn WindowsCreateStringReference<'a, P0>(sourcestring: P0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows::core::HSTRING) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsCreateStringReference(sourcestring: ::windows::core::PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3666,7 +3890,10 @@ pub unsafe fn WindowsCreateStringReference<'a, Param0: ::std::convert::Into<::wi
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsDeleteString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WindowsDeleteString<'a, P0>(string: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsDeleteString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3675,7 +3902,10 @@ pub unsafe fn WindowsDeleteString<'a, Param0: ::std::convert::Into<::windows::co
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsDeleteStringBuffer<'a, Param0: ::std::convert::Into<HSTRING_BUFFER>>(bufferhandle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WindowsDeleteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HSTRING_BUFFER>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsDeleteStringBuffer(bufferhandle: HSTRING_BUFFER) -> ::windows::core::HRESULT;
@@ -3684,7 +3914,10 @@ pub unsafe fn WindowsDeleteStringBuffer<'a, Param0: ::std::convert::Into<HSTRING
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsDuplicateString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsDuplicateString<'a, P0>(string: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsDuplicateString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3694,7 +3927,10 @@ pub unsafe fn WindowsDuplicateString<'a, Param0: ::std::convert::Into<::windows:
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsGetStringLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0) -> u32 {
+pub unsafe fn WindowsGetStringLen<'a, P0>(string: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsGetStringLen(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
@@ -3703,7 +3939,10 @@ pub unsafe fn WindowsGetStringLen<'a, Param0: ::std::convert::Into<::windows::co
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsGetStringRawBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0, length: *mut u32) -> ::windows::core::PWSTR {
+pub unsafe fn WindowsGetStringRawBuffer<'a, P0>(string: P0, length: *mut u32) -> ::windows::core::PWSTR
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsGetStringRawBuffer(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, length: *mut u32) -> ::windows::core::PWSTR;
@@ -3731,7 +3970,10 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WindowsIsStringEmpty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn WindowsIsStringEmpty<'a, P0>(string: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsIsStringEmpty(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
@@ -3749,7 +3991,10 @@ pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut 
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsPromoteStringBuffer<'a, Param0: ::std::convert::Into<HSTRING_BUFFER>>(bufferhandle: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsPromoteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<HSTRING_BUFFER>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsPromoteStringBuffer(bufferhandle: HSTRING_BUFFER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3759,7 +4004,12 @@ pub unsafe fn WindowsPromoteStringBuffer<'a, Param0: ::std::convert::Into<HSTRIN
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsReplaceString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0, stringreplaced: Param1, stringreplacewith: Param2) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsReplaceString<'a, P0, P1, P2>(string: P0, stringreplaced: P1, stringreplacewith: P2) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsReplaceString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplaced: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplacewith: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3770,7 +4020,10 @@ pub unsafe fn WindowsReplaceString<'a, Param0: ::std::convert::Into<::windows::c
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WindowsStringHasEmbeddedNull<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn WindowsStringHasEmbeddedNull<'a, P0>(string: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsStringHasEmbeddedNull(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasembednull: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
@@ -3780,7 +4033,10 @@ pub unsafe fn WindowsStringHasEmbeddedNull<'a, Param0: ::std::convert::Into<::wi
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsSubstring<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsSubstring<'a, P0>(string: P0, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsSubstring(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3790,7 +4046,10 @@ pub unsafe fn WindowsSubstring<'a, Param0: ::std::convert::Into<::windows::core:
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, P0>(string: P0, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsSubstringWithSpecifiedLength(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, length: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3800,7 +4059,11 @@ pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, Param0: ::std::convert::In
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsTrimStringEnd<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0, trimstring: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsTrimStringEnd<'a, P0, P1>(string: P0, trimstring: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsTrimStringEnd(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
@@ -3810,7 +4073,11 @@ pub unsafe fn WindowsTrimStringEnd<'a, Param0: ::std::convert::Into<::windows::c
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn WindowsTrimStringStart<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(string: Param0, trimstring: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
+pub unsafe fn WindowsTrimStringStart<'a, P0, P1>(string: P0, trimstring: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WindowsTrimStringStart(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;

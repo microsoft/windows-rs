@@ -945,7 +945,10 @@ impl IEnumEnhancedStorageACT {
         (::windows::core::Interface::vtable(self).GetACTs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppienhancedstorageacts), ::core::mem::transmute(pcenhancedstorageacts)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-    pub unsafe fn GetMatchingACT<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(&self, szvolume: Param0) -> ::windows::core::Result<IEnhancedStorageACT> {
+    pub unsafe fn GetMatchingACT<'a, P0>(&self, szvolume: P0) -> ::windows::core::Result<IEnhancedStorageACT>
+    where
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetMatchingACT)(::windows::core::Interface::as_raw(self), szvolume.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnhancedStorageACT>(result__)
     }

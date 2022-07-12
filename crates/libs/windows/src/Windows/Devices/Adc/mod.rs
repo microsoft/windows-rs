@@ -198,12 +198,18 @@ impl AdcController {
         }
     }
     #[doc = "*Required features: `\"Devices_Adc\"`*"]
-    pub fn SetChannelMode<'a, Param0: ::std::convert::Into<AdcChannelMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChannelMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AdcChannelMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Adc\"`*"]
-    pub fn IsChannelModeSupported<'a, Param0: ::std::convert::Into<AdcChannelMode>>(&self, channelmode: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsChannelModeSupported<'a, P0>(&self, channelmode: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<AdcChannelMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -220,7 +226,11 @@ impl AdcController {
     }
     #[doc = "*Required features: `\"Devices_Adc\"`, `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::IAdcProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>> {
+    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::IAdcProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IAdcControllerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>(result__)

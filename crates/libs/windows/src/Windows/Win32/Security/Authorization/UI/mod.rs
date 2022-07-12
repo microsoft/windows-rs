@@ -3,7 +3,10 @@ pub const CFSTR_ACLUI_SID_INFO_LIST: &str = "CFSTR_ACLUI_SID_INFO_LIST";
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn CreateSecurityPage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>>(psi: Param0) -> ::windows::core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE> {
+pub unsafe fn CreateSecurityPage<'a, P0>(psi: P0) -> ::windows::core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateSecurityPage(psi: *mut ::core::ffi::c_void) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
@@ -65,7 +68,11 @@ impl ::core::default::Default for EFFPERM_RESULT_LIST {
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurity<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>>(hwndowner: Param0, psi: Param1) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EditSecurity<'a, P0, P1>(hwndowner: P0, psi: P1) -> super::super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
@@ -75,7 +82,12 @@ pub unsafe fn EditSecurity<'a, Param0: ::std::convert::Into<super::super::super:
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditSecurityAdvanced<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>, Param2: ::std::convert::Into<SI_PAGE_TYPE>>(hwndowner: Param0, psi: Param1, usipage: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn EditSecurityAdvanced<'a, P0, P1, P2>(hwndowner: P0, psi: P1, usipage: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ISecurityInformation>>,
+    P2: ::std::convert::Into<SI_PAGE_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: *mut ::core::ffi::c_void, usipage: SI_PAGE_TYPE) -> ::windows::core::HRESULT;
@@ -88,7 +100,12 @@ pub struct IEffectivePermission(::windows::core::IUnknown);
 impl IEffectivePermission {
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectivePermission<'a, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: Param1, pszservername: Param2, psd: Param3, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetEffectivePermission<'a, P0, P1, P2>(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: P0, pszservername: P1, psd: P2, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
+    {
         (::windows::core::Interface::vtable(self).GetEffectivePermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), pusersid.into(), pszservername.into(), psd.into(), ::core::mem::transmute(ppobjecttypelist), ::core::mem::transmute(pcobjecttypelistlength), ::core::mem::transmute(ppgrantedaccesslist), ::core::mem::transmute(pcgrantedaccesslistlength)).ok()
     }
 }
@@ -142,11 +159,11 @@ pub struct IEffectivePermission2(::windows::core::IUnknown);
 impl IEffectivePermission2 {
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, Param0: ::std::convert::Into<super::super::super::Foundation::PSID>, Param1: ::std::convert::Into<super::super::super::Foundation::PSID>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(
+    pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<'a, P0, P1, P2>(
         &self,
-        psid: Param0,
-        pdevicesid: Param1,
-        pszservername: Param2,
+        psid: P0,
+        pdevicesid: P1,
+        pszservername: P2,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
         pusergroups: *const super::super::TOKEN_GROUPS,
@@ -158,7 +175,12 @@ impl IEffectivePermission2 {
         pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
         pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
-    ) -> ::windows::core::Result<()> {
+    ) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+        P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
             ::windows::core::Interface::as_raw(self),
             psid.into(),
@@ -250,15 +272,26 @@ impl ISecurityInformation {
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSecurity<'a, Param0: ::std::convert::Into<super::super::OBJECT_SECURITY_INFORMATION>, Param2: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, requestedinformation: Param0, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn GetSecurity<'a, P0, P1>(&self, requestedinformation: P0, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::OBJECT_SECURITY_INFORMATION>,
+        P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), requestedinformation.into(), ::core::mem::transmute(ppsecuritydescriptor), fdefault.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-    pub unsafe fn SetSecurity<'a, Param0: ::std::convert::Into<super::super::OBJECT_SECURITY_INFORMATION>, Param1: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>>(&self, securityinformation: Param0, psecuritydescriptor: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSecurity<'a, P0, P1>(&self, securityinformation: P0, psecuritydescriptor: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::OBJECT_SECURITY_INFORMATION>,
+        P1: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
+    {
         (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), securityinformation.into(), psecuritydescriptor.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-    pub unsafe fn GetAccessRights<'a, Param1: ::std::convert::Into<SECURITY_INFO_PAGE_FLAGS>>(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: Param1, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn GetAccessRights<'a, P0>(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: P0, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SECURITY_INFO_PAGE_FLAGS>,
+    {
         (::windows::core::Interface::vtable(self).GetAccessRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidobjecttype), dwflags.into(), ::core::mem::transmute(ppaccess), ::core::mem::transmute(pcaccesses), ::core::mem::transmute(pidefaultaccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
@@ -271,7 +304,12 @@ impl ISecurityInformation {
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn PropertySheetPageCallback<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::super::UI::Controls::PSPCB_MESSAGE>, Param2: ::std::convert::Into<SI_PAGE_TYPE>>(&self, hwnd: Param0, umsg: Param1, upage: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn PropertySheetPageCallback<'a, P0, P1, P2>(&self, hwnd: P0, umsg: P1, upage: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<super::super::super::UI::Controls::PSPCB_MESSAGE>,
+        P2: ::std::convert::Into<SI_PAGE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).PropertySheetPageCallback)(::windows::core::Interface::as_raw(self), hwnd.into(), umsg.into(), upage.into()).ok()
     }
 }
@@ -405,7 +443,11 @@ impl ISecurityInformation3 {
     }
     #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenElevatedEditor<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<SI_PAGE_TYPE>>(&self, hwnd: Param0, upage: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn OpenElevatedEditor<'a, P0, P1>(&self, hwnd: P0, upage: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<SI_PAGE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).OpenElevatedEditor)(::windows::core::Interface::as_raw(self), hwnd.into(), upage.into()).ok()
     }
 }

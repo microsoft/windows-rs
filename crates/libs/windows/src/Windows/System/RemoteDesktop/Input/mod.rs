@@ -67,7 +67,10 @@ impl RemoteTextConnection {
         unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
-    pub fn CreateInstance<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, RemoteTextConnectionDataHandler>>>(connectionid: ::windows::core::GUID, pduforwarder: Param1) -> ::windows::core::Result<RemoteTextConnection> {
+    pub fn CreateInstance<'a, P0>(connectionid: ::windows::core::GUID, pduforwarder: P0) -> ::windows::core::Result<RemoteTextConnection>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteTextConnectionDataHandler>>,
+    {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid, pduforwarder.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)

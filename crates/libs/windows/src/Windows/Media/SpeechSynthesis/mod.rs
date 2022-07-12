@@ -238,7 +238,12 @@ impl SpeechSynthesisStream {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<super::super::Storage::Streams::InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
+    pub fn ReadAsync<'a, P0, E0, P1>(&self, buffer: P0, count: u32, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<super::super::Storage::Streams::InputStreamOptions>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -247,7 +252,11 @@ impl SpeechSynthesisStream {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -607,7 +616,10 @@ impl SpeechSynthesizer {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetDefaultVoiceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>>(voice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetDefaultVoiceAsync<'a, P0>(voice: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>,
+    {
         Self::IInstalledVoicesStatic2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TrySetDefaultVoiceAsync)(::windows::core::Interface::as_raw(this), voice.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
@@ -615,7 +627,10 @@ impl SpeechSynthesizer {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SynthesizeTextToStreamAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
+    pub fn SynthesizeTextToStreamAsync<'a, P0>(&self, text: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -624,7 +639,10 @@ impl SpeechSynthesizer {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SynthesizeSsmlToStreamAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, ssml: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
+    pub fn SynthesizeSsmlToStreamAsync<'a, P0>(&self, ssml: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -632,7 +650,10 @@ impl SpeechSynthesizer {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-    pub fn SetVoice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVoice<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVoice)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -825,7 +846,10 @@ impl SpeechSynthesizerOptions {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-    pub fn SetAppendedSilence<'a, Param0: ::std::convert::Into<SpeechAppendedSilence>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppendedSilence<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SpeechAppendedSilence>,
+    {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAppendedSilence)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -838,7 +862,10 @@ impl SpeechSynthesizerOptions {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-    pub fn SetPunctuationSilence<'a, Param0: ::std::convert::Into<SpeechPunctuationSilence>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPunctuationSilence<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SpeechPunctuationSilence>,
+    {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPunctuationSilence)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

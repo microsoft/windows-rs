@@ -157,7 +157,10 @@ impl IWebApplicationHost {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
-    pub unsafe fn Advise<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, interfaceid: *const ::windows::core::GUID, callback: Param1, cookie: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Advise<'a, P0>(&self, interfaceid: *const ::windows::core::GUID, callback: P0, cookie: *mut u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interfaceid), callback.into().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
@@ -222,22 +225,40 @@ pub struct IWebApplicationNavigationEvents(::windows::core::IUnknown);
 impl IWebApplicationNavigationEvents {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn BeforeNavigate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1, navigationflags: u32, targetframename: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn BeforeNavigate<'a, P0, P1, P2>(&self, htmlwindow: P0, url: P1, navigationflags: u32, targetframename: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).BeforeNavigate)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), ::core::mem::transmute(navigationflags), targetframename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn NavigateComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn NavigateComplete<'a, P0, P1>(&self, htmlwindow: P0, url: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).NavigateComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn NavigateError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1, targetframename: Param2, statuscode: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn NavigateError<'a, P0, P1, P2>(&self, htmlwindow: P0, url: P1, targetframename: P2, statuscode: u32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).NavigateError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), targetframename.into(), ::core::mem::transmute(statuscode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn DocumentComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(&self, htmlwindow: Param0, url: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn DocumentComplete<'a, P0, P1>(&self, htmlwindow: P0, url: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    {
         (::windows::core::Interface::vtable(self).DocumentComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
@@ -313,12 +334,21 @@ pub struct IWebApplicationScriptEvents(::windows::core::IUnknown);
 impl IWebApplicationScriptEvents {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn BeforeScriptExecute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>>(&self, htmlwindow: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn BeforeScriptExecute<'a, P0>(&self, htmlwindow: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>,
+    {
         (::windows::core::Interface::vtable(self).BeforeScriptExecute)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub unsafe fn ScriptError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::IActiveScriptError>>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param3: ::std::convert::Into<super::super::super::super::Foundation::BOOL>>(&self, htmlwindow: Param0, scripterror: Param1, url: Param2, errorhandled: Param3) -> ::windows::core::Result<()> {
+    pub unsafe fn ScriptError<'a, P0, P1, P2, P3>(&self, htmlwindow: P0, scripterror: P1, url: P2, errorhandled: P3) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Web::MsHtml::IHTMLWindow2>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::IActiveScriptError>>,
+        P2: ::std::convert::Into<::windows::core::PCWSTR>,
+        P3: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
+    {
         (::windows::core::Interface::vtable(self).ScriptError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), scripterror.into().abi(), url.into(), errorhandled.into()).ok()
     }
 }

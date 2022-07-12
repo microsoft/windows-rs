@@ -92,7 +92,11 @@ impl ComponentLoadFailedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaProtectionManager>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ComponentLoadFailedEventArgs>>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaProtectionManager>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ComponentLoadFailedEventArgs>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
     }
@@ -173,7 +177,10 @@ pub struct ComponentRenewal;
 impl ComponentRenewal {
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenewSystemComponentsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RevocationAndRenewalInformation>>>(information: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>> {
+    pub fn RenewSystemComponentsAsync<'a, P0>(information: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RevocationAndRenewalInformation>>,
+    {
         Self::IComponentRenewalStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RenewSystemComponentsAsync)(::windows::core::Interface::as_raw(this), information.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>(result__)
@@ -279,7 +286,10 @@ impl HdcpSession {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
-    pub fn IsEffectiveProtectionAtLeast<'a, Param0: ::std::convert::Into<HdcpProtection>>(&self, protection: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEffectiveProtectionAtLeast<'a, P0>(&self, protection: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<HdcpProtection>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -297,7 +307,10 @@ impl HdcpSession {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDesiredMinProtectionAsync<'a, Param0: ::std::convert::Into<HdcpProtection>>(&self, protection: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>> {
+    pub fn SetDesiredMinProtectionAsync<'a, P0>(&self, protection: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>>
+    where
+        P0: ::std::convert::Into<HdcpProtection>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -306,7 +319,10 @@ impl HdcpSession {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProtectionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ProtectionChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HdcpSession, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -758,7 +774,10 @@ impl MediaProtectionManager {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServiceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ServiceRequestedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ServiceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ServiceRequestedEventHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -773,7 +792,10 @@ impl MediaProtectionManager {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RebootNeeded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RebootNeededEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RebootNeeded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RebootNeededEventHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -788,7 +810,10 @@ impl MediaProtectionManager {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ComponentLoadFailed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ComponentLoadFailedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ComponentLoadFailed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ComponentLoadFailedEventHandler>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -888,7 +913,11 @@ impl MediaProtectionPMPServer {
     }
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreatePMPServer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(pproperties: Param0) -> ::windows::core::Result<MediaProtectionPMPServer> {
+    pub fn CreatePMPServer<'a, P0, E0>(pproperties: P0) -> ::windows::core::Result<MediaProtectionPMPServer>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePMPServer)(::windows::core::Interface::as_raw(this), pproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<MediaProtectionPMPServer>(result__)
@@ -1046,7 +1075,11 @@ impl ProtectionCapabilities {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
-    pub fn IsTypeSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, r#type: Param0, keysystem: Param1) -> ::windows::core::Result<ProtectionCapabilityResult> {
+    pub fn IsTypeSupported<'a, P0, P1>(&self, r#type: P0, keysystem: P1) -> ::windows::core::Result<ProtectionCapabilityResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<ProtectionCapabilityResult>::zeroed();
@@ -1160,7 +1193,10 @@ impl RebootNeededEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaProtectionManager>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaProtectionManager>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
@@ -1632,7 +1668,11 @@ impl ServiceRequestedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Protection\"`*"]
-    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaProtectionManager>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ServiceRequestedEventArgs>>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MediaProtectionManager>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ServiceRequestedEventArgs>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
     }

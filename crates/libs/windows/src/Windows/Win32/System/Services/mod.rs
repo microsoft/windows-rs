@@ -2,7 +2,11 @@ pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::core::GUID = ::windo
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_CONFIG>>(hservice: Param0, dwinfolevel: Param1, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfig2A<'a, P0, P1>(hservice: P0, dwinfolevel: P1, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_CONFIG>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeServiceConfig2A(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -12,7 +16,11 @@ pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_CONFIG>>(hservice: Param0, dwinfolevel: Param1, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfig2W<'a, P0, P1>(hservice: P0, dwinfolevel: P1, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_CONFIG>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeServiceConfig2W(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -22,19 +30,18 @@ pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param2: ::std::convert::Into<SERVICE_START_TYPE>, Param3: ::std::convert::Into<SERVICE_ERROR>, Param4: ::std::convert::Into<::windows::core::PCSTR>, Param5: ::std::convert::Into<::windows::core::PCSTR>, Param7: ::std::convert::Into<::windows::core::PCSTR>, Param8: ::std::convert::Into<::windows::core::PCSTR>, Param9: ::std::convert::Into<::windows::core::PCSTR>, Param10: ::std::convert::Into<::windows::core::PCSTR>>(
-    hservice: Param0,
-    dwservicetype: u32,
-    dwstarttype: Param2,
-    dwerrorcontrol: Param3,
-    lpbinarypathname: Param4,
-    lploadordergroup: Param5,
-    lpdwtagid: *mut u32,
-    lpdependencies: Param7,
-    lpservicestartname: Param8,
-    lppassword: Param9,
-    lpdisplayname: Param10,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfigA<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8>(hservice: P0, dwservicetype: u32, dwstarttype: P1, dwerrorcontrol: P2, lpbinarypathname: P3, lploadordergroup: P4, lpdwtagid: *mut u32, lpdependencies: P5, lpservicestartname: P6, lppassword: P7, lpdisplayname: P8) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_START_TYPE>,
+    P2: ::std::convert::Into<SERVICE_ERROR>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P4: ::std::convert::Into<::windows::core::PCSTR>,
+    P5: ::std::convert::Into<::windows::core::PCSTR>,
+    P6: ::std::convert::Into<::windows::core::PCSTR>,
+    P7: ::std::convert::Into<::windows::core::PCSTR>,
+    P8: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeServiceConfigA(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
@@ -44,19 +51,18 @@ pub unsafe fn ChangeServiceConfigA<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param2: ::std::convert::Into<SERVICE_START_TYPE>, Param3: ::std::convert::Into<SERVICE_ERROR>, Param4: ::std::convert::Into<::windows::core::PCWSTR>, Param5: ::std::convert::Into<::windows::core::PCWSTR>, Param7: ::std::convert::Into<::windows::core::PCWSTR>, Param8: ::std::convert::Into<::windows::core::PCWSTR>, Param9: ::std::convert::Into<::windows::core::PCWSTR>, Param10: ::std::convert::Into<::windows::core::PCWSTR>>(
-    hservice: Param0,
-    dwservicetype: u32,
-    dwstarttype: Param2,
-    dwerrorcontrol: Param3,
-    lpbinarypathname: Param4,
-    lploadordergroup: Param5,
-    lpdwtagid: *mut u32,
-    lpdependencies: Param7,
-    lpservicestartname: Param8,
-    lppassword: Param9,
-    lpdisplayname: Param10,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeServiceConfigW<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8>(hservice: P0, dwservicetype: u32, dwstarttype: P1, dwerrorcontrol: P2, lpbinarypathname: P3, lploadordergroup: P4, lpdwtagid: *mut u32, lpdependencies: P5, lpservicestartname: P6, lppassword: P7, lpdisplayname: P8) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_START_TYPE>,
+    P2: ::std::convert::Into<SERVICE_ERROR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+    P5: ::std::convert::Into<::windows::core::PCWSTR>,
+    P6: ::std::convert::Into<::windows::core::PCWSTR>,
+    P7: ::std::convert::Into<::windows::core::PCWSTR>,
+    P8: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeServiceConfigW(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
@@ -66,7 +72,10 @@ pub unsafe fn ChangeServiceConfigW<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CloseServiceHandle<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscobject: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CloseServiceHandle<'a, P0>(hscobject: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseServiceHandle(hscobject: super::super::Security::SC_HANDLE) -> super::super::Foundation::BOOL;
@@ -76,7 +85,10 @@ pub unsafe fn CloseServiceHandle<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ControlService<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
+pub unsafe fn ControlService<'a, P0>(hservice: P0, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ControlService(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL;
@@ -86,7 +98,10 @@ pub unsafe fn ControlService<'a, Param0: ::std::convert::Into<super::super::Secu
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ControlServiceExA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ControlServiceExA<'a, P0>(hservice: P0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ControlServiceExA(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -96,7 +111,10 @@ pub unsafe fn ControlServiceExA<'a, Param0: ::std::convert::Into<super::super::S
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ControlServiceExW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn ControlServiceExW<'a, P0>(hservice: P0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ControlServiceExW(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -106,21 +124,20 @@ pub unsafe fn ControlServiceExW<'a, Param0: ::std::convert::Into<super::super::S
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>, Param2: ::std::convert::Into<::windows::core::PCSTR>, Param4: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param5: ::std::convert::Into<SERVICE_START_TYPE>, Param6: ::std::convert::Into<SERVICE_ERROR>, Param7: ::std::convert::Into<::windows::core::PCSTR>, Param8: ::std::convert::Into<::windows::core::PCSTR>, Param10: ::std::convert::Into<::windows::core::PCSTR>, Param11: ::std::convert::Into<::windows::core::PCSTR>, Param12: ::std::convert::Into<::windows::core::PCSTR>>(
-    hscmanager: Param0,
-    lpservicename: Param1,
-    lpdisplayname: Param2,
-    dwdesiredaccess: u32,
-    dwservicetype: Param4,
-    dwstarttype: Param5,
-    dwerrorcontrol: Param6,
-    lpbinarypathname: Param7,
-    lploadordergroup: Param8,
-    lpdwtagid: *mut u32,
-    lpdependencies: Param10,
-    lpservicestartname: Param11,
-    lppassword: Param12,
-) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn CreateServiceA<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(hscmanager: P0, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: P3, dwstarttype: P4, dwerrorcontrol: P5, lpbinarypathname: P6, lploadordergroup: P7, lpdwtagid: *mut u32, lpdependencies: P8, lpservicestartname: P9, lppassword: P10) -> ::windows::core::Result<super::super::Security::SC_HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<ENUM_SERVICE_TYPE>,
+    P4: ::std::convert::Into<SERVICE_START_TYPE>,
+    P5: ::std::convert::Into<SERVICE_ERROR>,
+    P6: ::std::convert::Into<::windows::core::PCSTR>,
+    P7: ::std::convert::Into<::windows::core::PCSTR>,
+    P8: ::std::convert::Into<::windows::core::PCSTR>,
+    P9: ::std::convert::Into<::windows::core::PCSTR>,
+    P10: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PCSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCSTR, lploadordergroup: ::windows::core::PCSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCSTR, lpservicestartname: ::windows::core::PCSTR, lppassword: ::windows::core::PCSTR) -> super::super::Security::SC_HANDLE;
@@ -131,21 +148,20 @@ pub unsafe fn CreateServiceA<'a, Param0: ::std::convert::Into<super::super::Secu
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CreateServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>, Param2: ::std::convert::Into<::windows::core::PCWSTR>, Param4: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param5: ::std::convert::Into<SERVICE_START_TYPE>, Param6: ::std::convert::Into<SERVICE_ERROR>, Param7: ::std::convert::Into<::windows::core::PCWSTR>, Param8: ::std::convert::Into<::windows::core::PCWSTR>, Param10: ::std::convert::Into<::windows::core::PCWSTR>, Param11: ::std::convert::Into<::windows::core::PCWSTR>, Param12: ::std::convert::Into<::windows::core::PCWSTR>>(
-    hscmanager: Param0,
-    lpservicename: Param1,
-    lpdisplayname: Param2,
-    dwdesiredaccess: u32,
-    dwservicetype: Param4,
-    dwstarttype: Param5,
-    dwerrorcontrol: Param6,
-    lpbinarypathname: Param7,
-    lploadordergroup: Param8,
-    lpdwtagid: *mut u32,
-    lpdependencies: Param10,
-    lpservicestartname: Param11,
-    lppassword: Param12,
-) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn CreateServiceW<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(hscmanager: P0, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: P3, dwstarttype: P4, dwerrorcontrol: P5, lpbinarypathname: P6, lploadordergroup: P7, lpdwtagid: *mut u32, lpdependencies: P8, lpservicestartname: P9, lppassword: P10) -> ::windows::core::Result<super::super::Security::SC_HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<ENUM_SERVICE_TYPE>,
+    P4: ::std::convert::Into<SERVICE_START_TYPE>,
+    P5: ::std::convert::Into<SERVICE_ERROR>,
+    P6: ::std::convert::Into<::windows::core::PCWSTR>,
+    P7: ::std::convert::Into<::windows::core::PCWSTR>,
+    P8: ::std::convert::Into<::windows::core::PCWSTR>,
+    P9: ::std::convert::Into<::windows::core::PCWSTR>,
+    P10: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: ::windows::core::PCWSTR, lploadordergroup: ::windows::core::PCWSTR, lpdwtagid: *mut u32, lpdependencies: ::windows::core::PCWSTR, lpservicestartname: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR) -> super::super::Security::SC_HANDLE;
@@ -158,7 +174,10 @@ pub const DOMAIN_LEAVE_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DeleteService<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteService<'a, P0>(hservice: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeleteService(hservice: super::super::Security::SC_HANDLE) -> super::super::Foundation::BOOL;
@@ -396,7 +415,11 @@ impl ::core::ops::Not for ENUM_SERVICE_TYPE {
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumDependentServicesA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<ENUM_SERVICE_STATE>>(hservice: Param0, dwservicestate: Param1, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumDependentServicesA<'a, P0, P1>(hservice: P0, dwservicestate: P1, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<ENUM_SERVICE_STATE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumDependentServicesA(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
@@ -406,7 +429,11 @@ pub unsafe fn EnumDependentServicesA<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumDependentServicesW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<ENUM_SERVICE_STATE>>(hservice: Param0, dwservicestate: Param1, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumDependentServicesW<'a, P0, P1>(hservice: P0, dwservicestate: P1, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<ENUM_SERVICE_STATE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumDependentServicesW(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
@@ -416,7 +443,12 @@ pub unsafe fn EnumDependentServicesW<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_STATE>>(hscmanager: Param0, dwservicetype: Param1, dwservicestate: Param2, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusA<'a, P0, P1, P2>(hscmanager: P0, dwservicetype: P1, dwservicestate: P2, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<ENUM_SERVICE_TYPE>,
+    P2: ::std::convert::Into<ENUM_SERVICE_STATE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumServicesStatusA(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
@@ -426,7 +458,14 @@ pub unsafe fn EnumServicesStatusA<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusExA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_ENUM_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param3: ::std::convert::Into<ENUM_SERVICE_STATE>, Param9: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, infolevel: Param1, dwservicetype: Param2, dwservicestate: Param3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusExA<'a, P0, P1, P2, P3, P4>(hscmanager: P0, infolevel: P1, dwservicetype: P2, dwservicestate: P3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: P4) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SC_ENUM_TYPE>,
+    P2: ::std::convert::Into<ENUM_SERVICE_TYPE>,
+    P3: ::std::convert::Into<ENUM_SERVICE_STATE>,
+    P4: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumServicesStatusExA(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
@@ -436,7 +475,14 @@ pub unsafe fn EnumServicesStatusExA<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusExW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_ENUM_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param3: ::std::convert::Into<ENUM_SERVICE_STATE>, Param9: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, infolevel: Param1, dwservicetype: Param2, dwservicestate: Param3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusExW<'a, P0, P1, P2, P3, P4>(hscmanager: P0, infolevel: P1, dwservicetype: P2, dwservicestate: P3, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: P4) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SC_ENUM_TYPE>,
+    P2: ::std::convert::Into<ENUM_SERVICE_TYPE>,
+    P3: ::std::convert::Into<ENUM_SERVICE_STATE>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumServicesStatusExW(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
@@ -446,7 +492,12 @@ pub unsafe fn EnumServicesStatusExW<'a, Param0: ::std::convert::Into<super::supe
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EnumServicesStatusW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<ENUM_SERVICE_TYPE>, Param2: ::std::convert::Into<ENUM_SERVICE_STATE>>(hscmanager: Param0, dwservicetype: Param1, dwservicestate: Param2, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn EnumServicesStatusW<'a, P0, P1, P2>(hscmanager: P0, dwservicetype: P1, dwservicestate: P2, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<ENUM_SERVICE_TYPE>,
+    P2: ::std::convert::Into<ENUM_SERVICE_STATE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumServicesStatusW(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
@@ -457,7 +508,11 @@ pub const FIREWALL_PORT_CLOSE_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub const FIREWALL_PORT_OPEN_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn GetServiceDirectory<'a, Param0: ::std::convert::Into<SERVICE_STATUS_HANDLE>, Param1: ::std::convert::Into<SERVICE_DIRECTORY_TYPE>>(hservicestatus: Param0, edirectorytype: Param1, lppathbuffer: &mut [u16], lpcchrequiredbufferlength: *mut u32) -> u32 {
+pub unsafe fn GetServiceDirectory<'a, P0, P1>(hservicestatus: P0, edirectorytype: P1, lppathbuffer: &mut [u16], lpcchrequiredbufferlength: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<SERVICE_STATUS_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_DIRECTORY_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: ::windows::core::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32;
@@ -467,7 +522,11 @@ pub unsafe fn GetServiceDirectory<'a, Param0: ::std::convert::Into<SERVICE_STATU
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceDisplayNameA<'a, P0, P1>(hscmanager: P0, lpservicename: P1, lpdisplayname: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceDisplayNameA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, lpdisplayname: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
@@ -477,7 +536,11 @@ pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceDisplayNameW<'a, P0, P1>(hscmanager: P0, lpservicename: P1, lpdisplayname: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceDisplayNameW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, lpdisplayname: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
@@ -487,7 +550,11 @@ pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceKeyNameA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceKeyNameA<'a, P0, P1>(hscmanager: P0, lpdisplayname: P1, lpservicename: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceKeyNameA(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: ::windows::core::PCSTR, lpservicename: ::windows::core::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
@@ -497,7 +564,11 @@ pub unsafe fn GetServiceKeyNameA<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn GetServiceKeyNameW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetServiceKeyNameW<'a, P0, P1>(hscmanager: P0, lpdisplayname: P1, lpservicename: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceKeyNameW(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: ::windows::core::PCWSTR, lpservicename: ::windows::core::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
@@ -507,7 +578,11 @@ pub unsafe fn GetServiceKeyNameW<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::std::convert::Into<SERVICE_STATUS_HANDLE>, Param1: ::std::convert::Into<SERVICE_REGISTRY_STATE_TYPE>>(servicestatushandle: Param0, statetype: Param1, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
+pub unsafe fn GetServiceRegistryStateKey<'a, P0, P1>(servicestatushandle: P0, statetype: P1, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32
+where
+    P0: ::std::convert::Into<SERVICE_STATUS_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_REGISTRY_STATE_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
@@ -517,7 +592,11 @@ pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::std::convert::Into<SERVIC
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_SHARED_DIRECTORY_TYPE>>(servicehandle: Param0, directorytype: Param1, pathbuffer: &mut [u16], requiredbufferlength: *mut u32) -> u32 {
+pub unsafe fn GetSharedServiceDirectory<'a, P0, P1>(servicehandle: P0, directorytype: P1, pathbuffer: &mut [u16], requiredbufferlength: *mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_SHARED_DIRECTORY_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSharedServiceDirectory(servicehandle: super::super::Security::SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: ::windows::core::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32;
@@ -527,7 +606,11 @@ pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::std::convert::Into<super::
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn GetSharedServiceRegistryStateKey<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_SHARED_REGISTRY_STATE_TYPE>>(servicehandle: Param0, statetype: Param1, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
+pub unsafe fn GetSharedServiceRegistryStateKey<'a, P0, P1>(servicehandle: P0, statetype: P1, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_SHARED_REGISTRY_STATE_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSharedServiceRegistryStateKey(servicehandle: super::super::Security::SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
@@ -549,7 +632,10 @@ pub type LPSERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn LockServiceDatabase<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0) -> *mut ::core::ffi::c_void {
+pub unsafe fn LockServiceDatabase<'a, P0>(hscmanager: P0) -> *mut ::core::ffi::c_void
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LockServiceDatabase(hscmanager: super::super::Security::SC_HANDLE) -> *mut ::core::ffi::c_void;
@@ -563,7 +649,10 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::core::GUID = 
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(bootacceptable: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn NotifyBootConfigStatus<'a, P0>(bootacceptable: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NotifyBootConfigStatus(bootacceptable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -573,7 +662,11 @@ pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::std::convert::Into<super::sup
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_NOTIFY>>(hservice: Param0, dwnotifymask: Param1, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32 {
+pub unsafe fn NotifyServiceStatusChangeA<'a, P0, P1>(hservice: P0, dwnotifymask: P1, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_NOTIFY>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NotifyServiceStatusChangeA(hservice: super::super::Security::SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32;
@@ -583,7 +676,11 @@ pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_NOTIFY>>(hservice: Param0, dwnotifymask: Param1, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32 {
+pub unsafe fn NotifyServiceStatusChangeW<'a, P0, P1>(hservice: P0, dwnotifymask: P1, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_NOTIFY>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NotifyServiceStatusChangeW(hservice: super::super::Security::SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32;
@@ -593,7 +690,11 @@ pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenSCManagerA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenSCManagerA<'a, P0, P1>(lpmachinename: P0, lpdatabasename: P1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenSCManagerA(lpmachinename: ::windows::core::PCSTR, lpdatabasename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
@@ -604,7 +705,11 @@ pub unsafe fn OpenSCManagerA<'a, Param0: ::std::convert::Into<::windows::core::P
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenSCManagerW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenSCManagerW<'a, P0, P1>(lpmachinename: P0, lpdatabasename: P1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenSCManagerW(lpmachinename: ::windows::core::PCWSTR, lpdatabasename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
@@ -615,7 +720,11 @@ pub unsafe fn OpenSCManagerW<'a, Param0: ::std::convert::Into<::windows::core::P
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenServiceA<'a, P0, P1>(hscmanager: P0, lpservicename: P1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
@@ -626,7 +735,11 @@ pub unsafe fn OpenServiceA<'a, Param0: ::std::convert::Into<super::super::Securi
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn OpenServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<::windows::core::PCWSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE> {
+pub unsafe fn OpenServiceW<'a, P0, P1>(hscmanager: P0, lpservicename: P1, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Security::SC_HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OpenServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
@@ -781,7 +894,11 @@ impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSW {
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfig2A<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_CONFIG>>(hservice: Param0, dwinfolevel: Param1, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfig2A<'a, P0, P1>(hservice: P0, dwinfolevel: P1, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_CONFIG>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceConfig2A(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -791,7 +908,11 @@ pub unsafe fn QueryServiceConfig2A<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfig2W<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SERVICE_CONFIG>>(hservice: Param0, dwinfolevel: Param1, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfig2W<'a, P0, P1>(hservice: P0, dwinfolevel: P1, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SERVICE_CONFIG>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceConfig2W(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -801,7 +922,10 @@ pub unsafe fn QueryServiceConfig2W<'a, Param0: ::std::convert::Into<super::super
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfigA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfigA<'a, P0>(hservice: P0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceConfigA(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -811,7 +935,10 @@ pub unsafe fn QueryServiceConfigA<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceConfigW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceConfigW<'a, P0>(hservice: P0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceConfigW(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -821,7 +948,10 @@ pub unsafe fn QueryServiceConfigW<'a, Param0: ::std::convert::Into<super::super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::std::convert::Into<SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceDynamicInformation<'a, P0>(hservicestatus: P0, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<SERVICE_STATUS_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceDynamicInformation(hservicestatus: SERVICE_STATUS_HANDLE, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -831,7 +961,10 @@ pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::std::convert::Into<SE
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceLockStatusA<'a, P0>(hscmanager: P0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceLockStatusA(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -841,7 +974,10 @@ pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceLockStatusW<'a, P0>(hscmanager: P0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceLockStatusW(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -851,7 +987,10 @@ pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::std::convert::Into<super::su
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceObjectSecurity<'a, P0>(hservice: P0, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: u32, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -861,7 +1000,10 @@ pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::std::convert::Into<super:
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceStatus<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceStatus<'a, P0>(hservice: P0, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceStatus(hservice: super::super::Security::SC_HANDLE, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL;
@@ -871,7 +1013,11 @@ pub unsafe fn QueryServiceStatus<'a, Param0: ::std::convert::Into<super::super::
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn QueryServiceStatusEx<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<SC_STATUS_TYPE>>(hservice: Param0, infolevel: Param1, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn QueryServiceStatusEx<'a, P0, P1>(hservice: P0, infolevel: P1, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<SC_STATUS_TYPE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn QueryServiceStatusEx(hservice: super::super::Security::SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
@@ -881,7 +1027,10 @@ pub unsafe fn QueryServiceStatusEx<'a, Param0: ::std::convert::Into<super::super
 pub const RPC_INTERFACE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerA<'a, P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerA(lpservicename: ::windows::core::PCSTR, lphandlerproc: *mut ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
@@ -891,7 +1040,10 @@ pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::std::convert::Into<::win
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::std::convert::Into<::windows::core::PCSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerExA<'a, P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerExA(lpservicename: ::windows::core::PCSTR, lphandlerproc: *mut ::core::ffi::c_void, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
@@ -901,7 +1053,10 @@ pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::std::convert::Into<::w
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerExW<'a, P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<SERVICE_STATUS_HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerExW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: *mut ::core::ffi::c_void, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
@@ -911,7 +1066,10 @@ pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::std::convert::Into<::w
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
-pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::std::convert::Into<::windows::core::PCWSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE> {
+pub unsafe fn RegisterServiceCtrlHandlerW<'a, P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION) -> ::windows::core::Result<SERVICE_STATUS_HANDLE>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterServiceCtrlHandlerW(lpservicename: ::windows::core::PCWSTR, lphandlerproc: *mut ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
@@ -2756,7 +2914,12 @@ pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetServiceBits<'a, Param0: ::std::convert::Into<SERVICE_STATUS_HANDLE>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(hservicestatus: Param0, dwservicebits: u32, bsetbitson: Param2, bupdateimmediately: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn SetServiceBits<'a, P0, P1, P2>(hservicestatus: P0, dwservicebits: u32, bsetbitson: P1, bupdateimmediately: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<SERVICE_STATUS_HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: super::super::Foundation::BOOL, bupdateimmediately: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -2766,7 +2929,12 @@ pub unsafe fn SetServiceBits<'a, Param0: ::std::convert::Into<SERVICE_STATUS_HAN
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param1: ::std::convert::Into<super::super::Security::OBJECT_SECURITY_INFORMATION>, Param2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>>(hservice: Param0, dwsecurityinformation: Param1, lpsecuritydescriptor: Param2) -> super::super::Foundation::BOOL {
+pub unsafe fn SetServiceObjectSecurity<'a, P0, P1, P2>(hservice: P0, dwsecurityinformation: P1, lpsecuritydescriptor: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<super::super::Security::OBJECT_SECURITY_INFORMATION>,
+    P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
@@ -2776,7 +2944,10 @@ pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::std::convert::Into<super::s
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetServiceStatus<'a, Param0: ::std::convert::Into<SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL {
+pub unsafe fn SetServiceStatus<'a, P0>(hservicestatus: P0, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<SERVICE_STATUS_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL;
@@ -2786,7 +2957,10 @@ pub unsafe fn SetServiceStatus<'a, Param0: ::std::convert::Into<SERVICE_STATUS_H
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StartServiceA<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceargvectors: &[::windows::core::PSTR]) -> super::super::Foundation::BOOL {
+pub unsafe fn StartServiceA<'a, P0>(hservice: P0, lpserviceargvectors: &[::windows::core::PSTR]) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StartServiceA(hservice: super::super::Security::SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const ::windows::core::PSTR) -> super::super::Foundation::BOOL;
@@ -2816,7 +2990,10 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StartServiceW<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceargvectors: &[::windows::core::PWSTR]) -> super::super::Foundation::BOOL {
+pub unsafe fn StartServiceW<'a, P0>(hservice: P0, lpserviceargvectors: &[::windows::core::PWSTR]) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StartServiceW(hservice: super::super::Security::SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
@@ -2837,7 +3014,11 @@ pub unsafe fn UnlockServiceDatabase(sclock: *const ::core::ffi::c_void) -> super
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn WaitServiceState<'a, Param0: ::std::convert::Into<super::super::Security::SC_HANDLE>, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(hservice: Param0, dwnotify: u32, dwtimeout: u32, hcancelevent: Param3) -> u32 {
+pub unsafe fn WaitServiceState<'a, P0, P1>(hservice: P0, dwnotify: u32, dwtimeout: u32, hcancelevent: P1) -> u32
+where
+    P0: ::std::convert::Into<super::super::Security::SC_HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WaitServiceState(hservice: super::super::Security::SC_HANDLE, dwnotify: u32, dwtimeout: u32, hcancelevent: super::super::Foundation::HANDLE) -> u32;

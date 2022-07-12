@@ -133,7 +133,10 @@ pub struct DiagnosticInvoker(::windows::core::IUnknown);
 impl DiagnosticInvoker {
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Data_Json\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
-    pub fn RunDiagnosticActionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Json::JsonObject>>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Json::JsonObject>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -142,7 +145,10 @@ impl DiagnosticInvoker {
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunDiagnosticActionFromStringAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionFromStringAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -157,7 +163,10 @@ impl DiagnosticInvoker {
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
-    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<DiagnosticInvoker> {
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<DiagnosticInvoker>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+    {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
@@ -1536,7 +1545,10 @@ impl SystemDiagnosticInfo {
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
-    pub fn IsArchitectureSupported<'a, Param0: ::std::convert::Into<super::ProcessorArchitecture>>(r#type: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsArchitectureSupported<'a, P0>(r#type: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<super::ProcessorArchitecture>,
+    {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)

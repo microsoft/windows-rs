@@ -344,7 +344,10 @@ pub struct INDDownloadEngine(::windows::core::IUnknown);
 impl INDDownloadEngine {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, uri: Param0, sessionidbytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn Open<'a, P0>(&self, uri: P0, sessionidbytes: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Open)(::windows::core::Interface::as_raw(this), uri.into().abi(), sessionidbytes.len() as u32, ::core::mem::transmute(sessionidbytes.as_ptr())).ok() }
     }
@@ -540,7 +543,11 @@ impl INDDownloadEngineNotifier {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -792,7 +799,11 @@ impl INDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLicenseFetchChallengeCustomData<'a, P0, E0>(&self, licensefetchchallengecustomdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows::core::Interface::as_raw(this), licensefetchchallengecustomdata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1019,7 +1030,10 @@ impl INDMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionStartAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync<'a, P0>(&self, pdtype: P0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>
+    where
+        P0: ::std::convert::Into<NDProximityDetectionType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1028,7 +1042,10 @@ impl INDMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionResponseAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync<'a, P0>(&self, pdtype: P0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>
+    where
+        P0: ::std::convert::Into<NDProximityDetectionType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1560,7 +1577,11 @@ pub struct INDStorageFileHelper(::windows::core::IUnknown);
 impl INDStorageFileHelper {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn GetFileURLs<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    pub fn GetFileURLs<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1661,7 +1682,11 @@ impl INDStreamParser {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn GetStreamInformation<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, descriptor: Param0, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32> {
+    pub fn GetStreamInformation<'a, P0, E0>(&self, descriptor: P0, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
@@ -1793,25 +1818,44 @@ pub struct INDStreamParserNotifier(::windows::core::IUnknown);
 impl INDStreamParserNotifier {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::core::Result<()> {
+    pub fn OnMediaStreamDescriptorCreated<'a, P0, E0, P1, E1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows::core::Interface::as_raw(this), audiostreamdescriptors.try_into().map_err(|e| e.into())?.abi(), videostreamdescriptors.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnSampleParsed<'a, Param1: ::std::convert::Into<NDMediaStreamType>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Core::MediaStreamSample>>, Param4: ::std::convert::Into<NDClosedCaptionFormat>>(&self, streamid: u32, streamtype: Param1, streamsample: Param2, pts: i64, ccformat: Param4, ccdatabytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnSampleParsed<'a, P0, P1, P2>(&self, streamid: u32, streamtype: P0, streamsample: P1, pts: i64, ccformat: P2, ccdatabytes: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<NDMediaStreamType>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Core::MediaStreamSample>>,
+        P2: ::std::convert::Into<NDClosedCaptionFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnSampleParsed)(::windows::core::Interface::as_raw(this), streamid, streamtype.into(), streamsample.into().abi(), pts, ccformat.into(), ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnBeginSetupDecryptor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, descriptor: Param0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnBeginSetupDecryptor<'a, P0, E0>(&self, descriptor: P0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows::core::Interface::as_raw(this), descriptor.try_into().map_err(|e| e.into())?.abi(), keyid, probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
     }
@@ -2600,7 +2644,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetContentHeader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentHeader<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentHeader)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2644,7 +2691,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2665,7 +2715,10 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2881,7 +2934,10 @@ impl IPlayReadyLicenseSession {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ConfigureMediaProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureMediaProtectionManager<'a, P0>(&self, mpm: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into().abi()).ok() }
     }
@@ -2956,7 +3012,10 @@ pub struct IPlayReadyLicenseSession2(::windows::core::IUnknown);
 impl IPlayReadyLicenseSession2 {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateLicenseIterable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateLicenseIterable<'a, P0>(&self, contentheader: P0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2972,7 +3031,10 @@ impl IPlayReadyLicenseSession2 {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ConfigureMediaProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureMediaProtectionManager<'a, P0>(&self, mpm: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyLicenseSession>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into().abi()).ok() }
     }
@@ -3193,7 +3255,10 @@ impl IPlayReadySecureStopServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3214,7 +3279,10 @@ impl IPlayReadySecureStopServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3392,7 +3460,10 @@ impl IPlayReadyServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3413,7 +3484,10 @@ impl IPlayReadyServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3829,7 +3903,10 @@ pub struct NDClient(::windows::core::IUnknown);
 impl NDClient {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RegistrationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RegistrationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3844,7 +3921,10 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ProximityDetectionCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ProximityDetectionCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3859,7 +3939,10 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn LicenseFetchCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn LicenseFetchCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3874,7 +3957,10 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ReRegistrationNeeded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ReRegistrationNeeded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3889,7 +3975,10 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ClosedCaptionDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ClosedCaptionDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3904,7 +3993,14 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn StartAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, contenturl: Param0, startasyncoptions: u32, registrationcustomdata: Param2, licensefetchdescriptor: Param3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>> {
+    pub fn StartAsync<'a, P0, P1, E1, P2, E2>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P1, licensefetchdescriptor: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3913,7 +4009,11 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn LicenseFetchAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>> {
+    pub fn LicenseFetchAsync<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3922,7 +4022,11 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ReRegistrationAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, registrationcustomdata: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ReRegistrationAsync<'a, P0, E0>(&self, registrationcustomdata: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3937,7 +4041,15 @@ impl NDClient {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDDownloadEngine>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, INDStreamParser>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, INDMessenger>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(downloadengine: Param0, streamparser: Param1, pmessenger: Param2) -> ::windows::core::Result<NDClient> {
+    pub fn CreateInstance<'a, P0, E0, P1, E1, P2, E2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> ::windows::core::Result<NDClient>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDDownloadEngine>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, INDStreamParser>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, INDMessenger>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::INDClientFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), downloadengine.try_into().map_err(|e| e.into())?.abi(), streamparser.try_into().map_err(|e| e.into())?.abi(), pmessenger.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<NDClient>(result__)
@@ -4270,7 +4382,11 @@ impl NDDownloadEngineNotifier {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -4423,13 +4539,22 @@ impl NDLicenseFetchDescriptor {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetLicenseFetchChallengeCustomData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchchallengecustomdata: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLicenseFetchChallengeCustomData<'a, P0, E0>(&self, licensefetchchallengecustomdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows::core::Interface::as_raw(this), licensefetchchallengecustomdata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<NDContentIDType>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(contentidtype: Param0, contentidbytes: &[u8], licensefetchchallengecustomdata: Param2) -> ::windows::core::Result<NDLicenseFetchDescriptor> {
+    pub fn CreateInstance<'a, P0, P1, E1>(contentidtype: P0, contentidbytes: &[u8], licensefetchchallengecustomdata: P1) -> ::windows::core::Result<NDLicenseFetchDescriptor>
+    where
+        P0: ::std::convert::Into<NDContentIDType>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, INDCustomData>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::INDLicenseFetchDescriptorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), contentidtype.into(), contentidbytes.len() as u32, ::core::mem::transmute(contentidbytes.as_ptr()), licensefetchchallengecustomdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<NDLicenseFetchDescriptor>(result__)
@@ -4679,7 +4804,11 @@ impl NDStorageFileHelper {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn GetFileURLs<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    pub fn GetFileURLs<'a, P0, E0>(&self, file: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4797,25 +4926,44 @@ impl NDStreamParserNotifier {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn OnContentIDReceived<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, licensefetchdescriptor: Param0) -> ::windows::core::Result<()> {
+    pub fn OnContentIDReceived<'a, P0, E0>(&self, licensefetchdescriptor: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, INDLicenseFetchDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnContentIDReceived)(::windows::core::Interface::as_raw(this), licensefetchdescriptor.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnMediaStreamDescriptorCreated<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, audiostreamdescriptors: Param0, videostreamdescriptors: Param1) -> ::windows::core::Result<()> {
+    pub fn OnMediaStreamDescriptorCreated<'a, P0, E0, P1, E1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows::core::Interface::as_raw(this), audiostreamdescriptors.try_into().map_err(|e| e.into())?.abi(), videostreamdescriptors.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnSampleParsed<'a, Param1: ::std::convert::Into<NDMediaStreamType>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Core::MediaStreamSample>>, Param4: ::std::convert::Into<NDClosedCaptionFormat>>(&self, streamid: u32, streamtype: Param1, streamsample: Param2, pts: i64, ccformat: Param4, ccdatabytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnSampleParsed<'a, P0, P1, P2>(&self, streamid: u32, streamtype: P0, streamsample: P1, pts: i64, ccformat: P2, ccdatabytes: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<NDMediaStreamType>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Core::MediaStreamSample>>,
+        P2: ::std::convert::Into<NDClosedCaptionFormat>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnSampleParsed)(::windows::core::Interface::as_raw(this), streamid, streamtype.into(), streamsample.into().abi(), pts, ccformat.into(), ccdatabytes.len() as u32, ::core::mem::transmute(ccdatabytes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn OnBeginSetupDecryptor<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, descriptor: Param0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnBeginSetupDecryptor<'a, P0, E0>(&self, descriptor: P0, keyid: ::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Core::IMediaStreamDescriptor>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnBeginSetupDecryptor)(::windows::core::Interface::as_raw(this), descriptor.try_into().map_err(|e| e.into())?.abi(), keyid, probytes.len() as u32, ::core::mem::transmute(probytes.as_ptr())).ok() }
     }
@@ -4932,7 +5080,10 @@ impl NDTCPMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionStartAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync<'a, P0>(&self, pdtype: P0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>
+    where
+        P0: ::std::convert::Into<NDProximityDetectionType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4941,7 +5092,10 @@ impl NDTCPMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendProximityDetectionResponseAsync<'a, Param0: ::std::convert::Into<NDProximityDetectionType>>(&self, pdtype: Param0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync<'a, P0>(&self, pdtype: P0, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>
+    where
+        P0: ::std::convert::Into<NDProximityDetectionType>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4959,7 +5113,10 @@ impl NDTCPMessenger {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(remotehostname: Param0, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger> {
+    pub fn CreateInstance<'a, P0>(remotehostname: P0, remotehostport: u32) -> ::windows::core::Result<NDTCPMessenger>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::INDTCPMessengerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), remotehostport, result__.as_mut_ptr()).from_abi::<NDTCPMessenger>(result__)
@@ -5171,7 +5328,12 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(headerbytes: &[u8], licenseacquisitionurl: Param1, licenseacquisitionuserinterfaceurl: Param2, customattributes: Param3, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromWindowsMediaDrmHeader<'a, P0, P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P0, licenseacquisitionuserinterfaceurl: P1, customattributes: P2, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(::windows::core::Interface::as_raw(this), headerbytes.len() as u32, ::core::mem::transmute(headerbytes.as_ptr()), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
@@ -5179,7 +5341,14 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<PlayReadyEncryptionAlgorithm>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(contentkeyid: ::windows::core::GUID, contentkeyidstring: Param1, contentencryptionalgorithm: Param2, licenseacquisitionurl: Param3, licenseacquisitionuserinterfaceurl: Param4, customattributes: Param5, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromComponents<'a, P0, P1, P2, P3, P4>(contentkeyid: ::windows::core::GUID, contentkeyidstring: P0, contentencryptionalgorithm: P1, licenseacquisitionurl: P2, licenseacquisitionuserinterfaceurl: P3, customattributes: P4, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<PlayReadyEncryptionAlgorithm>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceFromComponents)(::windows::core::Interface::as_raw(this), contentkeyid, contentkeyidstring.into().abi(), contentencryptionalgorithm.into(), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
@@ -5194,7 +5363,13 @@ impl PlayReadyContentHeader {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceFromComponents2<'a, Param3: ::std::convert::Into<PlayReadyEncryptionAlgorithm>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(dwflags: u32, contentkeyids: &[::windows::core::GUID], contentkeyidstrings: &[::windows::core::HSTRING], contentencryptionalgorithm: Param3, licenseacquisitionurl: Param4, licenseacquisitionuserinterfaceurl: Param5, customattributes: Param6, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromComponents2<'a, P0, P1, P2, P3>(dwflags: u32, contentkeyids: &[::windows::core::GUID], contentkeyidstrings: &[::windows::core::HSTRING], contentencryptionalgorithm: P0, licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: P3, domainserviceid: ::windows::core::GUID) -> ::windows::core::Result<PlayReadyContentHeader>
+    where
+        P0: ::std::convert::Into<PlayReadyEncryptionAlgorithm>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPlayReadyContentHeaderFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceFromComponents2)(::windows::core::Interface::as_raw(this), dwflags, contentkeyids.len() as u32, ::core::mem::transmute(contentkeyids.as_ptr()), contentkeyidstrings.len() as u32, ::core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm.into(), licenseacquisitionurl.into().abi(), licenseacquisitionuserinterfaceurl.into().abi(), customattributes.into().abi(), domainserviceid, result__.as_mut_ptr()).from_abi::<PlayReadyContentHeader>(result__)
@@ -5275,7 +5450,10 @@ impl ::core::convert::From<&PlayReadyContentHeader> for &::windows::core::IInspe
 pub struct PlayReadyContentResolver;
 impl PlayReadyContentResolver {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ServiceRequest<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(contentheader: Param0) -> ::windows::core::Result<IPlayReadyServiceRequest> {
+    pub fn ServiceRequest<'a, P0>(contentheader: P0) -> ::windows::core::Result<IPlayReadyServiceRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         Self::IPlayReadyContentResolver(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ServiceRequest)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), result__.as_mut_ptr()).from_abi::<IPlayReadyServiceRequest>(result__)
@@ -5776,7 +5954,10 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetDomainFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomainFriendlyName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDomainFriendlyName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -5804,7 +5985,10 @@ impl PlayReadyDomainJoinServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -5825,7 +6009,10 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6025,7 +6212,10 @@ impl PlayReadyDomainLeaveServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6046,7 +6236,10 @@ impl PlayReadyDomainLeaveServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6302,7 +6495,12 @@ impl PlayReadyITADataGenerator {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GenerateData<'a, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>, Param3: ::std::convert::Into<PlayReadyITADataFormat>>(&self, guidcpsystemid: ::windows::core::GUID, countofstreams: u32, configuration: Param2, format: Param3) -> ::windows::core::Result<::windows::core::Array<u8>> {
+    pub fn GenerateData<'a, P0, E0, P1>(&self, guidcpsystemid: ::windows::core::GUID, countofstreams: u32, configuration: P0, format: P1) -> ::windows::core::Result<::windows::core::Array<u8>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<PlayReadyITADataFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<u8>>::zeroed();
@@ -6408,7 +6606,10 @@ impl PlayReadyIndividualizationServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6429,7 +6630,10 @@ impl PlayReadyIndividualizationServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6774,7 +6978,10 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetContentHeader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentHeader<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentHeader)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6801,7 +7008,10 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateLicenseIterable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateLicenseIterable<'a, P0>(&self, contentheader: P0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyLicenseAcquisitionServiceRequest3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -6819,7 +7029,10 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -6840,7 +7053,10 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -7019,7 +7235,10 @@ impl PlayReadyLicenseIterable {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateInstance<'a, P0>(contentheader: P0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         Self::IPlayReadyLicenseIterableFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), fullyevaluated, result__.as_mut_ptr()).from_abi::<PlayReadyLicenseIterable>(result__)
@@ -7285,7 +7504,10 @@ pub struct PlayReadyLicenseManagement;
 impl PlayReadyLicenseManagement {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteLicenses<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(contentheader: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn DeleteLicenses<'a, P0>(contentheader: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         Self::IPlayReadyLicenseManagement(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DeleteLicenses)(::windows::core::Interface::as_raw(this), contentheader.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
@@ -7313,13 +7535,19 @@ impl PlayReadyLicenseSession {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn ConfigureMediaProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>>(&self, mpm: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureMediaProtectionManager<'a, P0>(&self, mpm: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProtectionManager>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Interface::as_raw(this), mpm.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateLicenseIterable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>>(&self, contentheader: Param0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable> {
+    pub fn CreateLicenseIterable<'a, P0>(&self, contentheader: P0, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, PlayReadyContentHeader>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyLicenseSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -7328,7 +7556,11 @@ impl PlayReadyLicenseSession {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(configuration: Param0) -> ::windows::core::Result<PlayReadyLicenseSession> {
+    pub fn CreateInstance<'a, P0, E0>(configuration: P0) -> ::windows::core::Result<PlayReadyLicenseSession>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IPlayReadyLicenseSessionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PlayReadyLicenseSession>(result__)
@@ -7489,7 +7721,10 @@ impl PlayReadyMeteringReportServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -7510,7 +7745,10 @@ impl PlayReadyMeteringReportServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -7684,7 +7922,10 @@ impl PlayReadyRevocationServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -7705,7 +7946,10 @@ impl PlayReadyRevocationServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -8206,7 +8450,10 @@ impl PlayReadySecureStopServiceRequest {
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -8227,7 +8474,10 @@ impl PlayReadySecureStopServiceRequest {
         }
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn SetChallengeCustomData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChallengeCustomData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetChallengeCustomData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -8552,7 +8802,10 @@ impl PlayReadyStatics {
         })
     }
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-    pub fn CheckSupportedHardware<'a, Param0: ::std::convert::Into<PlayReadyHardwareDRMFeatures>>(hwdrmfeature: Param0) -> ::windows::core::Result<bool> {
+    pub fn CheckSupportedHardware<'a, P0>(hwdrmfeature: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<PlayReadyHardwareDRMFeatures>,
+    {
         Self::IPlayReadyStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).CheckSupportedHardware)(::windows::core::Interface::as_raw(this), hwdrmfeature.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)

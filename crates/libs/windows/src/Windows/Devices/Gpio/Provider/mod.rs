@@ -11,7 +11,10 @@ impl GpioPinProviderValueChangedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<ProviderGpioPinEdge>>(edge: Param0) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs> {
+    pub fn Create<'a, P0>(edge: P0) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs>
+    where
+        P0: ::std::convert::Into<ProviderGpioPinEdge>,
+    {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), edge.into(), result__.as_mut_ptr()).from_abi::<GpioPinProviderValueChangedEventArgs>(result__)
@@ -98,7 +101,10 @@ impl IGpioControllerProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn OpenPinProvider<'a, Param1: ::std::convert::Into<ProviderGpioSharingMode>>(&self, pin: i32, sharingmode: Param1) -> ::windows::core::Result<IGpioPinProvider> {
+    pub fn OpenPinProvider<'a, P0>(&self, pin: i32, sharingmode: P0) -> ::windows::core::Result<IGpioPinProvider>
+    where
+        P0: ::std::convert::Into<ProviderGpioSharingMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -176,7 +182,10 @@ pub struct IGpioPinProvider(::windows::core::IUnknown);
 impl IGpioPinProvider {
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ValueChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -221,7 +230,10 @@ impl IGpioPinProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn IsDriveModeSupported<'a, Param0: ::std::convert::Into<ProviderGpioPinDriveMode>>(&self, drivemode: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsDriveModeSupported<'a, P0>(&self, drivemode: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<ProviderGpioPinDriveMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -237,12 +249,18 @@ impl IGpioPinProvider {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn SetDriveMode<'a, Param0: ::std::convert::Into<ProviderGpioPinDriveMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDriveMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderGpioPinDriveMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDriveMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
-    pub fn Write<'a, Param0: ::std::convert::Into<ProviderGpioPinValue>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Write<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ProviderGpioPinValue>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

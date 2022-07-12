@@ -1271,7 +1271,10 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCapabilitySupportedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, capabilityname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetCapabilitySupportedAsync<'a, P0>(&self, capabilityname: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IRemoteSystem2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1321,7 +1324,10 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`, `\"Networking\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
-    pub fn FindByHostNameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::HostName>>>(hostname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>> {
+    pub fn FindByHostNameAsync<'a, P0>(hostname: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::HostName>>,
+    {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FindByHostNameAsync)(::windows::core::Interface::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RemoteSystem>>(result__)
@@ -1336,7 +1342,11 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithFilters<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(filters: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
+    pub fn CreateWatcherWithFilters<'a, P0, E0>(filters: P0) -> ::windows::core::Result<RemoteSystemWatcher>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWatcherWithFilters)(::windows::core::Interface::as_raw(this), filters.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
@@ -1351,14 +1361,20 @@ impl RemoteSystem {
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn IsAuthorizationKindEnabled<'a, Param0: ::std::convert::Into<RemoteSystemAuthorizationKind>>(kind: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsAuthorizationKindEnabled<'a, P0>(kind: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<RemoteSystemAuthorizationKind>,
+    {
         Self::IRemoteSystemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsAuthorizationKindEnabled)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateWatcherForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
+    pub fn CreateWatcherForUser<'a, P0>(user: P0) -> ::windows::core::Result<RemoteSystemWatcher>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+    {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWatcherForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
@@ -1366,7 +1382,12 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithFiltersForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(user: Param0, filters: Param1) -> ::windows::core::Result<RemoteSystemWatcher> {
+    pub fn CreateWatcherWithFiltersForUser<'a, P0, P1, E1>(user: P0, filters: P1) -> ::windows::core::Result<RemoteSystemWatcher>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWatcherWithFiltersForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), filters.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
@@ -1723,7 +1744,10 @@ impl RemoteSystemAppRegistration {
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<RemoteSystemAppRegistration> {
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<RemoteSystemAppRegistration>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+    {
         Self::IRemoteSystemAppRegistrationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemAppRegistration>(result__)
@@ -1844,7 +1868,10 @@ impl RemoteSystemAuthorizationKindFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<RemoteSystemAuthorizationKind>>(remotesystemauthorizationkind: Param0) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter> {
+    pub fn Create<'a, P0>(remotesystemauthorizationkind: P0) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter>
+    where
+        P0: ::std::convert::Into<RemoteSystemAuthorizationKind>,
+    {
         Self::IRemoteSystemAuthorizationKindFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemauthorizationkind.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemAuthorizationKindFilter>(result__)
@@ -1951,7 +1978,10 @@ impl RemoteSystemConnectionInfo {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn TryCreateFromAppServiceConnection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>>(connection: Param0) -> ::windows::core::Result<RemoteSystemConnectionInfo> {
+    pub fn TryCreateFromAppServiceConnection<'a, P0>(connection: P0) -> ::windows::core::Result<RemoteSystemConnectionInfo>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>,
+    {
         Self::IRemoteSystemConnectionInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateFromAppServiceConnection)(::windows::core::Interface::as_raw(this), connection.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionInfo>(result__)
@@ -2054,28 +2084,41 @@ impl RemoteSystemConnectionRequest {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystem>>>(remotesystem: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn Create<'a, P0>(remotesystem: P0) -> ::windows::core::Result<RemoteSystemConnectionRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystem>>,
+    {
         Self::IRemoteSystemConnectionRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystem.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateForApp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemApp>>>(remotesystemapp: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn CreateForApp<'a, P0>(remotesystemapp: P0) -> ::windows::core::Result<RemoteSystemConnectionRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemApp>>,
+    {
         Self::IRemoteSystemConnectionRequestStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateForApp)(::windows::core::Interface::as_raw(this), remotesystemapp.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateFromConnectionToken<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(connectiontoken: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn CreateFromConnectionToken<'a, P0>(connectiontoken: P0) -> ::windows::core::Result<RemoteSystemConnectionRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromConnectionToken)(::windows::core::Interface::as_raw(this), connectiontoken.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateFromConnectionTokenForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, connectiontoken: Param1) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn CreateFromConnectionTokenForUser<'a, P0, P1>(user: P0, connectiontoken: P1) -> ::windows::core::Result<RemoteSystemConnectionRequest>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromConnectionTokenForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), connectiontoken.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
@@ -2208,7 +2251,10 @@ impl RemoteSystemDiscoveryTypeFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<RemoteSystemDiscoveryType>>(discoverytype: Param0) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter> {
+    pub fn Create<'a, P0>(discoverytype: P0) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter>
+    where
+        P0: ::std::convert::Into<RemoteSystemDiscoveryType>,
+    {
         Self::IRemoteSystemDiscoveryTypeFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), discoverytype.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemDiscoveryTypeFilter>(result__)
@@ -2382,7 +2428,11 @@ impl RemoteSystemKindFilter {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(remotesystemkinds: Param0) -> ::windows::core::Result<RemoteSystemKindFilter> {
+    pub fn Create<'a, P0, E0>(remotesystemkinds: P0) -> ::windows::core::Result<RemoteSystemKindFilter>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IRemoteSystemKindFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemkinds.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemKindFilter>(result__)
@@ -2696,7 +2746,10 @@ impl RemoteSystemSession {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Disconnected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Disconnected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2719,7 +2772,10 @@ impl RemoteSystemSession {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendInvitationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystem>>>(&self, invitee: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SendInvitationAsync<'a, P0>(&self, invitee: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystem>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2904,7 +2960,10 @@ pub struct RemoteSystemSessionController(::windows::core::IUnknown);
 impl RemoteSystemSessionController {
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn JoinRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn JoinRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -2919,7 +2978,10 @@ impl RemoteSystemSessionController {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveParticipantAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionParticipant>>>(&self, pparticipant: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RemoveParticipantAsync<'a, P0>(&self, pparticipant: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionParticipant>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -2936,14 +2998,21 @@ impl RemoteSystemSessionController {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(displayname: Param0) -> ::windows::core::Result<RemoteSystemSessionController> {
+    pub fn CreateController<'a, P0>(displayname: P0) -> ::windows::core::Result<RemoteSystemSessionController>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateController)(::windows::core::Interface::as_raw(this), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionController>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateControllerWithSessionOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionOptions>>>(displayname: Param0, options: Param1) -> ::windows::core::Result<RemoteSystemSessionController> {
+    pub fn CreateControllerWithSessionOptions<'a, P0, P1>(displayname: P0, options: P1) -> ::windows::core::Result<RemoteSystemSessionController>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionOptions>>,
+    {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateControllerWithSessionOptions)(::windows::core::Interface::as_raw(this), displayname.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionController>(result__)
@@ -3433,7 +3502,10 @@ impl RemoteSystemSessionInvitationListener {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InvitationReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InvitationReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3882,7 +3954,10 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BroadcastValueSetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(&self, messagedata: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn BroadcastValueSetAsync<'a, P0>(&self, messagedata: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3891,7 +3966,11 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionParticipant>>>(&self, messagedata: Param0, participant: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SendValueSetAsync<'a, P0, P1>(&self, messagedata: P0, participant: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionParticipant>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3900,7 +3979,12 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetToParticipantsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, messagedata: Param0, participants: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SendValueSetToParticipantsAsync<'a, P0, P1, E1>(&self, messagedata: P0, participants: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3909,7 +3993,10 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueSetReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ValueSetReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3923,14 +4010,23 @@ impl RemoteSystemSessionMessageChannel {
         unsafe { (::windows::core::Interface::vtable(this).RemoveValueSetReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(session: Param0, channelname: Param1) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
+    pub fn Create<'a, P0, P1>(session: P0, channelname: P1) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), session.into().abi(), channelname.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateWithReliability<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<RemoteSystemSessionMessageChannelReliability>>(session: Param0, channelname: Param1, reliability: Param2) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
+    pub fn CreateWithReliability<'a, P0, P1, P2>(session: P0, channelname: P1, reliability: P2) -> ::windows::core::Result<RemoteSystemSessionMessageChannel>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<RemoteSystemSessionMessageChannelReliability>,
+    {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithReliability)(::windows::core::Interface::as_raw(this), session.into().abi(), channelname.into().abi(), reliability.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
@@ -4383,7 +4479,10 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4398,7 +4497,10 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4413,7 +4515,10 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4785,7 +4890,10 @@ impl RemoteSystemSessionWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4800,7 +4908,10 @@ impl RemoteSystemSessionWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -4815,7 +4926,10 @@ impl RemoteSystemSessionWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5012,7 +5126,10 @@ impl RemoteSystemStatusTypeFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<RemoteSystemStatusType>>(remotesystemstatustype: Param0) -> ::windows::core::Result<RemoteSystemStatusTypeFilter> {
+    pub fn Create<'a, P0>(remotesystemstatustype: P0) -> ::windows::core::Result<RemoteSystemStatusTypeFilter>
+    where
+        P0: ::std::convert::Into<RemoteSystemStatusType>,
+    {
         Self::IRemoteSystemStatusTypeFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemstatustype.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemStatusTypeFilter>(result__)
@@ -5196,7 +5313,10 @@ impl RemoteSystemWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteSystemAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteSystemAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5211,7 +5331,10 @@ impl RemoteSystemWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteSystemUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteSystemUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5226,7 +5349,10 @@ impl RemoteSystemWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteSystemRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteSystemRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5241,7 +5367,10 @@ impl RemoteSystemWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5256,7 +5385,10 @@ impl RemoteSystemWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>>,
+    {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -5465,7 +5597,10 @@ impl RemoteSystemWebAccountFilter {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>>(account: Param0) -> ::windows::core::Result<RemoteSystemWebAccountFilter> {
+    pub fn Create<'a, P0>(account: P0) -> ::windows::core::Result<RemoteSystemWebAccountFilter>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>,
+    {
         Self::IRemoteSystemWebAccountFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWebAccountFilter>(result__)

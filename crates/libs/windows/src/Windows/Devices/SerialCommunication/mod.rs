@@ -358,7 +358,10 @@ impl SerialDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn SetHandshake<'a, Param0: ::std::convert::Into<SerialHandshake>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHandshake<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SerialHandshake>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandshake)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -397,7 +400,10 @@ impl SerialDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn SetParity<'a, Param0: ::std::convert::Into<SerialParity>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetParity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SerialParity>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetParity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -433,7 +439,10 @@ impl SerialDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn SetStopBits<'a, Param0: ::std::convert::Into<SerialStopBitCount>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStopBits<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SerialStopBitCount>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBits)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -488,7 +497,10 @@ impl SerialDevice {
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>>>(&self, reporthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorReceived<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -503,7 +515,10 @@ impl SerialDevice {
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PinChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>>>(&self, reporthandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PinChanged<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -524,7 +539,10 @@ impl SerialDevice {
         })
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn GetDeviceSelectorFromPortName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(portname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorFromPortName<'a, P0>(portname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromPortName)(::windows::core::Interface::as_raw(this), portname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -539,7 +557,10 @@ impl SerialDevice {
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SerialDevice>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SerialDevice>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SerialDevice>>(result__)

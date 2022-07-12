@@ -667,7 +667,10 @@ impl IAutomaticUpdatesSettings {
         (::windows::core::Interface::vtable(self).NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel<'a, Param0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetNotificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>,
+    {
         (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -686,7 +689,10 @@ impl IAutomaticUpdatesSettings {
         (::windows::core::Interface::vtable(self).ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay<'a, Param0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetScheduledInstallationDay<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>,
+    {
         (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -796,7 +802,10 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).base__.NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel<'a, Param0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetNotificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -815,7 +824,10 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).base__.ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay<'a, Param0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetScheduledInstallationDay<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -845,7 +857,11 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn CheckPermission<'a, Param0: ::std::convert::Into<AutomaticUpdatesUserType>, Param1: ::std::convert::Into<AutomaticUpdatesPermissionType>>(&self, usertype: Param0, permissiontype: Param1) -> ::windows::core::Result<i16> {
+    pub unsafe fn CheckPermission<'a, P0, P1>(&self, usertype: P0, permissiontype: P1) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesUserType>,
+        P1: ::std::convert::Into<AutomaticUpdatesPermissionType>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), usertype.into(), permissiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
@@ -950,7 +966,10 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.base__.NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel<'a, Param0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetNotificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -969,7 +988,10 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.base__.ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay<'a, Param0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetScheduledInstallationDay<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -999,7 +1021,11 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn CheckPermission<'a, Param0: ::std::convert::Into<AutomaticUpdatesUserType>, Param1: ::std::convert::Into<AutomaticUpdatesPermissionType>>(&self, usertype: Param0, permissiontype: Param1) -> ::windows::core::Result<i16> {
+    pub unsafe fn CheckPermission<'a, P0, P1>(&self, usertype: P0, permissiontype: P1) -> ::windows::core::Result<i16>
+    where
+        P0: ::std::convert::Into<AutomaticUpdatesUserType>,
+        P1: ::std::convert::Into<AutomaticUpdatesPermissionType>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), usertype.into(), permissiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
@@ -1391,7 +1417,11 @@ pub struct IDownloadCompletedCallback(::windows::core::IUnknown);
 impl IDownloadCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDownloadCompletedCallbackArgs>>>(&self, downloadjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke<'a, P0, P1>(&self, downloadjob: P0, callbackargs: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDownloadCompletedCallbackArgs>>,
+    {
         (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
@@ -1786,7 +1816,11 @@ pub struct IDownloadProgressChangedCallback(::windows::core::IUnknown);
 impl IDownloadProgressChangedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDownloadProgressChangedCallbackArgs>>>(&self, downloadjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke<'a, P0, P1>(&self, downloadjob: P0, callbackargs: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IDownloadProgressChangedCallbackArgs>>,
+    {
         (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
@@ -2128,7 +2162,11 @@ pub struct IInstallationAgent(::windows::core::IUnknown);
 impl IInstallationAgent {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RecordInstallationResult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, installationresultcookie: Param0, hresult: i32, extendedreportingdata: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn RecordInstallationResult<'a, P0, P1>(&self, installationresultcookie: P0, hresult: i32, extendedreportingdata: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), installationresultcookie.into().abi(), ::core::mem::transmute(hresult), extendedreportingdata.into().abi()).ok()
     }
 }
@@ -2307,7 +2345,11 @@ pub struct IInstallationCompletedCallback(::windows::core::IUnknown);
 impl IInstallationCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInstallationCompletedCallbackArgs>>>(&self, installationjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke<'a, P0, P1>(&self, installationjob: P0, callbackargs: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IInstallationCompletedCallbackArgs>>,
+    {
         (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
@@ -2656,7 +2698,11 @@ pub struct IInstallationProgressChangedCallback(::windows::core::IUnknown);
 impl IInstallationProgressChangedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInstallationProgressChangedCallbackArgs>>>(&self, installationjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke<'a, P0, P1>(&self, installationjob: P0, callbackargs: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IInstallationProgressChangedCallbackArgs>>,
+    {
         (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
@@ -3014,7 +3060,11 @@ pub struct ISearchCompletedCallback(::windows::core::IUnknown);
 impl ISearchCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISearchCompletedCallbackArgs>>>(&self, searchjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Invoke<'a, P0, P1>(&self, searchjob: P0, callbackargs: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ISearchCompletedCallbackArgs>>,
+    {
         (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
@@ -3359,7 +3409,10 @@ impl IStringCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_Item<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_Item<'a, P0>(&self, index: i32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -3379,7 +3432,10 @@ impl IStringCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn Add<'a, P0>(&self, value: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -3395,7 +3451,10 @@ impl IStringCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Insert<'a, P0>(&self, index: i32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -3824,7 +3883,10 @@ impl IUpdate {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -4265,7 +4327,10 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -4297,7 +4362,10 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
 }
@@ -4635,7 +4703,10 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -4667,7 +4738,10 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -5019,7 +5093,10 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -5051,7 +5128,10 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -5426,7 +5506,10 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -5458,7 +5541,10 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -5637,7 +5723,10 @@ impl IUpdateCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn put_Item<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn put_Item<'a, P0>(&self, index: i32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>,
+    {
         (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -5657,7 +5746,10 @@ impl IUpdateCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>>(&self, value: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn Add<'a, P0>(&self, value: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
@@ -5673,7 +5765,10 @@ impl IUpdateCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Insert<'a, P0>(&self, index: i32, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>,
+    {
         (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -6157,7 +6252,10 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -6175,7 +6273,10 @@ impl IUpdateDownloader {
         (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DownloadPriority>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<DownloadPriority>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<DownloadPriority>,
+    {
         (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
@@ -6186,12 +6287,20 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUpdates<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>,
+    {
         (::windows::core::Interface::vtable(self).SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginDownload<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IDownloadJob> {
+    pub unsafe fn BeginDownload<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IDownloadJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).BeginDownload)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDownloadJob>(result__)
     }
@@ -6203,7 +6312,10 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndDownload<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>>(&self, value: Param0) -> ::windows::core::Result<IDownloadResult> {
+    pub unsafe fn EndDownload<'a, P0>(&self, value: P0) -> ::windows::core::Result<IDownloadResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EndDownload)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDownloadResult>(result__)
     }
@@ -7161,7 +7273,10 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7181,11 +7296,17 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentHwnd<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentWindow<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7201,30 +7322,49 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUpdates<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>,
+    {
         (::windows::core::Interface::vtable(self).SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7236,7 +7376,10 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7407,7 +7550,10 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7427,11 +7573,17 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentHwnd<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentWindow<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7447,30 +7599,49 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUpdates<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7482,7 +7653,10 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7622,7 +7796,10 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7642,11 +7819,17 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentHwnd<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentWindow<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7662,30 +7845,49 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUpdates<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7697,7 +7899,10 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7864,7 +8069,10 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7884,11 +8092,17 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentHwnd<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetParentWindow<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -7904,30 +8118,49 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUpdates<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, P0, P1, P2>(&self, onprogresschanged: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<IInstallationJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, P0>(&self, value: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -7939,7 +8172,10 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, P0>(&self, dialogtitle: P0) -> ::windows::core::Result<IInstallationResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
@@ -8186,7 +8422,10 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -8204,24 +8443,38 @@ impl IUpdateSearcher {
         (::windows::core::Interface::vtable(self).ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection<'a, Param0: ::std::convert::Into<ServerSelection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetServerSelection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ServerSelection>,
+    {
         (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
+    pub unsafe fn BeginSearch<'a, P0, P1, P2>(&self, criteria: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<ISearchJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn EndSearch<'a, P0>(&self, searchjob: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EscapeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn EscapeString<'a, P0>(&self, unescaped: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -8233,7 +8486,10 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Search<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<'a, P0>(&self, criteria: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Search)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
@@ -8259,7 +8515,10 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetServiceID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetServiceID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
@@ -8398,7 +8657,10 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -8416,24 +8678,38 @@ impl IUpdateSearcher2 {
         (::windows::core::Interface::vtable(self).base__.ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection<'a, Param0: ::std::convert::Into<ServerSelection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetServerSelection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ServerSelection>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
+    pub unsafe fn BeginSearch<'a, P0, P1, P2>(&self, criteria: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<ISearchJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn EndSearch<'a, P0>(&self, searchjob: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EscapeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn EscapeString<'a, P0>(&self, unescaped: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -8445,7 +8721,10 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Search<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<'a, P0>(&self, criteria: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.Search)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
@@ -8471,7 +8750,10 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetServiceID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -8594,7 +8876,10 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -8612,24 +8897,38 @@ impl IUpdateSearcher3 {
         (::windows::core::Interface::vtable(self).base__.base__.ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection<'a, Param0: ::std::convert::Into<ServerSelection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetServerSelection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ServerSelection>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
+    pub unsafe fn BeginSearch<'a, P0, P1, P2>(&self, criteria: P0, oncompleted: P1, state: P2) -> ::windows::core::Result<ISearchJob>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn EndSearch<'a, P0>(&self, searchjob: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EscapeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn EscapeString<'a, P0>(&self, unescaped: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
@@ -8641,7 +8940,10 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Search<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<'a, P0>(&self, criteria: P0) -> ::windows::core::Result<ISearchResult>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Search)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
@@ -8667,7 +8969,10 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetServiceID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -8685,7 +8990,10 @@ impl IUpdateSearcher3 {
         (::windows::core::Interface::vtable(self).SearchScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SearchScope>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetSearchScope<'a, Param0: ::std::convert::Into<SearchScope>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetSearchScope<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SearchScope>,
+    {
         (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
 }
@@ -9249,34 +9557,55 @@ impl IUpdateServiceManager {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0, authorizationcabpath: Param1) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddService<'a, P0, P1>(&self, serviceid: P0, authorizationcabpath: P1) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddService)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterServiceWithAU<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveService<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnregisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn UnregisterServiceWithAU<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScanPackageService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, servicename: Param0, scanfilelocation: Param1, flags: i32) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService<'a, P0, P1>(&self, servicename: P0, scanfilelocation: P1, flags: i32) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, optionname: Param0, optionvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOption<'a, P0, P1>(&self, optionname: P0, optionvalue: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), optionname.into().abi(), optionvalue.into().abi()).ok()
     }
 }
@@ -9389,34 +9718,55 @@ impl IUpdateServiceManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0, authorizationcabpath: Param1) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddService<'a, P0, P1>(&self, serviceid: P0, authorizationcabpath: P1) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.AddService)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterServiceWithAU<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RemoveService<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnregisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn UnregisterServiceWithAU<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScanPackageService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, servicename: Param0, scanfilelocation: Param1, flags: i32) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService<'a, P0, P1>(&self, servicename: P0, scanfilelocation: P1, flags: i32) -> ::windows::core::Result<IUpdateService>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, optionname: Param0, optionvalue: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn SetOption<'a, P0, P1>(&self, optionname: P0, optionvalue: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetOption)(::windows::core::Interface::as_raw(self), optionname.into().abi(), optionvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
@@ -9427,18 +9777,28 @@ impl IUpdateServiceManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn QueryServiceRegistration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn QueryServiceRegistration<'a, P0>(&self, serviceid: P0) -> ::windows::core::Result<IUpdateServiceRegistration>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryServiceRegistration)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddService2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0, flags: i32, authorizationcabpath: Param2) -> ::windows::core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn AddService2<'a, P0, P1>(&self, serviceid: P0, flags: i32, authorizationcabpath: P1) -> ::windows::core::Result<IUpdateServiceRegistration>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), ::core::mem::transmute(flags), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
     }
@@ -9664,7 +10024,10 @@ impl IUpdateSession {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -9680,7 +10043,10 @@ impl IUpdateSession {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetWebProxy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>,
+    {
         (::windows::core::Interface::vtable(self).SetWebProxy)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
@@ -9812,7 +10178,10 @@ impl IUpdateSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -9828,7 +10197,10 @@ impl IUpdateSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetWebProxy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>,
+    {
         (::windows::core::Interface::vtable(self).base__.SetWebProxy)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
@@ -9960,7 +10332,10 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetClientApplicationID<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -9976,7 +10351,10 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetWebProxy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.SetWebProxy)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
@@ -10014,7 +10392,10 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn QueryHistory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
+    pub unsafe fn QueryHistory<'a, P0>(&self, criteria: P0, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
     }
@@ -10144,7 +10525,10 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAddress<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
@@ -10155,7 +10539,10 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBypassList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBypassList<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).SetBypassList)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -10180,22 +10567,36 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetUserName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetPassword<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptForCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, parentwindow: Param0, title: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn PromptForCredentials<'a, P0, P1>(&self, parentwindow: P0, title: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).PromptForCredentials)(::windows::core::Interface::as_raw(self), parentwindow.into().abi(), title.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptForCredentialsFromHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, parentwindow: Param0, title: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn PromptForCredentialsFromHwnd<'a, P0, P1>(&self, parentwindow: P0, title: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).PromptForCredentialsFromHwnd)(::windows::core::Interface::as_raw(self), parentwindow.into(), title.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -10555,7 +10956,10 @@ impl IWindowsDriverUpdate {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -10962,7 +11366,10 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -11039,7 +11446,10 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
 }
@@ -11395,7 +11805,10 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -11472,7 +11885,10 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -11842,7 +12258,10 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -11919,7 +12338,10 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -12322,7 +12744,10 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyFromCache<'a, P0>(&self, path: P0, toextractcabfiles: i16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -12399,7 +12824,10 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CopyToCache<'a, P0>(&self, pfiles: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>,
+    {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
@@ -12834,7 +13262,10 @@ pub struct IWindowsUpdateAgentInfo(::windows::core::IUnknown);
 impl IWindowsUpdateAgentInfo {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varinfoidentifier: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetInfo<'a, P0>(&self, varinfoidentifier: P0) -> ::windows::core::Result<super::Com::VARIANT>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
         (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), varinfoidentifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }

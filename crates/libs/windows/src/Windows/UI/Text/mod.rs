@@ -67,7 +67,10 @@ impl ContentLinkInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetDisplayText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -80,7 +83,10 @@ impl ContentLinkInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetSecondaryText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSecondaryText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSecondaryText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -95,7 +101,10 @@ impl ContentLinkInfo {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -108,7 +117,10 @@ impl ContentLinkInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetLinkContentKind<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLinkContentKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLinkContentKind)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -662,7 +674,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetAllCaps<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAllCaps<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllCaps)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -688,7 +703,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetBold<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBold<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBold)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -701,7 +719,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetFontStretch<'a, Param0: ::std::convert::Into<FontStretch>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFontStretch<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FontStretch>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFontStretch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -714,7 +735,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetFontStyle<'a, Param0: ::std::convert::Into<FontStyle>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFontStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FontStyle>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFontStyle)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -740,7 +764,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetHidden<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetHidden<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHidden)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -753,7 +780,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetItalic<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetItalic<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetItalic)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -779,7 +809,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetLanguageTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLanguageTag<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLanguageTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -800,7 +833,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -813,7 +849,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetOutline<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutline<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOutline)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -839,7 +878,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetProtectedText<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProtectedText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProtectedText)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -865,7 +907,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetSmallCaps<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSmallCaps<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSmallCaps)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -891,7 +936,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetStrikethrough<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStrikethrough<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStrikethrough)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -904,7 +952,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetSubscript<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubscript<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubscript)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -917,7 +968,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetSuperscript<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSuperscript<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSuperscript)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -930,7 +984,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetTextScript<'a, Param0: ::std::convert::Into<TextScript>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTextScript<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextScript>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTextScript)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -943,7 +1000,10 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetUnderline<'a, Param0: ::std::convert::Into<UnderlineType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUnderline<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UnderlineType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUnderline)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -961,7 +1021,11 @@ impl ITextCharacterFormat {
         unsafe { (::windows::core::Interface::vtable(this).SetWeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetClone<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetClone<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClone)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -974,7 +1038,11 @@ impl ITextCharacterFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, format: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0, E0>(&self, format: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1127,7 +1195,10 @@ impl ITextDocument {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetCaretType<'a, Param0: ::std::convert::Into<CaretType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCaretType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CaretType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCaretType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1249,7 +1320,10 @@ impl ITextDocument {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetRangeFromPoint<'a, Param1: ::std::convert::Into<PointOptions>>(&self, point: super::super::Foundation::Point, options: Param1) -> ::windows::core::Result<ITextRange> {
+    pub fn GetRangeFromPoint<'a, P0>(&self, point: super::super::Foundation::Point, options: P0) -> ::windows::core::Result<ITextRange>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1257,13 +1331,21 @@ impl ITextDocument {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetText<'a, Param0: ::std::convert::Into<TextGetOptions>>(&self, options: Param0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn GetText<'a, P0>(&self, options: P0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options.into(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn LoadFromStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).LoadFromStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1274,22 +1356,39 @@ impl ITextDocument {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToStream<'a, Param0: ::std::convert::Into<TextGetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SaveToStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SaveToStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetDefaultCharacterFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultCharacterFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetDefaultParagraphFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultParagraphFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, P0, P1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), options.into(), value.into().abi()).ok() }
     }
@@ -1454,7 +1553,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetAlignment<'a, Param0: ::std::convert::Into<ParagraphAlignment>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAlignment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ParagraphAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlignment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1475,7 +1577,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetKeepTogether<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeepTogether<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeepTogether)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1488,7 +1593,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetKeepWithNext<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetKeepWithNext<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetKeepWithNext)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1525,7 +1633,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetListAlignment<'a, Param0: ::std::convert::Into<MarkerAlignment>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetListAlignment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MarkerAlignment>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetListAlignment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1564,7 +1675,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetListStyle<'a, Param0: ::std::convert::Into<MarkerStyle>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetListStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MarkerStyle>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetListStyle)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1590,7 +1704,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetListType<'a, Param0: ::std::convert::Into<MarkerType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetListType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<MarkerType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetListType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1603,7 +1720,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetNoLineNumber<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNoLineNumber<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNoLineNumber)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1616,7 +1736,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetPageBreakBefore<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPageBreakBefore<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPageBreakBefore)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1642,7 +1765,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetRightToLeft<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRightToLeft<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRightToLeft)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1655,7 +1781,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetStyle<'a, Param0: ::std::convert::Into<ParagraphStyle>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ParagraphStyle>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStyle)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1694,7 +1823,10 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetWidowControl<'a, Param0: ::std::convert::Into<FormatEffect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWidowControl<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<FormatEffect>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWidowControl)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1707,7 +1839,11 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn AddTab<'a, Param1: ::std::convert::Into<TabAlignment>, Param2: ::std::convert::Into<TabLeader>>(&self, position: f32, align: Param1, leader: Param2) -> ::windows::core::Result<()> {
+    pub fn AddTab<'a, P0, P1>(&self, position: f32, align: P0, leader: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TabAlignment>,
+        P1: ::std::convert::Into<TabLeader>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddTab)(::windows::core::Interface::as_raw(this), position, align.into(), leader.into()).ok() }
     }
@@ -1735,7 +1871,11 @@ impl ITextParagraphFormat {
         unsafe { (::windows::core::Interface::vtable(this).GetTab)(::windows::core::Interface::as_raw(this), index, position, align, leader).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, format: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0, E0>(&self, format: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1743,7 +1883,11 @@ impl ITextParagraphFormat {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetClone<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, format: Param0) -> ::windows::core::Result<()> {
+    pub fn SetClone<'a, P0, E0>(&self, format: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClone)(::windows::core::Interface::as_raw(this), format.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1753,7 +1897,10 @@ impl ITextParagraphFormat {
         unsafe { (::windows::core::Interface::vtable(this).SetIndents)(::windows::core::Interface::as_raw(this), start, left, right).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetLineSpacing<'a, Param0: ::std::convert::Into<LineSpacingRule>>(&self, rule: Param0, spacing: f32) -> ::windows::core::Result<()> {
+    pub fn SetLineSpacing<'a, P0>(&self, rule: P0, spacing: f32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LineSpacingRule>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLineSpacing)(::windows::core::Interface::as_raw(this), rule.into(), spacing).ok() }
     }
@@ -1894,7 +2041,11 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetCharacterFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCharacterFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1907,7 +2058,11 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetFormattedText<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormattedText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormattedText)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1933,7 +2088,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetGravity<'a, Param0: ::std::convert::Into<RangeGravity>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGravity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RangeGravity>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGravity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1954,7 +2112,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetLink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1967,7 +2128,11 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetParagraphFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetParagraphFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2001,7 +2166,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2014,7 +2182,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn ChangeCase<'a, Param0: ::std::convert::Into<LetterCase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangeCase<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LetterCase>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ChangeCase)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2034,7 +2205,10 @@ impl ITextRange {
         unsafe { (::windows::core::Interface::vtable(this).Cut)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Delete<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn Delete<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2042,7 +2216,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn EndOf<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn EndOf<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2050,7 +2227,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Expand<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0) -> ::windows::core::Result<i32> {
+    pub fn Expand<'a, P0>(&self, unit: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2058,7 +2238,11 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<FindOptions>>(&self, value: Param0, scanlength: i32, options: Param2) -> ::windows::core::Result<i32> {
+    pub fn FindText<'a, P0, P1>(&self, value: P0, scanlength: i32, options: P1) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<FindOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2079,7 +2263,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetIndex<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0) -> ::windows::core::Result<i32> {
+    pub fn GetIndex<'a, P0>(&self, unit: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2088,29 +2275,49 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPoint<'a, Param0: ::std::convert::Into<HorizontalCharacterAlignment>, Param1: ::std::convert::Into<VerticalCharacterAlignment>, Param2: ::std::convert::Into<PointOptions>>(&self, horizontalalign: Param0, verticalalign: Param1, options: Param2, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()> {
+    pub fn GetPoint<'a, P0, P1, P2>(&self, horizontalalign: P0, verticalalign: P1, options: P2, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HorizontalCharacterAlignment>,
+        P1: ::std::convert::Into<VerticalCharacterAlignment>,
+        P2: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), horizontalalign.into(), verticalalign.into(), options.into(), point).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetRect<'a, Param0: ::std::convert::Into<PointOptions>>(&self, options: Param0, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()> {
+    pub fn GetRect<'a, P0>(&self, options: P0, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), options.into(), rect, hit).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetText<'a, Param0: ::std::convert::Into<TextGetOptions>>(&self, options: Param0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn GetText<'a, P0>(&self, options: P0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options.into(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTextViaStream<'a, Param0: ::std::convert::Into<TextGetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn GetTextViaStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetTextViaStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn InRange<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn InRange<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2119,12 +2326,22 @@ impl ITextRange {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn InsertImage<'a, Param3: ::std::convert::Into<VerticalCharacterAlignment>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E5>, E5: ::std::convert::Into<::windows::core::Error>>(&self, width: i32, height: i32, ascent: i32, verticalalign: Param3, alternatetext: Param4, value: Param5) -> ::windows::core::Result<()> {
+    pub fn InsertImage<'a, P0, P1, P2, E2>(&self, width: i32, height: i32, ascent: i32, verticalalign: P0, alternatetext: P1, value: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<VerticalCharacterAlignment>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertImage)(::windows::core::Interface::as_raw(this), width, height, ascent, verticalalign.into(), alternatetext.into().abi(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn InStory<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn InStory<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2132,7 +2349,11 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2140,7 +2361,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Move<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn Move<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2148,7 +2372,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveEnd<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn MoveEnd<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2156,7 +2383,10 @@ impl ITextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveStart<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn MoveStart<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2169,7 +2399,10 @@ impl ITextRange {
         unsafe { (::windows::core::Interface::vtable(this).Paste)(::windows::core::Interface::as_raw(this), format).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn ScrollIntoView<'a, Param0: ::std::convert::Into<PointOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ScrollIntoView<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ScrollIntoView)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2179,13 +2412,19 @@ impl ITextRange {
         unsafe { (::windows::core::Interface::vtable(this).MatchSelection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetIndex<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, index: i32, extend: bool) -> ::windows::core::Result<()> {
+    pub fn SetIndex<'a, P0>(&self, unit: P0, index: i32, extend: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), unit.into(), index, extend).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPoint<'a, Param1: ::std::convert::Into<PointOptions>>(&self, point: super::super::Foundation::Point, options: Param1, extend: bool) -> ::windows::core::Result<()> {
+    pub fn SetPoint<'a, P0>(&self, point: super::super::Foundation::Point, options: P0, extend: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint)(::windows::core::Interface::as_raw(this), point, options.into(), extend).ok() }
     }
@@ -2195,18 +2434,30 @@ impl ITextRange {
         unsafe { (::windows::core::Interface::vtable(this).SetRange)(::windows::core::Interface::as_raw(this), startposition, endposition).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText2<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetText2<'a, P0, P1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText2)(::windows::core::Interface::as_raw(this), options.into(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextViaStream<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetTextViaStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTextViaStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn StartOf<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn StartOf<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2359,7 +2610,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetOptions<'a, Param0: ::std::convert::Into<SelectionOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<SelectionOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2372,7 +2626,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn EndKey<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn EndKey<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2380,7 +2637,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn HomeKey<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn HomeKey<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2388,7 +2648,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveDown<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn MoveDown<'a, P0>(&self, unit: P0, count: i32, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2396,7 +2659,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveLeft<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn MoveLeft<'a, P0>(&self, unit: P0, count: i32, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2404,7 +2670,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveRight<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn MoveRight<'a, P0>(&self, unit: P0, count: i32, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2412,7 +2681,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveUp<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn MoveUp<'a, P0>(&self, unit: P0, count: i32, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2420,7 +2692,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn TypeText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn TypeText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).TypeText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2446,7 +2721,11 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetCharacterFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCharacterFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2459,7 +2738,11 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetFormattedText<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormattedText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFormattedText)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2485,7 +2768,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetGravity<'a, Param0: ::std::convert::Into<RangeGravity>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGravity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RangeGravity>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetGravity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2506,7 +2792,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetLink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2519,7 +2808,11 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetParagraphFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParagraphFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2553,7 +2846,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2566,7 +2862,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn ChangeCase<'a, Param0: ::std::convert::Into<LetterCase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangeCase<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LetterCase>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ChangeCase)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2586,7 +2885,10 @@ impl ITextSelection {
         unsafe { (::windows::core::Interface::vtable(this).Cut)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Delete<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn Delete<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2594,7 +2896,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn EndOf<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn EndOf<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2602,7 +2907,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Expand<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0) -> ::windows::core::Result<i32> {
+    pub fn Expand<'a, P0>(&self, unit: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2610,7 +2918,11 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<FindOptions>>(&self, value: Param0, scanlength: i32, options: Param2) -> ::windows::core::Result<i32> {
+    pub fn FindText<'a, P0, P1>(&self, value: P0, scanlength: i32, options: P1) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<FindOptions>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2631,7 +2943,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetIndex<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0) -> ::windows::core::Result<i32> {
+    pub fn GetIndex<'a, P0>(&self, unit: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2640,29 +2955,49 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPoint<'a, Param0: ::std::convert::Into<HorizontalCharacterAlignment>, Param1: ::std::convert::Into<VerticalCharacterAlignment>, Param2: ::std::convert::Into<PointOptions>>(&self, horizontalalign: Param0, verticalalign: Param1, options: Param2, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()> {
+    pub fn GetPoint<'a, P0, P1, P2>(&self, horizontalalign: P0, verticalalign: P1, options: P2, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HorizontalCharacterAlignment>,
+        P1: ::std::convert::Into<VerticalCharacterAlignment>,
+        P2: ::std::convert::Into<PointOptions>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), horizontalalign.into(), verticalalign.into(), options.into(), point).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetRect<'a, Param0: ::std::convert::Into<PointOptions>>(&self, options: Param0, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()> {
+    pub fn GetRect<'a, P0>(&self, options: P0, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), options.into(), rect, hit).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetText<'a, Param0: ::std::convert::Into<TextGetOptions>>(&self, options: Param0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn GetText<'a, P0>(&self, options: P0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options.into(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTextViaStream<'a, Param0: ::std::convert::Into<TextGetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn GetTextViaStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetTextViaStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn InRange<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn InRange<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2671,12 +3006,22 @@ impl ITextSelection {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn InsertImage<'a, Param3: ::std::convert::Into<VerticalCharacterAlignment>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E5>, E5: ::std::convert::Into<::windows::core::Error>>(&self, width: i32, height: i32, ascent: i32, verticalalign: Param3, alternatetext: Param4, value: Param5) -> ::windows::core::Result<()> {
+    pub fn InsertImage<'a, P0, P1, P2, E2>(&self, width: i32, height: i32, ascent: i32, verticalalign: P0, alternatetext: P1, value: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<VerticalCharacterAlignment>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertImage)(::windows::core::Interface::as_raw(this), width, height, ascent, verticalalign.into(), alternatetext.into().abi(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn InStory<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn InStory<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2684,7 +3029,11 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2692,7 +3041,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Move<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn Move<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2700,7 +3052,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveEnd<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn MoveEnd<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2708,7 +3063,10 @@ impl ITextSelection {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveStart<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn MoveStart<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -2721,7 +3079,10 @@ impl ITextSelection {
         unsafe { (::windows::core::Interface::vtable(this).Paste)(::windows::core::Interface::as_raw(this), format).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn ScrollIntoView<'a, Param0: ::std::convert::Into<PointOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ScrollIntoView<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollIntoView)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2731,13 +3092,19 @@ impl ITextSelection {
         unsafe { (::windows::core::Interface::vtable(this).MatchSelection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetIndex<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, index: i32, extend: bool) -> ::windows::core::Result<()> {
+    pub fn SetIndex<'a, P0>(&self, unit: P0, index: i32, extend: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), unit.into(), index, extend).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPoint<'a, Param1: ::std::convert::Into<PointOptions>>(&self, point: super::super::Foundation::Point, options: Param1, extend: bool) -> ::windows::core::Result<()> {
+    pub fn SetPoint<'a, P0>(&self, point: super::super::Foundation::Point, options: P0, extend: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint)(::windows::core::Interface::as_raw(this), point, options.into(), extend).ok() }
     }
@@ -2747,18 +3114,30 @@ impl ITextSelection {
         unsafe { (::windows::core::Interface::vtable(this).SetRange)(::windows::core::Interface::as_raw(this), startposition, endposition).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText2<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetText2<'a, P0, P1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetText2)(::windows::core::Interface::as_raw(this), options.into(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextViaStream<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetTextViaStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTextViaStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn StartOf<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn StartOf<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3337,7 +3716,10 @@ impl RichEditTextDocument {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetCaretType<'a, Param0: ::std::convert::Into<CaretType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCaretType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<CaretType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCaretType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3459,7 +3841,10 @@ impl RichEditTextDocument {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetRangeFromPoint<'a, Param1: ::std::convert::Into<PointOptions>>(&self, point: super::super::Foundation::Point, options: Param1) -> ::windows::core::Result<ITextRange> {
+    pub fn GetRangeFromPoint<'a, P0>(&self, point: super::super::Foundation::Point, options: P0) -> ::windows::core::Result<ITextRange>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3467,13 +3852,21 @@ impl RichEditTextDocument {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetText<'a, Param0: ::std::convert::Into<TextGetOptions>>(&self, options: Param0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn GetText<'a, P0>(&self, options: P0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options.into(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn LoadFromStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).LoadFromStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -3484,22 +3877,39 @@ impl RichEditTextDocument {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveToStream<'a, Param0: ::std::convert::Into<TextGetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SaveToStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SaveToStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetDefaultCharacterFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultCharacterFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetDefaultParagraphFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultParagraphFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, P0, P1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), options.into(), value.into().abi()).ok() }
     }
@@ -3540,7 +3950,10 @@ impl RichEditTextDocument {
         unsafe { (::windows::core::Interface::vtable(this).ClearUndoRedoHistory)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetMath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMath<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<ITextDocument4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMath)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3550,7 +3963,10 @@ impl RichEditTextDocument {
         unsafe { (::windows::core::Interface::vtable(this).GetMath)(::windows::core::Interface::as_raw(this), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetMathMode<'a, Param0: ::std::convert::Into<RichEditMathMode>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMathMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RichEditMathMode>,
+    {
         let this = &::windows::core::Interface::cast::<ITextDocument4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMathMode)(::windows::core::Interface::as_raw(this), mode.into()).ok() }
     }
@@ -3649,7 +4065,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetContentLinkInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ContentLinkInfo>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentLinkInfo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ContentLinkInfo>>,
+    {
         let this = &::windows::core::Interface::cast::<IRichEditTextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContentLinkInfo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3675,7 +4094,11 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetCharacterFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCharacterFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextCharacterFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCharacterFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -3688,7 +4111,11 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetFormattedText<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFormattedText<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormattedText)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -3714,7 +4141,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetGravity<'a, Param0: ::std::convert::Into<RangeGravity>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGravity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<RangeGravity>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGravity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3735,7 +4165,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetLink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3748,7 +4181,11 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetParagraphFormat<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetParagraphFormat<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextParagraphFormat>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetParagraphFormat)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -3782,7 +4219,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3795,7 +4235,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn ChangeCase<'a, Param0: ::std::convert::Into<LetterCase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ChangeCase<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LetterCase>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ChangeCase)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3815,7 +4258,10 @@ impl RichEditTextRange {
         unsafe { (::windows::core::Interface::vtable(this).Cut)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Delete<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn Delete<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3823,7 +4269,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn EndOf<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn EndOf<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3831,7 +4280,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Expand<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0) -> ::windows::core::Result<i32> {
+    pub fn Expand<'a, P0>(&self, unit: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3839,7 +4291,11 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn FindText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<FindOptions>>(&self, value: Param0, scanlength: i32, options: Param2) -> ::windows::core::Result<i32> {
+    pub fn FindText<'a, P0, P1>(&self, value: P0, scanlength: i32, options: P1) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<FindOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3860,7 +4316,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetIndex<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0) -> ::windows::core::Result<i32> {
+    pub fn GetIndex<'a, P0>(&self, unit: P0) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3869,29 +4328,49 @@ impl RichEditTextRange {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPoint<'a, Param0: ::std::convert::Into<HorizontalCharacterAlignment>, Param1: ::std::convert::Into<VerticalCharacterAlignment>, Param2: ::std::convert::Into<PointOptions>>(&self, horizontalalign: Param0, verticalalign: Param1, options: Param2, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()> {
+    pub fn GetPoint<'a, P0, P1, P2>(&self, horizontalalign: P0, verticalalign: P1, options: P2, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<HorizontalCharacterAlignment>,
+        P1: ::std::convert::Into<VerticalCharacterAlignment>,
+        P2: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), horizontalalign.into(), verticalalign.into(), options.into(), point).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetRect<'a, Param0: ::std::convert::Into<PointOptions>>(&self, options: Param0, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()> {
+    pub fn GetRect<'a, P0>(&self, options: P0, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), options.into(), rect, hit).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn GetText<'a, Param0: ::std::convert::Into<TextGetOptions>>(&self, options: Param0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    pub fn GetText<'a, P0>(&self, options: P0, value: &mut ::windows::core::HSTRING) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options.into(), value as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTextViaStream<'a, Param0: ::std::convert::Into<TextGetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn GetTextViaStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextGetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetTextViaStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn InRange<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn InRange<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3900,12 +4379,22 @@ impl RichEditTextRange {
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn InsertImage<'a, Param3: ::std::convert::Into<VerticalCharacterAlignment>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param5: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E5>, E5: ::std::convert::Into<::windows::core::Error>>(&self, width: i32, height: i32, ascent: i32, verticalalign: Param3, alternatetext: Param4, value: Param5) -> ::windows::core::Result<()> {
+    pub fn InsertImage<'a, P0, P1, P2, E2>(&self, width: i32, height: i32, ascent: i32, verticalalign: P0, alternatetext: P1, value: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<VerticalCharacterAlignment>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertImage)(::windows::core::Interface::as_raw(this), width, height, ascent, verticalalign.into(), alternatetext.into().abi(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn InStory<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn InStory<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3913,7 +4402,11 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn IsEqual<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, range: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, P0, E0>(&self, range: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ITextRange>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -3921,7 +4414,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn Move<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn Move<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3929,7 +4425,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveEnd<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn MoveEnd<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3937,7 +4436,10 @@ impl RichEditTextRange {
         }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn MoveStart<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, count: i32) -> ::windows::core::Result<i32> {
+    pub fn MoveStart<'a, P0>(&self, unit: P0, count: i32) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
@@ -3950,7 +4452,10 @@ impl RichEditTextRange {
         unsafe { (::windows::core::Interface::vtable(this).Paste)(::windows::core::Interface::as_raw(this), format).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn ScrollIntoView<'a, Param0: ::std::convert::Into<PointOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ScrollIntoView<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ScrollIntoView)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3960,13 +4465,19 @@ impl RichEditTextRange {
         unsafe { (::windows::core::Interface::vtable(this).MatchSelection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetIndex<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, index: i32, extend: bool) -> ::windows::core::Result<()> {
+    pub fn SetIndex<'a, P0>(&self, unit: P0, index: i32, extend: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), unit.into(), index, extend).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPoint<'a, Param1: ::std::convert::Into<PointOptions>>(&self, point: super::super::Foundation::Point, options: Param1, extend: bool) -> ::windows::core::Result<()> {
+    pub fn SetPoint<'a, P0>(&self, point: super::super::Foundation::Point, options: P0, extend: bool) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PointOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPoint)(::windows::core::Interface::as_raw(this), point, options.into(), extend).ok() }
     }
@@ -3976,18 +4487,30 @@ impl RichEditTextRange {
         unsafe { (::windows::core::Interface::vtable(this).SetRange)(::windows::core::Interface::as_raw(this), startposition, endposition).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn SetText2<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetText2<'a, P0, P1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText2)(::windows::core::Interface::as_raw(this), options.into(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetTextViaStream<'a, Param0: ::std::convert::Into<TextSetOptions>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, options: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetTextViaStream<'a, P0, P1, E1>(&self, options: P0, value: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<TextSetOptions>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTextViaStream)(::windows::core::Interface::as_raw(this), options.into(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Text\"`*"]
-    pub fn StartOf<'a, Param0: ::std::convert::Into<TextRangeUnit>>(&self, unit: Param0, extend: bool) -> ::windows::core::Result<i32> {
+    pub fn StartOf<'a, P0>(&self, unit: P0, extend: bool) -> ::windows::core::Result<i32>
+    where
+        P0: ::std::convert::Into<TextRangeUnit>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();

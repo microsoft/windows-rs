@@ -697,7 +697,10 @@ impl UsbBulkInPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetReadOptions<'a, Param0: ::std::convert::Into<UsbReadOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetReadOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UsbReadOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -899,7 +902,10 @@ impl UsbBulkOutPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetWriteOptions<'a, Param0: ::std::convert::Into<UsbWriteOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWriteOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UsbWriteOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1113,14 +1119,20 @@ impl UsbConfigurationDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, P0>(descriptor: P0, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>,
+    {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0) -> ::windows::core::Result<UsbConfigurationDescriptor> {
+    pub fn Parse<'a, P0>(descriptor: P0) -> ::windows::core::Result<UsbConfigurationDescriptor>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>,
+    {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), result__.as_mut_ptr()).from_abi::<UsbConfigurationDescriptor>(result__)
@@ -1251,7 +1263,10 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetDirection<'a, Param0: ::std::convert::Into<UsbTransferDirection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UsbTransferDirection>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1264,7 +1279,10 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetControlTransferType<'a, Param0: ::std::convert::Into<UsbControlTransferType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetControlTransferType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UsbControlTransferType>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1277,7 +1295,10 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetRecipient<'a, Param0: ::std::convert::Into<UsbControlRecipient>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRecipient<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UsbControlRecipient>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1414,7 +1435,11 @@ impl UsbDescriptor {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadDescriptorBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
+    pub fn ReadDescriptorBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReadDescriptorBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1493,7 +1518,12 @@ impl UsbDevice {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlOutTransferAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, setuppacket: Param0, buffer: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendControlOutTransferAsync<'a, P0, P1, E1>(&self, setuppacket: P0, buffer: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1502,7 +1532,10 @@ impl UsbDevice {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendControlOutTransferAsyncNoBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>>(&self, setuppacket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendControlOutTransferAsyncNoBuffer<'a, P0>(&self, setuppacket: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1511,7 +1544,12 @@ impl UsbDevice {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlInTransferAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, setuppacket: Param0, buffer: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn SendControlInTransferAsync<'a, P0, P1, E1>(&self, setuppacket: P0, buffer: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1520,7 +1558,10 @@ impl UsbDevice {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlInTransferAsyncNoBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>>(&self, setuppacket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn SendControlInTransferAsyncNoBuffer<'a, P0>(&self, setuppacket: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1573,7 +1614,10 @@ impl UsbDevice {
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn GetDeviceClassSelector<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDeviceClass>>>(usbclass: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceClassSelector<'a, P0>(usbclass: P0) -> ::windows::core::Result<::windows::core::HSTRING>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDeviceClass>>,
+    {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceClassSelector)(::windows::core::Interface::as_raw(this), usbclass.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
@@ -1581,7 +1625,10 @@ impl UsbDevice {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UsbDevice>>(result__)
@@ -1712,7 +1759,11 @@ impl UsbDeviceClass {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSubclassCode<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u8>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubclassCode<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u8>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubclassCode)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1727,7 +1778,11 @@ impl UsbDeviceClass {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetProtocolCode<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u8>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProtocolCode<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u8>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProtocolCode)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -2105,14 +2160,20 @@ impl UsbEndpointDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, P0>(descriptor: P0, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>,
+    {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0) -> ::windows::core::Result<UsbEndpointDescriptor> {
+    pub fn Parse<'a, P0>(descriptor: P0) -> ::windows::core::Result<UsbEndpointDescriptor>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>,
+    {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), result__.as_mut_ptr()).from_abi::<UsbEndpointDescriptor>(result__)
@@ -2396,14 +2457,20 @@ impl UsbInterfaceDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, P0>(descriptor: P0, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>,
+    {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0) -> ::windows::core::Result<UsbInterfaceDescriptor> {
+    pub fn Parse<'a, P0>(descriptor: P0) -> ::windows::core::Result<UsbInterfaceDescriptor>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>,
+    {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), result__.as_mut_ptr()).from_abi::<UsbInterfaceDescriptor>(result__)
@@ -2813,7 +2880,10 @@ impl UsbInterruptInPipe {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -3011,7 +3081,10 @@ impl UsbInterruptOutPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetWriteOptions<'a, Param0: ::std::convert::Into<UsbWriteOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWriteOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<UsbWriteOptions>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -3180,7 +3253,10 @@ impl UsbSetupPacket {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetRequestType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbControlRequestType>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRequestType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UsbControlRequestType>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRequestType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3238,7 +3314,11 @@ impl UsbSetupPacket {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithEightByteBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(eightbytebuffer: Param0) -> ::windows::core::Result<UsbSetupPacket> {
+    pub fn CreateWithEightByteBuffer<'a, P0, E0>(eightbytebuffer: P0) -> ::windows::core::Result<UsbSetupPacket>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IUsbSetupPacketFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithEightByteBuffer)(::windows::core::Interface::as_raw(this), eightbytebuffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<UsbSetupPacket>(result__)

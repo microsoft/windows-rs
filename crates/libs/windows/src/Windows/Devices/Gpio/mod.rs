@@ -58,7 +58,10 @@ impl GpioChangeCounter {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn SetPolarity<'a, Param0: ::std::convert::Into<GpioChangePolarity>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPolarity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GpioChangePolarity>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPolarity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -107,7 +110,10 @@ impl GpioChangeCounter {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>>(pin: Param0) -> ::windows::core::Result<GpioChangeCounter> {
+    pub fn Create<'a, P0>(pin: P0) -> ::windows::core::Result<GpioChangeCounter>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
+    {
         Self::IGpioChangeCounterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), pin.into().abi(), result__.as_mut_ptr()).from_abi::<GpioChangeCounter>(result__)
@@ -281,7 +287,10 @@ impl GpioChangeReader {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn SetPolarity<'a, Param0: ::std::convert::Into<GpioChangePolarity>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPolarity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GpioChangePolarity>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPolarity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -353,14 +362,20 @@ impl GpioChangeReader {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>>(pin: Param0) -> ::windows::core::Result<GpioChangeReader> {
+    pub fn Create<'a, P0>(pin: P0) -> ::windows::core::Result<GpioChangeReader>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
+    {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), pin.into().abi(), result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn CreateWithCapacity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>>(pin: Param0, mincapacity: i32) -> ::windows::core::Result<GpioChangeReader> {
+    pub fn CreateWithCapacity<'a, P0>(pin: P0, mincapacity: i32) -> ::windows::core::Result<GpioChangeReader>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
+    {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithCapacity)(::windows::core::Interface::as_raw(this), pin.into().abi(), mincapacity, result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
@@ -524,7 +539,10 @@ impl GpioController {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn OpenPinWithSharingMode<'a, Param1: ::std::convert::Into<GpioSharingMode>>(&self, pinnumber: i32, sharingmode: Param1) -> ::windows::core::Result<GpioPin> {
+    pub fn OpenPinWithSharingMode<'a, P0>(&self, pinnumber: i32, sharingmode: P0) -> ::windows::core::Result<GpioPin>
+    where
+        P0: ::std::convert::Into<GpioSharingMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -532,7 +550,10 @@ impl GpioController {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn TryOpenPin<'a, Param1: ::std::convert::Into<GpioSharingMode>>(&self, pinnumber: i32, sharingmode: Param1, pin: &mut ::core::option::Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> ::windows::core::Result<bool> {
+    pub fn TryOpenPin<'a, P0>(&self, pinnumber: i32, sharingmode: P0, pin: &mut ::core::option::Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<GpioSharingMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -548,7 +569,11 @@ impl GpioController {
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`, `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
-    pub fn GetControllersAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::IGpioProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>> {
+    pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, Provider::IGpioProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGpioControllerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>(result__)
@@ -684,7 +709,10 @@ impl GpioPin {
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ValueChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -729,7 +757,10 @@ impl GpioPin {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn IsDriveModeSupported<'a, Param0: ::std::convert::Into<GpioPinDriveMode>>(&self, drivemode: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsDriveModeSupported<'a, P0>(&self, drivemode: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<GpioPinDriveMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -745,12 +776,18 @@ impl GpioPin {
         }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn SetDriveMode<'a, Param0: ::std::convert::Into<GpioPinDriveMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDriveMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GpioPinDriveMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDriveMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Gpio\"`*"]
-    pub fn Write<'a, Param0: ::std::convert::Into<GpioPinValue>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Write<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GpioPinValue>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }

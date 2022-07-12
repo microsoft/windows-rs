@@ -154,7 +154,10 @@ impl AudioEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -331,7 +334,10 @@ impl ContainerEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -858,7 +864,10 @@ impl IMediaEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1298,7 +1307,10 @@ impl ImageEncodingProperties {
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateUncompressed<'a, Param0: ::std::convert::Into<MediaPixelFormat>>(format: Param0) -> ::windows::core::Result<ImageEncodingProperties> {
+    pub fn CreateUncompressed<'a, P0>(format: P0) -> ::windows::core::Result<ImageEncodingProperties>
+    where
+        P0: ::std::convert::Into<MediaPixelFormat>,
+    {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUncompressed)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<ImageEncodingProperties>(result__)
@@ -1336,7 +1348,10 @@ impl ImageEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1457,7 +1472,10 @@ impl MediaEncodingProfile {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetAudio<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AudioEncodingProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudio<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AudioEncodingProperties>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAudio)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1470,7 +1488,10 @@ impl MediaEncodingProfile {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetVideo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VideoEncodingProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVideo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, VideoEncodingProperties>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVideo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1483,7 +1504,10 @@ impl MediaEncodingProfile {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ContainerEncodingProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContainer<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ContainerEncodingProperties>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContainer)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1497,7 +1521,11 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetAudioTracks<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudioTracks<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAudioTracks)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1512,7 +1540,11 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetVideoTracks<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVideoTracks<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVideoTracks)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1527,7 +1559,11 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetTimedMetadataTracks<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTimedMetadataTracks<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTimedMetadataTracks)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1541,35 +1577,50 @@ impl MediaEncodingProfile {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateM4a<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateM4a<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<AudioEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateM4a)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateMp3<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateMp3<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<AudioEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateMp3)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateWma<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateWma<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<AudioEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWma)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateMp4<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateMp4<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<VideoEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateMp4)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateWmv<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateWmv<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<VideoEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWmv)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
@@ -1577,7 +1628,11 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
+    pub fn CreateFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
@@ -1585,42 +1640,61 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateFromStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
+    pub fn CreateFromStreamAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromStreamAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateWav<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateWav<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<AudioEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWav)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateAvi<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateAvi<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<VideoEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAvi)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateAlac<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateAlac<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<AudioEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAlac)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateFlac<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateFlac<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<AudioEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFlac)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateHevc<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateHevc<'a, P0>(quality: P0) -> ::windows::core::Result<MediaEncodingProfile>
+    where
+        P0: ::std::convert::Into<VideoEncodingQuality>,
+    {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateHevc)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
@@ -2263,7 +2337,10 @@ impl MediaPropertySet {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, key: ::windows::core::GUID, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, P0>(&self, key: ::windows::core::GUID, value: P0) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -2729,7 +2806,10 @@ impl TimedMetadataEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -2903,7 +2983,10 @@ impl VideoEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -3032,7 +3115,10 @@ impl VideoEncodingProperties {
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateUncompressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(subtype: Param0, width: u32, height: u32) -> ::windows::core::Result<VideoEncodingProperties> {
+    pub fn CreateUncompressed<'a, P0>(subtype: P0, width: u32, height: u32) -> ::windows::core::Result<VideoEncodingProperties>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUncompressed)(::windows::core::Interface::as_raw(this), subtype.into().abi(), width, height, result__.as_mut_ptr()).from_abi::<VideoEncodingProperties>(result__)

@@ -56,7 +56,11 @@ pub struct INamedPolicyStatics_Vtbl {
 pub struct NamedPolicy;
 impl NamedPolicy {
     #[doc = "*Required features: `\"Management_Policies\"`*"]
-    pub fn GetPolicyFromPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(area: Param0, name: Param1) -> ::windows::core::Result<NamedPolicyData> {
+    pub fn GetPolicyFromPath<'a, P0, P1>(area: P0, name: P1) -> ::windows::core::Result<NamedPolicyData>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetPolicyFromPath)(::windows::core::Interface::as_raw(this), area.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
@@ -64,7 +68,12 @@ impl NamedPolicy {
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetPolicyFromPathForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, area: Param1, name: Param2) -> ::windows::core::Result<NamedPolicyData> {
+    pub fn GetPolicyFromPathForUser<'a, P0, P1, P2>(user: P0, area: P1, name: P2) -> ::windows::core::Result<NamedPolicyData>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetPolicyFromPathForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), area.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
@@ -175,7 +184,10 @@ impl NamedPolicyData {
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>>>>(&self, changedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();

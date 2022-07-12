@@ -27,7 +27,10 @@ impl GameService {
     }
     #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPartnerTokenAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::super::Foundation::Uri>>>(audienceuri: Param0) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetPartnerTokenAsync<'a, P0>(audienceuri: P0) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::super::Foundation::Uri>>,
+    {
         Self::IGameService(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetPartnerTokenAsync)(::windows::core::Interface::as_raw(this), audienceuri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
@@ -51,12 +54,21 @@ impl GameService {
     }
     #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PostResult<'a, Param1: ::std::convert::Into<GameServiceScoreKind>, Param3: ::std::convert::Into<GameServiceGameOutcome>, Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::super::Storage::Streams::IBuffer>, Error = E4>, E4: ::std::convert::Into<::windows::core::Error>>(gamevariant: u32, scorekind: Param1, scorevalue: i64, gameoutcome: Param3, buffer: Param4) -> ::windows::core::Result<()> {
+    pub fn PostResult<'a, P0, P1, P2, E2>(gamevariant: u32, scorekind: P0, scorevalue: i64, gameoutcome: P1, buffer: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GameServiceScoreKind>,
+        P1: ::std::convert::Into<GameServiceGameOutcome>,
+        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::super::Storage::Streams::IBuffer>, Error = E2>,
+        E2: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGameService(|this| unsafe { (::windows::core::Interface::vtable(this).PostResult)(::windows::core::Interface::as_raw(this), gamevariant, scorekind.into(), scorevalue, gameoutcome.into(), buffer.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NotifyPartnerTokenExpired<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::super::Foundation::Uri>>>(audienceuri: Param0) -> ::windows::core::Result<()> {
+    pub fn NotifyPartnerTokenExpired<'a, P0>(audienceuri: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::super::Foundation::Uri>>,
+    {
         Self::IGameService2(|this| unsafe { (::windows::core::Interface::vtable(this).NotifyPartnerTokenExpired)(::windows::core::Interface::as_raw(this), audienceuri.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
@@ -122,7 +134,10 @@ pub struct GameServicePropertyCollection(::windows::core::IUnknown);
 impl GameServicePropertyCollection {
     #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPropertyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>> {
+    pub fn GetPropertyAsync<'a, P0>(&self, propertyname: P0) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();

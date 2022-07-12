@@ -2,19 +2,39 @@
 pub struct GameControllerFactoryManager;
 impl GameControllerFactoryManager {
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn RegisterCustomFactoryForGipInterface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(factory: Param0, interfaceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+    pub fn RegisterCustomFactoryForGipInterface<'a, P0, E0>(factory: P0, interfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCustomFactoryForGipInterface)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), interfaceid).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn RegisterCustomFactoryForHardwareId<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(factory: Param0, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()> {
+    pub fn RegisterCustomFactoryForHardwareId<'a, P0, E0>(factory: P0, hardwarevendorid: u16, hardwareproductid: u16) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCustomFactoryForHardwareId)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), hardwarevendorid, hardwareproductid).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn RegisterCustomFactoryForXusbType<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<XusbDeviceType>, Param2: ::std::convert::Into<XusbDeviceSubtype>>(factory: Param0, xusbtype: Param1, xusbsubtype: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterCustomFactoryForXusbType<'a, P0, E0, P1, P2>(factory: P0, xusbtype: P1, xusbsubtype: P2) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<XusbDeviceType>,
+        P2: ::std::convert::Into<XusbDeviceSubtype>,
+    {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCustomFactoryForXusbType)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), xusbtype.into(), xusbsubtype.into()).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn TryGetFactoryControllerFromGameController<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(factory: Param0, gamecontroller: Param1) -> ::windows::core::Result<super::IGameController> {
+    pub fn TryGetFactoryControllerFromGameController<'a, P0, E0, P1, E1>(factory: P0, gamecontroller: P1) -> ::windows::core::Result<super::IGameController>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IGameControllerFactoryManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetFactoryControllerFromGameController)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), gamecontroller.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::IGameController>(result__)
@@ -283,18 +303,28 @@ impl GipGameControllerProvider {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn SendMessage<'a, Param0: ::std::convert::Into<GipMessageClass>>(&self, messageclass: Param0, messageid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, P0>(&self, messageclass: P0, messageid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GipMessageClass>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), messageclass.into(), messageid, messagebuffer.len() as u32, ::core::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn SendReceiveMessage<'a, Param0: ::std::convert::Into<GipMessageClass>>(&self, messageclass: Param0, messageid: u8, requestmessagebuffer: &[u8], responsemessagebuffer: &mut [u8]) -> ::windows::core::Result<()> {
+    pub fn SendReceiveMessage<'a, P0>(&self, messageclass: P0, messageid: u8, requestmessagebuffer: &[u8], responsemessagebuffer: &mut [u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GipMessageClass>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendReceiveMessage)(::windows::core::Interface::as_raw(this), messageclass.into(), messageid, requestmessagebuffer.len() as u32, ::core::mem::transmute(requestmessagebuffer.as_ptr()), responsemessagebuffer.len() as u32, ::core::mem::transmute_copy(&responsemessagebuffer)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UpdateFirmwareAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, firmwareimage: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>> {
+    pub fn UpdateFirmwareAsync<'a, P0, E0>(&self, firmwareimage: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -580,7 +610,11 @@ unsafe impl ::core::marker::Sync for HidGameControllerProvider {}
 pub struct ICustomGameControllerFactory(::windows::core::IUnknown);
 impl ICustomGameControllerFactory {
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn CreateGameController<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameControllerProvider>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, provider: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateGameController<'a, P0, E0>(&self, provider: P0) -> ::windows::core::Result<::windows::core::IInspectable>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IGameControllerProvider>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -588,12 +622,20 @@ impl ICustomGameControllerFactory {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn OnGameControllerAdded<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn OnGameControllerAdded<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnGameControllerAdded)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn OnGameControllerRemoved<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn OnGameControllerRemoved<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGameController>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnGameControllerRemoved)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -907,7 +949,10 @@ impl IGipGameControllerInputSink {
         unsafe { (::windows::core::Interface::vtable(this).OnKeyReceived)(::windows::core::Interface::as_raw(this), timestamp, keycode, ispressed).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn OnMessageReceived<'a, Param1: ::std::convert::Into<GipMessageClass>>(&self, timestamp: u64, messageclass: Param1, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()> {
+    pub fn OnMessageReceived<'a, P0>(&self, timestamp: u64, messageclass: P0, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<GipMessageClass>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).OnMessageReceived)(::windows::core::Interface::as_raw(this), timestamp, messageclass.into(), messageid, sequenceid, messagebuffer.len() as u32, ::core::mem::transmute(messagebuffer.as_ptr())).ok() }
     }

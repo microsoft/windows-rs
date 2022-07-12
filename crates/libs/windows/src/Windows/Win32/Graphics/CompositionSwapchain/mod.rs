@@ -74,7 +74,10 @@ impl ::core::fmt::Debug for CompositionFrameInstanceKind {
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[inline]
-pub unsafe fn CreatePresentationFactory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CreatePresentationFactory<'a, P0>(d3ddevice: P0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePresentationFactory(d3ddevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -581,13 +584,19 @@ pub struct IPresentationFactory_Vtbl {
 pub struct IPresentationManager(::windows::core::IUnknown);
 impl IPresentationManager {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn AddBufferFromResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, resource: Param0) -> ::windows::core::Result<IPresentationBuffer> {
+    pub unsafe fn AddBufferFromResource<'a, P0>(&self, resource: P0) -> ::windows::core::Result<IPresentationBuffer>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddBufferFromResource)(::windows::core::Interface::as_raw(self), resource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationBuffer>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePresentationSurface<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, compositionsurfacehandle: Param0) -> ::windows::core::Result<IPresentationSurface> {
+    pub unsafe fn CreatePresentationSurface<'a, P0>(&self, compositionsurfacehandle: P0) -> ::windows::core::Result<IPresentationSurface>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreatePresentationSurface)(::windows::core::Interface::as_raw(self), compositionsurfacehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
     }
@@ -633,7 +642,10 @@ impl IPresentationManager {
         (::windows::core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn EnablePresentStatisticsKind<'a, Param0: ::std::convert::Into<PresentStatisticsKind>>(&self, presentstatisticskind: Param0, enabled: u8) -> ::windows::core::Result<()> {
+    pub unsafe fn EnablePresentStatisticsKind<'a, P0>(&self, presentstatisticskind: P0, enabled: u8) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PresentStatisticsKind>,
+    {
         (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), presentstatisticskind.into(), ::core::mem::transmute(enabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
@@ -713,17 +725,26 @@ impl IPresentationSurface {
         (::windows::core::Interface::vtable(self).base__.SetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tag))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn SetBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IPresentationBuffer>>>(&self, presentationbuffer: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetBuffer<'a, P0>(&self, presentationbuffer: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IPresentationBuffer>>,
+    {
         (::windows::core::Interface::vtable(self).SetBuffer)(::windows::core::Interface::as_raw(self), presentationbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetColorSpace<'a, Param0: ::std::convert::Into<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>>(&self, colorspace: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetColorSpace<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>,
+    {
         (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), colorspace.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetAlphaMode<'a, Param0: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>>(&self, alphamode: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetAlphaMode<'a, P0>(&self, alphamode: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
+    {
         (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), alphamode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
@@ -736,7 +757,10 @@ impl IPresentationSurface {
         (::windows::core::Interface::vtable(self).SetTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn RestrictToOutput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, output: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn RestrictToOutput<'a, P0>(&self, output: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).RestrictToOutput)(::windows::core::Interface::as_raw(self), output.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]

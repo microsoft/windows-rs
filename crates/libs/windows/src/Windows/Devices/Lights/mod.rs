@@ -262,7 +262,10 @@ impl Lamp {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailabilityChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailabilityChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -284,7 +287,10 @@ impl Lamp {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Lamp>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Lamp>>(result__)
@@ -510,7 +516,10 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetIndicesForKey<'a, Param0: ::std::convert::Into<super::super::System::VirtualKey>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::Array<i32>> {
+    pub fn GetIndicesForKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::Array<i32>>
+    where
+        P0: ::std::convert::Into<super::super::System::VirtualKey>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<i32>>::zeroed();
@@ -518,7 +527,10 @@ impl LampArray {
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`*"]
-    pub fn GetIndicesForPurposes<'a, Param0: ::std::convert::Into<LampPurposes>>(&self, purposes: Param0) -> ::windows::core::Result<::windows::core::Array<i32>> {
+    pub fn GetIndicesForPurposes<'a, P0>(&self, purposes: P0) -> ::windows::core::Result<::windows::core::Array<i32>>
+    where
+        P0: ::std::convert::Into<LampPurposes>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<i32>>::zeroed();
@@ -551,7 +563,10 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`, `\"UI\"`*"]
     #[cfg(all(feature = "System", feature = "UI"))]
-    pub fn SetColorsForKey<'a, Param1: ::std::convert::Into<super::super::System::VirtualKey>>(&self, desiredcolor: super::super::UI::Color, key: Param1) -> ::windows::core::Result<()> {
+    pub fn SetColorsForKey<'a, P0>(&self, desiredcolor: super::super::UI::Color, key: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::System::VirtualKey>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorsForKey)(::windows::core::Interface::as_raw(this), desiredcolor, key.into()).ok() }
     }
@@ -563,13 +578,20 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetColorsForPurposes<'a, Param1: ::std::convert::Into<LampPurposes>>(&self, desiredcolor: super::super::UI::Color, purposes: Param1) -> ::windows::core::Result<()> {
+    pub fn SetColorsForPurposes<'a, P0>(&self, desiredcolor: super::super::UI::Color, purposes: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<LampPurposes>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorsForPurposes)(::windows::core::Interface::as_raw(this), desiredcolor, purposes.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendMessageAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, messageid: i32, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendMessageAsync<'a, P0, E0>(&self, messageid: i32, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -594,7 +616,10 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LampArray>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LampArray>>(result__)

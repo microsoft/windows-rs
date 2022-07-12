@@ -84,7 +84,10 @@ pub struct DRendezvousSessionEvents_Vtbl {
 pub struct IRendezvousApplication(::windows::core::IUnknown);
 impl IRendezvousApplication {
     #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
-    pub unsafe fn SetRendezvousSession<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, prendezvoussession: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SetRendezvousSession<'a, P0>(&self, prendezvoussession: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    {
         (::windows::core::Interface::vtable(self).SetRendezvousSession)(::windows::core::Interface::as_raw(self), prendezvoussession.into().abi()).ok()
     }
 }
@@ -151,12 +154,18 @@ impl IRendezvousSession {
     }
     #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendContextData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdata: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn SendContextData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Terminate<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, hr: ::windows::core::HRESULT, bstrappdata: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn Terminate<'a, P0>(&self, hr: ::windows::core::HRESULT, bstrappdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    {
         (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), bstrappdata.into().abi()).ok()
     }
 }

@@ -310,24 +310,36 @@ impl SimpleHapticsController {
         unsafe { (::windows::core::Interface::vtable(this).StopFeedback)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`*"]
-    pub fn SendHapticFeedback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedback<'a, P0>(&self, feedback: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedback)(::windows::core::Interface::as_raw(this), feedback.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`*"]
-    pub fn SendHapticFeedbackWithIntensity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0, intensity: f64) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedbackWithIntensity<'a, P0>(&self, feedback: P0, intensity: f64) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendHapticFeedbackForDuration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedbackForDuration<'a, P0>(&self, feedback: P0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForDuration)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity, playduration).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendHapticFeedbackForPlayCount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedbackForPlayCount<'a, P0>(&self, feedback: P0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity, playcount, replaypauseinterval).ok() }
     }
@@ -551,7 +563,10 @@ impl VibrationDevice {
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
+    pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VibrationDevice>>(result__)

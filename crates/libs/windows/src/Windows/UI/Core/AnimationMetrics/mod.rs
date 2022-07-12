@@ -46,7 +46,11 @@ impl AnimationDescription {
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
-    pub fn CreateInstance<'a, Param0: ::std::convert::Into<AnimationEffect>, Param1: ::std::convert::Into<AnimationEffectTarget>>(effect: Param0, target: Param1) -> ::windows::core::Result<AnimationDescription> {
+    pub fn CreateInstance<'a, P0, P1>(effect: P0, target: P1) -> ::windows::core::Result<AnimationDescription>
+    where
+        P0: ::std::convert::Into<AnimationEffect>,
+        P1: ::std::convert::Into<AnimationEffectTarget>,
+    {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect.into(), target.into(), result__.as_mut_ptr()).from_abi::<AnimationDescription>(result__)

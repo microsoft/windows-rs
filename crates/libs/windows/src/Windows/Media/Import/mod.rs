@@ -888,7 +888,10 @@ impl PhotoImportFindItemsResult {
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetImportMode<'a, Param0: ::std::convert::Into<PhotoImportImportMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImportMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PhotoImportImportMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetImportMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -982,7 +985,10 @@ impl PhotoImportFindItemsResult {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SelectionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SelectionChanged<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1006,7 +1012,10 @@ impl PhotoImportFindItemsResult {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ItemImported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ItemImported<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
@@ -1922,7 +1931,11 @@ impl PhotoImportSession {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn SetDestinationFolder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDestinationFolder<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDestinationFolder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
@@ -1949,7 +1962,10 @@ impl PhotoImportSession {
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetSubfolderCreationMode<'a, Param0: ::std::convert::Into<PhotoImportSubfolderCreationMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubfolderCreationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PhotoImportSubfolderCreationMode>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSubfolderCreationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -1962,7 +1978,10 @@ impl PhotoImportSession {
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetDestinationFileNamePrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDestinationFileNamePrefix<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDestinationFileNamePrefix)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
@@ -1976,7 +1995,11 @@ impl PhotoImportSession {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FindItemsAsync<'a, Param0: ::std::convert::Into<PhotoImportContentTypeFilter>, Param1: ::std::convert::Into<PhotoImportItemSelectionMode>>(&self, contenttypefilter: Param0, itemselectionmode: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
+    pub fn FindItemsAsync<'a, P0, P1>(&self, contenttypefilter: P0, itemselectionmode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>
+    where
+        P0: ::std::convert::Into<PhotoImportContentTypeFilter>,
+        P1: ::std::convert::Into<PhotoImportItemSelectionMode>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -1984,7 +2007,10 @@ impl PhotoImportSession {
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetSubfolderDateFormat<'a, Param0: ::std::convert::Into<PhotoImportSubfolderDateFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubfolderDateFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<PhotoImportSubfolderDateFormat>,
+    {
         let this = &::windows::core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSubfolderDateFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
@@ -2333,7 +2359,10 @@ impl PhotoImportSource {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(sourceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>> {
+    pub fn FromIdAsync<'a, P0>(sourceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+    {
         Self::IPhotoImportSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), sourceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhotoImportSource>>(result__)
@@ -2341,7 +2370,11 @@ impl PhotoImportSource {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn FromFolderAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(sourcerootfolder: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>> {
+    pub fn FromFolderAsync<'a, P0, E0>(sourcerootfolder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
         Self::IPhotoImportSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FromFolderAsync)(::windows::core::Interface::as_raw(this), sourcerootfolder.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhotoImportSource>>(result__)
