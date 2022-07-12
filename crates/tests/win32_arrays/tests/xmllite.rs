@@ -31,7 +31,7 @@ fn test() -> Result<()> {
         reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_XmlDeclaration);
 
-        let mut name = PWSTR::default();
+        let mut name = PWSTR::null();
         let mut name_len = 0;
 
         let mut node_type = XmlNodeType_None;
@@ -108,7 +108,7 @@ fn lite() -> Result<()> {
         let reader = reader.unwrap();
         reader.SetInput(&stream)?;
 
-        let mut name = PWSTR::default();
+        let mut name = PWSTR::null();
         let mut name_len = 0;
 
         let mut node_type = XmlNodeType_None;
