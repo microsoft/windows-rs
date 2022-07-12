@@ -13,19 +13,14 @@ mod generic_factory;
 mod guid;
 mod heap;
 mod hresult;
-mod hstring;
 mod inspectable;
 mod interface;
-mod literals;
 mod param;
-mod pcstr;
-mod pcwstr;
-mod pstr;
-mod pwstr;
 mod ref_count;
 mod runtime_name;
 mod runtime_type;
 mod sha1;
+mod strings;
 mod unknown;
 mod waiter;
 mod weak;
@@ -50,16 +45,9 @@ pub use generic_factory::*;
 pub use guid::*;
 pub(crate) use heap::*;
 pub use hresult::*;
-pub use hstring::*;
 pub use inspectable::*;
 pub use interface::*;
-#[doc(hidden)]
-pub use literals::*;
 pub use param::*;
-pub use pcstr::*;
-pub use pcwstr::*;
-pub use pstr::*;
-pub use pwstr::*;
 #[doc(hidden)]
 pub use ref_count::*;
 #[doc(hidden)]
@@ -68,6 +56,7 @@ pub use runtime_name::*;
 pub use runtime_type::*;
 #[doc(hidden)]
 pub use sha1::*;
+pub use strings::*;
 pub use unknown::*;
 #[doc(hidden)]
 pub use waiter::*;

@@ -8,7 +8,7 @@ pub struct WaiterSignaler(HANDLE);
 impl Waiter {
     pub fn new() -> Result<(Waiter, WaiterSignaler)> {
         unsafe {
-            let handle = CreateEventA(core::ptr::null_mut(), true, false, PCSTR::null())?;
+            let handle = CreateEventA(core::ptr::null_mut(), true, false, None)?;
             Ok((Waiter(handle), WaiterSignaler(handle)))
         }
     }

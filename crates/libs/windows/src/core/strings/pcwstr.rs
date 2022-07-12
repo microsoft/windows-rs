@@ -30,15 +30,9 @@ impl PCWSTR {
     ///
     /// # Safety
     ///
-    /// The `PCWSTR`'s pointer needs to valid for reads up until and including the next `\0`.
+    /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_wide(&self) -> &[u16] {
-        let mut len = 0;
-        let mut cursor = self.0;
-        while cursor.read() != 0 {
-            len += 1;
-            cursor = cursor.add(1);
-        }
-
+        let len = super::wcslen(*self);
         std::slice::from_raw_parts(self.0, len)
     }
 
