@@ -286,7 +286,8 @@ impl<'a> Gen<'a> {
             .map(|(position, param)| -> TokenStream {
                 let mut p = format!("P{}", position);
                 if self.reader.signature_param_is_failible_param(param) {
-                    p.push_str(&format!(", E{}", position));
+                    p.push_str(", E");
+                    p.push_str(&position.to_string());
                 }
 
                 p.into()
