@@ -64,16 +64,14 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
                 quote! {},
             )
         } else {
-            let abi_type_name = gen.type_abi_name(return_type);
-
             (
                 quote! {
-                    let mut result__ = ::core::mem::MaybeUninit::<#abi_type_name>::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
                         (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
                 quote! {
-                    let mut result__ = ::core::mem::MaybeUninit::<#abi_type_name>::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
                         (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
