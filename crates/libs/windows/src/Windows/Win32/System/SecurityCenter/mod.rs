@@ -10,7 +10,7 @@ impl IWSCDefaultProduct {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(etype), pguid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), etype, pguid.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -92,7 +92,7 @@ pub struct IWSCProductList(::windows::core::IUnknown);
 impl IWSCProductList {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), provider).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -103,7 +103,7 @@ impl IWSCProductList {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: u32) -> ::windows::core::Result<IWscProduct> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWscProduct>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWscProduct>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -878,7 +878,7 @@ pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SEC
     extern "system" {
         fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::HRESULT;
     }
-    WscGetSecurityProviderHealth(::core::mem::transmute(providers), ::core::mem::transmute(phealth)).ok()
+    WscGetSecurityProviderHealth(providers, ::core::mem::transmute(phealth)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
 #[inline]

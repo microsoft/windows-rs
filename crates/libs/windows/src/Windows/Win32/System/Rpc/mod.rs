@@ -140,7 +140,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: &mut [u8; 256])
     extern "system" {
         fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(DceErrorInqTextA(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
+    ::core::mem::transmute(DceErrorInqTextA(rpcstatus, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -149,7 +149,7 @@ pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: &mut [u16; 256]
     extern "system" {
         fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(DceErrorInqTextW(::core::mem::transmute(rpcstatus), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
+    ::core::mem::transmute(DceErrorInqTextW(rpcstatus, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(errortext))))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const EEInfoGCCOM: u32 = 11u32;
@@ -442,7 +442,7 @@ pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn I_RpcAllocate(size: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(I_RpcAllocate(::core::mem::transmute(size)))
+    ::core::mem::transmute(I_RpcAllocate(size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -452,7 +452,7 @@ pub unsafe fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode:
     extern "system" {
         fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcAsyncAbortCall(::core::mem::transmute(pasync), ::core::mem::transmute(exceptioncode)))
+    ::core::mem::transmute(I_RpcAsyncAbortCall(::core::mem::transmute(pasync), exceptioncode))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -598,7 +598,7 @@ pub unsafe fn I_RpcBindingSetPrivateOption(hbinding: *const ::core::ffi::c_void,
     extern "system" {
         fn I_RpcBindingSetPrivateOption(hbinding: *const ::core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcBindingSetPrivateOption(::core::mem::transmute(hbinding), ::core::mem::transmute(option), ::core::mem::transmute(optionvalue)))
+    ::core::mem::transmute(I_RpcBindingSetPrivateOption(::core::mem::transmute(hbinding), option, optionvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -634,7 +634,7 @@ pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
     extern "system" {
         fn I_RpcExceptionFilter(exceptioncode: u32) -> i32;
     }
-    ::core::mem::transmute(I_RpcExceptionFilter(::core::mem::transmute(exceptioncode)))
+    ::core::mem::transmute(I_RpcExceptionFilter(exceptioncode))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -717,7 +717,7 @@ pub unsafe fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::core::ffi::c_void, 
     extern "system" {
         fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::core::ffi::c_void, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcIfInqTransferSyntaxes(::core::mem::transmute(rpcifhandle), ::core::mem::transmute(transfersyntaxes), ::core::mem::transmute(transfersyntaxsize), ::core::mem::transmute(transfersyntaxcount)))
+    ::core::mem::transmute(I_RpcIfInqTransferSyntaxes(::core::mem::transmute(rpcifhandle), ::core::mem::transmute(transfersyntaxes), transfersyntaxsize, ::core::mem::transmute(transfersyntaxcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -726,7 +726,7 @@ pub unsafe fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32 {
     extern "system" {
         fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32;
     }
-    ::core::mem::transmute(I_RpcMapWin32Status(::core::mem::transmute(status)))
+    ::core::mem::transmute(I_RpcMapWin32Status(status))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -753,7 +753,7 @@ pub unsafe fn I_RpcNsBindingSetEntryNameA(binding: *const ::core::ffi::c_void, e
     extern "system" {
         fn I_RpcNsBindingSetEntryNameA(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcNsBindingSetEntryNameA(::core::mem::transmute(binding), ::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(I_RpcNsBindingSetEntryNameA(::core::mem::transmute(binding), entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -762,7 +762,7 @@ pub unsafe fn I_RpcNsBindingSetEntryNameW(binding: *const ::core::ffi::c_void, e
     extern "system" {
         fn I_RpcNsBindingSetEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcNsBindingSetEntryNameW(::core::mem::transmute(binding), ::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(I_RpcNsBindingSetEntryNameW(::core::mem::transmute(binding), entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -780,7 +780,7 @@ pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16
     extern "system" {
         fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcNsInterfaceExported(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(rpcinterfaceinformation)))
+    ::core::mem::transmute(I_RpcNsInterfaceExported(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(rpcinterfaceinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -789,7 +789,7 @@ pub unsafe fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u
     extern "system" {
         fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcNsInterfaceUnexported(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(rpcinterfaceinformation)))
+    ::core::mem::transmute(I_RpcNsInterfaceUnexported(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(rpcinterfaceinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -798,7 +798,7 @@ pub unsafe fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATU
     extern "system" {
         fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
     }
-    I_RpcNsRaiseException(::core::mem::transmute(message), ::core::mem::transmute(status))
+    I_RpcNsRaiseException(::core::mem::transmute(message), status)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -816,7 +816,7 @@ pub unsafe fn I_RpcOpenClientProcess(binding: *const ::core::ffi::c_void, desire
     extern "system" {
         fn I_RpcOpenClientProcess(binding: *const ::core::ffi::c_void, desiredaccess: u32, clientprocess: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcOpenClientProcess(::core::mem::transmute(binding), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(clientprocess)))
+    ::core::mem::transmute(I_RpcOpenClientProcess(::core::mem::transmute(binding), desiredaccess, ::core::mem::transmute(clientprocess)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -825,7 +825,7 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
     extern "system" {
         fn I_RpcPauseExecution(milliseconds: u32);
     }
-    I_RpcPauseExecution(::core::mem::transmute(milliseconds))
+    I_RpcPauseExecution(milliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub type I_RpcPerformCalloutFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
@@ -907,7 +907,7 @@ pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) 
     extern "system" {
         fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcReallocPipeBuffer(::core::mem::transmute(message), ::core::mem::transmute(newsize)))
+    ::core::mem::transmute(I_RpcReallocPipeBuffer(::core::mem::transmute(message), newsize))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -916,7 +916,7 @@ pub unsafe fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS {
     extern "system" {
         fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcReceive(::core::mem::transmute(message), ::core::mem::transmute(size)))
+    ::core::mem::transmute(I_RpcReceive(::core::mem::transmute(message), size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -925,7 +925,7 @@ pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mu
     extern "system" {
         fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16);
     }
-    I_RpcRecordCalloutFailure(::core::mem::transmute(rpcstatus), ::core::mem::transmute(calloutstate), ::core::mem::transmute(dllname))
+    I_RpcRecordCalloutFailure(rpcstatus, ::core::mem::transmute(calloutstate), ::core::mem::transmute(dllname))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1078,7 +1078,7 @@ pub unsafe fn I_RpcServerUseProtseq2A(networkaddress: *const u8, protseq: *const
     extern "system" {
         fn I_RpcServerUseProtseq2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcServerUseProtseq2A(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(I_RpcServerUseProtseq2A(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1087,7 +1087,7 @@ pub unsafe fn I_RpcServerUseProtseq2W(networkaddress: *const u16, protseq: *cons
     extern "system" {
         fn I_RpcServerUseProtseq2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcServerUseProtseq2W(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(I_RpcServerUseProtseq2W(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1096,7 +1096,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2A(networkaddress: *const u8, protseq: *con
     extern "system" {
         fn I_RpcServerUseProtseqEp2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcServerUseProtseqEp2A(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(I_RpcServerUseProtseqEp2A(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1105,7 +1105,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2W(networkaddress: *const u16, protseq: *co
     extern "system" {
         fn I_RpcServerUseProtseqEp2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::core::ffi::c_void, policy: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcServerUseProtseqEp2W(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(I_RpcServerUseProtseqEp2W(::core::mem::transmute(networkaddress), ::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1132,7 +1132,7 @@ pub unsafe fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::core::ffi::c_void
     extern "system" {
         fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::core::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS;
     }
-    ::core::mem::transmute(I_RpcSystemHandleTypeSpecificWork(::core::mem::transmute(handle), ::core::mem::transmute(actualtype), ::core::mem::transmute(idltype), ::core::mem::transmute(marshaldirection)))
+    ::core::mem::transmute(I_RpcSystemHandleTypeSpecificWork(::core::mem::transmute(handle), actualtype, idltype, marshaldirection))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -1999,7 +1999,7 @@ pub unsafe fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlesty
     extern "system" {
         fn MesBufferHandleReset(handle: *const ::core::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesBufferHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(handlestyle), ::core::mem::transmute(operation), ::core::mem::transmute(pbuffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(pencodedsize)))
+    ::core::mem::transmute(MesBufferHandleReset(::core::mem::transmute(handle), handlestyle, operation, ::core::mem::transmute(pbuffer), buffersize, ::core::mem::transmute(pencodedsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -2011,7 +2011,7 @@ where
     extern "system" {
         fn MesDecodeBufferHandleCreate(buffer: ::windows::core::PCSTR, buffersize: u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesDecodeBufferHandleCreate(buffer.into(), ::core::mem::transmute(buffersize), ::core::mem::transmute(phandle)))
+    ::core::mem::transmute(MesDecodeBufferHandleCreate(buffer.into(), buffersize, ::core::mem::transmute(phandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -2038,7 +2038,7 @@ pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: ::windows::core::PSTR, b
     extern "system" {
         fn MesEncodeFixedBufferHandleCreate(pbuffer: ::windows::core::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesEncodeFixedBufferHandleCreate(::core::mem::transmute(pbuffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(pencodedsize), ::core::mem::transmute(phandle)))
+    ::core::mem::transmute(MesEncodeFixedBufferHandleCreate(::core::mem::transmute(pbuffer), buffersize, ::core::mem::transmute(pencodedsize), ::core::mem::transmute(phandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -2065,7 +2065,7 @@ pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userst
     extern "system" {
         fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: *mut ::core::ffi::c_void, writefn: *mut ::core::ffi::c_void, readfn: *mut ::core::ffi::c_void, operation: MIDL_ES_CODE) -> RPC_STATUS;
     }
-    ::core::mem::transmute(MesIncrementalHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(readfn), ::core::mem::transmute(operation)))
+    ::core::mem::transmute(MesIncrementalHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(readfn), operation))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4207,7 +4207,7 @@ pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn NDRCContextBinding(ccontext: isize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(NDRCContextBinding(::core::mem::transmute(ccontext)))
+    ::core::mem::transmute(NDRCContextBinding(ccontext))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4216,7 +4216,7 @@ pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::core::ffi::c_vo
     extern "system" {
         fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::core::ffi::c_void);
     }
-    NDRCContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff))
+    NDRCContextMarshall(ccontext, ::core::mem::transmute(pbuff))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4225,7 +4225,7 @@ pub unsafe fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::co
     extern "system" {
         fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32);
     }
-    NDRCContextUnmarshall(::core::mem::transmute(pccontext), ::core::mem::transmute(hbinding), ::core::mem::transmute(pbuff), ::core::mem::transmute(datarepresentation))
+    NDRCContextUnmarshall(::core::mem::transmute(pccontext), ::core::mem::transmute(hbinding), ::core::mem::transmute(pbuff), datarepresentation)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4243,7 +4243,7 @@ pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, cc
     extern "system" {
         fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: *mut ::core::ffi::c_void, ctxguard: *const ::core::ffi::c_void, flags: u32);
     }
-    NDRSContextMarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin), ::core::mem::transmute(ctxguard), ::core::mem::transmute(flags))
+    NDRSContextMarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin), ::core::mem::transmute(ctxguard), flags)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4261,7 +4261,7 @@ pub unsafe fn NDRSContextUnmarshall(pbuff: *const ::core::ffi::c_void, datarepre
     extern "system" {
         fn NDRSContextUnmarshall(pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1;
     }
-    ::core::mem::transmute(NDRSContextUnmarshall(::core::mem::transmute(pbuff), ::core::mem::transmute(datarepresentation)))
+    ::core::mem::transmute(NDRSContextUnmarshall(::core::mem::transmute(pbuff), datarepresentation))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4270,7 +4270,7 @@ pub unsafe fn NDRSContextUnmarshall2(bindinghandle: *const ::core::ffi::c_void, 
     extern "system" {
         fn NDRSContextUnmarshall2(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32, ctxguard: *const ::core::ffi::c_void, flags: u32) -> *mut NDR_SCONTEXT_1;
     }
-    ::core::mem::transmute(NDRSContextUnmarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(pbuff), ::core::mem::transmute(datarepresentation), ::core::mem::transmute(ctxguard), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(NDRSContextUnmarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(pbuff), datarepresentation, ::core::mem::transmute(ctxguard), flags))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4279,7 +4279,7 @@ pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void,
     extern "system" {
         fn NDRSContextUnmarshallEx(bindinghandle: *const ::core::ffi::c_void, pbuff: *const ::core::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1;
     }
-    ::core::mem::transmute(NDRSContextUnmarshallEx(::core::mem::transmute(bindinghandle), ::core::mem::transmute(pbuff), ::core::mem::transmute(datarepresentation)))
+    ::core::mem::transmute(NDRSContextUnmarshallEx(::core::mem::transmute(bindinghandle), ::core::mem::transmute(pbuff), datarepresentation))
 }
 #[repr(C)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
@@ -4540,7 +4540,7 @@ pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, np
     extern "system" {
         fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
-    ::core::mem::transmute(Ndr64AsyncClientCall(::core::mem::transmute(pproxyinfo), ::core::mem::transmute(nprocnum), ::core::mem::transmute(preturnvalue)))
+    ::core::mem::transmute(Ndr64AsyncClientCall(::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -4568,7 +4568,7 @@ pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO
     extern "system" {
         fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
-    ::core::mem::transmute(Ndr64DcomAsyncClientCall(::core::mem::transmute(pproxyinfo), ::core::mem::transmute(nprocnum), ::core::mem::transmute(preturnvalue)))
+    ::core::mem::transmute(Ndr64DcomAsyncClientCall(::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4592,7 +4592,7 @@ pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut 
     extern "system" {
         fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(NdrAllocate(::core::mem::transmute(pstubmsg), ::core::mem::transmute(len)))
+    ::core::mem::transmute(NdrAllocate(::core::mem::transmute(pstubmsg), len))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4651,7 +4651,7 @@ pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
     extern "system" {
         fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrByteCountPointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrByteCountPointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4681,7 +4681,7 @@ pub unsafe fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum
     extern "system" {
         fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
-    ::core::mem::transmute(NdrClientCall3(::core::mem::transmute(pproxyinfo), ::core::mem::transmute(nprocnum), ::core::mem::transmute(preturnvalue)))
+    ::core::mem::transmute(NdrClientCall3(::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4691,7 +4691,7 @@ pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
     extern "system" {
         fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: isize, fcheck: i32);
     }
-    NdrClientContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(fcheck))
+    NdrClientContextMarshall(::core::mem::transmute(pstubmsg), contexthandle, fcheck)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4711,7 +4711,7 @@ pub unsafe fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL
     extern "system" {
         fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
     }
-    NdrClientInitialize(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(procnum))
+    NdrClientInitialize(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), procnum)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4721,7 +4721,7 @@ pub unsafe fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut M
     extern "system" {
         fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
     }
-    NdrClientInitializeNew(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(procnum))
+    NdrClientInitializeNew(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), procnum)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4771,7 +4771,7 @@ pub unsafe fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemo
     extern "system" {
         fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrComplexArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrComplexArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4821,7 +4821,7 @@ pub unsafe fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmem
     extern "system" {
         fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrComplexStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrComplexStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4871,7 +4871,7 @@ pub unsafe fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppm
     extern "system" {
         fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrConformantArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrConformantArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4911,7 +4911,7 @@ pub unsafe fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
     extern "system" {
         fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrConformantStringUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrConformantStringUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4961,7 +4961,7 @@ pub unsafe fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
     extern "system" {
         fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrConformantStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrConformantStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5011,7 +5011,7 @@ pub unsafe fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSA
     extern "system" {
         fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrConformantVaryingArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrConformantVaryingArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5061,7 +5061,7 @@ pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESS
     extern "system" {
         fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrConformantVaryingStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrConformantVaryingStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5101,7 +5101,7 @@ pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, nu
     extern "system" {
         fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, numberparams: i32);
     }
-    NdrConvert2(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), ::core::mem::transmute(numberparams))
+    NdrConvert2(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), numberparams)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5121,7 +5121,7 @@ pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
     extern "system" {
         fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32);
     }
-    NdrCorrelationInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(cachesize), ::core::mem::transmute(flags))
+    NdrCorrelationInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), cachesize, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5218,7 +5218,7 @@ pub unsafe fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, p
     extern "system" {
         fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrEncapsulatedUnionUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrEncapsulatedUnionUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5268,7 +5268,7 @@ pub unsafe fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory
     extern "system" {
         fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrFixedArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrFixedArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5296,7 +5296,7 @@ pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE)
     extern "system" {
         fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES;
     }
-    ::core::mem::transmute(NdrFullPointerXlatInit(::core::mem::transmute(numberofpointers), ::core::mem::transmute(xlatside)))
+    ::core::mem::transmute(NdrFullPointerXlatInit(numberofpointers, xlatside))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5306,7 +5306,7 @@ pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, 
     extern "system" {
         fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
     }
-    ::core::mem::transmute(NdrGetBuffer(::core::mem::transmute(pstubmsg), ::core::mem::transmute(bufferlength), ::core::mem::transmute(handle)))
+    ::core::mem::transmute(NdrGetBuffer(::core::mem::transmute(pstubmsg), bufferlength, ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5326,7 +5326,7 @@ pub unsafe fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, p
     extern "system" {
         fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS;
     }
-    ::core::mem::transmute(NdrGetUserMarshalInfo(::core::mem::transmute(pflags), ::core::mem::transmute(informationlevel), ::core::mem::transmute(pmarshalinfo)))
+    ::core::mem::transmute(NdrGetUserMarshalInfo(::core::mem::transmute(pflags), informationlevel, ::core::mem::transmute(pmarshalinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5376,7 +5376,7 @@ pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
     extern "system" {
         fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrInterfacePointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrInterfacePointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5386,7 +5386,7 @@ pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommst
     extern "system" {
         fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(NdrMapCommAndFaultStatus(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcommstatus), ::core::mem::transmute(pfaultstatus), ::core::mem::transmute(status)))
+    ::core::mem::transmute(NdrMapCommAndFaultStatus(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcommstatus), ::core::mem::transmute(pfaultstatus), status))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5416,7 +5416,7 @@ pub unsafe fn NdrMesProcEncodeDecode3(handle: *mut ::core::ffi::c_void, pproxyin
     extern "system" {
         fn NdrMesProcEncodeDecode3(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
-    ::core::mem::transmute(NdrMesProcEncodeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(nprocnum), ::core::mem::transmute(preturnvalue)))
+    ::core::mem::transmute(NdrMesProcEncodeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -5444,7 +5444,7 @@ pub unsafe fn NdrMesSimpleTypeDecode(handle: *mut ::core::ffi::c_void, pobject: 
     extern "system" {
         fn NdrMesSimpleTypeDecode(handle: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, size: i16);
     }
-    NdrMesSimpleTypeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
+    NdrMesSimpleTypeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pobject), size)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5454,7 +5454,7 @@ pub unsafe fn NdrMesSimpleTypeDecodeAll(handle: *mut ::core::ffi::c_void, pproxy
     extern "system" {
         fn NdrMesSimpleTypeDecodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut ::core::ffi::c_void, size: i16);
     }
-    NdrMesSimpleTypeDecodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
+    NdrMesSimpleTypeDecodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), size)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5464,7 +5464,7 @@ pub unsafe fn NdrMesSimpleTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc
     extern "system" {
         fn NdrMesSimpleTypeEncode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const ::core::ffi::c_void, size: i16);
     }
-    NdrMesSimpleTypeEncode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
+    NdrMesSimpleTypeEncode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pobject), size)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5474,7 +5474,7 @@ pub unsafe fn NdrMesSimpleTypeEncodeAll(handle: *mut ::core::ffi::c_void, pproxy
     extern "system" {
         fn NdrMesSimpleTypeEncodeAll(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const ::core::ffi::c_void, size: i16);
     }
-    NdrMesSimpleTypeEncodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), ::core::mem::transmute(size))
+    NdrMesSimpleTypeEncodeAll(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(pobject), size)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5504,7 +5504,7 @@ pub unsafe fn NdrMesTypeAlignSize3(handle: *mut ::core::ffi::c_void, ppicklingin
     extern "system" {
         fn NdrMesTypeAlignSize3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void) -> usize;
     }
-    ::core::mem::transmute(NdrMesTypeAlignSize3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject)))
+    ::core::mem::transmute(NdrMesTypeAlignSize3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ntypeindex, ::core::mem::transmute(pobject)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5534,7 +5534,7 @@ pub unsafe fn NdrMesTypeDecode3(handle: *mut ::core::ffi::c_void, ppicklinginfo:
     extern "system" {
         fn NdrMesTypeDecode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void);
     }
-    NdrMesTypeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject))
+    NdrMesTypeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ntypeindex, ::core::mem::transmute(pobject))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5564,7 +5564,7 @@ pub unsafe fn NdrMesTypeEncode3(handle: *mut ::core::ffi::c_void, ppicklinginfo:
     extern "system" {
         fn NdrMesTypeEncode3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::core::ffi::c_void);
     }
-    NdrMesTypeEncode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject))
+    NdrMesTypeEncode3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ntypeindex, ::core::mem::transmute(pobject))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5584,7 +5584,7 @@ pub unsafe fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *
     extern "system" {
         fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::core::ffi::c_void);
     }
-    NdrMesTypeFree3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ::core::mem::transmute(ntypeindex), ::core::mem::transmute(pobject))
+    NdrMesTypeFree3(::core::mem::transmute(handle), ::core::mem::transmute(ppicklinginfo), ::core::mem::transmute(pproxyinfo), ::core::mem::transmute(arrtypeoffset), ntypeindex, ::core::mem::transmute(pobject))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5624,7 +5624,7 @@ pub unsafe fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE,
     extern "system" {
         fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrNonConformantStringUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrNonConformantStringUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5674,7 +5674,7 @@ pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE
     extern "system" {
         fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrNonEncapsulatedUnionUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrNonEncapsulatedUnionUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5684,7 +5684,7 @@ pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32
     extern "system" {
         fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
     }
-    ::core::mem::transmute(NdrNsGetBuffer(::core::mem::transmute(pstubmsg), ::core::mem::transmute(bufferlength), ::core::mem::transmute(handle)))
+    ::core::mem::transmute(NdrNsGetBuffer(::core::mem::transmute(pstubmsg), bufferlength, ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5703,7 +5703,7 @@ pub unsafe fn NdrOleAllocate(size: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn NdrOleAllocate(size: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(NdrOleAllocate(::core::mem::transmute(size)))
+    ::core::mem::transmute(NdrOleAllocate(size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -5802,7 +5802,7 @@ pub unsafe fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *
     extern "system" {
         fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrPointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrPointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5812,7 +5812,7 @@ pub unsafe fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mu
     extern "system" {
         fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrRangeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrRangeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -5821,7 +5821,7 @@ pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn NdrRpcSmClientAllocate(size: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(NdrRpcSmClientAllocate(::core::mem::transmute(size)))
+    ::core::mem::transmute(NdrRpcSmClientAllocate(size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -5849,7 +5849,7 @@ pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(NdrRpcSsDefaultAllocate(::core::mem::transmute(size)))
+    ::core::mem::transmute(NdrRpcSsDefaultAllocate(size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -5995,7 +5995,7 @@ pub unsafe fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *m
     extern "system" {
         fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32);
     }
-    NdrServerInitializePartial(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(requestedbuffersize))
+    NdrServerInitializePartial(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), requestedbuffersize)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6055,7 +6055,7 @@ pub unsafe fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemo
     extern "system" {
         fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrSimpleStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrSimpleStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6065,7 +6065,7 @@ pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *
     extern "system" {
         fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8);
     }
-    NdrSimpleTypeMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(formatchar))
+    NdrSimpleTypeMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), formatchar)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6075,7 +6075,7 @@ pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
     extern "system" {
         fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8);
     }
-    NdrSimpleTypeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(formatchar))
+    NdrSimpleTypeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), formatchar)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -6142,7 +6142,7 @@ pub unsafe fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8
     extern "system" {
         fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8, formatchar: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrUserMarshalSimpleTypeConvert(::core::mem::transmute(pflags), ::core::mem::transmute(pbuffer), ::core::mem::transmute(formatchar)))
+    ::core::mem::transmute(NdrUserMarshalSimpleTypeConvert(::core::mem::transmute(pflags), ::core::mem::transmute(pbuffer), formatchar))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6152,7 +6152,7 @@ pub unsafe fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
     extern "system" {
         fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrUserMarshalUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrUserMarshalUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6202,7 +6202,7 @@ pub unsafe fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemo
     extern "system" {
         fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrVaryingArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrVaryingArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6252,7 +6252,7 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
     extern "system" {
         fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
-    ::core::mem::transmute(NdrXmitOrRepAsUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), ::core::mem::transmute(fmustalloc)))
+    ::core::mem::transmute(NdrXmitOrRepAsUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10108,7 +10108,7 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
     extern "system" {
         fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcAsyncAbortCall(::core::mem::transmute(pasync), ::core::mem::transmute(exceptioncode)))
+    ::core::mem::transmute(RpcAsyncAbortCall(::core::mem::transmute(pasync), exceptioncode))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10151,7 +10151,7 @@ pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) 
     extern "system" {
         fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcAsyncInitializeHandle(::core::mem::transmute(pasync), ::core::mem::transmute(size)))
+    ::core::mem::transmute(RpcAsyncInitializeHandle(::core::mem::transmute(pasync), size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10245,7 +10245,7 @@ pub unsafe fn RpcBindingInqAuthClientExA(clientbinding: *const ::core::ffi::c_vo
     extern "system" {
         fn RpcBindingInqAuthClientExA(clientbinding: *const ::core::ffi::c_void, privs: *mut *mut ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingInqAuthClientExA(::core::mem::transmute(clientbinding), ::core::mem::transmute(privs), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authzsvc), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(RpcBindingInqAuthClientExA(::core::mem::transmute(clientbinding), ::core::mem::transmute(privs), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authzsvc), flags))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10254,7 +10254,7 @@ pub unsafe fn RpcBindingInqAuthClientExW(clientbinding: *const ::core::ffi::c_vo
     extern "system" {
         fn RpcBindingInqAuthClientExW(clientbinding: *const ::core::ffi::c_void, privs: *mut *mut ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingInqAuthClientExW(::core::mem::transmute(clientbinding), ::core::mem::transmute(privs), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authzsvc), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(RpcBindingInqAuthClientExW(::core::mem::transmute(clientbinding), ::core::mem::transmute(privs), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authzsvc), flags))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10282,7 +10282,7 @@ pub unsafe fn RpcBindingInqAuthInfoExA(binding: *const ::core::ffi::c_void, serv
     extern "system" {
         fn RpcBindingInqAuthInfoExA(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingInqAuthInfoExA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), ::core::mem::transmute(rpcqosversion), ::core::mem::transmute(securityqos)))
+    ::core::mem::transmute(RpcBindingInqAuthInfoExA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), rpcqosversion, ::core::mem::transmute(securityqos)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -10292,7 +10292,7 @@ pub unsafe fn RpcBindingInqAuthInfoExW(binding: *const ::core::ffi::c_void, serv
     extern "system" {
         fn RpcBindingInqAuthInfoExW(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingInqAuthInfoExW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), ::core::mem::transmute(rpcqosversion), ::core::mem::transmute(securityqos)))
+    ::core::mem::transmute(RpcBindingInqAuthInfoExW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), rpcqosversion, ::core::mem::transmute(securityqos)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10328,7 +10328,7 @@ pub unsafe fn RpcBindingInqOption(hbinding: *const ::core::ffi::c_void, option: 
     extern "system" {
         fn RpcBindingInqOption(hbinding: *const ::core::ffi::c_void, option: u32, poptionvalue: *mut usize) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingInqOption(::core::mem::transmute(hbinding), ::core::mem::transmute(option), ::core::mem::transmute(poptionvalue)))
+    ::core::mem::transmute(RpcBindingInqOption(::core::mem::transmute(hbinding), option, ::core::mem::transmute(poptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10355,7 +10355,7 @@ pub unsafe fn RpcBindingSetAuthInfoA(binding: *const ::core::ffi::c_void, server
     extern "system" {
         fn RpcBindingSetAuthInfoA(binding: *const ::core::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingSetAuthInfoA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc)))
+    ::core::mem::transmute(RpcBindingSetAuthInfoA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), authnlevel, authnsvc, ::core::mem::transmute(authidentity), authzsvc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -10365,7 +10365,7 @@ pub unsafe fn RpcBindingSetAuthInfoExA(binding: *const ::core::ffi::c_void, serv
     extern "system" {
         fn RpcBindingSetAuthInfoExA(binding: *const ::core::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingSetAuthInfoExA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), ::core::mem::transmute(securityqos)))
+    ::core::mem::transmute(RpcBindingSetAuthInfoExA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), authnlevel, authnsvc, ::core::mem::transmute(authidentity), authzsvc, ::core::mem::transmute(securityqos)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -10375,7 +10375,7 @@ pub unsafe fn RpcBindingSetAuthInfoExW(binding: *const ::core::ffi::c_void, serv
     extern "system" {
         fn RpcBindingSetAuthInfoExW(binding: *const ::core::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingSetAuthInfoExW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), ::core::mem::transmute(securityqos)))
+    ::core::mem::transmute(RpcBindingSetAuthInfoExW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), authnlevel, authnsvc, ::core::mem::transmute(authidentity), authzsvc, ::core::mem::transmute(securityqos)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10384,7 +10384,7 @@ pub unsafe fn RpcBindingSetAuthInfoW(binding: *const ::core::ffi::c_void, server
     extern "system" {
         fn RpcBindingSetAuthInfoW(binding: *const ::core::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::core::ffi::c_void, authzsvc: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingSetAuthInfoW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc)))
+    ::core::mem::transmute(RpcBindingSetAuthInfoW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), authnlevel, authnsvc, ::core::mem::transmute(authidentity), authzsvc))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10402,7 +10402,7 @@ pub unsafe fn RpcBindingSetOption(hbinding: *const ::core::ffi::c_void, option: 
     extern "system" {
         fn RpcBindingSetOption(hbinding: *const ::core::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcBindingSetOption(::core::mem::transmute(hbinding), ::core::mem::transmute(option), ::core::mem::transmute(optionvalue)))
+    ::core::mem::transmute(RpcBindingSetOption(::core::mem::transmute(hbinding), option, optionvalue))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10518,7 +10518,7 @@ pub unsafe fn RpcCancelThreadEx(thread: *const ::core::ffi::c_void, timeout: i32
     extern "system" {
         fn RpcCancelThreadEx(thread: *const ::core::ffi::c_void, timeout: i32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcCancelThreadEx(::core::mem::transmute(thread), ::core::mem::transmute(timeout)))
+    ::core::mem::transmute(RpcCancelThreadEx(::core::mem::transmute(thread), timeout))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -10528,7 +10528,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameA(context: *const super::super::Securi
     extern "system" {
         fn RpcCertGeneratePrincipalNameA(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcCertGeneratePrincipalNameA(::core::mem::transmute(context), ::core::mem::transmute(flags), ::core::mem::transmute(pbuffer)))
+    ::core::mem::transmute(RpcCertGeneratePrincipalNameA(::core::mem::transmute(context), flags, ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -10538,7 +10538,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameW(context: *const super::super::Securi
     extern "system" {
         fn RpcCertGeneratePrincipalNameW(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcCertGeneratePrincipalNameW(::core::mem::transmute(context), ::core::mem::transmute(flags), ::core::mem::transmute(pbuffer)))
+    ::core::mem::transmute(RpcCertGeneratePrincipalNameW(::core::mem::transmute(context), flags, ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10651,7 +10651,7 @@ pub unsafe fn RpcErrorLoadErrorInfo(errorblob: *const ::core::ffi::c_void, blobs
     extern "system" {
         fn RpcErrorLoadErrorInfo(errorblob: *const ::core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcErrorLoadErrorInfo(::core::mem::transmute(errorblob), ::core::mem::transmute(blobsize), ::core::mem::transmute(enumhandle)))
+    ::core::mem::transmute(RpcErrorLoadErrorInfo(::core::mem::transmute(errorblob), blobsize, ::core::mem::transmute(enumhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10687,7 +10687,7 @@ pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     extern "system" {
         fn RpcExceptionFilter(exceptioncode: u32) -> i32;
     }
-    ::core::mem::transmute(RpcExceptionFilter(::core::mem::transmute(exceptioncode)))
+    ::core::mem::transmute(RpcExceptionFilter(exceptioncode))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10709,7 +10709,7 @@ where
     extern "system" {
         fn RpcGetAuthorizationContextForClient(clientbinding: *const ::core::ffi::c_void, impersonateonreturn: super::super::Foundation::BOOL, reserved1: *const ::core::ffi::c_void, pexpirationtime: *const i64, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: *const ::core::ffi::c_void, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcGetAuthorizationContextForClient(::core::mem::transmute(clientbinding), impersonateonreturn.into(), ::core::mem::transmute(reserved1), ::core::mem::transmute(pexpirationtime), ::core::mem::transmute(reserved2), ::core::mem::transmute(reserved3), ::core::mem::transmute(reserved4), ::core::mem::transmute(pauthzclientcontext)))
+    ::core::mem::transmute(RpcGetAuthorizationContextForClient(::core::mem::transmute(clientbinding), impersonateonreturn.into(), ::core::mem::transmute(reserved1), ::core::mem::transmute(pexpirationtime), ::core::mem::transmute(reserved2), reserved3, ::core::mem::transmute(reserved4), ::core::mem::transmute(pauthzclientcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10801,7 +10801,7 @@ pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquir
     extern "system" {
         fn RpcMgmtEpEltInqBegin(epbinding: *const ::core::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::core::GUID, inquirycontext: *mut *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtEpEltInqBegin(::core::mem::transmute(epbinding), ::core::mem::transmute(inquirytype), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(objectuuid), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcMgmtEpEltInqBegin(::core::mem::transmute(epbinding), inquirytype, ::core::mem::transmute(ifid), versoption, ::core::mem::transmute(objectuuid), ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10855,7 +10855,7 @@ pub unsafe fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32)
     extern "system" {
         fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtInqDefaultProtectLevel(::core::mem::transmute(authnsvc), ::core::mem::transmute(authnlevel)))
+    ::core::mem::transmute(RpcMgmtInqDefaultProtectLevel(authnsvc, ::core::mem::transmute(authnlevel)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10873,7 +10873,7 @@ pub unsafe fn RpcMgmtInqServerPrincNameA(binding: *const ::core::ffi::c_void, au
     extern "system" {
         fn RpcMgmtInqServerPrincNameA(binding: *const ::core::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtInqServerPrincNameA(::core::mem::transmute(binding), ::core::mem::transmute(authnsvc), ::core::mem::transmute(serverprincname)))
+    ::core::mem::transmute(RpcMgmtInqServerPrincNameA(::core::mem::transmute(binding), authnsvc, ::core::mem::transmute(serverprincname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10882,7 +10882,7 @@ pub unsafe fn RpcMgmtInqServerPrincNameW(binding: *const ::core::ffi::c_void, au
     extern "system" {
         fn RpcMgmtInqServerPrincNameW(binding: *const ::core::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtInqServerPrincNameW(::core::mem::transmute(binding), ::core::mem::transmute(authnsvc), ::core::mem::transmute(serverprincname)))
+    ::core::mem::transmute(RpcMgmtInqServerPrincNameW(::core::mem::transmute(binding), authnsvc, ::core::mem::transmute(serverprincname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10918,7 +10918,7 @@ pub unsafe fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS {
     extern "system" {
         fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtSetCancelTimeout(::core::mem::transmute(timeout)))
+    ::core::mem::transmute(RpcMgmtSetCancelTimeout(timeout))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10927,7 +10927,7 @@ pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::core::ffi::c_void, timeout:
     extern "system" {
         fn RpcMgmtSetComTimeout(binding: *const ::core::ffi::c_void, timeout: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtSetComTimeout(::core::mem::transmute(binding), ::core::mem::transmute(timeout)))
+    ::core::mem::transmute(RpcMgmtSetComTimeout(::core::mem::transmute(binding), timeout))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -10936,7 +10936,7 @@ pub unsafe fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS {
     extern "system" {
         fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcMgmtSetServerStackSize(::core::mem::transmute(threadstacksize)))
+    ::core::mem::transmute(RpcMgmtSetServerStackSize(threadstacksize))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11008,7 +11008,7 @@ pub unsafe fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, if
     extern "system" {
         fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingExportA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(bindingvec), ::core::mem::transmute(objectuuidvec)))
+    ::core::mem::transmute(RpcNsBindingExportA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(bindingvec), ::core::mem::transmute(objectuuidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11017,7 +11017,7 @@ pub unsafe fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8,
     extern "system" {
         fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingExportPnPA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
+    ::core::mem::transmute(RpcNsBindingExportPnPA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11026,7 +11026,7 @@ pub unsafe fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16
     extern "system" {
         fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingExportPnPW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
+    ::core::mem::transmute(RpcNsBindingExportPnPW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11035,7 +11035,7 @@ pub unsafe fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, i
     extern "system" {
         fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingExportW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(bindingvec), ::core::mem::transmute(objectuuidvec)))
+    ::core::mem::transmute(RpcNsBindingExportW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(bindingvec), ::core::mem::transmute(objectuuidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11044,7 +11044,7 @@ pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u
     extern "system" {
         fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingImportBeginA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(importcontext)))
+    ::core::mem::transmute(RpcNsBindingImportBeginA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(importcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11053,7 +11053,7 @@ pub unsafe fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u
     extern "system" {
         fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingImportBeginW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(importcontext)))
+    ::core::mem::transmute(RpcNsBindingImportBeginW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(importcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11080,7 +11080,7 @@ pub unsafe fn RpcNsBindingInqEntryNameA(binding: *const ::core::ffi::c_void, ent
     extern "system" {
         fn RpcNsBindingInqEntryNameA(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingInqEntryNameA(::core::mem::transmute(binding), ::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(RpcNsBindingInqEntryNameA(::core::mem::transmute(binding), entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11089,7 +11089,7 @@ pub unsafe fn RpcNsBindingInqEntryNameW(binding: *const ::core::ffi::c_void, ent
     extern "system" {
         fn RpcNsBindingInqEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingInqEntryNameW(::core::mem::transmute(binding), ::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(RpcNsBindingInqEntryNameW(::core::mem::transmute(binding), entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11098,7 +11098,7 @@ pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u
     extern "system" {
         fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingLookupBeginA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(bindingmaxcount), ::core::mem::transmute(lookupcontext)))
+    ::core::mem::transmute(RpcNsBindingLookupBeginA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), bindingmaxcount, ::core::mem::transmute(lookupcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11107,7 +11107,7 @@ pub unsafe fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u
     extern "system" {
         fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingLookupBeginW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), ::core::mem::transmute(bindingmaxcount), ::core::mem::transmute(lookupcontext)))
+    ::core::mem::transmute(RpcNsBindingLookupBeginW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objuuid), bindingmaxcount, ::core::mem::transmute(lookupcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11143,7 +11143,7 @@ pub unsafe fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, 
     extern "system" {
         fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingUnexportA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectuuidvec)))
+    ::core::mem::transmute(RpcNsBindingUnexportA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectuuidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11152,7 +11152,7 @@ pub unsafe fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u
     extern "system" {
         fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingUnexportPnPA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
+    ::core::mem::transmute(RpcNsBindingUnexportPnPA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11161,7 +11161,7 @@ pub unsafe fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u
     extern "system" {
         fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingUnexportPnPW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
+    ::core::mem::transmute(RpcNsBindingUnexportPnPW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectvector)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11170,7 +11170,7 @@ pub unsafe fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16,
     extern "system" {
         fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsBindingUnexportW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectuuidvec)))
+    ::core::mem::transmute(RpcNsBindingUnexportW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifspec), ::core::mem::transmute(objectuuidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11179,7 +11179,7 @@ pub unsafe fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, 
     extern "system" {
         fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, expandedname: *mut *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsEntryExpandNameA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(expandedname)))
+    ::core::mem::transmute(RpcNsEntryExpandNameA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(expandedname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11188,7 +11188,7 @@ pub unsafe fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16,
     extern "system" {
         fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16, expandedname: *mut *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsEntryExpandNameW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(expandedname)))
+    ::core::mem::transmute(RpcNsEntryExpandNameW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(expandedname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11197,7 +11197,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const 
     extern "system" {
         fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsEntryObjectInqBeginA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcNsEntryObjectInqBeginA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11206,7 +11206,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const 
     extern "system" {
         fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsEntryObjectInqBeginW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcNsEntryObjectInqBeginW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11233,7 +11233,7 @@ pub unsafe fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *
     extern "system" {
         fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupDeleteA(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname)))
+    ::core::mem::transmute(RpcNsGroupDeleteA(groupnamesyntax, ::core::mem::transmute(groupname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11242,7 +11242,7 @@ pub unsafe fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *
     extern "system" {
         fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupDeleteW(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname)))
+    ::core::mem::transmute(RpcNsGroupDeleteW(groupnamesyntax, ::core::mem::transmute(groupname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11251,7 +11251,7 @@ pub unsafe fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, memb
     extern "system" {
         fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupMbrAddA(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername)))
+    ::core::mem::transmute(RpcNsGroupMbrAddA(groupnamesyntax, ::core::mem::transmute(groupname), membernamesyntax, ::core::mem::transmute(membername)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11260,7 +11260,7 @@ pub unsafe fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, mem
     extern "system" {
         fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupMbrAddW(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername)))
+    ::core::mem::transmute(RpcNsGroupMbrAddW(groupnamesyntax, ::core::mem::transmute(groupname), membernamesyntax, ::core::mem::transmute(membername)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11269,7 +11269,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8,
     extern "system" {
         fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupMbrInqBeginA(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcNsGroupMbrInqBeginA(groupnamesyntax, ::core::mem::transmute(groupname), membernamesyntax, ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11278,7 +11278,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16
     extern "system" {
         fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupMbrInqBeginW(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcNsGroupMbrInqBeginW(groupnamesyntax, ::core::mem::transmute(groupname), membernamesyntax, ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11314,7 +11314,7 @@ pub unsafe fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, m
     extern "system" {
         fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupMbrRemoveA(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername)))
+    ::core::mem::transmute(RpcNsGroupMbrRemoveA(groupnamesyntax, ::core::mem::transmute(groupname), membernamesyntax, ::core::mem::transmute(membername)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11323,7 +11323,7 @@ pub unsafe fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, 
     extern "system" {
         fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsGroupMbrRemoveW(::core::mem::transmute(groupnamesyntax), ::core::mem::transmute(groupname), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername)))
+    ::core::mem::transmute(RpcNsGroupMbrRemoveW(groupnamesyntax, ::core::mem::transmute(groupname), membernamesyntax, ::core::mem::transmute(membername)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11332,7 +11332,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const 
     extern "system" {
         fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtBindingUnexportA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(objectuuidvec)))
+    ::core::mem::transmute(RpcNsMgmtBindingUnexportA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifid), versoption, ::core::mem::transmute(objectuuidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11341,7 +11341,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const 
     extern "system" {
         fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtBindingUnexportW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(objectuuidvec)))
+    ::core::mem::transmute(RpcNsMgmtBindingUnexportW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifid), versoption, ::core::mem::transmute(objectuuidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11350,7 +11350,7 @@ pub unsafe fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) 
     extern "system" {
         fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtEntryCreateA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(RpcNsMgmtEntryCreateA(entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11359,7 +11359,7 @@ pub unsafe fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16)
     extern "system" {
         fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtEntryCreateW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(RpcNsMgmtEntryCreateW(entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11368,7 +11368,7 @@ pub unsafe fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) 
     extern "system" {
         fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtEntryDeleteA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(RpcNsMgmtEntryDeleteA(entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11377,7 +11377,7 @@ pub unsafe fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16)
     extern "system" {
         fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtEntryDeleteW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname)))
+    ::core::mem::transmute(RpcNsMgmtEntryDeleteW(entrynamesyntax, ::core::mem::transmute(entryname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11386,7 +11386,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8
     extern "system" {
         fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtEntryInqIfIdsA(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifidvec)))
+    ::core::mem::transmute(RpcNsMgmtEntryInqIfIdsA(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11395,7 +11395,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u1
     extern "system" {
         fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u16, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtEntryInqIfIdsW(::core::mem::transmute(entrynamesyntax), ::core::mem::transmute(entryname), ::core::mem::transmute(ifidvec)))
+    ::core::mem::transmute(RpcNsMgmtEntryInqIfIdsW(entrynamesyntax, ::core::mem::transmute(entryname), ::core::mem::transmute(ifidvec)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11404,7 +11404,7 @@ pub unsafe fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::core::ffi::c_void, expir
     extern "system" {
         fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::core::ffi::c_void, expirationage: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtHandleSetExpAge(::core::mem::transmute(nshandle), ::core::mem::transmute(expirationage)))
+    ::core::mem::transmute(RpcNsMgmtHandleSetExpAge(::core::mem::transmute(nshandle), expirationage))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11422,7 +11422,7 @@ pub unsafe fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS {
     extern "system" {
         fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsMgmtSetExpAge(::core::mem::transmute(expirationage)))
+    ::core::mem::transmute(RpcNsMgmtSetExpAge(expirationage))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11431,7 +11431,7 @@ pub unsafe fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8
     extern "system" {
         fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileDeleteA(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename)))
+    ::core::mem::transmute(RpcNsProfileDeleteA(profilenamesyntax, ::core::mem::transmute(profilename)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11440,7 +11440,7 @@ pub unsafe fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u1
     extern "system" {
         fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileDeleteW(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename)))
+    ::core::mem::transmute(RpcNsProfileDeleteW(profilenamesyntax, ::core::mem::transmute(profilename)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11449,7 +11449,7 @@ pub unsafe fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8
     extern "system" {
         fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8, priority: u32, annotation: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileEltAddA(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername), ::core::mem::transmute(priority), ::core::mem::transmute(annotation)))
+    ::core::mem::transmute(RpcNsProfileEltAddA(profilenamesyntax, ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), membernamesyntax, ::core::mem::transmute(membername), priority, ::core::mem::transmute(annotation)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11458,7 +11458,7 @@ pub unsafe fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u1
     extern "system" {
         fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16, priority: u32, annotation: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileEltAddW(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername), ::core::mem::transmute(priority), ::core::mem::transmute(annotation)))
+    ::core::mem::transmute(RpcNsProfileEltAddW(profilenamesyntax, ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), membernamesyntax, ::core::mem::transmute(membername), priority, ::core::mem::transmute(annotation)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11467,7 +11467,7 @@ pub unsafe fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *con
     extern "system" {
         fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileEltInqBeginA(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(inquirytype), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcNsProfileEltInqBeginA(profilenamesyntax, ::core::mem::transmute(profilename), inquirytype, ::core::mem::transmute(ifid), versoption, membernamesyntax, ::core::mem::transmute(membername), ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11476,7 +11476,7 @@ pub unsafe fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *con
     extern "system" {
         fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileEltInqBeginW(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(inquirytype), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername), ::core::mem::transmute(inquirycontext)))
+    ::core::mem::transmute(RpcNsProfileEltInqBeginW(profilenamesyntax, ::core::mem::transmute(profilename), inquirytype, ::core::mem::transmute(ifid), versoption, membernamesyntax, ::core::mem::transmute(membername), ::core::mem::transmute(inquirycontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11512,7 +11512,7 @@ pub unsafe fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const
     extern "system" {
         fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileEltRemoveA(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername)))
+    ::core::mem::transmute(RpcNsProfileEltRemoveA(profilenamesyntax, ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), membernamesyntax, ::core::mem::transmute(membername)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11521,7 +11521,7 @@ pub unsafe fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const
     extern "system" {
         fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcNsProfileEltRemoveW(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername)))
+    ::core::mem::transmute(RpcNsProfileEltRemoveW(profilenamesyntax, ::core::mem::transmute(profilename), ::core::mem::transmute(ifid), membernamesyntax, ::core::mem::transmute(membername)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11622,7 +11622,7 @@ pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
     extern "system" {
         fn RpcRaiseException(exception: RPC_STATUS);
     }
-    RpcRaiseException(::core::mem::transmute(exception))
+    RpcRaiseException(exception)
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11658,7 +11658,7 @@ pub unsafe fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::core::ff
     extern "system" {
         fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::core::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerCompleteSecurityCallback(::core::mem::transmute(bindinghandle), ::core::mem::transmute(status)))
+    ::core::mem::transmute(RpcServerCompleteSecurityCallback(::core::mem::transmute(bindinghandle), status))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11712,7 +11712,7 @@ pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut 
     extern "system" {
         fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut u8) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerInqDefaultPrincNameA(::core::mem::transmute(authnsvc), ::core::mem::transmute(princname)))
+    ::core::mem::transmute(RpcServerInqDefaultPrincNameA(authnsvc, ::core::mem::transmute(princname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11721,7 +11721,7 @@ pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut 
     extern "system" {
         fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerInqDefaultPrincNameW(::core::mem::transmute(authnsvc), ::core::mem::transmute(princname)))
+    ::core::mem::transmute(RpcServerInqDefaultPrincNameW(authnsvc, ::core::mem::transmute(princname)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11757,7 +11757,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLAT
     extern "system" {
         fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: *mut ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerInterfaceGroupCreateA(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
+    ::core::mem::transmute(RpcServerInterfaceGroupCreateA(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, idleperiod, ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11766,7 +11766,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLAT
     extern "system" {
         fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: *mut ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerInterfaceGroupCreateW(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
+    ::core::mem::transmute(RpcServerInterfaceGroupCreateW(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, idleperiod, ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11775,7 +11775,7 @@ pub unsafe fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::core::ffi::c_v
     extern "system" {
         fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::core::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerInterfaceGroupDeactivate(::core::mem::transmute(ifgroup), ::core::mem::transmute(forcedeactivation)))
+    ::core::mem::transmute(RpcServerInterfaceGroupDeactivate(::core::mem::transmute(ifgroup), forcedeactivation))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11793,7 +11793,7 @@ pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: 
     extern "system" {
         fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerListen(::core::mem::transmute(minimumcallthreads), ::core::mem::transmute(maxcalls), ::core::mem::transmute(dontwait)))
+    ::core::mem::transmute(RpcServerListen(minimumcallthreads, maxcalls, dontwait))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11802,7 +11802,7 @@ pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u
     extern "system" {
         fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: *mut ::core::ffi::c_void, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerRegisterAuthInfoA(::core::mem::transmute(serverprincname), ::core::mem::transmute(authnsvc), ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
+    ::core::mem::transmute(RpcServerRegisterAuthInfoA(::core::mem::transmute(serverprincname), authnsvc, ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11811,7 +11811,7 @@ pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: 
     extern "system" {
         fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: *mut ::core::ffi::c_void, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerRegisterAuthInfoW(::core::mem::transmute(serverprincname), ::core::mem::transmute(authnsvc), ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
+    ::core::mem::transmute(RpcServerRegisterAuthInfoW(::core::mem::transmute(serverprincname), authnsvc, ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11829,7 +11829,7 @@ pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuu
     extern "system" {
         fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerRegisterIf2(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(maxrpcsize), ::core::mem::transmute(ifcallbackfn)))
+    ::core::mem::transmute(RpcServerRegisterIf2(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), flags, maxcalls, maxrpcsize, ::core::mem::transmute(ifcallbackfn)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11838,7 +11838,7 @@ pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuu
     extern "system" {
         fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: *mut ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerRegisterIf3(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(maxrpcsize), ::core::mem::transmute(ifcallback), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerRegisterIf3(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), flags, maxcalls, maxrpcsize, ::core::mem::transmute(ifcallback), ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11847,7 +11847,7 @@ pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeu
     extern "system" {
         fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: *mut ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerRegisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifcallback)))
+    ::core::mem::transmute(RpcServerRegisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), flags, maxcalls, ::core::mem::transmute(ifcallback)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -11857,7 +11857,7 @@ pub unsafe fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_v
     extern "system" {
         fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerSubscribeForNotification(::core::mem::transmute(binding), ::core::mem::transmute(notification), ::core::mem::transmute(notificationtype), ::core::mem::transmute(notificationinfo)))
+    ::core::mem::transmute(RpcServerSubscribeForNotification(::core::mem::transmute(binding), notification, notificationtype, ::core::mem::transmute(notificationinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11875,7 +11875,7 @@ pub unsafe fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeu
     extern "system" {
         fn RpcServerUnregisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, waitforcallstocomplete: u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUnregisterIf(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(waitforcallstocomplete)))
+    ::core::mem::transmute(RpcServerUnregisterIf(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), waitforcallstocomplete))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11884,7 +11884,7 @@ pub unsafe fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtyp
     extern "system" {
         fn RpcServerUnregisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, rundowncontexthandles: i32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUnregisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(rundowncontexthandles)))
+    ::core::mem::transmute(RpcServerUnregisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), rundowncontexthandles))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11893,7 +11893,7 @@ pub unsafe fn RpcServerUnsubscribeForNotification(binding: *const ::core::ffi::c
     extern "system" {
         fn RpcServerUnsubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUnsubscribeForNotification(::core::mem::transmute(binding), ::core::mem::transmute(notification), ::core::mem::transmute(notificationsqueued)))
+    ::core::mem::transmute(RpcServerUnsubscribeForNotification(::core::mem::transmute(binding), notification, ::core::mem::transmute(notificationsqueued)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11902,7 +11902,7 @@ pub unsafe fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: *const 
     extern "system" {
         fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseAllProtseqs(::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseAllProtseqs(maxcalls, ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11911,7 +11911,7 @@ pub unsafe fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: *cons
     extern "system" {
         fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseAllProtseqsEx(::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseAllProtseqsEx(maxcalls, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11920,7 +11920,7 @@ pub unsafe fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const ::core::ff
     extern "system" {
         fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseAllProtseqsIf(::core::mem::transmute(maxcalls), ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseAllProtseqsIf(maxcalls, ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11929,7 +11929,7 @@ pub unsafe fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const ::core::
     extern "system" {
         fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseAllProtseqsIfEx(::core::mem::transmute(maxcalls), ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseAllProtseqsIfEx(maxcalls, ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11938,7 +11938,7 @@ pub unsafe fn RpcServerUseProtseqA(protseq: *const u8, maxcalls: u32, securityde
     extern "system" {
         fn RpcServerUseProtseqA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqA(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseProtseqA(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11947,7 +11947,7 @@ pub unsafe fn RpcServerUseProtseqEpA(protseq: *const u8, maxcalls: u32, endpoint
     extern "system" {
         fn RpcServerUseProtseqEpA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqEpA(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseProtseqEpA(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11956,7 +11956,7 @@ pub unsafe fn RpcServerUseProtseqEpExA(protseq: *const u8, maxcalls: u32, endpoi
     extern "system" {
         fn RpcServerUseProtseqEpExA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqEpExA(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseProtseqEpExA(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11965,7 +11965,7 @@ pub unsafe fn RpcServerUseProtseqEpExW(protseq: *const u16, maxcalls: u32, endpo
     extern "system" {
         fn RpcServerUseProtseqEpExW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqEpExW(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseProtseqEpExW(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11974,7 +11974,7 @@ pub unsafe fn RpcServerUseProtseqEpW(protseq: *const u16, maxcalls: u32, endpoin
     extern "system" {
         fn RpcServerUseProtseqEpW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqEpW(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseProtseqEpW(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(endpoint), ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11983,7 +11983,7 @@ pub unsafe fn RpcServerUseProtseqExA(protseq: *const u8, maxcalls: u32, security
     extern "system" {
         fn RpcServerUseProtseqExA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqExA(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseProtseqExA(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -11992,7 +11992,7 @@ pub unsafe fn RpcServerUseProtseqExW(protseq: *const u16, maxcalls: u32, securit
     extern "system" {
         fn RpcServerUseProtseqExW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqExW(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseProtseqExW(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12001,7 +12001,7 @@ pub unsafe fn RpcServerUseProtseqIfA(protseq: *const u8, maxcalls: u32, ifspec: 
     extern "system" {
         fn RpcServerUseProtseqIfA(protseq: *const u8, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqIfA(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseProtseqIfA(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12010,7 +12010,7 @@ pub unsafe fn RpcServerUseProtseqIfExA(protseq: *const u8, maxcalls: u32, ifspec
     extern "system" {
         fn RpcServerUseProtseqIfExA(protseq: *const u8, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqIfExA(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseProtseqIfExA(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12019,7 +12019,7 @@ pub unsafe fn RpcServerUseProtseqIfExW(protseq: *const u16, maxcalls: u32, ifspe
     extern "system" {
         fn RpcServerUseProtseqIfExW(protseq: *const u16, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqIfExW(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
+    ::core::mem::transmute(RpcServerUseProtseqIfExW(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12028,7 +12028,7 @@ pub unsafe fn RpcServerUseProtseqIfW(protseq: *const u16, maxcalls: u32, ifspec:
     extern "system" {
         fn RpcServerUseProtseqIfW(protseq: *const u16, maxcalls: u32, ifspec: *const ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqIfW(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseProtseqIfW(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(ifspec), ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12037,7 +12037,7 @@ pub unsafe fn RpcServerUseProtseqW(protseq: *const u16, maxcalls: u32, securityd
     extern "system" {
         fn RpcServerUseProtseqW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
     }
-    ::core::mem::transmute(RpcServerUseProtseqW(::core::mem::transmute(protseq), ::core::mem::transmute(maxcalls), ::core::mem::transmute(securitydescriptor)))
+    ::core::mem::transmute(RpcServerUseProtseqW(::core::mem::transmute(protseq), maxcalls, ::core::mem::transmute(securitydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12055,7 +12055,7 @@ pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::cor
     extern "system" {
         fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RpcSmAllocate(::core::mem::transmute(size), ::core::mem::transmute(pstatus)))
+    ::core::mem::transmute(RpcSmAllocate(size, ::core::mem::transmute(pstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]
@@ -12145,7 +12145,7 @@ pub unsafe fn RpcSsAllocate(size: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn RpcSsAllocate(size: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(RpcSsAllocate(::core::mem::transmute(size)))
+    ::core::mem::transmute(RpcSsAllocate(size))
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[inline]

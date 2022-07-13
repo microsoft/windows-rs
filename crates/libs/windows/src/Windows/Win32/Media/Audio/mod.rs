@@ -2254,7 +2254,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_C
         fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateCaptureAudioStateMonitorForCategory(::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateCaptureAudioStateMonitorForCategory(category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -2267,7 +2267,7 @@ where
         fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: ::windows::core::PCWSTR, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateCaptureAudioStateMonitorForCategoryAndDeviceId(::core::mem::transmute(category), deviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -2277,7 +2277,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: A
         fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(::core::mem::transmute(category), ::core::mem::transmute(role), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -2297,7 +2297,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CA
         fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateRenderAudioStateMonitorForCategory(::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateRenderAudioStateMonitorForCategory(category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -2310,7 +2310,7 @@ where
         fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: ::windows::core::PCWSTR, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateRenderAudioStateMonitorForCategoryAndDeviceId(::core::mem::transmute(category), deviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -2320,7 +2320,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AU
         fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateRenderAudioStateMonitorForCategoryAndDeviceRole(::core::mem::transmute(category), ::core::mem::transmute(role), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
@@ -3112,7 +3112,7 @@ impl IAudioAmbisonicsControl {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetRotation(&self, x: f32, y: f32, z: f32, w: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w)).ok()
+        (::windows::core::Interface::vtable(self).SetRotation)(::windows::core::Interface::as_raw(self), x, y, z, w).ok()
     }
 }
 impl ::core::convert::From<IAudioAmbisonicsControl> for ::windows::core::IUnknown {
@@ -3243,20 +3243,20 @@ impl IAudioBass {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevel(&self, nchannel: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), nchannel, fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -3328,7 +3328,7 @@ impl IAudioCaptureClient {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ReleaseBuffer(&self, numframesread: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(numframesread)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseBuffer)(::windows::core::Interface::as_raw(self), numframesread).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetNextPacketSize(&self) -> ::windows::core::Result<u32> {
@@ -3385,7 +3385,7 @@ pub struct IAudioChannelConfig(::windows::core::IUnknown);
 impl IAudioChannelConfig {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetChannelConfig(&self, dwconfig: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChannelConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwconfig), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetChannelConfig)(::windows::core::Interface::as_raw(self), dwconfig, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetChannelConfig(&self) -> ::windows::core::Result<u32> {
@@ -3441,7 +3441,7 @@ pub struct IAudioClient(::windows::core::IUnknown);
 impl IAudioClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBufferSize(&self) -> ::windows::core::Result<u32> {
@@ -3460,7 +3460,7 @@ impl IAudioClient {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), sharemode, ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX> {
@@ -3561,7 +3561,7 @@ pub struct IAudioClient2(::windows::core::IUnknown);
 impl IAudioClient2 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBufferSize(&self) -> ::windows::core::Result<u32> {
@@ -3580,7 +3580,7 @@ impl IAudioClient2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), sharemode, ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX> {
@@ -3623,7 +3623,7 @@ impl IAudioClient2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3712,7 +3712,7 @@ pub struct IAudioClient3(::windows::core::IUnknown);
 impl IAudioClient3 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), sharemode, streamflags, hnsbufferduration, hnsperiodicity, ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBufferSize(&self) -> ::windows::core::Result<u32> {
@@ -3731,7 +3731,7 @@ impl IAudioClient3 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), sharemode, ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX> {
@@ -3774,7 +3774,7 @@ impl IAudioClient3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsOffloadCapable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsOffloadCapable)(::windows::core::Interface::as_raw(self), category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3799,7 +3799,7 @@ impl IAudioClient3 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn InitializeSharedAudioStream(&self, streamflags: u32, periodinframes: u32, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeSharedAudioStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(streamflags), ::core::mem::transmute(periodinframes), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+        (::windows::core::Interface::vtable(self).InitializeSharedAudioStream)(::windows::core::Interface::as_raw(self), streamflags, periodinframes, ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
 }
 impl ::core::convert::From<IAudioClient3> for ::windows::core::IUnknown {
@@ -3881,7 +3881,7 @@ pub struct IAudioClientDuckingControl(::windows::core::IUnknown);
 impl IAudioClientDuckingControl {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuckingOptionsForCurrentStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options)).ok()
+        (::windows::core::Interface::vtable(self).SetDuckingOptionsForCurrentStream)(::windows::core::Interface::as_raw(self), options).ok()
     }
 }
 impl ::core::convert::From<IAudioClientDuckingControl> for ::windows::core::IUnknown {
@@ -4043,7 +4043,7 @@ pub struct IAudioClockAdjustment(::windows::core::IUnknown);
 impl IAudioClockAdjustment {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetSampleRate(&self, flsamplerate: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSampleRate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flsamplerate)).ok()
+        (::windows::core::Interface::vtable(self).SetSampleRate)(::windows::core::Interface::as_raw(self), flsamplerate).ok()
     }
 }
 impl ::core::convert::From<IAudioClockAdjustment> for ::windows::core::IUnknown {
@@ -4162,7 +4162,7 @@ impl IAudioEffectsManager {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetAudioEffectState(&self, effectid: ::windows::core::GUID, state: AUDIO_EFFECT_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAudioEffectState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effectid), ::core::mem::transmute(state)).ok()
+        (::windows::core::Interface::vtable(self).SetAudioEffectState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effectid), state).ok()
     }
 }
 impl ::core::convert::From<IAudioEffectsManager> for ::windows::core::IUnknown {
@@ -4224,7 +4224,7 @@ impl IAudioFormatEnumerator {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetFormat(&self, index: u32) -> ::windows::core::Result<*mut WAVEFORMATEX> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut WAVEFORMATEX>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WAVEFORMATEX>(result__)
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WAVEFORMATEX>(result__)
     }
 }
 impl ::core::convert::From<IAudioFormatEnumerator> for ::windows::core::IUnknown {
@@ -4280,7 +4280,7 @@ impl IAudioInputSelector {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nidselect), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), nidselect, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioInputSelector> for ::windows::core::IUnknown {
@@ -4403,20 +4403,20 @@ impl IAudioMidrange {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevel(&self, nchannel: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), nchannel, fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4556,7 +4556,7 @@ impl IAudioOutputSelector {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetSelection(&self, nidselect: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nidselect), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), nidselect, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioOutputSelector> for ::windows::core::IUnknown {
@@ -4613,7 +4613,7 @@ impl IAudioPeakMeter {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevel(&self, nchannel: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetLevel)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
 }
 impl ::core::convert::From<IAudioPeakMeter> for ::windows::core::IUnknown {
@@ -4665,11 +4665,11 @@ impl IAudioRenderClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBuffer(&self, numframesrequested: u32) -> ::windows::core::Result<*mut u8> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u8>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(numframesrequested), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u8>(result__)
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), numframesrequested, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ReleaseBuffer(&self, numframeswritten: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(numframeswritten), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseBuffer)(::windows::core::Interface::as_raw(self), numframeswritten, dwflags).ok()
     }
 }
 impl ::core::convert::From<IAudioRenderClient> for ::windows::core::IUnknown {
@@ -4979,7 +4979,7 @@ impl IAudioSessionEnumerator {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSession(&self, sessioncount: i32) -> ::windows::core::Result<IAudioSessionControl> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sessioncount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
+        (::windows::core::Interface::vtable(self).GetSession)(::windows::core::Interface::as_raw(self), sessioncount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
     }
 }
 impl ::core::convert::From<IAudioSessionEnumerator> for ::windows::core::IUnknown {
@@ -5048,11 +5048,11 @@ impl IAudioSessionEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnSimpleVolumeChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newvolume), newmute.into(), ::core::mem::transmute(eventcontext)).ok()
+        (::windows::core::Interface::vtable(self).OnSimpleVolumeChanged)(::windows::core::Interface::as_raw(self), newvolume, newmute.into(), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnChannelVolumeChanged)(::windows::core::Interface::as_raw(self), newchannelvolumearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(newchannelvolumearray)), ::core::mem::transmute(changedchannel), ::core::mem::transmute(eventcontext)).ok()
+        (::windows::core::Interface::vtable(self).OnChannelVolumeChanged)(::windows::core::Interface::as_raw(self), newchannelvolumearray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(newchannelvolumearray)), changedchannel, ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnGroupingParamChanged(&self, newgroupingparam: *const ::windows::core::GUID, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -5060,11 +5060,11 @@ impl IAudioSessionEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnStateChanged(&self, newstate: AudioSessionState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate)).ok()
+        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), newstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnSessionDisconnected(&self, disconnectreason: AudioSessionDisconnectReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSessionDisconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disconnectreason)).ok()
+        (::windows::core::Interface::vtable(self).OnSessionDisconnected)(::windows::core::Interface::as_raw(self), disconnectreason).ok()
     }
 }
 impl ::core::convert::From<IAudioSessionEvents> for ::windows::core::IUnknown {
@@ -5124,12 +5124,12 @@ impl IAudioSessionManager {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: *const ::windows::core::GUID, streamflags: u32) -> ::windows::core::Result<IAudioSessionControl> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAudioSessionControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), ::core::mem::transmute(streamflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
+        (::windows::core::Interface::vtable(self).GetAudioSessionControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), streamflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: *const ::windows::core::GUID, streamflags: u32) -> ::windows::core::Result<ISimpleAudioVolume> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSimpleAudioVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), ::core::mem::transmute(streamflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimpleAudioVolume>(result__)
+        (::windows::core::Interface::vtable(self).GetSimpleAudioVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), streamflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimpleAudioVolume>(result__)
     }
 }
 impl ::core::convert::From<IAudioSessionManager> for ::windows::core::IUnknown {
@@ -5181,12 +5181,12 @@ impl IAudioSessionManager2 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: *const ::windows::core::GUID, streamflags: u32) -> ::windows::core::Result<IAudioSessionControl> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAudioSessionControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), ::core::mem::transmute(streamflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAudioSessionControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), streamflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: *const ::windows::core::GUID, streamflags: u32) -> ::windows::core::Result<ISimpleAudioVolume> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSimpleAudioVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), ::core::mem::transmute(streamflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimpleAudioVolume>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSimpleAudioVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(audiosessionguid), streamflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimpleAudioVolume>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSessionEnumerator(&self) -> ::windows::core::Result<IAudioSessionEnumerator> {
@@ -5347,7 +5347,7 @@ impl IAudioStateMonitor {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn UnregisterCallback(&self, registration: i64) {
-        (::windows::core::Interface::vtable(self).UnregisterCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(registration))
+        (::windows::core::Interface::vtable(self).UnregisterCallback)(::windows::core::Interface::as_raw(self), registration)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSoundLevel(&self) -> AudioStateMonitorSoundLevel {
@@ -5408,12 +5408,12 @@ impl IAudioStreamVolume {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChannelVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(flevel)).ok()
+        (::windows::core::Interface::vtable(self).SetChannelVolume)(::windows::core::Interface::as_raw(self), dwindex, flevel).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetChannelVolume(&self, dwindex: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetChannelVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetChannelVolume)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> ::windows::core::Result<()> {
@@ -5476,7 +5476,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(key)).ok()
+        (::windows::core::Interface::vtable(self).OnPropertyChanged)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(key)).ok()
     }
 }
 impl ::core::convert::From<IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::core::IUnknown {
@@ -5531,19 +5531,19 @@ impl IAudioSystemEffectsPropertyStore {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OpenDefaultPropertyStore(&self, stgmaccess: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenDefaultPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stgmaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
+        (::windows::core::Interface::vtable(self).OpenDefaultPropertyStore)(::windows::core::Interface::as_raw(self), stgmaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OpenUserPropertyStore(&self, stgmaccess: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenUserPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stgmaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
+        (::windows::core::Interface::vtable(self).OpenUserPropertyStore)(::windows::core::Interface::as_raw(self), stgmaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OpenVolatilePropertyStore(&self, stgmaccess: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenVolatilePropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stgmaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
+        (::windows::core::Interface::vtable(self).OpenVolatilePropertyStore)(::windows::core::Interface::as_raw(self), stgmaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ResetUserPropertyStore(&self) -> ::windows::core::Result<()> {
@@ -5635,20 +5635,20 @@ impl IAudioTreble {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevel(&self, nchannel: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), nchannel, fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -5719,7 +5719,7 @@ impl IAudioVolumeDuckNotification {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnVolumeDuckNotification)(::windows::core::Interface::as_raw(self), sessionid.into(), ::core::mem::transmute(countcommunicationsessions)).ok()
+        (::windows::core::Interface::vtable(self).OnVolumeDuckNotification)(::windows::core::Interface::as_raw(self), sessionid.into(), countcommunicationsessions).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnVolumeUnduckNotification<'a, P0>(&self, sessionid: P0) -> ::windows::core::Result<()>
@@ -5782,20 +5782,20 @@ impl IAudioVolumeLevel {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetLevelRange)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevel(&self, nchannel: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetLevel)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevel)(::windows::core::Interface::as_raw(self), nchannel, fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLevelUniform)(::windows::core::Interface::as_raw(self), fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -5868,12 +5868,12 @@ impl IChannelAudioVolume {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetChannelVolume(&self, dwindex: u32, flevel: f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChannelVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(flevel), ::core::mem::transmute(eventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetChannelVolume)(::windows::core::Interface::as_raw(self), dwindex, flevel, ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetChannelVolume(&self, dwindex: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetChannelVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetChannelVolume)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -6033,7 +6033,7 @@ pub struct IControlChangeNotify(::windows::core::IUnknown);
 impl IControlChangeNotify {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnNotify(&self, dwsenderprocessid: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnNotify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsenderprocessid), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).OnNotify)(::windows::core::Interface::as_raw(self), dwsenderprocessid, ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IControlChangeNotify> for ::windows::core::IUnknown {
@@ -6149,7 +6149,7 @@ impl IDeviceSpecificProperty {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetValue(&self, pvvalue: *const ::core::ffi::c_void, cbvalue: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvvalue), ::core::mem::transmute(cbvalue), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvvalue), cbvalue, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Get4BRange(&self, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> ::windows::core::Result<()> {
@@ -6212,7 +6212,7 @@ impl IDeviceTopology {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetConnector(&self, nindex: u32) -> ::windows::core::Result<IConnector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetConnector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IConnector>(result__)
+        (::windows::core::Interface::vtable(self).GetConnector)(::windows::core::Interface::as_raw(self), nindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IConnector>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSubunitCount(&self) -> ::windows::core::Result<u32> {
@@ -6222,12 +6222,12 @@ impl IDeviceTopology {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSubunit(&self, nindex: u32) -> ::windows::core::Result<ISubunit> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSubunit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISubunit>(result__)
+        (::windows::core::Interface::vtable(self).GetSubunit)(::windows::core::Interface::as_raw(self), nindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISubunit>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetPartById(&self, nid: u32) -> ::windows::core::Result<IPart> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPart>(result__)
+        (::windows::core::Interface::vtable(self).GetPartById)(::windows::core::Interface::as_raw(self), nid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPart>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetDeviceId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -6307,13 +6307,13 @@ impl IMMDevice {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(dwclsctx), ::core::mem::transmute(pactivationparams), &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, dwclsctx, ::core::mem::transmute(pactivationparams), &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stgmaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
+        (::windows::core::Interface::vtable(self).OpenPropertyStore)(::windows::core::Interface::as_raw(self), stgmaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -6445,7 +6445,7 @@ impl IMMDeviceCollection {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Item(&self, ndevice: u32) -> ::windows::core::Result<IMMDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ndevice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ndevice, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
     }
 }
 impl ::core::convert::From<IMMDeviceCollection> for ::windows::core::IUnknown {
@@ -6497,12 +6497,12 @@ impl IMMDeviceEnumerator {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows::core::Result<IMMDeviceCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAudioEndpoints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dataflow), ::core::mem::transmute(dwstatemask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDeviceCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumAudioEndpoints)(::windows::core::Interface::as_raw(self), dataflow, dwstatemask, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDeviceCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> ::windows::core::Result<IMMDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultAudioEndpoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dataflow), ::core::mem::transmute(role), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultAudioEndpoint)(::windows::core::Interface::as_raw(self), dataflow, role, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetDevice<'a, P0>(&self, pwstrid: P0) -> ::windows::core::Result<IMMDevice>
@@ -6632,7 +6632,7 @@ impl IMMNotificationClient {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnDeviceStateChanged)(::windows::core::Interface::as_raw(self), pwstrdeviceid.into(), ::core::mem::transmute(dwnewstate)).ok()
+        (::windows::core::Interface::vtable(self).OnDeviceStateChanged)(::windows::core::Interface::as_raw(self), pwstrdeviceid.into(), dwnewstate).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnDeviceAdded<'a, P0>(&self, pwstrdeviceid: P0) -> ::windows::core::Result<()>
@@ -6653,7 +6653,7 @@ impl IMMNotificationClient {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnDefaultDeviceChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flow), ::core::mem::transmute(role), pwstrdefaultdeviceid.into()).ok()
+        (::windows::core::Interface::vtable(self).OnDefaultDeviceChanged)(::windows::core::Interface::as_raw(self), flow, role, pwstrdefaultdeviceid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -6722,21 +6722,21 @@ impl IMessageFilter {
     where
         P0: ::std::convert::Into<super::HTASK>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HandleInComingCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcalltype), htaskcaller.into(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(lpinterfaceinfo)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).HandleInComingCall)(::windows::core::Interface::as_raw(self), dwcalltype, htaskcaller.into(), dwtickcount, ::core::mem::transmute(lpinterfaceinfo)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn RetryRejectedCall<'a, P0>(&self, htaskcallee: P0, dwtickcount: u32, dwrejecttype: u32) -> u32
     where
         P0: ::std::convert::Into<super::HTASK>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).RetryRejectedCall)(::windows::core::Interface::as_raw(self), htaskcallee.into(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(dwrejecttype)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).RetryRejectedCall)(::windows::core::Interface::as_raw(self), htaskcallee.into(), dwtickcount, dwrejecttype))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn MessagePending<'a, P0>(&self, htaskcallee: P0, dwtickcount: u32, dwpendingtype: u32) -> u32
     where
         P0: ::std::convert::Into<super::HTASK>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).MessagePending)(::windows::core::Interface::as_raw(self), htaskcallee.into(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(dwpendingtype)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).MessagePending)(::windows::core::Interface::as_raw(self), htaskcallee.into(), dwtickcount, dwpendingtype))
     }
 }
 impl ::core::convert::From<IMessageFilter> for ::windows::core::IUnknown {
@@ -6822,7 +6822,7 @@ impl IPart {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetControlInterface(&self, nindex: u32) -> ::windows::core::Result<IControlInterface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetControlInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IControlInterface>(result__)
+        (::windows::core::Interface::vtable(self).GetControlInterface)(::windows::core::Interface::as_raw(self), nindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IControlInterface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn EnumPartsIncoming(&self) -> ::windows::core::Result<IPartsList> {
@@ -6841,7 +6841,7 @@ impl IPart {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Activate(&self, dwclscontext: u32, refiid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(refiid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), dwclscontext, ::core::mem::transmute(refiid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn RegisterControlChangeCallback<'a, P0>(&self, riid: *const ::windows::core::GUID, pnotify: P0) -> ::windows::core::Result<()>
@@ -6923,7 +6923,7 @@ impl IPartsList {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetPart(&self, nindex: u32) -> ::windows::core::Result<IPart> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPart>(result__)
+        (::windows::core::Interface::vtable(self).GetPart)(::windows::core::Interface::as_raw(self), nindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPart>(result__)
     }
 }
 impl ::core::convert::From<IPartsList> for ::windows::core::IUnknown {
@@ -6979,20 +6979,20 @@ impl IPerChannelDbLevel {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevelRange(&self, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLevelRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
+        (::windows::core::Interface::vtable(self).GetLevelRange)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(pfminleveldb), ::core::mem::transmute(pfmaxleveldb), ::core::mem::transmute(pfstepping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetLevel(&self, nchannel: u32) -> ::windows::core::Result<f32> {
         let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).GetLevel)(::windows::core::Interface::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nchannel), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetLevel)(::windows::core::Interface::as_raw(self), nchannel, fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelUniform(&self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLevelUniform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fleveldb), ::core::mem::transmute(pguideventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetLevelUniform)(::windows::core::Interface::as_raw(self), fleveldb, ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetLevelAllChannels(&self, alevelsdb: &[f32], pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -7051,7 +7051,7 @@ pub struct ISimpleAudioVolume(::windows::core::IUnknown);
 impl ISimpleAudioVolume {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetMasterVolume(&self, flevel: f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMasterVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flevel), ::core::mem::transmute(eventcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetMasterVolume)(::windows::core::Interface::as_raw(self), flevel, ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMasterVolume(&self) -> ::windows::core::Result<f32> {
@@ -7129,7 +7129,7 @@ pub struct ISpatialAudioClient(::windows::core::IUnknown);
 impl ISpatialAudioClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
+        (::windows::core::Interface::vtable(self).GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetNativeStaticObjectTypeMask(&self) -> ::windows::core::Result<AudioObjectType> {
@@ -7230,7 +7230,7 @@ pub struct ISpatialAudioClient2(::windows::core::IUnknown);
 impl ISpatialAudioClient2 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetNativeStaticObjectTypeMask(&self) -> ::windows::core::Result<AudioObjectType> {
@@ -7274,7 +7274,7 @@ impl ISpatialAudioClient2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7283,7 +7283,7 @@ impl ISpatialAudioClient2 {
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaxFrameCountForCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), offloadenabled.into(), ::core::mem::transmute(objectformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMaxFrameCountForCategory)(::windows::core::Interface::as_raw(self), category, offloadenabled.into(), ::core::mem::transmute(objectformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioClient2> for ::windows::core::IUnknown {
@@ -7355,17 +7355,17 @@ pub struct ISpatialAudioMetadataClient(::windows::core::IUnknown);
 impl ISpatialAudioMetadataClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioMetadataItems(&self, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut ::core::option::Option<ISpatialAudioMetadataItemsBuffer>, metadataitems: *mut ::core::option::Option<ISpatialAudioMetadataItems>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxitemcount), ::core::mem::transmute(framecount), ::core::mem::transmute(metadataitemsbuffer), ::core::mem::transmute(metadataitems)).ok()
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioMetadataItems)(::windows::core::Interface::as_raw(self), maxitemcount, framecount, ::core::mem::transmute(metadataitemsbuffer), ::core::mem::transmute(metadataitems)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSpatialAudioMetadataItemsBufferLength(&self, maxitemcount: u16) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSpatialAudioMetadataItemsBufferLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxitemcount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetSpatialAudioMetadataItemsBufferLength)(::windows::core::Interface::as_raw(self), maxitemcount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioMetadataWriter(&self, overflowmode: SpatialAudioMetadataWriterOverflowMode) -> ::windows::core::Result<ISpatialAudioMetadataWriter> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioMetadataWriter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overflowmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioMetadataWriter>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioMetadataWriter)(::windows::core::Interface::as_raw(self), overflowmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioMetadataWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioMetadataCopier(&self) -> ::windows::core::Result<ISpatialAudioMetadataCopier> {
@@ -7440,7 +7440,7 @@ impl ISpatialAudioMetadataCopier {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioMetadataItems>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        (::windows::core::Interface::vtable(self).CopyMetadataForFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copyframecount), ::core::mem::transmute(copymode), dstmetadataitems.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).CopyMetadataForFrames)(::windows::core::Interface::as_raw(self), copyframecount, copymode, dstmetadataitems.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -7571,11 +7571,11 @@ pub struct ISpatialAudioMetadataItemsBuffer(::windows::core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn AttachToBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachToBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)).ok()
+        (::windows::core::Interface::vtable(self).AttachToBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffer), bufferlength).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn AttachToPopulatedBuffer(&self, buffer: *mut u8, bufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachToPopulatedBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)).ok()
+        (::windows::core::Interface::vtable(self).AttachToPopulatedBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffer), bufferlength).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn DetachBuffer(&self) -> ::windows::core::Result<()> {
@@ -7642,7 +7642,7 @@ impl ISpatialAudioMetadataReader {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ReadNextItemCommand(&self, commandid: *mut u8, valuebuffer: *mut ::core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadNextItemCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(valuebuffer), ::core::mem::transmute(maxvaluebufferlength), ::core::mem::transmute(valuebufferlength)).ok()
+        (::windows::core::Interface::vtable(self).ReadNextItemCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(valuebuffer), maxvaluebufferlength, ::core::mem::transmute(valuebufferlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -7706,11 +7706,11 @@ impl ISpatialAudioMetadataWriter {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn WriteNextItem(&self, frameoffset: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNextItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(frameoffset)).ok()
+        (::windows::core::Interface::vtable(self).WriteNextItem)(::windows::core::Interface::as_raw(self), frameoffset).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn WriteNextItemCommand(&self, commandid: u8, valuebuffer: *const ::core::ffi::c_void, valuebufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNextItemCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(valuebuffer), ::core::mem::transmute(valuebufferlength)).ok()
+        (::windows::core::Interface::vtable(self).WriteNextItemCommand)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(valuebuffer), valuebufferlength).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -7771,7 +7771,7 @@ impl ISpatialAudioObject {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetEndOfStream(&self, framecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framecount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), framecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7786,11 +7786,11 @@ impl ISpatialAudioObject {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
+        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), x, y, z).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetVolume(&self, volume: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(volume)).ok()
+        (::windows::core::Interface::vtable(self).SetVolume)(::windows::core::Interface::as_raw(self), volume).ok()
     }
 }
 impl ::core::convert::From<ISpatialAudioObject> for ::windows::core::IUnknown {
@@ -7860,7 +7860,7 @@ impl ISpatialAudioObjectBase {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetEndOfStream(&self, framecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framecount)).ok()
+        (::windows::core::Interface::vtable(self).SetEndOfStream)(::windows::core::Interface::as_raw(self), framecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7931,7 +7931,7 @@ impl ISpatialAudioObjectForHrtf {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetEndOfStream(&self, framecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framecount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), framecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7946,11 +7946,11 @@ impl ISpatialAudioObjectForHrtf {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
+        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), x, y, z).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetGain(&self, gain: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gain)).ok()
+        (::windows::core::Interface::vtable(self).SetGain)(::windows::core::Interface::as_raw(self), gain).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetOrientation(&self, orientation: *const *const f32) -> ::windows::core::Result<()> {
@@ -7958,7 +7958,7 @@ impl ISpatialAudioObjectForHrtf {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetEnvironment(&self, environment: SpatialAudioHrtfEnvironmentType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(environment)).ok()
+        (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), environment).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetDistanceDecay(&self, distancedecay: *const SpatialAudioHrtfDistanceDecay) -> ::windows::core::Result<()> {
@@ -8040,7 +8040,7 @@ impl ISpatialAudioObjectForMetadataCommands {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetEndOfStream(&self, framecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framecount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), framecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8055,7 +8055,7 @@ impl ISpatialAudioObjectForMetadataCommands {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn WriteNextMetadataCommand(&self, commandid: u8, valuebuffer: *const ::core::ffi::c_void, valuebufferlength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNextMetadataCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commandid), ::core::mem::transmute(valuebuffer), ::core::mem::transmute(valuebufferlength)).ok()
+        (::windows::core::Interface::vtable(self).WriteNextMetadataCommand)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(valuebuffer), valuebufferlength).ok()
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ::windows::core::IUnknown {
@@ -8124,7 +8124,7 @@ impl ISpatialAudioObjectForMetadataItems {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetEndOfStream(&self, framecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(framecount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEndOfStream)(::windows::core::Interface::as_raw(self), framecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8239,7 +8239,7 @@ impl ISpatialAudioObjectRenderStream {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObject>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObject)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObject>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStream> for ::windows::core::IUnknown {
@@ -8423,7 +8423,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioObjectForHrtf(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObjectForHrtf> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForHrtf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForHrtf>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForHrtf)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForHrtf>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ::windows::core::IUnknown {
@@ -8522,12 +8522,12 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObjectForMetadataCommands> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataCommands)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataCommands>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataCommands)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataCommands>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObjectForMetadataItems> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataItems>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataItems)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataItems>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ::windows::core::IUnknown {
@@ -8596,7 +8596,7 @@ impl ISpatialAudioObjectRenderStreamNotify {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioObjectRenderStreamBase>>,
     {
-        (::windows::core::Interface::vtable(self).OnAvailableDynamicObjectCountChange)(::windows::core::Interface::as_raw(self), sender.into().abi(), ::core::mem::transmute(hnscompliancedeadlinetime), ::core::mem::transmute(availabledynamicobjectcountchange)).ok()
+        (::windows::core::Interface::vtable(self).OnAvailableDynamicObjectCountChange)(::windows::core::Interface::as_raw(self), sender.into().abi(), hnscompliancedeadlinetime, availabledynamicobjectcountchange).ok()
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamNotify> for ::windows::core::IUnknown {
@@ -10617,7 +10617,7 @@ where
     extern "system" {
         fn PlaySoundA(pszsound: ::windows::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PlaySoundA(pszsound.into(), hmod.into(), ::core::mem::transmute(fdwsound)))
+    ::core::mem::transmute(PlaySoundA(pszsound.into(), hmod.into(), fdwsound))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10631,7 +10631,7 @@ where
     extern "system" {
         fn PlaySoundW(pszsound: ::windows::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PlaySoundW(pszsound.into(), hmod.into(), ::core::mem::transmute(fdwsound)))
+    ::core::mem::transmute(PlaySoundW(pszsound.into(), hmod.into(), fdwsound))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_ALIAS_START: u32 = 0u32;
@@ -11956,7 +11956,7 @@ where
     extern "system" {
         fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
+    ::core::mem::transmute(acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), dwpriority, fdwadd))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11970,7 +11970,7 @@ where
     extern "system" {
         fn acmDriverAddW(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
+    ::core::mem::transmute(acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), dwpriority, fdwadd))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -11982,7 +11982,7 @@ where
     extern "system" {
         fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverClose(had.into(), ::core::mem::transmute(fdwclose)))
+    ::core::mem::transmute(acmDriverClose(had.into(), fdwclose))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -11995,7 +11995,7 @@ where
     extern "system" {
         fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverDetailsA(hadid.into(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmDriverDetailsA(hadid.into(), ::core::mem::transmute(padd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -12008,7 +12008,7 @@ where
     extern "system" {
         fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverDetailsW(hadid.into(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmDriverDetailsW(hadid.into(), ::core::mem::transmute(padd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12018,7 +12018,7 @@ pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwe
     extern "system" {
         fn acmDriverEnum(fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverEnum(::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmDriverEnum(::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12030,7 +12030,7 @@ where
     extern "system" {
         fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverID(hao.into(), ::core::mem::transmute(phadid), ::core::mem::transmute(fdwdriverid)))
+    ::core::mem::transmute(acmDriverID(hao.into(), ::core::mem::transmute(phadid), fdwdriverid))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12045,7 +12045,7 @@ where
     extern "system" {
         fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(acmDriverMessage(had.into(), ::core::mem::transmute(umsg), lparam1.into(), lparam2.into()))
+    ::core::mem::transmute(acmDriverMessage(had.into(), umsg, lparam1.into(), lparam2.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12057,7 +12057,7 @@ where
     extern "system" {
         fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverOpen(::core::mem::transmute(phad), hadid.into(), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(acmDriverOpen(::core::mem::transmute(phad), hadid.into(), fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12069,7 +12069,7 @@ where
     extern "system" {
         fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverPriority(hadid.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwpriority)))
+    ::core::mem::transmute(acmDriverPriority(hadid.into(), dwpriority, fdwpriority))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12081,7 +12081,7 @@ where
     extern "system" {
         fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverRemove(hadid.into(), ::core::mem::transmute(fdwremove)))
+    ::core::mem::transmute(acmDriverRemove(hadid.into(), fdwremove))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12114,7 +12114,7 @@ where
     extern "system" {
         fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterDetailsA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterDetailsA(had.into(), ::core::mem::transmute(pafd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12126,7 +12126,7 @@ where
     extern "system" {
         fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterDetailsW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterDetailsW(had.into(), ::core::mem::transmute(pafd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12139,7 +12139,7 @@ where
     extern "system" {
         fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12152,7 +12152,7 @@ where
     extern "system" {
         fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12165,7 +12165,7 @@ where
     extern "system" {
         fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagDetailsA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterTagDetailsA(had.into(), ::core::mem::transmute(paftd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12177,7 +12177,7 @@ where
     extern "system" {
         fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagDetailsW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterTagDetailsW(had.into(), ::core::mem::transmute(paftd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12190,7 +12190,7 @@ where
     extern "system" {
         fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12203,7 +12203,7 @@ where
     extern "system" {
         fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12236,7 +12236,7 @@ where
     extern "system" {
         fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatDetailsA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatDetailsA(had.into(), ::core::mem::transmute(pafd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12248,7 +12248,7 @@ where
     extern "system" {
         fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatDetailsW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatDetailsW(had.into(), ::core::mem::transmute(pafd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12261,7 +12261,7 @@ where
     extern "system" {
         fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12274,7 +12274,7 @@ where
     extern "system" {
         fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12286,7 +12286,7 @@ where
     extern "system" {
         fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatSuggest(had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(cbwfxdst), ::core::mem::transmute(fdwsuggest)))
+    ::core::mem::transmute(acmFormatSuggest(had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), cbwfxdst, fdwsuggest))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12299,7 +12299,7 @@ where
     extern "system" {
         fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagDetailsA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatTagDetailsA(had.into(), ::core::mem::transmute(paftd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12311,7 +12311,7 @@ where
     extern "system" {
         fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagDetailsW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatTagDetailsW(had.into(), ::core::mem::transmute(paftd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12324,7 +12324,7 @@ where
     extern "system" {
         fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12337,7 +12337,7 @@ where
     extern "system" {
         fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12358,7 +12358,7 @@ where
     extern "system" {
         fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(acmMetrics(hao.into(), ::core::mem::transmute(umetric), ::core::mem::transmute(pmetric)))
+    ::core::mem::transmute(acmMetrics(hao.into(), umetric, ::core::mem::transmute(pmetric)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12370,7 +12370,7 @@ where
     extern "system" {
         fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamClose(has.into(), ::core::mem::transmute(fdwclose)))
+    ::core::mem::transmute(acmStreamClose(has.into(), fdwclose))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12382,7 +12382,7 @@ where
     extern "system" {
         fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamConvert(has.into(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwconvert)))
+    ::core::mem::transmute(acmStreamConvert(has.into(), ::core::mem::transmute(pash), fdwconvert))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12397,7 +12397,7 @@ where
     extern "system" {
         fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32;
     }
-    ::core::mem::transmute(acmStreamMessage(has.into(), ::core::mem::transmute(umsg), lparam1.into(), lparam2.into()))
+    ::core::mem::transmute(acmStreamMessage(has.into(), umsg, lparam1.into(), lparam2.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12409,7 +12409,7 @@ where
     extern "system" {
         fn acmStreamOpen(phas: *mut isize, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamOpen(::core::mem::transmute(phas), had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(acmStreamOpen(::core::mem::transmute(phas), had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12421,7 +12421,7 @@ where
     extern "system" {
         fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamPrepareHeader(has.into(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwprepare)))
+    ::core::mem::transmute(acmStreamPrepareHeader(has.into(), ::core::mem::transmute(pash), fdwprepare))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12433,7 +12433,7 @@ where
     extern "system" {
         fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamReset(has.into(), ::core::mem::transmute(fdwreset)))
+    ::core::mem::transmute(acmStreamReset(has.into(), fdwreset))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12445,7 +12445,7 @@ where
     extern "system" {
         fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamSize(has.into(), ::core::mem::transmute(cbinput), ::core::mem::transmute(pdwoutputbytes), ::core::mem::transmute(fdwsize)))
+    ::core::mem::transmute(acmStreamSize(has.into(), cbinput, ::core::mem::transmute(pdwoutputbytes), fdwsize))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12457,7 +12457,7 @@ where
     extern "system" {
         fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamUnprepareHeader(has.into(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwunprepare)))
+    ::core::mem::transmute(acmStreamUnprepareHeader(has.into(), ::core::mem::transmute(pash), fdwunprepare))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12467,7 +12467,7 @@ pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) ->
     extern "system" {
         fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;
     }
-    ::core::mem::transmute(auxGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pac), ::core::mem::transmute(cbac)))
+    ::core::mem::transmute(auxGetDevCapsA(udeviceid, ::core::mem::transmute(pac), cbac))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12476,7 +12476,7 @@ pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) ->
     extern "system" {
         fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32;
     }
-    ::core::mem::transmute(auxGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pac), ::core::mem::transmute(cbac)))
+    ::core::mem::transmute(auxGetDevCapsW(udeviceid, ::core::mem::transmute(pac), cbac))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12494,7 +12494,7 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
     extern "system" {
         fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32;
     }
-    ::core::mem::transmute(auxGetVolume(::core::mem::transmute(udeviceid), ::core::mem::transmute(pdwvolume)))
+    ::core::mem::transmute(auxGetVolume(udeviceid, ::core::mem::transmute(pdwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12503,7 +12503,7 @@ pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -
     extern "system" {
         fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(auxOutMessage(::core::mem::transmute(udeviceid), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(auxOutMessage(udeviceid, umsg, dw1, dw2))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12512,7 +12512,7 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
     extern "system" {
         fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32;
     }
-    ::core::mem::transmute(auxSetVolume(::core::mem::transmute(udeviceid), ::core::mem::transmute(dwvolume)))
+    ::core::mem::transmute(auxSetVolume(udeviceid, dwvolume))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12550,7 +12550,7 @@ where
     extern "system" {
         fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiInAddBuffer(hmi.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiInAddBuffer(hmi.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12572,7 +12572,7 @@ pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic:
     extern "system" {
         fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
     }
-    ::core::mem::transmute(midiInGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmic), ::core::mem::transmute(cbmic)))
+    ::core::mem::transmute(midiInGetDevCapsA(udeviceid, ::core::mem::transmute(pmic), cbmic))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12581,7 +12581,7 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
     extern "system" {
         fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
     }
-    ::core::mem::transmute(midiInGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmic), ::core::mem::transmute(cbmic)))
+    ::core::mem::transmute(midiInGetDevCapsW(udeviceid, ::core::mem::transmute(pmic), cbmic))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12590,7 +12590,7 @@ pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
     extern "system" {
         fn midiInGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(midiInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(midiInGetErrorTextA(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12599,7 +12599,7 @@ pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     extern "system" {
         fn midiInGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(midiInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(midiInGetErrorTextW(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12632,7 +12632,7 @@ where
     extern "system" {
         fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(midiInMessage(hmi.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(midiInMessage(hmi.into(), umsg, dw1, dw2))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12641,7 +12641,7 @@ pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, 
     extern "system" {
         fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(midiInOpen(::core::mem::transmute(phmi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(midiInOpen(::core::mem::transmute(phmi), udeviceid, dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12653,7 +12653,7 @@ where
     extern "system" {
         fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiInPrepareHeader(hmi.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiInPrepareHeader(hmi.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12701,7 +12701,7 @@ where
     extern "system" {
         fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiInUnprepareHeader(hmi.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiInUnprepareHeader(hmi.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12713,7 +12713,7 @@ where
     extern "system" {
         fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into(), ::core::mem::transmute(upatch), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwkya)), ::core::mem::transmute(fucache)))
+    ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into(), upatch, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwkya)), fucache))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12725,7 +12725,7 @@ where
     extern "system" {
         fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutCachePatches(hmo.into(), ::core::mem::transmute(ubank), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwpa)), ::core::mem::transmute(fucache)))
+    ::core::mem::transmute(midiOutCachePatches(hmo.into(), ubank, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwpa)), fucache))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12747,7 +12747,7 @@ pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmo
     extern "system" {
         fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmoc), ::core::mem::transmute(cbmoc)))
+    ::core::mem::transmute(midiOutGetDevCapsA(udeviceid, ::core::mem::transmute(pmoc), cbmoc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12756,7 +12756,7 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
     extern "system" {
         fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pmoc), ::core::mem::transmute(cbmoc)))
+    ::core::mem::transmute(midiOutGetDevCapsW(udeviceid, ::core::mem::transmute(pmoc), cbmoc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12765,7 +12765,7 @@ pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
     extern "system" {
         fn midiOutGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(midiOutGetErrorTextA(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12774,7 +12774,7 @@ pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     extern "system" {
         fn midiOutGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(midiOutGetErrorTextW(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12819,7 +12819,7 @@ where
     extern "system" {
         fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutLongMsg(hmo.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiOutLongMsg(hmo.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12831,7 +12831,7 @@ where
     extern "system" {
         fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(midiOutMessage(hmo.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(midiOutMessage(hmo.into(), umsg, dw1, dw2))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12840,7 +12840,7 @@ pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize
     extern "system" {
         fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(midiOutOpen(::core::mem::transmute(phmo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(midiOutOpen(::core::mem::transmute(phmo), udeviceid, dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12852,7 +12852,7 @@ where
     extern "system" {
         fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutPrepareHeader(hmo.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiOutPrepareHeader(hmo.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12876,7 +12876,7 @@ where
     extern "system" {
         fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutSetVolume(hmo.into(), ::core::mem::transmute(dwvolume)))
+    ::core::mem::transmute(midiOutSetVolume(hmo.into(), dwvolume))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12888,7 +12888,7 @@ where
     extern "system" {
         fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutShortMsg(hmo.into(), ::core::mem::transmute(dwmsg)))
+    ::core::mem::transmute(midiOutShortMsg(hmo.into(), dwmsg))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12900,7 +12900,7 @@ where
     extern "system" {
         fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutUnprepareHeader(hmo.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiOutUnprepareHeader(hmo.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12921,7 +12921,7 @@ pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcal
     extern "system" {
         fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pudeviceid)), pudeviceid.len() as _, ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pudeviceid)), pudeviceid.len() as _, dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12933,7 +12933,7 @@ where
     extern "system" {
         fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamOut(hms.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiStreamOut(hms.into(), ::core::mem::transmute(pmh), cbmh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12957,7 +12957,7 @@ where
     extern "system" {
         fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamPosition(hms.into(), ::core::mem::transmute(lpmmt), ::core::mem::transmute(cbmmt)))
+    ::core::mem::transmute(midiStreamPosition(hms.into(), ::core::mem::transmute(lpmmt), cbmmt))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12969,7 +12969,7 @@ where
     extern "system" {
         fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamProperty(hms.into(), ::core::mem::transmute(lppropdata), ::core::mem::transmute(dwproperty)))
+    ::core::mem::transmute(midiStreamProperty(hms.into(), ::core::mem::transmute(lppropdata), dwproperty))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13018,7 +13018,7 @@ where
     extern "system" {
         fn mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetControlDetailsA(hmxobj.into(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(mixerGetControlDetailsA(hmxobj.into(), ::core::mem::transmute(pmxcd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13031,7 +13031,7 @@ where
     extern "system" {
         fn mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetControlDetailsW(hmxobj.into(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(mixerGetControlDetailsW(hmxobj.into(), ::core::mem::transmute(pmxcd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13041,7 +13041,7 @@ pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps:
     extern "system" {
         fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetDevCapsA(::core::mem::transmute(umxid), ::core::mem::transmute(pmxcaps), ::core::mem::transmute(cbmxcaps)))
+    ::core::mem::transmute(mixerGetDevCapsA(umxid, ::core::mem::transmute(pmxcaps), cbmxcaps))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13050,7 +13050,7 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
     extern "system" {
         fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetDevCapsW(::core::mem::transmute(umxid), ::core::mem::transmute(pmxcaps), ::core::mem::transmute(cbmxcaps)))
+    ::core::mem::transmute(mixerGetDevCapsW(umxid, ::core::mem::transmute(pmxcaps), cbmxcaps))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13062,7 +13062,7 @@ where
     extern "system" {
         fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetID(hmxobj.into(), ::core::mem::transmute(pumxid), ::core::mem::transmute(fdwid)))
+    ::core::mem::transmute(mixerGetID(hmxobj.into(), ::core::mem::transmute(pumxid), fdwid))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13075,7 +13075,7 @@ where
     extern "system" {
         fn mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineControlsA(hmxobj.into(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
+    ::core::mem::transmute(mixerGetLineControlsA(hmxobj.into(), ::core::mem::transmute(pmxlc), fdwcontrols))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13087,7 +13087,7 @@ where
     extern "system" {
         fn mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineControlsW(hmxobj.into(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
+    ::core::mem::transmute(mixerGetLineControlsW(hmxobj.into(), ::core::mem::transmute(pmxlc), fdwcontrols))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13100,7 +13100,7 @@ where
     extern "system" {
         fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineInfoA(hmxobj.into(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
+    ::core::mem::transmute(mixerGetLineInfoA(hmxobj.into(), ::core::mem::transmute(pmxl), fdwinfo))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13112,7 +13112,7 @@ where
     extern "system" {
         fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineInfoW(hmxobj.into(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
+    ::core::mem::transmute(mixerGetLineInfoW(hmxobj.into(), ::core::mem::transmute(pmxl), fdwinfo))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13133,7 +13133,7 @@ where
     extern "system" {
         fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
     }
-    ::core::mem::transmute(mixerMessage(hmx.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
+    ::core::mem::transmute(mixerMessage(hmx.into(), umsg, dwparam1, dwparam2))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13142,7 +13142,7 @@ pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinsta
     extern "system" {
         fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
     }
-    ::core::mem::transmute(mixerOpen(::core::mem::transmute(phmx), ::core::mem::transmute(umxid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(mixerOpen(::core::mem::transmute(phmx), umxid, dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13155,7 +13155,7 @@ where
     extern "system" {
         fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(mixerSetControlDetails(hmxobj.into(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(mixerSetControlDetails(hmxobj.into(), ::core::mem::transmute(pmxcd), fdwdetails))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13168,7 +13168,7 @@ where
     extern "system" {
         fn sndPlaySoundA(pszsound: ::windows::core::PCSTR, fusound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(sndPlaySoundA(pszsound.into(), ::core::mem::transmute(fusound)))
+    ::core::mem::transmute(sndPlaySoundA(pszsound.into(), fusound))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13181,7 +13181,7 @@ where
     extern "system" {
         fn sndPlaySoundW(pszsound: ::windows::core::PCWSTR, fusound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(sndPlaySoundW(pszsound.into(), ::core::mem::transmute(fusound)))
+    ::core::mem::transmute(sndPlaySoundW(pszsound.into(), fusound))
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -13290,7 +13290,7 @@ where
     extern "system" {
         fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveInAddBuffer(hwi.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveInAddBuffer(hwi.into(), ::core::mem::transmute(pwh), cbwh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13312,7 +13312,7 @@ pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic:
     extern "system" {
         fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwic), ::core::mem::transmute(cbwic)))
+    ::core::mem::transmute(waveInGetDevCapsA(udeviceid, ::core::mem::transmute(pwic), cbwic))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13321,7 +13321,7 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
     extern "system" {
         fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwic), ::core::mem::transmute(cbwic)))
+    ::core::mem::transmute(waveInGetDevCapsW(udeviceid, ::core::mem::transmute(pwic), cbwic))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13330,7 +13330,7 @@ pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
     extern "system" {
         fn waveInGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(waveInGetErrorTextA(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13339,7 +13339,7 @@ pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     extern "system" {
         fn waveInGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(waveInGetErrorTextW(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13372,7 +13372,7 @@ where
     extern "system" {
         fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetPosition(hwi.into(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
+    ::core::mem::transmute(waveInGetPosition(hwi.into(), ::core::mem::transmute(pmmt), cbmmt))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13384,7 +13384,7 @@ where
     extern "system" {
         fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(waveInMessage(hwi.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(waveInMessage(hwi.into(), umsg, dw1, dw2))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13393,7 +13393,7 @@ pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFO
     extern "system" {
         fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(waveInOpen(::core::mem::transmute(phwi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(waveInOpen(::core::mem::transmute(phwi), udeviceid, ::core::mem::transmute(pwfx), dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13405,7 +13405,7 @@ where
     extern "system" {
         fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveInPrepareHeader(hwi.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveInPrepareHeader(hwi.into(), ::core::mem::transmute(pwh), cbwh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13453,7 +13453,7 @@ where
     extern "system" {
         fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveInUnprepareHeader(hwi.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveInUnprepareHeader(hwi.into(), ::core::mem::transmute(pwh), cbwh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13487,7 +13487,7 @@ pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwo
     extern "system" {
         fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetDevCapsA(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwoc), ::core::mem::transmute(cbwoc)))
+    ::core::mem::transmute(waveOutGetDevCapsA(udeviceid, ::core::mem::transmute(pwoc), cbwoc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13496,7 +13496,7 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
     extern "system" {
         fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetDevCapsW(::core::mem::transmute(udeviceid), ::core::mem::transmute(pwoc), ::core::mem::transmute(cbwoc)))
+    ::core::mem::transmute(waveOutGetDevCapsW(udeviceid, ::core::mem::transmute(pwoc), cbwoc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13505,7 +13505,7 @@ pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
     extern "system" {
         fn waveOutGetErrorTextA(mmrerror: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetErrorTextA(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(waveOutGetErrorTextA(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13514,7 +13514,7 @@ pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
     extern "system" {
         fn waveOutGetErrorTextW(mmrerror: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetErrorTextW(::core::mem::transmute(mmrerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    ::core::mem::transmute(waveOutGetErrorTextW(mmrerror, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13571,7 +13571,7 @@ where
     extern "system" {
         fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetPosition(hwo.into(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
+    ::core::mem::transmute(waveOutGetPosition(hwo.into(), ::core::mem::transmute(pmmt), cbmmt))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13595,7 +13595,7 @@ where
     extern "system" {
         fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(waveOutMessage(hwo.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(waveOutMessage(hwo.into(), umsg, dw1, dw2))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13604,7 +13604,7 @@ pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVE
     extern "system" {
         fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(waveOutOpen(::core::mem::transmute(phwo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(waveOutOpen(::core::mem::transmute(phwo), udeviceid, ::core::mem::transmute(pwfx), dwcallback, dwinstance, fdwopen))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13628,7 +13628,7 @@ where
     extern "system" {
         fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutPrepareHeader(hwo.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveOutPrepareHeader(hwo.into(), ::core::mem::transmute(pwh), cbwh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13664,7 +13664,7 @@ where
     extern "system" {
         fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutSetPitch(hwo.into(), ::core::mem::transmute(dwpitch)))
+    ::core::mem::transmute(waveOutSetPitch(hwo.into(), dwpitch))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13676,7 +13676,7 @@ where
     extern "system" {
         fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutSetPlaybackRate(hwo.into(), ::core::mem::transmute(dwrate)))
+    ::core::mem::transmute(waveOutSetPlaybackRate(hwo.into(), dwrate))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13688,7 +13688,7 @@ where
     extern "system" {
         fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutSetVolume(hwo.into(), ::core::mem::transmute(dwvolume)))
+    ::core::mem::transmute(waveOutSetVolume(hwo.into(), dwvolume))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13700,7 +13700,7 @@ where
     extern "system" {
         fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutUnprepareHeader(hwo.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveOutUnprepareHeader(hwo.into(), ::core::mem::transmute(pwh), cbwh))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13712,7 +13712,7 @@ where
     extern "system" {
         fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutWrite(hwo.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveOutWrite(hwo.into(), ::core::mem::transmute(pwh), cbwh))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

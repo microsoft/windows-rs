@@ -96,7 +96,7 @@ impl ICompositionDrawingSurfaceInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), ::core::mem::transmute(offsetx), ::core::mem::transmute(offsety)).ok()
+        (::windows::core::Interface::vtable(self).Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), offsetx, offsety).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
@@ -187,7 +187,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), ::core::mem::transmute(offsetx), ::core::mem::transmute(offsety)).ok()
+        (::windows::core::Interface::vtable(self).base__.Scroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), offsetx, offsety).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
     pub unsafe fn ResumeDraw(&self) -> ::windows::core::Result<()> {
@@ -203,7 +203,7 @@ impl ICompositionDrawingSurfaceInterop2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).CopySurface)(::windows::core::Interface::as_raw(self), destinationresource.into().abi(), ::core::mem::transmute(destinationoffsetx), ::core::mem::transmute(destinationoffsety), ::core::mem::transmute(sourcerectangle)).ok()
+        (::windows::core::Interface::vtable(self).CopySurface)(::windows::core::Interface::as_raw(self), destinationresource.into().abi(), destinationoffsetx, destinationoffsety, ::core::mem::transmute(sourcerectangle)).ok()
     }
 }
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ::windows::core::IUnknown {
@@ -340,7 +340,7 @@ impl ICompositorDesktopInterop {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnsureOnThread)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threadid)).ok()
+        (::windows::core::Interface::vtable(self).EnsureOnThread)(::windows::core::Interface::as_raw(self), threadid).ok()
     }
 }
 impl ::core::convert::From<ICompositorDesktopInterop> for ::windows::core::IUnknown {

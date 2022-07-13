@@ -301,7 +301,7 @@ impl IWSDDeviceHost {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWSDDeviceHostNotify>>,
     {
-        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(pscopelist), pnotificationsink.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), ullinstanceid, ::core::mem::transmute(pscopelist), pnotificationsink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
@@ -702,7 +702,7 @@ impl IWSDEventingStatus {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SubscriptionRenewalFailed)(::windows::core::Interface::as_raw(self), pszsubscriptionaction.into(), ::core::mem::transmute(hr))
+        (::windows::core::Interface::vtable(self).SubscriptionRenewalFailed)(::windows::core::Interface::as_raw(self), pszsubscriptionaction.into(), hr)
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SubscriptionEnded<'a, P0>(&self, pszsubscriptionaction: P0)
@@ -781,7 +781,7 @@ impl IWSDHttpAddress {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetPort(&self, wport: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wport)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPort)(::windows::core::Interface::as_raw(self), wport).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetTransportAddress(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2054,7 +2054,7 @@ impl IWSDTransportAddress {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetPort(&self, wport: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wport)).ok()
+        (::windows::core::Interface::vtable(self).SetPort)(::windows::core::Interface::as_raw(self), wport).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetTransportAddress(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2167,7 +2167,7 @@ impl IWSDUdpAddress {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetPort(&self, wport: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wport)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPort)(::windows::core::Interface::as_raw(self), wport).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetTransportAddress(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2215,7 +2215,7 @@ impl IWSDUdpAddress {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetMessageType(&self, messagetype: WSDUdpMessageType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(messagetype)).ok()
+        (::windows::core::Interface::vtable(self).SetMessageType)(::windows::core::Interface::as_raw(self), messagetype).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetMessageType(&self) -> ::windows::core::Result<WSDUdpMessageType> {
@@ -2224,7 +2224,7 @@ impl IWSDUdpAddress {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetTTL(&self, dwttl: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTTL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwttl)).ok()
+        (::windows::core::Interface::vtable(self).SetTTL)(::windows::core::Interface::as_raw(self), dwttl).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetTTL(&self) -> ::windows::core::Result<u32> {
@@ -2454,11 +2454,11 @@ impl IWSDXMLContext {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetNamespaces(&self, pnamespaces: &[*const WSDXML_NAMESPACE], blayernumber: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnamespaces)), pnamespaces.len() as _, ::core::mem::transmute(blayernumber)).ok()
+        (::windows::core::Interface::vtable(self).SetNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pnamespaces)), pnamespaces.len() as _, blayernumber).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetTypes(&self, ptypes: &[*const WSDXML_TYPE], blayernumber: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptypes)), ptypes.len() as _, ::core::mem::transmute(blayernumber)).ok()
+        (::windows::core::Interface::vtable(self).SetTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptypes)), ptypes.len() as _, blayernumber).ok()
     }
 }
 impl ::core::convert::From<IWSDXMLContext> for ::windows::core::IUnknown {
@@ -2621,7 +2621,7 @@ pub struct IWSDiscoveryProvider(::windows::core::IUnknown);
 impl IWSDiscoveryProvider {
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddressFamily)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaddressfamily)).ok()
+        (::windows::core::Interface::vtable(self).SetAddressFamily)(::windows::core::Interface::as_raw(self), dwaddressfamily).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn Attach<'a, P0>(&self, psink: P0) -> ::windows::core::Result<()>
@@ -2734,7 +2734,7 @@ impl IWSDiscoveryProviderNotify {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SearchFailed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), psztag.into()).ok()
+        (::windows::core::Interface::vtable(self).SearchFailed)(::windows::core::Interface::as_raw(self), hr, psztag.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SearchComplete<'a, P0>(&self, psztag: P0) -> ::windows::core::Result<()>
@@ -2794,7 +2794,7 @@ pub struct IWSDiscoveryPublisher(::windows::core::IUnknown);
 impl IWSDiscoveryPublisher {
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddressFamily)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwaddressfamily)).ok()
+        (::windows::core::Interface::vtable(self).SetAddressFamily)(::windows::core::Interface::as_raw(self), dwaddressfamily).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn RegisterNotificationSink<'a, P0>(&self, psink: P0) -> ::windows::core::Result<()>
@@ -2816,7 +2816,7 @@ impl IWSDiscoveryPublisher {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).Publish)(::windows::core::Interface::as_raw(self), pszid.into(), ::core::mem::transmute(ullmetadataversion), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
+        (::windows::core::Interface::vtable(self).Publish)(::windows::core::Interface::as_raw(self), pszid.into(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn UnPublish<'a, P0, P1>(&self, pszid: P0, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P1, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>
@@ -2824,7 +2824,7 @@ impl IWSDiscoveryPublisher {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).UnPublish)(::windows::core::Interface::as_raw(self), pszid.into(), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into(), ::core::mem::transmute(pany)).ok()
+        (::windows::core::Interface::vtable(self).UnPublish)(::windows::core::Interface::as_raw(self), pszid.into(), ullinstanceid, ullmessagenumber, pszsessionid.into(), ::core::mem::transmute(pany)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn MatchProbe<'a, P0, P1, P2>(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>
@@ -2833,7 +2833,7 @@ impl IWSDiscoveryPublisher {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).MatchProbe)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprobemessage), pmessageparameters.into().abi(), pszid.into(), ::core::mem::transmute(ullmetadataversion), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
+        (::windows::core::Interface::vtable(self).MatchProbe)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprobemessage), pmessageparameters.into().abi(), pszid.into(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn MatchResolve<'a, P0, P1, P2>(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>
@@ -2842,7 +2842,7 @@ impl IWSDiscoveryPublisher {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).MatchResolve)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presolvemessage), pmessageparameters.into().abi(), pszid.into(), ::core::mem::transmute(ullmetadataversion), ::core::mem::transmute(ullinstanceid), ::core::mem::transmute(ullmessagenumber), pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
+        (::windows::core::Interface::vtable(self).MatchResolve)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presolvemessage), pmessageparameters.into().abi(), pszid.into(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn PublishEx<'a, P0, P1>(&self, pszid: P0, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P1, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>
@@ -2850,23 +2850,7 @@ impl IWSDiscoveryPublisher {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PublishEx)(
-            ::windows::core::Interface::as_raw(self),
-            pszid.into(),
-            ::core::mem::transmute(ullmetadataversion),
-            ::core::mem::transmute(ullinstanceid),
-            ::core::mem::transmute(ullmessagenumber),
-            pszsessionid.into(),
-            ::core::mem::transmute(ptypeslist),
-            ::core::mem::transmute(pscopeslist),
-            ::core::mem::transmute(pxaddrslist),
-            ::core::mem::transmute(pheaderany),
-            ::core::mem::transmute(preferenceparameterany),
-            ::core::mem::transmute(ppolicyany),
-            ::core::mem::transmute(pendpointreferenceany),
-            ::core::mem::transmute(pany),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).PublishEx)(::windows::core::Interface::as_raw(self), pszid.into(), ullmetadataversion, ullinstanceid, ullmessagenumber, pszsessionid.into(), ::core::mem::transmute(ptypeslist), ::core::mem::transmute(pscopeslist), ::core::mem::transmute(pxaddrslist), ::core::mem::transmute(pheaderany), ::core::mem::transmute(preferenceparameterany), ::core::mem::transmute(ppolicyany), ::core::mem::transmute(pendpointreferenceany), ::core::mem::transmute(pany)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn MatchProbeEx<'a, P0, P1, P2>(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: P0, pszid: P1, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: P2, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>
@@ -2880,9 +2864,9 @@ impl IWSDiscoveryPublisher {
             ::core::mem::transmute(pprobemessage),
             pmessageparameters.into().abi(),
             pszid.into(),
-            ::core::mem::transmute(ullmetadataversion),
-            ::core::mem::transmute(ullinstanceid),
-            ::core::mem::transmute(ullmessagenumber),
+            ullmetadataversion,
+            ullinstanceid,
+            ullmessagenumber,
             pszsessionid.into(),
             ::core::mem::transmute(ptypeslist),
             ::core::mem::transmute(pscopeslist),
@@ -2907,9 +2891,9 @@ impl IWSDiscoveryPublisher {
             ::core::mem::transmute(presolvemessage),
             pmessageparameters.into().abi(),
             pszid.into(),
-            ::core::mem::transmute(ullmetadataversion),
-            ::core::mem::transmute(ullinstanceid),
-            ::core::mem::transmute(ullmessagenumber),
+            ullmetadataversion,
+            ullinstanceid,
+            ullmessagenumber,
             pszsessionid.into(),
             ::core::mem::transmute(ptypeslist),
             ::core::mem::transmute(pscopeslist),
@@ -3411,7 +3395,7 @@ pub unsafe fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize:
     extern "system" {
         fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(WSDAllocateLinkedMemory(::core::mem::transmute(pparent), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(WSDAllocateLinkedMemory(::core::mem::transmute(pparent), cbsize))
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
@@ -3700,7 +3684,7 @@ pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::
     extern "system" {
         fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::HRESULT;
     }
-    WSDGetConfigurationOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pvoid), ::core::mem::transmute(cboutbuffer)).ok()
+    WSDGetConfigurationOption(dwoption, ::core::mem::transmute(pvoid), cboutbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[inline]
@@ -3709,7 +3693,7 @@ pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi
     extern "system" {
         fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::HRESULT;
     }
-    WSDSetConfigurationOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pvoid), ::core::mem::transmute(cbinbuffer)).ok()
+    WSDSetConfigurationOption(dwoption, ::core::mem::transmute(pvoid), cbinbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]

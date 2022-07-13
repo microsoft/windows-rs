@@ -2229,7 +2229,7 @@ pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32,
     extern "system" {
         fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    ADsBuildVarArrayInt(::core::mem::transmute(lpdwobjecttypes), ::core::mem::transmute(dwobjecttypes), ::core::mem::transmute(pvar)).ok()
+    ADsBuildVarArrayInt(::core::mem::transmute(lpdwobjecttypes), dwobjecttypes, ::core::mem::transmute(pvar)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2260,7 +2260,7 @@ pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdat
     extern "system" {
         fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdata: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    ADsEncodeBinaryData(::core::mem::transmute(pbsrcdata), ::core::mem::transmute(dwsrclen), ::core::mem::transmute(ppszdestdata)).ok()
+    ADsEncodeBinaryData(::core::mem::transmute(pbsrcdata), dwsrclen, ::core::mem::transmute(ppszdestdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2273,7 +2273,7 @@ where
     extern "system" {
         fn ADsEnumerateNext(penumvariant: *mut ::core::ffi::c_void, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::core::HRESULT;
     }
-    ADsEnumerateNext(penumvariant.into().abi(), ::core::mem::transmute(celements), ::core::mem::transmute(pvar), ::core::mem::transmute(pcelementsfetched)).ok()
+    ADsEnumerateNext(penumvariant.into().abi(), celements, ::core::mem::transmute(pvar), ::core::mem::transmute(pcelementsfetched)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(feature = "Win32_System_Ole")]
@@ -2321,7 +2321,7 @@ where
     extern "system" {
         fn ADsOpenObject(lpszpathname: ::windows::core::PCWSTR, lpszusername: ::windows::core::PCWSTR, lpszpassword: ::windows::core::PCWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ADsOpenObject(lpszpathname.into(), lpszusername.into(), lpszpassword.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppobject)).ok()
+    ADsOpenObject(lpszpathname.into(), lpszusername.into(), lpszpassword.into(), dwreserved, ::core::mem::transmute(riid), ::core::mem::transmute(ppobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2430,7 +2430,7 @@ where
     extern "system" {
         fn ADsSetLastError(dwerr: u32, pszerror: ::windows::core::PCWSTR, pszprovider: ::windows::core::PCWSTR);
     }
-    ADsSetLastError(::core::mem::transmute(dwerr), pszerror.into(), pszprovider.into())
+    ADsSetLastError(dwerr, pszerror.into(), pszprovider.into())
 }
 pub const AccessControlEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
 pub const AccessControlList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
@@ -2442,7 +2442,7 @@ pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     extern "system" {
         fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32);
     }
-    AdsFreeAdsValues(::core::mem::transmute(padsvalues), ::core::mem::transmute(dwnumvalues))
+    AdsFreeAdsValues(::core::mem::transmute(padsvalues), dwnumvalues)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2452,7 +2452,7 @@ pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, 
     extern "system" {
         fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    AdsTypeToPropVariant(::core::mem::transmute(padsvalues), ::core::mem::transmute(dwnumvalues), ::core::mem::transmute(pvariant)).ok()
+    AdsTypeToPropVariant(::core::mem::transmute(padsvalues), dwnumvalues, ::core::mem::transmute(pvariant)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -2461,7 +2461,7 @@ pub unsafe fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(AllocADsMem(::core::mem::transmute(cb)))
+    ::core::mem::transmute(AllocADsMem(cb))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -2490,7 +2490,7 @@ where
     extern "system" {
         fn BinarySDToSecurityDescriptor(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    BinarySDToSecurityDescriptor(psecuritydescriptor.into(), ::core::mem::transmute(pvarsec), pszservername.into(), username.into(), password.into(), ::core::mem::transmute(dwflags)).ok()
+    BinarySDToSecurityDescriptor(psecuritydescriptor.into(), ::core::mem::transmute(pvarsec), pszservername.into(), username.into(), password.into(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const CFSTR_DSDISPLAYSPECOPTIONS: &str = "DsDisplaySpecOptions";
@@ -7122,7 +7122,7 @@ where
     extern "system" {
         fn DsAddSidHistoryA(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: ::windows::core::PCSTR, srcprincipal: ::windows::core::PCSTR, srcdomaincontroller: ::windows::core::PCSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows::core::PCSTR, dstprincipal: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddSidHistoryA(hds.into(), ::core::mem::transmute(flags), srcdomain.into(), srcprincipal.into(), srcdomaincontroller.into(), ::core::mem::transmute(srcdomaincreds), dstdomain.into(), dstprincipal.into()))
+    ::core::mem::transmute(DsAddSidHistoryA(hds.into(), flags, srcdomain.into(), srcprincipal.into(), srcdomaincontroller.into(), ::core::mem::transmute(srcdomaincreds), dstdomain.into(), dstprincipal.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7140,7 +7140,7 @@ where
     extern "system" {
         fn DsAddSidHistoryW(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: ::windows::core::PCWSTR, srcprincipal: ::windows::core::PCWSTR, srcdomaincontroller: ::windows::core::PCWSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows::core::PCWSTR, dstprincipal: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddSidHistoryW(hds.into(), ::core::mem::transmute(flags), srcdomain.into(), srcprincipal.into(), srcdomaincontroller.into(), ::core::mem::transmute(srcdomaincreds), dstdomain.into(), dstprincipal.into()))
+    ::core::mem::transmute(DsAddSidHistoryW(hds.into(), flags, srcdomain.into(), srcprincipal.into(), srcdomaincontroller.into(), ::core::mem::transmute(srcdomaincreds), dstdomain.into(), dstprincipal.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7222,7 +7222,7 @@ where
     extern "system" {
         fn DsBindByInstanceA(servername: ::windows::core::PCSTR, annotation: ::windows::core::PCSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindByInstanceA(servername.into(), annotation.into(), ::core::mem::transmute(instanceguid), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindByInstanceA(servername.into(), annotation.into(), ::core::mem::transmute(instanceguid), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), bindflags, ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7238,7 +7238,7 @@ where
     extern "system" {
         fn DsBindByInstanceW(servername: ::windows::core::PCWSTR, annotation: ::windows::core::PCWSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindByInstanceW(servername.into(), annotation.into(), ::core::mem::transmute(instanceguid), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindByInstanceW(servername.into(), annotation.into(), ::core::mem::transmute(instanceguid), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), bindflags, ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7336,7 +7336,7 @@ where
     extern "system" {
         fn DsBindWithSpnExA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithSpnExA(domaincontrollername.into(), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithSpnExA(domaincontrollername.into(), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), bindflags, ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7351,7 +7351,7 @@ where
     extern "system" {
         fn DsBindWithSpnExW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithSpnExW(domaincontrollername.into(), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithSpnExW(domaincontrollername.into(), dnsdomainname.into(), ::core::mem::transmute(authidentity), serviceprincipalname.into(), bindflags, ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7379,7 +7379,7 @@ where
     extern "system" {
         fn DsBindingSetTimeout(hds: super::super::Foundation::HANDLE, ctimeoutsecs: u32) -> u32;
     }
-    ::core::mem::transmute(DsBindingSetTimeout(hds.into(), ::core::mem::transmute(ctimeoutsecs)))
+    ::core::mem::transmute(DsBindingSetTimeout(hds.into(), ctimeoutsecs))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7438,7 +7438,7 @@ where
     extern "system" {
         fn DsCrackNamesA(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const ::windows::core::PSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsCrackNamesA(hds.into(), ::core::mem::transmute(flags), ::core::mem::transmute(formatoffered), ::core::mem::transmute(formatdesired), rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
+    ::core::mem::transmute(DsCrackNamesA(hds.into(), flags, formatoffered, formatdesired, rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7451,7 +7451,7 @@ where
     extern "system" {
         fn DsCrackNamesW(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const ::windows::core::PWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsCrackNamesW(hds.into(), ::core::mem::transmute(flags), ::core::mem::transmute(formatoffered), ::core::mem::transmute(formatdesired), rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
+    ::core::mem::transmute(DsCrackNamesW(hds.into(), flags, formatoffered, formatdesired, rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7481,7 +7481,7 @@ where
     extern "system" {
         fn DsCrackSpn3W(pszspn: ::windows::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsCrackSpn3W(pszspn.into(), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pportnumber), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
+    ::core::mem::transmute(DsCrackSpn3W(pszspn.into(), cspn, ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pportnumber), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7493,7 +7493,7 @@ where
     extern "system" {
         fn DsCrackSpn4W(pszspn: ::windows::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pcportname: *mut u32, portname: ::windows::core::PWSTR, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsCrackSpn4W(pszspn.into(), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pcportname), ::core::mem::transmute(portname), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
+    ::core::mem::transmute(DsCrackSpn4W(pszspn.into(), cspn, ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pcportname), ::core::mem::transmute(portname), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7578,7 +7578,7 @@ where
     extern "system" {
         fn DsEnumerateDomainTrustsA(servername: ::windows::core::PCSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(DsEnumerateDomainTrustsA(servername.into(), ::core::mem::transmute(flags), ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
+    ::core::mem::transmute(DsEnumerateDomainTrustsA(servername.into(), flags, ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7591,7 +7591,7 @@ where
     extern "system" {
         fn DsEnumerateDomainTrustsW(servername: ::windows::core::PCWSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(DsEnumerateDomainTrustsW(servername.into(), ::core::mem::transmute(flags), ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
+    ::core::mem::transmute(DsEnumerateDomainTrustsW(servername.into(), flags, ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7600,7 +7600,7 @@ pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, pinfo: &[u8]) {
     extern "system" {
         fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void);
     }
-    DsFreeDomainControllerInfoA(::core::mem::transmute(infolevel), pinfo.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinfo)))
+    DsFreeDomainControllerInfoA(infolevel, pinfo.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7609,7 +7609,7 @@ pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, pinfo: &[u8]) {
     extern "system" {
         fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void);
     }
-    DsFreeDomainControllerInfoW(::core::mem::transmute(infolevel), pinfo.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinfo)))
+    DsFreeDomainControllerInfoW(infolevel, pinfo.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7698,7 +7698,7 @@ where
     extern "system" {
         fn DsGetDcNameA(computername: ::windows::core::PCSTR, domainname: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, sitename: ::windows::core::PCSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32;
     }
-    ::core::mem::transmute(DsGetDcNameA(computername.into(), domainname.into(), ::core::mem::transmute(domainguid), sitename.into(), ::core::mem::transmute(flags), ::core::mem::transmute(domaincontrollerinfo)))
+    ::core::mem::transmute(DsGetDcNameA(computername.into(), domainname.into(), ::core::mem::transmute(domainguid), sitename.into(), flags, ::core::mem::transmute(domaincontrollerinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7712,7 +7712,7 @@ where
     extern "system" {
         fn DsGetDcNameW(computername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, sitename: ::windows::core::PCWSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32;
     }
-    ::core::mem::transmute(DsGetDcNameW(computername.into(), domainname.into(), ::core::mem::transmute(domainguid), sitename.into(), ::core::mem::transmute(flags), ::core::mem::transmute(domaincontrollerinfo)))
+    ::core::mem::transmute(DsGetDcNameW(computername.into(), domainname.into(), ::core::mem::transmute(domainguid), sitename.into(), flags, ::core::mem::transmute(domaincontrollerinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -7752,7 +7752,7 @@ where
     extern "system" {
         fn DsGetDcOpenA(dnsname: ::windows::core::PCSTR, optionflags: u32, sitename: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, dnsforestname: ::windows::core::PCSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32;
     }
-    ::core::mem::transmute(DsGetDcOpenA(dnsname.into(), ::core::mem::transmute(optionflags), sitename.into(), ::core::mem::transmute(domainguid), dnsforestname.into(), ::core::mem::transmute(dcflags), ::core::mem::transmute(retgetdccontext)))
+    ::core::mem::transmute(DsGetDcOpenA(dnsname.into(), optionflags, sitename.into(), ::core::mem::transmute(domainguid), dnsforestname.into(), dcflags, ::core::mem::transmute(retgetdccontext)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7766,7 +7766,7 @@ where
     extern "system" {
         fn DsGetDcOpenW(dnsname: ::windows::core::PCWSTR, optionflags: u32, sitename: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, dnsforestname: ::windows::core::PCWSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32;
     }
-    ::core::mem::transmute(DsGetDcOpenW(dnsname.into(), ::core::mem::transmute(optionflags), sitename.into(), ::core::mem::transmute(domainguid), dnsforestname.into(), ::core::mem::transmute(dcflags), ::core::mem::transmute(retgetdccontext)))
+    ::core::mem::transmute(DsGetDcOpenW(dnsname.into(), optionflags, sitename.into(), ::core::mem::transmute(domainguid), dnsforestname.into(), dcflags, ::core::mem::transmute(retgetdccontext)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7804,7 +7804,7 @@ where
     extern "system" {
         fn DsGetDomainControllerInfoA(hds: super::super::Foundation::HANDLE, domainname: ::windows::core::PCSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsGetDomainControllerInfoA(hds.into(), domainname.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsGetDomainControllerInfoA(hds.into(), domainname.into(), infolevel, ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7818,7 +7818,7 @@ where
     extern "system" {
         fn DsGetDomainControllerInfoW(hds: super::super::Foundation::HANDLE, domainname: ::windows::core::PCWSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsGetDomainControllerInfoW(hds.into(), domainname.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsGetDomainControllerInfoW(hds.into(), domainname.into(), infolevel, ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
@@ -7832,7 +7832,7 @@ where
     extern "system" {
         fn DsGetForestTrustInformationW(servername: ::windows::core::PCWSTR, trusteddomainname: ::windows::core::PCWSTR, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(DsGetForestTrustInformationW(servername.into(), trusteddomainname.into(), ::core::mem::transmute(flags), ::core::mem::transmute(foresttrustinfo)))
+    ::core::mem::transmute(DsGetForestTrustInformationW(servername.into(), trusteddomainname.into(), flags, ::core::mem::transmute(foresttrustinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7857,7 +7857,7 @@ where
     extern "system" {
         fn DsGetIcon(dwflags: u32, pszobjectclass: ::windows::core::PCWSTR, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON;
     }
-    ::core::mem::transmute(DsGetIcon(::core::mem::transmute(dwflags), pszobjectclass.into(), ::core::mem::transmute(cximage), ::core::mem::transmute(cyimage)))
+    ::core::mem::transmute(DsGetIcon(dwflags, pszobjectclass.into(), cximage, cyimage))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7903,7 +7903,7 @@ where
     extern "system" {
         fn DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetSpnA(::core::mem::transmute(servicetype), serviceclass.into(), servicename.into(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
+    ::core::mem::transmute(DsGetSpnA(servicetype, serviceclass.into(), servicename.into(), instanceport, ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7916,7 +7916,7 @@ where
     extern "system" {
         fn DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetSpnW(::core::mem::transmute(servicetype), serviceclass.into(), servicename.into(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
+    ::core::mem::transmute(DsGetSpnW(servicetype, serviceclass.into(), servicename.into(), instanceport, ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7931,7 +7931,7 @@ where
     extern "system" {
         fn DsInheritSecurityIdentityA(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: ::windows::core::PCSTR, dstprincipal: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsInheritSecurityIdentityA(hds.into(), ::core::mem::transmute(flags), srcprincipal.into(), dstprincipal.into()))
+    ::core::mem::transmute(DsInheritSecurityIdentityA(hds.into(), flags, srcprincipal.into(), dstprincipal.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7946,7 +7946,7 @@ where
     extern "system" {
         fn DsInheritSecurityIdentityW(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: ::windows::core::PCWSTR, dstprincipal: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsInheritSecurityIdentityW(hds.into(), ::core::mem::transmute(flags), srcprincipal.into(), dstprincipal.into()))
+    ::core::mem::transmute(DsInheritSecurityIdentityW(hds.into(), flags, srcprincipal.into(), dstprincipal.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7959,7 +7959,7 @@ where
     extern "system" {
         fn DsIsMangledDnA(pszdn: ::windows::core::PCSTR, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledDnA(pszdn.into(), ::core::mem::transmute(edsmanglefor)))
+    ::core::mem::transmute(DsIsMangledDnA(pszdn.into(), edsmanglefor))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7972,7 +7972,7 @@ where
     extern "system" {
         fn DsIsMangledDnW(pszdn: ::windows::core::PCWSTR, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledDnW(pszdn.into(), ::core::mem::transmute(edsmanglefor)))
+    ::core::mem::transmute(DsIsMangledDnW(pszdn.into(), edsmanglefor))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7982,7 +7982,7 @@ pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE
     extern "system" {
         fn DsIsMangledRdnValueA(pszrdn: ::windows::core::PCSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledRdnValueA(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, ::core::mem::transmute(edsmanglefordesired)))
+    ::core::mem::transmute(DsIsMangledRdnValueA(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, edsmanglefordesired))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7992,7 +7992,7 @@ pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGL
     extern "system" {
         fn DsIsMangledRdnValueW(pszrdn: ::windows::core::PCWSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledRdnValueW(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, ::core::mem::transmute(edsmanglefordesired)))
+    ::core::mem::transmute(DsIsMangledRdnValueW(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, edsmanglefordesired))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8201,7 +8201,7 @@ where
     extern "system" {
         fn DsMakeSpnA(serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instancename: ::windows::core::PCSTR, instanceport: u16, referrer: ::windows::core::PCSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsMakeSpnA(serviceclass.into(), servicename.into(), instancename.into(), ::core::mem::transmute(instanceport), referrer.into(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
+    ::core::mem::transmute(DsMakeSpnA(serviceclass.into(), servicename.into(), instancename.into(), instanceport, referrer.into(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8216,7 +8216,7 @@ where
     extern "system" {
         fn DsMakeSpnW(serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instancename: ::windows::core::PCWSTR, instanceport: u16, referrer: ::windows::core::PCWSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsMakeSpnW(serviceclass.into(), servicename.into(), instancename.into(), ::core::mem::transmute(instanceport), referrer.into(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
+    ::core::mem::transmute(DsMakeSpnW(serviceclass.into(), servicename.into(), instancename.into(), instanceport, referrer.into(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8269,7 +8269,7 @@ where
     extern "system" {
         fn DsQuerySitesByCostA(hds: super::super::Foundation::HANDLE, pszfromsite: ::windows::core::PCSTR, rgsztosites: *const ::windows::core::PSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
     }
-    ::core::mem::transmute(DsQuerySitesByCostA(hds.into(), pszfromsite.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztosites)), rgsztosites.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(prgsiteinfo)))
+    ::core::mem::transmute(DsQuerySitesByCostA(hds.into(), pszfromsite.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztosites)), rgsztosites.len() as _, dwflags, ::core::mem::transmute(prgsiteinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8283,7 +8283,7 @@ where
     extern "system" {
         fn DsQuerySitesByCostW(hds: super::super::Foundation::HANDLE, pwszfromsite: ::windows::core::PCWSTR, rgwsztosites: *const ::windows::core::PWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
     }
-    ::core::mem::transmute(DsQuerySitesByCostW(hds.into(), pwszfromsite.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwsztosites)), rgwsztosites.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(prgsiteinfo)))
+    ::core::mem::transmute(DsQuerySitesByCostW(hds.into(), pwszfromsite.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwsztosites)), rgwsztosites.len() as _, dwflags, ::core::mem::transmute(prgsiteinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8387,7 +8387,7 @@ where
     extern "system" {
         fn DsReplicaAddA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, sourcedsadn: ::windows::core::PCSTR, transportdn: ::windows::core::PCSTR, sourcedsaaddress: ::windows::core::PCSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaAddA(hds.into(), namecontext.into(), sourcedsadn.into(), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaAddA(hds.into(), namecontext.into(), sourcedsadn.into(), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8404,7 +8404,7 @@ where
     extern "system" {
         fn DsReplicaAddW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, sourcedsadn: ::windows::core::PCWSTR, transportdn: ::windows::core::PCWSTR, sourcedsaaddress: ::windows::core::PCWSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaAddW(hds.into(), namecontext.into(), sourcedsadn.into(), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaAddW(hds.into(), namecontext.into(), sourcedsadn.into(), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8417,7 +8417,7 @@ where
     extern "system" {
         fn DsReplicaConsistencyCheck(hds: super::super::Foundation::HANDLE, taskid: DS_KCC_TASKID, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaConsistencyCheck(hds.into(), ::core::mem::transmute(taskid), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(DsReplicaConsistencyCheck(hds.into(), taskid, dwflags))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8432,7 +8432,7 @@ where
     extern "system" {
         fn DsReplicaDelA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, dsasrc: ::windows::core::PCSTR, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaDelA(hds.into(), namecontext.into(), dsasrc.into(), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaDelA(hds.into(), namecontext.into(), dsasrc.into(), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8447,7 +8447,7 @@ where
     extern "system" {
         fn DsReplicaDelW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, dsasrc: ::windows::core::PCWSTR, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaDelW(hds.into(), namecontext.into(), dsasrc.into(), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaDelW(hds.into(), namecontext.into(), dsasrc.into(), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8456,7 +8456,7 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::cor
     extern "system" {
         fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void);
     }
-    DsReplicaFreeInfo(::core::mem::transmute(infotype), ::core::mem::transmute(pinfo))
+    DsReplicaFreeInfo(infotype, ::core::mem::transmute(pinfo))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8472,7 +8472,7 @@ where
     extern "system" {
         fn DsReplicaGetInfo2W(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: ::windows::core::PCWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: ::windows::core::PCWSTR, pszvalue: ::windows::core::PCWSTR, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsReplicaGetInfo2W(hds.into(), ::core::mem::transmute(infotype), pszobject.into(), ::core::mem::transmute(puuidforsourcedsaobjguid), pszattributename.into(), pszvalue.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwenumerationcontext), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsReplicaGetInfo2W(hds.into(), infotype, pszobject.into(), ::core::mem::transmute(puuidforsourcedsaobjguid), pszattributename.into(), pszvalue.into(), dwflags, dwenumerationcontext, ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8486,7 +8486,7 @@ where
     extern "system" {
         fn DsReplicaGetInfoW(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: ::windows::core::PCWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsReplicaGetInfoW(hds.into(), ::core::mem::transmute(infotype), pszobject.into(), ::core::mem::transmute(puuidforsourcedsaobjguid), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsReplicaGetInfoW(hds.into(), infotype, pszobject.into(), ::core::mem::transmute(puuidforsourcedsaobjguid), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8502,7 +8502,7 @@ where
     extern "system" {
         fn DsReplicaModifyA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: ::windows::core::PCSTR, sourcedsaaddress: ::windows::core::PCSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaModifyA(hds.into(), namecontext.into(), ::core::mem::transmute(puuidsourcedsa), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaModifyA(hds.into(), namecontext.into(), ::core::mem::transmute(puuidsourcedsa), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), replicaflags, modifyfields, options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8518,7 +8518,7 @@ where
     extern "system" {
         fn DsReplicaModifyW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: ::windows::core::PCWSTR, sourcedsaaddress: ::windows::core::PCWSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaModifyW(hds.into(), namecontext.into(), ::core::mem::transmute(puuidsourcedsa), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaModifyW(hds.into(), namecontext.into(), ::core::mem::transmute(puuidsourcedsa), transportdn.into(), sourcedsaaddress.into(), ::core::mem::transmute(pschedule), replicaflags, modifyfields, options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8532,7 +8532,7 @@ where
     extern "system" {
         fn DsReplicaSyncA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncA(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaSyncA(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8546,7 +8546,7 @@ where
     extern "system" {
         fn DsReplicaSyncAllA(hds: super::super::Foundation::HANDLE, psznamecontext: ::windows::core::PCSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncAllA(hds.into(), psznamecontext.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
+    ::core::mem::transmute(DsReplicaSyncAllA(hds.into(), psznamecontext.into(), ulflags, pfncallback, ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8560,7 +8560,7 @@ where
     extern "system" {
         fn DsReplicaSyncAllW(hds: super::super::Foundation::HANDLE, psznamecontext: ::windows::core::PCWSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncAllW(hds.into(), psznamecontext.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
+    ::core::mem::transmute(DsReplicaSyncAllW(hds.into(), psznamecontext.into(), ulflags, pfncallback, ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8574,7 +8574,7 @@ where
     extern "system" {
         fn DsReplicaSyncW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncW(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaSyncW(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8589,7 +8589,7 @@ where
     extern "system" {
         fn DsReplicaUpdateRefsA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, dsadest: ::windows::core::PCSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaUpdateRefsA(hds.into(), namecontext.into(), dsadest.into(), ::core::mem::transmute(puuiddsadest), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaUpdateRefsA(hds.into(), namecontext.into(), dsadest.into(), ::core::mem::transmute(puuiddsadest), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8604,7 +8604,7 @@ where
     extern "system" {
         fn DsReplicaUpdateRefsW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, dsadest: ::windows::core::PCWSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaUpdateRefsW(hds.into(), namecontext.into(), dsadest.into(), ::core::mem::transmute(puuiddsadest), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaUpdateRefsW(hds.into(), namecontext.into(), dsadest.into(), ::core::mem::transmute(puuiddsadest), options))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8618,7 +8618,7 @@ where
     extern "system" {
         fn DsReplicaVerifyObjectsA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaVerifyObjectsA(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(uloptions)))
+    ::core::mem::transmute(DsReplicaVerifyObjectsA(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), uloptions))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8632,7 +8632,7 @@ where
     extern "system" {
         fn DsReplicaVerifyObjectsW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaVerifyObjectsW(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(uloptions)))
+    ::core::mem::transmute(DsReplicaVerifyObjectsW(hds.into(), namecontext.into(), ::core::mem::transmute(puuiddsasrc), uloptions))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8653,7 +8653,7 @@ where
     extern "system" {
         fn DsRoleGetPrimaryDomainInformation(lpserver: ::windows::core::PCWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(DsRoleGetPrimaryDomainInformation(lpserver.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(DsRoleGetPrimaryDomainInformation(lpserver.into(), infolevel, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8666,7 +8666,7 @@ where
     extern "system" {
         fn DsServerRegisterSpnA(operation: DS_SPN_WRITE_OP, serviceclass: ::windows::core::PCSTR, userobjectdn: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsServerRegisterSpnA(::core::mem::transmute(operation), serviceclass.into(), userobjectdn.into()))
+    ::core::mem::transmute(DsServerRegisterSpnA(operation, serviceclass.into(), userobjectdn.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8679,7 +8679,7 @@ where
     extern "system" {
         fn DsServerRegisterSpnW(operation: DS_SPN_WRITE_OP, serviceclass: ::windows::core::PCWSTR, userobjectdn: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsServerRegisterSpnW(::core::mem::transmute(operation), serviceclass.into(), userobjectdn.into()))
+    ::core::mem::transmute(DsServerRegisterSpnW(operation, serviceclass.into(), userobjectdn.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8755,7 +8755,7 @@ where
     extern "system" {
         fn DsWriteAccountSpnA(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: ::windows::core::PCSTR, cspn: u32, rpszspn: *const ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsWriteAccountSpnA(hds.into(), ::core::mem::transmute(operation), pszaccount.into(), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
+    ::core::mem::transmute(DsWriteAccountSpnA(hds.into(), operation, pszaccount.into(), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8769,7 +8769,7 @@ where
     extern "system" {
         fn DsWriteAccountSpnW(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: ::windows::core::PCWSTR, cspn: u32, rpszspn: *const ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsWriteAccountSpnW(hds.into(), ::core::mem::transmute(operation), pszaccount.into(), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
+    ::core::mem::transmute(DsWriteAccountSpnW(hds.into(), operation, pszaccount.into(), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
 }
 pub const Email: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -8987,7 +8987,7 @@ impl IADs {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8995,7 +8995,7 @@ impl IADs {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9322,7 +9322,7 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAccessMask(&self, lnaccessmask: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccessMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaccessmask)).ok()
+        (::windows::core::Interface::vtable(self).SetAccessMask)(::windows::core::Interface::as_raw(self), lnaccessmask).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AceType(&self) -> ::windows::core::Result<i32> {
@@ -9331,7 +9331,7 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAceType(&self, lnacetype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnacetype)).ok()
+        (::windows::core::Interface::vtable(self).SetAceType)(::windows::core::Interface::as_raw(self), lnacetype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AceFlags(&self) -> ::windows::core::Result<i32> {
@@ -9340,7 +9340,7 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAceFlags(&self, lnaceflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAceFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaceflags)).ok()
+        (::windows::core::Interface::vtable(self).SetAceFlags)(::windows::core::Interface::as_raw(self), lnaceflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
@@ -9349,7 +9349,7 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetFlags(&self, lnflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnflags)).ok()
+        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), lnflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9506,7 +9506,7 @@ impl IADsAccessControlList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAclRevision(&self, lnaclrevision: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAclRevision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaclrevision)).ok()
+        (::windows::core::Interface::vtable(self).SetAclRevision)(::windows::core::Interface::as_raw(self), lnaclrevision).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AceCount(&self) -> ::windows::core::Result<i32> {
@@ -9515,7 +9515,7 @@ impl IADsAccessControlList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAceCount(&self, lnacecount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnacecount)).ok()
+        (::windows::core::Interface::vtable(self).SetAceCount)(::windows::core::Interface::as_raw(self), lnacecount).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9670,7 +9670,7 @@ impl IADsAcl {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPrivileges(&self, lnprivileges: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivileges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnprivileges)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivileges)(::windows::core::Interface::as_raw(self), lnprivileges).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9907,7 +9907,7 @@ impl IADsBackLink {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetRemoteID(&self, lnremoteid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRemoteID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnremoteid)).ok()
+        (::windows::core::Interface::vtable(self).SetRemoteID)(::windows::core::Interface::as_raw(self), lnremoteid).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10181,7 +10181,7 @@ impl IADsClass {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10189,7 +10189,7 @@ impl IADsClass {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10232,7 +10232,7 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAbstract(&self, fabstract: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAbstract)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fabstract)).ok()
+        (::windows::core::Interface::vtable(self).SetAbstract)(::windows::core::Interface::as_raw(self), fabstract).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Auxiliary(&self) -> ::windows::core::Result<i16> {
@@ -10241,7 +10241,7 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAuxiliary(&self, fauxiliary: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuxiliary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fauxiliary)).ok()
+        (::windows::core::Interface::vtable(self).SetAuxiliary)(::windows::core::Interface::as_raw(self), fauxiliary).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10348,7 +10348,7 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetContainer(&self, fcontainer: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fcontainer)).ok()
+        (::windows::core::Interface::vtable(self).SetContainer)(::windows::core::Interface::as_raw(self), fcontainer).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10371,7 +10371,7 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetHelpFileContext(&self, lnhelpfilecontext: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHelpFileContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnhelpfilecontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpFileContext)(::windows::core::Interface::as_raw(self), lnhelpfilecontext).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10763,7 +10763,7 @@ impl IADsComputer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10771,7 +10771,7 @@ impl IADsComputer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11293,7 +11293,7 @@ impl IADsComputerOperations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11301,7 +11301,7 @@ impl IADsComputerOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11311,7 +11311,7 @@ impl IADsComputerOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Shutdown(&self, breboot: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(breboot)).ok()
+        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self), breboot).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11847,7 +11847,7 @@ pub struct IADsDeleteOps(::windows::core::IUnknown);
 impl IADsDeleteOps {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DeleteObject(&self, lnflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnflags)).ok()
+        (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), lnflags).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12002,7 +12002,7 @@ impl IADsDomain {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12010,7 +12010,7 @@ impl IADsDomain {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IsWorkgroup(&self) -> ::windows::core::Result<i16> {
@@ -12024,7 +12024,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMinPasswordLength(&self, lnminpasswordlength: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinPasswordLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnminpasswordlength)).ok()
+        (::windows::core::Interface::vtable(self).SetMinPasswordLength)(::windows::core::Interface::as_raw(self), lnminpasswordlength).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MinPasswordAge(&self) -> ::windows::core::Result<i32> {
@@ -12033,7 +12033,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMinPasswordAge(&self, lnminpasswordage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinPasswordAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnminpasswordage)).ok()
+        (::windows::core::Interface::vtable(self).SetMinPasswordAge)(::windows::core::Interface::as_raw(self), lnminpasswordage).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxPasswordAge(&self) -> ::windows::core::Result<i32> {
@@ -12042,7 +12042,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxPasswordAge(&self, lnmaxpasswordage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxPasswordAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxpasswordage)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxPasswordAge)(::windows::core::Interface::as_raw(self), lnmaxpasswordage).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxBadPasswordsAllowed(&self) -> ::windows::core::Result<i32> {
@@ -12051,7 +12051,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxBadPasswordsAllowed(&self, lnmaxbadpasswordsallowed: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxBadPasswordsAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxbadpasswordsallowed)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxBadPasswordsAllowed)(::windows::core::Interface::as_raw(self), lnmaxbadpasswordsallowed).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordHistoryLength(&self) -> ::windows::core::Result<i32> {
@@ -12060,7 +12060,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordHistoryLength(&self, lnpasswordhistorylength: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordHistoryLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpasswordhistorylength)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordHistoryLength)(::windows::core::Interface::as_raw(self), lnpasswordhistorylength).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordAttributes(&self) -> ::windows::core::Result<i32> {
@@ -12069,7 +12069,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordAttributes(&self, lnpasswordattributes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpasswordattributes)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordAttributes)(::windows::core::Interface::as_raw(self), lnpasswordattributes).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AutoUnlockInterval(&self) -> ::windows::core::Result<i32> {
@@ -12078,7 +12078,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAutoUnlockInterval(&self, lnautounlockinterval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoUnlockInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnautounlockinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetAutoUnlockInterval)(::windows::core::Interface::as_raw(self), lnautounlockinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LockoutObservationInterval(&self) -> ::windows::core::Result<i32> {
@@ -12087,7 +12087,7 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLockoutObservationInterval(&self, lnlockoutobservationinterval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLockoutObservationInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnlockoutobservationinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetLockoutObservationInterval)(::windows::core::Interface::as_raw(self), lnlockoutobservationinterval).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12205,7 +12205,7 @@ impl IADsEmail {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetType(&self, lntype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lntype)).ok()
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), lntype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12311,17 +12311,17 @@ impl IADsExtension {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).Operate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcode), vardata1.into().abi(), vardata2.into().abi(), vardata3.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Operate)(::windows::core::Interface::as_raw(self), dwcode, vardata1.into().abi(), vardata2.into().abi(), vardata3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PrivateGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).PrivateGetIDsOfNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PrivateGetIDsOfNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), cnames, lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrivateInvoke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).PrivateInvoke)(::windows::core::Interface::as_raw(self), dispidmember, ::core::mem::transmute(riid), lcid, wflags, ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IADsExtension> for ::windows::core::IUnknown {
@@ -12575,7 +12575,7 @@ impl IADsFileService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12583,7 +12583,7 @@ impl IADsFileService {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12634,7 +12634,7 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetServiceType(&self, lnservicetype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnservicetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetServiceType)(::windows::core::Interface::as_raw(self), lnservicetype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartType(&self) -> ::windows::core::Result<i32> {
@@ -12643,7 +12643,7 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartType(&self, lnstarttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnstarttype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStartType)(::windows::core::Interface::as_raw(self), lnstarttype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12680,7 +12680,7 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetErrorControl(&self, lnerrorcontrol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetErrorControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnerrorcontrol)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetErrorControl)(::windows::core::Interface::as_raw(self), lnerrorcontrol).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12759,7 +12759,7 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxusercount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::windows::core::Interface::as_raw(self), lnmaxusercount).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12959,7 +12959,7 @@ impl IADsFileServiceOperations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12967,7 +12967,7 @@ impl IADsFileServiceOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -13206,7 +13206,7 @@ impl IADsFileShare {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13214,7 +13214,7 @@ impl IADsFileShare {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn CurrentUserCount(&self) -> ::windows::core::Result<i32> {
@@ -13270,7 +13270,7 @@ impl IADsFileShare {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxusercount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::windows::core::Interface::as_raw(self), lnmaxusercount).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13469,7 +13469,7 @@ impl IADsGroup {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13477,7 +13477,7 @@ impl IADsGroup {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13661,7 +13661,7 @@ impl IADsHold {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAmount(&self, lnamount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAmount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnamount)).ok()
+        (::windows::core::Interface::vtable(self).SetAmount)(::windows::core::Interface::as_raw(self), lnamount).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13754,7 +13754,7 @@ impl IADsLargeInteger {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetHighPart(&self, lnhighpart: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnhighpart)).ok()
+        (::windows::core::Interface::vtable(self).SetHighPart)(::windows::core::Interface::as_raw(self), lnhighpart).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LowPart(&self) -> ::windows::core::Result<i32> {
@@ -13763,7 +13763,7 @@ impl IADsLargeInteger {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLowPart(&self, lnlowpart: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnlowpart)).ok()
+        (::windows::core::Interface::vtable(self).SetLowPart)(::windows::core::Interface::as_raw(self), lnlowpart).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13921,7 +13921,7 @@ impl IADsLocality {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13929,7 +13929,7 @@ impl IADsLocality {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14221,7 +14221,7 @@ pub struct IADsNameTranslate(::windows::core::IUnknown);
 impl IADsNameTranslate {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChaseReferral)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnchasereferral)).ok()
+        (::windows::core::Interface::vtable(self).SetChaseReferral)(::windows::core::Interface::as_raw(self), lnchasereferral).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14229,7 +14229,7 @@ impl IADsNameTranslate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), lnsettype, bstradspath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14240,7 +14240,7 @@ impl IADsNameTranslate {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InitEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into().abi(), bstruserid.into().abi(), bstrdomain.into().abi(), bstrpassword.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitEx)(::windows::core::Interface::as_raw(self), lnsettype, bstradspath.into().abi(), bstruserid.into().abi(), bstrdomain.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14248,13 +14248,13 @@ impl IADsNameTranslate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), lnsettype, bstradspath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), lnformattype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14262,13 +14262,13 @@ impl IADsNameTranslate {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), pvar.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEx)(::windows::core::Interface::as_raw(self), lnformattype, pvar.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx(&self, lnformattype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetEx)(::windows::core::Interface::as_raw(self), lnformattype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14447,7 +14447,7 @@ impl IADsNamespaces {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14455,7 +14455,7 @@ impl IADsNamespaces {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14578,7 +14578,7 @@ impl IADsNetAddress {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAddressType(&self, lnaddresstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddressType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaddresstype)).ok()
+        (::windows::core::Interface::vtable(self).SetAddressType)(::windows::core::Interface::as_raw(self), lnaddresstype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14756,7 +14756,7 @@ impl IADsO {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14764,7 +14764,7 @@ impl IADsO {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15068,7 +15068,7 @@ impl IADsOU {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15076,7 +15076,7 @@ impl IADsOU {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15328,7 +15328,7 @@ impl IADsObjectOptions {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetOption(&self, lnoption: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoption), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), lnoption, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15336,7 +15336,7 @@ impl IADsObjectOptions {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoption), vvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), lnoption, vvalue.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15525,7 +15525,7 @@ impl IADsOpenDSObject {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenDSObject)(::windows::core::Interface::as_raw(self), lpszdnname.into().abi(), lpszusername.into().abi(), lpszpassword.into().abi(), ::core::mem::transmute(lnreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).OpenDSObject)(::windows::core::Interface::as_raw(self), lpszdnname.into().abi(), lpszusername.into().abi(), lpszpassword.into().abi(), lnreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15612,7 +15612,7 @@ impl IADsPath {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetType(&self, lntype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lntype)).ok()
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), lntype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15740,17 +15740,17 @@ impl IADsPathname {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), bstradspath.into().abi(), ::core::mem::transmute(lnsettype)).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), bstradspath.into().abi(), lnsettype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDisplayType(&self, lndisplaytype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lndisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), lndisplaytype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Retrieve(&self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Retrieve)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Retrieve)(::windows::core::Interface::as_raw(self), lnformattype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetNumElements(&self) -> ::windows::core::Result<i32> {
@@ -15761,7 +15761,7 @@ impl IADsPathname {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetElement(&self, lnelementindex: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnelementindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetElement)(::windows::core::Interface::as_raw(self), lnelementindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15788,7 +15788,7 @@ impl IADsPathname {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEscapedElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreserved), bstrinstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetEscapedElement)(::windows::core::Interface::as_raw(self), lnreserved, bstrinstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn EscapedMode(&self) -> ::windows::core::Result<i32> {
@@ -15797,7 +15797,7 @@ impl IADsPathname {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetEscapedMode(&self, lnescapedmode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEscapedMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnescapedmode)).ok()
+        (::windows::core::Interface::vtable(self).SetEscapedMode)(::windows::core::Interface::as_raw(self), lnescapedmode).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16076,7 +16076,7 @@ impl IADsPrintJob {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16084,7 +16084,7 @@ impl IADsPrintJob {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16140,7 +16140,7 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lnpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
@@ -16149,7 +16149,7 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartTime(&self, dastarttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dastarttime)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), dastarttime).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn UntilTime(&self) -> ::windows::core::Result<f64> {
@@ -16158,7 +16158,7 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetUntilTime(&self, dauntiltime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUntilTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dauntiltime)).ok()
+        (::windows::core::Interface::vtable(self).SetUntilTime)(::windows::core::Interface::as_raw(self), dauntiltime).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16403,7 +16403,7 @@ impl IADsPrintJobOperations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16411,7 +16411,7 @@ impl IADsPrintJobOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -16435,7 +16435,7 @@ impl IADsPrintJobOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPosition(&self, lnposition: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnposition)).ok()
+        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), lnposition).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
@@ -16622,7 +16622,7 @@ impl IADsPrintQueue {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16630,7 +16630,7 @@ impl IADsPrintQueue {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16723,7 +16723,7 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartTime(&self, dastarttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dastarttime)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), dastarttime).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn UntilTime(&self) -> ::windows::core::Result<f64> {
@@ -16732,7 +16732,7 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetUntilTime(&self, dauntiltime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUntilTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dauntiltime)).ok()
+        (::windows::core::Interface::vtable(self).SetUntilTime)(::windows::core::Interface::as_raw(self), dauntiltime).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DefaultJobPriority(&self) -> ::windows::core::Result<i32> {
@@ -16741,7 +16741,7 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDefaultJobPriority(&self, lndefaultjobpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultJobPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lndefaultjobpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultJobPriority)(::windows::core::Interface::as_raw(self), lndefaultjobpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
@@ -16750,7 +16750,7 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lnpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17044,7 +17044,7 @@ impl IADsPrintQueueOperations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17052,7 +17052,7 @@ impl IADsPrintQueueOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -17255,7 +17255,7 @@ impl IADsProperty {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17263,7 +17263,7 @@ impl IADsProperty {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17300,7 +17300,7 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxRange(&self, lnmaxrange: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxrange)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxRange)(::windows::core::Interface::as_raw(self), lnmaxrange).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MinRange(&self) -> ::windows::core::Result<i32> {
@@ -17309,7 +17309,7 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMinRange(&self, lnminrange: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnminrange)).ok()
+        (::windows::core::Interface::vtable(self).SetMinRange)(::windows::core::Interface::as_raw(self), lnminrange).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MultiValued(&self) -> ::windows::core::Result<i16> {
@@ -17318,7 +17318,7 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMultiValued(&self, fmultivalued: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultiValued)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmultivalued)).ok()
+        (::windows::core::Interface::vtable(self).SetMultiValued)(::windows::core::Interface::as_raw(self), fmultivalued).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17469,7 +17469,7 @@ impl IADsPropertyEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype)).ok()
+        (::windows::core::Interface::vtable(self).SetADsType)(::windows::core::Interface::as_raw(self), lnadstype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ControlCode(&self) -> ::windows::core::Result<i32> {
@@ -17478,7 +17478,7 @@ impl IADsPropertyEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetControlCode(&self, lncontrolcode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControlCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode)).ok()
+        (::windows::core::Interface::vtable(self).SetControlCode)(::windows::core::Interface::as_raw(self), lncontrolcode).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17601,7 +17601,7 @@ impl IADsPropertyList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Skip(&self, celements: i32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celements)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celements))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -17623,7 +17623,7 @@ impl IADsPropertyList {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyItem)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(lnadstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyItem)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), lnadstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17754,7 +17754,7 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype)).ok()
+        (::windows::core::Interface::vtable(self).SetADsType)(::windows::core::Interface::as_raw(self), lnadstype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17833,7 +17833,7 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetBoolean(&self, lnboolean: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoolean)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnboolean)).ok()
+        (::windows::core::Interface::vtable(self).SetBoolean)(::windows::core::Interface::as_raw(self), lnboolean).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Integer(&self) -> ::windows::core::Result<i32> {
@@ -17842,7 +17842,7 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInteger(&self, lninteger: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInteger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lninteger)).ok()
+        (::windows::core::Interface::vtable(self).SetInteger)(::windows::core::Interface::as_raw(self), lninteger).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17893,7 +17893,7 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetUTCTime(&self, dautctime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUTCTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dautctime)).ok()
+        (::windows::core::Interface::vtable(self).SetUTCTime)(::windows::core::Interface::as_raw(self), dautctime).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18053,7 +18053,7 @@ impl IADsPropertyValue2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).PutObjectProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).PutObjectProperty)(::windows::core::Interface::as_raw(self), lnadstype, vprop.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18158,7 +18158,7 @@ impl IADsReplicaPointer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetReplicaType(&self, lnreplicatype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplicaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreplicatype)).ok()
+        (::windows::core::Interface::vtable(self).SetReplicaType)(::windows::core::Interface::as_raw(self), lnreplicatype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReplicaNumber(&self) -> ::windows::core::Result<i32> {
@@ -18167,7 +18167,7 @@ impl IADsReplicaPointer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetReplicaNumber(&self, lnreplicanumber: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplicaNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreplicanumber)).ok()
+        (::windows::core::Interface::vtable(self).SetReplicaNumber)(::windows::core::Interface::as_raw(self), lnreplicanumber).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -18176,7 +18176,7 @@ impl IADsReplicaPointer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetCount(&self, lncount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncount)).ok()
+        (::windows::core::Interface::vtable(self).SetCount)(::windows::core::Interface::as_raw(self), lncount).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18366,7 +18366,7 @@ impl IADsResource {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18374,7 +18374,7 @@ impl IADsResource {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18511,7 +18511,7 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetRevision(&self, lnrevision: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRevision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnrevision)).ok()
+        (::windows::core::Interface::vtable(self).SetRevision)(::windows::core::Interface::as_raw(self), lnrevision).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Control(&self) -> ::windows::core::Result<i32> {
@@ -18520,7 +18520,7 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetControl(&self, lncontrol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrol)).ok()
+        (::windows::core::Interface::vtable(self).SetControl)(::windows::core::Interface::as_raw(self), lncontrol).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18543,7 +18543,7 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetOwnerDefaulted(&self, fownerdefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwnerDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fownerdefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetOwnerDefaulted)(::windows::core::Interface::as_raw(self), fownerdefaulted).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18566,7 +18566,7 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetGroupDefaulted(&self, fgroupdefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroupDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fgroupdefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetGroupDefaulted)(::windows::core::Interface::as_raw(self), fgroupdefaulted).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -18589,7 +18589,7 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDaclDefaulted(&self, fdacldefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaclDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fdacldefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetDaclDefaulted)(::windows::core::Interface::as_raw(self), fdacldefaulted).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -18612,7 +18612,7 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetSaclDefaulted(&self, fsacldefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSaclDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fsacldefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetSaclDefaulted)(::windows::core::Interface::as_raw(self), fsacldefaulted).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -18749,7 +18749,7 @@ impl IADsSecurityUtility {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into().abi(), ::core::mem::transmute(lpathformat), ::core::mem::transmute(lformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into().abi(), lpathformat, lformat, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18758,7 +18758,7 @@ impl IADsSecurityUtility {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into().abi(), ::core::mem::transmute(lpathformat), vardata.into().abi(), ::core::mem::transmute(ldataformat)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into().abi(), lpathformat, vardata.into().abi(), ldataformat).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18767,7 +18767,7 @@ impl IADsSecurityUtility {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertSecurityDescriptor)(::windows::core::Interface::as_raw(self), varsd.into().abi(), ::core::mem::transmute(ldataformat), ::core::mem::transmute(loutformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).ConvertSecurityDescriptor)(::windows::core::Interface::as_raw(self), varsd.into().abi(), ldataformat, loutformat, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SecurityMask(&self) -> ::windows::core::Result<i32> {
@@ -18776,7 +18776,7 @@ impl IADsSecurityUtility {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetSecurityMask(&self, lnsecuritymask: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsecuritymask)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityMask)(::windows::core::Interface::as_raw(self), lnsecuritymask).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18944,7 +18944,7 @@ impl IADsService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18952,7 +18952,7 @@ impl IADsService {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19003,7 +19003,7 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetServiceType(&self, lnservicetype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnservicetype)).ok()
+        (::windows::core::Interface::vtable(self).SetServiceType)(::windows::core::Interface::as_raw(self), lnservicetype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartType(&self) -> ::windows::core::Result<i32> {
@@ -19012,7 +19012,7 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartType(&self, lnstarttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnstarttype)).ok()
+        (::windows::core::Interface::vtable(self).SetStartType)(::windows::core::Interface::as_raw(self), lnstarttype).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19049,7 +19049,7 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetErrorControl(&self, lnerrorcontrol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetErrorControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnerrorcontrol)).ok()
+        (::windows::core::Interface::vtable(self).SetErrorControl)(::windows::core::Interface::as_raw(self), lnerrorcontrol).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19355,7 +19355,7 @@ impl IADsServiceOperations {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19363,7 +19363,7 @@ impl IADsServiceOperations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -19573,7 +19573,7 @@ impl IADsSession {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19581,7 +19581,7 @@ impl IADsSession {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19805,7 +19805,7 @@ impl IADsSyntax {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19813,7 +19813,7 @@ impl IADsSyntax {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn OleAutoDataType(&self) -> ::windows::core::Result<i32> {
@@ -19822,7 +19822,7 @@ impl IADsSyntax {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetOleAutoDataType(&self, lnoleautodatatype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOleAutoDataType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoleautodatatype)).ok()
+        (::windows::core::Interface::vtable(self).SetOleAutoDataType)(::windows::core::Interface::as_raw(self), lnoleautodatatype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19925,7 +19925,7 @@ impl IADsTimestamp {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetWholeSeconds(&self, lnwholeseconds: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWholeSeconds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnwholeseconds)).ok()
+        (::windows::core::Interface::vtable(self).SetWholeSeconds)(::windows::core::Interface::as_raw(self), lnwholeseconds).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn EventID(&self) -> ::windows::core::Result<i32> {
@@ -19934,7 +19934,7 @@ impl IADsTimestamp {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetEventID(&self, lneventid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lneventid)).ok()
+        (::windows::core::Interface::vtable(self).SetEventID)(::windows::core::Interface::as_raw(self), lneventid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20035,7 +20035,7 @@ impl IADsTypedName {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLevel(&self, lnlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetLevel)(::windows::core::Interface::as_raw(self), lnlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<i32> {
@@ -20044,7 +20044,7 @@ impl IADsTypedName {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInterval(&self, lninterval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lninterval)).ok()
+        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), lninterval).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20210,7 +20210,7 @@ impl IADsUser {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), lncontrolcode, bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20218,7 +20218,7 @@ impl IADsUser {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20552,7 +20552,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAccountDisabled(&self, faccountdisabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(faccountdisabled)).ok()
+        (::windows::core::Interface::vtable(self).SetAccountDisabled)(::windows::core::Interface::as_raw(self), faccountdisabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AccountExpirationDate(&self) -> ::windows::core::Result<f64> {
@@ -20561,7 +20561,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAccountExpirationDate(&self, daaccountexpirationdate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountExpirationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(daaccountexpirationdate)).ok()
+        (::windows::core::Interface::vtable(self).SetAccountExpirationDate)(::windows::core::Interface::as_raw(self), daaccountexpirationdate).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GraceLoginsAllowed(&self) -> ::windows::core::Result<i32> {
@@ -20570,7 +20570,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetGraceLoginsAllowed(&self, lngraceloginsallowed: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGraceLoginsAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lngraceloginsallowed)).ok()
+        (::windows::core::Interface::vtable(self).SetGraceLoginsAllowed)(::windows::core::Interface::as_raw(self), lngraceloginsallowed).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GraceLoginsRemaining(&self) -> ::windows::core::Result<i32> {
@@ -20579,7 +20579,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetGraceLoginsRemaining(&self, lngraceloginsremaining: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGraceLoginsRemaining)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lngraceloginsremaining)).ok()
+        (::windows::core::Interface::vtable(self).SetGraceLoginsRemaining)(::windows::core::Interface::as_raw(self), lngraceloginsremaining).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IsAccountLocked(&self) -> ::windows::core::Result<i16> {
@@ -20588,7 +20588,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetIsAccountLocked(&self, fisaccountlocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsAccountLocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fisaccountlocked)).ok()
+        (::windows::core::Interface::vtable(self).SetIsAccountLocked)(::windows::core::Interface::as_raw(self), fisaccountlocked).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20625,7 +20625,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxLogins(&self, lnmaxlogins: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxLogins)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxlogins)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxLogins)(::windows::core::Interface::as_raw(self), lnmaxlogins).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxStorage(&self) -> ::windows::core::Result<i32> {
@@ -20634,7 +20634,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxStorage(&self, lnmaxstorage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxstorage)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxStorage)(::windows::core::Interface::as_raw(self), lnmaxstorage).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordExpirationDate(&self) -> ::windows::core::Result<f64> {
@@ -20643,7 +20643,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordExpirationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dapasswordexpirationdate)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordExpirationDate)(::windows::core::Interface::as_raw(self), dapasswordexpirationdate).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordMinimumLength(&self) -> ::windows::core::Result<i32> {
@@ -20652,7 +20652,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordMinimumLength(&self, lnpasswordminimumlength: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordMinimumLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpasswordminimumlength)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordMinimumLength)(::windows::core::Interface::as_raw(self), lnpasswordminimumlength).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordRequired(&self) -> ::windows::core::Result<i16> {
@@ -20661,7 +20661,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordRequired(&self, fpasswordrequired: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordRequired)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fpasswordrequired)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordRequired)(::windows::core::Interface::as_raw(self), fpasswordrequired).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RequireUniquePassword(&self) -> ::windows::core::Result<i16> {
@@ -20670,7 +20670,7 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetRequireUniquePassword(&self, frequireuniquepassword: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequireUniquePassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(frequireuniquepassword)).ok()
+        (::windows::core::Interface::vtable(self).SetRequireUniquePassword)(::windows::core::Interface::as_raw(self), frequireuniquepassword).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21345,13 +21345,13 @@ impl IDirectoryObject {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectAttributes(&self, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(ppattributeentries), ::core::mem::transmute(pdwnumattributesreturned)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributenames), dwnumberattributes, ::core::mem::transmute(ppattributeentries), ::core::mem::transmute(pdwnumattributesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectAttributes(&self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).SetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributeentries), dwnumattributes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -21360,7 +21360,7 @@ impl IDirectoryObject {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDSObject)(::windows::core::Interface::as_raw(self), pszrdnname.into(), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateDSObject)(::windows::core::Interface::as_raw(self), pszrdnname.into(), ::core::mem::transmute(pattributeentries), dwnumattributes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DeleteDSObject<'a, P0>(&self, pszrdnname: P0) -> ::windows::core::Result<()>
@@ -21431,7 +21431,7 @@ impl IDirectorySchemaMgmt {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAttributes(&self, ppszattrnames: *const ::windows::core::PWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppszattrnames), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(ppattrdefinition), ::core::mem::transmute(pdwnumattributes)).ok()
+        (::windows::core::Interface::vtable(self).EnumAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppszattrnames), dwnumattributes, ::core::mem::transmute(ppattrdefinition), ::core::mem::transmute(pdwnumattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21459,7 +21459,7 @@ impl IDirectorySchemaMgmt {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumClasses(&self, ppszclassnames: *const ::windows::core::PWSTR, dwnumclasses: u32, ppclassdefinition: *const *const ADS_CLASS_DEF, pdwnumclasses: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumClasses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppszclassnames), ::core::mem::transmute(dwnumclasses), ::core::mem::transmute(ppclassdefinition), ::core::mem::transmute(pdwnumclasses)).ok()
+        (::windows::core::Interface::vtable(self).EnumClasses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppszclassnames), dwnumclasses, ::core::mem::transmute(ppclassdefinition), ::core::mem::transmute(pdwnumclasses)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21558,7 +21558,7 @@ impl IDirectorySearch {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSearchPreference(&self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchprefs), ::core::mem::transmute(dwnumprefs)).ok()
+        (::windows::core::Interface::vtable(self).SetSearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchprefs), dwnumprefs).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ExecuteSearch<'a, P0>(&self, pszsearchfilter: P0, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize>
@@ -21566,27 +21566,27 @@ impl IDirectorySearch {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pszsearchfilter.into(), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pszsearchfilter.into(), ::core::mem::transmute(pattributenames), dwnumberattributes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AbandonSearch(&self, phsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AbandonSearch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phsearchresult)).ok()
+        (::windows::core::Interface::vtable(self).AbandonSearch)(::windows::core::Interface::as_raw(self), phsearchresult).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFirstRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFirstRow)(::windows::core::Interface::as_raw(self), hsearchresult))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextRow)(::windows::core::Interface::as_raw(self), hsearchresult))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPreviousRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPreviousRow)(::windows::core::Interface::as_raw(self), hsearchresult))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetNextColumnName(&self, hsearchhandle: isize, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextColumnName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchhandle), ::core::mem::transmute(ppszcolumnname)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextColumnName)(::windows::core::Interface::as_raw(self), hsearchhandle, ::core::mem::transmute(ppszcolumnname)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21595,7 +21595,7 @@ impl IDirectorySearch {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<ads_search_column>::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult), szcolumnname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
+        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), hsearchresult, szcolumnname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21604,7 +21604,7 @@ impl IDirectorySearch {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn CloseSearchHandle(&self, hsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseSearchHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)).ok()
+        (::windows::core::Interface::vtable(self).CloseSearchHandle)(::windows::core::Interface::as_raw(self), hsearchresult).ok()
     }
 }
 impl ::core::convert::From<IDirectorySearch> for ::windows::core::IUnknown {
@@ -21748,7 +21748,7 @@ impl IDsAdminNewObj {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetButtons)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncurrindex), bvalid.into()).ok()
+        (::windows::core::Interface::vtable(self).SetButtons)(::windows::core::Interface::as_raw(self), ncurrindex, bvalid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetPageCounts(&self, pntotal: *mut i32, pnstartindex: *mut i32) -> ::windows::core::Result<()> {
@@ -21837,7 +21837,7 @@ impl IDsAdminNewObjExt {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(ucontext)).ok()
+        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), hwnd.into(), ucontext).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21845,7 +21845,7 @@ impl IDsAdminNewObjExt {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(hr), ::core::mem::transmute(ucontext)).ok()
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hwnd.into(), hr, ucontext).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21994,11 +21994,11 @@ impl IDsAdminNotifyHandler {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>,
     {
-        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uevent), parg1.into().abi(), parg2.into().abi(), ::core::mem::transmute(puflags), ::core::mem::transmute(pbstr)).ok()
+        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), uevent, parg1.into().abi(), parg2.into().abi(), ::core::mem::transmute(puflags), ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Notify(&self, nitem: u32, uflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nitem), ::core::mem::transmute(uflags)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), nitem, uflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
@@ -22065,12 +22065,12 @@ impl IDsBrowseDomainTree {
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
     {
-        (::windows::core::Interface::vtable(self).BrowseTo)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(ppsztargetpath), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).BrowseTo)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(ppsztargetpath), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDomains)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppdomaintree), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).GetDomains)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppdomaintree), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -22156,11 +22156,11 @@ impl IDsDisplaySpecifier {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), pszserver.into(), pszusername.into(), pszpassword.into(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), pszserver.into(), pszusername.into(), pszpassword.into(), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLanguageID(&self, langid: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguageID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid)).ok()
+        (::windows::core::Interface::vtable(self).SetLanguageID)(::windows::core::Interface::as_raw(self), langid).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetDisplaySpecifier<'a, P0>(&self, pszobjectclass: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -22174,7 +22174,7 @@ impl IDsDisplaySpecifier {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).GetIconLocation)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _, ::core::mem::transmute(presid)).ok()
+        (::windows::core::Interface::vtable(self).GetIconLocation)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), dwflags, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _, ::core::mem::transmute(presid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -22182,7 +22182,7 @@ impl IDsDisplaySpecifier {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), dwflags, cxicon, cyicon))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetFriendlyClassName<'a, P0>(&self, pszobjectclass: P0, pszbuffer: &mut [u16]) -> ::windows::core::Result<()>
@@ -22206,7 +22206,7 @@ impl IDsDisplaySpecifier {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsClassContainer)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), pszadspath.into(), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsClassContainer)(::windows::core::Interface::as_raw(self), pszobjectclass.into(), pszadspath.into(), dwflags))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetClassCreationInfo<'a, P0>(&self, pszobjectclass: P0, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()>
@@ -22464,7 +22464,7 @@ impl IPersistQuery {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ReadString)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cchbuffer)).ok()
+        (::windows::core::Interface::vtable(self).ReadString)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(pbuffer), cchbuffer).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn WriteInt<'a, P0, P1>(&self, psection: P0, pvaluename: P1, value: i32) -> ::windows::core::Result<()>
@@ -22472,7 +22472,7 @@ impl IPersistQuery {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).WriteInt)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).WriteInt)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReadInt<'a, P0, P1>(&self, psection: P0, pvaluename: P1, pvalue: *mut i32) -> ::windows::core::Result<()>
@@ -22488,7 +22488,7 @@ impl IPersistQuery {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).WriteStruct)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
+        (::windows::core::Interface::vtable(self).WriteStruct)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(pstruct), cbstruct).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReadStruct<'a, P0, P1>(&self, psection: P0, pvaluename: P1, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()>
@@ -22496,7 +22496,7 @@ impl IPersistQuery {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ReadStruct)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
+        (::windows::core::Interface::vtable(self).ReadStruct)(::windows::core::Interface::as_raw(self), psection.into(), pvaluename.into(), ::core::mem::transmute(pstruct), cbstruct).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -22583,7 +22583,7 @@ pub struct IPrivateDispatch(::windows::core::IUnknown);
 impl IPrivateDispatch {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIInitializeDispatchManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwextensionid)).ok()
+        (::windows::core::Interface::vtable(self).ADSIInitializeDispatchManager)(::windows::core::Interface::as_raw(self), dwextensionid).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIGetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
@@ -22594,17 +22594,17 @@ impl IPrivateDispatch {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ADSIGetTypeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).ADSIGetTypeInfo)(::windows::core::Interface::as_raw(self), itinfo, lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ADSIGetIDsOfNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ADSIGetIDsOfNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), cnames, lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIInvoke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).ADSIInvoke)(::windows::core::Interface::as_raw(self), dispidmember, ::core::mem::transmute(riid), lcid, wflags, ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IPrivateDispatch> for ::windows::core::IUnknown {
@@ -22669,7 +22669,7 @@ impl IPrivateUnknown {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ADSIInitializeObject)(::windows::core::Interface::as_raw(self), lpszusername.into().abi(), lpszpassword.into().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).ADSIInitializeObject)(::windows::core::Interface::as_raw(self), lpszusername.into().abi(), lpszpassword.into().abi(), lnreserved).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIReleaseObject(&self) -> ::windows::core::Result<()> {
@@ -23030,7 +23030,7 @@ pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VAR
     extern "system" {
         fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
     }
-    PropVariantToAdsType(::core::mem::transmute(pvariant), ::core::mem::transmute(dwnumvariant), ::core::mem::transmute(ppadsvalues), ::core::mem::transmute(pdwnumvalues)).ok()
+    PropVariantToAdsType(::core::mem::transmute(pvariant), dwnumvariant, ::core::mem::transmute(ppadsvalues), ::core::mem::transmute(pdwnumvalues)).ok()
 }
 pub const PropertyEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
 pub const PropertyValue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
@@ -23045,7 +23045,7 @@ pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew
     extern "system" {
         fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(ReallocADsMem(::core::mem::transmute(poldmem), ::core::mem::transmute(cbold), ::core::mem::transmute(cbnew)))
+    ::core::mem::transmute(ReallocADsMem(::core::mem::transmute(poldmem), cbold, cbnew))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23154,7 +23154,7 @@ where
     extern "system" {
         fn SecurityDescriptorToBinarySD(vvarsecdes: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    SecurityDescriptorToBinarySD(vvarsecdes.into().abi(), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(pdwsdlength), pszservername.into(), username.into(), password.into(), ::core::mem::transmute(dwflags)).ok()
+    SecurityDescriptorToBinarySD(vvarsecdes.into().abi(), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(pdwsdlength), pszservername.into(), username.into(), password.into(), dwflags).ok()
 }
 pub const Timestamp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
 pub const TypedName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);

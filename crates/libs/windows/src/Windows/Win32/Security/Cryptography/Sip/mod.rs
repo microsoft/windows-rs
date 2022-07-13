@@ -46,7 +46,7 @@ pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwen
     extern "system" {
         fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPGetSignedDataMsg(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(pdwencodingtype), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcbsigneddatamsg), ::core::mem::transmute(pbsigneddatamsg)))
+    ::core::mem::transmute(CryptSIPGetSignedDataMsg(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(pdwencodingtype), dwindex, ::core::mem::transmute(pcbsigneddatamsg), ::core::mem::transmute(pbsigneddatamsg)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
@@ -56,7 +56,7 @@ pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32
     extern "system" {
         fn CryptSIPLoad(pgsubject: *const ::windows::core::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPLoad(::core::mem::transmute(pgsubject), ::core::mem::transmute(dwflags), ::core::mem::transmute(psipdispatch)))
+    ::core::mem::transmute(CryptSIPLoad(::core::mem::transmute(pgsubject), dwflags, ::core::mem::transmute(psipdispatch)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
@@ -66,7 +66,7 @@ pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwenc
     extern "system" {
         fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPPutSignedDataMsg(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(dwencodingtype), ::core::mem::transmute(pdwindex), ::core::mem::transmute(cbsigneddatamsg), ::core::mem::transmute(pbsigneddatamsg)))
+    ::core::mem::transmute(CryptSIPPutSignedDataMsg(::core::mem::transmute(psubjectinfo), dwencodingtype, ::core::mem::transmute(pdwindex), cbsigneddatamsg, ::core::mem::transmute(pbsigneddatamsg)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -86,7 +86,7 @@ pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dw
     extern "system" {
         fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptSIPRemoveSignedDataMsg(::core::mem::transmute(psubjectinfo), ::core::mem::transmute(dwindex)))
+    ::core::mem::transmute(CryptSIPRemoveSignedDataMsg(::core::mem::transmute(psubjectinfo), dwindex))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

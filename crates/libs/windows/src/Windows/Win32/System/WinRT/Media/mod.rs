@@ -236,7 +236,7 @@ impl IVideoFrameNativeFactory {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), ::core::mem::transmute(width), ::core::mem::transmute(height), forcereadonly.into(), ::core::mem::transmute(mindisplayaperture), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IVideoFrameNativeFactory> for ::windows::core::IUnknown {

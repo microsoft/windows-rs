@@ -115,7 +115,7 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::Windo
     extern "system" {
         fn RegisterApplicationRecoveryCallback(precoveycallback: *mut ::core::ffi::c_void, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    RegisterApplicationRecoveryCallback(::core::mem::transmute(precoveycallback), ::core::mem::transmute(pvparameter), ::core::mem::transmute(dwpinginterval), ::core::mem::transmute(dwflags)).ok()
+    RegisterApplicationRecoveryCallback(::core::mem::transmute(precoveycallback), ::core::mem::transmute(pvparameter), dwpinginterval, dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[inline]
@@ -127,7 +127,7 @@ where
     extern "system" {
         fn RegisterApplicationRestart(pwzcommandline: ::windows::core::PCWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::HRESULT;
     }
-    RegisterApplicationRestart(pwzcommandline.into(), ::core::mem::transmute(dwflags)).ok()
+    RegisterApplicationRestart(pwzcommandline.into(), dwflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[inline]

@@ -166,7 +166,7 @@ impl IRendezvousSession {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), bstrappdata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), hr, bstrappdata.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IRendezvousSession> for ::windows::core::IUnknown {

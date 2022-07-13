@@ -48,7 +48,7 @@ pub unsafe fn CreateJobSet(userjobset: &[JOB_SET_ARRAY], flags: u32) -> super::s
     extern "system" {
         fn CreateJobSet(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CreateJobSet(userjobset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userjobset)), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(CreateJobSet(userjobset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(userjobset)), flags))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`*"]
 #[inline]
@@ -1826,7 +1826,7 @@ where
     extern "system" {
         fn OpenJobObjectA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenJobObjectA(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.into());
+    let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -1841,7 +1841,7 @@ where
     extern "system" {
         fn OpenJobObjectW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    let result__ = OpenJobObjectW(::core::mem::transmute(dwdesiredaccess), binherithandle.into(), lpname.into());
+    let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into(), lpname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
@@ -1855,7 +1855,7 @@ where
     extern "system" {
         fn QueryInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut ::core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(QueryInformationJobObject(hjob.into(), ::core::mem::transmute(jobobjectinformationclass), ::core::mem::transmute(lpjobobjectinformation), ::core::mem::transmute(cbjobobjectinformationlength), ::core::mem::transmute(lpreturnlength)))
+    ::core::mem::transmute(QueryInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength, ::core::mem::transmute(lpreturnlength)))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1882,7 +1882,7 @@ where
     extern "system" {
         fn SetInformationJobObject(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const ::core::ffi::c_void, cbjobobjectinformationlength: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetInformationJobObject(hjob.into(), ::core::mem::transmute(jobobjectinformationclass), ::core::mem::transmute(lpjobobjectinformation), ::core::mem::transmute(cbjobobjectinformationlength)))
+    ::core::mem::transmute(SetInformationJobObject(hjob.into(), jobobjectinformationclass, ::core::mem::transmute(lpjobobjectinformation), cbjobobjectinformationlength))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1908,7 +1908,7 @@ where
     extern "system" {
         fn TerminateJobObject(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(TerminateJobObject(hjob.into(), ::core::mem::transmute(uexitcode)))
+    ::core::mem::transmute(TerminateJobObject(hjob.into(), uexitcode))
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

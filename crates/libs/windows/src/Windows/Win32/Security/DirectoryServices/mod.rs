@@ -11,7 +11,7 @@ where
     extern "system" {
         fn DSCreateISecurityInfoObject(pwszobjectpath: ::windows::core::PCWSTR, pwszobjectclass: ::windows::core::PCWSTR, dwflags: u32, ppsi: *mut *mut ::core::ffi::c_void, pfnreadsd: *mut ::core::ffi::c_void, pfnwritesd: *mut ::core::ffi::c_void, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
     }
-    DSCreateISecurityInfoObject(pwszobjectpath.into(), pwszobjectclass.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
+    DSCreateISecurityInfoObject(pwszobjectpath.into(), pwszobjectclass.into(), dwflags, ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization_UI\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
@@ -29,7 +29,7 @@ where
     extern "system" {
         fn DSCreateISecurityInfoObjectEx(pwszobjectpath: ::windows::core::PCWSTR, pwszobjectclass: ::windows::core::PCWSTR, pwszserver: ::windows::core::PCWSTR, pwszusername: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR, dwflags: u32, ppsi: *mut *mut ::core::ffi::c_void, pfnreadsd: *mut ::core::ffi::c_void, pfnwritesd: *mut ::core::ffi::c_void, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
     }
-    DSCreateISecurityInfoObjectEx(pwszobjectpath.into(), pwszobjectclass.into(), pwszserver.into(), pwszusername.into(), pwszpassword.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
+    DSCreateISecurityInfoObjectEx(pwszobjectpath.into(), pwszobjectclass.into(), pwszserver.into(), pwszusername.into(), pwszpassword.into(), dwflags, ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -44,7 +44,7 @@ where
     extern "system" {
         fn DSCreateSecurityPage(pwszobjectpath: ::windows::core::PCWSTR, pwszobjectclass: ::windows::core::PCWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: *mut ::core::ffi::c_void, pfnwritesd: *mut ::core::ffi::c_void, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
     }
-    DSCreateSecurityPage(pwszobjectpath.into(), pwszobjectclass.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(phpage), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
+    DSCreateSecurityPage(pwszobjectpath.into(), pwszobjectclass.into(), dwflags, ::core::mem::transmute(phpage), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61,7 +61,7 @@ where
     extern "system" {
         fn DSEditSecurity(hwndowner: super::super::Foundation::HWND, pwszobjectpath: ::windows::core::PCWSTR, pwszobjectclass: ::windows::core::PCWSTR, dwflags: u32, pwszcaption: ::windows::core::PCWSTR, pfnreadsd: *mut ::core::ffi::c_void, pfnwritesd: *mut ::core::ffi::c_void, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
     }
-    DSEditSecurity(hwndowner.into(), pwszobjectpath.into(), pwszobjectclass.into(), ::core::mem::transmute(dwflags), pwszcaption.into(), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
+    DSEditSecurity(hwndowner.into(), pwszobjectpath.into(), pwszobjectclass.into(), dwflags, pwszcaption.into(), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`*"]
 pub const DSSI_IS_ROOT: u32 = 16u32;

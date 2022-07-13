@@ -369,7 +369,7 @@ pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *
     extern "system" {
         fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminAcquireContext(::core::mem::transmute(phcatadmin), ::core::mem::transmute(pgsubsystem), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminAcquireContext(::core::mem::transmute(phcatadmin), ::core::mem::transmute(pgsubsystem), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -382,7 +382,7 @@ where
     extern "system" {
         fn CryptCATAdminAcquireContext2(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, pwszhashalgorithm: ::windows::core::PCWSTR, pstronghashpolicy: *const super::CERT_STRONG_SIGN_PARA, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminAcquireContext2(::core::mem::transmute(phcatadmin), ::core::mem::transmute(pgsubsystem), pwszhashalgorithm.into(), ::core::mem::transmute(pstronghashpolicy), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminAcquireContext2(::core::mem::transmute(phcatadmin), ::core::mem::transmute(pgsubsystem), pwszhashalgorithm.into(), ::core::mem::transmute(pstronghashpolicy), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[inline]
@@ -395,7 +395,7 @@ where
     extern "system" {
         fn CryptCATAdminAddCatalog(hcatadmin: isize, pwszcatalogfile: ::windows::core::PCWSTR, pwszselectbasename: ::windows::core::PCWSTR, dwflags: u32) -> isize;
     }
-    ::core::mem::transmute(CryptCATAdminAddCatalog(::core::mem::transmute(hcatadmin), pwszcatalogfile.into(), pwszselectbasename.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminAddCatalog(hcatadmin, pwszcatalogfile.into(), pwszselectbasename.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -408,7 +408,7 @@ where
     extern "system" {
         fn CryptCATAdminCalcHashFromFileHandle(hfile: super::super::super::Foundation::HANDLE, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminCalcHashFromFileHandle(hfile.into(), ::core::mem::transmute(pcbhash), ::core::mem::transmute(pbhash), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminCalcHashFromFileHandle(hfile.into(), ::core::mem::transmute(pcbhash), ::core::mem::transmute(pbhash), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -421,7 +421,7 @@ where
     extern "system" {
         fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin: isize, hfile: super::super::super::Foundation::HANDLE, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminCalcHashFromFileHandle2(::core::mem::transmute(hcatadmin), hfile.into(), ::core::mem::transmute(pcbhash), ::core::mem::transmute(pbhash), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminCalcHashFromFileHandle2(hcatadmin, hfile.into(), ::core::mem::transmute(pcbhash), ::core::mem::transmute(pbhash), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[inline]
@@ -430,7 +430,7 @@ pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const 
     extern "system" {
         fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize;
     }
-    ::core::mem::transmute(CryptCATAdminEnumCatalogFromHash(::core::mem::transmute(hcatadmin), ::core::mem::transmute(pbhash), ::core::mem::transmute(cbhash), ::core::mem::transmute(dwflags), ::core::mem::transmute(phprevcatinfo)))
+    ::core::mem::transmute(CryptCATAdminEnumCatalogFromHash(hcatadmin, ::core::mem::transmute(pbhash), cbhash, dwflags, ::core::mem::transmute(phprevcatinfo)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -443,7 +443,7 @@ where
     extern "system" {
         fn CryptCATAdminPauseServiceForBackup(dwflags: u32, fresume: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminPauseServiceForBackup(::core::mem::transmute(dwflags), fresume.into()))
+    ::core::mem::transmute(CryptCATAdminPauseServiceForBackup(dwflags, fresume.into()))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -453,7 +453,7 @@ pub unsafe fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isi
     extern "system" {
         fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isize, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminReleaseCatalogContext(::core::mem::transmute(hcatadmin), ::core::mem::transmute(hcatinfo), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -463,7 +463,7 @@ pub unsafe fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> sup
     extern "system" {
         fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminReleaseContext(::core::mem::transmute(hcatadmin), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminReleaseContext(hcatadmin, dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -476,7 +476,7 @@ where
     extern "system" {
         fn CryptCATAdminRemoveCatalog(hcatadmin: isize, pwszcatalogfile: ::windows::core::PCWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminRemoveCatalog(::core::mem::transmute(hcatadmin), pwszcatalogfile.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminRemoveCatalog(hcatadmin, pwszcatalogfile.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -489,7 +489,7 @@ where
     extern "system" {
         fn CryptCATAdminResolveCatalogPath(hcatadmin: isize, pwszcatalogfile: ::windows::core::PCWSTR, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATAdminResolveCatalogPath(::core::mem::transmute(hcatadmin), pwszcatalogfile.into(), ::core::mem::transmute(pscatinfo), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile.into(), ::core::mem::transmute(pscatinfo), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
@@ -566,7 +566,7 @@ pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CA
     extern "system" {
         fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CryptCATCatalogInfoFromContext(::core::mem::transmute(hcatinfo), ::core::mem::transmute(pscatinfo), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(CryptCATCatalogInfoFromContext(hcatinfo, ::core::mem::transmute(pscatinfo), dwflags))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -696,7 +696,7 @@ where
     extern "system" {
         fn CryptCATOpen(pwszfilename: ::windows::core::PCWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CryptCATOpen(pwszfilename.into(), ::core::mem::transmute(fdwopenflags), ::core::mem::transmute(hprov), ::core::mem::transmute(dwpublicversion), ::core::mem::transmute(dwencodingtype)))
+    ::core::mem::transmute(CryptCATOpen(pwszfilename.into(), fdwopenflags, hprov, dwpublicversion, dwencodingtype))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -723,7 +723,7 @@ where
     extern "system" {
         fn CryptCATPutAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: ::windows::core::PCWSTR, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE;
     }
-    ::core::mem::transmute(CryptCATPutAttrInfo(hcatalog.into(), ::core::mem::transmute(pcatmember), pwszreferencetag.into(), ::core::mem::transmute(dwattrtypeandaction), ::core::mem::transmute(cbdata), ::core::mem::transmute(pbdata)))
+    ::core::mem::transmute(CryptCATPutAttrInfo(hcatalog.into(), ::core::mem::transmute(pcatmember), pwszreferencetag.into(), dwattrtypeandaction, cbdata, ::core::mem::transmute(pbdata)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -737,7 +737,7 @@ where
     extern "system" {
         fn CryptCATPutCatAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: ::windows::core::PCWSTR, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE;
     }
-    ::core::mem::transmute(CryptCATPutCatAttrInfo(hcatalog.into(), pwszreferencetag.into(), ::core::mem::transmute(dwattrtypeandaction), ::core::mem::transmute(cbdata), ::core::mem::transmute(pbdata)))
+    ::core::mem::transmute(CryptCATPutCatAttrInfo(hcatalog.into(), pwszreferencetag.into(), dwattrtypeandaction, cbdata, ::core::mem::transmute(pbdata)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
@@ -752,7 +752,7 @@ where
     extern "system" {
         fn CryptCATPutMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszfilename: ::windows::core::PCWSTR, pwszreferencetag: ::windows::core::PCWSTR, pgsubjecttype: *mut ::windows::core::GUID, dwcertversion: u32, cbsipindirectdata: u32, pbsipindirectdata: *mut u8) -> *mut CRYPTCATMEMBER;
     }
-    ::core::mem::transmute(CryptCATPutMemberInfo(hcatalog.into(), pwszfilename.into(), pwszreferencetag.into(), ::core::mem::transmute(pgsubjecttype), ::core::mem::transmute(dwcertversion), ::core::mem::transmute(cbsipindirectdata), ::core::mem::transmute(pbsipindirectdata)))
+    ::core::mem::transmute(CryptCATPutMemberInfo(hcatalog.into(), pwszfilename.into(), pwszreferencetag.into(), ::core::mem::transmute(pgsubjecttype), dwcertversion, cbsipindirectdata, ::core::mem::transmute(pbsipindirectdata)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

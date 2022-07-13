@@ -3088,7 +3088,7 @@ impl IEnumNetCfgBindingInterface {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -3154,7 +3154,7 @@ impl IEnumNetCfgBindingPath {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -3220,7 +3220,7 @@ impl IEnumNetCfgComponent {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -3612,7 +3612,7 @@ impl INetCfgClassSetup {
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self), pszwinfid.into(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into(), pszwanswersections.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self), pszwinfid.into(), ::core::mem::transmute(pobotoken), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into(), pszwanswersections.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3697,7 +3697,7 @@ impl INetCfgClassSetup2 {
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Install)(::windows::core::Interface::as_raw(self), pszwinfid.into(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into(), pszwanswersections.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).base__.Install)(::windows::core::Interface::as_raw(self), pszwinfid.into(), ::core::mem::transmute(pobotoken), dwsetupflags, dwupgradefrombuildno, pszwanswerfile.into(), pszwanswersections.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3712,7 +3712,7 @@ impl INetCfgClassSetup2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgComponent>>,
     {
-        (::windows::core::Interface::vtable(self).UpdateNonEnumeratedComponent)(::windows::core::Interface::as_raw(self), picomp.into().abi(), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno)).ok()
+        (::windows::core::Interface::vtable(self).UpdateNonEnumeratedComponent)(::windows::core::Interface::as_raw(self), picomp.into().abi(), dwsetupflags, dwupgradefrombuildno).ok()
     }
 }
 impl ::core::convert::From<INetCfgClassSetup2> for ::windows::core::IUnknown {
@@ -3840,7 +3840,7 @@ impl INetCfgComponent {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).RaisePropertyUi)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwflags), punkcontext.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RaisePropertyUi)(::windows::core::Interface::as_raw(self), hwndparent.into(), dwflags, punkcontext.into().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponent> for ::windows::core::IUnknown {
@@ -3924,7 +3924,7 @@ impl INetCfgComponentBindings {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SupportsBindingInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszwinterfacename.into()).ok()
+        (::windows::core::Interface::vtable(self).SupportsBindingInterface)(::windows::core::Interface::as_raw(self), dwflags, pszwinterfacename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsBoundTo<'a, P0>(&self, pnccitem: P0) -> ::windows::core::Result<()>
@@ -3943,7 +3943,7 @@ impl INetCfgComponentBindings {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumBindingPaths)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgBindingPath>(result__)
+        (::windows::core::Interface::vtable(self).EnumBindingPaths)(::windows::core::Interface::as_raw(self), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn MoveBefore<'a, P0, P1>(&self, pncbitemsrc: P0, pncbitemdest: P1) -> ::windows::core::Result<()>
@@ -4096,14 +4096,14 @@ impl INetCfgComponentNotifyBinding {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgBindingPath>>,
     {
-        (::windows::core::Interface::vtable(self).QueryBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).QueryBindingPath)(::windows::core::Interface::as_raw(self), dwchangeflag, pipath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn NotifyBindingPath<'a, P0>(&self, dwchangeflag: u32, pipath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgBindingPath>>,
     {
-        (::windows::core::Interface::vtable(self).NotifyBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).NotifyBindingPath)(::windows::core::Interface::as_raw(self), dwchangeflag, pipath.into().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::core::IUnknown {
@@ -4162,21 +4162,21 @@ impl INetCfgComponentNotifyGlobal {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgBindingPath>>,
     {
-        (::windows::core::Interface::vtable(self).SysQueryBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SysQueryBindingPath)(::windows::core::Interface::as_raw(self), dwchangeflag, pipath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SysNotifyBindingPath<'a, P0>(&self, dwchangeflag: u32, pipath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgBindingPath>>,
     {
-        (::windows::core::Interface::vtable(self).SysNotifyBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SysNotifyBindingPath)(::windows::core::Interface::as_raw(self), dwchangeflag, pipath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SysNotifyComponent<'a, P0>(&self, dwchangeflag: u32, picomp: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgComponent>>,
     {
-        (::windows::core::Interface::vtable(self).SysNotifyComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), picomp.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SysNotifyComponent)(::windows::core::Interface::as_raw(self), dwchangeflag, picomp.into().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::core::IUnknown {
@@ -4324,11 +4324,11 @@ pub struct INetCfgComponentSetup(::windows::core::IUnknown);
 impl INetCfgComponentSetup {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsetupflags)).ok()
+        (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self), dwsetupflags).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Upgrade)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefombuildno)).ok()
+        (::windows::core::Interface::vtable(self).Upgrade)(::windows::core::Interface::as_raw(self), dwsetupflags, dwupgradefombuildno).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ReadAnswerFile<'a, P0, P1>(&self, pszwanswerfile: P0, pszwanswersections: P1) -> ::windows::core::Result<()>
@@ -4466,7 +4466,7 @@ impl INetCfgComponentUpperEdge {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, INetCfgComponent>>,
     {
-        (::windows::core::Interface::vtable(self).AddInterfacesToAdapter)(::windows::core::Interface::as_raw(self), padapter.into().abi(), ::core::mem::transmute(dwnuminterfaces)).ok()
+        (::windows::core::Interface::vtable(self).AddInterfacesToAdapter)(::windows::core::Interface::as_raw(self), padapter.into().abi(), dwnuminterfaces).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn RemoveInterfacesFromAdapter<'a, P0>(&self, padapter: P0, pguidinterfaceids: &[::windows::core::GUID]) -> ::windows::core::Result<()>
@@ -4529,7 +4529,7 @@ impl INetCfgLock {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).AcquireWriteLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cmstimeout), pszwclientdescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).AcquireWriteLock)(::windows::core::Interface::as_raw(self), cmstimeout, pszwclientdescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ReleaseWriteLock(&self) -> ::windows::core::Result<()> {
@@ -4594,7 +4594,7 @@ impl INetCfgPnpReconfigCallback {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(layer), pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
+        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), layer, pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata), dwsizeofdata).ok()
     }
 }
 impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
@@ -4648,7 +4648,7 @@ impl INetCfgSysPrep {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).HrSetupSetFirstDword)(::windows::core::Interface::as_raw(self), pwszsection.into(), pwszkey.into(), ::core::mem::transmute(dwvalue)).ok()
+        (::windows::core::Interface::vtable(self).HrSetupSetFirstDword)(::windows::core::Interface::as_raw(self), pwszsection.into(), pwszkey.into(), dwvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn HrSetupSetFirstString<'a, P0, P1, P2>(&self, pwszsection: P0, pwszkey: P1, pwszvalue: P2) -> ::windows::core::Result<()>
@@ -4977,7 +4977,7 @@ where
     extern "system" {
         fn I_NetLogonControl2(servername: ::windows::core::PCWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(I_NetLogonControl2(servername.into(), ::core::mem::transmute(functioncode), ::core::mem::transmute(querylevel), ::core::mem::transmute(data), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(I_NetLogonControl2(servername.into(), functioncode, querylevel, ::core::mem::transmute(data), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const JOB_ADD_CURRENT_DATE: u32 = 8u32;
@@ -5319,7 +5319,7 @@ pub unsafe fn LogErrorA(dwmessageid: u32, plpwssubstrings: &[::windows::core::PS
     extern "system" {
         fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR, dwerrorcode: u32);
     }
-    LogErrorA(::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)), ::core::mem::transmute(dwerrorcode))
+    LogErrorA(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -5328,7 +5328,7 @@ pub unsafe fn LogErrorW(dwmessageid: u32, plpwssubstrings: &[::windows::core::PW
     extern "system" {
         fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR, dwerrorcode: u32);
     }
-    LogErrorW(::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)), ::core::mem::transmute(dwerrorcode))
+    LogErrorW(dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -5337,7 +5337,7 @@ pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::
     extern "system" {
         fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PSTR);
     }
-    LogEventA(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)))
+    LogEventA(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -5346,7 +5346,7 @@ pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, plpwssubstrings: &[::
     extern "system" {
         fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const ::windows::core::PWSTR);
     }
-    LogEventW(::core::mem::transmute(weventtype), ::core::mem::transmute(dwmessageid), plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)))
+    LogEventW(weventtype, dwmessageid, plpwssubstrings.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpwssubstrings)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MACHINE_UNJOINED: i32 = -1073727507i32;
@@ -5647,7 +5647,7 @@ pub unsafe fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8,
     extern "system" {
         fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
     }
-    ::core::mem::transmute(MprSetupProtocolEnum(::core::mem::transmute(dwtransportid), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwentriesread)))
+    ::core::mem::transmute(MprSetupProtocolEnum(dwtransportid, ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwentriesread)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8290,7 +8290,7 @@ where
     extern "system" {
         fn NetAccessAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetAccessAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetAccessAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8316,7 +8316,7 @@ where
     extern "system" {
         fn NetAccessEnum(servername: ::windows::core::PCWSTR, basepath: ::windows::core::PCWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetAccessEnum(servername.into(), basepath.into(), ::core::mem::transmute(recursive), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetAccessEnum(servername.into(), basepath.into(), recursive, level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8329,7 +8329,7 @@ where
     extern "system" {
         fn NetAccessGetInfo(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetAccessGetInfo(servername.into(), resource.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetAccessGetInfo(servername.into(), resource.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8356,7 +8356,7 @@ where
     extern "system" {
         fn NetAccessSetInfo(servername: ::windows::core::PCWSTR, resource: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetAccessSetInfo(servername.into(), resource.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetAccessSetInfo(servername.into(), resource.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8371,7 +8371,7 @@ where
     extern "system" {
         fn NetAddAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(NetAddAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(NetAddAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8386,7 +8386,7 @@ where
     extern "system" {
         fn NetAddServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), ::core::mem::transmute(flags)).ok()
+    NetAddServiceAccount(servername.into(), accountname.into(), password.into(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8398,7 +8398,7 @@ where
     extern "system" {
         fn NetAlertRaise(alerttype: ::windows::core::PCWSTR, buffer: *const ::core::ffi::c_void, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(NetAlertRaise(alerttype.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(NetAlertRaise(alerttype.into(), ::core::mem::transmute(buffer), buffersize))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8411,7 +8411,7 @@ where
     extern "system" {
         fn NetAlertRaiseEx(alerttype: ::windows::core::PCWSTR, variableinfo: *const ::core::ffi::c_void, variableinfosize: u32, servicename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(NetAlertRaiseEx(alerttype.into(), ::core::mem::transmute(variableinfo), ::core::mem::transmute(variableinfosize), servicename.into()))
+    ::core::mem::transmute(NetAlertRaiseEx(alerttype.into(), ::core::mem::transmute(variableinfo), variableinfosize, servicename.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8420,7 +8420,7 @@ pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi
     extern "system" {
         fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetApiBufferAllocate(::core::mem::transmute(bytecount), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(NetApiBufferAllocate(bytecount, ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8438,7 +8438,7 @@ pub unsafe fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newb
     extern "system" {
         fn NetApiBufferReallocate(oldbuffer: *const ::core::ffi::c_void, newbytecount: u32, newbuffer: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetApiBufferReallocate(::core::mem::transmute(oldbuffer), ::core::mem::transmute(newbytecount), ::core::mem::transmute(newbuffer)))
+    ::core::mem::transmute(NetApiBufferReallocate(::core::mem::transmute(oldbuffer), newbytecount, ::core::mem::transmute(newbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8474,7 +8474,7 @@ where
     extern "system" {
         fn NetAuditRead(server: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetAuditRead(server.into(), service.into(), ::core::mem::transmute(auditloghandle), ::core::mem::transmute(offset), ::core::mem::transmute(reserved1), ::core::mem::transmute(reserved2), ::core::mem::transmute(offsetflag), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable)))
+    ::core::mem::transmute(NetAuditRead(server.into(), service.into(), ::core::mem::transmute(auditloghandle), offset, ::core::mem::transmute(reserved1), reserved2, offsetflag, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8486,7 +8486,7 @@ where
     extern "system" {
         fn NetAuditWrite(r#type: u32, buf: *mut u8, numbytes: u32, service: ::windows::core::PCWSTR, reserved: *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetAuditWrite(::core::mem::transmute(r#type), ::core::mem::transmute(buf), ::core::mem::transmute(numbytes), service.into(), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(NetAuditWrite(r#type, ::core::mem::transmute(buf), numbytes, service.into(), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8527,7 +8527,7 @@ where
     extern "system" {
         fn NetConfigSet(server: ::windows::core::PCWSTR, reserved1: ::windows::core::PCWSTR, component: ::windows::core::PCWSTR, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32;
     }
-    ::core::mem::transmute(NetConfigSet(server.into(), reserved1.into(), component.into(), ::core::mem::transmute(level), ::core::mem::transmute(reserved2), ::core::mem::transmute(buf), ::core::mem::transmute(reserved3)))
+    ::core::mem::transmute(NetConfigSet(server.into(), reserved1.into(), component.into(), level, reserved2, ::core::mem::transmute(buf), reserved3))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8548,7 +8548,7 @@ where
     extern "system" {
         fn NetEnumerateComputerNames(server: ::windows::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(NetEnumerateComputerNames(server.into(), ::core::mem::transmute(nametype), ::core::mem::transmute(reserved), ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames)))
+    ::core::mem::transmute(NetEnumerateComputerNames(server.into(), nametype, reserved, ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8561,7 +8561,7 @@ where
     extern "system" {
         fn NetEnumerateServiceAccounts(servername: ::windows::core::PCWSTR, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS;
     }
-    NetEnumerateServiceAccounts(servername.into(), ::core::mem::transmute(flags), ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
+    NetEnumerateServiceAccounts(servername.into(), flags, ::core::mem::transmute(accountscount), ::core::mem::transmute(accounts)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8587,7 +8587,7 @@ where
     extern "system" {
         fn NetErrorLogRead(uncservername: ::windows::core::PCWSTR, reserved1: ::windows::core::PCWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetErrorLogRead(uncservername.into(), reserved1.into(), ::core::mem::transmute(errorloghandle), ::core::mem::transmute(offset), ::core::mem::transmute(reserved2), ::core::mem::transmute(reserved3), ::core::mem::transmute(offsetflag), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxsize), ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable)))
+    ::core::mem::transmute(NetErrorLogRead(uncservername.into(), reserved1.into(), ::core::mem::transmute(errorloghandle), offset, ::core::mem::transmute(reserved2), reserved3, offsetflag, ::core::mem::transmute(bufptr), prefmaxsize, ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8599,7 +8599,7 @@ where
     extern "system" {
         fn NetErrorLogWrite(reserved1: *const u8, code: u32, component: ::windows::core::PCWSTR, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetErrorLogWrite(::core::mem::transmute(reserved1), ::core::mem::transmute(code), component.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(numbytes), ::core::mem::transmute(msgbuf), ::core::mem::transmute(strcount), ::core::mem::transmute(reserved2)))
+    ::core::mem::transmute(NetErrorLogWrite(::core::mem::transmute(reserved1), code, component.into(), ::core::mem::transmute(buffer), numbytes, ::core::mem::transmute(msgbuf), strcount, ::core::mem::transmute(reserved2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -8662,7 +8662,7 @@ where
     extern "system" {
         fn NetGetDisplayInformationIndex(servername: ::windows::core::PCWSTR, level: u32, prefix: ::windows::core::PCWSTR, index: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetGetDisplayInformationIndex(servername.into(), ::core::mem::transmute(level), prefix.into(), ::core::mem::transmute(index)))
+    ::core::mem::transmute(NetGetDisplayInformationIndex(servername.into(), level, prefix.into(), ::core::mem::transmute(index)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8701,7 +8701,7 @@ where
     extern "system" {
         fn NetGroupAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetGroupAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetGroupAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8754,7 +8754,7 @@ where
     extern "system" {
         fn NetGroupEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
     }
-    ::core::mem::transmute(NetGroupEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetGroupEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8767,7 +8767,7 @@ where
     extern "system" {
         fn NetGroupGetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetGroupGetInfo(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetGroupGetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8780,7 +8780,7 @@ where
     extern "system" {
         fn NetGroupGetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
     }
-    ::core::mem::transmute(NetGroupGetUsers(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetGroupGetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8793,7 +8793,7 @@ where
     extern "system" {
         fn NetGroupSetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetGroupSetInfo(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetGroupSetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8806,7 +8806,7 @@ where
     extern "system" {
         fn NetGroupSetUsers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
     }
-    ::core::mem::transmute(NetGroupSetUsers(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
+    ::core::mem::transmute(NetGroupSetUsers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8836,7 +8836,7 @@ where
     extern "system" {
         fn NetJoinDomain(lpserver: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
     }
-    ::core::mem::transmute(NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(fjoinoptions)))
+    ::core::mem::transmute(NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), fjoinoptions))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8848,7 +8848,7 @@ where
     extern "system" {
         fn NetLocalGroupAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetLocalGroupAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8876,7 +8876,7 @@ where
     extern "system" {
         fn NetLocalGroupAddMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupAddMembers(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
+    ::core::mem::transmute(NetLocalGroupAddMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8917,7 +8917,7 @@ where
     extern "system" {
         fn NetLocalGroupDelMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupDelMembers(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
+    ::core::mem::transmute(NetLocalGroupDelMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8929,7 +8929,7 @@ where
     extern "system" {
         fn NetLocalGroupEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetLocalGroupEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8942,7 +8942,7 @@ where
     extern "system" {
         fn NetLocalGroupGetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupGetInfo(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetLocalGroupGetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8955,7 +8955,7 @@ where
     extern "system" {
         fn NetLocalGroupGetMembers(servername: ::windows::core::PCWSTR, localgroupname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupGetMembers(servername.into(), localgroupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetLocalGroupGetMembers(servername.into(), localgroupname.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8968,7 +8968,7 @@ where
     extern "system" {
         fn NetLocalGroupSetInfo(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupSetInfo(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetLocalGroupSetInfo(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8981,7 +8981,7 @@ where
     extern "system" {
         fn NetLocalGroupSetMembers(servername: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, level: u32, buf: *const u8, totalentries: u32) -> u32;
     }
-    ::core::mem::transmute(NetLocalGroupSetMembers(servername.into(), groupname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(totalentries)))
+    ::core::mem::transmute(NetLocalGroupSetMembers(servername.into(), groupname.into(), level, ::core::mem::transmute(buf), totalentries))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -8995,7 +8995,7 @@ where
     extern "system" {
         fn NetMessageBufferSend(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR, fromname: ::windows::core::PCWSTR, buf: *const u8, buflen: u32) -> u32;
     }
-    ::core::mem::transmute(NetMessageBufferSend(servername.into(), msgname.into(), fromname.into(), ::core::mem::transmute(buf), ::core::mem::transmute(buflen)))
+    ::core::mem::transmute(NetMessageBufferSend(servername.into(), msgname.into(), fromname.into(), ::core::mem::transmute(buf), buflen))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9033,7 +9033,7 @@ where
     extern "system" {
         fn NetMessageNameEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetMessageNameEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetMessageNameEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9046,7 +9046,7 @@ where
     extern "system" {
         fn NetMessageNameGetInfo(servername: ::windows::core::PCWSTR, msgname: ::windows::core::PCWSTR, level: u32, bufptr: *const *const u8) -> u32;
     }
-    ::core::mem::transmute(NetMessageNameGetInfo(servername.into(), msgname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetMessageNameGetInfo(servername.into(), msgname.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9061,7 +9061,7 @@ where
     extern "system" {
         fn NetProvisionComputerAccount(lpdomain: ::windows::core::PCWSTR, lpmachinename: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpdcname: ::windows::core::PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata)))
+    ::core::mem::transmute(NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), dwoptions, ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata)))
 }
 pub const NetProvisioning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -9074,7 +9074,7 @@ where
     extern "system" {
         fn NetQueryDisplayInformation(servername: ::windows::core::PCWSTR, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetQueryDisplayInformation(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(index), ::core::mem::transmute(entriesrequested), ::core::mem::transmute(preferredmaximumlength), ::core::mem::transmute(returnedentrycount), ::core::mem::transmute(sortedbuffer)))
+    ::core::mem::transmute(NetQueryDisplayInformation(servername.into(), level, index, entriesrequested, preferredmaximumlength, ::core::mem::transmute(returnedentrycount), ::core::mem::transmute(sortedbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9088,7 +9088,7 @@ where
     extern "system" {
         fn NetQueryServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS;
     }
-    NetQueryServiceAccount(servername.into(), accountname.into(), ::core::mem::transmute(infolevel), ::core::mem::transmute(buffer)).ok()
+    NetQueryServiceAccount(servername.into(), accountname.into(), infolevel, ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9100,7 +9100,7 @@ where
     extern "system" {
         fn NetRemoteComputerSupports(uncservername: ::windows::core::PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetRemoteComputerSupports(uncservername.into(), ::core::mem::transmute(optionswanted), ::core::mem::transmute(optionssupported)))
+    ::core::mem::transmute(NetRemoteComputerSupports(uncservername.into(), optionswanted, ::core::mem::transmute(optionssupported)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9127,7 +9127,7 @@ where
     extern "system" {
         fn NetRemoveAlternateComputerName(server: ::windows::core::PCWSTR, alternatename: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(NetRemoveAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(NetRemoveAlternateComputerName(server.into(), alternatename.into(), domainaccount.into(), domainaccountpassword.into(), reserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9141,7 +9141,7 @@ where
     extern "system" {
         fn NetRemoveServiceAccount(servername: ::windows::core::PCWSTR, accountname: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NetRemoveServiceAccount(servername.into(), accountname.into(), ::core::mem::transmute(flags)).ok()
+    NetRemoveServiceAccount(servername.into(), accountname.into(), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9156,7 +9156,7 @@ where
     extern "system" {
         fn NetRenameMachineInDomain(lpserver: ::windows::core::PCWSTR, lpnewmachinename: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, frenameoptions: u32) -> u32;
     }
-    ::core::mem::transmute(NetRenameMachineInDomain(lpserver.into(), lpnewmachinename.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(frenameoptions)))
+    ::core::mem::transmute(NetRenameMachineInDomain(lpserver.into(), lpnewmachinename.into(), lpaccount.into(), lppassword.into(), frenameoptions))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9168,7 +9168,7 @@ where
     extern "system" {
         fn NetReplExportDirAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetReplExportDirAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetReplExportDirAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9193,7 +9193,7 @@ where
     extern "system" {
         fn NetReplExportDirEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetReplExportDirEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetReplExportDirEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9206,7 +9206,7 @@ where
     extern "system" {
         fn NetReplExportDirGetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetReplExportDirGetInfo(servername.into(), dirname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetReplExportDirGetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9232,7 +9232,7 @@ where
     extern "system" {
         fn NetReplExportDirSetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetReplExportDirSetInfo(servername.into(), dirname.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetReplExportDirSetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9245,7 +9245,7 @@ where
     extern "system" {
         fn NetReplExportDirUnlock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, unlockforce: u32) -> u32;
     }
-    ::core::mem::transmute(NetReplExportDirUnlock(servername.into(), dirname.into(), ::core::mem::transmute(unlockforce)))
+    ::core::mem::transmute(NetReplExportDirUnlock(servername.into(), dirname.into(), unlockforce))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9257,7 +9257,7 @@ where
     extern "system" {
         fn NetReplGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetReplGetInfo(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetReplGetInfo(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9269,7 +9269,7 @@ where
     extern "system" {
         fn NetReplImportDirAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetReplImportDirAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetReplImportDirAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9294,7 +9294,7 @@ where
     extern "system" {
         fn NetReplImportDirEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetReplImportDirEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetReplImportDirEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9307,7 +9307,7 @@ where
     extern "system" {
         fn NetReplImportDirGetInfo(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetReplImportDirGetInfo(servername.into(), dirname.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetReplImportDirGetInfo(servername.into(), dirname.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9333,7 +9333,7 @@ where
     extern "system" {
         fn NetReplImportDirUnlock(servername: ::windows::core::PCWSTR, dirname: ::windows::core::PCWSTR, unlockforce: u32) -> u32;
     }
-    ::core::mem::transmute(NetReplImportDirUnlock(servername.into(), dirname.into(), ::core::mem::transmute(unlockforce)))
+    ::core::mem::transmute(NetReplImportDirUnlock(servername.into(), dirname.into(), unlockforce))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9345,7 +9345,7 @@ where
     extern "system" {
         fn NetReplSetInfo(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetReplSetInfo(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetReplSetInfo(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9357,7 +9357,7 @@ where
     extern "system" {
         fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(cbprovisionbindatasize), ::core::mem::transmute(dwoptions), lpwindowspath.into()))
+    ::core::mem::transmute(NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata), cbprovisionbindatasize, dwoptions, lpwindowspath.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9369,7 +9369,7 @@ where
     extern "system" {
         fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata), ::core::mem::transmute(dwpackagebindatasize), ::core::mem::transmute(dwprovisionoptions), lpwindowspath.into(), ::core::mem::transmute(pvreserved)))
+    ::core::mem::transmute(NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata), dwpackagebindatasize, dwprovisionoptions, lpwindowspath.into(), ::core::mem::transmute(pvreserved)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9393,7 +9393,7 @@ where
     extern "system" {
         fn NetScheduleJobDel(servername: ::windows::core::PCWSTR, minjobid: u32, maxjobid: u32) -> u32;
     }
-    ::core::mem::transmute(NetScheduleJobDel(servername.into(), ::core::mem::transmute(minjobid), ::core::mem::transmute(maxjobid)))
+    ::core::mem::transmute(NetScheduleJobDel(servername.into(), minjobid, maxjobid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9405,7 +9405,7 @@ where
     extern "system" {
         fn NetScheduleJobEnum(servername: ::windows::core::PCWSTR, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetScheduleJobEnum(servername.into(), ::core::mem::transmute(pointertobuffer), ::core::mem::transmute(prefferedmaximumlength), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetScheduleJobEnum(servername.into(), ::core::mem::transmute(pointertobuffer), prefferedmaximumlength, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9417,7 +9417,7 @@ where
     extern "system" {
         fn NetScheduleJobGetInfo(servername: ::windows::core::PCWSTR, jobid: u32, pointertobuffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetScheduleJobGetInfo(servername.into(), ::core::mem::transmute(jobid), ::core::mem::transmute(pointertobuffer)))
+    ::core::mem::transmute(NetScheduleJobGetInfo(servername.into(), jobid, ::core::mem::transmute(pointertobuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9456,7 +9456,7 @@ where
     extern "system" {
         fn NetServerDiskEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServerDiskEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetServerDiskEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9469,7 +9469,7 @@ where
     extern "system" {
         fn NetServerEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: ::windows::core::PCWSTR, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServerEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(servertype), domain.into(), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetServerEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), servertype, domain.into(), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9481,7 +9481,7 @@ where
     extern "system" {
         fn NetServerGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetServerGetInfo(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetServerGetInfo(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9493,7 +9493,7 @@ where
     extern "system" {
         fn NetServerSetInfo(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parmerror: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServerSetInfo(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parmerror)))
+    ::core::mem::transmute(NetServerSetInfo(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parmerror)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9505,7 +9505,7 @@ where
     extern "system" {
         fn NetServerTransportAdd(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetServerTransportAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetServerTransportAdd(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9517,7 +9517,7 @@ where
     extern "system" {
         fn NetServerTransportAddEx(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetServerTransportAddEx(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetServerTransportAddEx(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9529,7 +9529,7 @@ where
     extern "system" {
         fn NetServerTransportDel(servername: ::windows::core::PCWSTR, level: u32, bufptr: *const u8) -> u32;
     }
-    ::core::mem::transmute(NetServerTransportDel(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetServerTransportDel(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9541,7 +9541,7 @@ where
     extern "system" {
         fn NetServerTransportEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServerTransportEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetServerTransportEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9554,7 +9554,7 @@ where
     extern "system" {
         fn NetServiceControl(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetServiceControl(servername.into(), service.into(), ::core::mem::transmute(opcode), ::core::mem::transmute(arg), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetServiceControl(servername.into(), service.into(), opcode, arg, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9566,7 +9566,7 @@ where
     extern "system" {
         fn NetServiceEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServiceEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetServiceEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9579,7 +9579,7 @@ where
     extern "system" {
         fn NetServiceGetInfo(servername: ::windows::core::PCWSTR, service: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetServiceGetInfo(servername.into(), service.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetServiceGetInfo(servername.into(), service.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9607,7 +9607,7 @@ where
     extern "system" {
         fn NetSetPrimaryComputerName(server: ::windows::core::PCWSTR, primaryname: ::windows::core::PCWSTR, domainaccount: ::windows::core::PCWSTR, domainaccountpassword: ::windows::core::PCWSTR, reserved: u32) -> u32;
     }
-    ::core::mem::transmute(NetSetPrimaryComputerName(server.into(), primaryname.into(), domainaccount.into(), domainaccountpassword.into(), ::core::mem::transmute(reserved)))
+    ::core::mem::transmute(NetSetPrimaryComputerName(server.into(), primaryname.into(), domainaccount.into(), domainaccountpassword.into(), reserved))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9621,7 +9621,7 @@ where
     extern "system" {
         fn NetUnjoinDomain(lpserver: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, funjoinoptions: u32) -> u32;
     }
-    ::core::mem::transmute(NetUnjoinDomain(lpserver.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(funjoinoptions)))
+    ::core::mem::transmute(NetUnjoinDomain(lpserver.into(), lpaccount.into(), lppassword.into(), funjoinoptions))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9630,7 +9630,7 @@ pub unsafe fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, 
     extern "system" {
         fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUseAdd(::core::mem::transmute(servername), ::core::mem::transmute(levelflags), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetUseAdd(::core::mem::transmute(servername), levelflags, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9643,7 +9643,7 @@ where
     extern "system" {
         fn NetUseDel(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
     }
-    ::core::mem::transmute(NetUseDel(uncservername.into(), usename.into(), ::core::mem::transmute(forcelevelflags)))
+    ::core::mem::transmute(NetUseDel(uncservername.into(), usename.into(), forcelevelflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9655,7 +9655,7 @@ where
     extern "system" {
         fn NetUseEnum(uncservername: ::windows::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUseEnum(uncservername.into(), ::core::mem::transmute(levelflags), ::core::mem::transmute(bufptr), ::core::mem::transmute(preferedmaximumsize), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetUseEnum(uncservername.into(), levelflags, ::core::mem::transmute(bufptr), preferedmaximumsize, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9668,7 +9668,7 @@ where
     extern "system" {
         fn NetUseGetInfo(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, levelflags: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetUseGetInfo(uncservername.into(), usename.into(), ::core::mem::transmute(levelflags), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetUseGetInfo(uncservername.into(), usename.into(), levelflags, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9680,7 +9680,7 @@ where
     extern "system" {
         fn NetUserAdd(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserAdd(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetUserAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9720,7 +9720,7 @@ where
     extern "system" {
         fn NetUserEnum(servername: ::windows::core::PCWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(filter), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetUserEnum(servername.into(), level, filter, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9733,7 +9733,7 @@ where
     extern "system" {
         fn NetUserGetGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserGetGroups(servername.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries)))
+    ::core::mem::transmute(NetUserGetGroups(servername.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9746,7 +9746,7 @@ where
     extern "system" {
         fn NetUserGetInfo(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetUserGetInfo(servername.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetUserGetInfo(servername.into(), username.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9759,7 +9759,7 @@ where
     extern "system" {
         fn NetUserGetLocalGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserGetLocalGroups(servername.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(flags), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries)))
+    ::core::mem::transmute(NetUserGetLocalGroups(servername.into(), username.into(), level, flags, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9771,7 +9771,7 @@ where
     extern "system" {
         fn NetUserModalsGet(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetUserModalsGet(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetUserModalsGet(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9783,7 +9783,7 @@ where
     extern "system" {
         fn NetUserModalsSet(servername: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserModalsSet(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetUserModalsSet(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9796,7 +9796,7 @@ where
     extern "system" {
         fn NetUserSetGroups(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, buf: *const u8, num_entries: u32) -> u32;
     }
-    ::core::mem::transmute(NetUserSetGroups(servername.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(num_entries)))
+    ::core::mem::transmute(NetUserSetGroups(servername.into(), username.into(), level, ::core::mem::transmute(buf), num_entries))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9809,7 +9809,7 @@ where
     extern "system" {
         fn NetUserSetInfo(servername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserSetInfo(servername.into(), username.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetUserSetInfo(servername.into(), username.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9824,7 +9824,7 @@ where
     extern "system" {
         fn NetValidateName(lpserver: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
     }
-    ::core::mem::transmute(NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(nametype)))
+    ::core::mem::transmute(NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), nametype))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9836,7 +9836,7 @@ where
     extern "system" {
         fn NetValidatePasswordPolicy(servername: ::windows::core::PCWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetValidatePasswordPolicy(servername.into(), ::core::mem::transmute(qualifier), ::core::mem::transmute(validationtype), ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg)))
+    ::core::mem::transmute(NetValidatePasswordPolicy(servername.into(), ::core::mem::transmute(qualifier), validationtype, ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9857,7 +9857,7 @@ where
     extern "system" {
         fn NetWkstaGetInfo(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetWkstaGetInfo(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetWkstaGetInfo(servername.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9869,7 +9869,7 @@ where
     extern "system" {
         fn NetWkstaSetInfo(servername: ::windows::core::PCWSTR, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetWkstaSetInfo(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(buffer), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetWkstaSetInfo(servername.into(), level, ::core::mem::transmute(buffer), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9878,7 +9878,7 @@ pub unsafe fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *cons
     extern "system" {
         fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetWkstaTransportAdd(::core::mem::transmute(servername), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetWkstaTransportAdd(::core::mem::transmute(servername), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9891,7 +9891,7 @@ where
     extern "system" {
         fn NetWkstaTransportDel(servername: ::windows::core::PCWSTR, transportname: ::windows::core::PCWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
     }
-    ::core::mem::transmute(NetWkstaTransportDel(servername.into(), transportname.into(), ::core::mem::transmute(ucond)))
+    ::core::mem::transmute(NetWkstaTransportDel(servername.into(), transportname.into(), ucond))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9900,7 +9900,7 @@ pub unsafe fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *
     extern "system" {
         fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetWkstaTransportEnum(::core::mem::transmute(servername), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetWkstaTransportEnum(::core::mem::transmute(servername), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9912,7 +9912,7 @@ where
     extern "system" {
         fn NetWkstaUserEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetWkstaUserEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
+    ::core::mem::transmute(NetWkstaUserEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9924,7 +9924,7 @@ where
     extern "system" {
         fn NetWkstaUserGetInfo(reserved: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(NetWkstaUserGetInfo(reserved.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr)))
+    ::core::mem::transmute(NetWkstaUserGetInfo(reserved.into(), level, ::core::mem::transmute(bufptr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9936,7 +9936,7 @@ where
     extern "system" {
         fn NetWkstaUserSetInfo(reserved: ::windows::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetWkstaUserSetInfo(reserved.into(), ::core::mem::transmute(level), ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
+    ::core::mem::transmute(NetWkstaUserSetInfo(reserved.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
@@ -10750,7 +10750,7 @@ where
     extern "system" {
         fn RouterAssert(pszfailedassertion: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, dwlinenumber: u32, pszmessage: ::windows::core::PCSTR);
     }
-    RouterAssert(pszfailedassertion.into(), pszfilename.into(), ::core::mem::transmute(dwlinenumber), pszmessage.into())
+    RouterAssert(pszfailedassertion.into(), pszfilename.into(), dwlinenumber, pszmessage.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -10759,7 +10759,7 @@ pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::
     extern "system" {
         fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(RouterGetErrorStringA(::core::mem::transmute(dwerrorcode), ::core::mem::transmute(lplpszerrorstring)))
+    ::core::mem::transmute(RouterGetErrorStringA(dwerrorcode, ::core::mem::transmute(lplpszerrorstring)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -10768,7 +10768,7 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut :
     extern "system" {
         fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(RouterGetErrorStringW(::core::mem::transmute(dwerrorcode), ::core::mem::transmute(lplpwszerrorstring)))
+    ::core::mem::transmute(RouterGetErrorStringW(dwerrorcode, ::core::mem::transmute(lplpwszerrorstring)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10807,7 +10807,7 @@ where
     extern "system" {
         fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32);
     }
-    RouterLogEventA(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), ::core::mem::transmute(dwerrorcode))
+    RouterLogEventA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10820,7 +10820,7 @@ where
     extern "system" {
         fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
     }
-    RouterLogEventDataA(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes))
+    RouterLogEventDataA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), dwdatabytes, ::core::mem::transmute(lpdatabytes))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10833,7 +10833,7 @@ where
     extern "system" {
         fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8);
     }
-    RouterLogEventDataW(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), ::core::mem::transmute(dwdatabytes), ::core::mem::transmute(lpdatabytes))
+    RouterLogEventDataW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), dwdatabytes, ::core::mem::transmute(lpdatabytes))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10847,7 +10847,7 @@ where
     extern "system" {
         fn RouterLogEventExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR);
     }
-    RouterLogEventExA(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into())
+    RouterLogEventExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10861,7 +10861,7 @@ where
     extern "system" {
         fn RouterLogEventExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR);
     }
-    RouterLogEventExW(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into())
+    RouterLogEventExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10874,7 +10874,7 @@ where
     extern "system" {
         fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PSTR, dwerrorcode: u32, dwerrorindex: u32);
     }
-    RouterLogEventStringA(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex))
+    RouterLogEventStringA(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), dwerrorcode, dwerrorindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10887,7 +10887,7 @@ where
     extern "system" {
         fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32, dwerrorindex: u32);
     }
-    RouterLogEventStringW(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwerrorindex))
+    RouterLogEventStringW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), dwerrorcode, dwerrorindex)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10901,7 +10901,7 @@ where
     extern "system" {
         fn RouterLogEventValistExA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCSTR, arglist: *mut i8);
     }
-    RouterLogEventValistExA(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into(), ::core::mem::transmute(arglist))
+    RouterLogEventValistExA(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10915,7 +10915,7 @@ where
     extern "system" {
         fn RouterLogEventValistExW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: ::windows::core::PCWSTR, arglist: *mut i8);
     }
-    RouterLogEventValistExW(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwerrorcode), ::core::mem::transmute(dwmessageid), ptszformat.into(), ::core::mem::transmute(arglist))
+    RouterLogEventValistExW(hloghandle.into(), dweventtype, dwerrorcode, dwmessageid, ptszformat.into(), ::core::mem::transmute(arglist))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10928,7 +10928,7 @@ where
     extern "system" {
         fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const ::windows::core::PWSTR, dwerrorcode: u32);
     }
-    RouterLogEventW(hloghandle.into(), ::core::mem::transmute(dweventtype), ::core::mem::transmute(dwmessageid), plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), ::core::mem::transmute(dwerrorcode))
+    RouterLogEventW(hloghandle.into(), dweventtype, dwmessageid, plpszsubstringarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpszsubstringarray)), dwerrorcode)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16057,7 +16057,7 @@ pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
     extern "system" {
         fn TraceDeregisterA(dwtraceid: u32) -> u32;
     }
-    ::core::mem::transmute(TraceDeregisterA(::core::mem::transmute(dwtraceid)))
+    ::core::mem::transmute(TraceDeregisterA(dwtraceid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16066,7 +16066,7 @@ pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
     extern "system" {
         fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(TraceDeregisterExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(TraceDeregisterExA(dwtraceid, dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16075,7 +16075,7 @@ pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
     extern "system" {
         fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(TraceDeregisterExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(TraceDeregisterExW(dwtraceid, dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16084,7 +16084,7 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     extern "system" {
         fn TraceDeregisterW(dwtraceid: u32) -> u32;
     }
-    ::core::mem::transmute(TraceDeregisterW(::core::mem::transmute(dwtraceid)))
+    ::core::mem::transmute(TraceDeregisterW(dwtraceid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16098,7 +16098,7 @@ where
     extern "system" {
         fn TraceDumpExA(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(TraceDumpExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbbytes), ::core::mem::transmute(dwbytecount), ::core::mem::transmute(dwgroupsize), baddressprefix.into(), lpszprefix.into()))
+    ::core::mem::transmute(TraceDumpExA(dwtraceid, dwflags, ::core::mem::transmute(lpbbytes), dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16112,7 +16112,7 @@ where
     extern "system" {
         fn TraceDumpExW(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: super::super::Foundation::BOOL, lpszprefix: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(TraceDumpExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbbytes), ::core::mem::transmute(dwbytecount), ::core::mem::transmute(dwgroupsize), baddressprefix.into(), lpszprefix.into()))
+    ::core::mem::transmute(TraceDumpExW(dwtraceid, dwflags, ::core::mem::transmute(lpbbytes), dwbytecount, dwgroupsize, baddressprefix.into(), lpszprefix.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16122,7 +16122,7 @@ pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Fo
     extern "system" {
         fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(TraceGetConsoleA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(lphconsole)))
+    ::core::mem::transmute(TraceGetConsoleA(dwtraceid, ::core::mem::transmute(lphconsole)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16132,7 +16132,7 @@ pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Fo
     extern "system" {
         fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(TraceGetConsoleW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(lphconsole)))
+    ::core::mem::transmute(TraceGetConsoleW(dwtraceid, ::core::mem::transmute(lphconsole)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16144,7 +16144,7 @@ where
     extern "system" {
         fn TracePrintfA(dwtraceid: u32, lpszformat: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(TracePrintfA(::core::mem::transmute(dwtraceid), lpszformat.into()))
+    ::core::mem::transmute(TracePrintfA(dwtraceid, lpszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16156,7 +16156,7 @@ where
     extern "system" {
         fn TracePrintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(TracePrintfExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into()))
+    ::core::mem::transmute(TracePrintfExA(dwtraceid, dwflags, lpszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16168,7 +16168,7 @@ where
     extern "system" {
         fn TracePrintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(TracePrintfExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into()))
+    ::core::mem::transmute(TracePrintfExW(dwtraceid, dwflags, lpszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16180,7 +16180,7 @@ where
     extern "system" {
         fn TracePrintfW(dwtraceid: u32, lpszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(TracePrintfW(::core::mem::transmute(dwtraceid), lpszformat.into()))
+    ::core::mem::transmute(TracePrintfW(dwtraceid, lpszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16192,7 +16192,7 @@ where
     extern "system" {
         fn TracePutsExA(dwtraceid: u32, dwflags: u32, lpszstring: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(TracePutsExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszstring.into()))
+    ::core::mem::transmute(TracePutsExA(dwtraceid, dwflags, lpszstring.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16204,7 +16204,7 @@ where
     extern "system" {
         fn TracePutsExW(dwtraceid: u32, dwflags: u32, lpszstring: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(TracePutsExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszstring.into()))
+    ::core::mem::transmute(TracePutsExW(dwtraceid, dwflags, lpszstring.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16216,7 +16216,7 @@ where
     extern "system" {
         fn TraceRegisterExA(lpszcallername: ::windows::core::PCSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(TraceRegisterExA(lpszcallername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(TraceRegisterExA(lpszcallername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16228,7 +16228,7 @@ where
     extern "system" {
         fn TraceRegisterExW(lpszcallername: ::windows::core::PCWSTR, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(TraceRegisterExW(lpszcallername.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(TraceRegisterExW(lpszcallername.into(), dwflags))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16240,7 +16240,7 @@ where
     extern "system" {
         fn TraceVprintfExA(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCSTR, arglist: *mut i8) -> u32;
     }
-    ::core::mem::transmute(TraceVprintfExA(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into(), ::core::mem::transmute(arglist)))
+    ::core::mem::transmute(TraceVprintfExA(dwtraceid, dwflags, lpszformat.into(), ::core::mem::transmute(arglist)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -16252,7 +16252,7 @@ where
     extern "system" {
         fn TraceVprintfExW(dwtraceid: u32, dwflags: u32, lpszformat: ::windows::core::PCWSTR, arglist: *mut i8) -> u32;
     }
-    ::core::mem::transmute(TraceVprintfExW(::core::mem::transmute(dwtraceid), ::core::mem::transmute(dwflags), lpszformat.into(), ::core::mem::transmute(arglist)))
+    ::core::mem::transmute(TraceVprintfExW(dwtraceid, dwflags, lpszformat.into(), ::core::mem::transmute(arglist)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;

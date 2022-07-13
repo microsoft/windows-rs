@@ -8,7 +8,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromWin32Handle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(win32handle), ::core::mem::transmute(enableaboutdata), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFromWin32Handle)(::windows::core::Interface::as_raw(self), win32handle, enableaboutdata, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusAttachmentFactoryInterop> for ::windows::core::IUnknown {
@@ -143,7 +143,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromWin32Handle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(win32handle), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFromWin32Handle)(::windows::core::Interface::as_raw(self), win32handle, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IWindowsDevicesAllJoynBusObjectFactoryInterop> for ::windows::core::IUnknown {
@@ -211,14 +211,14 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
-        (::windows::core::Interface::vtable(self).AddPropertyGetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), ::core::mem::transmute(callback)).ok()
+        (::windows::core::Interface::vtable(self).AddPropertyGetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), callback).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn AddPropertySetHandler<'a, P0>(&self, context: *const ::core::ffi::c_void, interfacename: P0, callback: isize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
-        (::windows::core::Interface::vtable(self).AddPropertySetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), ::core::mem::transmute(callback)).ok()
+        (::windows::core::Interface::vtable(self).AddPropertySetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), callback).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {

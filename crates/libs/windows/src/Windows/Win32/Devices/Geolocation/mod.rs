@@ -2893,7 +2893,7 @@ pub struct ICivicAddressReportFactory(::windows::core::IUnknown);
 impl ICivicAddressReportFactory {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ListenForReports)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestedreportinterval)).ok()
+        (::windows::core::Interface::vtable(self).base__.ListenForReports)(::windows::core::Interface::as_raw(self), requestedreportinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
@@ -2911,7 +2911,7 @@ impl ICivicAddressReportFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReportInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(millisecondsrequested)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReportInterval)(::windows::core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
@@ -2920,7 +2920,7 @@ impl ICivicAddressReportFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desiredaccuracy)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), desiredaccuracy).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
@@ -3452,7 +3452,7 @@ pub struct ILatLongReportFactory(::windows::core::IUnknown);
 impl ILatLongReportFactory {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ListenForReports)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestedreportinterval)).ok()
+        (::windows::core::Interface::vtable(self).base__.ListenForReports)(::windows::core::Interface::as_raw(self), requestedreportinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
@@ -3470,7 +3470,7 @@ impl ILatLongReportFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReportInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(millisecondsrequested)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReportInterval)(::windows::core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
@@ -3479,7 +3479,7 @@ impl ILatLongReportFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desiredaccuracy)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), desiredaccuracy).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
@@ -3590,7 +3590,7 @@ impl ILocation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ILocationEvents>>,
     {
-        (::windows::core::Interface::vtable(self).RegisterForReport)(::windows::core::Interface::as_raw(self), pevents.into().abi(), ::core::mem::transmute(reporttype), ::core::mem::transmute(dwrequestedreportinterval)).ok()
+        (::windows::core::Interface::vtable(self).RegisterForReport)(::windows::core::Interface::as_raw(self), pevents.into().abi(), ::core::mem::transmute(reporttype), dwrequestedreportinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn UnregisterForReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -3613,7 +3613,7 @@ impl ILocation {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetReportInterval(&self, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(millisecondsrequested)).ok()
+        (::windows::core::Interface::vtable(self).SetReportInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), millisecondsrequested).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Devices_Sensors\"`*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
@@ -3624,7 +3624,7 @@ impl ILocation {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Devices_Sensors\"`*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(desiredaccuracy)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), desiredaccuracy).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3707,7 +3707,7 @@ impl ILocationEvents {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(newstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), newstatus).ok()
     }
 }
 impl ::core::convert::From<ILocationEvents> for ::windows::core::IUnknown {
@@ -3886,7 +3886,7 @@ pub struct ILocationReportFactory(::windows::core::IUnknown);
 impl ILocationReportFactory {
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ListenForReports)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestedreportinterval)).ok()
+        (::windows::core::Interface::vtable(self).ListenForReports)(::windows::core::Interface::as_raw(self), requestedreportinterval).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
@@ -3904,7 +3904,7 @@ impl ILocationReportFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(millisecondsrequested)).ok()
+        (::windows::core::Interface::vtable(self).SetReportInterval)(::windows::core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
@@ -3913,7 +3913,7 @@ impl ILocationReportFactory {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desiredaccuracy)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), desiredaccuracy).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {

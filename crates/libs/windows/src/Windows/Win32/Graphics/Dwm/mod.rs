@@ -591,7 +591,7 @@ where
     extern "system" {
         fn DwmDefWindowProc(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DwmDefWindowProc(hwnd.into(), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(plresult)))
+    ::core::mem::transmute(DwmDefWindowProc(hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(plresult)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -626,7 +626,7 @@ pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::
     extern "system" {
         fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::HRESULT;
     }
-    DwmEnableComposition(::core::mem::transmute(ucompositionaction)).ok()
+    DwmEnableComposition(ucompositionaction).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -695,7 +695,7 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result
         fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-    DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    DwmGetGraphicsStreamClient(uindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
@@ -705,7 +705,7 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core:
         fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<MilMatrix3x2D>::zeroed();
-    DwmGetGraphicsStreamTransformHint(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MilMatrix3x2D>(result__)
+    DwmGetGraphicsStreamTransformHint(uindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MilMatrix3x2D>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -742,7 +742,7 @@ where
     extern "system" {
         fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    DwmGetWindowAttribute(hwnd.into(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    DwmGetWindowAttribute(hwnd.into(), dwattribute, ::core::mem::transmute(pvattribute), cbattribute).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -780,7 +780,7 @@ where
     extern "system" {
         fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    DwmModifyPreviousDxFrameDuration(hwnd.into(), ::core::mem::transmute(crefreshes), frelative.into()).ok()
+    DwmModifyPreviousDxFrameDuration(hwnd.into(), crefreshes, frelative.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -791,7 +791,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core:
         fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::SIZE>::zeroed();
-    DwmQueryThumbnailSourceSize(::core::mem::transmute(hthumbnail), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+    DwmQueryThumbnailSourceSize(hthumbnail, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -816,7 +816,7 @@ pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *
     extern "system" {
         fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
-    DwmRenderGesture(::core::mem::transmute(gt), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
+    DwmRenderGesture(gt, ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -829,7 +829,7 @@ where
     extern "system" {
         fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows::core::HRESULT;
     }
-    DwmSetDxFrameDuration(hwnd.into(), ::core::mem::transmute(crefreshes)).ok()
+    DwmSetDxFrameDuration(hwnd.into(), crefreshes).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -843,7 +843,7 @@ where
     extern "system" {
         fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::HRESULT;
     }
-    DwmSetIconicLivePreviewBitmap(hwnd.into(), hbmp.into(), ::core::mem::transmute(pptclient), ::core::mem::transmute(dwsitflags)).ok()
+    DwmSetIconicLivePreviewBitmap(hwnd.into(), hbmp.into(), ::core::mem::transmute(pptclient), dwsitflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -857,7 +857,7 @@ where
     extern "system" {
         fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows::core::HRESULT;
     }
-    DwmSetIconicThumbnail(hwnd.into(), hbmp.into(), ::core::mem::transmute(dwsitflags)).ok()
+    DwmSetIconicThumbnail(hwnd.into(), hbmp.into(), dwsitflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -883,7 +883,7 @@ where
     extern "system" {
         fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    DwmSetWindowAttribute(hwnd.into(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    DwmSetWindowAttribute(hwnd.into(), dwattribute, ::core::mem::transmute(pvattribute), cbattribute).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
@@ -892,7 +892,7 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
     extern "system" {
         fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::HRESULT;
     }
-    DwmShowContact(::core::mem::transmute(dwpointerid), ::core::mem::transmute(eshowcontact)).ok()
+    DwmShowContact(dwpointerid, eshowcontact).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -905,7 +905,7 @@ where
     extern "system" {
         fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
-    DwmTetherContact(::core::mem::transmute(dwpointerid), fenable.into(), ::core::mem::transmute(pttether)).ok()
+    DwmTetherContact(dwpointerid, fenable.into(), ::core::mem::transmute(pttether)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -918,7 +918,7 @@ where
     extern "system" {
         fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::HRESULT;
     }
-    DwmTransitionOwnedWindow(hwnd.into(), ::core::mem::transmute(target)).ok()
+    DwmTransitionOwnedWindow(hwnd.into(), target).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
@@ -927,7 +927,7 @@ pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Re
     extern "system" {
         fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::HRESULT;
     }
-    DwmUnregisterThumbnail(::core::mem::transmute(hthumbnailid)).ok()
+    DwmUnregisterThumbnail(hthumbnailid).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -937,7 +937,7 @@ pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *
     extern "system" {
         fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::HRESULT;
     }
-    DwmUpdateThumbnailProperties(::core::mem::transmute(hthumbnailid), ::core::mem::transmute(ptnproperties)).ok()
+    DwmUpdateThumbnailProperties(hthumbnailid, ::core::mem::transmute(ptnproperties)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]

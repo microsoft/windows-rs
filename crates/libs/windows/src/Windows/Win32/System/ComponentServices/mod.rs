@@ -1800,7 +1800,7 @@ pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::w
     extern "system" {
         fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CoGetDefaultContext(::core::mem::transmute(apttype), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    CoGetDefaultContext(apttype, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
@@ -2428,14 +2428,14 @@ impl IAppDomainHelper {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), punkad.into().abi(), ::core::mem::transmute(__midl__iappdomainhelper0000), ::core::mem::transmute(ppool)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), punkad.into().abi(), __midl__iappdomainhelper0000, ::core::mem::transmute(ppool)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn DoCallback<'a, P0>(&self, punkad: P0, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        (::windows::core::Interface::vtable(self).DoCallback)(::windows::core::Interface::as_raw(self), punkad.into().abi(), ::core::mem::transmute(__midl__iappdomainhelper0001), ::core::mem::transmute(ppool)).ok()
+        (::windows::core::Interface::vtable(self).DoCallback)(::windows::core::Interface::as_raw(self), punkad.into().abi(), __midl__iappdomainhelper0001, ::core::mem::transmute(ppool)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2602,7 +2602,7 @@ pub struct IAsyncErrorNotify(::windows::core::IUnknown);
 impl IAsyncErrorNotify {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnError(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hr).ok()
     }
 }
 impl ::core::convert::From<IAsyncErrorNotify> for ::windows::core::IUnknown {
@@ -2724,7 +2724,7 @@ impl ICOMAdminCatalog {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2736,7 +2736,7 @@ impl ICOMAdminCatalog {
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), ::core::mem::transmute(loptions), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), loptions, bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn StopRouter(&self) -> ::windows::core::Result<()> {
@@ -2813,7 +2813,7 @@ impl ICOMAdminCatalog {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ServiceCheck(&self, lservice: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).ServiceCheck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lservice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ServiceCheck)(::windows::core::Interface::as_raw(self), lservice, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3065,7 +3065,7 @@ impl ICOMAdminCatalog2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).base__.ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3077,7 +3077,7 @@ impl ICOMAdminCatalog2 {
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), ::core::mem::transmute(loptions), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.InstallApplication)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), bstrdestinationdirectory.into().abi(), loptions, bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn StopRouter(&self) -> ::windows::core::Result<()> {
@@ -3154,7 +3154,7 @@ impl ICOMAdminCatalog2 {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ServiceCheck(&self, lservice: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ServiceCheck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lservice), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ServiceCheck)(::windows::core::Interface::as_raw(self), lservice, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3196,7 +3196,7 @@ impl ICOMAdminCatalog2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationInstanceIDFromProcessID(&self, lprocessid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetApplicationInstanceIDFromProcessID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprocessid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetApplicationInstanceIDFromProcessID)(::windows::core::Interface::as_raw(self), lprocessid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3216,7 +3216,7 @@ impl ICOMAdminCatalog2 {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: *const super::Com::VARIANT, lreasoncode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RecycleApplicationInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid), ::core::mem::transmute(lreasoncode)).ok()
+        (::windows::core::Interface::vtable(self).RecycleApplicationInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid), lreasoncode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3232,7 +3232,7 @@ impl ICOMAdminCatalog2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).DumpApplicationInstance)(::windows::core::Interface::as_raw(self), bstrapplicationinstanceid.into().abi(), bstrdirectory.into().abi(), ::core::mem::transmute(lmaximages), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DumpApplicationInstance)(::windows::core::Interface::as_raw(self), bstrapplicationinstanceid.into().abi(), bstrdirectory.into().abi(), lmaximages, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn IsApplicationInstanceDumpSupported(&self) -> ::windows::core::Result<i16> {
@@ -3251,7 +3251,7 @@ impl ICOMAdminCatalog2 {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).CreateServiceForApplication)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), bstrservicename.into().abi(), bstrstarttype.into().abi(), bstrerrorcontrol.into().abi(), bstrdependencies.into().abi(), bstrrunas.into().abi(), bstrpassword.into().abi(), ::core::mem::transmute(bdesktopok)).ok()
+        (::windows::core::Interface::vtable(self).CreateServiceForApplication)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), bstrservicename.into().abi(), bstrstarttype.into().abi(), bstrerrorcontrol.into().abi(), bstrdependencies.into().abi(), bstrrunas.into().abi(), bstrpassword.into().abi(), bdesktopok).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3393,7 +3393,7 @@ impl ICOMAdminCatalog2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ExportPartition)(::windows::core::Interface::as_raw(self), bstrpartitionidorname.into().abi(), bstrpartitionfilename.into().abi(), ::core::mem::transmute(loptions)).ok()
+        (::windows::core::Interface::vtable(self).ExportPartition)(::windows::core::Interface::as_raw(self), bstrpartitionidorname.into().abi(), bstrpartitionfilename.into().abi(), loptions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3405,7 +3405,7 @@ impl ICOMAdminCatalog2 {
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).InstallPartition)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), bstrdestdirectory.into().abi(), ::core::mem::transmute(loptions), bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InstallPartition)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), bstrdestdirectory.into().abi(), loptions, bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3706,7 +3706,7 @@ impl ICatalogCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), lindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -3715,7 +3715,7 @@ impl ICatalogCollection {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), lindex).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3785,7 +3785,7 @@ impl ICatalogCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).PopulateByQuery)(::windows::core::Interface::as_raw(self), bstrquerystring.into().abi(), ::core::mem::transmute(lquerytype)).ok()
+        (::windows::core::Interface::vtable(self).PopulateByQuery)(::windows::core::Interface::as_raw(self), bstrquerystring.into().abi(), lquerytype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4113,15 +4113,15 @@ impl IComActivityEvents {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnActivityEnter(&self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnActivityEnter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), ::core::mem::transmute(guidentered), ::core::mem::transmute(dwthread)).ok()
+        (::windows::core::Interface::vtable(self).OnActivityEnter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), ::core::mem::transmute(guidentered), dwthread).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnActivityTimeout(&self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidentered: *const ::windows::core::GUID, dwthread: u32, dwtimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnActivityTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), ::core::mem::transmute(guidentered), ::core::mem::transmute(dwthread), ::core::mem::transmute(dwtimeout)).ok()
+        (::windows::core::Interface::vtable(self).OnActivityTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), ::core::mem::transmute(guidentered), dwthread, dwtimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnActivityReenter(&self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwthread: u32, dwcalldepth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnActivityReenter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), ::core::mem::transmute(dwthread), ::core::mem::transmute(dwcalldepth)).ok()
+        (::windows::core::Interface::vtable(self).OnActivityReenter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), dwthread, dwcalldepth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnActivityLeave(&self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidleft: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4129,7 +4129,7 @@ impl IComActivityEvents {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnActivityLeaveSame(&self, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnActivityLeaveSame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), ::core::mem::transmute(dwcalldepth)).ok()
+        (::windows::core::Interface::vtable(self).OnActivityLeaveSame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidcurrent), dwcalldepth).ok()
     }
 }
 impl ::core::convert::From<IComActivityEvents> for ::windows::core::IUnknown {
@@ -4205,7 +4205,7 @@ impl IComApp2Events {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnAppRecycle2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID, lreason: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnAppRecycle2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidapp), ::core::mem::transmute(guidprocess), ::core::mem::transmute(lreason)).ok()
+        (::windows::core::Interface::vtable(self).OnAppRecycle2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidapp), ::core::mem::transmute(guidprocess), lreason).ok()
     }
 }
 impl ::core::convert::From<IComApp2Events> for ::windows::core::IUnknown {
@@ -4362,7 +4362,7 @@ impl IComCRMEvents {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnCRMAnalyze(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnCRMAnalyze)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), ::core::mem::transmute(dwcrmrecordtype), ::core::mem::transmute(dwrecordsize)).ok()
+        (::windows::core::Interface::vtable(self).OnCRMAnalyze)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), dwcrmrecordtype, dwrecordsize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4370,7 +4370,7 @@ impl IComCRMEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnCRMWrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), fvariants.into(), ::core::mem::transmute(dwrecordsize)).ok()
+        (::windows::core::Interface::vtable(self).OnCRMWrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), fvariants.into(), dwrecordsize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnCRMForget(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -4386,7 +4386,7 @@ impl IComCRMEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnCRMDeliver)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), fvariants.into(), ::core::mem::transmute(dwrecordsize)).ok()
+        (::windows::core::Interface::vtable(self).OnCRMDeliver)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), fvariants.into(), dwrecordsize).ok()
     }
 }
 impl ::core::convert::From<IComCRMEvents> for ::windows::core::IUnknown {
@@ -4459,7 +4459,7 @@ impl IComExceptionEvents {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnExceptionUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(code), ::core::mem::transmute(address), pszstacktrace.into()).ok()
+        (::windows::core::Interface::vtable(self).OnExceptionUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), code, address, pszstacktrace.into()).ok()
     }
 }
 impl ::core::convert::From<IComExceptionEvents> for ::windows::core::IUnknown {
@@ -4514,7 +4514,7 @@ impl IComIdentityEvents {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnIISRequestInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objid), pszclientip.into(), pszserverip.into(), pszurl.into()).ok()
+        (::windows::core::Interface::vtable(self).OnIISRequestInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objid, pszclientip.into(), pszserverip.into(), pszurl.into()).ok()
     }
 }
 impl ::core::convert::From<IComIdentityEvents> for ::windows::core::IUnknown {
@@ -4564,11 +4564,11 @@ pub struct IComInstance2Events(::windows::core::IUnknown);
 impl IComInstance2Events {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjectCreate2(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjectCreate2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(clsid), ::core::mem::transmute(tsid), ::core::mem::transmute(ctxtid), ::core::mem::transmute(objectid), ::core::mem::transmute(guidpartition)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectCreate2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(clsid), ::core::mem::transmute(tsid), ctxtid, objectid, ::core::mem::transmute(guidpartition)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjectDestroy2(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjectDestroy2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectDestroy2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid).ok()
     }
 }
 impl ::core::convert::From<IComInstance2Events> for ::windows::core::IUnknown {
@@ -4619,11 +4619,11 @@ pub struct IComInstanceEvents(::windows::core::IUnknown);
 impl IComInstanceEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjectCreate(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjectCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(clsid), ::core::mem::transmute(tsid), ::core::mem::transmute(ctxtid), ::core::mem::transmute(objectid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(clsid), ::core::mem::transmute(tsid), ctxtid, objectid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjectDestroy(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjectDestroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectDestroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid).ok()
     }
 }
 impl ::core::convert::From<IComInstanceEvents> for ::windows::core::IUnknown {
@@ -4678,7 +4678,7 @@ impl IComLTxEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnLtxTransactionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidltx), ::core::mem::transmute(tsid), froot.into(), ::core::mem::transmute(nisolationlevel)).ok()
+        (::windows::core::Interface::vtable(self).OnLtxTransactionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidltx), ::core::mem::transmute(tsid), froot.into(), nisolationlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4758,15 +4758,15 @@ pub struct IComMethod2Events(::windows::core::IUnknown);
 impl IComMethod2Events {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnMethodCall2(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnMethodCall2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(oid), ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), ::core::mem::transmute(dwthread), ::core::mem::transmute(imeth)).ok()
+        (::windows::core::Interface::vtable(self).OnMethodCall2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), oid, ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), dwthread, imeth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnMethodReturn2(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnMethodReturn2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(oid), ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), ::core::mem::transmute(dwthread), ::core::mem::transmute(imeth), ::core::mem::transmute(hresult)).ok()
+        (::windows::core::Interface::vtable(self).OnMethodReturn2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), oid, ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), dwthread, imeth, hresult).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnMethodException2(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnMethodException2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(oid), ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), ::core::mem::transmute(dwthread), ::core::mem::transmute(imeth)).ok()
+        (::windows::core::Interface::vtable(self).OnMethodException2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), oid, ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), dwthread, imeth).ok()
     }
 }
 impl ::core::convert::From<IComMethod2Events> for ::windows::core::IUnknown {
@@ -4818,15 +4818,15 @@ pub struct IComMethodEvents(::windows::core::IUnknown);
 impl IComMethodEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnMethodCall(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnMethodCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(oid), ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), ::core::mem::transmute(imeth)).ok()
+        (::windows::core::Interface::vtable(self).OnMethodCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), oid, ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), imeth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnMethodReturn(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnMethodReturn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(oid), ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), ::core::mem::transmute(imeth), ::core::mem::transmute(hresult)).ok()
+        (::windows::core::Interface::vtable(self).OnMethodReturn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), oid, ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), imeth, hresult).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnMethodException(&self, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnMethodException)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(oid), ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), ::core::mem::transmute(imeth)).ok()
+        (::windows::core::Interface::vtable(self).OnMethodException)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), oid, ::core::mem::transmute(guidcid), ::core::mem::transmute(guidrid), imeth).ok()
     }
 }
 impl ::core::convert::From<IComMethodEvents> for ::windows::core::IUnknown {
@@ -4878,7 +4878,7 @@ pub struct IComMtaThreadPoolKnobs(::windows::core::IUnknown);
 impl IComMtaThreadPoolKnobs {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MTASetMaxThreadCount(&self, dwmaxthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MTASetMaxThreadCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmaxthreads)).ok()
+        (::windows::core::Interface::vtable(self).MTASetMaxThreadCount)(::windows::core::Interface::as_raw(self), dwmaxthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MTAGetMaxThreadCount(&self) -> ::windows::core::Result<u32> {
@@ -4887,7 +4887,7 @@ impl IComMtaThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MTASetThrottleValue(&self, dwthrottle: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MTASetThrottleValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwthrottle)).ok()
+        (::windows::core::Interface::vtable(self).MTASetThrottleValue)(::windows::core::Interface::as_raw(self), dwthrottle).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MTAGetThrottleValue(&self) -> ::windows::core::Result<u32> {
@@ -4948,7 +4948,7 @@ impl IComObjectConstruction2Events {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnObjectConstruct2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), sconstructstring.into(), ::core::mem::transmute(oid), ::core::mem::transmute(guidpartition)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectConstruct2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), sconstructstring.into(), oid, ::core::mem::transmute(guidpartition)).ok()
     }
 }
 impl ::core::convert::From<IComObjectConstruction2Events> for ::windows::core::IUnknown {
@@ -5001,7 +5001,7 @@ impl IComObjectConstructionEvents {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnObjectConstruct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), sconstructstring.into(), ::core::mem::transmute(oid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectConstruct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), sconstructstring.into(), oid).ok()
     }
 }
 impl ::core::convert::From<IComObjectConstructionEvents> for ::windows::core::IUnknown {
@@ -5051,27 +5051,27 @@ pub struct IComObjectEvents(::windows::core::IUnknown);
 impl IComObjectEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjectActivate(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjectActivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid), ::core::mem::transmute(objectid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectActivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid, objectid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjectDeactivate(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjectDeactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid), ::core::mem::transmute(objectid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjectDeactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid, objectid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnDisableCommit(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDisableCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid)).ok()
+        (::windows::core::Interface::vtable(self).OnDisableCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnEnableCommit(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnEnableCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid)).ok()
+        (::windows::core::Interface::vtable(self).OnEnableCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnSetComplete(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSetComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid)).ok()
+        (::windows::core::Interface::vtable(self).OnSetComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnSetAbort(&self, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSetAbort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(ctxtid)).ok()
+        (::windows::core::Interface::vtable(self).OnSetAbort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ctxtid).ok()
     }
 }
 impl ::core::convert::From<IComObjectEvents> for ::windows::core::IUnknown {
@@ -5126,19 +5126,19 @@ pub struct IComObjectPool2Events(::windows::core::IUnknown);
 impl IComObjectPool2Events {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolPutObject2(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolPutObject2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(nreason), ::core::mem::transmute(dwavailable), ::core::mem::transmute(oid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolPutObject2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), nreason, dwavailable, oid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolGetObject2(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolGetObject2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(dwavailable), ::core::mem::transmute(oid), ::core::mem::transmute(guidpartition)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolGetObject2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), dwavailable, oid, ::core::mem::transmute(guidpartition)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolRecycleToTx2(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolRecycleToTx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), ::core::mem::transmute(objid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolRecycleToTx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), objid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolGetFromTx2(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolGetFromTx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), ::core::mem::transmute(objid), ::core::mem::transmute(guidpartition)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolGetFromTx2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), objid, ::core::mem::transmute(guidpartition)).ok()
     }
 }
 impl ::core::convert::From<IComObjectPool2Events> for ::windows::core::IUnknown {
@@ -5191,19 +5191,19 @@ pub struct IComObjectPoolEvents(::windows::core::IUnknown);
 impl IComObjectPoolEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolPutObject(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolPutObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(nreason), ::core::mem::transmute(dwavailable), ::core::mem::transmute(oid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolPutObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), nreason, dwavailable, oid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolGetObject(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, dwavailable: u32, oid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolGetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(dwavailable), ::core::mem::transmute(oid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolGetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), dwavailable, oid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolRecycleToTx(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolRecycleToTx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), ::core::mem::transmute(objid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolRecycleToTx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), objid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolGetFromTx(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolGetFromTx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), ::core::mem::transmute(objid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolGetFromTx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidtx), objid).ok()
     }
 }
 impl ::core::convert::From<IComObjectPoolEvents> for ::windows::core::IUnknown {
@@ -5256,23 +5256,23 @@ pub struct IComObjectPoolEvents2(::windows::core::IUnknown);
 impl IComObjectPoolEvents2 {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolCreateObject(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolCreateObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(dwobjscreated), ::core::mem::transmute(oid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolCreateObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), dwobjscreated, oid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolDestroyObject(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwobjscreated: u32, oid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolDestroyObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(dwobjscreated), ::core::mem::transmute(oid)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolDestroyObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), dwobjscreated, oid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolCreateDecision(&self, pinfo: *const COMSVCSEVENTINFO, dwthreadswaiting: u32, dwavail: u32, dwcreated: u32, dwmin: u32, dwmax: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolCreateDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(dwthreadswaiting), ::core::mem::transmute(dwavail), ::core::mem::transmute(dwcreated), ::core::mem::transmute(dwmin), ::core::mem::transmute(dwmax)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolCreateDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), dwthreadswaiting, dwavail, dwcreated, dwmin, dwmax).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolTimeout(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, guidactivity: *const ::windows::core::GUID, dwtimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidactivity), ::core::mem::transmute(dwtimeout)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(guidactivity), dwtimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnObjPoolCreatePool(&self, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnObjPoolCreatePool)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), ::core::mem::transmute(dwmin), ::core::mem::transmute(dwmax), ::core::mem::transmute(dwtimeout)).ok()
+        (::windows::core::Interface::vtable(self).OnObjPoolCreatePool)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidobject), dwmin, dwmax, dwtimeout).ok()
     }
 }
 impl ::core::convert::From<IComObjectPoolEvents2> for ::windows::core::IUnknown {
@@ -5326,23 +5326,23 @@ pub struct IComQCEvents(::windows::core::IUnknown);
 impl IComQCEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: &[u16; 60], guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, msmqhr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objid), ::core::mem::transmute(::windows::core::as_ptr_or_null(szqueue)), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), ::core::mem::transmute(msmqhr)).ok()
+        (::windows::core::Interface::vtable(self).OnQCRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objid, ::core::mem::transmute(::windows::core::as_ptr_or_null(szqueue)), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), msmqhr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: &[u16; 60], queueid: u64, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCQueueOpen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(::windows::core::as_ptr_or_null(szqueue)), ::core::mem::transmute(queueid), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).OnQCQueueOpen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(::windows::core::as_ptr_or_null(szqueue)), queueid, hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCReceive(&self, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(queueid), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).OnQCReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), queueid, ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCReceiveFail(&self, pinfo: *const COMSVCSEVENTINFO, queueid: u64, msmqhr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCReceiveFail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(queueid), ::core::mem::transmute(msmqhr)).ok()
+        (::windows::core::Interface::vtable(self).OnQCReceiveFail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), queueid, msmqhr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCMoveToReTryQueue(&self, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, retryindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCMoveToReTryQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), ::core::mem::transmute(retryindex)).ok()
+        (::windows::core::Interface::vtable(self).OnQCMoveToReTryQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), retryindex).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCMoveToDeadQueue(&self, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -5350,7 +5350,7 @@ impl IComQCEvents {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnQCPlayback(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQCPlayback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objid), ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).OnQCPlayback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objid, ::core::mem::transmute(guidmsgid), ::core::mem::transmute(guidworkflowid), hr).ok()
     }
 }
 impl ::core::convert::From<IComQCEvents> for ::windows::core::IUnknown {
@@ -5411,7 +5411,7 @@ impl IComResourceEvents {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnResourceCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objectid), psztype.into(), ::core::mem::transmute(resid), enlisted.into()).ok()
+        (::windows::core::Interface::vtable(self).OnResourceCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, psztype.into(), resid, enlisted.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5420,21 +5420,21 @@ impl IComResourceEvents {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnResourceAllocate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objectid), psztype.into(), ::core::mem::transmute(resid), enlisted.into(), ::core::mem::transmute(numrated), ::core::mem::transmute(rating)).ok()
+        (::windows::core::Interface::vtable(self).OnResourceAllocate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, psztype.into(), resid, enlisted.into(), numrated, rating).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnResourceRecycle<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnResourceRecycle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objectid), psztype.into(), ::core::mem::transmute(resid)).ok()
+        (::windows::core::Interface::vtable(self).OnResourceRecycle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, psztype.into(), resid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnResourceDestroy<'a, P0>(&self, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows::core::HRESULT, psztype: P0, resid: u64) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnResourceDestroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objectid), ::core::mem::transmute(hr), psztype.into(), ::core::mem::transmute(resid)).ok()
+        (::windows::core::Interface::vtable(self).OnResourceDestroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, hr, psztype.into(), resid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5443,7 +5443,7 @@ impl IComResourceEvents {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnResourceTrack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(objectid), psztype.into(), ::core::mem::transmute(resid), enlisted.into()).ok()
+        (::windows::core::Interface::vtable(self).OnResourceTrack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, psztype.into(), resid, enlisted.into()).ok()
     }
 }
 impl ::core::convert::From<IComResourceEvents> for ::windows::core::IUnknown {
@@ -5510,7 +5510,7 @@ impl IComSecurityEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(objectid), ::core::mem::transmute(guidiid), ::core::mem::transmute(imeth), psidoriginaluser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidoriginaluser)), psidcurrentuser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidcurrentuser)), bcurrentuserinpersonatinginproc.into()).ok()
+        (::windows::core::Interface::vtable(self).OnAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidoriginaluser)), psidcurrentuser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidcurrentuser)), bcurrentuserinpersonatinginproc.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5518,7 +5518,7 @@ impl IComSecurityEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnAuthenticateFail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(objectid), ::core::mem::transmute(guidiid), ::core::mem::transmute(imeth), psidoriginaluser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidoriginaluser)), psidcurrentuser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidcurrentuser)), bcurrentuserinpersonatinginproc.into()).ok()
+        (::windows::core::Interface::vtable(self).OnAuthenticateFail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidoriginaluser)), psidcurrentuser.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(psidcurrentuser)), bcurrentuserinpersonatinginproc.into()).ok()
     }
 }
 impl ::core::convert::From<IComSecurityEvents> for ::windows::core::IUnknown {
@@ -5575,7 +5575,7 @@ pub struct IComStaThreadPoolKnobs(::windows::core::IUnknown);
 impl IComStaThreadPoolKnobs {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMinThreadCount(&self, minthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinThreadCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minthreads)).ok()
+        (::windows::core::Interface::vtable(self).SetMinThreadCount)(::windows::core::Interface::as_raw(self), minthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMinThreadCount(&self) -> ::windows::core::Result<u32> {
@@ -5584,7 +5584,7 @@ impl IComStaThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxThreadCount(&self, maxthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxThreadCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxthreads)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxThreadCount)(::windows::core::Interface::as_raw(self), maxthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMaxThreadCount(&self) -> ::windows::core::Result<u32> {
@@ -5593,7 +5593,7 @@ impl IComStaThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetActivityPerThread(&self, activitiesperthread: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActivityPerThread)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(activitiesperthread)).ok()
+        (::windows::core::Interface::vtable(self).SetActivityPerThread)(::windows::core::Interface::as_raw(self), activitiesperthread).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetActivityPerThread(&self) -> ::windows::core::Result<u32> {
@@ -5602,7 +5602,7 @@ impl IComStaThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetActivityRatio(&self, activityratio: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActivityRatio)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(activityratio)).ok()
+        (::windows::core::Interface::vtable(self).SetActivityRatio)(::windows::core::Interface::as_raw(self), activityratio).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetActivityRatio(&self) -> ::windows::core::Result<f64> {
@@ -5621,7 +5621,7 @@ impl IComStaThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetQueueDepth(&self, dwqdepth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueueDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwqdepth)).ok()
+        (::windows::core::Interface::vtable(self).SetQueueDepth)(::windows::core::Interface::as_raw(self), dwqdepth).ok()
     }
 }
 impl ::core::convert::From<IComStaThreadPoolKnobs> for ::windows::core::IUnknown {
@@ -5681,7 +5681,7 @@ pub struct IComStaThreadPoolKnobs2(::windows::core::IUnknown);
 impl IComStaThreadPoolKnobs2 {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMinThreadCount(&self, minthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMinThreadCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minthreads)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMinThreadCount)(::windows::core::Interface::as_raw(self), minthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMinThreadCount(&self) -> ::windows::core::Result<u32> {
@@ -5690,7 +5690,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxThreadCount(&self, maxthreads: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMaxThreadCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxthreads)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMaxThreadCount)(::windows::core::Interface::as_raw(self), maxthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMaxThreadCount(&self) -> ::windows::core::Result<u32> {
@@ -5699,7 +5699,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetActivityPerThread(&self, activitiesperthread: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetActivityPerThread)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(activitiesperthread)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetActivityPerThread)(::windows::core::Interface::as_raw(self), activitiesperthread).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetActivityPerThread(&self) -> ::windows::core::Result<u32> {
@@ -5708,7 +5708,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetActivityRatio(&self, activityratio: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetActivityRatio)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(activityratio)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetActivityRatio)(::windows::core::Interface::as_raw(self), activityratio).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetActivityRatio(&self) -> ::windows::core::Result<f64> {
@@ -5727,7 +5727,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetQueueDepth(&self, dwqdepth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetQueueDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwqdepth)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetQueueDepth)(::windows::core::Interface::as_raw(self), dwqdepth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMaxCPULoad(&self) -> ::windows::core::Result<u32> {
@@ -5736,7 +5736,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxCPULoad(&self, pdwload: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxCPULoad)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwload)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxCPULoad)(::windows::core::Interface::as_raw(self), pdwload).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5773,7 +5773,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxCSR(&self, dwcsr: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxCSR)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcsr)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxCSR)(::windows::core::Interface::as_raw(self), dwcsr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetWaitTimeForThreadCleanup(&self) -> ::windows::core::Result<u32> {
@@ -5782,7 +5782,7 @@ impl IComStaThreadPoolKnobs2 {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetWaitTimeForThreadCleanup(&self, dwthreadcleanupwaittime: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWaitTimeForThreadCleanup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwthreadcleanupwaittime)).ok()
+        (::windows::core::Interface::vtable(self).SetWaitTimeForThreadCleanup)(::windows::core::Interface::as_raw(self), dwthreadcleanupwaittime).ok()
     }
 }
 impl ::core::convert::From<IComStaThreadPoolKnobs2> for ::windows::core::IUnknown {
@@ -5868,47 +5868,47 @@ pub struct IComThreadEvents(::windows::core::IUnknown);
 impl IComThreadEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadStart(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(dwthread), ::core::mem::transmute(dwtheadcnt)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, dwthread, dwtheadcnt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadTerminate(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadTerminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(dwthread), ::core::mem::transmute(dwtheadcnt)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadTerminate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, dwthread, dwtheadcnt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadBindToApartment(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32, dwlowcnt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadBindToApartment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(aptid), ::core::mem::transmute(dwactcnt), ::core::mem::transmute(dwlowcnt)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadBindToApartment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, aptid, dwactcnt, dwlowcnt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadUnBind(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadUnBind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(aptid), ::core::mem::transmute(dwactcnt)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadUnBind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, aptid, dwactcnt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadWorkEnque(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadWorkEnque)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(msgworkid), ::core::mem::transmute(queuelen)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadWorkEnque)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, msgworkid, queuelen).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadWorkPrivate(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadWorkPrivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(msgworkid)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadWorkPrivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, msgworkid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadWorkPublic(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadWorkPublic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(msgworkid), ::core::mem::transmute(queuelen)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadWorkPublic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, msgworkid, queuelen).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadWorkRedirect(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32, threadnum: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadWorkRedirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(msgworkid), ::core::mem::transmute(queuelen), ::core::mem::transmute(threadnum)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadWorkRedirect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, msgworkid, queuelen, threadnum).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadWorkReject(&self, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadWorkReject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(threadid), ::core::mem::transmute(msgworkid), ::core::mem::transmute(queuelen)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadWorkReject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), threadid, msgworkid, queuelen).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadAssignApartment(&self, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, aptid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadAssignApartment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), ::core::mem::transmute(aptid)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadAssignApartment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), aptid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn OnThreadUnassignApartment(&self, pinfo: *const COMSVCSEVENTINFO, aptid: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnThreadUnassignApartment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(aptid)).ok()
+        (::windows::core::Interface::vtable(self).OnThreadUnassignApartment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), aptid).ok()
     }
 }
 impl ::core::convert::From<IComThreadEvents> for ::windows::core::IUnknown {
@@ -5978,7 +5978,7 @@ impl IComTrackingInfoCollection {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Item(&self, ulindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ulindex, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
 }
 impl ::core::convert::From<IComTrackingInfoCollection> for ::windows::core::IUnknown {
@@ -6147,7 +6147,7 @@ impl IComTrackingInfoProperties {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetPropName(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetPropName)(::windows::core::Interface::as_raw(self), ulindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IComTrackingInfoProperties> for ::windows::core::IUnknown {
@@ -6202,7 +6202,7 @@ impl IComTransaction2Events {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).OnTransactionStart2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidtx), ::core::mem::transmute(tsid), froot.into(), ::core::mem::transmute(nisolationlevel)).ok()
+        (::windows::core::Interface::vtable(self).OnTransactionStart2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidtx), ::core::mem::transmute(tsid), froot.into(), nisolationlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6569,7 +6569,7 @@ pub struct IContextState(::windows::core::IUnknown);
 impl IContextState {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetDeactivateOnReturn(&self, bdeactivate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeactivateOnReturn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bdeactivate)).ok()
+        (::windows::core::Interface::vtable(self).SetDeactivateOnReturn)(::windows::core::Interface::as_raw(self), bdeactivate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetDeactivateOnReturn(&self, pbdeactivate: *mut i16) -> ::windows::core::Result<()> {
@@ -6577,7 +6577,7 @@ impl IContextState {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMyTransactionVote(&self, txvote: TransactionVote) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMyTransactionVote)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(txvote)).ok()
+        (::windows::core::Interface::vtable(self).SetMyTransactionVote)(::windows::core::Interface::as_raw(self), txvote).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMyTransactionVote(&self, ptxvote: *mut TransactionVote) -> ::windows::core::Result<()> {
@@ -6959,7 +6959,7 @@ impl ICrmCompensatorVariants {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn BeginCommitVariants(&self, brecovery: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginCommitVariants)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(brecovery)).ok()
+        (::windows::core::Interface::vtable(self).BeginCommitVariants)(::windows::core::Interface::as_raw(self), brecovery).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6973,7 +6973,7 @@ impl ICrmCompensatorVariants {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn BeginAbortVariants(&self, brecovery: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginAbortVariants)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(brecovery)).ok()
+        (::windows::core::Interface::vtable(self).BeginAbortVariants)(::windows::core::Interface::as_raw(self), brecovery).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7145,7 +7145,7 @@ impl ICrmLogControl {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).RegisterCompensator)(::windows::core::Interface::as_raw(self), lpcwstrprogidcompensator.into(), lpcwstrdescription.into(), ::core::mem::transmute(lcrmregflags)).ok()
+        (::windows::core::Interface::vtable(self).RegisterCompensator)(::windows::core::Interface::as_raw(self), lpcwstrprogidcompensator.into(), lpcwstrdescription.into(), lcrmregflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7467,7 +7467,7 @@ impl ICrmMonitorLogRecords {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLogRecord(&self, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLogRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcrmlogrec)).ok()
+        (::windows::core::Interface::vtable(self).GetLogRecord)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pcrmlogrec)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7536,7 +7536,7 @@ pub struct IDispenserDriver(::windows::core::IUnknown);
 impl IDispenserDriver {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn CreateResource(&self, restypid: usize, presid: *mut usize, psecsfreebeforedestroy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restypid), ::core::mem::transmute(presid), ::core::mem::transmute(psecsfreebeforedestroy)).ok()
+        (::windows::core::Interface::vtable(self).CreateResource)(::windows::core::Interface::as_raw(self), restypid, ::core::mem::transmute(presid), ::core::mem::transmute(psecsfreebeforedestroy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7544,19 +7544,19 @@ impl IDispenserDriver {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).RateResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(restypid), ::core::mem::transmute(resid), frequirestransactionenlistment.into(), ::core::mem::transmute(prating)).ok()
+        (::windows::core::Interface::vtable(self).RateResource)(::windows::core::Interface::as_raw(self), restypid, resid, frequirestransactionenlistment.into(), ::core::mem::transmute(prating)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn EnlistResource(&self, resid: usize, transid: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnlistResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resid), ::core::mem::transmute(transid)).ok()
+        (::windows::core::Interface::vtable(self).EnlistResource)(::windows::core::Interface::as_raw(self), resid, transid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ResetResource(&self, resid: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resid)).ok()
+        (::windows::core::Interface::vtable(self).ResetResource)(::windows::core::Interface::as_raw(self), resid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn DestroyResource(&self, resid: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DestroyResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resid)).ok()
+        (::windows::core::Interface::vtable(self).DestroyResource)(::windows::core::Interface::as_raw(self), resid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn DestroyResourceS(&self, resid: *mut u16) -> ::windows::core::Result<()> {
@@ -7679,11 +7679,11 @@ impl IEnumNames {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, rgname: *mut super::super::Foundation::BSTR, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgname), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgname), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -7755,7 +7755,7 @@ impl IEventServerTrace {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).StartTraceGuid)(::windows::core::Interface::as_raw(self), bstrguidevent.into().abi(), bstrguidfilter.into().abi(), ::core::mem::transmute(lpidfilter)).ok()
+        (::windows::core::Interface::vtable(self).StartTraceGuid)(::windows::core::Interface::as_raw(self), bstrguidevent.into().abi(), bstrguidfilter.into().abi(), lpidfilter).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7764,7 +7764,7 @@ impl IEventServerTrace {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).StopTraceGuid)(::windows::core::Interface::as_raw(self), bstrguidevent.into().abi(), bstrguidfilter.into().abi(), ::core::mem::transmute(lpidfilter)).ok()
+        (::windows::core::Interface::vtable(self).StopTraceGuid)(::windows::core::Interface::as_raw(self), bstrguidevent.into().abi(), bstrguidfilter.into().abi(), lpidfilter).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7858,25 +7858,25 @@ impl IGetAppTrackerData {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationProcesses(&self, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetApplicationProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), ::core::mem::transmute(flags), ::core::mem::transmute(numapplicationprocesses), ::core::mem::transmute(applicationprocesses)).ok()
+        (::windows::core::Interface::vtable(self).GetApplicationProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), flags, ::core::mem::transmute(numapplicationprocesses), ::core::mem::transmute(applicationprocesses)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationProcessDetails(&self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, flags: u32, summary: *mut ApplicationProcessSummary, statistics: *mut ApplicationProcessStatistics, recycleinfo: *mut ApplicationProcessRecycleInfo, anycomponentshangmonitored: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetApplicationProcessDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), ::core::mem::transmute(processid), ::core::mem::transmute(flags), ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(recycleinfo), ::core::mem::transmute(anycomponentshangmonitored)).ok()
+        (::windows::core::Interface::vtable(self).GetApplicationProcessDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, flags, ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(recycleinfo), ::core::mem::transmute(anycomponentshangmonitored)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetApplicationsInProcess(&self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetApplicationsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), ::core::mem::transmute(processid), ::core::mem::transmute(partitionid), ::core::mem::transmute(flags), ::core::mem::transmute(numapplicationsinprocess), ::core::mem::transmute(applications)).ok()
+        (::windows::core::Interface::vtable(self).GetApplicationsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(partitionid), flags, ::core::mem::transmute(numapplicationsinprocess), ::core::mem::transmute(applications)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetComponentsInProcess(&self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, partitionid: *const ::windows::core::GUID, applicationid: *const ::windows::core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetComponentsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), ::core::mem::transmute(processid), ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), ::core::mem::transmute(flags), ::core::mem::transmute(numcomponentsinprocess), ::core::mem::transmute(components)).ok()
+        (::windows::core::Interface::vtable(self).GetComponentsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), flags, ::core::mem::transmute(numcomponentsinprocess), ::core::mem::transmute(components)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetComponentDetails(&self, applicationinstanceid: *const ::windows::core::GUID, processid: u32, clsid: *const ::windows::core::GUID, flags: u32, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetComponentDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), ::core::mem::transmute(processid), ::core::mem::transmute(clsid), ::core::mem::transmute(flags), ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(hangmonitorinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetComponentDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(clsid), flags, ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(hangmonitorinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetTrackerDataAsCollectionObject(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -8103,15 +8103,15 @@ pub struct IHolder(::windows::core::IUnknown);
 impl IHolder {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn AllocResource(&self, __midl__iholder0000: usize, __midl__iholder0001: *mut usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AllocResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iholder0000), ::core::mem::transmute(__midl__iholder0001)).ok()
+        (::windows::core::Interface::vtable(self).AllocResource)(::windows::core::Interface::as_raw(self), __midl__iholder0000, ::core::mem::transmute(__midl__iholder0001)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn FreeResource(&self, __midl__iholder0002: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iholder0002)).ok()
+        (::windows::core::Interface::vtable(self).FreeResource)(::windows::core::Interface::as_raw(self), __midl__iholder0002).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TrackResource(&self, __midl__iholder0003: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TrackResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iholder0003)).ok()
+        (::windows::core::Interface::vtable(self).TrackResource)(::windows::core::Interface::as_raw(self), __midl__iholder0003).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TrackResourceS(&self, __midl__iholder0004: *mut u16) -> ::windows::core::Result<()> {
@@ -8123,7 +8123,7 @@ impl IHolder {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).UntrackResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iholder0005), __midl__iholder0006.into()).ok()
+        (::windows::core::Interface::vtable(self).UntrackResource)(::windows::core::Interface::as_raw(self), __midl__iholder0005, __midl__iholder0006.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8139,7 +8139,7 @@ impl IHolder {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn RequestDestroyResource(&self, __midl__iholder0009: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestDestroyResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iholder0009)).ok()
+        (::windows::core::Interface::vtable(self).RequestDestroyResource)(::windows::core::Interface::as_raw(self), __midl__iholder0009).ok()
     }
 }
 impl ::core::convert::From<IHolder> for ::windows::core::IUnknown {
@@ -8782,7 +8782,7 @@ impl IMessageMover {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetCommitBatchSize(&self, newval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCommitBatchSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetCommitBatchSize)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MoveMessages(&self) -> ::windows::core::Result<i32> {
@@ -9124,7 +9124,7 @@ impl IMtsGrp {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Item(&self, lindex: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), lindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -10209,7 +10209,7 @@ impl ISecurityCallersColl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<ISecurityIdentityColl> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISecurityIdentityColl>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), lindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISecurityIdentityColl>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -10546,11 +10546,11 @@ pub struct ISendMethodEvents(::windows::core::IUnknown);
 impl ISendMethodEvents {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SendMethodCall(&self, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMethodCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidentity), ::core::mem::transmute(riid), ::core::mem::transmute(dwmeth)).ok()
+        (::windows::core::Interface::vtable(self).SendMethodCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidentity), ::core::mem::transmute(riid), dwmeth).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SendMethodReturn(&self, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMethodReturn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidentity), ::core::mem::transmute(riid), ::core::mem::transmute(dwmeth), ::core::mem::transmute(hrcall), ::core::mem::transmute(hrserver)).ok()
+        (::windows::core::Interface::vtable(self).SendMethodReturn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidentity), ::core::mem::transmute(riid), dwmeth, hrcall, hrserver).ok()
     }
 }
 impl ::core::convert::From<ISendMethodEvents> for ::windows::core::IUnknown {
@@ -10722,7 +10722,7 @@ pub struct IServiceComTIIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceComTIIntrinsicsConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ComTIIntrinsicsConfig(&self, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ComTIIntrinsicsConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(comtiintrinsicsconfig)).ok()
+        (::windows::core::Interface::vtable(self).ComTIIntrinsicsConfig)(::windows::core::Interface::as_raw(self), comtiintrinsicsconfig).ok()
     }
 }
 impl ::core::convert::From<IServiceComTIIntrinsicsConfig> for ::windows::core::IUnknown {
@@ -10772,7 +10772,7 @@ pub struct IServiceIISIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceIISIntrinsicsConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn IISIntrinsicsConfig(&self, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IISIntrinsicsConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iisintrinsicsconfig)).ok()
+        (::windows::core::Interface::vtable(self).IISIntrinsicsConfig)(::windows::core::Interface::as_raw(self), iisintrinsicsconfig).ok()
     }
 }
 impl ::core::convert::From<IServiceIISIntrinsicsConfig> for ::windows::core::IUnknown {
@@ -10822,7 +10822,7 @@ pub struct IServiceInheritanceConfig(::windows::core::IUnknown);
 impl IServiceInheritanceConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ContainingContextTreatment(&self, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ContainingContextTreatment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inheritanceconfig)).ok()
+        (::windows::core::Interface::vtable(self).ContainingContextTreatment)(::windows::core::Interface::as_raw(self), inheritanceconfig).ok()
     }
 }
 impl ::core::convert::From<IServiceInheritanceConfig> for ::windows::core::IUnknown {
@@ -10872,7 +10872,7 @@ pub struct IServicePartitionConfig(::windows::core::IUnknown);
 impl IServicePartitionConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn PartitionConfig(&self, partitionconfig: CSC_PartitionConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PartitionConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(partitionconfig)).ok()
+        (::windows::core::Interface::vtable(self).PartitionConfig)(::windows::core::Interface::as_raw(self), partitionconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn PartitionID(&self, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -10990,7 +10990,7 @@ pub struct IServicePoolConfig(::windows::core::IUnknown);
 impl IServicePoolConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxPoolSize(&self, dwmaxpool: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxPoolSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmaxpool)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxPoolSize)(::windows::core::Interface::as_raw(self), dwmaxpool).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MaxPoolSize(&self, pdwmaxpool: *mut u32) -> ::windows::core::Result<()> {
@@ -10998,7 +10998,7 @@ impl IServicePoolConfig {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMinPoolSize(&self, dwminpool: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinPoolSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwminpool)).ok()
+        (::windows::core::Interface::vtable(self).SetMinPoolSize)(::windows::core::Interface::as_raw(self), dwminpool).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn MinPoolSize(&self, pdwminpool: *mut u32) -> ::windows::core::Result<()> {
@@ -11006,7 +11006,7 @@ impl IServicePoolConfig {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetCreationTimeout(&self, dwcreationtimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCreationTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcreationtimeout)).ok()
+        (::windows::core::Interface::vtable(self).SetCreationTimeout)(::windows::core::Interface::as_raw(self), dwcreationtimeout).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn CreationTimeout(&self, pdwcreationtimeout: *mut u32) -> ::windows::core::Result<()> {
@@ -11108,7 +11108,7 @@ pub struct IServiceSxsConfig(::windows::core::IUnknown);
 impl IServiceSxsConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SxsConfig(&self, scsconfig: CSC_SxsConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SxsConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scsconfig)).ok()
+        (::windows::core::Interface::vtable(self).SxsConfig)(::windows::core::Interface::as_raw(self), scsconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SxsName<'a, P0>(&self, szsxsname: P0) -> ::windows::core::Result<()>
@@ -11174,7 +11174,7 @@ pub struct IServiceSynchronizationConfig(::windows::core::IUnknown);
 impl IServiceSynchronizationConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ConfigureSynchronization(&self, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConfigureSynchronization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(synchconfig)).ok()
+        (::windows::core::Interface::vtable(self).ConfigureSynchronization)(::windows::core::Interface::as_raw(self), synchconfig).ok()
     }
 }
 impl ::core::convert::From<IServiceSynchronizationConfig> for ::windows::core::IUnknown {
@@ -11224,15 +11224,15 @@ pub struct IServiceSysTxnConfig(::windows::core::IUnknown);
 impl IServiceSysTxnConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transactionconfig)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), transactionconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.IsolationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.IsolationLevel)(::windows::core::Interface::as_raw(self), option).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.TransactionTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultimeoutsec)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.TransactionTimeout)(::windows::core::Interface::as_raw(self), ultimeoutsec).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn BringYourOwnTransaction<'a, P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
@@ -11341,11 +11341,11 @@ pub struct IServiceThreadPoolConfig(::windows::core::IUnknown);
 impl IServiceThreadPoolConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SelectThreadPool(&self, threadpool: CSC_ThreadPool) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SelectThreadPool)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threadpool)).ok()
+        (::windows::core::Interface::vtable(self).SelectThreadPool)(::windows::core::Interface::as_raw(self), threadpool).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetBindingInfo(&self, binding: CSC_Binding) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBindingInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(binding)).ok()
+        (::windows::core::Interface::vtable(self).SetBindingInfo)(::windows::core::Interface::as_raw(self), binding).ok()
     }
 }
 impl ::core::convert::From<IServiceThreadPoolConfig> for ::windows::core::IUnknown {
@@ -11400,7 +11400,7 @@ impl IServiceTrackerConfig {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).TrackerConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(trackerconfig), sztrackerappname.into(), sztrackerctxname.into()).ok()
+        (::windows::core::Interface::vtable(self).TrackerConfig)(::windows::core::Interface::as_raw(self), trackerconfig, sztrackerappname.into(), sztrackerctxname.into()).ok()
     }
 }
 impl ::core::convert::From<IServiceTrackerConfig> for ::windows::core::IUnknown {
@@ -11450,15 +11450,15 @@ pub struct IServiceTransactionConfig(::windows::core::IUnknown);
 impl IServiceTransactionConfig {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transactionconfig)).ok()
+        (::windows::core::Interface::vtable(self).base__.ConfigureTransaction)(::windows::core::Interface::as_raw(self), transactionconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.IsolationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
+        (::windows::core::Interface::vtable(self).base__.IsolationLevel)(::windows::core::Interface::as_raw(self), option).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TransactionTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultimeoutsec)).ok()
+        (::windows::core::Interface::vtable(self).base__.TransactionTimeout)(::windows::core::Interface::as_raw(self), ultimeoutsec).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn BringYourOwnTransaction<'a, P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
@@ -11548,15 +11548,15 @@ pub struct IServiceTransactionConfigBase(::windows::core::IUnknown);
 impl IServiceTransactionConfigBase {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn ConfigureTransaction(&self, transactionconfig: CSC_TransactionConfig) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConfigureTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transactionconfig)).ok()
+        (::windows::core::Interface::vtable(self).ConfigureTransaction)(::windows::core::Interface::as_raw(self), transactionconfig).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn IsolationLevel(&self, option: COMAdminTxIsolationLevelOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsolationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(option)).ok()
+        (::windows::core::Interface::vtable(self).IsolationLevel)(::windows::core::Interface::as_raw(self), option).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn TransactionTimeout(&self, ultimeoutsec: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransactionTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultimeoutsec)).ok()
+        (::windows::core::Interface::vtable(self).TransactionTimeout)(::windows::core::Interface::as_raw(self), ultimeoutsec).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn BringYourOwnTransaction<'a, P0>(&self, sztipurl: P0) -> ::windows::core::Result<()>
@@ -11723,13 +11723,13 @@ impl ISharedPropertyGroup {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyByPosition(&self, index: i32, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreatePropertyByPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(fexists), ::core::mem::transmute(ppprop)).ok()
+        (::windows::core::Interface::vtable(self).CreatePropertyByPosition)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(fexists), ::core::mem::transmute(ppprop)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_PropertyByPosition(&self, index: i32) -> ::windows::core::Result<ISharedProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_PropertyByPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISharedProperty>(result__)
+        (::windows::core::Interface::vtable(self).get_PropertyByPosition)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISharedProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -11951,7 +11951,7 @@ impl ISystemAppEventData {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).OnDataChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpid), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwnumbersinks), bstrdwmethodmask.into().abi(), ::core::mem::transmute(dwreason), ::core::mem::transmute(u64tracehandle)).ok()
+        (::windows::core::Interface::vtable(self).OnDataChanged)(::windows::core::Interface::as_raw(self), dwpid, dwmask, dwnumbersinks, bstrdwmethodmask.into().abi(), dwreason, u64tracehandle).ok()
     }
 }
 impl ::core::convert::From<ISystemAppEventData> for ::windows::core::IUnknown {
@@ -12013,7 +12013,7 @@ impl IThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxThreads(&self, lcmaxthreads: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcmaxthreads)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxThreads)(::windows::core::Interface::as_raw(self), lcmaxthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetDeleteDelay(&self, pmsecdeletedelay: *mut i32) -> ::windows::core::Result<()> {
@@ -12021,7 +12021,7 @@ impl IThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetDeleteDelay(&self, msecdeletedelay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeleteDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msecdeletedelay)).ok()
+        (::windows::core::Interface::vtable(self).SetDeleteDelay)(::windows::core::Interface::as_raw(self), msecdeletedelay).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetMaxQueuedRequests(&self, plcmaxqueuedrequests: *mut i32) -> ::windows::core::Result<()> {
@@ -12033,15 +12033,15 @@ impl IThreadPoolKnobs {
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMaxQueuedRequests(&self, lcmaxqueuedrequests: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxQueuedRequests)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcmaxqueuedrequests)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxQueuedRequests)(::windows::core::Interface::as_raw(self), lcmaxqueuedrequests).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetMinThreads(&self, lcminthreads: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinThreads)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcminthreads)).ok()
+        (::windows::core::Interface::vtable(self).SetMinThreads)(::windows::core::Interface::as_raw(self), lcminthreads).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetQueueDepth(&self, lcqueuedepth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueueDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcqueuedepth)).ok()
+        (::windows::core::Interface::vtable(self).SetQueueDepth)(::windows::core::Interface::as_raw(self), lcqueuedepth).ok()
     }
 }
 impl ::core::convert::From<IThreadPoolKnobs> for ::windows::core::IUnknown {
@@ -12557,7 +12557,7 @@ pub struct ITransactionStatus(::windows::core::IUnknown);
 impl ITransactionStatus {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn SetTransactionStatus(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransactionStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrstatus)).ok()
+        (::windows::core::Interface::vtable(self).SetTransactionStatus)(::windows::core::Interface::as_raw(self), hrstatus).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
     pub unsafe fn GetTransactionStatus(&self, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -12976,7 +12976,7 @@ pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> 
     extern "system" {
         fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::HRESULT;
     }
-    RecycleSurrogate(::core::mem::transmute(lreasoncode)).ok()
+    RecycleSurrogate(lreasoncode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]

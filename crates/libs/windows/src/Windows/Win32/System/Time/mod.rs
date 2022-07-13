@@ -52,7 +52,7 @@ pub unsafe fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation
     extern "system" {
         fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation: *mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(EnumDynamicTimeZoneInformation(::core::mem::transmute(dwindex), ::core::mem::transmute(lptimezoneinformation)))
+    ::core::mem::transmute(EnumDynamicTimeZoneInformation(dwindex, ::core::mem::transmute(lptimezoneinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -102,7 +102,7 @@ pub unsafe fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *const DYNAMIC_TI
     extern "system" {
         fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: *const DYNAMIC_TIME_ZONE_INFORMATION, ptzi: *mut TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTimeZoneInformationForYear(::core::mem::transmute(wyear), ::core::mem::transmute(pdtzi), ::core::mem::transmute(ptzi)))
+    ::core::mem::transmute(GetTimeZoneInformationForYear(wyear, ::core::mem::transmute(pdtzi), ::core::mem::transmute(ptzi)))
 }
 #[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

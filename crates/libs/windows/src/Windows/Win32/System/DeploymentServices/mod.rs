@@ -236,7 +236,7 @@ impl IWdsTransportClient {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disconnectiontype)).ok()
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), disconnectiontype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -348,7 +348,7 @@ impl IWdsTransportCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, ulindex: u32) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ulindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -450,7 +450,7 @@ impl IWdsTransportConfigurationManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).get_WdsTransportServicesRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(brealtimestatus), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_WdsTransportServicesRunning)(::windows::core::Interface::as_raw(self), brealtimestatus, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()> {
@@ -474,7 +474,7 @@ impl IWdsTransportConfigurationManager {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
+        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -580,7 +580,7 @@ impl IWdsTransportConfigurationManager2 {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_WdsTransportServicesRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(brealtimestatus), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_WdsTransportServicesRunning)(::windows::core::Interface::as_raw(self), brealtimestatus, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()> {
@@ -604,7 +604,7 @@ impl IWdsTransportConfigurationManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
+        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -961,7 +961,7 @@ impl IWdsTransportDiagnosticsPolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEnabled(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benabled).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Components(&self) -> ::windows::core::Result<u32> {
@@ -970,7 +970,7 @@ impl IWdsTransportDiagnosticsPolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetComponents(&self, ulcomponents: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetComponents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulcomponents)).ok()
+        (::windows::core::Interface::vtable(self).SetComponents)(::windows::core::Interface::as_raw(self), ulcomponents).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1179,7 +1179,7 @@ impl IWdsTransportMulticastSessionPolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(slowclienthandling)).ok()
+        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), slowclienthandling).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn AutoDisconnectThreshold(&self) -> ::windows::core::Result<u32> {
@@ -1188,7 +1188,7 @@ impl IWdsTransportMulticastSessionPolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetAutoDisconnectThreshold(&self, ulthreshold: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoDisconnectThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulthreshold)).ok()
+        (::windows::core::Interface::vtable(self).SetAutoDisconnectThreshold)(::windows::core::Interface::as_raw(self), ulthreshold).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn MultistreamStreamCount(&self) -> ::windows::core::Result<u32> {
@@ -1197,7 +1197,7 @@ impl IWdsTransportMulticastSessionPolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultistreamStreamCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstreamcount)).ok()
+        (::windows::core::Interface::vtable(self).SetMultistreamStreamCount)(::windows::core::Interface::as_raw(self), ulstreamcount).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SlowClientFallback(&self) -> ::windows::core::Result<i16> {
@@ -1206,7 +1206,7 @@ impl IWdsTransportMulticastSessionPolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetSlowClientFallback(&self, bclientfallback: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSlowClientFallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bclientfallback)).ok()
+        (::windows::core::Interface::vtable(self).SetSlowClientFallback)(::windows::core::Interface::as_raw(self), bclientfallback).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1414,7 +1414,7 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).Deregister)(::windows::core::Interface::as_raw(self), bterminatesessions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1669,7 +1669,7 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.Deregister)(::windows::core::Interface::as_raw(self), bterminatesessions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1788,7 +1788,7 @@ impl IWdsTransportNamespaceManager {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespacetype), bsznamespacename.into().abi(), bszcontentprovider.into().abi(), bszconfiguration.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), namespacetype, bsznamespacename.into().abi(), bszcontentprovider.into().abi(), bszconfiguration.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1807,7 +1807,7 @@ impl IWdsTransportNamespaceManager {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi(), bsznamespacename.into().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi(), bsznamespacename.into().abi(), bincludetombstones, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2001,7 +2001,7 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.Deregister)(::windows::core::Interface::as_raw(self), bterminatesessions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2222,7 +2222,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::windows::core::Interface::as_raw(self), bterminatesessions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2251,7 +2251,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetMinimumClients(&self, ulminimumclients: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumClients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulminimumclients)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumClients)(::windows::core::Interface::as_raw(self), ulminimumclients).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
@@ -2260,7 +2260,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetStartTime(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), starttime).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2482,7 +2482,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::windows::core::Interface::as_raw(self), bterminatesessions).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2640,7 +2640,7 @@ impl IWdsTransportServer {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
+        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ulclientid, disconnectiontype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2759,7 +2759,7 @@ impl IWdsTransportServer2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ulclientid, disconnectiontype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2883,17 +2883,17 @@ impl IWdsTransportServicePolicy {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
+        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype, sourcetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2901,13 +2901,13 @@ impl IWdsTransportServicePolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2915,7 +2915,7 @@ impl IWdsTransportServicePolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
@@ -2924,7 +2924,7 @@ impl IWdsTransportServicePolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetStartPort(&self, ulstartport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstartport)).ok()
+        (::windows::core::Interface::vtable(self).SetStartPort)(::windows::core::Interface::as_raw(self), ulstartport).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EndPort(&self) -> ::windows::core::Result<u32> {
@@ -2933,7 +2933,7 @@ impl IWdsTransportServicePolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEndPort(&self, ulendport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEndPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulendport)).ok()
+        (::windows::core::Interface::vtable(self).SetEndPort)(::windows::core::Interface::as_raw(self), ulendport).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NetworkProfile(&self) -> ::windows::core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
@@ -2942,7 +2942,7 @@ impl IWdsTransportServicePolicy {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3080,17 +3080,17 @@ impl IWdsTransportServicePolicy2 {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype, sourcetype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3098,13 +3098,13 @@ impl IWdsTransportServicePolicy2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3112,7 +3112,7 @@ impl IWdsTransportServicePolicy2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype, bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
@@ -3121,7 +3121,7 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetStartPort(&self, ulstartport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstartport)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStartPort)(::windows::core::Interface::as_raw(self), ulstartport).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EndPort(&self) -> ::windows::core::Result<u32> {
@@ -3130,7 +3130,7 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEndPort(&self, ulendport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulendport)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEndPort)(::windows::core::Interface::as_raw(self), ulendport).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NetworkProfile(&self) -> ::windows::core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
@@ -3139,7 +3139,7 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn UdpPortPolicy(&self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY> {
@@ -3148,7 +3148,7 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(udpportpolicy)).ok()
+        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), udpportpolicy).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TftpMaximumBlockSize(&self) -> ::windows::core::Result<u32> {
@@ -3157,7 +3157,7 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTftpMaximumBlockSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultftpmaximumblocksize)).ok()
+        (::windows::core::Interface::vtable(self).SetTftpMaximumBlockSize)(::windows::core::Interface::as_raw(self), ultftpmaximumblocksize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EnableTftpVariableWindowExtension(&self) -> ::windows::core::Result<i16> {
@@ -3166,7 +3166,7 @@ impl IWdsTransportServicePolicy2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableTftpVariableWindowExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabletftpvariablewindowextension)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableTftpVariableWindowExtension)(::windows::core::Interface::as_raw(self), benabletftpvariablewindowextension).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4370,7 +4370,7 @@ where
     extern "system" {
         fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE, action: u32) -> u32;
     }
-    ::core::mem::transmute(PxeAsyncRecvDone(hclientrequest.into(), ::core::mem::transmute(action)))
+    ::core::mem::transmute(PxeAsyncRecvDone(hclientrequest.into(), action))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4379,7 +4379,7 @@ pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxre
     extern "system" {
         fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpAppendOption(::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen), ::core::mem::transmute(boption), ::core::mem::transmute(boptionlen), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(PxeDhcpAppendOption(::core::mem::transmute(preplypacket), umaxreplypacketlen, ::core::mem::transmute(pureplypacketlen), boption, boptionlen, ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4388,7 +4388,7 @@ pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, uma
     extern "system" {
         fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpAppendOptionRaw(::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer)))
+    ::core::mem::transmute(PxeDhcpAppendOptionRaw(::core::mem::transmute(preplypacket), umaxreplypacketlen, ::core::mem::transmute(pureplypacketlen), ubufferlen, ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4397,7 +4397,7 @@ pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacket
     extern "system" {
         fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpGetOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(uinstance), ::core::mem::transmute(boption), ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
+    ::core::mem::transmute(PxeDhcpGetOptionValue(::core::mem::transmute(ppacket), upacketlen, uinstance, boption, ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4406,7 +4406,7 @@ pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, u
     extern "system" {
         fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpGetVendorOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(boption), ::core::mem::transmute(uinstance), ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
+    ::core::mem::transmute(PxeDhcpGetVendorOptionValue(::core::mem::transmute(ppacket), upacketlen, boption, uinstance, ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4415,7 +4415,7 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpa
     extern "system" {
         fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpInitialize(::core::mem::transmute(precvpacket), ::core::mem::transmute(urecvpacketlen), ::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen)))
+    ::core::mem::transmute(PxeDhcpInitialize(::core::mem::transmute(precvpacket), urecvpacketlen, ::core::mem::transmute(preplypacket), umaxreplypacketlen, ::core::mem::transmute(pureplypacketlen)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4428,7 +4428,7 @@ where
     extern "system" {
         fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpIsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent)))
+    ::core::mem::transmute(PxeDhcpIsValid(::core::mem::transmute(ppacket), upacketlen, brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4437,7 +4437,7 @@ pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u
     extern "system" {
         fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6AppendOption(::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused), ::core::mem::transmute(woptiontype), ::core::mem::transmute(cboption), ::core::mem::transmute(poption)))
+    ::core::mem::transmute(PxeDhcpv6AppendOption(::core::mem::transmute(preply), cbreply, ::core::mem::transmute(pcbreplyused), woptiontype, cboption, ::core::mem::transmute(poption)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4446,7 +4446,7 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply
     extern "system" {
         fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6AppendOptionRaw(::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pbuffer)))
+    ::core::mem::transmute(PxeDhcpv6AppendOptionRaw(::core::mem::transmute(preply), cbreply, ::core::mem::transmute(pcbreplyused), cbbuffer, ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4455,7 +4455,7 @@ pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY
     extern "system" {
         fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6CreateRelayRepl(::core::mem::transmute(::windows::core::as_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pinnerpacket), ::core::mem::transmute(cbinnerpacket), ::core::mem::transmute(preplybuffer), ::core::mem::transmute(cbreplybuffer), ::core::mem::transmute(pcbreplybuffer)))
+    ::core::mem::transmute(PxeDhcpv6CreateRelayRepl(::core::mem::transmute(::windows::core::as_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pinnerpacket), cbinnerpacket, ::core::mem::transmute(preplybuffer), cbreplybuffer, ::core::mem::transmute(pcbreplybuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4464,7 +4464,7 @@ pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upack
     extern "system" {
         fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6GetOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(uinstance), ::core::mem::transmute(woption), ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
+    ::core::mem::transmute(PxeDhcpv6GetOptionValue(::core::mem::transmute(ppacket), upacketlen, uinstance, woption, ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4473,7 +4473,7 @@ pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void,
     extern "system" {
         fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6GetVendorOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(dwenterprisenumber), ::core::mem::transmute(woption), ::core::mem::transmute(uinstance), ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
+    ::core::mem::transmute(PxeDhcpv6GetVendorOptionValue(::core::mem::transmute(ppacket), upacketlen, dwenterprisenumber, woption, uinstance, ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4482,7 +4482,7 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbreques
     extern "system" {
         fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6Initialize(::core::mem::transmute(prequest), ::core::mem::transmute(cbrequest), ::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused)))
+    ::core::mem::transmute(PxeDhcpv6Initialize(::core::mem::transmute(prequest), cbrequest, ::core::mem::transmute(preply), cbreply, ::core::mem::transmute(pcbreplyused)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4495,7 +4495,7 @@ where
     extern "system" {
         fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6IsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent)))
+    ::core::mem::transmute(PxeDhcpv6IsValid(::core::mem::transmute(ppacket), upacketlen, brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4504,7 +4504,7 @@ pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_vo
     extern "system" {
         fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6ParseRelayForw(::core::mem::transmute(prelayforwpacket), ::core::mem::transmute(urelayforwpacketlen), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pnrelaymessages), ::core::mem::transmute(ppinnerpacket), ::core::mem::transmute(pcbinnerpacket)))
+    ::core::mem::transmute(PxeDhcpv6ParseRelayForw(::core::mem::transmute(prelayforwpacket), urelayforwpacketlen, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pnrelaymessages), ::core::mem::transmute(ppinnerpacket), ::core::mem::transmute(pcbinnerpacket)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4513,7 +4513,7 @@ pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void
     extern "system" {
         fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32;
     }
-    ::core::mem::transmute(PxeGetServerInfo(::core::mem::transmute(uinfotype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ubufferlen)))
+    ::core::mem::transmute(PxeGetServerInfo(uinfotype, ::core::mem::transmute(pbuffer), ubufferlen))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4522,7 +4522,7 @@ pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_vo
     extern "system" {
         fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PxeGetServerInfoEx(::core::mem::transmute(uinfotype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pubufferused)))
+    ::core::mem::transmute(PxeGetServerInfoEx(uinfotype, ::core::mem::transmute(pbuffer), ubufferlen, ::core::mem::transmute(pubufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4536,7 +4536,7 @@ where
     extern "system" {
         fn PxePacketAllocate(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, usize: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(PxePacketAllocate(hprovider.into(), hclientrequest.into(), ::core::mem::transmute(usize)))
+    ::core::mem::transmute(PxePacketAllocate(hprovider.into(), hclientrequest.into(), usize))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4623,7 +4623,7 @@ where
     extern "system" {
         fn PxeProviderRegister(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
     }
-    ::core::mem::transmute(PxeProviderRegister(pszprovidername.into(), pszmodulepath.into(), ::core::mem::transmute(index), biscritical.into(), ::core::mem::transmute(phproviderkey)))
+    ::core::mem::transmute(PxeProviderRegister(pszprovidername.into(), pszmodulepath.into(), index, biscritical.into(), ::core::mem::transmute(phproviderkey)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4636,7 +4636,7 @@ where
     extern "system" {
         fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32;
     }
-    ::core::mem::transmute(PxeProviderSetAttribute(hprovider.into(), ::core::mem::transmute(attribute), ::core::mem::transmute(pparameterbuffer), ::core::mem::transmute(uparamlen)))
+    ::core::mem::transmute(PxeProviderSetAttribute(hprovider.into(), attribute, ::core::mem::transmute(pparameterbuffer), uparamlen))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4661,7 +4661,7 @@ where
     extern "system" {
         fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeRegisterCallback(hprovider.into(), ::core::mem::transmute(callbacktype), ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext)))
+    ::core::mem::transmute(PxeRegisterCallback(hprovider.into(), callbacktype, ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4674,7 +4674,7 @@ where
     extern "system" {
         fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32;
     }
-    ::core::mem::transmute(PxeSendReply(hclientrequest.into(), ::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(paddress)))
+    ::core::mem::transmute(PxeSendReply(hclientrequest.into(), ::core::mem::transmute(ppacket), upacketlen, ::core::mem::transmute(paddress)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4688,7 +4688,7 @@ where
     extern "system" {
         fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(PxeTrace(hprovider.into(), ::core::mem::transmute(severity), pszformat.into()))
+    ::core::mem::transmute(PxeTrace(hprovider.into(), severity, pszformat.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4702,7 +4702,7 @@ where
     extern "system" {
         fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR, params: *const i8) -> u32;
     }
-    ::core::mem::transmute(PxeTraceV(hprovider.into(), ::core::mem::transmute(severity), pszformat.into(), ::core::mem::transmute(params)))
+    ::core::mem::transmute(PxeTraceV(hprovider.into(), severity, pszformat.into(), ::core::mem::transmute(params)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
@@ -5751,7 +5751,7 @@ where
     extern "system" {
         fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(WdsBpAddOption(hhandle.into(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(WdsBpAddOption(hhandle.into(), uoption, uvaluelen, ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5777,7 +5777,7 @@ where
     extern "system" {
         fn WdsBpGetOptionBuffer(hhandle: super::super::Foundation::HANDLE, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WdsBpGetOptionBuffer(hhandle.into(), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pubytes)))
+    ::core::mem::transmute(WdsBpGetOptionBuffer(hhandle.into(), ubufferlen, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pubytes)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5787,7 +5787,7 @@ pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foun
     extern "system" {
         fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsBpInitialize(::core::mem::transmute(bpackettype), ::core::mem::transmute(phhandle)))
+    ::core::mem::transmute(WdsBpInitialize(bpackettype, ::core::mem::transmute(phhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5797,7 +5797,7 @@ pub unsafe fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketl
     extern "system" {
         fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsBpParseInitialize(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
+    ::core::mem::transmute(WdsBpParseInitialize(::core::mem::transmute(ppacket), upacketlen, ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5807,7 +5807,7 @@ pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacke
     extern "system" {
         fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsBpParseInitializev6(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
+    ::core::mem::transmute(WdsBpParseInitializev6(::core::mem::transmute(ppacket), upacketlen, ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5820,7 +5820,7 @@ where
     extern "system" {
         fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WdsBpQueryOption(hhandle.into(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue), ::core::mem::transmute(pubytes)))
+    ::core::mem::transmute(WdsBpQueryOption(hhandle.into(), uoption, uvaluelen, ::core::mem::transmute(pvalue), ::core::mem::transmute(pubytes)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6133,7 +6133,7 @@ where
     extern "system" {
         fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
     }
-    WdsCliGetImageParameter(hifh.into(), ::core::mem::transmute(paramtype), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
+    WdsCliGetImageParameter(hifh.into(), paramtype, ::core::mem::transmute(presponse), uresponselen).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6218,7 +6218,7 @@ where
     extern "system" {
         fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    WdsCliInitializeLog(hsession.into(), ::core::mem::transmute(ulclientarchitecture), pwszclientid.into(), pwszclientaddress.into()).ok()
+    WdsCliInitializeLog(hsession.into(), ulclientarchitecture, pwszclientid.into(), pwszclientaddress.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6231,7 +6231,7 @@ where
     extern "system" {
         fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
     }
-    WdsCliLog(hsession.into(), ::core::mem::transmute(ulloglevel), ::core::mem::transmute(ulmessagecode)).ok()
+    WdsCliLog(hsession.into(), ulloglevel, ulmessagecode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6276,7 +6276,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     extern "system" {
         fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32);
     }
-    WdsCliSetTransferBufferSize(::core::mem::transmute(ulsizeinbytes))
+    WdsCliSetTransferBufferSize(ulsizeinbytes)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6293,7 +6293,7 @@ where
         fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliTransferFile(pwszserver.into(), pwsznamespace.into(), pwszremotefilepath.into(), pwszlocalfilepath.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliTransferFile(pwszserver.into(), pwsznamespace.into(), pwszremotefilepath.into(), pwszlocalfilepath.into(), dwflags, dwreserved, ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6308,7 +6308,7 @@ where
         fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliTransferImage(himage.into(), pwszlocalpath.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliTransferImage(himage.into(), pwszlocalpath.into(), dwflags, dwreserved, ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6358,7 +6358,7 @@ where
     extern "system" {
         fn WdsTransportClientCancelSessionEx(hsessionkey: super::super::Foundation::HANDLE, dwerrorcode: u32) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientCancelSessionEx(hsessionkey.into(), ::core::mem::transmute(dwerrorcode)))
+    ::core::mem::transmute(WdsTransportClientCancelSessionEx(hsessionkey.into(), dwerrorcode))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6384,7 +6384,7 @@ where
     extern "system" {
         fn WdsTransportClientCompleteReceive(hsessionkey: super::super::Foundation::HANDLE, ulsize: u32, pulloffset: *const u64) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientCompleteReceive(hsessionkey.into(), ::core::mem::transmute(ulsize), ::core::mem::transmute(pulloffset)))
+    ::core::mem::transmute(WdsTransportClientCompleteReceive(hsessionkey.into(), ulsize, ::core::mem::transmute(pulloffset)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -6429,7 +6429,7 @@ where
     extern "system" {
         fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)))
+    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into(), callbackid, ::core::mem::transmute(pfncallback)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -6473,7 +6473,7 @@ where
     extern "system" {
         fn WdsTransportClientWaitForCompletion(hsessionkey: super::super::Foundation::HANDLE, utimeout: u32) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientWaitForCompletion(hsessionkey.into(), ::core::mem::transmute(utimeout)))
+    ::core::mem::transmute(WdsTransportClientWaitForCompletion(hsessionkey.into(), utimeout))
 }
 pub const WdsTransportCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
 pub const WdsTransportConfigurationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
@@ -6500,7 +6500,7 @@ where
     extern "system" {
         fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundation::HANDLE, ulbuffersize: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(WdsTransportServerAllocateBuffer(hprovider.into(), ::core::mem::transmute(ulbuffersize)))
+    ::core::mem::transmute(WdsTransportServerAllocateBuffer(hprovider.into(), ulbuffersize))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6513,7 +6513,7 @@ where
     extern "system" {
         fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerCompleteRead(hprovider.into(), ::core::mem::transmute(ulbytesread), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(hreadresult)).ok()
+    WdsTransportServerCompleteRead(hprovider.into(), ulbytesread, ::core::mem::transmute(pvuserdata), hreadresult).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6539,7 +6539,7 @@ where
     extern "system" {
         fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerRegisterCallback(hprovider.into(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)).ok()
+    WdsTransportServerRegisterCallback(hprovider.into(), callbackid, ::core::mem::transmute(pfncallback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6553,7 +6553,7 @@ where
     extern "system" {
         fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerTrace(hprovider.into(), ::core::mem::transmute(severity), pwszformat.into()).ok()
+    WdsTransportServerTrace(hprovider.into(), severity, pwszformat.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6567,7 +6567,7 @@ where
     extern "system" {
         fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR, params: *const i8) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerTraceV(hprovider.into(), ::core::mem::transmute(severity), pwszformat.into(), ::core::mem::transmute(params)).ok()
+    WdsTransportServerTraceV(hprovider.into(), severity, pwszformat.into(), ::core::mem::transmute(params)).ok()
 }
 pub const WdsTransportServicePolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
 pub const WdsTransportSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);

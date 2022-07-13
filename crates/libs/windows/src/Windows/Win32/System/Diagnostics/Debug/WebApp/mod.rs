@@ -165,7 +165,7 @@ impl IWebApplicationHost {
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn Unadvise(&self, cookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self), cookie).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationHost> for ::windows::core::IUnknown {
@@ -231,7 +231,7 @@ impl IWebApplicationNavigationEvents {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).BeforeNavigate)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), ::core::mem::transmute(navigationflags), targetframename.into()).ok()
+        (::windows::core::Interface::vtable(self).BeforeNavigate)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), navigationflags, targetframename.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
@@ -250,7 +250,7 @@ impl IWebApplicationNavigationEvents {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).NavigateError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), targetframename.into(), ::core::mem::transmute(statuscode)).ok()
+        (::windows::core::Interface::vtable(self).NavigateError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), targetframename.into(), statuscode).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
@@ -406,7 +406,7 @@ pub struct IWebApplicationUIEvents(::windows::core::IUnknown);
 impl IWebApplicationUIEvents {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn SecurityProblem(&self, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SecurityProblem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(securityproblem), ::core::mem::transmute(result)).ok()
+        (::windows::core::Interface::vtable(self).SecurityProblem)(::windows::core::Interface::as_raw(self), securityproblem, ::core::mem::transmute(result)).ok()
     }
 }
 impl ::core::convert::From<IWebApplicationUIEvents> for ::windows::core::IUnknown {

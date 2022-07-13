@@ -687,7 +687,7 @@ impl IFilter {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfflags), aattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(aattributes)), ::core::mem::transmute(pflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(aattributes)), ::core::mem::transmute(pflags)))
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -772,14 +772,14 @@ impl IPhraseSink {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutSmallPhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into(), ::core::mem::transmute(cwcnoun), pwcmodifier.into(), ::core::mem::transmute(cwcmodifier), ::core::mem::transmute(ulattachmenttype)).ok()
+        (::windows::core::Interface::vtable(self).PutSmallPhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     pub unsafe fn PutPhrase<'a, P0>(&self, pwcphrase: P0, cwcphrase: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).PutPhrase)(::windows::core::Interface::as_raw(self), pwcphrase.into(), ::core::mem::transmute(cwcphrase)).ok()
+        (::windows::core::Interface::vtable(self).PutPhrase)(::windows::core::Interface::as_raw(self), pwcphrase.into(), cwcphrase).ok()
     }
 }
 impl ::core::convert::From<IPhraseSink> for ::windows::core::IUnknown {
@@ -853,7 +853,7 @@ where
     extern "system" {
         fn LoadIFilterEx(pwcspath: ::windows::core::PCWSTR, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    LoadIFilterEx(pwcspath.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
+    LoadIFilterEx(pwcspath.into(), dwflags, ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const MSIDXSPROP_COMMAND_LOCALE_STRING: u32 = 3u32;

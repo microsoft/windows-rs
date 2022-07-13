@@ -4335,7 +4335,7 @@ where
         fn CfConnectSyncRoot(syncrootpath: ::windows::core::PCWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<CF_CONNECTION_KEY>::zeroed();
-    CfConnectSyncRoot(syncrootpath.into(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_CONNECTION_KEY>(result__)
+    CfConnectSyncRoot(syncrootpath.into(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), connectflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_CONNECTION_KEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4348,7 +4348,7 @@ where
     extern "system" {
         fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfConvertToPlaceholder(filehandle.into(), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(convertflags), ::core::mem::transmute(convertusn), ::core::mem::transmute(overlapped)).ok()
+    CfConvertToPlaceholder(filehandle.into(), ::core::mem::transmute(fileidentity), fileidentitylength, convertflags, ::core::mem::transmute(convertusn), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -4361,7 +4361,7 @@ where
     extern "system" {
         fn CfCreatePlaceholders(basedirectorypath: ::windows::core::PCWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfCreatePlaceholders(basedirectorypath.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(placeholderarray)), placeholderarray.len() as _, ::core::mem::transmute(createflags), ::core::mem::transmute(entriesprocessed)).ok()
+    CfCreatePlaceholders(basedirectorypath.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(placeholderarray)), placeholderarray.len() as _, createflags, ::core::mem::transmute(entriesprocessed)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4374,7 +4374,7 @@ where
     extern "system" {
         fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfDehydratePlaceholder(filehandle.into(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(dehydrateflags), ::core::mem::transmute(overlapped)).ok()
+    CfDehydratePlaceholder(filehandle.into(), startingoffset, length, dehydrateflags, ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4423,7 +4423,7 @@ where
     extern "system" {
         fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfGetPlaceholderInfo(filehandle.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    CfGetPlaceholderInfo(filehandle.into(), infoclass, ::core::mem::transmute(infobuffer), infobufferlength, ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4436,7 +4436,7 @@ where
     extern "system" {
         fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfGetPlaceholderRangeInfo(filehandle.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    CfGetPlaceholderRangeInfo(filehandle.into(), infoclass, startingoffset, length, ::core::mem::transmute(infobuffer), infobufferlength, ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4445,7 +4445,7 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparse
     extern "system" {
         fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE;
     }
-    ::core::mem::transmute(CfGetPlaceholderStateFromAttributeTag(::core::mem::transmute(fileattributes), ::core::mem::transmute(reparsetag)))
+    ::core::mem::transmute(CfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -4455,7 +4455,7 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::
     extern "system" {
         fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE;
     }
-    ::core::mem::transmute(CfGetPlaceholderStateFromFileInfo(::core::mem::transmute(infobuffer), ::core::mem::transmute(infoclass)))
+    ::core::mem::transmute(CfGetPlaceholderStateFromFileInfo(::core::mem::transmute(infobuffer), infoclass))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -4488,7 +4488,7 @@ where
     extern "system" {
         fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfGetSyncRootInfoByHandle(filehandle.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    CfGetSyncRootInfoByHandle(filehandle.into(), infoclass, ::core::mem::transmute(infobuffer), infobufferlength, ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4500,7 +4500,7 @@ where
     extern "system" {
         fn CfGetSyncRootInfoByPath(filepath: ::windows::core::PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    CfGetSyncRootInfoByPath(filepath.into(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    CfGetSyncRootInfoByPath(filepath.into(), infoclass, ::core::mem::transmute(infobuffer), infobufferlength, ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4540,7 +4540,7 @@ where
     extern "system" {
         fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfHydratePlaceholder(filehandle.into(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(hydrateflags), ::core::mem::transmute(overlapped)).ok()
+    CfHydratePlaceholder(filehandle.into(), startingoffset, length, hydrateflags, ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4554,7 +4554,7 @@ where
         fn CfOpenFileWithOplock(filepath: ::windows::core::PCWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    CfOpenFileWithOplock(filepath.into(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    CfOpenFileWithOplock(filepath.into(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4592,7 +4592,7 @@ where
     extern "system" {
         fn CfRegisterSyncRoot(syncrootpath: ::windows::core::PCWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::HRESULT;
     }
-    CfRegisterSyncRoot(syncrootpath.into(), ::core::mem::transmute(registration), ::core::mem::transmute(policies), ::core::mem::transmute(registerflags)).ok()
+    CfRegisterSyncRoot(syncrootpath.into(), ::core::mem::transmute(registration), ::core::mem::transmute(policies), registerflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4630,7 +4630,7 @@ where
     extern "system" {
         fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::HRESULT;
     }
-    CfReportProviderProgress(connectionkey.into(), ::core::mem::transmute(transferkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted)).ok()
+    CfReportProviderProgress(connectionkey.into(), transferkey, providerprogresstotal, providerprogresscompleted).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4642,7 +4642,7 @@ where
     extern "system" {
         fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::HRESULT;
     }
-    CfReportProviderProgress2(connectionkey.into(), ::core::mem::transmute(transferkey), ::core::mem::transmute(requestkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted), ::core::mem::transmute(targetsessionid)).ok()
+    CfReportProviderProgress2(connectionkey.into(), transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4667,7 +4667,7 @@ where
     extern "system" {
         fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfRevertPlaceholder(filehandle.into(), ::core::mem::transmute(revertflags), ::core::mem::transmute(overlapped)).ok()
+    CfRevertPlaceholder(filehandle.into(), revertflags, ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
@@ -4693,7 +4693,7 @@ where
     extern "system" {
         fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::HRESULT;
     }
-    CfSetInSyncState(filehandle.into(), ::core::mem::transmute(insyncstate), ::core::mem::transmute(insyncflags), ::core::mem::transmute(insyncusn)).ok()
+    CfSetInSyncState(filehandle.into(), insyncstate, insyncflags, ::core::mem::transmute(insyncusn)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4706,7 +4706,7 @@ where
     extern "system" {
         fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfSetPinState(filehandle.into(), ::core::mem::transmute(pinstate), ::core::mem::transmute(pinflags), ::core::mem::transmute(overlapped)).ok()
+    CfSetPinState(filehandle.into(), pinstate, pinflags, ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4731,7 +4731,7 @@ where
     extern "system" {
         fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    CfUpdatePlaceholder(filehandle.into(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(::windows::core::as_ptr_or_null(dehydraterangearray)), dehydraterangearray.len() as _, ::core::mem::transmute(updateflags), ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
+    CfUpdatePlaceholder(filehandle.into(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), fileidentitylength, ::core::mem::transmute(::windows::core::as_ptr_or_null(dehydraterangearray)), dehydraterangearray.len() as _, updateflags, ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
@@ -4743,7 +4743,7 @@ where
     extern "system" {
         fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
     }
-    CfUpdateSyncProviderStatus(connectionkey.into(), ::core::mem::transmute(providerstatus)).ok()
+    CfUpdateSyncProviderStatus(connectionkey.into(), providerstatus).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

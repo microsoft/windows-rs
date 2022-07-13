@@ -1378,7 +1378,7 @@ where
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysAllocStringByteLen(psz.into(), len))
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
@@ -1519,7 +1519,7 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
     extern "system" {
         fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(CoTaskMemAlloc(::core::mem::transmute(cb)))
+    ::core::mem::transmute(CoTaskMemAlloc(cb))
 }
 #[inline]
 pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
@@ -1536,7 +1536,7 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInf
         fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    GetErrorInfo(::core::mem::transmute(dwreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IErrorInfo>(result__)
+    GetErrorInfo(dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IErrorInfo>(result__)
 }
 #[repr(transparent)]
 pub struct IAgileObject(::windows::core::IUnknown);
@@ -1659,7 +1659,7 @@ where
     extern "system" {
         fn SetErrorInfo(dwreserved: u32, perrinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    SetErrorInfo(::core::mem::transmute(dwreserved), perrinfo.into().abi()).ok()
+    SetErrorInfo(dwreserved, perrinfo.into().abi()).ok()
 }
 #[inline]
 pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
@@ -1731,7 +1731,7 @@ pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     extern "system" {
         fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
     }
-    ::core::mem::transmute(FormatMessageW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
+    ::core::mem::transmute(FormatMessageW(dwflags, ::core::mem::transmute(lpsource), dwmessageid, dwlanguageid, ::core::mem::transmute(lpbuffer), nsize, ::core::mem::transmute(arguments)))
 }
 #[inline]
 pub unsafe fn FreeLibrary<'a, P0>(hlibmodule: P0) -> BOOL
@@ -1853,7 +1853,7 @@ where
     extern "system" {
         fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HeapAlloc(hheap.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwbytes)))
+    ::core::mem::transmute(HeapAlloc(hheap.into(), dwflags, dwbytes))
 }
 #[inline]
 pub unsafe fn HeapFree<'a, P0>(hheap: P0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL
@@ -1864,7 +1864,7 @@ where
     extern "system" {
         fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL;
     }
-    ::core::mem::transmute(HeapFree(hheap.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
+    ::core::mem::transmute(HeapFree(hheap.into(), dwflags, ::core::mem::transmute(lpmem)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1932,7 +1932,7 @@ where
     extern "system" {
         fn WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForSingleObject(hhandle.into(), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(WaitForSingleObject(hhandle.into(), dwmilliseconds))
 }
 #[repr(transparent)]
 pub struct IAgileReference(::windows::core::IUnknown);
@@ -2020,7 +2020,7 @@ where
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    RoGetAgileReference(::core::mem::transmute(options), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
+    RoGetAgileReference(options, ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
 }
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);

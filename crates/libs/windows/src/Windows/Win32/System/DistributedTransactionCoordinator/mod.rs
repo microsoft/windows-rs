@@ -156,7 +156,7 @@ where
     extern "system" {
         fn DtcGetTransactionManager(i_pszhost: ::windows::core::PCSTR, i_psztmname: ::windows::core::PCSTR, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DtcGetTransactionManager(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), ::core::mem::transmute(i_dwreserved1), ::core::mem::transmute(i_wcbreserved2), ::core::mem::transmute(i_pvreserved2), ::core::mem::transmute(o_ppvobject)).ok()
+    DtcGetTransactionManager(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2), ::core::mem::transmute(o_ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
@@ -169,7 +169,7 @@ where
     extern "system" {
         fn DtcGetTransactionManagerC(i_pszhost: ::windows::core::PCSTR, i_psztmname: ::windows::core::PCSTR, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DtcGetTransactionManagerC(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), ::core::mem::transmute(i_dwreserved1), ::core::mem::transmute(i_wcbreserved2), ::core::mem::transmute(i_pvreserved2), ::core::mem::transmute(o_ppvobject)).ok()
+    DtcGetTransactionManagerC(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2), ::core::mem::transmute(o_ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
@@ -182,7 +182,7 @@ where
     extern "system" {
         fn DtcGetTransactionManagerExA(i_pszhost: ::windows::core::PCSTR, i_psztmname: ::windows::core::PCSTR, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DtcGetTransactionManagerExA(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), ::core::mem::transmute(i_grfoptions), ::core::mem::transmute(i_pvconfigparams), ::core::mem::transmute(o_ppvobject)).ok()
+    DtcGetTransactionManagerExA(i_pszhost.into(), i_psztmname.into(), ::core::mem::transmute(i_riid), i_grfoptions, ::core::mem::transmute(i_pvconfigparams), ::core::mem::transmute(o_ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
@@ -195,7 +195,7 @@ where
     extern "system" {
         fn DtcGetTransactionManagerExW(i_pwszhost: ::windows::core::PCWSTR, i_pwsztmname: ::windows::core::PCWSTR, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DtcGetTransactionManagerExW(i_pwszhost.into(), i_pwsztmname.into(), ::core::mem::transmute(i_riid), ::core::mem::transmute(i_grfoptions), ::core::mem::transmute(i_pvconfigparams), ::core::mem::transmute(o_ppvobject)).ok()
+    DtcGetTransactionManagerExW(i_pwszhost.into(), i_pwsztmname.into(), ::core::mem::transmute(i_riid), i_grfoptions, ::core::mem::transmute(i_pvconfigparams), ::core::mem::transmute(o_ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[repr(transparent)]
@@ -403,7 +403,7 @@ pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcStatusWork {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleCheckLuStatus(&self, lrecoveryseqnum: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleCheckLuStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrecoveryseqnum)).ok()
+        (::windows::core::Interface::vtable(self).HandleCheckLuStatus)(::windows::core::Interface::as_raw(self), lrecoveryseqnum).ok()
     }
 }
 impl ::core::convert::From<IDtcLuRecoveryInitiatedByDtcStatusWork> for ::windows::core::IUnknown {
@@ -461,15 +461,15 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(confirmation)).ok()
+        (::windows::core::Interface::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleTheirXlnResponse(&self, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleTheirXlnResponse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xln), ::core::mem::transmute(premotelogname), ::core::mem::transmute(cbremotelogname), ::core::mem::transmute(dwprotocol), ::core::mem::transmute(pconfirmation)).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirXlnResponse)(::windows::core::Interface::as_raw(self), xln, ::core::mem::transmute(premotelogname), cbremotelogname, dwprotocol, ::core::mem::transmute(pconfirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleErrorFromOurXln(&self, error: _DtcLu_Xln_Error) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleErrorFromOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(error)).ok()
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurXln)(::windows::core::Interface::as_raw(self), error).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -486,11 +486,11 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleTheirCompareStatesResponse(&self, comparestate: _DtcLu_CompareState, pconfirmation: *mut _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(comparestate), ::core::mem::transmute(pconfirmation)).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Interface::as_raw(self), comparestate, ::core::mem::transmute(pconfirmation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(error)).ok()
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
@@ -502,7 +502,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ObsoleteRecoverySeqNum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnewrecoveryseqnum)).ok()
+        (::windows::core::Interface::vtable(self).ObsoleteRecoverySeqNum)(::windows::core::Interface::as_raw(self), lnewrecoveryseqnum).ok()
     }
 }
 impl ::core::convert::From<IDtcLuRecoveryInitiatedByDtcTransWork> for ::windows::core::IUnknown {
@@ -618,7 +618,7 @@ pub struct IDtcLuRecoveryInitiatedByLuWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: _DtcLu_Xln, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut _DtcLu_Xln_Response) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleTheirXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrecoveryseqnum), ::core::mem::transmute(xln), ::core::mem::transmute(premotelogname), ::core::mem::transmute(cbremotelogname), ::core::mem::transmute(pourlogname), ::core::mem::transmute(cbourlogname), ::core::mem::transmute(dwprotocol), ::core::mem::transmute(presponse)).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirXln)(::windows::core::Interface::as_raw(self), lrecoveryseqnum, xln, ::core::mem::transmute(premotelogname), cbremotelogname, ::core::mem::transmute(pourlogname), cbourlogname, dwprotocol, ::core::mem::transmute(presponse)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> ::windows::core::Result<()> {
@@ -630,19 +630,19 @@ impl IDtcLuRecoveryInitiatedByLuWork {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: _DtcLu_Xln_Confirmation) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(confirmation)).ok()
+        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: _DtcLu_CompareState, presponse: *mut _DtcLu_CompareStates_Response, pcomparestate: *mut _DtcLu_CompareState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleTheirCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(premotetransid), ::core::mem::transmute(cbremotetransid), ::core::mem::transmute(comparestate), ::core::mem::transmute(presponse), ::core::mem::transmute(pcomparestate)).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(premotetransid), cbremotetransid, comparestate, ::core::mem::transmute(presponse), ::core::mem::transmute(pcomparestate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: _DtcLu_CompareStates_Confirmation) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(confirmation)).ok()
+        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HandleErrorFromOurCompareStates(&self, error: _DtcLu_CompareStates_Error) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(error)).ok()
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
@@ -789,7 +789,7 @@ impl IDtcLuRmEnlistmentFactory {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITransaction>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDtcLuRmEnlistmentSink>>,
     {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair), ::core::mem::transmute(cblupair), pitransaction.into().abi(), ::core::mem::transmute(ptransid), ::core::mem::transmute(cbtransid), prmenlistmentsink.into().abi(), ::core::mem::transmute(pprmenlistment)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair), cblupair, pitransaction.into().abi(), ::core::mem::transmute(ptransid), cbtransid, prmenlistmentsink.into().abi(), ::core::mem::transmute(pprmenlistment)).ok()
     }
 }
 impl ::core::convert::From<IDtcLuRmEnlistmentFactory> for ::windows::core::IUnknown {
@@ -1021,7 +1021,7 @@ impl IDtcLuSubordinateDtcFactory {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITransactionOptions>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IDtcLuSubordinateDtcSink>>,
     {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair), ::core::mem::transmute(cblupair), punktransactionouter.into().abi(), ::core::mem::transmute(isolevel), ::core::mem::transmute(isoflags), poptions.into().abi(), ::core::mem::transmute(pptransaction), ::core::mem::transmute(ptransid), ::core::mem::transmute(cbtransid), psubordinatedtcsink.into().abi(), ::core::mem::transmute(ppsubordinatedtc)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair), cblupair, punktransactionouter.into().abi(), isolevel, isoflags, poptions.into().abi(), ::core::mem::transmute(pptransaction), ::core::mem::transmute(ptransid), cbtransid, psubordinatedtcsink.into().abi(), ::core::mem::transmute(ppsubordinatedtc)).ok()
     }
 }
 impl ::core::convert::From<IDtcLuSubordinateDtcFactory> for ::windows::core::IUnknown {
@@ -1459,7 +1459,7 @@ impl IDtcNetworkAccessConfig2 {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), authlevel).ok()
     }
 }
 impl ::core::convert::From<IDtcNetworkAccessConfig2> for ::windows::core::IUnknown {
@@ -1662,7 +1662,7 @@ impl IDtcNetworkAccessConfig3 {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authlevel)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), authlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1896,7 +1896,7 @@ impl IDtcToXaHelperSinglePipe {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertTridToXID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwitrans), ::core::mem::transmute(dwrmcookie), ::core::mem::transmute(pxid)).ok()
+        (::windows::core::Interface::vtable(self).ConvertTridToXID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwitrans), dwrmcookie, ::core::mem::transmute(pxid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn EnlistWithRM<'a, P0, P1>(&self, dwrmcookie: u32, i_pitransaction: P0, i_pitransres: P1) -> ::windows::core::Result<ITransactionEnlistmentAsync>
@@ -1905,7 +1905,7 @@ impl IDtcToXaHelperSinglePipe {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITransactionResourceAsync>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnlistWithRM)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwrmcookie), i_pitransaction.into().abi(), i_pitransres.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionEnlistmentAsync>(result__)
+        (::windows::core::Interface::vtable(self).EnlistWithRM)(::windows::core::Interface::as_raw(self), dwrmcookie, i_pitransaction.into().abi(), i_pitransres.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionEnlistmentAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1913,7 +1913,7 @@ impl IDtcToXaHelperSinglePipe {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).ReleaseRMCookie)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i_dwrmcookie), i_fnormal.into())
+        (::windows::core::Interface::vtable(self).ReleaseRMCookie)(::windows::core::Interface::as_raw(self), i_dwrmcookie, i_fnormal.into())
     }
 }
 impl ::core::convert::From<IDtcToXaHelperSinglePipe> for ::windows::core::IUnknown {
@@ -1981,15 +1981,15 @@ impl IDtcToXaMapper {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut xid_t) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwitransaction), ::core::mem::transmute(dwrmcookie), ::core::mem::transmute(pxid)).ok()
+        (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwitransaction), dwrmcookie, ::core::mem::transmute(pxid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnlistResourceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwrmcookie), ::core::mem::transmute(pdwitransaction)).ok()
+        (::windows::core::Interface::vtable(self).EnlistResourceManager)(::windows::core::Interface::as_raw(self), dwrmcookie, ::core::mem::transmute(pdwitransaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ReleaseResourceManager(&self, dwrmcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseResourceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwrmcookie)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseResourceManager)(::windows::core::Interface::as_raw(self), dwrmcookie).ok()
     }
 }
 impl ::core::convert::From<IDtcToXaMapper> for ::windows::core::IUnknown {
@@ -2316,7 +2316,7 @@ pub struct IRMHelper(::windows::core::IUnknown);
 impl IRMHelper {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn RMCount(&self, dwctotalnumberofrms: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RMCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwctotalnumberofrms)).ok()
+        (::windows::core::Interface::vtable(self).RMCount)(::windows::core::Interface::as_raw(self), dwctotalnumberofrms).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2389,7 +2389,7 @@ impl IResourceManager {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::<XACTSTAT>::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
@@ -2459,7 +2459,7 @@ impl IResourceManager2 {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::<XACTSTAT>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
@@ -2482,7 +2482,7 @@ impl IResourceManager2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::<XACTSTAT>::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).Reenlist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), dwtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
 }
 impl ::core::convert::From<IResourceManager2> for ::windows::core::IUnknown {
@@ -2696,7 +2696,7 @@ impl IResourceManagerRejoinable {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::<XACTSTAT>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
@@ -2719,12 +2719,12 @@ impl IResourceManagerRejoinable {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::<XACTSTAT>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Reenlist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Reenlist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxid), dwtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__ = ::core::mem::MaybeUninit::<XACTSTAT>::zeroed();
-        (::windows::core::Interface::vtable(self).Rejoin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ::core::mem::transmute(ltimeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).Rejoin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pprepinfo)), pprepinfo.len() as _, ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
 }
 impl ::core::convert::From<IResourceManagerRejoinable> for ::windows::core::IUnknown {
@@ -3006,7 +3006,7 @@ pub struct ITipPullSink(::windows::core::IUnknown);
 impl ITipPullSink {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn PullComplete(&self, i_hrpull: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PullComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(i_hrpull)).ok()
+        (::windows::core::Interface::vtable(self).PullComplete)(::windows::core::Interface::as_raw(self), i_hrpull).ok()
     }
 }
 impl ::core::convert::From<ITipPullSink> for ::windows::core::IUnknown {
@@ -3118,7 +3118,7 @@ impl ITmNodeName {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNodeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cbnodenamebuffersize), ::core::mem::transmute(pnodenamebuffer)).ok()
+        (::windows::core::Interface::vtable(self).GetNodeName)(::windows::core::Interface::as_raw(self), cbnodenamebuffersize, ::core::mem::transmute(pnodenamebuffer)).ok()
     }
 }
 impl ::core::convert::From<ITmNodeName> for ::windows::core::IUnknown {
@@ -3173,7 +3173,7 @@ impl ITransaction {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3249,7 +3249,7 @@ impl ITransaction2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3357,7 +3357,7 @@ impl ITransactionCloner {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3451,7 +3451,7 @@ impl ITransactionDispenser {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ITransactionOptions>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), ::core::mem::transmute(isolevel), ::core::mem::transmute(isoflags), poptions.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
+        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), punkouter.into().abi(), isolevel, isoflags, poptions.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
 }
 impl ::core::convert::From<ITransactionDispenser> for ::windows::core::IUnknown {
@@ -3506,15 +3506,15 @@ impl ITransactionEnlistmentAsync {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IMoniker>>,
     {
-        (::windows::core::Interface::vtable(self).PrepareRequestDone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), pmk.into().abi(), ::core::mem::transmute(pboidreason)).ok()
+        (::windows::core::Interface::vtable(self).PrepareRequestDone)(::windows::core::Interface::as_raw(self), hr, pmk.into().abi(), ::core::mem::transmute(pboidreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn CommitRequestDone(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CommitRequestDone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).CommitRequestDone)(::windows::core::Interface::as_raw(self), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn AbortRequestDone(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AbortRequestDone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).AbortRequestDone)(::windows::core::Interface::as_raw(self), hr).ok()
     }
 }
 impl ::core::convert::From<ITransactionEnlistmentAsync> for ::windows::core::IUnknown {
@@ -3798,7 +3798,7 @@ pub struct ITransactionLastEnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionLastEnlistmentAsync {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn TransactionOutcome(&self, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransactionOutcome)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xactstat), ::core::mem::transmute(pboidreason)).ok()
+        (::windows::core::Interface::vtable(self).TransactionOutcome)(::windows::core::Interface::as_raw(self), xactstat, ::core::mem::transmute(pboidreason)).ok()
     }
 }
 impl ::core::convert::From<ITransactionLastEnlistmentAsync> for ::windows::core::IUnknown {
@@ -3848,7 +3848,7 @@ pub struct ITransactionLastResourceAsync(::windows::core::IUnknown);
 impl ITransactionLastResourceAsync {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn DelegateCommit(&self, grfrm: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DelegateCommit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfrm)).ok()
+        (::windows::core::Interface::vtable(self).DelegateCommit)(::windows::core::Interface::as_raw(self), grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn ForgetRequest(&self, pnewuow: *const BOID) -> ::windows::core::Result<()> {
@@ -3962,7 +3962,7 @@ impl ITransactionOutcomeEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(pnewuow), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3970,11 +3970,11 @@ impl ITransactionOutcomeEvents {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).Aborted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pboidreason), fretaining.into(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).Aborted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pboidreason), fretaining.into(), ::core::mem::transmute(pnewuow), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HeuristicDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdecision), ::core::mem::transmute(pboidreason), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).HeuristicDecision)(::windows::core::Interface::as_raw(self), dwdecision, ::core::mem::transmute(pboidreason), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn Indoubt(&self) -> ::windows::core::Result<()> {
@@ -4170,7 +4170,7 @@ impl ITransactionPhase0NotifyAsync {
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn EnlistCompleted(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnlistCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).EnlistCompleted)(::windows::core::Interface::as_raw(self), status).ok()
     }
 }
 impl ::core::convert::From<ITransactionPhase0NotifyAsync> for ::windows::core::IUnknown {
@@ -4348,11 +4348,11 @@ impl ITransactionResource {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).PrepareRequest)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(grfrm), fwantmoniker.into(), fsinglephase.into()).ok()
+        (::windows::core::Interface::vtable(self).PrepareRequest)(::windows::core::Interface::as_raw(self), fretaining.into(), grfrm, fwantmoniker.into(), fsinglephase.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CommitRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfrm), ::core::mem::transmute(pnewuow)).ok()
+        (::windows::core::Interface::vtable(self).CommitRequest)(::windows::core::Interface::as_raw(self), grfrm, ::core::mem::transmute(pnewuow)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4429,11 +4429,11 @@ impl ITransactionResourceAsync {
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).PrepareRequest)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(grfrm), fwantmoniker.into(), fsinglephase.into()).ok()
+        (::windows::core::Interface::vtable(self).PrepareRequest)(::windows::core::Interface::as_raw(self), fretaining.into(), grfrm, fwantmoniker.into(), fsinglephase.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CommitRequest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfrm), ::core::mem::transmute(pnewuow)).ok()
+        (::windows::core::Interface::vtable(self).CommitRequest)(::windows::core::Interface::as_raw(self), grfrm, ::core::mem::transmute(pnewuow)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4629,7 +4629,7 @@ pub struct ITransactionVoterBallotAsync2(::windows::core::IUnknown);
 impl ITransactionVoterBallotAsync2 {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn VoteRequestDone(&self, hr: ::windows::core::HRESULT, pboidreason: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VoteRequestDone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), ::core::mem::transmute(pboidreason)).ok()
+        (::windows::core::Interface::vtable(self).VoteRequestDone)(::windows::core::Interface::as_raw(self), hr, ::core::mem::transmute(pboidreason)).ok()
     }
 }
 impl ::core::convert::From<ITransactionVoterBallotAsync2> for ::windows::core::IUnknown {
@@ -4738,7 +4738,7 @@ impl ITransactionVoterNotifyAsync2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.Committed)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).base__.Committed)(::windows::core::Interface::as_raw(self), fretaining.into(), ::core::mem::transmute(pnewuow), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4746,11 +4746,11 @@ impl ITransactionVoterNotifyAsync2 {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.Aborted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pboidreason), fretaining.into(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).base__.Aborted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pboidreason), fretaining.into(), ::core::mem::transmute(pnewuow), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.HeuristicDecision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdecision), ::core::mem::transmute(pboidreason), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).base__.HeuristicDecision)(::windows::core::Interface::as_raw(self), dwdecision, ::core::mem::transmute(pboidreason), hr).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     pub unsafe fn Indoubt(&self) -> ::windows::core::Result<()> {

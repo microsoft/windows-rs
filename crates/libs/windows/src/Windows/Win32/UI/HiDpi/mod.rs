@@ -9,7 +9,7 @@ where
     extern "system" {
         fn AdjustWindowRectExForDpi(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: super::super::Foundation::BOOL, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AdjustWindowRectExForDpi(::core::mem::transmute(lprect), ::core::mem::transmute(dwstyle), bmenu.into(), ::core::mem::transmute(dwexstyle), ::core::mem::transmute(dpi)))
+    ::core::mem::transmute(AdjustWindowRectExForDpi(::core::mem::transmute(lprect), dwstyle, bmenu.into(), dwexstyle, dpi))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -318,7 +318,7 @@ where
     extern "system" {
         fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetDpiForMonitor(hmonitor.into(), ::core::mem::transmute(dpitype), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
+    GetDpiForMonitor(hmonitor.into(), dpitype, ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
@@ -388,7 +388,7 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
     extern "system" {
         fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32;
     }
-    ::core::mem::transmute(GetSystemMetricsForDpi(::core::mem::transmute(nindex), ::core::mem::transmute(dpi)))
+    ::core::mem::transmute(GetSystemMetricsForDpi(nindex, dpi))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
@@ -503,7 +503,7 @@ where
     extern "system" {
         fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows::core::PCWSTR, dpi: u32) -> isize;
     }
-    ::core::mem::transmute(OpenThemeDataForDpi(hwnd.into(), pszclasslist.into(), ::core::mem::transmute(dpi)))
+    ::core::mem::transmute(OpenThemeDataForDpi(hwnd.into(), pszclasslist.into(), dpi))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[repr(transparent)]
@@ -558,7 +558,7 @@ where
     extern "system" {
         fn SetDialogControlDpiChangeBehavior(hwnd: super::super::Foundation::HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDialogControlDpiChangeBehavior(hwnd.into(), ::core::mem::transmute(mask), ::core::mem::transmute(values)))
+    ::core::mem::transmute(SetDialogControlDpiChangeBehavior(hwnd.into(), mask, values))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -571,7 +571,7 @@ where
     extern "system" {
         fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDialogDpiChangeBehavior(hdlg.into(), ::core::mem::transmute(mask), ::core::mem::transmute(values)))
+    ::core::mem::transmute(SetDialogDpiChangeBehavior(hdlg.into(), mask, values))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
@@ -580,7 +580,7 @@ pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows:
     extern "system" {
         fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::HRESULT;
     }
-    SetProcessDpiAwareness(::core::mem::transmute(value)).ok()
+    SetProcessDpiAwareness(value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -614,7 +614,7 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
     extern "system" {
         fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR;
     }
-    ::core::mem::transmute(SetThreadDpiHostingBehavior(::core::mem::transmute(value)))
+    ::core::mem::transmute(SetThreadDpiHostingBehavior(value))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -624,7 +624,7 @@ pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *
     extern "system" {
         fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SystemParametersInfoForDpi(::core::mem::transmute(uiaction), ::core::mem::transmute(uiparam), ::core::mem::transmute(pvparam), ::core::mem::transmute(fwinini), ::core::mem::transmute(dpi)))
+    ::core::mem::transmute(SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam), fwinini, dpi))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

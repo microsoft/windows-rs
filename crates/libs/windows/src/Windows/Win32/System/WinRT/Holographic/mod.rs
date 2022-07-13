@@ -37,7 +37,7 @@ impl IHolographicCameraInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>,
     {
-        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(duration)).ok()
+        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi(), duration).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -134,7 +134,7 @@ impl IHolographicCameraRenderingParametersInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>,
     {
-        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), ::core::mem::transmute(colorresourcefencesignalvalue)).ok()
+        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -145,7 +145,7 @@ impl IHolographicCameraRenderingParametersInterop {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>,
     {
-        (::windows::core::Interface::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), ::core::mem::transmute(colorresourcefencesignalvalue), pdepthresourcetocommit.into().abi(), pdepthresourcefence.into().abi(), ::core::mem::transmute(depthresourcefencesignalvalue)).ok()
+        (::windows::core::Interface::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue, pdepthresourcetocommit.into().abi(), pdepthresourcefence.into().abi(), depthresourcefencesignalvalue).ok()
     }
 }
 impl ::core::convert::From<IHolographicCameraRenderingParametersInterop> for ::windows::core::IUnknown {
@@ -250,7 +250,7 @@ impl IHolographicQuadLayerInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>,
     {
-        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(duration)).ok()
+        (::windows::core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows::core::Interface::as_raw(self), presourcetoacquire.into().abi(), pcommandqueue.into().abi(), duration).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -347,7 +347,7 @@ impl IHolographicQuadLayerUpdateParametersInterop {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Fence>>,
     {
-        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), ::core::mem::transmute(colorresourcefencesignalvalue)).ok()
+        (::windows::core::Interface::vtable(self).CommitDirect3D12Resource)(::windows::core::Interface::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue).ok()
     }
 }
 impl ::core::convert::From<IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IUnknown {

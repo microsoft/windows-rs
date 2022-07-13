@@ -222,7 +222,7 @@ where
     extern "system" {
         fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureConfig(hwnd.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(dwflags), pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgestureconfig)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(GetGestureConfig(hwnd.into(), dwreserved, dwflags, pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgestureconfig)), cbsize))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -235,7 +235,7 @@ where
     extern "system" {
         fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureExtraArgs(hgestureinfo.into(), ::core::mem::transmute(cbextraargs), ::core::mem::transmute(pextraargs)))
+    ::core::mem::transmute(GetGestureExtraArgs(hgestureinfo.into(), cbextraargs, ::core::mem::transmute(pextraargs)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -261,7 +261,7 @@ where
     extern "system" {
         fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, cinputs: u32, pinputs: *mut TOUCHINPUT, cbsize: i32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTouchInputInfo(htouchinput.into(), pinputs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinputs)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(GetTouchInputInfo(htouchinput.into(), pinputs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinputs)), cbsize))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -338,7 +338,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialOriginX(&self, x: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialOriginX)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialOriginX)(::windows::core::Interface::as_raw(self), x).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialOriginY(&self) -> ::windows::core::Result<f32> {
@@ -347,7 +347,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialOriginY(&self, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialOriginY)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialOriginY)(::windows::core::Interface::as_raw(self), y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialVelocityX(&self) -> ::windows::core::Result<f32> {
@@ -356,7 +356,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialVelocityX(&self, x: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialVelocityX)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialVelocityX)(::windows::core::Interface::as_raw(self), x).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialVelocityY(&self) -> ::windows::core::Result<f32> {
@@ -365,7 +365,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialVelocityY(&self, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialVelocityY)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialVelocityY)(::windows::core::Interface::as_raw(self), y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialAngularVelocity(&self) -> ::windows::core::Result<f32> {
@@ -374,7 +374,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialAngularVelocity(&self, velocity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialAngularVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(velocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialAngularVelocity)(::windows::core::Interface::as_raw(self), velocity).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialExpansionVelocity(&self) -> ::windows::core::Result<f32> {
@@ -383,7 +383,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialExpansionVelocity(&self, velocity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialExpansionVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(velocity)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialExpansionVelocity)(::windows::core::Interface::as_raw(self), velocity).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialRadius(&self) -> ::windows::core::Result<f32> {
@@ -392,7 +392,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialRadius(&self, radius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialRadius)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(radius)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialRadius)(::windows::core::Interface::as_raw(self), radius).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn BoundaryLeft(&self) -> ::windows::core::Result<f32> {
@@ -401,7 +401,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetBoundaryLeft(&self, left: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoundaryLeft)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(left)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryLeft)(::windows::core::Interface::as_raw(self), left).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn BoundaryTop(&self) -> ::windows::core::Result<f32> {
@@ -410,7 +410,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetBoundaryTop(&self, top: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoundaryTop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(top)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryTop)(::windows::core::Interface::as_raw(self), top).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn BoundaryRight(&self) -> ::windows::core::Result<f32> {
@@ -419,7 +419,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetBoundaryRight(&self, right: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoundaryRight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(right)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryRight)(::windows::core::Interface::as_raw(self), right).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn BoundaryBottom(&self) -> ::windows::core::Result<f32> {
@@ -428,7 +428,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetBoundaryBottom(&self, bottom: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoundaryBottom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).SetBoundaryBottom)(::windows::core::Interface::as_raw(self), bottom).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ElasticMarginLeft(&self) -> ::windows::core::Result<f32> {
@@ -437,7 +437,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetElasticMarginLeft(&self, left: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetElasticMarginLeft)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(left)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginLeft)(::windows::core::Interface::as_raw(self), left).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ElasticMarginTop(&self) -> ::windows::core::Result<f32> {
@@ -446,7 +446,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetElasticMarginTop(&self, top: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetElasticMarginTop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(top)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginTop)(::windows::core::Interface::as_raw(self), top).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ElasticMarginRight(&self) -> ::windows::core::Result<f32> {
@@ -455,7 +455,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetElasticMarginRight(&self, right: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetElasticMarginRight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(right)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginRight)(::windows::core::Interface::as_raw(self), right).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ElasticMarginBottom(&self) -> ::windows::core::Result<f32> {
@@ -464,7 +464,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetElasticMarginBottom(&self, bottom: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetElasticMarginBottom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).SetElasticMarginBottom)(::windows::core::Interface::as_raw(self), bottom).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn DesiredDisplacement(&self) -> ::windows::core::Result<f32> {
@@ -473,7 +473,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetDesiredDisplacement(&self, displacement: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredDisplacement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(displacement)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredDisplacement)(::windows::core::Interface::as_raw(self), displacement).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn DesiredRotation(&self) -> ::windows::core::Result<f32> {
@@ -482,7 +482,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetDesiredRotation(&self, rotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rotation)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredRotation)(::windows::core::Interface::as_raw(self), rotation).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn DesiredExpansion(&self) -> ::windows::core::Result<f32> {
@@ -491,7 +491,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetDesiredExpansion(&self, expansion: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredExpansion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(expansion)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredExpansion)(::windows::core::Interface::as_raw(self), expansion).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn DesiredDeceleration(&self) -> ::windows::core::Result<f32> {
@@ -500,7 +500,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetDesiredDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredDeceleration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(deceleration)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredDeceleration)(::windows::core::Interface::as_raw(self), deceleration).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn DesiredAngularDeceleration(&self) -> ::windows::core::Result<f32> {
@@ -509,7 +509,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetDesiredAngularDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredAngularDeceleration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(deceleration)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredAngularDeceleration)(::windows::core::Interface::as_raw(self), deceleration).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn DesiredExpansionDeceleration(&self) -> ::windows::core::Result<f32> {
@@ -518,7 +518,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetDesiredExpansionDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredExpansionDeceleration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(deceleration)).ok()
+        (::windows::core::Interface::vtable(self).SetDesiredExpansionDeceleration)(::windows::core::Interface::as_raw(self), deceleration).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn InitialTimestamp(&self) -> ::windows::core::Result<u32> {
@@ -527,7 +527,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetInitialTimestamp(&self, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitialTimestamp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).SetInitialTimestamp)(::windows::core::Interface::as_raw(self), timestamp).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -543,7 +543,7 @@ impl IInertiaProcessor {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProcessTime(&self, timestamp: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ProcessTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timestamp), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ProcessTime)(::windows::core::Interface::as_raw(self), timestamp, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn Complete(&self) -> ::windows::core::Result<()> {
@@ -551,7 +551,7 @@ impl IInertiaProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn CompleteTime(&self, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CompleteTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).CompleteTime)(::windows::core::Interface::as_raw(self), timestamp).ok()
     }
 }
 impl ::core::convert::From<IInertiaProcessor> for ::windows::core::IUnknown {
@@ -660,7 +660,7 @@ impl IManipulationProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulations)).ok()
+        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::windows::core::Interface::as_raw(self), manipulations).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn PivotPointX(&self) -> ::windows::core::Result<f32> {
@@ -669,7 +669,7 @@ impl IManipulationProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetPivotPointX(&self, pivotpointx: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPivotPointX)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pivotpointx)).ok()
+        (::windows::core::Interface::vtable(self).SetPivotPointX)(::windows::core::Interface::as_raw(self), pivotpointx).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn PivotPointY(&self) -> ::windows::core::Result<f32> {
@@ -678,7 +678,7 @@ impl IManipulationProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetPivotPointY(&self, pivotpointy: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPivotPointY)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pivotpointy)).ok()
+        (::windows::core::Interface::vtable(self).SetPivotPointY)(::windows::core::Interface::as_raw(self), pivotpointy).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn PivotRadius(&self) -> ::windows::core::Result<f32> {
@@ -687,7 +687,7 @@ impl IManipulationProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetPivotRadius(&self, pivotradius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPivotRadius)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pivotradius)).ok()
+        (::windows::core::Interface::vtable(self).SetPivotRadius)(::windows::core::Interface::as_raw(self), pivotradius).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn CompleteManipulation(&self) -> ::windows::core::Result<()> {
@@ -695,27 +695,27 @@ impl IManipulationProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ProcessDown(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ProcessDown)(::windows::core::Interface::as_raw(self), manipulatorid, x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ProcessMove(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ProcessMove)(::windows::core::Interface::as_raw(self), manipulatorid, x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ProcessUp(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ProcessUp)(::windows::core::Interface::as_raw(self), manipulatorid, x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ProcessDownWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessDownWithTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).ProcessDownWithTime)(::windows::core::Interface::as_raw(self), manipulatorid, x, y, timestamp).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ProcessMoveWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessMoveWithTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).ProcessMoveWithTime)(::windows::core::Interface::as_raw(self), manipulatorid, x, y, timestamp).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ProcessUpWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessUpWithTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulatorid), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(timestamp)).ok()
+        (::windows::core::Interface::vtable(self).ProcessUpWithTime)(::windows::core::Interface::as_raw(self), manipulatorid, x, y, timestamp).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn GetVelocityX(&self) -> ::windows::core::Result<f32> {
@@ -744,7 +744,7 @@ impl IManipulationProcessor {
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumScaleRotateRadius)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minradius)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumScaleRotateRadius)(::windows::core::Interface::as_raw(self), minradius).ok()
     }
 }
 impl ::core::convert::From<IManipulationProcessor> for ::windows::core::IUnknown {
@@ -896,7 +896,7 @@ where
     extern "system" {
         fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterTouchWindow(hwnd.into(), ::core::mem::transmute(ulflags)))
+    ::core::mem::transmute(RegisterTouchWindow(hwnd.into(), ulflags))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -909,7 +909,7 @@ where
     extern "system" {
         fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetGestureConfig(hwnd.into(), ::core::mem::transmute(dwreserved), pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgestureconfig)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(SetGestureConfig(hwnd.into(), dwreserved, pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgestureconfig)), cbsize))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -1101,30 +1101,15 @@ pub struct _IManipulationEvents(::windows::core::IUnknown);
 impl _IManipulationEvents {
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ManipulationStarted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).ManipulationStarted)(::windows::core::Interface::as_raw(self), x, y).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ManipulationDelta)(
-            ::windows::core::Interface::as_raw(self),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(translationdeltax),
-            ::core::mem::transmute(translationdeltay),
-            ::core::mem::transmute(scaledelta),
-            ::core::mem::transmute(expansiondelta),
-            ::core::mem::transmute(rotationdelta),
-            ::core::mem::transmute(cumulativetranslationx),
-            ::core::mem::transmute(cumulativetranslationy),
-            ::core::mem::transmute(cumulativescale),
-            ::core::mem::transmute(cumulativeexpansion),
-            ::core::mem::transmute(cumulativerotation),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).ManipulationDelta)(::windows::core::Interface::as_raw(self), x, y, translationdeltax, translationdeltay, scaledelta, expansiondelta, rotationdelta, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ManipulationCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cumulativetranslationx), ::core::mem::transmute(cumulativetranslationy), ::core::mem::transmute(cumulativescale), ::core::mem::transmute(cumulativeexpansion), ::core::mem::transmute(cumulativerotation)).ok()
+        (::windows::core::Interface::vtable(self).ManipulationCompleted)(::windows::core::Interface::as_raw(self), x, y, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
     }
 }
 impl ::core::convert::From<_IManipulationEvents> for ::windows::core::IUnknown {

@@ -337,7 +337,7 @@ pub struct IReferenceTrackerHost(::windows::core::IUnknown);
 impl IReferenceTrackerHost {
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectUnusedReferenceSources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options)).ok()
+        (::windows::core::Interface::vtable(self).DisconnectUnusedReferenceSources)(::windows::core::Interface::as_raw(self), options).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn ReleaseDisconnectedReferenceSources(&self) -> ::windows::core::Result<()> {
@@ -357,11 +357,11 @@ impl IReferenceTrackerHost {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn AddMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddMemoryPressure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bytesallocated)).ok()
+        (::windows::core::Interface::vtable(self).AddMemoryPressure)(::windows::core::Interface::as_raw(self), bytesallocated).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn RemoveMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveMemoryPressure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bytesallocated)).ok()
+        (::windows::core::Interface::vtable(self).RemoveMemoryPressure)(::windows::core::Interface::as_raw(self), bytesallocated).ok()
     }
 }
 impl ::core::convert::From<IReferenceTrackerHost> for ::windows::core::IUnknown {
@@ -420,7 +420,7 @@ impl IReferenceTrackerManager {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn FindTrackerTargetsCompleted(&self, findfailed: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindTrackerTargetsCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(findfailed)).ok()
+        (::windows::core::Interface::vtable(self).FindTrackerTargetsCompleted)(::windows::core::Interface::as_raw(self), findfailed).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn ReferenceTrackingCompleted(&self) -> ::windows::core::Result<()> {
@@ -1062,7 +1062,7 @@ impl IVirtualSurfaceImageSourceNative {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn Resize(&self, newwidth: i32, newheight: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newwidth), ::core::mem::transmute(newheight)).ok()
+        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), newwidth, newheight).ok()
     }
 }
 impl ::core::convert::From<IVirtualSurfaceImageSourceNative> for ::windows::core::IUnknown {

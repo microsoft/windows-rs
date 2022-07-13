@@ -484,7 +484,7 @@ pub struct IEnhancedStorageACT(::windows::core::IUnknown);
 impl IEnhancedStorageACT {
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Authorize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Authorize)(::windows::core::Interface::as_raw(self), hwndparent, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn Unauthorize(&self) -> ::windows::core::Result<()> {
@@ -562,7 +562,7 @@ pub struct IEnhancedStorageACT2(::windows::core::IUnknown);
 impl IEnhancedStorageACT2 {
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Authorize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.Authorize)(::windows::core::Interface::as_raw(self), hwndparent, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn Unauthorize(&self) -> ::windows::core::Result<()> {
@@ -665,7 +665,7 @@ pub struct IEnhancedStorageACT3(::windows::core::IUnknown);
 impl IEnhancedStorageACT3 {
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Authorize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwndparent), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Authorize)(::windows::core::Interface::as_raw(self), hwndparent, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn Unauthorize(&self) -> ::windows::core::Result<()> {
@@ -703,7 +703,7 @@ impl IEnhancedStorageACT3 {
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnauthorizeEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).UnauthorizeEx)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -812,7 +812,7 @@ impl IEnhancedStorageSilo {
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: &[u8], pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(command), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbcommandbuffer)), pbcommandbuffer.len() as _, ::core::mem::transmute(pbresponsebuffer), ::core::mem::transmute(pcbresponsebuffer)).ok()
+        (::windows::core::Interface::vtable(self).SendCommand)(::windows::core::Interface::as_raw(self), command, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbcommandbuffer)), pbcommandbuffer.len() as _, ::core::mem::transmute(pbresponsebuffer), ::core::mem::transmute(pcbresponsebuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]

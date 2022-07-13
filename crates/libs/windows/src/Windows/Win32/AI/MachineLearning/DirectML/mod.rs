@@ -10,7 +10,7 @@ where
     extern "system" {
         fn DMLCreateDevice(d3d12device: *mut ::core::ffi::c_void, flags: DML_CREATE_DEVICE_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DMLCreateDevice(d3d12device.into().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    DMLCreateDevice(d3d12device.into().abi(), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -24,7 +24,7 @@ where
     extern "system" {
         fn DMLCreateDevice1(d3d12device: *mut ::core::ffi::c_void, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DMLCreateDevice1(d3d12device.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(minimumfeaturelevel), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    DMLCreateDevice1(d3d12device.into().abi(), flags, minimumfeaturelevel, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -7097,7 +7097,7 @@ impl IDMLBindingTable {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -7231,7 +7231,7 @@ impl IDMLCommandRecorder {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -7350,7 +7350,7 @@ impl IDMLCompiledOperator {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -7548,7 +7548,7 @@ impl IDMLDevice {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -7566,7 +7566,7 @@ impl IDMLDevice {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata), featuresupportdatasize, ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -7581,7 +7581,7 @@ impl IDMLDevice {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDMLOperator>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Interface::vtable(self).CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperatorInitializer<T>(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<T>
@@ -7707,7 +7707,7 @@ impl IDMLDevice1 {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -7725,7 +7725,7 @@ impl IDMLDevice1 {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature, featurequerydatasize, ::core::mem::transmute(featurequerydata), featuresupportdatasize, ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -7740,7 +7740,7 @@ impl IDMLDevice1 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDMLOperator>>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Interface::vtable(self).base__.CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).base__.CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperatorInitializer<T>(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<T>
@@ -7792,7 +7792,7 @@ impl IDMLDevice1 {
     where
         T: ::windows::core::Interface,
     {
-        (::windows::core::Interface::vtable(self).CompileGraph)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CompileGraph)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), flags, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
 impl ::core::convert::From<IDMLDevice1> for ::windows::core::IUnknown {
@@ -7876,7 +7876,7 @@ impl IDMLDeviceChild {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -7967,7 +7967,7 @@ impl IDMLDispatchable {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -8094,7 +8094,7 @@ impl IDMLObject {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -8165,7 +8165,7 @@ impl IDMLOperator {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -8270,7 +8270,7 @@ impl IDMLOperatorInitializer {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>
@@ -8416,7 +8416,7 @@ impl IDMLPageable {
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(data)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetPrivateData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guid), datasize, ::core::mem::transmute(data)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn SetPrivateDataInterface<'a, P0>(&self, guid: *const ::windows::core::GUID, data: P0) -> ::windows::core::Result<()>

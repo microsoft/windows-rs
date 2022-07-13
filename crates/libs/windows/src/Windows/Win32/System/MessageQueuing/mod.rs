@@ -1543,7 +1543,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
@@ -1552,7 +1552,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
@@ -1566,7 +1566,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ldelivery)).ok()
+        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
@@ -1575,7 +1575,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltrace)).ok()
+        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
@@ -1584,7 +1584,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -1593,7 +1593,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1616,7 +1616,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lappspecific)).ok()
+        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1684,7 +1684,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lack)).ok()
+        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1707,7 +1707,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
@@ -1716,7 +1716,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -1725,7 +1725,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhashalg)).ok()
+        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -1734,7 +1734,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lencryptalg)).ok()
+        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1781,7 +1781,7 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsenderidtype)).ok()
+        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1987,7 +1987,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
@@ -1996,7 +1996,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
@@ -2010,7 +2010,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ldelivery)).ok()
+        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
@@ -2019,7 +2019,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltrace)).ok()
+        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
@@ -2028,7 +2028,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -2037,7 +2037,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2060,7 +2060,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lappspecific)).ok()
+        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2128,7 +2128,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lack)).ok()
+        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2151,7 +2151,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
@@ -2160,7 +2160,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -2169,7 +2169,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhashalg)).ok()
+        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -2178,7 +2178,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lencryptalg)).ok()
+        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2225,7 +2225,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsenderidtype)).ok()
+        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2313,7 +2313,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthprovtype)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), lauthprovtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2344,7 +2344,7 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmsgclass)).ok()
+        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), lmsgclass).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2673,7 +2673,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
@@ -2682,7 +2682,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
@@ -2696,7 +2696,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ldelivery)).ok()
+        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
@@ -2705,7 +2705,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltrace)).ok()
+        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
@@ -2714,7 +2714,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -2723,7 +2723,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2746,7 +2746,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lappspecific)).ok()
+        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2814,7 +2814,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lack)).ok()
+        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2837,7 +2837,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
@@ -2846,7 +2846,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -2855,7 +2855,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhashalg)).ok()
+        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -2864,7 +2864,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lencryptalg)).ok()
+        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2911,7 +2911,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsenderidtype)).ok()
+        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2999,7 +2999,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthprovtype)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), lauthprovtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3030,7 +3030,7 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmsgclass)).ok()
+        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), lmsgclass).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3512,7 +3512,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthLevel(&self) -> ::windows::core::Result<i32> {
@@ -3521,7 +3521,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthLevel)(::windows::core::Interface::as_raw(self), lauthlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<i16> {
@@ -3535,7 +3535,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ldelivery)).ok()
+        (::windows::core::Interface::vtable(self).SetDelivery)(::windows::core::Interface::as_raw(self), ldelivery).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Trace(&self) -> ::windows::core::Result<i32> {
@@ -3544,7 +3544,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ltrace)).ok()
+        (::windows::core::Interface::vtable(self).SetTrace)(::windows::core::Interface::as_raw(self), ltrace).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
@@ -3553,7 +3553,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), lpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -3562,7 +3562,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3585,7 +3585,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lappspecific)).ok()
+        (::windows::core::Interface::vtable(self).SetAppSpecific)(::windows::core::Interface::as_raw(self), lappspecific).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3653,7 +3653,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAck(&self, lack: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lack)).ok()
+        (::windows::core::Interface::vtable(self).SetAck)(::windows::core::Interface::as_raw(self), lack).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3676,7 +3676,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreachqueue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReachQueue)(::windows::core::Interface::as_raw(self), lmaxtimetoreachqueue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32> {
@@ -3685,7 +3685,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxtimetoreceive)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxTimeToReceive)(::windows::core::Interface::as_raw(self), lmaxtimetoreceive).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -3694,7 +3694,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhashalg)).ok()
+        (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), lhashalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32> {
@@ -3703,7 +3703,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lencryptalg)).ok()
+        (::windows::core::Interface::vtable(self).SetEncryptAlgorithm)(::windows::core::Interface::as_raw(self), lencryptalg).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3750,7 +3750,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsenderidtype)).ok()
+        (::windows::core::Interface::vtable(self).SetSenderIdType)(::windows::core::Interface::as_raw(self), lsenderidtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3838,7 +3838,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthprovtype)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderType)(::windows::core::Interface::as_raw(self), lauthprovtype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3869,7 +3869,7 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmsgclass)).ok()
+        (::windows::core::Interface::vtable(self).SetMsgClass)(::windows::core::Interface::as_raw(self), lmsgclass).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4627,7 +4627,7 @@ impl IMSMQPrivateEvent {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>,
     {
-        (::windows::core::Interface::vtable(self).FireArrivedEvent)(::windows::core::Interface::as_raw(self), pq.into().abi(), ::core::mem::transmute(msgcursor)).ok()
+        (::windows::core::Interface::vtable(self).FireArrivedEvent)(::windows::core::Interface::as_raw(self), pq.into().abi(), msgcursor).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4635,7 +4635,7 @@ impl IMSMQPrivateEvent {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>,
     {
-        (::windows::core::Interface::vtable(self).FireArrivedErrorEvent)(::windows::core::Interface::as_raw(self), pq.into().abi(), ::core::mem::transmute(hrstatus), ::core::mem::transmute(msgcursor)).ok()
+        (::windows::core::Interface::vtable(self).FireArrivedErrorEvent)(::windows::core::Interface::as_raw(self), pq.into().abi(), hrstatus, msgcursor).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6401,7 +6401,7 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -6410,7 +6410,7 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
@@ -6419,7 +6419,7 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lquota)).ok()
+        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
@@ -6428,7 +6428,7 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbasepriority)).ok()
+        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6449,7 +6449,7 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthenticate)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
@@ -6458,7 +6458,7 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournalquota)).ok()
+        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
@@ -6478,7 +6478,7 @@ impl IMSMQQueueInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue>(result__)
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -6705,7 +6705,7 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -6714,7 +6714,7 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
@@ -6723,7 +6723,7 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lquota)).ok()
+        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
@@ -6732,7 +6732,7 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbasepriority)).ok()
+        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6753,7 +6753,7 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthenticate)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
@@ -6762,7 +6762,7 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournalquota)).ok()
+        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
@@ -6782,7 +6782,7 @@ impl IMSMQQueueInfo2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue2>(result__)
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -7051,7 +7051,7 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -7060,7 +7060,7 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
@@ -7069,7 +7069,7 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lquota)).ok()
+        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
@@ -7078,7 +7078,7 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbasepriority)).ok()
+        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7099,7 +7099,7 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthenticate)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
@@ -7108,7 +7108,7 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournalquota)).ok()
+        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
@@ -7128,7 +7128,7 @@ impl IMSMQQueueInfo3 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue3>(result__)
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -7441,7 +7441,7 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprivlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivLevel)(::windows::core::Interface::as_raw(self), lprivlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Journal(&self) -> ::windows::core::Result<i32> {
@@ -7450,7 +7450,7 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournal)).ok()
+        (::windows::core::Interface::vtable(self).SetJournal)(::windows::core::Interface::as_raw(self), ljournal).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Quota(&self) -> ::windows::core::Result<i32> {
@@ -7459,7 +7459,7 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lquota)).ok()
+        (::windows::core::Interface::vtable(self).SetQuota)(::windows::core::Interface::as_raw(self), lquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn BasePriority(&self) -> ::windows::core::Result<i32> {
@@ -7468,7 +7468,7 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbasepriority)).ok()
+        (::windows::core::Interface::vtable(self).SetBasePriority)(::windows::core::Interface::as_raw(self), lbasepriority).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7489,7 +7489,7 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lauthenticate)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticate)(::windows::core::Interface::as_raw(self), lauthenticate).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn JournalQuota(&self) -> ::windows::core::Result<i32> {
@@ -7498,7 +7498,7 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ljournalquota)).ok()
+        (::windows::core::Interface::vtable(self).SetJournalQuota)(::windows::core::Interface::as_raw(self), ljournalquota).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsWorldReadable(&self) -> ::windows::core::Result<i16> {
@@ -7518,7 +7518,7 @@ impl IMSMQQueueInfo4 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(access), ::core::mem::transmute(sharemode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue4>(result__)
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), access, sharemode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQQueue4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {

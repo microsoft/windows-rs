@@ -30,7 +30,7 @@ where
     extern "system" {
         fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: super::super::Foundation::BOOL, forced: *mut super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(ComDBClaimPort(hcomdb.into(), ::core::mem::transmute(comnumber), forceclaim.into(), ::core::mem::transmute(forced)))
+    ::core::mem::transmute(ComDBClaimPort(hcomdb.into(), comnumber, forceclaim.into(), ::core::mem::transmute(forced)))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
@@ -54,7 +54,7 @@ where
     extern "system" {
         fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
     }
-    ::core::mem::transmute(ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(reporttype), ::core::mem::transmute(maxportsreported)))
+    ::core::mem::transmute(ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer), buffersize, reporttype, ::core::mem::transmute(maxportsreported)))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
@@ -75,7 +75,7 @@ where
     extern "system" {
         fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32;
     }
-    ::core::mem::transmute(ComDBReleasePort(hcomdb.into(), ::core::mem::transmute(comnumber)))
+    ::core::mem::transmute(ComDBReleasePort(hcomdb.into(), comnumber))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
@@ -87,7 +87,7 @@ where
     extern "system" {
         fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
     }
-    ::core::mem::transmute(ComDBResizeDatabase(hcomdb.into(), ::core::mem::transmute(newsize)))
+    ::core::mem::transmute(ComDBResizeDatabase(hcomdb.into(), newsize))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

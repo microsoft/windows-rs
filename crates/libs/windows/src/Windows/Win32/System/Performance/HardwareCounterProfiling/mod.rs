@@ -22,7 +22,7 @@ where
     extern "system" {
         fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(EnableThreadProfiling(threadhandle.into(), ::core::mem::transmute(flags), ::core::mem::transmute(hardwarecounters), ::core::mem::transmute(performancedatahandle)))
+    ::core::mem::transmute(EnableThreadProfiling(threadhandle.into(), flags, hardwarecounters, ::core::mem::transmute(performancedatahandle)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
@@ -145,7 +145,7 @@ where
     extern "system" {
         fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32;
     }
-    ::core::mem::transmute(ReadThreadProfilingData(performancedatahandle.into(), ::core::mem::transmute(flags), ::core::mem::transmute(performancedata)))
+    ::core::mem::transmute(ReadThreadProfilingData(performancedatahandle.into(), flags, ::core::mem::transmute(performancedata)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1954,7 +1954,7 @@ pub struct IDirectMusic(::windows::core::IUnknown);
 impl IDirectMusic {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pportcaps)).ok()
+        (::windows::core::Interface::vtable(self).EnumPort)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pportcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn CreateMusicBuffer<'a, P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
@@ -1973,7 +1973,7 @@ impl IDirectMusic {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumMasterClock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(lpclockinfo)).ok()
+        (::windows::core::Interface::vtable(self).EnumMasterClock)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(lpclockinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()> {
@@ -2069,7 +2069,7 @@ pub struct IDirectMusic8(::windows::core::IUnknown);
 impl IDirectMusic8 {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pportcaps)).ok()
+        (::windows::core::Interface::vtable(self).base__.EnumPort)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pportcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn CreateMusicBuffer<'a, P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
@@ -2088,7 +2088,7 @@ impl IDirectMusic8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnumMasterClock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(lpclockinfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.EnumMasterClock)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(lpclockinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()> {
@@ -2197,11 +2197,11 @@ impl IDirectMusicBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PackStructured(&self, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PackStructured)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannelmessage)).ok()
+        (::windows::core::Interface::vtable(self).PackStructured)(::windows::core::Interface::as_raw(self), rt, dwchannelgroup, dwchannelmessage).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PackUnstructured(&self, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PackUnstructured)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(cb), ::core::mem::transmute(lpb)).ok()
+        (::windows::core::Interface::vtable(self).PackUnstructured)(::windows::core::Interface::as_raw(self), rt, dwchannelgroup, cb, ::core::mem::transmute(lpb)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn ResetReadPtr(&self) -> ::windows::core::Result<()> {
@@ -2233,11 +2233,11 @@ impl IDirectMusicBuffer {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetStartTime(&self, rt: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), rt).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetUsedBytes(&self, cb: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUsedBytes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cb)).ok()
+        (::windows::core::Interface::vtable(self).SetUsedBytes)(::windows::core::Interface::as_raw(self), cb).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicBuffer> for ::windows::core::IUnknown {
@@ -2300,14 +2300,14 @@ impl IDirectMusicCollection {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows::core::Result<IDirectMusicInstrument> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpatch), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicInstrument>(result__)
+        (::windows::core::Interface::vtable(self).GetInstrument)(::windows::core::Interface::as_raw(self), dwpatch, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicInstrument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn EnumInstrument<'a, P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(pdwpatch), pwszname.into(), ::core::mem::transmute(dwnamelen)).ok()
+        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pdwpatch), pwszname.into(), dwnamelen).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicCollection> for ::windows::core::IUnknown {
@@ -2456,7 +2456,7 @@ impl IDirectMusicInstrument {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetPatch(&self, dwpatch: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwpatch)).ok()
+        (::windows::core::Interface::vtable(self).SetPatch)(::windows::core::Interface::as_raw(self), dwpatch).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicInstrument> for ::windows::core::IUnknown {
@@ -2532,7 +2532,7 @@ impl IDirectMusicPort {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicInstrument>>,
     {
-        (::windows::core::Interface::vtable(self).DownloadInstrument)(::windows::core::Interface::as_raw(self), pinstrument.into().abi(), ::core::mem::transmute(ppdownloadedinstrument), ::core::mem::transmute(pnoteranges), ::core::mem::transmute(dwnumnoteranges)).ok()
+        (::windows::core::Interface::vtable(self).DownloadInstrument)(::windows::core::Interface::as_raw(self), pinstrument.into().abi(), ::core::mem::transmute(ppdownloadedinstrument), ::core::mem::transmute(pnoteranges), dwnumnoteranges).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn UnloadInstrument<'a, P0>(&self, pdownloadedinstrument: P0) -> ::windows::core::Result<()>
@@ -2561,11 +2561,11 @@ impl IDirectMusicPort {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), dwiocontrolcode, ::core::mem::transmute(lpinbuffer), ninbuffersize, ::core::mem::transmute(lpoutbuffer), noutbuffersize, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetNumChannelGroups(&self, dwchannelgroups: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNumChannelGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroups)).ok()
+        (::windows::core::Interface::vtable(self).SetNumChannelGroups)(::windows::core::Interface::as_raw(self), dwchannelgroups).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetNumChannelGroups(&self, pdwchannelgroups: *mut u32) -> ::windows::core::Result<()> {
@@ -2581,11 +2581,11 @@ impl IDirectMusicPort {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChannelPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(dwpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetChannelPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(pdwpriority)).ok()
+        (::windows::core::Interface::vtable(self).GetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, ::core::mem::transmute(pdwpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
@@ -2677,16 +2677,16 @@ impl IDirectMusicPortDownload {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows::core::Result<IDirectMusicDownload> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdlid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicDownload>(result__)
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), dwdlid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicDownload>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows::core::Result<IDirectMusicDownload> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AllocateBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicDownload>(result__)
+        (::windows::core::Interface::vtable(self).AllocateBuffer)(::windows::core::Interface::as_raw(self), dwsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirectMusicDownload>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDLId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstartdlid), ::core::mem::transmute(dwcount)).ok()
+        (::windows::core::Interface::vtable(self).GetDLId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstartdlid), dwcount).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::core::Result<()> {
@@ -2768,7 +2768,7 @@ impl IDirectMusicSynth {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNumChannelGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwgroups)).ok()
+        (::windows::core::Interface::vtable(self).SetNumChannelGroups)(::windows::core::Interface::as_raw(self), dwgroups).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2782,11 +2782,11 @@ impl IDirectMusicSynth {
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), hdownload.into(), ::core::mem::transmute(lpfreehandle), huserdata.into()).ok()
+        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), hdownload.into(), lpfreehandle, huserdata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PlayBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(cbbuffer)).ok()
+        (::windows::core::Interface::vtable(self).PlayBuffer)(::windows::core::Interface::as_raw(self), rt, ::core::mem::transmute(pbbuffer), cbbuffer).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()> {
@@ -2825,15 +2825,15 @@ impl IDirectMusicSynth {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwlength), ::core::mem::transmute(llposition)).ok()
+        (::windows::core::Interface::vtable(self).Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbuffer), dwlength, llposition).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChannelPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(dwpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetChannelPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(pdwpriority)).ok()
+        (::windows::core::Interface::vtable(self).GetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, ::core::mem::transmute(pdwpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::core::Result<()> {
@@ -2928,7 +2928,7 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNumChannelGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwgroups)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNumChannelGroups)(::windows::core::Interface::as_raw(self), dwgroups).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2942,11 +2942,11 @@ impl IDirectMusicSynth8 {
         P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Interface::vtable(self).base__.Unload)(::windows::core::Interface::as_raw(self), hdownload.into(), ::core::mem::transmute(lpfreehandle), huserdata.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Unload)(::windows::core::Interface::as_raw(self), hdownload.into(), lpfreehandle, huserdata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PlayBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(cbbuffer)).ok()
+        (::windows::core::Interface::vtable(self).base__.PlayBuffer)(::windows::core::Interface::as_raw(self), rt, ::core::mem::transmute(pbbuffer), cbbuffer).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()> {
@@ -2985,15 +2985,15 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwlength), ::core::mem::transmute(llposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbuffer), dwlength, llposition).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetChannelPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(dwpriority)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetChannelPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(pdwpriority)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, ::core::mem::transmute(pdwpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::core::Result<()> {
@@ -3005,24 +3005,24 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PlayVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt), ::core::mem::transmute(dwvoiceid), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(dwdlid), ::core::mem::transmute(prpitch), ::core::mem::transmute(vrvolume), ::core::mem::transmute(stvoicestart), ::core::mem::transmute(stloopstart), ::core::mem::transmute(stloopend)).ok()
+        (::windows::core::Interface::vtable(self).PlayVoice)(::windows::core::Interface::as_raw(self), rt, dwvoiceid, dwchannelgroup, dwchannel, dwdlid, prpitch, vrvolume, stvoicestart, stloopstart, stloopend).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopVoice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rt), ::core::mem::transmute(dwvoiceid)).ok()
+        (::windows::core::Interface::vtable(self).StopVoice)(::windows::core::Interface::as_raw(self), rt, dwvoiceid).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVoiceState(&self, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVoiceState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwvoice), ::core::mem::transmute(cbvoice), ::core::mem::transmute(dwvoicestate)).ok()
+        (::windows::core::Interface::vtable(self).GetVoiceState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwvoice), cbvoice, ::core::mem::transmute(dwvoicestate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn Refresh(&self, dwdownloadid: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdownloadid), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self), dwdownloadid, dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn AssignChannelToBuses(&self, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AssignChannelToBuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchannelgroup), ::core::mem::transmute(dwchannel), ::core::mem::transmute(pdwbuses), ::core::mem::transmute(cbuses)).ok()
+        (::windows::core::Interface::vtable(self).AssignChannelToBuses)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, ::core::mem::transmute(pdwbuses), cbuses).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicSynth8> for ::windows::core::IUnknown {
@@ -3121,11 +3121,11 @@ impl IDirectMusicSynthSink {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SampleToRefTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llsampletime), ::core::mem::transmute(prftime)).ok()
+        (::windows::core::Interface::vtable(self).SampleToRefTime)(::windows::core::Interface::as_raw(self), llsampletime, ::core::mem::transmute(prftime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
     pub unsafe fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RefTimeToSample)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rftime), ::core::mem::transmute(pllsampletime)).ok()
+        (::windows::core::Interface::vtable(self).RefTimeToSample)(::windows::core::Interface::as_raw(self), rftime, ::core::mem::transmute(pllsampletime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
@@ -3204,7 +3204,7 @@ impl IDirectMusicThru {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDirectMusicPort>>,
     {
-        (::windows::core::Interface::vtable(self).ThruChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsourcechannelgroup), ::core::mem::transmute(dwsourcechannel), ::core::mem::transmute(dwdestinationchannelgroup), ::core::mem::transmute(dwdestinationchannel), pdestinationport.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ThruChannel)(::windows::core::Interface::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectMusicThru> for ::windows::core::IUnknown {

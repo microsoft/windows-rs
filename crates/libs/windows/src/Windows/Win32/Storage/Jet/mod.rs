@@ -6572,7 +6572,7 @@ where
     extern "system" {
         fn JetAddColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetAddColumnA(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pcolumndef), ::core::mem::transmute(pvdefault), ::core::mem::transmute(cbdefault), ::core::mem::transmute(pcolumnid)))
+    ::core::mem::transmute(JetAddColumnA(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pcolumndef), ::core::mem::transmute(pvdefault), cbdefault, ::core::mem::transmute(pcolumnid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6586,7 +6586,7 @@ where
     extern "system" {
         fn JetAddColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetAddColumnW(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pcolumndef), ::core::mem::transmute(pvdefault), ::core::mem::transmute(cbdefault), ::core::mem::transmute(pcolumnid)))
+    ::core::mem::transmute(JetAddColumnW(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pcolumndef), ::core::mem::transmute(pvdefault), cbdefault, ::core::mem::transmute(pcolumnid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6599,7 +6599,7 @@ where
     extern "system" {
         fn JetAttachDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetAttachDatabase2A(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetAttachDatabase2A(sesid.into(), ::core::mem::transmute(szfilename), cpgdatabasesizemax, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6612,7 +6612,7 @@ where
     extern "system" {
         fn JetAttachDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetAttachDatabase2W(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetAttachDatabase2W(sesid.into(), ::core::mem::transmute(szfilename), cpgdatabasesizemax, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6625,7 +6625,7 @@ where
     extern "system" {
         fn JetAttachDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetAttachDatabaseA(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetAttachDatabaseA(sesid.into(), ::core::mem::transmute(szfilename), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6638,7 +6638,7 @@ where
     extern "system" {
         fn JetAttachDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetAttachDatabaseW(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetAttachDatabaseW(sesid.into(), ::core::mem::transmute(szfilename), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6648,7 +6648,7 @@ pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFN
     extern "system" {
         fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(JetBackupA(::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
+    ::core::mem::transmute(JetBackupA(::core::mem::transmute(szbackuppath), grbit, ::core::mem::transmute(pfnstatus)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6661,7 +6661,7 @@ where
     extern "system" {
         fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(JetBackupInstanceA(instance.into(), ::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
+    ::core::mem::transmute(JetBackupInstanceA(instance.into(), ::core::mem::transmute(szbackuppath), grbit, ::core::mem::transmute(pfnstatus)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6674,7 +6674,7 @@ where
     extern "system" {
         fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(JetBackupInstanceW(instance.into(), ::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
+    ::core::mem::transmute(JetBackupInstanceW(instance.into(), ::core::mem::transmute(szbackuppath), grbit, ::core::mem::transmute(pfnstatus)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6684,7 +6684,7 @@ pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PF
     extern "system" {
         fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(JetBackupW(::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
+    ::core::mem::transmute(JetBackupW(::core::mem::transmute(szbackuppath), grbit, ::core::mem::transmute(pfnstatus)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -6693,7 +6693,7 @@ pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
     extern "system" {
         fn JetBeginExternalBackup(grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetBeginExternalBackup(::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetBeginExternalBackup(grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6706,7 +6706,7 @@ where
     extern "system" {
         fn JetBeginExternalBackupInstance(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetBeginExternalBackupInstance(instance.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetBeginExternalBackupInstance(instance.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6758,7 +6758,7 @@ where
     extern "system" {
         fn JetBeginTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetBeginTransaction2(sesid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetBeginTransaction2(sesid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6771,7 +6771,7 @@ where
     extern "system" {
         fn JetBeginTransaction3(sesid: super::StructuredStorage::JET_SESID, trxid: i64, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetBeginTransaction3(sesid.into(), ::core::mem::transmute(trxid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetBeginTransaction3(sesid.into(), trxid, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6784,7 +6784,7 @@ where
     extern "system" {
         fn JetCloseDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCloseDatabase(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCloseDatabase(sesid.into(), dbid, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6838,7 +6838,7 @@ where
     extern "system" {
         fn JetCommitTransaction(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCommitTransaction(sesid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCommitTransaction(sesid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -6851,7 +6851,7 @@ where
     extern "system" {
         fn JetCommitTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32;
     }
-    ::core::mem::transmute(JetCommitTransaction2(sesid.into(), ::core::mem::transmute(grbit), ::core::mem::transmute(cmsecdurablecommit), ::core::mem::transmute(pcommitid)))
+    ::core::mem::transmute(JetCommitTransaction2(sesid.into(), grbit, cmsecdurablecommit, ::core::mem::transmute(pcommitid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6864,7 +6864,7 @@ where
     extern "system" {
         fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_A, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCompactA(sesid.into(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCompactA(sesid.into(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6877,7 +6877,7 @@ where
     extern "system" {
         fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_W, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCompactW(sesid.into(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCompactW(sesid.into(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6900,7 +6900,7 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     extern "system" {
         fn JetConfigureProcessForCrashDump(grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetConfigureProcessForCrashDump(::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetConfigureProcessForCrashDump(grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6913,7 +6913,7 @@ where
     extern "system" {
         fn JetCreateDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateDatabase2A(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCreateDatabase2A(sesid.into(), ::core::mem::transmute(szfilename), cpgdatabasesizemax, ::core::mem::transmute(pdbid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6926,7 +6926,7 @@ where
     extern "system" {
         fn JetCreateDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateDatabase2W(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(cpgdatabasesizemax), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCreateDatabase2W(sesid.into(), ::core::mem::transmute(szfilename), cpgdatabasesizemax, ::core::mem::transmute(pdbid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6939,7 +6939,7 @@ where
     extern "system" {
         fn JetCreateDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateDatabaseA(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCreateDatabaseA(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -6952,7 +6952,7 @@ where
     extern "system" {
         fn JetCreateDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateDatabaseW(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCreateDatabaseW(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7051,7 +7051,7 @@ where
     extern "system" {
         fn JetCreateIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, szkey: ::windows::core::PCSTR, cbkey: u32, ldensity: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateIndexA(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), szkey.into(), ::core::mem::transmute(cbkey), ::core::mem::transmute(ldensity)))
+    ::core::mem::transmute(JetCreateIndexA(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), grbit, szkey.into(), cbkey, ldensity))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7066,7 +7066,7 @@ where
     extern "system" {
         fn JetCreateIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, szkey: ::windows::core::PCWSTR, cbkey: u32, ldensity: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateIndexW(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), szkey.into(), ::core::mem::transmute(cbkey), ::core::mem::transmute(ldensity)))
+    ::core::mem::transmute(JetCreateIndexW(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), grbit, szkey.into(), cbkey, ldensity))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7076,7 +7076,7 @@ pub unsafe fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_
     extern "system" {
         fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const i8, szdisplayname: *const i8, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateInstance2A(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCreateInstance2A(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename), ::core::mem::transmute(szdisplayname), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7086,7 +7086,7 @@ pub unsafe fn JetCreateInstance2W(pinstance: *mut super::StructuredStorage::JET_
     extern "system" {
         fn JetCreateInstance2W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const u16, szdisplayname: *const u16, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetCreateInstance2W(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetCreateInstance2W(::core::mem::transmute(pinstance), ::core::mem::transmute(szinstancename), ::core::mem::transmute(szdisplayname), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7119,7 +7119,7 @@ where
     extern "system" {
         fn JetCreateTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(lpages), ::core::mem::transmute(ldensity), ::core::mem::transmute(ptableid)))
+    ::core::mem::transmute(JetCreateTableA(sesid.into(), dbid, ::core::mem::transmute(sztablename), lpages, ldensity, ::core::mem::transmute(ptableid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7132,7 +7132,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndex2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndex2A(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndex2A(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7145,7 +7145,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndex2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndex2W(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndex2W(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7158,7 +7158,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndex3A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndex3A(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndex3A(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7171,7 +7171,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndex3W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndex3W(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndex3W(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7184,7 +7184,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndex4A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndex4A(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndex4A(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7197,7 +7197,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndex4W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndex4W(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndex4W(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7210,7 +7210,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndexA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndexA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndexA(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7223,7 +7223,7 @@ where
     extern "system" {
         fn JetCreateTableColumnIndexW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableColumnIndexW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(ptablecreate)))
+    ::core::mem::transmute(JetCreateTableColumnIndexW(sesid.into(), dbid, ::core::mem::transmute(ptablecreate)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7236,7 +7236,7 @@ where
     extern "system" {
         fn JetCreateTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
     }
-    ::core::mem::transmute(JetCreateTableW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(lpages), ::core::mem::transmute(ldensity), ::core::mem::transmute(ptableid)))
+    ::core::mem::transmute(JetCreateTableW(sesid.into(), dbid, ::core::mem::transmute(sztablename), lpages, ldensity, ::core::mem::transmute(ptableid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7249,7 +7249,7 @@ where
     extern "system" {
         fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDefragment2A(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDefragment2A(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7262,7 +7262,7 @@ where
     extern "system" {
         fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDefragment2W(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDefragment2W(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7275,7 +7275,7 @@ where
     extern "system" {
         fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDefragment3A(sesid.into(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDefragment3A(sesid.into(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7288,7 +7288,7 @@ where
     extern "system" {
         fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDefragment3W(sesid.into(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDefragment3W(sesid.into(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7301,7 +7301,7 @@ where
     extern "system" {
         fn JetDefragmentA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDefragmentA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDefragmentA(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7314,7 +7314,7 @@ where
     extern "system" {
         fn JetDefragmentW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDefragmentW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDefragmentW(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7342,7 +7342,7 @@ where
     extern "system" {
         fn JetDeleteColumn2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDeleteColumn2A(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDeleteColumn2A(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7356,7 +7356,7 @@ where
     extern "system" {
         fn JetDeleteColumn2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDeleteColumn2W(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDeleteColumn2W(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7425,7 +7425,7 @@ where
     extern "system" {
         fn JetDeleteTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8) -> i32;
     }
-    ::core::mem::transmute(JetDeleteTableA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename)))
+    ::core::mem::transmute(JetDeleteTableA(sesid.into(), dbid, ::core::mem::transmute(sztablename)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7438,7 +7438,7 @@ where
     extern "system" {
         fn JetDeleteTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16) -> i32;
     }
-    ::core::mem::transmute(JetDeleteTableW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename)))
+    ::core::mem::transmute(JetDeleteTableW(sesid.into(), dbid, ::core::mem::transmute(sztablename)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7451,7 +7451,7 @@ where
     extern "system" {
         fn JetDetachDatabase2A(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDetachDatabase2A(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDetachDatabase2A(sesid.into(), ::core::mem::transmute(szfilename), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7464,7 +7464,7 @@ where
     extern "system" {
         fn JetDetachDatabase2W(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDetachDatabase2W(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDetachDatabase2W(sesid.into(), ::core::mem::transmute(szfilename), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7504,7 +7504,7 @@ where
     extern "system" {
         fn JetDupCursor(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, ptableid: *mut super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetDupCursor(sesid.into(), tableid.into(), ::core::mem::transmute(ptableid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetDupCursor(sesid.into(), tableid.into(), ::core::mem::transmute(ptableid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7572,7 +7572,7 @@ where
     extern "system" {
         fn JetEndExternalBackupInstance2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetEndExternalBackupInstance2(instance.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetEndExternalBackupInstance2(instance.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7585,7 +7585,7 @@ where
     extern "system" {
         fn JetEndSession(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetEndSession(sesid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetEndSession(sesid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7599,7 +7599,7 @@ where
     extern "system" {
         fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: *mut ::core::ffi::c_void, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetEnumerateColumns(sesid.into(), tableid.into(), rgenumcolumnid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgenumcolumnid)), ::core::mem::transmute(pcenumcolumn), ::core::mem::transmute(prgenumcolumn), ::core::mem::transmute(pfnrealloc), ::core::mem::transmute(pvrealloccontext), ::core::mem::transmute(cbdatamost), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetEnumerateColumns(sesid.into(), tableid.into(), rgenumcolumnid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgenumcolumnid)), ::core::mem::transmute(pcenumcolumn), ::core::mem::transmute(prgenumcolumn), ::core::mem::transmute(pfnrealloc), ::core::mem::transmute(pvrealloccontext), cbdatamost, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7613,7 +7613,7 @@ where
     extern "system" {
         fn JetEscrowUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetEscrowUpdate(sesid.into(), tableid.into(), ::core::mem::transmute(columnid), ::core::mem::transmute(pv), ::core::mem::transmute(cbmax), ::core::mem::transmute(pvold), ::core::mem::transmute(cboldmax), ::core::mem::transmute(pcboldactual), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetEscrowUpdate(sesid.into(), tableid.into(), columnid, ::core::mem::transmute(pv), cbmax, ::core::mem::transmute(pvold), cboldmax, ::core::mem::transmute(pcboldactual), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -7643,7 +7643,7 @@ pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *c
     extern "system" {
         fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(JetExternalRestoreA(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh), ::core::mem::transmute(pfn)))
+    ::core::mem::transmute(JetExternalRestoreA(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), genlow, genhigh, ::core::mem::transmute(pfn)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7653,7 +7653,7 @@ pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *
     extern "system" {
         fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(JetExternalRestoreW(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh), ::core::mem::transmute(pfn)))
+    ::core::mem::transmute(JetExternalRestoreW(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), genlow, genhigh, ::core::mem::transmute(pfn)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -7674,7 +7674,7 @@ pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *m
     extern "system" {
         fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetAttachInfoA(::core::mem::transmute(szzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetAttachInfoA(::core::mem::transmute(szzdatabases), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7687,7 +7687,7 @@ where
     extern "system" {
         fn JetGetAttachInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetAttachInfoInstanceA(instance.into(), ::core::mem::transmute(szzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetAttachInfoInstanceA(instance.into(), ::core::mem::transmute(szzdatabases), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7700,7 +7700,7 @@ where
     extern "system" {
         fn JetGetAttachInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetAttachInfoInstanceW(instance.into(), ::core::mem::transmute(szzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetAttachInfoInstanceW(instance.into(), ::core::mem::transmute(szzdatabases), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -7709,7 +7709,7 @@ pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: 
     extern "system" {
         fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetAttachInfoW(::core::mem::transmute(wszzdatabases), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetAttachInfoW(::core::mem::transmute(wszzdatabases), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7723,7 +7723,7 @@ where
     extern "system" {
         fn JetGetBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7736,7 +7736,7 @@ where
     extern "system" {
         fn JetGetColumnInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetColumnInfoA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcolumnnameorid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetColumnInfoA(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pcolumnnameorid), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7749,7 +7749,7 @@ where
     extern "system" {
         fn JetGetColumnInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetColumnInfoW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pwcolumnnameorid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetColumnInfoW(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pwcolumnnameorid), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7763,7 +7763,7 @@ where
     extern "system" {
         fn JetGetCurrentIndexA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut i8, cbindexname: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetCurrentIndexA(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(cbindexname)))
+    ::core::mem::transmute(JetGetCurrentIndexA(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), cbindexname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7777,7 +7777,7 @@ where
     extern "system" {
         fn JetGetCurrentIndexW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *mut u16, cbindexname: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetCurrentIndexW(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(cbindexname)))
+    ::core::mem::transmute(JetGetCurrentIndexW(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), cbindexname))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7791,7 +7791,7 @@ where
     extern "system" {
         fn JetGetCursorInfo(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetCursorInfo(sesid.into(), tableid.into(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetCursorInfo(sesid.into(), tableid.into(), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -7800,7 +7800,7 @@ pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut 
     extern "system" {
         fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetDatabaseFileInfoA(::core::mem::transmute(szdatabasename), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetDatabaseFileInfoA(::core::mem::transmute(szdatabasename), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -7809,7 +7809,7 @@ pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut
     extern "system" {
         fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetDatabaseFileInfoW(::core::mem::transmute(szdatabasename), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetDatabaseFileInfoW(::core::mem::transmute(szdatabasename), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7822,7 +7822,7 @@ where
     extern "system" {
         fn JetGetDatabaseInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetDatabaseInfoA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetDatabaseInfoA(sesid.into(), dbid, ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7835,7 +7835,7 @@ where
     extern "system" {
         fn JetGetDatabaseInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetDatabaseInfoW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetDatabaseInfoW(sesid.into(), dbid, ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -7844,7 +7844,7 @@ pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: 
     extern "system" {
         fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetErrorInfoW(::core::mem::transmute(pvcontext), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGetErrorInfoW(::core::mem::transmute(pvcontext), ::core::mem::transmute(pvresult), cbmax, infolevel, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7857,7 +7857,7 @@ where
     extern "system" {
         fn JetGetIndexInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetIndexInfoA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetIndexInfoA(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), cbresult, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7870,7 +7870,7 @@ where
     extern "system" {
         fn JetGetIndexInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetIndexInfoW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetIndexInfoW(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), cbresult, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7903,7 +7903,7 @@ where
     extern "system" {
         fn JetGetInstanceMiscInfo(instance: super::StructuredStorage::JET_INSTANCE, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetInstanceMiscInfo(instance.into(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetInstanceMiscInfo(instance.into(), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7917,7 +7917,7 @@ where
     extern "system" {
         fn JetGetLS(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pls: *mut JET_LS, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetLS(sesid.into(), tableid.into(), ::core::mem::transmute(pls), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGetLS(sesid.into(), tableid.into(), ::core::mem::transmute(pls), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7931,7 +7931,7 @@ where
     extern "system" {
         fn JetGetLock(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetLock(sesid.into(), tableid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGetLock(sesid.into(), tableid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -7940,7 +7940,7 @@ pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) 
     extern "system" {
         fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetLogInfoA(::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetLogInfoA(::core::mem::transmute(szzlogs), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -7953,7 +7953,7 @@ where
     extern "system" {
         fn JetGetLogInfoInstance2A(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_A) -> i32;
     }
-    ::core::mem::transmute(JetGetLogInfoInstance2A(instance.into(), ::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual), ::core::mem::transmute(ploginfo)))
+    ::core::mem::transmute(JetGetLogInfoInstance2A(instance.into(), ::core::mem::transmute(szzlogs), cbmax, ::core::mem::transmute(pcbactual), ::core::mem::transmute(ploginfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7966,7 +7966,7 @@ where
     extern "system" {
         fn JetGetLogInfoInstance2W(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_W) -> i32;
     }
-    ::core::mem::transmute(JetGetLogInfoInstance2W(instance.into(), ::core::mem::transmute(wszzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual), ::core::mem::transmute(ploginfo)))
+    ::core::mem::transmute(JetGetLogInfoInstance2W(instance.into(), ::core::mem::transmute(wszzlogs), cbmax, ::core::mem::transmute(pcbactual), ::core::mem::transmute(ploginfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7979,7 +7979,7 @@ where
     extern "system" {
         fn JetGetLogInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetLogInfoInstanceA(instance.into(), ::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetLogInfoInstanceA(instance.into(), ::core::mem::transmute(szzlogs), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -7992,7 +7992,7 @@ where
     extern "system" {
         fn JetGetLogInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetLogInfoInstanceW(instance.into(), ::core::mem::transmute(wszzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetLogInfoInstanceW(instance.into(), ::core::mem::transmute(wszzlogs), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8001,7 +8001,7 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
     extern "system" {
         fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetLogInfoW(::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetLogInfoW(::core::mem::transmute(szzlogs), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8014,7 +8014,7 @@ where
     extern "system" {
         fn JetGetObjectInfoA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetObjectInfoA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(objtyp), ::core::mem::transmute(szcontainername), ::core::mem::transmute(szobjectname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetObjectInfoA(sesid.into(), dbid, objtyp, ::core::mem::transmute(szcontainername), ::core::mem::transmute(szobjectname), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8027,7 +8027,7 @@ where
     extern "system" {
         fn JetGetObjectInfoW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetObjectInfoW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(objtyp), ::core::mem::transmute(szcontainername), ::core::mem::transmute(szobjectname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetObjectInfoW(sesid.into(), dbid, objtyp, ::core::mem::transmute(szcontainername), ::core::mem::transmute(szobjectname), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8041,7 +8041,7 @@ where
     extern "system" {
         fn JetGetRecordPosition(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precpos: *mut JET_RECPOS, cbrecpos: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetRecordPosition(sesid.into(), tableid.into(), ::core::mem::transmute(precpos), ::core::mem::transmute(cbrecpos)))
+    ::core::mem::transmute(JetGetRecordPosition(sesid.into(), tableid.into(), ::core::mem::transmute(precpos), cbrecpos))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8055,7 +8055,7 @@ where
     extern "system" {
         fn JetGetRecordSize(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precsize: *mut JET_RECSIZE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetRecordSize(sesid.into(), tableid.into(), ::core::mem::transmute(precsize), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGetRecordSize(sesid.into(), tableid.into(), ::core::mem::transmute(precsize), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8069,7 +8069,7 @@ where
     extern "system" {
         fn JetGetRecordSize2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, precsize: *mut JET_RECSIZE2, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetRecordSize2(sesid.into(), tableid.into(), ::core::mem::transmute(precsize), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGetRecordSize2(sesid.into(), tableid.into(), ::core::mem::transmute(precsize), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8083,7 +8083,7 @@ where
     extern "system" {
         fn JetGetSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetSecondaryIndexBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvsecondarykey), ::core::mem::transmute(cbsecondarykeymax), ::core::mem::transmute(pcbsecondarykeyactual), ::core::mem::transmute(pvprimarybookmark), ::core::mem::transmute(cbprimarybookmarkmax), ::core::mem::transmute(pcbprimarybookmarkactual), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGetSecondaryIndexBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvsecondarykey), cbsecondarykeymax, ::core::mem::transmute(pcbsecondarykeyactual), ::core::mem::transmute(pvprimarybookmark), cbprimarybookmarkmax, ::core::mem::transmute(pcbprimarybookmarkactual), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8096,7 +8096,7 @@ where
     extern "system" {
         fn JetGetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *mut ::core::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetSessionParameter(sesid.into(), ::core::mem::transmute(sesparamid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvparam)), pvparam.len() as _, ::core::mem::transmute(pcbparamactual)))
+    ::core::mem::transmute(JetGetSessionParameter(sesid.into(), sesparamid, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvparam)), pvparam.len() as _, ::core::mem::transmute(pcbparamactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8110,7 +8110,7 @@ where
     extern "system" {
         fn JetGetSystemParameterA(instance: super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut i8, cbmax: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetSystemParameterA(instance.into(), sesid.into(), ::core::mem::transmute(paramid), ::core::mem::transmute(plparam), ::core::mem::transmute(szparam), ::core::mem::transmute(cbmax)))
+    ::core::mem::transmute(JetGetSystemParameterA(instance.into(), sesid.into(), paramid, ::core::mem::transmute(plparam), ::core::mem::transmute(szparam), cbmax))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8124,7 +8124,7 @@ where
     extern "system" {
         fn JetGetSystemParameterW(instance: super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut u16, cbmax: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetSystemParameterW(instance.into(), sesid.into(), ::core::mem::transmute(paramid), ::core::mem::transmute(plparam), ::core::mem::transmute(szparam), ::core::mem::transmute(cbmax)))
+    ::core::mem::transmute(JetGetSystemParameterW(instance.into(), sesid.into(), paramid, ::core::mem::transmute(plparam), ::core::mem::transmute(szparam), cbmax))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8138,7 +8138,7 @@ where
     extern "system" {
         fn JetGetTableColumnInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTableColumnInfoA(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetTableColumnInfoA(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8152,7 +8152,7 @@ where
     extern "system" {
         fn JetGetTableColumnInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTableColumnInfoW(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetTableColumnInfoW(sesid.into(), tableid.into(), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8166,7 +8166,7 @@ where
     extern "system" {
         fn JetGetTableIndexInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTableIndexInfoA(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetTableIndexInfoA(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), cbresult, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8180,7 +8180,7 @@ where
     extern "system" {
         fn JetGetTableIndexInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTableIndexInfoW(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbresult), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetTableIndexInfoW(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pvresult), cbresult, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8194,7 +8194,7 @@ where
     extern "system" {
         fn JetGetTableInfoA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTableInfoA(sesid.into(), tableid.into(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetTableInfoA(sesid.into(), tableid.into(), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8208,7 +8208,7 @@ where
     extern "system" {
         fn JetGetTableInfoW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTableInfoW(sesid.into(), tableid.into(), ::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax), ::core::mem::transmute(infolevel)))
+    ::core::mem::transmute(JetGetTableInfoW(sesid.into(), tableid.into(), ::core::mem::transmute(pvresult), cbmax, infolevel))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8217,7 +8217,7 @@ pub unsafe fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) 
     extern "system" {
         fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) -> i32;
     }
-    ::core::mem::transmute(JetGetThreadStats(::core::mem::transmute(pvresult), ::core::mem::transmute(cbmax)))
+    ::core::mem::transmute(JetGetThreadStats(::core::mem::transmute(pvresult), cbmax))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8230,7 +8230,7 @@ where
     extern "system" {
         fn JetGetTruncateLogInfoInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTruncateLogInfoInstanceA(instance.into(), ::core::mem::transmute(szzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetTruncateLogInfoInstanceA(instance.into(), ::core::mem::transmute(szzlogs), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8243,7 +8243,7 @@ where
     extern "system" {
         fn JetGetTruncateLogInfoInstanceW(instance: super::StructuredStorage::JET_INSTANCE, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetGetTruncateLogInfoInstanceW(instance.into(), ::core::mem::transmute(wszzlogs), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetGetTruncateLogInfoInstanceW(instance.into(), ::core::mem::transmute(wszzlogs), cbmax, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8270,7 +8270,7 @@ where
     extern "system" {
         fn JetGotoBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32;
     }
-    ::core::mem::transmute(JetGotoBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbbookmark)))
+    ::core::mem::transmute(JetGotoBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), cbbookmark))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8298,7 +8298,7 @@ where
     extern "system" {
         fn JetGotoSecondaryIndexBookmark(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetGotoSecondaryIndexBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvsecondarykey), ::core::mem::transmute(cbsecondarykey), ::core::mem::transmute(pvprimarybookmark), ::core::mem::transmute(cbprimarybookmark), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetGotoSecondaryIndexBookmark(sesid.into(), tableid.into(), ::core::mem::transmute(pvsecondarykey), cbsecondarykey, ::core::mem::transmute(pvprimarybookmark), cbprimarybookmark, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8311,7 +8311,7 @@ where
     extern "system" {
         fn JetGrowDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32;
     }
-    ::core::mem::transmute(JetGrowDatabase(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(cpg), ::core::mem::transmute(pcpgreal)))
+    ::core::mem::transmute(JetGrowDatabase(sesid.into(), dbid, cpg, ::core::mem::transmute(pcpgreal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8324,7 +8324,7 @@ where
     extern "system" {
         fn JetIdle(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetIdle(sesid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetIdle(sesid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8338,7 +8338,7 @@ where
     extern "system" {
         fn JetIndexRecordCount(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pcrec: *mut u32, crecmax: u32) -> i32;
     }
-    ::core::mem::transmute(JetIndexRecordCount(sesid.into(), tableid.into(), ::core::mem::transmute(pcrec), ::core::mem::transmute(crecmax)))
+    ::core::mem::transmute(JetIndexRecordCount(sesid.into(), tableid.into(), ::core::mem::transmute(pcrec), crecmax))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8358,7 +8358,7 @@ pub unsafe fn JetInit2(pinstance: *mut super::StructuredStorage::JET_INSTANCE, g
     extern "system" {
         fn JetInit2(pinstance: *mut super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetInit2(::core::mem::transmute(pinstance), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetInit2(::core::mem::transmute(pinstance), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -8368,7 +8368,7 @@ pub unsafe fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     extern "system" {
         fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const JET_RSTINFO_A, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetInit3A(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetInit3A(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
@@ -8378,7 +8378,7 @@ pub unsafe fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     extern "system" {
         fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const JET_RSTINFO_W, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetInit3W(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetInit3W(::core::mem::transmute(pinstance), ::core::mem::transmute(prstinfo), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8391,7 +8391,7 @@ where
     extern "system" {
         fn JetIntersectIndexes(sesid: super::StructuredStorage::JET_SESID, rgindexrange: *const JET_INDEXRANGE, cindexrange: u32, precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetIntersectIndexes(sesid.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgindexrange)), rgindexrange.len() as _, ::core::mem::transmute(precordlist), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetIntersectIndexes(sesid.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgindexrange)), rgindexrange.len() as _, ::core::mem::transmute(precordlist), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8405,7 +8405,7 @@ where
     extern "system" {
         fn JetMakeKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetMakeKey(sesid.into(), tableid.into(), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetMakeKey(sesid.into(), tableid.into(), ::core::mem::transmute(pvdata), cbdata, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8419,7 +8419,7 @@ where
     extern "system" {
         fn JetMove(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, crow: i32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetMove(sesid.into(), tableid.into(), ::core::mem::transmute(crow), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetMove(sesid.into(), tableid.into(), crow, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8431,7 +8431,7 @@ where
     extern "system" {
         fn JetOSSnapshotAbort(snapid: JET_OSSNAPID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotAbort(snapid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotAbort(snapid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8443,7 +8443,7 @@ where
     extern "system" {
         fn JetOSSnapshotEnd(snapid: JET_OSSNAPID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotEnd(snapid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotEnd(snapid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8456,7 +8456,7 @@ where
     extern "system" {
         fn JetOSSnapshotFreezeA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotFreezeA(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotFreezeA(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8469,7 +8469,7 @@ where
     extern "system" {
         fn JetOSSnapshotFreezeW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotFreezeW(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotFreezeW(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8482,7 +8482,7 @@ where
     extern "system" {
         fn JetOSSnapshotGetFreezeInfoA(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotGetFreezeInfoA(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotGetFreezeInfoA(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8495,7 +8495,7 @@ where
     extern "system" {
         fn JetOSSnapshotGetFreezeInfoW(snapid: JET_OSSNAPID, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotGetFreezeInfoW(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotGetFreezeInfoW(snapid.into(), ::core::mem::transmute(pcinstanceinfo), ::core::mem::transmute(painstanceinfo), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8504,7 +8504,7 @@ pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i3
     extern "system" {
         fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotPrepare(::core::mem::transmute(psnapid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotPrepare(::core::mem::transmute(psnapid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8518,7 +8518,7 @@ where
     extern "system" {
         fn JetOSSnapshotPrepareInstance(snapid: JET_OSSNAPID, instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotPrepareInstance(snapid.into(), instance.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotPrepareInstance(snapid.into(), instance.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8530,7 +8530,7 @@ where
     extern "system" {
         fn JetOSSnapshotThaw(snapid: JET_OSSNAPID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotThaw(snapid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotThaw(snapid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -8542,7 +8542,7 @@ where
     extern "system" {
         fn JetOSSnapshotTruncateLog(snapid: JET_OSSNAPID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotTruncateLog(snapid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotTruncateLog(snapid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8556,7 +8556,7 @@ where
     extern "system" {
         fn JetOSSnapshotTruncateLogInstance(snapid: JET_OSSNAPID, instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOSSnapshotTruncateLogInstance(snapid.into(), instance.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOSSnapshotTruncateLogInstance(snapid.into(), instance.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8569,7 +8569,7 @@ where
     extern "system" {
         fn JetOpenDatabaseA(sesid: super::StructuredStorage::JET_SESID, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOpenDatabaseA(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOpenDatabaseA(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8582,7 +8582,7 @@ where
     extern "system" {
         fn JetOpenDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetOpenDatabaseW(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetOpenDatabaseW(sesid.into(), ::core::mem::transmute(szfilename), ::core::mem::transmute(szconnect), ::core::mem::transmute(pdbid), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8641,7 +8641,7 @@ where
     extern "system" {
         fn JetOpenTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
     }
-    ::core::mem::transmute(JetOpenTableA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pvparameters), ::core::mem::transmute(cbparameters), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid)))
+    ::core::mem::transmute(JetOpenTableA(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pvparameters), cbparameters, grbit, ::core::mem::transmute(ptableid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8654,7 +8654,7 @@ where
     extern "system" {
         fn JetOpenTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
     }
-    ::core::mem::transmute(JetOpenTableW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pvparameters), ::core::mem::transmute(cbparameters), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid)))
+    ::core::mem::transmute(JetOpenTableW(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(pvparameters), cbparameters, grbit, ::core::mem::transmute(ptableid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8667,7 +8667,7 @@ where
     extern "system" {
         fn JetOpenTempTable(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetOpenTempTable(sesid.into(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
+    ::core::mem::transmute(JetOpenTempTable(sesid.into(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), grbit, ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8680,7 +8680,7 @@ where
     extern "system" {
         fn JetOpenTempTable2(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetOpenTempTable2(sesid.into(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(lcid), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
+    ::core::mem::transmute(JetOpenTempTable2(sesid.into(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), lcid, grbit, ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8693,7 +8693,7 @@ where
     extern "system" {
         fn JetOpenTempTable3(sesid: super::StructuredStorage::JET_SESID, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetOpenTempTable3(sesid.into(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(pidxunicode), ::core::mem::transmute(grbit), ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
+    ::core::mem::transmute(JetOpenTempTable3(sesid.into(), ::core::mem::transmute(prgcolumndef), ::core::mem::transmute(ccolumn), ::core::mem::transmute(pidxunicode), grbit, ::core::mem::transmute(ptableid), ::core::mem::transmute(prgcolumnid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8733,7 +8733,7 @@ where
     extern "system" {
         fn JetPrepareUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, prep: u32) -> i32;
     }
-    ::core::mem::transmute(JetPrepareUpdate(sesid.into(), tableid.into(), ::core::mem::transmute(prep)))
+    ::core::mem::transmute(JetPrepareUpdate(sesid.into(), tableid.into(), prep))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8747,7 +8747,7 @@ where
     extern "system" {
         fn JetPrereadIndexRanges(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgindexranges: *const JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *const u32, ccolumnidpreread: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetPrereadIndexRanges(sesid.into(), tableid.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgindexranges)), rgindexranges.len() as _, ::core::mem::transmute(pcrangespreread), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumnidpreread)), rgcolumnidpreread.len() as _, ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetPrereadIndexRanges(sesid.into(), tableid.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgindexranges)), rgindexranges.len() as _, ::core::mem::transmute(pcrangespreread), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumnidpreread)), rgcolumnidpreread.len() as _, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8761,7 +8761,7 @@ where
     extern "system" {
         fn JetPrereadKeys(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetPrereadKeys(sesid.into(), tableid.into(), ::core::mem::transmute(rgpvkeys), ::core::mem::transmute(rgcbkeys), ::core::mem::transmute(ckeys), ::core::mem::transmute(pckeyspreread), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetPrereadKeys(sesid.into(), tableid.into(), ::core::mem::transmute(rgpvkeys), ::core::mem::transmute(rgcbkeys), ::core::mem::transmute(ckeys), ::core::mem::transmute(pckeyspreread), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8774,7 +8774,7 @@ where
     extern "system" {
         fn JetReadFile(hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetReadFile(hffile.into(), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetReadFile(hffile.into(), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8788,7 +8788,7 @@ where
     extern "system" {
         fn JetReadFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetReadFileInstance(instance.into(), hffile.into(), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetReadFileInstance(instance.into(), hffile.into(), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8802,7 +8802,7 @@ where
     extern "system" {
         fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
     }
-    ::core::mem::transmute(JetRegisterCallback(sesid.into(), tableid.into(), ::core::mem::transmute(cbtyp), ::core::mem::transmute(pcallback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(phcallbackid)))
+    ::core::mem::transmute(JetRegisterCallback(sesid.into(), tableid.into(), cbtyp, ::core::mem::transmute(pcallback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(phcallbackid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8816,7 +8816,7 @@ where
     extern "system" {
         fn JetRenameColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetRenameColumnA(sesid.into(), tableid.into(), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetRenameColumnA(sesid.into(), tableid.into(), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8830,7 +8830,7 @@ where
     extern "system" {
         fn JetRenameColumnW(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetRenameColumnW(sesid.into(), tableid.into(), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetRenameColumnW(sesid.into(), tableid.into(), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8843,7 +8843,7 @@ where
     extern "system" {
         fn JetRenameTableA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32;
     }
-    ::core::mem::transmute(JetRenameTableA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew)))
+    ::core::mem::transmute(JetRenameTableA(sesid.into(), dbid, ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8856,7 +8856,7 @@ where
     extern "system" {
         fn JetRenameTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32;
     }
-    ::core::mem::transmute(JetRenameTableW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew)))
+    ::core::mem::transmute(JetRenameTableW(sesid.into(), dbid, ::core::mem::transmute(szname), ::core::mem::transmute(sznamenew)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8883,7 +8883,7 @@ where
     extern "system" {
         fn JetResetTableSequential(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetResetTableSequential(sesid.into(), tableid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetResetTableSequential(sesid.into(), tableid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8896,7 +8896,7 @@ where
     extern "system" {
         fn JetResizeDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetResizeDatabase(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(cpgtarget), ::core::mem::transmute(pcpgactual), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetResizeDatabase(sesid.into(), dbid, cpgtarget, ::core::mem::transmute(pcpgactual), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -8976,7 +8976,7 @@ where
     extern "system" {
         fn JetRetrieveColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32;
     }
-    ::core::mem::transmute(JetRetrieveColumn(sesid.into(), tableid.into(), ::core::mem::transmute(columnid), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(pcbactual), ::core::mem::transmute(grbit), ::core::mem::transmute(pretinfo)))
+    ::core::mem::transmute(JetRetrieveColumn(sesid.into(), tableid.into(), columnid, ::core::mem::transmute(pvdata), cbdata, ::core::mem::transmute(pcbactual), grbit, ::core::mem::transmute(pretinfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9004,7 +9004,7 @@ where
     extern "system" {
         fn JetRetrieveKey(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetRetrieveKey(sesid.into(), tableid.into(), ::core::mem::transmute(pvkey), ::core::mem::transmute(cbmax), ::core::mem::transmute(pcbactual), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetRetrieveKey(sesid.into(), tableid.into(), ::core::mem::transmute(pvkey), cbmax, ::core::mem::transmute(pcbactual), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9017,7 +9017,7 @@ where
     extern "system" {
         fn JetRollback(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetRollback(sesid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetRollback(sesid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9031,7 +9031,7 @@ where
     extern "system" {
         fn JetSeek(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSeek(sesid.into(), tableid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSeek(sesid.into(), tableid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9045,7 +9045,7 @@ where
     extern "system" {
         fn JetSetColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32;
     }
-    ::core::mem::transmute(JetSetColumn(sesid.into(), tableid.into(), ::core::mem::transmute(columnid), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit), ::core::mem::transmute(psetinfo)))
+    ::core::mem::transmute(JetSetColumn(sesid.into(), tableid.into(), columnid, ::core::mem::transmute(pvdata), cbdata, grbit, ::core::mem::transmute(psetinfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9058,7 +9058,7 @@ where
     extern "system" {
         fn JetSetColumnDefaultValueA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetColumnDefaultValueA(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetColumnDefaultValueA(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvdata), cbdata, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9071,7 +9071,7 @@ where
     extern "system" {
         fn JetSetColumnDefaultValueW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetColumnDefaultValueW(sesid.into(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetColumnDefaultValueW(sesid.into(), dbid, ::core::mem::transmute(sztablename), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(pvdata), cbdata, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9099,7 +9099,7 @@ where
     extern "system" {
         fn JetSetCurrentIndex2A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCurrentIndex2A(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetCurrentIndex2A(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9113,7 +9113,7 @@ where
     extern "system" {
         fn JetSetCurrentIndex2W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCurrentIndex2W(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetCurrentIndex2W(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9127,7 +9127,7 @@ where
     extern "system" {
         fn JetSetCurrentIndex3A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, grbit: u32, itagsequence: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCurrentIndex3A(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
+    ::core::mem::transmute(JetSetCurrentIndex3A(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), grbit, itagsequence))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9141,7 +9141,7 @@ where
     extern "system" {
         fn JetSetCurrentIndex3W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCurrentIndex3W(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
+    ::core::mem::transmute(JetSetCurrentIndex3W(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), grbit, itagsequence))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9155,7 +9155,7 @@ where
     extern "system" {
         fn JetSetCurrentIndex4A(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCurrentIndex4A(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pindexid), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
+    ::core::mem::transmute(JetSetCurrentIndex4A(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pindexid), grbit, itagsequence))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9169,7 +9169,7 @@ where
     extern "system" {
         fn JetSetCurrentIndex4W(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szindexname: *const u16, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCurrentIndex4W(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pindexid), ::core::mem::transmute(grbit), ::core::mem::transmute(itagsequence)))
+    ::core::mem::transmute(JetSetCurrentIndex4W(sesid.into(), tableid.into(), ::core::mem::transmute(szindexname), ::core::mem::transmute(pindexid), grbit, itagsequence))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9211,7 +9211,7 @@ where
     extern "system" {
         fn JetSetCursorFilter(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, rgcolumnfilters: *const JET_INDEX_COLUMN, ccolumnfilters: u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetCursorFilter(sesid.into(), tableid.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumnfilters)), rgcolumnfilters.len() as _, ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetCursorFilter(sesid.into(), tableid.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgcolumnfilters)), rgcolumnfilters.len() as _, grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9224,7 +9224,7 @@ where
     extern "system" {
         fn JetSetDatabaseSizeA(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetSetDatabaseSizeA(sesid.into(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(cpg), ::core::mem::transmute(pcpgreal)))
+    ::core::mem::transmute(JetSetDatabaseSizeA(sesid.into(), ::core::mem::transmute(szdatabasename), cpg, ::core::mem::transmute(pcpgreal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9237,7 +9237,7 @@ where
     extern "system" {
         fn JetSetDatabaseSizeW(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetSetDatabaseSizeW(sesid.into(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(cpg), ::core::mem::transmute(pcpgreal)))
+    ::core::mem::transmute(JetSetDatabaseSizeW(sesid.into(), ::core::mem::transmute(szdatabasename), cpg, ::core::mem::transmute(pcpgreal)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9251,7 +9251,7 @@ where
     extern "system" {
         fn JetSetIndexRange(sesid: super::StructuredStorage::JET_SESID, tableidsrc: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetIndexRange(sesid.into(), tableidsrc.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetIndexRange(sesid.into(), tableidsrc.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9266,7 +9266,7 @@ where
     extern "system" {
         fn JetSetLS(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, ls: JET_LS, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetLS(sesid.into(), tableid.into(), ls.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetLS(sesid.into(), tableid.into(), ls.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9293,7 +9293,7 @@ where
     extern "system" {
         fn JetSetSessionParameter(sesid: super::StructuredStorage::JET_SESID, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetSessionParameter(sesid.into(), ::core::mem::transmute(sesparamid), ::core::mem::transmute(pvparam), ::core::mem::transmute(cbparam)))
+    ::core::mem::transmute(JetSetSessionParameter(sesid.into(), sesparamid, ::core::mem::transmute(pvparam), cbparam))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9307,7 +9307,7 @@ where
     extern "system" {
         fn JetSetSystemParameterA(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const i8) -> i32;
     }
-    ::core::mem::transmute(JetSetSystemParameterA(::core::mem::transmute(pinstance), sesid.into(), ::core::mem::transmute(paramid), lparam.into(), ::core::mem::transmute(szparam)))
+    ::core::mem::transmute(JetSetSystemParameterA(::core::mem::transmute(pinstance), sesid.into(), paramid, lparam.into(), ::core::mem::transmute(szparam)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9321,7 +9321,7 @@ where
     extern "system" {
         fn JetSetSystemParameterW(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: super::StructuredStorage::JET_SESID, paramid: u32, lparam: super::StructuredStorage::JET_API_PTR, szparam: *const u16) -> i32;
     }
-    ::core::mem::transmute(JetSetSystemParameterW(::core::mem::transmute(pinstance), sesid.into(), ::core::mem::transmute(paramid), lparam.into(), ::core::mem::transmute(szparam)))
+    ::core::mem::transmute(JetSetSystemParameterW(::core::mem::transmute(pinstance), sesid.into(), paramid, lparam.into(), ::core::mem::transmute(szparam)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9335,7 +9335,7 @@ where
     extern "system" {
         fn JetSetTableSequential(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetSetTableSequential(sesid.into(), tableid.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetSetTableSequential(sesid.into(), tableid.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -9392,7 +9392,7 @@ where
     extern "system" {
         fn JetStopServiceInstance2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetStopServiceInstance2(instance.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetStopServiceInstance2(instance.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9418,7 +9418,7 @@ where
     extern "system" {
         fn JetTerm2(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetTerm2(instance.into(), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetTerm2(instance.into(), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[inline]
@@ -9455,7 +9455,7 @@ where
     extern "system" {
         fn JetUnregisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, hcallbackid: super::StructuredStorage::JET_HANDLE) -> i32;
     }
-    ::core::mem::transmute(JetUnregisterCallback(sesid.into(), tableid.into(), ::core::mem::transmute(cbtyp), hcallbackid.into()))
+    ::core::mem::transmute(JetUnregisterCallback(sesid.into(), tableid.into(), cbtyp, hcallbackid.into()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9469,7 +9469,7 @@ where
     extern "system" {
         fn JetUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32;
     }
-    ::core::mem::transmute(JetUpdate(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pcbactual)))
+    ::core::mem::transmute(JetUpdate(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), cbbookmark, ::core::mem::transmute(pcbactual)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -9483,7 +9483,7 @@ where
     extern "system" {
         fn JetUpdate2(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32;
     }
-    ::core::mem::transmute(JetUpdate2(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), ::core::mem::transmute(cbbookmark), ::core::mem::transmute(pcbactual), ::core::mem::transmute(grbit)))
+    ::core::mem::transmute(JetUpdate2(sesid.into(), tableid.into(), ::core::mem::transmute(pvbookmark), cbbookmark, ::core::mem::transmute(pcbactual), grbit))
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const cColumnInfoCols: u32 = 14u32;

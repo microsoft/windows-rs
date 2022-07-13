@@ -80,7 +80,7 @@ pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASO
     extern "system" {
         fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExitWindowsEx(::core::mem::transmute(uflags), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(ExitWindowsEx(uflags, dwreason))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[inline]
@@ -93,7 +93,7 @@ where
     extern "system" {
         fn InitiateShutdownA(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
     }
-    ::core::mem::transmute(InitiateShutdownA(lpmachinename.into(), lpmessage.into(), ::core::mem::transmute(dwgraceperiod), ::core::mem::transmute(dwshutdownflags), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateShutdownA(lpmachinename.into(), lpmessage.into(), dwgraceperiod, dwshutdownflags, dwreason))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[inline]
@@ -106,7 +106,7 @@ where
     extern "system" {
         fn InitiateShutdownW(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
     }
-    ::core::mem::transmute(InitiateShutdownW(lpmachinename.into(), lpmessage.into(), ::core::mem::transmute(dwgraceperiod), ::core::mem::transmute(dwshutdownflags), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateShutdownW(lpmachinename.into(), lpmessage.into(), dwgraceperiod, dwshutdownflags, dwreason))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -122,7 +122,7 @@ where
     extern "system" {
         fn InitiateSystemShutdownA(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownA(lpmachinename.into(), lpmessage.into(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into()))
+    ::core::mem::transmute(InitiateSystemShutdownA(lpmachinename.into(), lpmessage.into(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -138,7 +138,7 @@ where
     extern "system" {
         fn InitiateSystemShutdownExA(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownExA(lpmachinename.into(), lpmessage.into(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into(), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateSystemShutdownExA(lpmachinename.into(), lpmessage.into(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into(), dwreason))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,7 +154,7 @@ where
     extern "system" {
         fn InitiateSystemShutdownExW(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownExW(lpmachinename.into(), lpmessage.into(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into(), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateSystemShutdownExW(lpmachinename.into(), lpmessage.into(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into(), dwreason))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -170,7 +170,7 @@ where
     extern "system" {
         fn InitiateSystemShutdownW(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownW(lpmachinename.into(), lpmessage.into(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into()))
+    ::core::mem::transmute(InitiateSystemShutdownW(lpmachinename.into(), lpmessage.into(), dwtimeout, bforceappsclosed.into(), brebootaftershutdown.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

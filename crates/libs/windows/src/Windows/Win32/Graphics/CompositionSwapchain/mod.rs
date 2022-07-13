@@ -474,7 +474,7 @@ pub struct IPresentationContent(::windows::core::IUnknown);
 impl IPresentationContent {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetTag(&self, tag: usize) {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tag))
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), tag)
     }
 }
 impl ::core::convert::From<IPresentationContent> for ::windows::core::IUnknown {
@@ -614,7 +614,7 @@ impl IPresentationManager {
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ForceVSyncInterrupt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(forcevsyncinterrupt)).ok()
+        (::windows::core::Interface::vtable(self).ForceVSyncInterrupt)(::windows::core::Interface::as_raw(self), forcevsyncinterrupt).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn Present(&self) -> ::windows::core::Result<()> {
@@ -627,7 +627,7 @@ impl IPresentationManager {
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelPresentsFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presentidtocancelfrom)).ok()
+        (::windows::core::Interface::vtable(self).CancelPresentsFrom)(::windows::core::Interface::as_raw(self), presentidtocancelfrom).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -643,7 +643,7 @@ impl IPresentationManager {
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presentstatisticskind), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), presentstatisticskind, enabled).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
@@ -719,7 +719,7 @@ pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetTag(&self, tag: usize) {
-        (::windows::core::Interface::vtable(self).base__.SetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tag))
+        (::windows::core::Interface::vtable(self).base__.SetTag)(::windows::core::Interface::as_raw(self), tag)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetBuffer<'a, P0>(&self, presentationbuffer: P0) -> ::windows::core::Result<()>
@@ -731,12 +731,12 @@ impl IPresentationSurface {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace)).ok()
+        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), colorspace).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(alphamode)).ok()
+        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), alphamode).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -756,11 +756,11 @@ impl IPresentationSurface {
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetDisableReadback(&self, value: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisableReadback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).SetDisableReadback)(::windows::core::Interface::as_raw(self), value).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLetterboxingMargins)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(leftletterboxsize), ::core::mem::transmute(topletterboxsize), ::core::mem::transmute(rightletterboxsize), ::core::mem::transmute(bottomletterboxsize)).ok()
+        (::windows::core::Interface::vtable(self).SetLetterboxingMargins)(::windows::core::Interface::as_raw(self), leftletterboxsize, topletterboxsize, rightletterboxsize, bottomletterboxsize).ok()
     }
 }
 impl ::core::convert::From<IPresentationSurface> for ::windows::core::IUnknown {
