@@ -24,7 +24,7 @@ macro_rules! w {
                     let mut buffer = [0; OUTPUT_LEN];
                     let mut input_pos = 0;
                     let mut output_pos = 0;
-                    while let Some((mut code_point, new_pos)) = ::windows::core::decode_utf8(INPUT, input_pos) {
+                    while let Some((mut code_point, new_pos)) = ::windows::core::decode_utf8_char(INPUT, input_pos) {
                         input_pos = new_pos;
                         if code_point <= 0xffff {
                             buffer[output_pos] = code_point as u16;
@@ -53,7 +53,7 @@ pub use s;
 pub use w;
 
 #[doc(hidden)]
-pub const fn decode_utf8(bytes: &[u8], mut pos: usize) -> Option<(u32, usize)> {
+pub const fn decode_utf8_char(bytes: &[u8], mut pos: usize) -> Option<(u32, usize)> {
     if bytes.len() == pos {
         return None;
     }
@@ -130,7 +130,7 @@ pub struct HSTRING_HEADER {
 pub const fn utf16_len(bytes: &[u8]) -> usize {
     let mut pos = 0;
     let mut len = 0;
-    while let Some((code_point, new_pos)) = decode_utf8(bytes, pos) {
+    while let Some((code_point, new_pos)) = decode_utf8_char(bytes, pos) {
         pos = new_pos;
         len += if code_point <= 0xffff { 1 } else { 2 };
     }
@@ -143,10 +143,10 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(decode_utf8(b"123", 0), Some((0x31, 1)));
-        assert_eq!(decode_utf8(b"123", 1), Some((0x32, 2)));
-        assert_eq!(decode_utf8(b"123", 2), Some((0x33, 3)));
-        assert_eq!(decode_utf8(b"123", 3), None);
+        assert_eq!(decode_utf8_char(b"123", 0), Some((0x31, 1)));
+        assert_eq!(decode_utf8_char(b"123", 1), Some((0x32, 2)));
+        assert_eq!(decode_utf8_char(b"123", 2), Some((0x33, 3)));
+        assert_eq!(decode_utf8_char(b"123", 3), None);
         assert_eq!(utf16_len(b"123"), 3);
         assert_eq!(utf16_len("α & ω".as_bytes()), 5);
     }

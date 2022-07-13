@@ -43,9 +43,9 @@ fn main() -> Result<()> {
                 // Get the replacement as a widestring and convert to a Rust String
                 let replacement = unsafe { error.Replacement()? };
 
-                println!("Replace: {} with {}", substring, unsafe { replacement.to_string().unwrap() });
+                println!("Replace: {} with {}", substring, unsafe { replacement.display() });
 
-                unsafe { CoTaskMemFree(replacement.0 as *mut _) };
+                unsafe { CoTaskMemFree(replacement.as_ptr() as *mut _) };
             }
             CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
@@ -58,13 +58,13 @@ fn main() -> Result<()> {
                     unsafe {
                         let _ = suggestions.Next(&mut suggestion, std::ptr::null_mut());
                     }
-                    if suggestion[0].0.is_null() {
+                    if suggestion[0].is_null() {
                         break;
                     }
 
-                    println!("Maybe replace: {} with {}", substring, unsafe { suggestion[0].to_string().unwrap() });
+                    println!("Maybe replace: {} with {}", substring, unsafe { suggestion[0].display() });
 
-                    unsafe { CoTaskMemFree(suggestion[0].0 as *mut _) };
+                    unsafe { CoTaskMemFree(suggestion[0].as_ptr() as *mut _) };
                 }
             }
             _ => {}
