@@ -659,11 +659,8 @@ impl IManipulationProcessor {
         (::windows::core::Interface::vtable(self).SupportedManipulations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MANIPULATION_PROCESSOR_MANIPULATIONS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-    pub unsafe fn SetSupportedManipulations<'a, P0>(&self, manipulations: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MANIPULATION_PROCESSOR_MANIPULATIONS>,
-    {
-        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::windows::core::Interface::as_raw(self), manipulations.into()).ok()
+    pub unsafe fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulations)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn PivotPointX(&self) -> ::windows::core::Result<f32> {
@@ -891,16 +888,15 @@ impl ::core::fmt::Debug for REGISTER_TOUCH_WINDOW_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTouchWindow<'a, P0, P1>(hwnd: P0, ulflags: P1) -> super::super::super::Foundation::BOOL
+pub unsafe fn RegisterTouchWindow<'a, P0>(hwnd: P0, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<REGISTER_TOUCH_WINDOW_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterTouchWindow(hwnd.into(), ulflags.into()))
+    ::core::mem::transmute(RegisterTouchWindow(hwnd.into(), ::core::mem::transmute(ulflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -1983,28 +1983,20 @@ impl PhoneCall {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SendDtmfKey<'a, P0, P1>(&self, key: P0, dtmftoneaudioplayback: P1) -> ::windows::core::Result<PhoneCallOperationStatus>
-    where
-        P0: ::std::convert::Into<DtmfKey>,
-        P1: ::std::convert::Into<DtmfToneAudioPlayback>,
-    {
+    pub fn SendDtmfKey(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PhoneCallOperationStatus>::zeroed();
-            (::windows::core::Interface::vtable(this).SendDtmfKey)(::windows::core::Interface::as_raw(this), key.into(), dtmftoneaudioplayback.into(), result__.as_mut_ptr()).from_abi::<PhoneCallOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).SendDtmfKey)(::windows::core::Interface::as_raw(this), key, dtmftoneaudioplayback, result__.as_mut_ptr()).from_abi::<PhoneCallOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendDtmfKeyAsync<'a, P0, P1>(&self, key: P0, dtmftoneaudioplayback: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>
-    where
-        P0: ::std::convert::Into<DtmfKey>,
-        P1: ::std::convert::Into<DtmfToneAudioPlayback>,
-    {
+    pub fn SendDtmfKeyAsync(&self, key: DtmfKey, dtmftoneaudioplayback: DtmfToneAudioPlayback) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendDtmfKeyAsync)(::windows::core::Interface::as_raw(this), key.into(), dtmftoneaudioplayback.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).SendDtmfKeyAsync)(::windows::core::Interface::as_raw(this), key, dtmftoneaudioplayback, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2110,26 +2102,20 @@ impl PhoneCall {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn ChangeAudioDevice<'a, P0>(&self, endpoint: P0) -> ::windows::core::Result<PhoneCallOperationStatus>
-    where
-        P0: ::std::convert::Into<PhoneCallAudioDevice>,
-    {
+    pub fn ChangeAudioDevice(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<PhoneCallOperationStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PhoneCallOperationStatus>::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeAudioDevice)(::windows::core::Interface::as_raw(this), endpoint.into(), result__.as_mut_ptr()).from_abi::<PhoneCallOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).ChangeAudioDevice)(::windows::core::Interface::as_raw(this), endpoint, result__.as_mut_ptr()).from_abi::<PhoneCallOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ChangeAudioDeviceAsync<'a, P0>(&self, endpoint: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>
-    where
-        P0: ::std::convert::Into<PhoneCallAudioDevice>,
-    {
+    pub fn ChangeAudioDeviceAsync(&self, endpoint: PhoneCallAudioDevice) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeAudioDeviceAsync)(::windows::core::Interface::as_raw(this), endpoint.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ChangeAudioDeviceAsync)(::windows::core::Interface::as_raw(this), endpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -2493,12 +2479,9 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetMedia<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallHistoryEntryMedia>,
-    {
+    pub fn SetMedia(&self, value: PhoneCallHistoryEntryMedia) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMedia)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMedia)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
     pub fn OtherAppReadAccess(&self) -> ::windows::core::Result<PhoneCallHistoryEntryOtherAppReadAccess> {
@@ -2509,12 +2492,9 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetOtherAppReadAccess<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallHistoryEntryOtherAppReadAccess>,
-    {
+    pub fn SetOtherAppReadAccess(&self, value: PhoneCallHistoryEntryOtherAppReadAccess) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
     pub fn RemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2565,12 +2545,9 @@ impl PhoneCallHistoryEntry {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetSourceIdKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallHistorySourceIdKind>,
-    {
+    pub fn SetSourceIdKind(&self, value: PhoneCallHistorySourceIdKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourceIdKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourceIdKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2718,22 +2695,18 @@ impl PhoneCallHistoryEntryAddress {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetRawAddressKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallHistoryEntryRawAddressKind>,
-    {
+    pub fn SetRawAddressKind(&self, value: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRawAddressKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRawAddressKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn Create<'a, P0, P1>(rawaddress: P0, rawaddresskind: P1) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>
+    pub fn Create<'a, P0>(rawaddress: P0, rawaddresskind: PhoneCallHistoryEntryRawAddressKind) -> ::windows::core::Result<PhoneCallHistoryEntryAddress>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<PhoneCallHistoryEntryRawAddressKind>,
     {
         Self::IPhoneCallHistoryEntryAddressFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), rawaddress.into().abi(), rawaddresskind.into(), result__.as_mut_ptr()).from_abi::<PhoneCallHistoryEntryAddress>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), rawaddress.into().abi(), rawaddresskind, result__.as_mut_ptr()).from_abi::<PhoneCallHistoryEntryAddress>(result__)
         })
     }
     #[doc(hidden)]
@@ -2956,12 +2929,9 @@ impl PhoneCallHistoryEntryQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetDesiredMedia<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallHistoryEntryQueryDesiredMedia>,
-    {
+    pub fn SetDesiredMedia(&self, value: PhoneCallHistoryEntryQueryDesiredMedia) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredMedia)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredMedia)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3150,13 +3120,10 @@ pub struct PhoneCallHistoryManager;
 impl PhoneCallHistoryManager {
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync<'a, P0>(accesstype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>
-    where
-        P0: ::std::convert::Into<PhoneCallHistoryStoreAccessType>,
-    {
+    pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         Self::IPhoneCallHistoryManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"System\"`*"]
@@ -3190,14 +3157,11 @@ pub struct PhoneCallHistoryManagerForUser(::windows::core::IUnknown);
 impl PhoneCallHistoryManagerForUser {
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync<'a, P0>(&self, accesstype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>
-    where
-        P0: ::std::convert::Into<PhoneCallHistoryStoreAccessType>,
-    {
+    pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"System\"`*"]
@@ -4204,12 +4168,9 @@ impl PhoneDialOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetMedia<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneCallMedia>,
-    {
+    pub fn SetMedia(&self, value: PhoneCallMedia) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMedia)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMedia)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
     pub fn AudioEndpoint(&self) -> ::windows::core::Result<PhoneAudioRoutingEndpoint> {
@@ -4220,12 +4181,9 @@ impl PhoneDialOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetAudioEndpoint<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhoneAudioRoutingEndpoint>,
-    {
+    pub fn SetAudioEndpoint(&self, value: PhoneAudioRoutingEndpoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for PhoneDialOptions {
@@ -4606,14 +4564,11 @@ impl PhoneLineCellularDetails {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn GetNetworkOperatorDisplayText<'a, P0>(&self, location: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<PhoneLineNetworkOperatorDisplayTextLocation>,
-    {
+    pub fn GetNetworkOperatorDisplayText(&self, location: PhoneLineNetworkOperatorDisplayTextLocation) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNetworkOperatorDisplayText)(::windows::core::Interface::as_raw(this), location.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetNetworkOperatorDisplayText)(::windows::core::Interface::as_raw(this), location, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -5106,13 +5061,10 @@ impl PhoneLineTransportDevice {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn GetDeviceSelectorForPhoneLineTransport<'a, P0>(transport: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<PhoneLineTransport>,
-    {
+    pub fn GetDeviceSelectorForPhoneLineTransport(transport: PhoneLineTransport) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneLineTransportDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForPhoneLineTransport)(::windows::core::Interface::as_raw(this), transport.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForPhoneLineTransport)(::windows::core::Interface::as_raw(this), transport, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -5755,7 +5707,7 @@ impl VoipCallCoordinator {
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestNewIncomingCall<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8>(&self, context: P0, contactname: P1, contactnumber: P2, contactimage: P3, servicename: P4, brandingimage: P5, calldetails: P6, ringtone: P7, media: P8, ringtimeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>
+    pub fn RequestNewIncomingCall<'a, P0, P1, P2, P3, P4, P5, P6, P7>(&self, context: P0, contactname: P1, contactnumber: P2, contactimage: P3, servicename: P4, brandingimage: P5, calldetails: P6, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<VoipPhoneCall>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5765,26 +5717,24 @@ impl VoipCallCoordinator {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P8: ::std::convert::Into<VoipPhoneCallMedia>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestNewIncomingCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), contactimage.into().abi(), servicename.into().abi(), brandingimage.into().abi(), calldetails.into().abi(), ringtone.into().abi(), media.into(), ringtimeout, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).RequestNewIncomingCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), contactimage.into().abi(), servicename.into().abi(), brandingimage.into().abi(), calldetails.into().abi(), ringtone.into().abi(), media, ringtimeout, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn RequestNewOutgoingCall<'a, P0, P1, P2, P3>(&self, context: P0, contactname: P1, servicename: P2, media: P3) -> ::windows::core::Result<VoipPhoneCall>
+    pub fn RequestNewOutgoingCall<'a, P0, P1, P2>(&self, context: P0, contactname: P1, servicename: P2, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<VoipPhoneCallMedia>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestNewOutgoingCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), servicename.into().abi(), media.into(), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).RequestNewOutgoingCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), servicename.into().abi(), media, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
@@ -5840,38 +5790,36 @@ impl VoipCallCoordinator {
         unsafe { (::windows::core::Interface::vtable(this).CancelUpgrade)(::windows::core::Interface::as_raw(this), callupgradeguid).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetupNewAcceptedCall<'a, P0, P1, P2, P3, P4>(&self, context: P0, contactname: P1, contactnumber: P2, servicename: P3, media: P4) -> ::windows::core::Result<VoipPhoneCall>
+    pub fn SetupNewAcceptedCall<'a, P0, P1, P2, P3>(&self, context: P0, contactname: P1, contactnumber: P2, servicename: P3, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P4: ::std::convert::Into<VoipPhoneCallMedia>,
     {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetupNewAcceptedCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), servicename.into().abi(), media.into(), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).SetupNewAcceptedCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), servicename.into().abi(), media, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn RequestNewAppInitiatedCall<'a, P0, P1, P2, P3, P4>(&self, context: P0, contactname: P1, contactnumber: P2, servicename: P3, media: P4) -> ::windows::core::Result<VoipPhoneCall>
+    pub fn RequestNewAppInitiatedCall<'a, P0, P1, P2, P3>(&self, context: P0, contactname: P1, contactnumber: P2, servicename: P3, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P4: ::std::convert::Into<VoipPhoneCallMedia>,
     {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestNewAppInitiatedCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), servicename.into().abi(), media.into(), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).RequestNewAppInitiatedCall)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), servicename.into().abi(), media, result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestNewIncomingCallWithContactRemoteId<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(&self, context: P0, contactname: P1, contactnumber: P2, contactimage: P3, servicename: P4, brandingimage: P5, calldetails: P6, ringtone: P7, media: P8, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: P9) -> ::windows::core::Result<VoipPhoneCall>
+    pub fn RequestNewIncomingCallWithContactRemoteId<'a, P0, P1, P2, P3, P4, P5, P6, P7, P8>(&self, context: P0, contactname: P1, contactnumber: P2, contactimage: P3, servicename: P4, brandingimage: P5, calldetails: P6, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: P8) -> ::windows::core::Result<VoipPhoneCall>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5881,13 +5829,12 @@ impl VoipCallCoordinator {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P7: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-        P8: ::std::convert::Into<VoipPhoneCallMedia>,
-        P9: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P8: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestNewIncomingCallWithContactRemoteId)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), contactimage.into().abi(), servicename.into().abi(), brandingimage.into().abi(), calldetails.into().abi(), ringtone.into().abi(), media.into(), ringtimeout, contactremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).RequestNewIncomingCallWithContactRemoteId)(::windows::core::Interface::as_raw(this), context.into().abi(), contactname.into().abi(), contactnumber.into().abi(), contactimage.into().abi(), servicename.into().abi(), brandingimage.into().abi(), calldetails.into().abi(), ringtone.into().abi(), media, ringtimeout, contactremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
@@ -6123,12 +6070,9 @@ impl VoipPhoneCall {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn SetCallMedia<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VoipPhoneCallMedia>,
-    {
+    pub fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCallMedia)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCallMedia)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
     pub fn NotifyCallReady(&self) -> ::windows::core::Result<()> {
@@ -6141,12 +6085,9 @@ impl VoipPhoneCall {
         unsafe { (::windows::core::Interface::vtable(this).TryShowAppUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-    pub fn NotifyCallAccepted<'a, P0>(&self, media: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VoipPhoneCallMedia>,
-    {
+    pub fn NotifyCallAccepted(&self, media: VoipPhoneCallMedia) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVoipPhoneCall3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyCallAccepted)(::windows::core::Interface::as_raw(this), media.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyCallAccepted)(::windows::core::Interface::as_raw(this), media).ok() }
     }
 }
 impl ::core::clone::Clone for VoipPhoneCall {

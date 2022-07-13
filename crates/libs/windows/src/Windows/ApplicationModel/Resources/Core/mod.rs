@@ -894,13 +894,12 @@ impl ResourceContext {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
-    pub fn SetGlobalQualifierValueWithPersistence<'a, P0, P1, P2>(key: P0, value: P1, persistence: P2) -> ::windows::core::Result<()>
+    pub fn SetGlobalQualifierValueWithPersistence<'a, P0, P1>(key: P0, value: P1, persistence: ResourceQualifierPersistence) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<ResourceQualifierPersistence>,
     {
-        Self::IResourceContextStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetGlobalQualifierValueWithPersistence)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), persistence.into()).ok() })
+        Self::IResourceContextStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetGlobalQualifierValueWithPersistence)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), persistence).ok() })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]

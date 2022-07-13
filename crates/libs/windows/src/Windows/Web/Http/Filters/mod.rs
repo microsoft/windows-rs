@@ -168,12 +168,9 @@ impl HttpBaseProtocolFilter {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetMaxVersion<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::HttpVersion>,
-    {
+    pub fn SetMaxVersion(&self, value: super::HttpVersion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxVersion)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn CookieUsageBehavior(&self) -> ::windows::core::Result<HttpCookieUsageBehavior> {
@@ -184,12 +181,9 @@ impl HttpBaseProtocolFilter {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetCookieUsageBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HttpCookieUsageBehavior>,
-    {
+    pub fn SetCookieUsageBehavior(&self, value: HttpCookieUsageBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCookieUsageBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCookieUsageBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -368,12 +362,9 @@ impl HttpCacheControl {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetReadBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HttpCacheReadBehavior>,
-    {
+    pub fn SetReadBehavior(&self, value: HttpCacheReadBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn WriteBehavior(&self) -> ::windows::core::Result<HttpCacheWriteBehavior> {
@@ -384,12 +375,9 @@ impl HttpCacheControl {
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
-    pub fn SetWriteBehavior<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HttpCacheWriteBehavior>,
-    {
+    pub fn SetWriteBehavior(&self, value: HttpCacheWriteBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for HttpCacheControl {

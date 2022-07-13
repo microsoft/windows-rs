@@ -1425,16 +1425,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
-pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, P0, P1>(origin: P0, pname: P1, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32
+pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, P0>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: P0, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32
 where
-    P0: ::std::convert::Into<DFS_NAMESPACE_VERSION_ORIGIN>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: ::windows::core::PCWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
     }
-    ::core::mem::transmute(NetDfsGetSupportedNamespaceVersion(origin.into(), pname.into(), ::core::mem::transmute(ppversioninfo)))
+    ::core::mem::transmute(NetDfsGetSupportedNamespaceVersion(::core::mem::transmute(origin), pname.into(), ::core::mem::transmute(ppversioninfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]

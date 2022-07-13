@@ -195,12 +195,9 @@ impl AppInstallItem {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
-    pub fn SetCompletedInstallToastNotificationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppInstallationToastNotificationMode>,
-    {
+    pub fn SetCompletedInstallToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompletedInstallToastNotificationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompletedInstallToastNotificationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallInProgressToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode> {
@@ -211,12 +208,9 @@ impl AppInstallItem {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
-    pub fn SetInstallInProgressToastNotificationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppInstallationToastNotificationMode>,
-    {
+    pub fn SetInstallInProgressToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallItem5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallInProgressToastNotificationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallInProgressToastNotificationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for AppInstallItem {
@@ -370,12 +364,9 @@ impl AppInstallManager {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
-    pub fn SetAutoUpdateSetting<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoUpdateSetting>,
-    {
+    pub fn SetAutoUpdateSetting(&self, value: AutoUpdateSetting) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSetting)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSetting)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn AcquisitionIdentity(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1160,12 +1151,9 @@ impl AppInstallOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
-    pub fn SetCompletedInstallToastNotificationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppInstallationToastNotificationMode>,
-    {
+    pub fn SetCompletedInstallToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompletedInstallToastNotificationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompletedInstallToastNotificationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallInProgressToastNotificationMode(&self) -> ::windows::core::Result<AppInstallationToastNotificationMode> {
@@ -1176,12 +1164,9 @@ impl AppInstallOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
-    pub fn SetInstallInProgressToastNotificationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AppInstallationToastNotificationMode>,
-    {
+    pub fn SetInstallInProgressToastNotificationMode(&self, value: AppInstallationToastNotificationMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppInstallOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallInProgressToastNotificationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallInProgressToastNotificationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
     pub fn InstallForAllUsers(&self) -> ::windows::core::Result<bool> {

@@ -20,12 +20,9 @@ impl AdvancedPhotoCaptureSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AdvancedPhotoMode>,
-    {
+    pub fn SetMode(&self, value: AdvancedPhotoMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for AdvancedPhotoCaptureSettings {
@@ -258,40 +255,33 @@ impl AudioDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties<'a, P0>(&self, mediastreamtype: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-    {
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties<'a, P0>(&self, mediastreamtype: P0) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-    {
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, P1, E1>(&self, mediastreamtype: P0, mediaencodingproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1101,14 +1091,11 @@ impl CameraOcclusionInfo {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn IsOcclusionKindSupported<'a, P0>(&self, occlusionkind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CameraOcclusionKind>,
-    {
+    pub fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOcclusionKindSupported)(::windows::core::Interface::as_raw(this), occlusionkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOcclusionKindSupported)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
@@ -1239,14 +1226,11 @@ impl CameraOcclusionState {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn IsOcclusionKind<'a, P0>(&self, occlusionkind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CameraOcclusionKind>,
-    {
+    pub fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOcclusionKind)(::windows::core::Interface::as_raw(this), occlusionkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOcclusionKind)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -2182,21 +2166,17 @@ impl DigitalWindowControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Configure<'a, P0>(&self, digitalwindowmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DigitalWindowMode>,
-    {
+    pub fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), digitalwindowmode.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), digitalwindowmode).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn ConfigureWithBounds<'a, P0, P1>(&self, digitalwindowmode: P0, digitalwindowbounds: P1) -> ::windows::core::Result<()>
+    pub fn ConfigureWithBounds<'a, P0>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DigitalWindowMode>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DigitalWindowBounds>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DigitalWindowBounds>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureWithBounds)(::windows::core::Interface::as_raw(this), digitalwindowmode.into(), digitalwindowbounds.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureWithBounds)(::windows::core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2843,26 +2823,20 @@ impl FocusControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPresetAsync<'a, P0>(&self, preset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<FocusPreset>,
-    {
+    pub fn SetPresetAsync(&self, preset: FocusPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPresetWithCompletionOptionAsync<'a, P0>(&self, preset: P0, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<FocusPreset>,
-    {
+    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(::windows::core::Interface::as_raw(this), preset.into(), completebeforefocus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(::windows::core::Interface::as_raw(this), preset, completebeforefocus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -3155,12 +3129,9 @@ impl FocusSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FocusMode>,
-    {
+    pub fn SetMode(&self, value: FocusMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn AutoFocusRange(&self) -> ::windows::core::Result<AutoFocusRange> {
@@ -3171,12 +3142,9 @@ impl FocusSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetAutoFocusRange<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoFocusRange>,
-    {
+    pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoFocusRange)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoFocusRange)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3335,12 +3303,9 @@ impl HdrVideoControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HdrVideoMode>,
-    {
+    pub fn SetMode(&self, value: HdrVideoMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for HdrVideoControl {
@@ -4463,40 +4428,33 @@ pub struct IMediaDeviceController(::windows::core::IUnknown);
 impl IMediaDeviceController {
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties<'a, P0>(&self, mediastreamtype: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-    {
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties<'a, P0>(&self, mediastreamtype: P0) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-    {
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, P1, E1>(&self, mediastreamtype: P0, mediaencodingproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -4983,12 +4941,9 @@ impl InfraredTorchControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetCurrentMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InfraredTorchMode>,
-    {
+    pub fn SetCurrentMode(&self, value: InfraredTorchMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurrentMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurrentMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn MinPower(&self) -> ::windows::core::Result<i32> {
@@ -5157,14 +5112,11 @@ impl IsoSpeedControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetPresetAsync<'a, P0>(&self, preset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<IsoSpeedPreset>,
-    {
+    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -5552,12 +5504,9 @@ impl LowLagPhotoControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetThumbnailFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::MediaThumbnailFormat>,
-    {
+    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn DesiredThumbnailSize(&self) -> ::windows::core::Result<u32> {
@@ -5741,12 +5690,9 @@ impl LowLagPhotoSequenceControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetThumbnailFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::MediaThumbnailFormat>,
-    {
+    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn DesiredThumbnailSize(&self) -> ::windows::core::Result<u32> {
@@ -6000,23 +5946,17 @@ impl MediaDevice {
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn GetDefaultAudioCaptureId<'a, P0>(role: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<AudioDeviceRole>,
-    {
+    pub fn GetDefaultAudioCaptureId(role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAudioCaptureId)(::windows::core::Interface::as_raw(this), role.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAudioCaptureId)(::windows::core::Interface::as_raw(this), role, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn GetDefaultAudioRenderId<'a, P0>(role: P0) -> ::windows::core::Result<::windows::core::HSTRING>
-    where
-        P0: ::std::convert::Into<AudioDeviceRole>,
-    {
+    pub fn GetDefaultAudioRenderId(role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAudioRenderId)(::windows::core::Interface::as_raw(this), role.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAudioRenderId)(::windows::core::Interface::as_raw(this), role, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
@@ -6390,12 +6330,9 @@ impl OpticalImageStabilizationControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<OpticalImageStabilizationMode>,
-    {
+    pub fn SetMode(&self, value: OpticalImageStabilizationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for OpticalImageStabilizationControl {
@@ -6518,12 +6455,9 @@ impl PanelBasedOptimizationControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn SetPanel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Devices::Enumeration::Panel>,
-    {
+    pub fn SetPanel(&self, value: super::super::Devices::Enumeration::Panel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPanel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPanel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for PanelBasedOptimizationControl {
@@ -6624,12 +6558,9 @@ impl PhotoConfirmationControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetPixelFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::MediaPixelFormat>,
-    {
+    pub fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPixelFormat)(::windows::core::Interface::as_raw(this), format.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPixelFormat)(::windows::core::Interface::as_raw(this), format).ok() }
     }
 }
 impl ::core::clone::Clone for PhotoConfirmationControl {
@@ -6927,12 +6858,9 @@ impl RegionOfInterest {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RegionOfInterestType>,
-    {
+    pub fn SetType(&self, value: RegionOfInterestType) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRegionOfInterest2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn BoundsNormalized(&self) -> ::windows::core::Result<bool> {
@@ -7212,14 +7140,11 @@ impl SceneModeControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValueAsync<'a, P0>(&self, scenemode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<CaptureSceneMode>,
-    {
+    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), scenemode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), scenemode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -7601,12 +7526,9 @@ impl VideoDeviceController {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetPrimaryUse<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CaptureUse>,
-    {
+    pub fn SetPrimaryUse(&self, value: CaptureUse) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryUse)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryUse)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Devices_Core\"`*"]
     #[cfg(feature = "Media_Devices_Core")]
@@ -7650,12 +7572,9 @@ impl VideoDeviceController {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetDesiredOptimization<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaCaptureOptimization>,
-    {
+    pub fn SetDesiredOptimization(&self, value: MediaCaptureOptimization) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredOptimization)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredOptimization)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn HdrVideoControl(&self) -> ::windows::core::Result<HdrVideoControl> {
@@ -7770,40 +7689,33 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties<'a, P0>(&self, mediastreamtype: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-    {
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties<'a, P0>(&self, mediastreamtype: P0) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-    {
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, P1, E1>(&self, mediastreamtype: P0, mediaencodingproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::std::convert::Into<super::Capture::MediaStreamType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7896,14 +7808,11 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn TrySetPowerlineFrequency<'a, P0>(&self, value: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<super::Capture::PowerlineFrequency>,
-    {
+    pub fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetPowerlineFrequency)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetPowerlineFrequency)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`*"]
@@ -8185,12 +8094,9 @@ impl VideoTemporalDenoisingControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VideoTemporalDenoisingMode>,
-    {
+    pub fn SetMode(&self, value: VideoTemporalDenoisingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for VideoTemporalDenoisingControl {
@@ -8312,14 +8218,11 @@ impl WhiteBalanceControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPresetAsync<'a, P0>(&self, preset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<ColorTemperaturePreset>,
-    {
+    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8579,12 +8482,9 @@ impl ZoomSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ZoomTransitionMode>,
-    {
+    pub fn SetMode(&self, value: ZoomTransitionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<f32> {

@@ -27,14 +27,13 @@ impl EnhancedWaypoint {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<'a, P0, P1>(point: P0, kind: P1) -> ::windows::core::Result<EnhancedWaypoint>
+    pub fn Create<'a, P0>(point: P0, kind: WaypointKind) -> ::windows::core::Result<EnhancedWaypoint>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-        P1: ::std::convert::Into<WaypointKind>,
     {
         Self::IEnhancedWaypointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), point.into().abi(), kind.into(), result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), point.into().abi(), kind, result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
         })
     }
     #[doc(hidden)]
@@ -1313,14 +1312,13 @@ impl MapLocationFinder {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocationsAtWithAccuracyAsync<'a, P0, P1>(querypoint: P0, accuracy: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAtWithAccuracyAsync<'a, P0>(querypoint: P0, accuracy: MapLocationDesiredAccuracy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-        P1: ::std::convert::Into<MapLocationDesiredAccuracy>,
     {
         Self::IMapLocationFinderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(::windows::core::Interface::as_raw(this), querypoint.into().abi(), accuracy.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(::windows::core::Interface::as_raw(this), querypoint.into().abi(), accuracy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1755,12 +1753,9 @@ impl MapRouteDrivingOptions {
         }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetRouteOptimization<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MapRouteOptimization>,
-    {
+    pub fn SetRouteOptimization(&self, value: MapRouteOptimization) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRouteOptimization)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRouteOptimization)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn RouteRestrictions(&self) -> ::windows::core::Result<MapRouteRestrictions> {
@@ -1771,12 +1766,9 @@ impl MapRouteDrivingOptions {
         }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetRouteRestrictions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MapRouteRestrictions>,
-    {
+    pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRouteRestrictions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRouteRestrictions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1877,43 +1869,38 @@ impl MapRouteFinder {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptimizationAsync<'a, P0, P1, P2>(startpoint: P0, endpoint: P1, optimization: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationAsync<'a, P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-        P2: ::std::convert::Into<MapRouteOptimization>,
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<'a, P0, P1, P2, P3>(startpoint: P0, endpoint: P1, optimization: P2, restrictions: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<'a, P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-        P2: ::std::convert::Into<MapRouteOptimization>,
-        P3: ::std::convert::Into<MapRouteRestrictions>,
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization.into(), restrictions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization, restrictions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<'a, P0, P1, P2, P3>(startpoint: P0, endpoint: P1, optimization: P2, restrictions: P3, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<'a, P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-        P2: ::std::convert::Into<MapRouteOptimization>,
-        P3: ::std::convert::Into<MapRouteRestrictions>,
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization.into(), restrictions.into(), headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -1930,43 +1917,38 @@ impl MapRouteFinder {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<'a, P0, E0, P1>(waypoints: P0, optimization: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<'a, P0, E0>(waypoints: P0, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<MapRouteOptimization>,
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<'a, P0, E0, P1, P2>(waypoints: P0, optimization: P1, restrictions: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<'a, P0, E0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<MapRouteOptimization>,
-        P2: ::std::convert::Into<MapRouteRestrictions>,
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization.into(), restrictions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, restrictions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<'a, P0, E0, P1, P2>(waypoints: P0, optimization: P1, restrictions: P2, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<'a, P0, E0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<MapRouteOptimization>,
-        P2: ::std::convert::Into<MapRouteRestrictions>,
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization.into(), restrictions.into(), headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -2653,11 +2635,8 @@ impl MapService {
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetDataUsagePreference<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MapServiceDataUsagePreference>,
-    {
-        Self::IMapServiceStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetDataUsagePreference)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> ::windows::core::Result<()> {
+        Self::IMapServiceStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetDataUsagePreference)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn DataUsagePreference() -> ::windows::core::Result<MapServiceDataUsagePreference> {
@@ -2736,12 +2715,9 @@ impl PlaceInfo {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowWithPreferredPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::UI::Popups::Placement>,
-    {
+    pub fn ShowWithPreferredPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowWithPreferredPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowWithPreferredPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn Identifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {

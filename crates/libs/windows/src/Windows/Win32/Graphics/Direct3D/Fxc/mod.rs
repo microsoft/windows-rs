@@ -240,16 +240,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DGetBlobPart<'a, P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: P0, flags: u32) -> ::windows::core::Result<super::ID3DBlob>
-where
-    P0: ::std::convert::Into<D3D_BLOB_PART>,
-{
+pub unsafe fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3DGetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, pppart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    D3DGetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), part.into(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::ID3DBlob>(result__)
+    D3DGetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::ID3DBlob>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
@@ -357,16 +354,13 @@ pub unsafe fn D3DReflectLibrary(psrcdata: *const ::core::ffi::c_void, srcdatasiz
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]
-pub unsafe fn D3DSetBlobPart<'a, P0>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: P0, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize) -> ::windows::core::Result<super::ID3DBlob>
-where
-    P0: ::std::convert::Into<D3D_BLOB_PART>,
-{
+pub unsafe fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize) -> ::windows::core::Result<super::ID3DBlob> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3DSetBlobPart(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::core::ffi::c_void, partsize: usize, ppnewshader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    D3DSetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), part.into(), ::core::mem::transmute(flags), ::core::mem::transmute(ppart), ::core::mem::transmute(partsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::ID3DBlob>(result__)
+    D3DSetBlobPart(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ::core::mem::transmute(part), ::core::mem::transmute(flags), ::core::mem::transmute(ppart), ::core::mem::transmute(partsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::ID3DBlob>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[inline]

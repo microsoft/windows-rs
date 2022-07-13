@@ -287,12 +287,9 @@ impl CoreTextEditContext {
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
-    pub fn SetInputScope<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreTextInputScope>,
-    {
+    pub fn SetInputScope(&self, value: CoreTextInputScope) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
@@ -316,12 +313,9 @@ impl CoreTextEditContext {
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
-    pub fn SetInputPaneDisplayPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreTextInputPaneDisplayPolicy>,
-    {
+    pub fn SetInputPaneDisplayPolicy(&self, value: CoreTextInputPaneDisplayPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputPaneDisplayPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputPaneDisplayPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -656,12 +650,9 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
-    pub fn SetResult<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreTextFormatUpdatingResult>,
-    {
+    pub fn SetResult(&self, value: CoreTextFormatUpdatingResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
@@ -1458,12 +1449,9 @@ impl CoreTextSelectionUpdatingEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
-    pub fn SetResult<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreTextSelectionUpdatingResult>,
-    {
+    pub fn SetResult(&self, value: CoreTextSelectionUpdatingResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
@@ -1941,12 +1929,9 @@ impl CoreTextTextUpdatingEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
-    pub fn SetResult<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreTextTextUpdatingResult>,
-    {
+    pub fn SetResult(&self, value: CoreTextTextUpdatingResult) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResult)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {

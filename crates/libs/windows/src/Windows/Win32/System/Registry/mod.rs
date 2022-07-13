@@ -2405,72 +2405,64 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyExA<'a, P0, P1, P2, P3, P4>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: P3, samdesired: P4, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyExA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<REG_OPEN_CREATE_OPTIONS>,
-    P4: ::std::convert::Into<REG_SAM_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegCreateKeyExA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, reserved: u32, lpclass: ::windows::core::PCSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegCreateKeyExA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), dwoptions.into(), samdesired.into(), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition)))
+    ::core::mem::transmute(RegCreateKeyExA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyExW<'a, P0, P1, P2, P3, P4>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: P3, samdesired: P4, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyExW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<REG_OPEN_CREATE_OPTIONS>,
-    P4: ::std::convert::Into<REG_SAM_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegCreateKeyExW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, reserved: u32, lpclass: ::windows::core::PCWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegCreateKeyExW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), dwoptions.into(), samdesired.into(), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition)))
+    ::core::mem::transmute(RegCreateKeyExW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedA<'a, P0, P1, P2, P3, P4, P5>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: P3, samdesired: P4, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: P5, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedA<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: P3, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<REG_OPEN_CREATE_OPTIONS>,
-    P4: ::std::convert::Into<REG_SAM_FLAGS>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegCreateKeyTransactedA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, reserved: u32, lpclass: ::windows::core::PCSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegCreateKeyTransactedA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), dwoptions.into(), samdesired.into(), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
+    ::core::mem::transmute(RegCreateKeyTransactedA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedW<'a, P0, P1, P2, P3, P4, P5>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: P3, samdesired: P4, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: P5, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedW<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: P3, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<REG_OPEN_CREATE_OPTIONS>,
-    P4: ::std::convert::Into<REG_SAM_FLAGS>,
-    P5: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegCreateKeyTransactedW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, reserved: u32, lpclass: ::windows::core::PCWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegCreateKeyTransactedW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), dwoptions.into(), samdesired.into(), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
+    ::core::mem::transmute(RegCreateKeyTransactedW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(reserved), lpclass.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(phkresult), ::core::mem::transmute(lpdwdisposition), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2811,34 +2803,32 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegGetValueA<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: P3, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegGetValueA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<RRF_RT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegGetValueA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, lpvalue: ::windows::core::PCSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegGetValueA(hkey.into(), lpsubkey.into(), lpvalue.into(), dwflags.into(), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata), ::core::mem::transmute(pcbdata)))
+    ::core::mem::transmute(RegGetValueA(hkey.into(), lpsubkey.into(), lpvalue.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata), ::core::mem::transmute(pcbdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegGetValueW<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: P3, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegGetValueW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<RRF_RT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegGetValueW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, lpvalue: ::windows::core::PCWSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegGetValueW(hkey.into(), lpsubkey.into(), lpvalue.into(), dwflags.into(), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata), ::core::mem::transmute(pcbdata)))
+    ::core::mem::transmute(RegGetValueW(hkey.into(), lpsubkey.into(), lpvalue.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata), ::core::mem::transmute(pcbdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2929,19 +2919,18 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegNotifyChangeKeyValue<'a, P0, P1, P2, P3, P4>(hkey: P0, bwatchsubtree: P1, dwnotifyfilter: P2, hevent: P3, fasynchronous: P4) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegNotifyChangeKeyValue<'a, P0, P1, P2, P3>(hkey: P0, bwatchsubtree: P1, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: P2, fasynchronous: P3) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<REG_NOTIFY_FILTER>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P4: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegNotifyChangeKeyValue(hkey: HKEY, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: super::super::Foundation::HANDLE, fasynchronous: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegNotifyChangeKeyValue(hkey.into(), bwatchsubtree.into(), dwnotifyfilter.into(), hevent.into(), fasynchronous.into()))
+    ::core::mem::transmute(RegNotifyChangeKeyValue(hkey.into(), bwatchsubtree.into(), ::core::mem::transmute(dwnotifyfilter), hevent.into(), fasynchronous.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2970,64 +2959,60 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegOpenKeyExA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: P2, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyExA<'a, P0, P1>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<REG_SAM_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegOpenKeyExA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegOpenKeyExA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), samdesired.into(), ::core::mem::transmute(phkresult)))
+    ::core::mem::transmute(RegOpenKeyExA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(phkresult)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegOpenKeyExW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: P2, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyExW<'a, P0, P1>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<REG_SAM_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegOpenKeyExW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegOpenKeyExW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), samdesired.into(), ::core::mem::transmute(phkresult)))
+    ::core::mem::transmute(RegOpenKeyExW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(phkresult)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegOpenKeyTransactedA<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: P2, phkresult: *mut HKEY, htransaction: P3, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<REG_SAM_FLAGS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegOpenKeyTransactedA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegOpenKeyTransactedA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), samdesired.into(), ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
+    ::core::mem::transmute(RegOpenKeyTransactedA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegOpenKeyTransactedW<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: P2, phkresult: *mut HKEY, htransaction: P3, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<REG_SAM_FLAGS>,
-    P3: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegOpenKeyTransactedW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegOpenKeyTransactedW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), samdesired.into(), ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
+    ::core::mem::transmute(RegOpenKeyTransactedW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(uloptions), ::core::mem::transmute(samdesired), ::core::mem::transmute(phkresult), htransaction.into(), ::core::mem::transmute(pextendedparemeter)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3241,32 +3226,30 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegRestoreKeyA<'a, P0, P1, P2>(hkey: P0, lpfile: P1, dwflags: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegRestoreKeyA<'a, P0, P1>(hkey: P0, lpfile: P1, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<REG_RESTORE_KEY_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegRestoreKeyA(hkey: HKEY, lpfile: ::windows::core::PCSTR, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegRestoreKeyA(hkey.into(), lpfile.into(), dwflags.into()))
+    ::core::mem::transmute(RegRestoreKeyA(hkey.into(), lpfile.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegRestoreKeyW<'a, P0, P1, P2>(hkey: P0, lpfile: P1, dwflags: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegRestoreKeyW<'a, P0, P1>(hkey: P0, lpfile: P1, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<REG_RESTORE_KEY_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegRestoreKeyW(hkey: HKEY, lpfile: ::windows::core::PCWSTR, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegRestoreKeyW(hkey.into(), lpfile.into(), dwflags.into()))
+    ::core::mem::transmute(RegRestoreKeyW(hkey.into(), lpfile.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3285,32 +3268,30 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegSaveKeyExA<'a, P0, P1, P2>(hkey: P0, lpfile: P1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSaveKeyExA<'a, P0, P1>(hkey: P0, lpfile: P1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<REG_SAVE_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegSaveKeyExA(hkey: HKEY, lpfile: ::windows::core::PCSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegSaveKeyExA(hkey.into(), lpfile.into(), ::core::mem::transmute(lpsecurityattributes), flags.into()))
+    ::core::mem::transmute(RegSaveKeyExA(hkey.into(), lpfile.into(), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RegSaveKeyExW<'a, P0, P1, P2>(hkey: P0, lpfile: P1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSaveKeyExW<'a, P0, P1>(hkey: P0, lpfile: P1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<REG_SAVE_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegSaveKeyExW(hkey: HKEY, lpfile: ::windows::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegSaveKeyExW(hkey.into(), lpfile.into(), ::core::mem::transmute(lpsecurityattributes), flags.into()))
+    ::core::mem::transmute(RegSaveKeyExW(hkey.into(), lpfile.into(), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -3373,64 +3354,60 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegSetValueA<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, dwtype: P2, lpdata: P3, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSetValueA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, dwtype: REG_VALUE_TYPE, lpdata: P2, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<REG_VALUE_TYPE>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegSetValueA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, dwtype: REG_VALUE_TYPE, lpdata: ::windows::core::PCSTR, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegSetValueA(hkey.into(), lpsubkey.into(), dwtype.into(), lpdata.into(), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(RegSetValueA(hkey.into(), lpsubkey.into(), ::core::mem::transmute(dwtype), lpdata.into(), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegSetValueExA<'a, P0, P1, P2>(hkey: P0, lpvaluename: P1, reserved: u32, dwtype: P2, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSetValueExA<'a, P0, P1>(hkey: P0, lpvaluename: P1, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<REG_VALUE_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegSetValueExA(hkey: HKEY, lpvaluename: ::windows::core::PCSTR, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegSetValueExA(hkey.into(), lpvaluename.into(), ::core::mem::transmute(reserved), dwtype.into(), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(RegSetValueExA(hkey.into(), lpvaluename.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(dwtype), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegSetValueExW<'a, P0, P1, P2>(hkey: P0, lpvaluename: P1, reserved: u32, dwtype: P2, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSetValueExW<'a, P0, P1>(hkey: P0, lpvaluename: P1, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<REG_VALUE_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegSetValueExW(hkey: HKEY, lpvaluename: ::windows::core::PCWSTR, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegSetValueExW(hkey.into(), lpvaluename.into(), ::core::mem::transmute(reserved), dwtype.into(), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(RegSetValueExW(hkey.into(), lpvaluename.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(dwtype), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegSetValueW<'a, P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, dwtype: P2, lpdata: P3, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSetValueW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, dwtype: REG_VALUE_TYPE, lpdata: P2, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<REG_VALUE_TYPE>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegSetValueW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, dwtype: REG_VALUE_TYPE, lpdata: ::windows::core::PCWSTR, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    ::core::mem::transmute(RegSetValueW(hkey.into(), lpsubkey.into(), dwtype.into(), lpdata.into(), ::core::mem::transmute(cbdata)))
+    ::core::mem::transmute(RegSetValueW(hkey.into(), lpsubkey.into(), ::core::mem::transmute(dwtype), lpdata.into(), ::core::mem::transmute(cbdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

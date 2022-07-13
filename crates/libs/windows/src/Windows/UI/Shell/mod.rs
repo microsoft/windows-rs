@@ -368,37 +368,30 @@ impl SecurityAppManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Register<'a, P0, P1, P2>(&self, kind: P0, displayname: P1, detailsuri: P2, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID>
+    pub fn Register<'a, P0, P1>(&self, kind: SecurityAppKind, displayname: P0, detailsuri: P1, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID>
     where
-        P0: ::std::convert::Into<SecurityAppKind>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), kind.into(), displayname.into().abi(), detailsuri.into().abi(), registerperuser, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), kind, displayname.into().abi(), detailsuri.into().abi(), registerperuser, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn Unregister<'a, P0>(&self, kind: P0, guidregistration: ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SecurityAppKind>,
-    {
+    pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind.into(), guidregistration).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind, guidregistration).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateState<'a, P0, P1, P2, P3>(&self, kind: P0, guidregistration: ::windows::core::GUID, state: P1, substatus: P2, detailsuri: P3) -> ::windows::core::Result<()>
+    pub fn UpdateState<'a, P0>(&self, kind: SecurityAppKind, guidregistration: ::windows::core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SecurityAppKind>,
-        P1: ::std::convert::Into<SecurityAppState>,
-        P2: ::std::convert::Into<SecurityAppSubstatus>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind.into(), guidregistration, state.into(), substatus.into(), detailsuri.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind, guidregistration, state, substatus, detailsuri.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for SecurityAppManager {
@@ -589,12 +582,9 @@ impl ShareWindowCommandEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn SetCommand<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ShareWindowCommand>,
-    {
+    pub fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ShareWindowCommandEventArgs {

@@ -1958,15 +1958,12 @@ pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]
-pub unsafe fn EapHostPeerGetAuthStatus<'a, P0>(sessionhandle: u32, authparam: P0, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P0: ::std::convert::Into<EapHostPeerAuthParams>,
-{
+pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPeerAuthParams, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPeerAuthParams, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32;
     }
-    ::core::mem::transmute(EapHostPeerGetAuthStatus(::core::mem::transmute(sessionhandle), authparam.into(), ::core::mem::transmute(pcbauthdata), ::core::mem::transmute(ppauthdata), ::core::mem::transmute(ppeaperror)))
+    ::core::mem::transmute(EapHostPeerGetAuthStatus(::core::mem::transmute(sessionhandle), ::core::mem::transmute(authparam), ::core::mem::transmute(pcbauthdata), ::core::mem::transmute(ppauthdata), ::core::mem::transmute(ppeaperror)))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2052,15 +2049,12 @@ pub unsafe fn EapHostPeerGetResponseAttributes(sessionhandle: u32, pattribs: *mu
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EapHostPeerGetResult<'a, P0>(sessionhandle: u32, reason: P0, ppresult: *mut EapHostPeerMethodResult, ppeaperror: *mut *mut EAP_ERROR) -> u32
-where
-    P0: ::std::convert::Into<EapHostPeerMethodResultReason>,
-{
+pub unsafe fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethodResultReason, ppresult: *mut EapHostPeerMethodResult, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EapHostPeerGetResult(sessionhandle: u32, reason: EapHostPeerMethodResultReason, ppresult: *mut EapHostPeerMethodResult, ppeaperror: *mut *mut EAP_ERROR) -> u32;
     }
-    ::core::mem::transmute(EapHostPeerGetResult(::core::mem::transmute(sessionhandle), reason.into(), ::core::mem::transmute(ppresult), ::core::mem::transmute(ppeaperror)))
+    ::core::mem::transmute(EapHostPeerGetResult(::core::mem::transmute(sessionhandle), ::core::mem::transmute(reason), ::core::mem::transmute(ppresult), ::core::mem::transmute(ppeaperror)))
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 #[inline]

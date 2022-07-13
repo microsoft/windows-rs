@@ -342,12 +342,9 @@ impl RatedContentDescription {
         }
     }
     #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
-    pub fn SetCategory<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RatedContentCategory>,
-    {
+    pub fn SetCategory(&self, value: RatedContentCategory) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCategory)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCategory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_ContentRestrictions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -369,15 +366,14 @@ impl RatedContentDescription {
         unsafe { (::windows::core::Interface::vtable(this).SetRatings)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
-    pub fn Create<'a, P0, P1, P2>(id: P0, title: P1, category: P2) -> ::windows::core::Result<RatedContentDescription>
+    pub fn Create<'a, P0, P1>(id: P0, title: P1, category: RatedContentCategory) -> ::windows::core::Result<RatedContentDescription>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<RatedContentCategory>,
     {
         Self::IRatedContentDescriptionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), title.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<RatedContentDescription>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), title.into().abi(), category, result__.as_mut_ptr()).from_abi::<RatedContentDescription>(result__)
         })
     }
     #[doc(hidden)]

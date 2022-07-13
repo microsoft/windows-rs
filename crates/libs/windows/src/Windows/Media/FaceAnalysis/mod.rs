@@ -150,13 +150,10 @@ impl FaceDetector {
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported<'a, P0>(bitmappixelformat: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Imaging::BitmapPixelFormat>,
-    {
+    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`*"]
@@ -298,13 +295,10 @@ impl FaceTracker {
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported<'a, P0>(bitmappixelformat: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<super::super::Graphics::Imaging::BitmapPixelFormat>,
-    {
+    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBitmapPixelFormatSupported)(::windows::core::Interface::as_raw(this), bitmappixelformat, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_FaceAnalysis\"`*"]

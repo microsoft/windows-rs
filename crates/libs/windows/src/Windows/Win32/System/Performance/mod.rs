@@ -779,11 +779,8 @@ impl IAlertDataCollector {
         (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetFileNameFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1161,11 +1158,8 @@ impl IApiTracingDataCollector {
         (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetFileNameFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1526,11 +1520,8 @@ impl IConfigurationDataCollector {
         (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetFileNameFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2051,12 +2042,9 @@ impl ICounterItem2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDataAt<'a, P0>(&self, iindex: i32, iwhich: P0) -> ::windows::core::Result<super::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<SysmonDataType>,
-    {
+    pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), iwhich.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<ICounterItem2> for ::windows::core::IUnknown {
@@ -2291,11 +2279,8 @@ impl IDataCollector {
         (::windows::core::Interface::vtable(self).FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetFileNameFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).SetFileNameFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2600,12 +2585,9 @@ impl IDataCollectorCollection {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDataCollector<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<IDataCollector>
-    where
-        P0: ::std::convert::Into<DataCollectorType>,
-    {
+    pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDataCollector)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDataCollector>(result__)
+        (::windows::core::Interface::vtable(self).CreateDataCollector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDataCollector>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2881,11 +2863,8 @@ impl IDataCollectorSet {
         (::windows::core::Interface::vtable(self).SubdirectoryFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetSubdirectoryFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).SetSubdirectoryFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSubdirectoryFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3028,14 +3007,13 @@ impl IDataCollectorSet {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Commit<'a, P0, P1, P2>(&self, name: P0, server: P1, mode: P2) -> ::windows::core::Result<IValueMap>
+    pub unsafe fn Commit<'a, P0, P1>(&self, name: P0, server: P1, mode: CommitMode) -> ::windows::core::Result<IValueMap>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<CommitMode>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), name.into().abi(), server.into().abi(), mode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), name.into().abi(), server.into().abi(), ::core::mem::transmute(mode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -3528,11 +3506,8 @@ impl IDataManager {
         (::windows::core::Interface::vtable(self).ResourcePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ResourcePolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetResourcePolicy<'a, P0>(&self, policy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ResourcePolicy>,
-    {
-        (::windows::core::Interface::vtable(self).SetResourcePolicy)(::windows::core::Interface::as_raw(self), policy.into()).ok()
+    pub unsafe fn SetResourcePolicy(&self, policy: ResourcePolicy) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResourcePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3612,13 +3587,12 @@ impl IDataManager {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Run<'a, P0, P1>(&self, steps: P0, bstrfolder: P1) -> ::windows::core::Result<IValueMap>
+    pub unsafe fn Run<'a, P0>(&self, steps: DataManagerSteps, bstrfolder: P0) -> ::windows::core::Result<IValueMap>
     where
-        P0: ::std::convert::Into<DataManagerSteps>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), steps.into(), bstrfolder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(steps), bstrfolder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3791,11 +3765,8 @@ impl IFolderAction {
         (::windows::core::Interface::vtable(self).Actions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FolderActionSteps>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetActions<'a, P0>(&self, steps: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FolderActionSteps>,
-    {
-        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), steps.into()).ok()
+    pub unsafe fn SetActions(&self, steps: FolderActionSteps) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(steps)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4267,11 +4238,8 @@ impl IPerformanceCounterDataCollector {
         (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetFileNameFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4409,11 +4377,8 @@ impl IPerformanceCounterDataCollector {
         (::windows::core::Interface::vtable(self).LogFileFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FileFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetLogFileFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FileFormat>,
-    {
-        (::windows::core::Interface::vtable(self).SetLogFileFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetLogFileFormat(&self, format: FileFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLogFileFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SampleInterval(&self) -> ::windows::core::Result<u32> {
@@ -4595,11 +4560,8 @@ impl ISchedule {
         (::windows::core::Interface::vtable(self).Days)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WeekDays>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDays<'a, P0>(&self, days: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WeekDays>,
-    {
-        (::windows::core::Interface::vtable(self).SetDays)(::windows::core::Interface::as_raw(self), days.into()).ok()
+    pub unsafe fn SetDays(&self, days: WeekDays) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDays)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4978,11 +4940,8 @@ impl ISystemMonitor {
         (::windows::core::Interface::vtable(self).UpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDisplayType<'a, P0>(&self, edisplaytype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), edisplaytype.into()).ok()
+    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
@@ -5162,11 +5121,8 @@ impl ISystemMonitor {
         (::windows::core::Interface::vtable(self).ReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetReportValueType<'a, P0>(&self, ereportvaluetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ReportValueTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ereportvaluetype.into()).ok()
+    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
@@ -5198,11 +5154,8 @@ impl ISystemMonitor {
         (::windows::core::Interface::vtable(self).LogFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILogFiles>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDataSourceType<'a, P0>(&self, edatasourcetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DataSourceTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), edatasourcetype.into()).ok()
+    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
@@ -5532,11 +5485,8 @@ impl ISystemMonitor2 {
         (::windows::core::Interface::vtable(self).base__.UpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDisplayType<'a, P0>(&self, edisplaytype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayType)(::windows::core::Interface::as_raw(self), edisplaytype.into()).ok()
+    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
@@ -5716,11 +5666,8 @@ impl ISystemMonitor2 {
         (::windows::core::Interface::vtable(self).base__.ReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetReportValueType<'a, P0>(&self, ereportvaluetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ReportValueTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetReportValueType)(::windows::core::Interface::as_raw(self), ereportvaluetype.into()).ok()
+    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
@@ -5752,11 +5699,8 @@ impl ISystemMonitor2 {
         (::windows::core::Interface::vtable(self).base__.LogFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILogFiles>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDataSourceType<'a, P0>(&self, edatasourcetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DataSourceTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetDataSourceType)(::windows::core::Interface::as_raw(self), edatasourcetype.into()).ok()
+    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
@@ -5842,21 +5786,19 @@ impl ISystemMonitor2 {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SaveAs<'a, P0, P1>(&self, bstrfilename: P0, esysmonfiletype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SaveAs<'a, P0>(&self, bstrfilename: P0, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<SysmonFileType>,
     {
-        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype.into()).ok()
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Relog<'a, P0, P1>(&self, bstrfilename: P0, esysmonfiletype: P1, ifilter: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Relog<'a, P0>(&self, bstrfilename: P0, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<SysmonFileType>,
     {
-        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype.into(), ::core::mem::transmute(ifilter)).ok()
+        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClearData(&self) -> ::windows::core::Result<()> {
@@ -5881,11 +5823,8 @@ impl ISystemMonitor2 {
         (::windows::core::Interface::vtable(self).GetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn BatchingLock<'a, P0>(&self, flock: i16, ebatchreason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SysmonBatchReason>,
-    {
-        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ebatchreason.into()).ok()
+    pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6095,11 +6034,8 @@ impl ITraceDataCollector {
         (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetFileNameFormat<'a, P0>(&self, format: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutoPathFormat>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), format.into()).ok()
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6239,11 +6175,8 @@ impl ITraceDataCollector {
         (::windows::core::Interface::vtable(self).ClockType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ClockType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetClockType<'a, P0>(&self, clock: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ClockType>,
-    {
-        (::windows::core::Interface::vtable(self).SetClockType)(::windows::core::Interface::as_raw(self), clock.into()).ok()
+    pub unsafe fn SetClockType(&self, clock: ClockType) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClockType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clock)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EventsLost(&self) -> ::windows::core::Result<u32> {
@@ -6387,11 +6320,8 @@ impl ITraceDataCollector {
         (::windows::core::Interface::vtable(self).StreamMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<StreamMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetStreamMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StreamMode>,
-    {
-        (::windows::core::Interface::vtable(self).SetStreamMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetStreamMode(&self, mode: StreamMode) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStreamMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7012,11 +6942,8 @@ impl IValueMap {
         (::windows::core::Interface::vtable(self).ValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ValueMapType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetValueMapType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ValueMapType>,
-    {
-        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
+    pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7224,11 +7151,8 @@ impl IValueMapItem {
         (::windows::core::Interface::vtable(self).ValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ValueMapType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetValueMapType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ValueMapType>,
-    {
-        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
+    pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10262,15 +10186,12 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W)
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhCalculateCounterFromRawValue<'a, P0>(hcounter: isize, dwformat: P0, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32
-where
-    P0: ::std::convert::Into<PDH_FMT>,
-{
+pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    ::core::mem::transmute(PdhCalculateCounterFromRawValue(::core::mem::transmute(hcounter), dwformat.into(), ::core::mem::transmute(rawvalue1), ::core::mem::transmute(rawvalue2), ::core::mem::transmute(fmtvalue)))
+    ::core::mem::transmute(PdhCalculateCounterFromRawValue(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(rawvalue1), ::core::mem::transmute(rawvalue2), ::core::mem::transmute(fmtvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10324,15 +10245,12 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64)
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhComputeCounterStatistics<'a, P0>(hcounter: isize, dwformat: P0, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32
-where
-    P0: ::std::convert::Into<PDH_FMT>,
-{
+pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32;
     }
-    ::core::mem::transmute(PdhComputeCounterStatistics(::core::mem::transmute(hcounter), dwformat.into(), ::core::mem::transmute(dwfirstentry), ::core::mem::transmute(dwnumentries), ::core::mem::transmute(lprawvaluearray), ::core::mem::transmute(data)))
+    ::core::mem::transmute(PdhComputeCounterStatistics(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwfirstentry), ::core::mem::transmute(dwnumentries), ::core::mem::transmute(lprawvaluearray), ::core::mem::transmute(data)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10450,123 +10368,115 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsA<'a, P0, P1, P2, P3>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: P3, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<PERF_DETAIL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectItemsA(szdatasource: ::windows::core::PCSTR, szmachinename: ::windows::core::PCSTR, szobjectname: ::windows::core::PCSTR, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsA(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsA(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsHA<'a, P0, P1, P2>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: P2, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<PERF_DETAIL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: ::windows::core::PCSTR, szobjectname: ::windows::core::PCSTR, mszcounterlist: ::windows::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsHA(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsHA(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsHW<'a, P0, P1, P2>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: P2, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, szobjectname: P1, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<PERF_DETAIL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsHW(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsHW(::core::mem::transmute(hdatasource), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsW<'a, P0, P1, P2, P3>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: P3, dwflags: u32) -> i32
+pub unsafe fn PdhEnumObjectItemsW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, szobjectname: P2, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<PERF_DETAIL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectItemsW(szdatasource: ::windows::core::PCWSTR, szmachinename: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, mszcounterlist: ::windows::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectItemsW(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), dwdetaillevel.into(), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(PdhEnumObjectItemsW(szdatasource.into(), szmachinename.into(), szobjectname.into(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsA<'a, P0, P1, P2, P3>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: P2, brefresh: P3) -> i32
+pub unsafe fn PdhEnumObjectsA<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<PERF_DETAIL>,
-    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectsA(szdatasource: ::windows::core::PCSTR, szmachinename: ::windows::core::PCSTR, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsA(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel.into(), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsA(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsHA<'a, P0, P1, P2>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: P1, brefresh: P2) -> i32
+pub unsafe fn PdhEnumObjectsHA<'a, P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<PERF_DETAIL>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectsHA(hdatasource: isize, szmachinename: ::windows::core::PCSTR, mszobjectlist: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsHA(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel.into(), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsHA(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsHW<'a, P0, P1, P2>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: P1, brefresh: P2) -> i32
+pub unsafe fn PdhEnumObjectsHW<'a, P0, P1>(hdatasource: isize, szmachinename: P0, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PERF_DETAIL>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectsHW(hdatasource: isize, szmachinename: ::windows::core::PCWSTR, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsHW(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel.into(), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsHW(::core::mem::transmute(hdatasource), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectsW<'a, P0, P1, P2, P3>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: P2, brefresh: P3) -> i32
+pub unsafe fn PdhEnumObjectsW<'a, P0, P1, P2>(szdatasource: P0, szmachinename: P1, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: P2) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<PERF_DETAIL>,
-    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhEnumObjectsW(szdatasource: ::windows::core::PCWSTR, szmachinename: ::windows::core::PCWSTR, mszobjectlist: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
     }
-    ::core::mem::transmute(PdhEnumObjectsW(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), dwdetaillevel.into(), brefresh.into()))
+    ::core::mem::transmute(PdhEnumObjectsW(szdatasource.into(), szmachinename.into(), ::core::mem::transmute(mszobjectlist), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwdetaillevel), brefresh.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10645,15 +10555,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhFormatFromRawValue<'a, P0>(dwcountertype: u32, dwformat: P0, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32
-where
-    P0: ::std::convert::Into<PDH_FMT>,
-{
+pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    ::core::mem::transmute(PdhFormatFromRawValue(::core::mem::transmute(dwcountertype), dwformat.into(), ::core::mem::transmute(ptimebase), ::core::mem::transmute(prawvalue1), ::core::mem::transmute(prawvalue2), ::core::mem::transmute(pfmtvalue)))
+    ::core::mem::transmute(PdhFormatFromRawValue(::core::mem::transmute(dwcountertype), ::core::mem::transmute(dwformat), ::core::mem::transmute(ptimebase), ::core::mem::transmute(prawvalue1), ::core::mem::transmute(prawvalue2), ::core::mem::transmute(pfmtvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10838,39 +10745,30 @@ pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetFormattedCounterArrayA<'a, P0>(hcounter: isize, dwformat: P0, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32
-where
-    P0: ::std::convert::Into<PDH_FMT>,
-{
+pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32;
     }
-    ::core::mem::transmute(PdhGetFormattedCounterArrayA(::core::mem::transmute(hcounter), dwformat.into(), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
+    ::core::mem::transmute(PdhGetFormattedCounterArrayA(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetFormattedCounterArrayW<'a, P0>(hcounter: isize, dwformat: P0, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32
-where
-    P0: ::std::convert::Into<PDH_FMT>,
-{
+pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32;
     }
-    ::core::mem::transmute(PdhGetFormattedCounterArrayW(::core::mem::transmute(hcounter), dwformat.into(), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
+    ::core::mem::transmute(PdhGetFormattedCounterArrayW(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(lpdwbuffersize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(itembuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhGetFormattedCounterValue<'a, P0>(hcounter: isize, dwformat: P0, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32
-where
-    P0: ::std::convert::Into<PDH_FMT>,
-{
+pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
     }
-    ::core::mem::transmute(PdhGetFormattedCounterValue(::core::mem::transmute(hcounter), dwformat.into(), ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(PdhGetFormattedCounterValue(::core::mem::transmute(hcounter), ::core::mem::transmute(dwformat), ::core::mem::transmute(lpdwtype), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -10982,55 +10880,47 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhMakeCounterPathA<'a, P0>(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: P0) -> i32
-where
-    P0: ::std::convert::Into<PDH_PATH_FLAGS>,
-{
+pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PdhMakeCounterPathA(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), dwflags.into()))
+    ::core::mem::transmute(PdhMakeCounterPathA(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhMakeCounterPathW<'a, P0>(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: P0) -> i32
-where
-    P0: ::std::convert::Into<PDH_PATH_FLAGS>,
-{
+pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PdhMakeCounterPathW(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), dwflags.into()))
+    ::core::mem::transmute(PdhMakeCounterPathW(::core::mem::transmute(pcounterpathelements), ::core::mem::transmute(szfullpathbuffer), ::core::mem::transmute(pcchbuffersize), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenLogA<'a, P0, P1, P2>(szlogfilename: P0, dwaccessflags: P1, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P2, phlog: *mut isize) -> i32
+pub unsafe fn PdhOpenLogA<'a, P0, P1>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P1, phlog: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<PDH_LOG>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhOpenLogA(szlogfilename: ::windows::core::PCSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows::core::PCSTR, phlog: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenLogA(szlogfilename.into(), dwaccessflags.into(), ::core::mem::transmute(lpdwlogtype), ::core::mem::transmute(hquery), ::core::mem::transmute(dwmaxsize), szusercaption.into(), ::core::mem::transmute(phlog)))
+    ::core::mem::transmute(PdhOpenLogA(szlogfilename.into(), ::core::mem::transmute(dwaccessflags), ::core::mem::transmute(lpdwlogtype), ::core::mem::transmute(hquery), ::core::mem::transmute(dwmaxsize), szusercaption.into(), ::core::mem::transmute(phlog)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhOpenLogW<'a, P0, P1, P2>(szlogfilename: P0, dwaccessflags: P1, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P2, phlog: *mut isize) -> i32
+pub unsafe fn PdhOpenLogW<'a, P0, P1>(szlogfilename: P0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: P1, phlog: *mut isize) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PDH_LOG>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhOpenLogW(szlogfilename: ::windows::core::PCWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows::core::PCWSTR, phlog: *mut isize) -> i32;
     }
-    ::core::mem::transmute(PdhOpenLogW(szlogfilename.into(), dwaccessflags.into(), ::core::mem::transmute(lpdwlogtype), ::core::mem::transmute(hquery), ::core::mem::transmute(dwmaxsize), szusercaption.into(), ::core::mem::transmute(phlog)))
+    ::core::mem::transmute(PdhOpenLogW(szlogfilename.into(), ::core::mem::transmute(dwaccessflags), ::core::mem::transmute(lpdwlogtype), ::core::mem::transmute(hquery), ::core::mem::transmute(dwmaxsize), szusercaption.into(), ::core::mem::transmute(phlog)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11135,30 +11025,28 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhSelectDataSourceA<'a, P0, P1>(hwndowner: P0, dwflags: P1, szdatasource: ::windows::core::PSTR, pcchbufferlength: *mut u32) -> i32
+pub unsafe fn PdhSelectDataSourceA<'a, P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PSTR, pcchbufferlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<PDH_SELECT_DATA_SOURCE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PSTR, pcchbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhSelectDataSourceA(hwndowner.into(), dwflags.into(), ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
+    ::core::mem::transmute(PdhSelectDataSourceA(hwndowner.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhSelectDataSourceW<'a, P0, P1>(hwndowner: P0, dwflags: P1, szdatasource: ::windows::core::PWSTR, pcchbufferlength: *mut u32) -> i32
+pub unsafe fn PdhSelectDataSourceW<'a, P0>(hwndowner: P0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PWSTR, pcchbufferlength: *mut u32) -> i32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<PDH_SELECT_DATA_SOURCE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows::core::PWSTR, pcchbufferlength: *mut u32) -> i32;
     }
-    ::core::mem::transmute(PdhSelectDataSourceW(hwndowner.into(), dwflags.into(), ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
+    ::core::mem::transmute(PdhSelectDataSourceW(hwndowner.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(szdatasource), ::core::mem::transmute(pcchbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11171,15 +11059,12 @@ pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PdhSetDefaultRealTimeDataSource<'a, P0>(dwdatasourceid: P0) -> i32
-where
-    P0: ::std::convert::Into<REAL_TIME_DATA_SOURCE_ID_FLAGS>,
-{
+pub unsafe fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PdhSetDefaultRealTimeDataSource(dwdatasourceid.into()))
+    ::core::mem::transmute(PdhSetDefaultRealTimeDataSource(::core::mem::transmute(dwdatasourceid)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
@@ -11546,16 +11431,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, P0, P1>(szmachine: P0, pcountersetid: *const ::windows::core::GUID, requestcode: P1, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32
+pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, P0>(szmachine: P0, pcountersetid: *const ::windows::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PerfRegInfoType>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PerfQueryCounterSetRegistrationInfo(szmachine: ::windows::core::PCWSTR, pcountersetid: *const ::windows::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PerfQueryCounterSetRegistrationInfo(szmachine.into(), ::core::mem::transmute(pcountersetid), requestcode.into(), ::core::mem::transmute(requestlangid), ::core::mem::transmute(pbreginfo), ::core::mem::transmute(cbreginfo), ::core::mem::transmute(pcbreginfoactual)))
+    ::core::mem::transmute(PerfQueryCounterSetRegistrationInfo(szmachine.into(), ::core::mem::transmute(pcountersetid), ::core::mem::transmute(requestcode), ::core::mem::transmute(requestlangid), ::core::mem::transmute(pbreginfo), ::core::mem::transmute(cbreginfo), ::core::mem::transmute(pcbreginfoactual)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12233,12 +12117,9 @@ impl _ICounterItemUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDataAt<'a, P0>(&self, iindex: i32, iwhich: P0) -> ::windows::core::Result<super::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<SysmonDataType>,
-    {
+    pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), iwhich.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<_ICounterItemUnion> for ::windows::core::IUnknown {
@@ -12437,11 +12318,8 @@ impl _ISystemMonitorUnion {
         (::windows::core::Interface::vtable(self).UpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDisplayType<'a, P0>(&self, edisplaytype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), edisplaytype.into()).ok()
+    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
@@ -12621,11 +12499,8 @@ impl _ISystemMonitorUnion {
         (::windows::core::Interface::vtable(self).ReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetReportValueType<'a, P0>(&self, ereportvaluetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ReportValueTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ereportvaluetype.into()).ok()
+    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
@@ -12657,11 +12532,8 @@ impl _ISystemMonitorUnion {
         (::windows::core::Interface::vtable(self).LogFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILogFiles>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn SetDataSourceType<'a, P0>(&self, edatasourcetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DataSourceTypeConstants>,
-    {
-        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), edatasourcetype.into()).ok()
+    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
@@ -12747,21 +12619,19 @@ impl _ISystemMonitorUnion {
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SaveAs<'a, P0, P1>(&self, bstrfilename: P0, esysmonfiletype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SaveAs<'a, P0>(&self, bstrfilename: P0, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<SysmonFileType>,
     {
-        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype.into()).ok()
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Relog<'a, P0, P1>(&self, bstrfilename: P0, esysmonfiletype: P1, ifilter: i32) -> ::windows::core::Result<()>
+    pub unsafe fn Relog<'a, P0>(&self, bstrfilename: P0, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<SysmonFileType>,
     {
-        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), esysmonfiletype.into(), ::core::mem::transmute(ifilter)).ok()
+        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClearData(&self) -> ::windows::core::Result<()> {
@@ -12786,11 +12656,8 @@ impl _ISystemMonitorUnion {
         (::windows::core::Interface::vtable(self).GetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub unsafe fn BatchingLock<'a, P0>(&self, flock: i16, ebatchreason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SysmonBatchReason>,
-    {
-        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ebatchreason.into()).ok()
+    pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

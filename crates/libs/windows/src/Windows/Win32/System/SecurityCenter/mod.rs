@@ -6,12 +6,11 @@ pub struct IWSCDefaultProduct(::windows::core::IUnknown);
 impl IWSCDefaultProduct {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDefaultProduct<'a, P0, P1>(&self, etype: P0, pguid: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetDefaultProduct<'a, P0>(&self, etype: SECURITY_PRODUCT_TYPE, pguid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SECURITY_PRODUCT_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), etype.into(), pguid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(etype), pguid.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -92,11 +91,8 @@ pub struct IWSCProductList(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-    pub unsafe fn Initialize<'a, P0>(&self, provider: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WSC_SECURITY_PROVIDER>,
-    {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), provider.into()).ok()
+    pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {

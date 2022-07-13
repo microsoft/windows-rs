@@ -349,12 +349,9 @@ impl Print3DWorkflowPrintRequestedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
-    pub fn SetExtendedStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Print3DWorkflowDetail>,
-    {
+    pub fn SetExtendedStatus(&self, value: Print3DWorkflowDetail) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExtendedStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExtendedStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn SetSource<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>

@@ -231,30 +231,27 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApproveSessionUsingAuthSessionInfoAsync<'a, P0, P1>(&self, sessionauthentictionstatus: P0, authenticationsessioninfo: P1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    pub fn ApproveSessionUsingAuthSessionInfoAsync<'a, P0>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
-        P0: ::std::convert::Into<MicrosoftAccountMultiFactorSessionAuthenticationStatus>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, MicrosoftAccountMultiFactorSessionInfo>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, MicrosoftAccountMultiFactorSessionInfo>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::windows::core::Interface::as_raw(this), sessionauthentictionstatus.into(), authenticationsessioninfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::windows::core::Interface::as_raw(this), sessionauthentictionstatus, authenticationsessioninfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApproveSessionAsync<'a, P0, P1, P2, P3>(&self, sessionauthentictionstatus: P0, useraccountid: P1, sessionid: P2, sessionauthenticationtype: P3) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    pub fn ApproveSessionAsync<'a, P0, P1>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: P0, sessionid: P1, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
-        P0: ::std::convert::Into<MicrosoftAccountMultiFactorSessionAuthenticationStatus>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P3: ::std::convert::Into<MicrosoftAccountMultiFactorAuthenticationType>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ApproveSessionAsync)(::windows::core::Interface::as_raw(this), sessionauthentictionstatus.into(), useraccountid.into().abi(), sessionid.into().abi(), sessionauthenticationtype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).ApproveSessionAsync)(::windows::core::Interface::as_raw(this), sessionauthentictionstatus, useraccountid.into().abi(), sessionid.into().abi(), sessionauthenticationtype, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -271,16 +268,15 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DenySessionAsync<'a, P0, P1, P2>(&self, useraccountid: P0, sessionid: P1, sessionauthenticationtype: P2) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    pub fn DenySessionAsync<'a, P0, P1>(&self, useraccountid: P0, sessionid: P1, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<MicrosoftAccountMultiFactorAuthenticationType>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DenySessionAsync)(::windows::core::Interface::as_raw(this), useraccountid.into().abi(), sessionid.into().abi(), sessionauthenticationtype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).DenySessionAsync)(::windows::core::Interface::as_raw(this), useraccountid.into().abi(), sessionid.into().abi(), sessionauthenticationtype, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]

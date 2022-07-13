@@ -16,11 +16,8 @@ impl IWindowsMediaLibrarySharingDevice {
         (::windows::core::Interface::vtable(self).Authorization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WindowsMediaLibrarySharingDeviceAuthorizationStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
-    pub unsafe fn SetAuthorization<'a, P0>(&self, authorization: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WindowsMediaLibrarySharingDeviceAuthorizationStatus>,
-    {
-        (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), authorization.into()).ok()
+    pub unsafe fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authorization)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

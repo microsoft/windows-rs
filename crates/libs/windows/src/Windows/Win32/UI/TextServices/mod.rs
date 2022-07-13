@@ -609,11 +609,8 @@ pub struct IAccStore_Vtbl {
 pub struct IAnchor(::windows::core::IUnknown);
 impl IAnchor {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn SetGravity<'a, P0>(&self, gravity: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TsGravity>,
-    {
-        (::windows::core::Interface::vtable(self).SetGravity)(::windows::core::Interface::as_raw(self), gravity.into()).ok()
+    pub unsafe fn SetGravity(&self, gravity: TsGravity) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gravity)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn GetGravity(&self) -> ::windows::core::Result<TsGravity> {
@@ -653,12 +650,9 @@ impl IAnchor {
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftRegion<'a, P0>(&self, dwflags: u32, dir: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<TsShiftDir>,
-    {
+    pub unsafe fn ShiftRegion(&self, dwflags: u32, dir: TsShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ShiftRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), dir.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ShiftRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dir), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn SetChangeHistoryMask(&self, dwmask: u32) -> ::windows::core::Result<()> {
@@ -2803,22 +2797,16 @@ pub struct ITextStoreACPServices_Vtbl {
 pub struct ITextStoreACPSink(::windows::core::IUnknown);
 impl ITextStoreACPSink {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnTextChange<'a, P0>(&self, dwflags: P0, pchange: *const TS_TEXTCHANGE) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TEXT_STORE_TEXT_CHANGE_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).OnTextChange)(::windows::core::Interface::as_raw(self), dwflags.into(), ::core::mem::transmute(pchange)).ok()
+    pub unsafe fn OnTextChange(&self, dwflags: TEXT_STORE_TEXT_CHANGE_FLAGS, pchange: *const TS_TEXTCHANGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnTextChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchange)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnSelectionChange)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLayoutChange<'a, P0>(&self, lcode: P0, vcview: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TsLayoutCode>,
-    {
-        (::windows::core::Interface::vtable(self).OnLayoutChange)(::windows::core::Interface::as_raw(self), lcode.into(), ::core::mem::transmute(vcview)).ok()
+    pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLayoutChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcode), ::core::mem::transmute(vcview)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::core::Result<()> {
@@ -2829,11 +2817,8 @@ impl ITextStoreACPSink {
         (::windows::core::Interface::vtable(self).OnAttrsChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLockGranted<'a, P0>(&self, dwlockflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TEXT_STORE_LOCK_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).OnLockGranted)(::windows::core::Interface::as_raw(self), dwlockflags.into()).ok()
+    pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLockGranted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlockflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::core::Result<()> {
@@ -2897,22 +2882,16 @@ pub struct ITextStoreACPSink_Vtbl {
 pub struct ITextStoreACPSinkEx(::windows::core::IUnknown);
 impl ITextStoreACPSinkEx {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnTextChange<'a, P0>(&self, dwflags: P0, pchange: *const TS_TEXTCHANGE) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TEXT_STORE_TEXT_CHANGE_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnTextChange)(::windows::core::Interface::as_raw(self), dwflags.into(), ::core::mem::transmute(pchange)).ok()
+    pub unsafe fn OnTextChange(&self, dwflags: TEXT_STORE_TEXT_CHANGE_FLAGS, pchange: *const TS_TEXTCHANGE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnTextChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pchange)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnSelectionChange)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLayoutChange<'a, P0>(&self, lcode: P0, vcview: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TsLayoutCode>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnLayoutChange)(::windows::core::Interface::as_raw(self), lcode.into(), ::core::mem::transmute(vcview)).ok()
+    pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnLayoutChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcode), ::core::mem::transmute(vcview)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::core::Result<()> {
@@ -2923,11 +2902,8 @@ impl ITextStoreACPSinkEx {
         (::windows::core::Interface::vtable(self).base__.OnAttrsChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(acpstart), ::core::mem::transmute(acpend), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLockGranted<'a, P0>(&self, dwlockflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TEXT_STORE_LOCK_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnLockGranted)(::windows::core::Interface::as_raw(self), dwlockflags.into()).ok()
+    pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnLockGranted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlockflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::core::Result<()> {
@@ -3352,24 +3328,20 @@ pub struct ITextStoreAnchorEx_Vtbl {
 pub struct ITextStoreAnchorSink(::windows::core::IUnknown);
 impl ITextStoreAnchorSink {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnTextChange<'a, P0, P1, P2>(&self, dwflags: P0, pastart: P1, paend: P2) -> ::windows::core::Result<()>
+    pub unsafe fn OnTextChange<'a, P0, P1>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: P0, paend: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<TEXT_STORE_CHANGE_FLAGS>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IAnchor>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IAnchor>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IAnchor>>,
     {
-        (::windows::core::Interface::vtable(self).OnTextChange)(::windows::core::Interface::as_raw(self), dwflags.into(), pastart.into().abi(), paend.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnTextChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pastart.into().abi(), paend.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnSelectionChange)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLayoutChange<'a, P0>(&self, lcode: P0, vcview: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TsLayoutCode>,
-    {
-        (::windows::core::Interface::vtable(self).OnLayoutChange)(::windows::core::Interface::as_raw(self), lcode.into(), ::core::mem::transmute(vcview)).ok()
+    pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLayoutChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcode), ::core::mem::transmute(vcview)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::core::Result<()> {
@@ -3384,11 +3356,8 @@ impl ITextStoreAnchorSink {
         (::windows::core::Interface::vtable(self).OnAttrsChange)(::windows::core::Interface::as_raw(self), pastart.into().abi(), paend.into().abi(), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLockGranted<'a, P0>(&self, dwlockflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TEXT_STORE_LOCK_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).OnLockGranted)(::windows::core::Interface::as_raw(self), dwlockflags.into()).ok()
+    pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLockGranted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlockflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::core::Result<()> {
@@ -3452,24 +3421,20 @@ pub struct ITextStoreAnchorSink_Vtbl {
 pub struct ITextStoreSinkAnchorEx(::windows::core::IUnknown);
 impl ITextStoreSinkAnchorEx {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnTextChange<'a, P0, P1, P2>(&self, dwflags: P0, pastart: P1, paend: P2) -> ::windows::core::Result<()>
+    pub unsafe fn OnTextChange<'a, P0, P1>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: P0, paend: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<TEXT_STORE_CHANGE_FLAGS>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IAnchor>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IAnchor>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IAnchor>>,
     {
-        (::windows::core::Interface::vtable(self).base__.OnTextChange)(::windows::core::Interface::as_raw(self), dwflags.into(), pastart.into().abi(), paend.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.OnTextChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pastart.into().abi(), paend.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnSelectionChange(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnSelectionChange)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLayoutChange<'a, P0>(&self, lcode: P0, vcview: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TsLayoutCode>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnLayoutChange)(::windows::core::Interface::as_raw(self), lcode.into(), ::core::mem::transmute(vcview)).ok()
+    pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnLayoutChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcode), ::core::mem::transmute(vcview)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::core::Result<()> {
@@ -3484,11 +3449,8 @@ impl ITextStoreSinkAnchorEx {
         (::windows::core::Interface::vtable(self).base__.OnAttrsChange)(::windows::core::Interface::as_raw(self), pastart.into().abi(), paend.into().abi(), paattrs.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(paattrs))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLockGranted<'a, P0>(&self, dwlockflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TEXT_STORE_LOCK_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnLockGranted)(::windows::core::Interface::as_raw(self), dwlockflags.into()).ok()
+    pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnLockGranted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlockflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn OnStartEditTransaction(&self) -> ::windows::core::Result<()> {
@@ -3636,11 +3598,8 @@ impl ITfCandidateList {
         (::windows::core::Interface::vtable(self).GetCandidateNum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn SetResult<'a, P0>(&self, nindex: u32, imcr: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfCandidateResult>,
-    {
-        (::windows::core::Interface::vtable(self).SetResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), imcr.into()).ok()
+    pub unsafe fn SetResult(&self, nindex: u32, imcr: TfCandidateResult) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(imcr)).ok()
     }
 }
 impl ::core::convert::From<ITfCandidateList> for ::windows::core::IUnknown {
@@ -4756,13 +4715,12 @@ pub struct ITfConfigureSystemKeystrokeFeed_Vtbl {
 pub struct ITfContext(::windows::core::IUnknown);
 impl ITfContext {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn RequestEditSession<'a, P0, P1>(&self, tid: u32, pes: P0, dwflags: P1) -> ::windows::core::Result<::windows::core::HRESULT>
+    pub unsafe fn RequestEditSession<'a, P0>(&self, tid: u32, pes: P0, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> ::windows::core::Result<::windows::core::HRESULT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfEditSession>>,
-        P1: ::std::convert::Into<TF_CONTEXT_EDIT_CONTEXT_FLAGS>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).RequestEditSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tid), pes.into().abi(), dwflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+        (::windows::core::Interface::vtable(self).RequestEditSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tid), pes.into().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5968,12 +5926,9 @@ impl ITfEditRecord {
         (::windows::core::Interface::vtable(self).GetSelectionStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn GetTextAndPropertyUpdates<'a, P0>(&self, dwflags: P0, prgproperties: &[*const ::windows::core::GUID]) -> ::windows::core::Result<IEnumTfRanges>
-    where
-        P0: ::std::convert::Into<GET_TEXT_AND_PROPERTY_UPDATES_FLAGS>,
-    {
+    pub unsafe fn GetTextAndPropertyUpdates(&self, dwflags: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS, prgproperties: &[*const ::windows::core::GUID]) -> ::windows::core::Result<IEnumTfRanges> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTextAndPropertyUpdates)(::windows::core::Interface::as_raw(self), dwflags.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgproperties)), prgproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfRanges>(result__)
+        (::windows::core::Interface::vtable(self).GetTextAndPropertyUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(prgproperties)), prgproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfRanges>(result__)
     }
 }
 impl ::core::convert::From<ITfEditRecord> for ::windows::core::IUnknown {
@@ -6220,11 +6175,8 @@ pub struct ITfFnAdviseText_Vtbl {
 pub struct ITfFnBalloon(::windows::core::IUnknown);
 impl ITfFnBalloon {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn UpdateBalloon<'a, P0>(&self, style: P0, pch: &[u16]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfLBBalloonStyle>,
-    {
-        (::windows::core::Interface::vtable(self).UpdateBalloon)(::windows::core::Interface::as_raw(self), style.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
+    pub unsafe fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &[u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateBalloon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(style), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
     }
 }
 impl ::core::convert::From<ITfFnBalloon> for ::windows::core::IUnknown {
@@ -6735,12 +6687,9 @@ impl ITfFnGetSAPIObject {
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn Get<'a, P0>(&self, sobj: P0) -> ::windows::core::Result<::windows::core::IUnknown>
-    where
-        P0: ::std::convert::Into<TfSapiObject>,
-    {
+    pub unsafe fn Get(&self, sobj: TfSapiObject) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), sobj.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sobj), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ITfFnGetSAPIObject> for ::windows::core::IUnknown {
@@ -8460,12 +8409,9 @@ pub struct ITfInputScope2_Vtbl {
 pub struct ITfInsertAtSelection(::windows::core::IUnknown);
 impl ITfInsertAtSelection {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn InsertTextAtSelection<'a, P0>(&self, ec: u32, dwflags: P0, pchtext: &[u16]) -> ::windows::core::Result<ITfRange>
-    where
-        P0: ::std::convert::Into<INSERT_TEXT_AT_SELECTION_FLAGS>,
-    {
+    pub unsafe fn InsertTextAtSelection(&self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: &[u16]) -> ::windows::core::Result<ITfRange> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), dwflags.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfRange>(result__)
+        (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pchtext)), pchtext.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfRange>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9248,11 +9194,8 @@ impl ITfLangBarItemBalloon {
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnClick<'a, P0>(&self, click: P0, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfLBIClick>,
-    {
-        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click.into(), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
+    pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(click), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9364,11 +9307,8 @@ impl ITfLangBarItemBitmap {
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnClick<'a, P0>(&self, click: P0, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfLBIClick>,
-    {
-        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click.into(), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
+    pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(click), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9479,11 +9419,8 @@ impl ITfLangBarItemBitmapButton {
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnClick<'a, P0>(&self, click: P0, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfLBIClick>,
-    {
-        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click.into(), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
+    pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(click), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn InitMenu<'a, P0>(&self, pmenu: P0) -> ::windows::core::Result<()>
@@ -9617,11 +9554,8 @@ impl ITfLangBarItemButton {
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnClick<'a, P0>(&self, click: P0, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfLBIClick>,
-    {
-        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click.into(), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
+    pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(click), ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn InitMenu<'a, P0>(&self, pmenu: P0) -> ::windows::core::Result<()>
@@ -10575,12 +10509,11 @@ impl ITfProperty {
         (::windows::core::Interface::vtable(self).base__.GetContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn FindRange<'a, P0, P1>(&self, ec: u32, prange: P0, pprange: *mut ::core::option::Option<ITfRange>, apos: P1) -> ::windows::core::Result<()>
+    pub unsafe fn FindRange<'a, P0>(&self, ec: u32, prange: P0, pprange: *mut ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
-        (::windows::core::Interface::vtable(self).FindRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), ::core::mem::transmute(pprange), apos.into()).ok()
+        (::windows::core::Interface::vtable(self).FindRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), ::core::mem::transmute(pprange), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn SetValueStore<'a, P0, P1>(&self, ec: u32, prange: P0, ppropstore: P1) -> ::windows::core::Result<()>
@@ -10891,38 +10824,30 @@ impl ITfRange {
         (::windows::core::Interface::vtable(self).ShiftEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(cchreq), ::core::mem::transmute(pcch), ::core::mem::transmute(phalt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn ShiftStartToRange<'a, P0, P1>(&self, ec: u32, prange: P0, apos: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ShiftStartToRange<'a, P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
-        (::windows::core::Interface::vtable(self).ShiftStartToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), apos.into()).ok()
+        (::windows::core::Interface::vtable(self).ShiftStartToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn ShiftEndToRange<'a, P0, P1>(&self, ec: u32, prange: P0, apos: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ShiftEndToRange<'a, P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
-        (::windows::core::Interface::vtable(self).ShiftEndToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), apos.into()).ok()
+        (::windows::core::Interface::vtable(self).ShiftEndToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftStartRegion<'a, P0>(&self, ec: u32, dir: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<TfShiftDir>,
-    {
+    pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ShiftStartRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), dir.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ShiftStartRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(dir), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftEndRegion<'a, P0>(&self, ec: u32, dir: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<TfShiftDir>,
-    {
+    pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ShiftEndRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), dir.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ShiftEndRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(dir), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10931,49 +10856,42 @@ impl ITfRange {
         (::windows::core::Interface::vtable(self).IsEmpty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn Collapse<'a, P0>(&self, ec: u32, apos: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfAnchor>,
-    {
-        (::windows::core::Interface::vtable(self).Collapse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), apos.into()).ok()
+    pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Collapse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEqualStart<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsEqualStart<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqualStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsEqualStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEqualEnd<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsEqualEnd<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqualEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsEqualEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn CompareStart<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn CompareStart<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).CompareStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CompareStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn CompareEnd<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn CompareEnd<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).CompareEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CompareEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10986,12 +10904,8 @@ impl ITfRange {
         (::windows::core::Interface::vtable(self).GetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgstart), ::core::mem::transmute(pgend)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn SetGravity<'a, P0, P1>(&self, ec: u32, gstart: P0, gend: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfGravity>,
-        P1: ::std::convert::Into<TfGravity>,
-    {
-        (::windows::core::Interface::vtable(self).SetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), gstart.into(), gend.into()).ok()
+    pub unsafe fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(gstart), ::core::mem::transmute(gend)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITfRange> {
@@ -11130,38 +11044,30 @@ impl ITfRangeACP {
         (::windows::core::Interface::vtable(self).base__.ShiftEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(cchreq), ::core::mem::transmute(pcch), ::core::mem::transmute(phalt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn ShiftStartToRange<'a, P0, P1>(&self, ec: u32, prange: P0, apos: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ShiftStartToRange<'a, P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
-        (::windows::core::Interface::vtable(self).base__.ShiftStartToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), apos.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ShiftStartToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn ShiftEndToRange<'a, P0, P1>(&self, ec: u32, prange: P0, apos: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ShiftEndToRange<'a, P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
-        (::windows::core::Interface::vtable(self).base__.ShiftEndToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), apos.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ShiftEndToRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), prange.into().abi(), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftStartRegion<'a, P0>(&self, ec: u32, dir: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<TfShiftDir>,
-    {
+    pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShiftStartRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), dir.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShiftStartRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(dir), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftEndRegion<'a, P0>(&self, ec: u32, dir: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<TfShiftDir>,
-    {
+    pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShiftEndRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), dir.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShiftEndRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(dir), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11170,49 +11076,42 @@ impl ITfRangeACP {
         (::windows::core::Interface::vtable(self).base__.IsEmpty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn Collapse<'a, P0>(&self, ec: u32, apos: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfAnchor>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Collapse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), apos.into()).ok()
+    pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Collapse)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(apos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEqualStart<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsEqualStart<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsEqualStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqualStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEqualEnd<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
+    pub unsafe fn IsEqualEnd<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsEqualEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsEqualEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn CompareStart<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn CompareStart<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CompareStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CompareStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn CompareEnd<'a, P0, P1>(&self, ec: u32, pwith: P0, apos: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn CompareEnd<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfRange>>,
-        P1: ::std::convert::Into<TfAnchor>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CompareEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), apos.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CompareEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), pwith.into().abi(), ::core::mem::transmute(apos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11225,12 +11124,8 @@ impl ITfRangeACP {
         (::windows::core::Interface::vtable(self).base__.GetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgstart), ::core::mem::transmute(pgend)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn SetGravity<'a, P0, P1>(&self, ec: u32, gstart: P0, gend: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfGravity>,
-        P1: ::std::convert::Into<TfGravity>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), gstart.into(), gend.into()).ok()
+    pub unsafe fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ec), ::core::mem::transmute(gstart), ::core::mem::transmute(gend)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITfRange> {
@@ -11868,11 +11763,8 @@ impl ITfSpeechUIServer {
         (::windows::core::Interface::vtable(self).ShowUI)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn UpdateBalloon<'a, P0>(&self, style: P0, pch: &[u16]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TfLBBalloonStyle>,
-    {
-        (::windows::core::Interface::vtable(self).UpdateBalloon)(::windows::core::Interface::as_raw(self), style.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
+    pub unsafe fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &[u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateBalloon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(style), ::core::mem::transmute(::windows::core::as_ptr_or_null(pch)), pch.len() as _).ok()
     }
 }
 impl ::core::convert::From<ITfSpeechUIServer> for ::windows::core::IUnknown {
@@ -11979,11 +11871,8 @@ pub struct ITfStatusSink_Vtbl {
 pub struct ITfSystemDeviceTypeLangBarItem(::windows::core::IUnknown);
 impl ITfSystemDeviceTypeLangBarItem {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn SetIconMode<'a, P0>(&self, dwflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LANG_BAR_ITEM_ICON_MODE_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).SetIconMode)(::windows::core::Interface::as_raw(self), dwflags.into()).ok()
+    pub unsafe fn SetIconMode(&self, dwflags: LANG_BAR_ITEM_ICON_MODE_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIconMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     pub unsafe fn GetIconMode(&self) -> ::windows::core::Result<u32> {
@@ -12409,13 +12298,12 @@ pub struct ITfTextInputProcessorEx_Vtbl {
 pub struct ITfTextLayoutSink(::windows::core::IUnknown);
 impl ITfTextLayoutSink {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub unsafe fn OnLayoutChange<'a, P0, P1, P2>(&self, pic: P0, lcode: P1, pview: P2) -> ::windows::core::Result<()>
+    pub unsafe fn OnLayoutChange<'a, P0, P1>(&self, pic: P0, lcode: TfLayoutCode, pview: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITfContext>>,
-        P1: ::std::convert::Into<TfLayoutCode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ITfContextView>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ITfContextView>>,
     {
-        (::windows::core::Interface::vtable(self).OnLayoutChange)(::windows::core::Interface::as_raw(self), pic.into().abi(), lcode.into(), pview.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnLayoutChange)(::windows::core::Interface::as_raw(self), pic.into().abi(), ::core::mem::transmute(lcode), pview.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ITfTextLayoutSink> for ::windows::core::IUnknown {

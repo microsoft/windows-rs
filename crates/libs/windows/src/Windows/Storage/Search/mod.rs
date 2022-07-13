@@ -872,14 +872,11 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn CreateFileQuery<'a, P0>(&self, query: P0) -> ::windows::core::Result<StorageFileQueryResult>
-    where
-        P0: ::std::convert::Into<CommonFileQuery>,
-    {
+    pub fn CreateFileQuery(&self, query: CommonFileQuery) -> ::windows::core::Result<StorageFileQueryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFileQuery)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileQuery)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -902,14 +899,11 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn CreateFolderQuery<'a, P0>(&self, query: P0) -> ::windows::core::Result<StorageFolderQueryResult>
-    where
-        P0: ::std::convert::Into<CommonFolderQuery>,
-    {
+    pub fn CreateFolderQuery(&self, query: CommonFolderQuery) -> ::windows::core::Result<StorageFolderQueryResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderQuery)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<StorageFolderQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderQuery)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<StorageFolderQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
@@ -944,50 +938,38 @@ impl IStorageFolderQueryOperations {
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFilesAsync<'a, P0>(&self, query: P0, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>
-    where
-        P0: ::std::convert::Into<CommonFileQuery>,
-    {
+    pub fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFilesAsync)(::windows::core::Interface::as_raw(this), query.into(), startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsync)(::windows::core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFilesAsyncOverloadDefaultStartAndCount<'a, P0>(&self, query: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>
-    where
-        P0: ::std::convert::Into<CommonFileQuery>,
-    {
+    pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFoldersAsync<'a, P0>(&self, query: P0, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>
-    where
-        P0: ::std::convert::Into<CommonFolderQuery>,
-    {
+    pub fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFoldersAsync)(::windows::core::Interface::as_raw(this), query.into(), startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsync)(::windows::core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetFoldersAsyncOverloadDefaultStartAndCount<'a, P0>(&self, query: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>
-    where
-        P0: ::std::convert::Into<CommonFolderQuery>,
-    {
+    pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
@@ -1011,25 +993,19 @@ impl IStorageFolderQueryOperations {
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn IsCommonFolderQuerySupported<'a, P0>(&self, query: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CommonFolderQuery>,
-    {
+    pub fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsCommonFolderQuerySupported)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCommonFolderQuerySupported)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn IsCommonFileQuerySupported<'a, P0>(&self, query: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CommonFileQuery>,
-    {
+    pub fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsCommonFileQuerySupported)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCommonFileQuerySupported)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1646,12 +1622,9 @@ impl QueryOptions {
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn SetFolderDepth<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FolderDepth>,
-    {
+    pub fn SetFolderDepth(&self, value: FolderDepth) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFolderDepth)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFolderDepth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
     pub fn ApplicationSearchFilter(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1710,12 +1683,9 @@ impl QueryOptions {
         }
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn SetIndexerOption<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IndexerOption>,
-    {
+    pub fn SetIndexerOption(&self, value: IndexerOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIndexerOption)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIndexerOption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1760,46 +1730,37 @@ impl QueryOptions {
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Storage_FileProperties\"`*"]
     #[cfg(feature = "Storage_FileProperties")]
-    pub fn SetThumbnailPrefetch<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<super::FileProperties::ThumbnailOptions>,
-    {
+    pub fn SetThumbnailPrefetch(&self, mode: super::FileProperties::ThumbnailMode, requestedsize: u32, options: super::FileProperties::ThumbnailOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailPrefetch)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailPrefetch)(::windows::core::Interface::as_raw(this), mode, requestedsize, options).ok() }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`, `\"Storage_FileProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
-    pub fn SetPropertyPrefetch<'a, P0, P1, E1>(&self, options: P0, propertiestoretrieve: P1) -> ::windows::core::Result<()>
+    pub fn SetPropertyPrefetch<'a, P0, E0>(&self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::FileProperties::PropertyPrefetchOptions>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPropertyPrefetch)(::windows::core::Interface::as_raw(this), options.into(), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPropertyPrefetch)(::windows::core::Interface::as_raw(this), options, propertiestoretrieve.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCommonFileQuery<'a, P0, P1, E1>(query: P0, filetypefilter: P1) -> ::windows::core::Result<QueryOptions>
+    pub fn CreateCommonFileQuery<'a, P0, E0>(query: CommonFileQuery, filetypefilter: P0) -> ::windows::core::Result<QueryOptions>
     where
-        P0: ::std::convert::Into<CommonFileQuery>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IQueryOptionsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCommonFileQuery)(::windows::core::Interface::as_raw(this), query.into(), filetypefilter.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateCommonFileQuery)(::windows::core::Interface::as_raw(this), query, filetypefilter.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Search\"`*"]
-    pub fn CreateCommonFolderQuery<'a, P0>(query: P0) -> ::windows::core::Result<QueryOptions>
-    where
-        P0: ::std::convert::Into<CommonFolderQuery>,
-    {
+    pub fn CreateCommonFolderQuery(query: CommonFolderQuery) -> ::windows::core::Result<QueryOptions> {
         Self::IQueryOptionsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCommonFolderQuery)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateCommonFolderQuery)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<QueryOptions>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]

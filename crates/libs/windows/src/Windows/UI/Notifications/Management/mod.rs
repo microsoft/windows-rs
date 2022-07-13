@@ -84,14 +84,11 @@ impl UserNotificationListener {
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNotificationsAsync<'a, P0>(&self, kinds: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>
-    where
-        P0: ::std::convert::Into<super::NotificationKinds>,
-    {
+    pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNotificationsAsync)(::windows::core::Interface::as_raw(this), kinds.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
+            (::windows::core::Interface::vtable(this).GetNotificationsAsync)(::windows::core::Interface::as_raw(this), kinds, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]

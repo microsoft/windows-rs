@@ -919,11 +919,8 @@ impl PeerFinder {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SetRole<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PeerRole>,
-    {
-        Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetRole)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn SetRole(value: PeerRole) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetRole)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]

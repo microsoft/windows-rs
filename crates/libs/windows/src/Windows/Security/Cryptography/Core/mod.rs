@@ -197,16 +197,15 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportKeyPairWithBlobType<'a, P0, E0, P1>(&self, keyblob: P0, blobtype: P1) -> ::windows::core::Result<CryptographicKey>
+    pub fn ImportKeyPairWithBlobType<'a, P0, E0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<CryptographicKey>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<CryptographicPrivateKeyBlobType>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype.into(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
@@ -224,16 +223,15 @@ impl AsymmetricKeyAlgorithmProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportPublicKeyWithBlobType<'a, P0, E0, P1>(&self, keyblob: P0, blobtype: P1) -> ::windows::core::Result<CryptographicKey>
+    pub fn ImportPublicKeyWithBlobType<'a, P0, E0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<CryptographicKey>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<CryptographicPublicKeyBlobType>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype.into(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), keyblob.try_into().map_err(|e| e.into())?.abi(), blobtype, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
@@ -668,14 +666,11 @@ impl CryptographicKey {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportPrivateKeyWithBlobType<'a, P0>(&self, blobtype: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
-    where
-        P0: ::std::convert::Into<CryptographicPrivateKeyBlobType>,
-    {
+    pub fn ExportPrivateKeyWithBlobType(&self, blobtype: CryptographicPrivateKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ExportPrivateKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ExportPrivateKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
@@ -689,14 +684,11 @@ impl CryptographicKey {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportPublicKeyWithBlobType<'a, P0>(&self, blobtype: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
-    where
-        P0: ::std::convert::Into<CryptographicPublicKeyBlobType>,
-    {
+    pub fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ExportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ExportPublicKeyWithBlobType)(::windows::core::Interface::as_raw(this), blobtype, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -2404,12 +2396,9 @@ impl KeyDerivationParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn SetCapi1KdfTargetAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Capi1KdfTargetAlgorithm>,
-    {
+    pub fn SetCapi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyDerivationParameters2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -2458,13 +2447,10 @@ impl KeyDerivationParameters {
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-    pub fn BuildForCapi1Kdf<'a, P0>(capi1kdftargetalgorithm: P0) -> ::windows::core::Result<KeyDerivationParameters>
-    where
-        P0: ::std::convert::Into<Capi1KdfTargetAlgorithm>,
-    {
+    pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> ::windows::core::Result<KeyDerivationParameters> {
         Self::IKeyDerivationParametersStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).BuildForCapi1Kdf)(::windows::core::Interface::as_raw(this), capi1kdftargetalgorithm.into(), result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
+            (::windows::core::Interface::vtable(this).BuildForCapi1Kdf)(::windows::core::Interface::as_raw(this), capi1kdftargetalgorithm, result__.as_mut_ptr()).from_abi::<KeyDerivationParameters>(result__)
         })
     }
     #[doc(hidden)]
@@ -2723,28 +2709,26 @@ pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
-    pub fn OpenKeyPairFromCertificateAsync<'a, P0, P1, P2>(certificate: P0, hashalgorithmname: P1, padding: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
+    pub fn OpenKeyPairFromCertificateAsync<'a, P0, P1>(certificate: P0, hashalgorithmname: P1, padding: CryptographicPadding) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Certificates::Certificate>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<CryptographicPadding>,
     {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>(result__)
+            (::windows::core::Interface::vtable(this).OpenKeyPairFromCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CryptographicKey>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenPublicKeyFromCertificate<'a, P0, P1, P2>(certificate: P0, hashalgorithmname: P1, padding: P2) -> ::windows::core::Result<CryptographicKey>
+    pub fn OpenPublicKeyFromCertificate<'a, P0, P1>(certificate: P0, hashalgorithmname: P1, padding: CryptographicPadding) -> ::windows::core::Result<CryptographicKey>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Certificates::Certificate>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<CryptographicPadding>,
     {
         Self::IPersistedKeyProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPublicKeyFromCertificate)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding.into(), result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
+            (::windows::core::Interface::vtable(this).OpenPublicKeyFromCertificate)(::windows::core::Interface::as_raw(this), certificate.into().abi(), hashalgorithmname.into().abi(), padding, result__.as_mut_ptr()).from_abi::<CryptographicKey>(result__)
         })
     }
     #[doc(hidden)]

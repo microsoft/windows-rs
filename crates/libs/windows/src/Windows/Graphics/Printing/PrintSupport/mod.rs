@@ -449,12 +449,9 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`*"]
-    pub fn SetPrintTicketValidationStatus<'a, P0>(&self, status: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WorkflowPrintTicketValidationStatus>,
-    {
+    pub fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Interface::as_raw(this), status.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicketValidationStatus)(::windows::core::Interface::as_raw(this), status).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintSupport\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

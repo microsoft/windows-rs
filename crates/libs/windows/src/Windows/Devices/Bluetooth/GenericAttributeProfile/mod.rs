@@ -28,12 +28,9 @@ impl GattCharacteristic {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattProtectionLevel>,
-    {
+    pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -79,14 +76,11 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadValueWithCacheModeAsync<'a, P0>(&self, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -104,16 +98,15 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueWithOptionAsync<'a, P0, E0, P1>(&self, value: P0, writeoption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueWithOptionAsync<'a, P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<GattWriteOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -127,14 +120,11 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteClientCharacteristicConfigurationDescriptorAsync<'a, P0>(&self, clientcharacteristicconfigurationdescriptorvalue: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
-    where
-        P0: ::std::convert::Into<GattClientCharacteristicConfigurationDescriptorValue>,
-    {
+    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -183,14 +173,11 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDescriptorsWithCacheModeAsync<'a, P0>(&self, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -204,14 +191,11 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDescriptorsForUuidWithCacheModeAsync<'a, P0>(&self, descriptoruuid: ::windows::core::GUID, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -229,28 +213,24 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteValueWithResultAndOptionAsync<'a, P0, E0, P1>(&self, value: P0, writeoption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAndOptionAsync<'a, P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<GattWriteOption>,
     {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync<'a, P0>(&self, clientcharacteristicconfigurationdescriptorvalue: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
-    where
-        P0: ::std::convert::Into<GattClientCharacteristicConfigurationDescriptorValue>,
-    {
+    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -1261,12 +1241,9 @@ impl GattDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattProtectionLevel>,
-    {
+    pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -1295,14 +1272,11 @@ impl GattDescriptor {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadValueWithCacheModeAsync<'a, P0>(&self, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1678,14 +1652,11 @@ impl GattDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenAsync<'a, P0>(&self, sharingmode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>
-    where
-        P0: ::std::convert::Into<GattSharingMode>,
-    {
+    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), sharingmode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>(result__)
+            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), sharingmode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1699,14 +1670,11 @@ impl GattDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCharacteristicsWithCacheModeAsync<'a, P0>(&self, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1720,14 +1688,11 @@ impl GattDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCharacteristicsForUuidWithCacheModeAsync<'a, P0>(&self, characteristicuuid: ::windows::core::GUID, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1741,14 +1706,11 @@ impl GattDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetIncludedServicesWithCacheModeAsync<'a, P0>(&self, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1762,14 +1724,11 @@ impl GattDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetIncludedServicesForUuidWithCacheModeAsync<'a, P0>(&self, serviceuuid: ::windows::core::GUID, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), serviceuuid, cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), serviceuuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1808,14 +1767,13 @@ impl GattDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdWithSharingModeAsync<'a, P0, P1>(deviceid: P0, sharingmode: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>
+    pub fn FromIdWithSharingModeAsync<'a, P0>(deviceid: P0, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<GattSharingMode>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdWithSharingModeAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), sharingmode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdWithSharingModeAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), sharingmode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1829,14 +1787,13 @@ impl GattDeviceService {
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<'a, P0, P1>(bluetoothdeviceid: P0, cachemode: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<'a, P0>(bluetoothdeviceid: P0, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
-        P1: ::std::convert::Into<super::BluetoothCacheMode>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), cachemode.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), cachemode, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1850,14 +1807,13 @@ impl GattDeviceService {
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<'a, P0, P1>(bluetoothdeviceid: P0, serviceuuid: ::windows::core::GUID, cachemode: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<'a, P0>(bluetoothdeviceid: P0, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
-        P1: ::std::convert::Into<super::BluetoothCacheMode>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), serviceuuid, cachemode.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), serviceuuid, cachemode, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -2315,12 +2271,9 @@ impl GattLocalCharacteristicParameters {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetCharacteristicProperties<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattCharacteristicProperties>,
-    {
+    pub fn SetCharacteristicProperties(&self, value: GattCharacteristicProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCharacteristicProperties)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCharacteristicProperties)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties> {
@@ -2331,12 +2284,9 @@ impl GattLocalCharacteristicParameters {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetReadProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattProtectionLevel>,
-    {
+    pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
@@ -2347,12 +2297,9 @@ impl GattLocalCharacteristicParameters {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetWriteProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattProtectionLevel>,
-    {
+    pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
@@ -2700,12 +2647,9 @@ impl GattLocalDescriptorParameters {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetReadProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattProtectionLevel>,
-    {
+    pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
@@ -2716,12 +2660,9 @@ impl GattLocalDescriptorParameters {
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-    pub fn SetWriteProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GattProtectionLevel>,
-    {
+    pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {

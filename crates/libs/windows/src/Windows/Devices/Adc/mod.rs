@@ -198,22 +198,16 @@ impl AdcController {
         }
     }
     #[doc = "*Required features: `\"Devices_Adc\"`*"]
-    pub fn SetChannelMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AdcChannelMode>,
-    {
+    pub fn SetChannelMode(&self, value: AdcChannelMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Adc\"`*"]
-    pub fn IsChannelModeSupported<'a, P0>(&self, channelmode: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<AdcChannelMode>,
-    {
+    pub fn IsChannelModeSupported(&self, channelmode: AdcChannelMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::windows::core::Interface::as_raw(this), channelmode.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::windows::core::Interface::as_raw(this), channelmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc\"`*"]

@@ -374,15 +374,12 @@ impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitializeTouchInjection<'a, P0>(maxcount: u32, dwmode: P0) -> super::super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<TOUCH_FEEDBACK_MODE>,
-{
+pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitializeTouchInjection(::core::mem::transmute(maxcount), dwmode.into()))
+    ::core::mem::transmute(InitializeTouchInjection(::core::mem::transmute(maxcount), ::core::mem::transmute(dwmode)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]

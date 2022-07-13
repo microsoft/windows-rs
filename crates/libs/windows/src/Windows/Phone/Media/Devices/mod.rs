@@ -51,12 +51,9 @@ impl AudioRoutingManager {
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
-    pub fn SetAudioEndpoint<'a, P0>(&self, endpoint: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AudioRoutingEndpoint>,
-    {
+    pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), endpoint.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), endpoint).ok() }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

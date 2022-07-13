@@ -56,14 +56,11 @@ pub struct Radio(::windows::core::IUnknown);
 impl Radio {
     #[doc = "*Required features: `\"Devices_Radios\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStateAsync<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>
-    where
-        P0: ::std::convert::Into<RadioState>,
-    {
+    pub fn SetStateAsync(&self, value: RadioState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetStateAsync)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).SetStateAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Radios\"`, `\"Foundation\"`*"]

@@ -268,14 +268,11 @@ impl RfcommDeviceService {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetSdpRawAttributesWithCacheModeAsync<'a, P0>(&self, cachemode: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>
-    where
-        P0: ::std::convert::Into<super::BluetoothCacheMode>,
-    {
+    pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSdpRawAttributesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>(result__)
+            (::windows::core::Interface::vtable(this).GetSdpRawAttributesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
@@ -336,14 +333,13 @@ impl RfcommDeviceService {
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
-    pub fn GetDeviceSelectorForBluetoothDeviceWithCacheMode<'a, P0, P1>(bluetoothdevice: P0, cachemode: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceWithCacheMode<'a, P0>(bluetoothdevice: P0, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDevice>>,
-        P1: ::std::convert::Into<super::BluetoothCacheMode>,
     {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdevice.into().abi(), cachemode.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdevice.into().abi(), cachemode, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
@@ -358,15 +354,14 @@ impl RfcommDeviceService {
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
-    pub fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode<'a, P0, P1, P2>(bluetoothdevice: P0, serviceid: P1, cachemode: P2) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode<'a, P0, P1>(bluetoothdevice: P0, serviceid: P1, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDevice>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, RfcommServiceId>>,
-        P2: ::std::convert::Into<super::BluetoothCacheMode>,
     {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdevice.into().abi(), serviceid.into().abi(), cachemode.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdevice.into().abi(), serviceid.into().abi(), cachemode, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]

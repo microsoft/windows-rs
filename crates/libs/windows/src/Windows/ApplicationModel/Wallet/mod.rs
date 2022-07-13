@@ -477,14 +477,13 @@ impl WalletBarcode {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-    pub fn CreateWalletBarcode<'a, P0, P1>(symbology: P0, value: P1) -> ::windows::core::Result<WalletBarcode>
+    pub fn CreateWalletBarcode<'a, P0>(symbology: WalletBarcodeSymbology, value: P0) -> ::windows::core::Result<WalletBarcode>
     where
-        P0: ::std::convert::Into<WalletBarcodeSymbology>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IWalletBarcodeFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWalletBarcode)(::windows::core::Interface::as_raw(this), symbology.into(), value.into().abi(), result__.as_mut_ptr()).from_abi::<WalletBarcode>(result__)
+            (::windows::core::Interface::vtable(this).CreateWalletBarcode)(::windows::core::Interface::as_raw(this), symbology, value.into().abi(), result__.as_mut_ptr()).from_abi::<WalletBarcode>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Storage_Streams\"`*"]
@@ -1100,14 +1099,13 @@ impl WalletItem {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-    pub fn CreateWalletItem<'a, P0, P1>(kind: P0, displayname: P1) -> ::windows::core::Result<WalletItem>
+    pub fn CreateWalletItem<'a, P0>(kind: WalletItemKind, displayname: P0) -> ::windows::core::Result<WalletItem>
     where
-        P0: ::std::convert::Into<WalletItemKind>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IWalletItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWalletItem)(::windows::core::Interface::as_raw(this), kind.into(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<WalletItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWalletItem)(::windows::core::Interface::as_raw(this), kind, displayname.into().abi(), result__.as_mut_ptr()).from_abi::<WalletItem>(result__)
         })
     }
     #[doc(hidden)]
@@ -1236,12 +1234,9 @@ impl WalletItemCustomProperty {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-    pub fn SetDetailViewPosition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WalletDetailViewPosition>,
-    {
+    pub fn SetDetailViewPosition(&self, value: WalletDetailViewPosition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDetailViewPosition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDetailViewPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn SummaryViewPosition(&self) -> ::windows::core::Result<WalletSummaryViewPosition> {
@@ -1252,12 +1247,9 @@ impl WalletItemCustomProperty {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-    pub fn SetSummaryViewPosition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WalletSummaryViewPosition>,
-    {
+    pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSummaryViewPosition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSummaryViewPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
     pub fn CreateWalletItemCustomProperty<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<WalletItemCustomProperty>
@@ -1426,14 +1418,11 @@ impl WalletItemStore {
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemsWithKindAsync<'a, P0>(&self, kind: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>>
-    where
-        P0: ::std::convert::Into<WalletItemKind>,
-    {
+    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetItemsWithKindAsync)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemsWithKindAsync)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WalletItem>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]

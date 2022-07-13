@@ -3534,19 +3534,13 @@ impl IDXGIAdapter3 {
         (::windows::core::Interface::vtable(self).UnregisterHardwareContentProtectionTeardownStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn QueryVideoMemoryInfo<'a, P0>(&self, nodeindex: u32, memorysegmentgroup: P0) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO>
-    where
-        P0: ::std::convert::Into<DXGI_MEMORY_SEGMENT_GROUP>,
-    {
+    pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<DXGI_QUERY_VIDEO_MEMORY_INFO>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryVideoMemoryInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), memorysegmentgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_QUERY_VIDEO_MEMORY_INFO>(result__)
+        (::windows::core::Interface::vtable(self).QueryVideoMemoryInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_QUERY_VIDEO_MEMORY_INFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn SetVideoMemoryReservation<'a, P0>(&self, nodeindex: u32, memorysegmentgroup: P0, reservation: u64) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_MEMORY_SEGMENT_GROUP>,
-    {
-        (::windows::core::Interface::vtable(self).SetVideoMemoryReservation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), memorysegmentgroup.into(), ::core::mem::transmute(reservation)).ok()
+    pub unsafe fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVideoMemoryReservation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(reservation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3743,19 +3737,13 @@ impl IDXGIAdapter4 {
         (::windows::core::Interface::vtable(self).base__.UnregisterHardwareContentProtectionTeardownStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn QueryVideoMemoryInfo<'a, P0>(&self, nodeindex: u32, memorysegmentgroup: P0) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO>
-    where
-        P0: ::std::convert::Into<DXGI_MEMORY_SEGMENT_GROUP>,
-    {
+    pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<DXGI_QUERY_VIDEO_MEMORY_INFO>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.QueryVideoMemoryInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), memorysegmentgroup.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_QUERY_VIDEO_MEMORY_INFO>(result__)
+        (::windows::core::Interface::vtable(self).base__.QueryVideoMemoryInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_QUERY_VIDEO_MEMORY_INFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn SetVideoMemoryReservation<'a, P0>(&self, nodeindex: u32, memorysegmentgroup: P0, reservation: u64) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_MEMORY_SEGMENT_GROUP>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetVideoMemoryReservation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), memorysegmentgroup.into(), ::core::mem::transmute(reservation)).ok()
+    pub unsafe fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetVideoMemoryReservation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(reservation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3901,11 +3889,8 @@ pub struct IDXGIAdapter4_Vtbl {
 pub struct IDXGIDebug(::windows::core::IUnknown);
 impl IDXGIDebug {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn ReportLiveObjects<'a, P0>(&self, apiid: ::windows::core::GUID, flags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_DEBUG_RLO_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).ReportLiveObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(apiid), flags.into()).ok()
+    pub unsafe fn ReportLiveObjects(&self, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReportLiveObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(apiid), ::core::mem::transmute(flags)).ok()
     }
 }
 impl ::core::convert::From<IDXGIDebug> for ::windows::core::IUnknown {
@@ -3954,11 +3939,8 @@ pub struct IDXGIDebug_Vtbl {
 pub struct IDXGIDebug1(::windows::core::IUnknown);
 impl IDXGIDebug1 {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn ReportLiveObjects<'a, P0>(&self, apiid: ::windows::core::GUID, flags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_DEBUG_RLO_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ReportLiveObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(apiid), flags.into()).ok()
+    pub unsafe fn ReportLiveObjects(&self, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ReportLiveObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(apiid), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn EnableLeakTrackingForThread(&self) {
@@ -4074,11 +4056,8 @@ impl IDXGIDecodeSwapChain {
         (::windows::core::Interface::vtable(self).GetDestSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn SetColorSpace<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), colorspace.into()).ok()
+    pub unsafe fn SetColorSpace(&self, colorspace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetColorSpace(&self) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
@@ -4452,11 +4431,8 @@ impl IDXGIDevice2 {
         (::windows::core::Interface::vtable(self).base__.GetMaximumFrameLatency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn OfferResources<'a, P0>(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_OFFER_RESOURCE_PRIORITY>,
-    {
-        (::windows::core::Interface::vtable(self).OfferResources)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), priority.into()).ok()
+    pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OfferResources)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4627,11 +4603,8 @@ impl IDXGIDevice3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetMaximumFrameLatency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn OfferResources<'a, P0>(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_OFFER_RESOURCE_PRIORITY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OfferResources)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), priority.into()).ok()
+    pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OfferResources)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4813,11 +4786,8 @@ impl IDXGIDevice4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetMaximumFrameLatency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn OfferResources<'a, P0>(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_OFFER_RESOURCE_PRIORITY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.OfferResources)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), priority.into()).ok()
+    pub unsafe fn OfferResources(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.OfferResources)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4838,11 +4808,8 @@ impl IDXGIDevice4 {
         (::windows::core::Interface::vtable(self).base__.Trim)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn OfferResources1<'a, P0>(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: P0, flags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_OFFER_RESOURCE_PRIORITY>,
-    {
-        (::windows::core::Interface::vtable(self).OfferResources1)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), priority.into(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn OfferResources1(&self, ppresources: &[::core::option::Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OfferResources1)(::windows::core::Interface::as_raw(self), ppresources.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ::core::mem::transmute(priority), ::core::mem::transmute(flags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn ReclaimResources1(&self, ppresources: &[::core::option::Option<IDXGIResource>]) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS> {
@@ -6456,11 +6423,8 @@ impl IDXGIFactory5 {
         (::windows::core::Interface::vtable(self).base__.EnumWarpAdapter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn CheckFeatureSupport<'a, P0>(&self, feature: P0, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_FEATURE>,
-    {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature.into(), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
     }
 }
 impl ::core::convert::From<IDXGIFactory5> for ::windows::core::IUnknown {
@@ -6779,20 +6743,16 @@ impl IDXGIFactory6 {
         (::windows::core::Interface::vtable(self).base__.base__.EnumWarpAdapter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn CheckFeatureSupport<'a, P0>(&self, feature: P0, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_FEATURE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature.into(), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn EnumAdapterByGpuPreference<'a, P0, T>(&self, adapter: u32, gpupreference: P0) -> ::windows::core::Result<T>
+    pub unsafe fn EnumAdapterByGpuPreference<T>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<DXGI_GPU_PREFERENCE>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumAdapterByGpuPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), gpupreference.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).EnumAdapterByGpuPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), ::core::mem::transmute(gpupreference), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory6> for ::windows::core::IUnknown {
@@ -7126,20 +7086,16 @@ impl IDXGIFactory7 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.EnumWarpAdapter)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn CheckFeatureSupport<'a, P0>(&self, feature: P0, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_FEATURE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature.into(), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn EnumAdapterByGpuPreference<'a, P0, T>(&self, adapter: u32, gpupreference: P0) -> ::windows::core::Result<T>
+    pub unsafe fn EnumAdapterByGpuPreference<T>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<DXGI_GPU_PREFERENCE>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.EnumAdapterByGpuPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), gpupreference.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumAdapterByGpuPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(adapter), ::core::mem::transmute(gpupreference), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7509,39 +7465,34 @@ impl IDXGIInfoQueue {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn AddMessage<'a, P0, P1, P2>(&self, producer: ::windows::core::GUID, category: P0, severity: P1, id: i32, pdescription: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddMessage<'a, P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_CATEGORY>,
-        P1: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>,
-        P2: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), category.into(), severity.into(), ::core::mem::transmute(id), pdescription.into()).ok()
+        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), ::core::mem::transmute(category), ::core::mem::transmute(severity), ::core::mem::transmute(id), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn AddApplicationMessage<'a, P0, P1>(&self, severity: P0, pdescription: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddApplicationMessage<'a, P0>(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), pdescription.into()).ok()
+        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(severity), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnCategory<'a, P0, P1>(&self, producer: ::windows::core::GUID, category: P0, benable: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnCategory<'a, P0>(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_CATEGORY>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetBreakOnCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), category.into(), benable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBreakOnCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), ::core::mem::transmute(category), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnSeverity<'a, P0, P1>(&self, producer: ::windows::core::GUID, severity: P0, benable: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnSeverity<'a, P0>(&self, producer: ::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetBreakOnSeverity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), severity.into(), benable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBreakOnSeverity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), ::core::mem::transmute(severity), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7553,19 +7504,13 @@ impl IDXGIInfoQueue {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBreakOnCategory<'a, P0>(&self, producer: ::windows::core::GUID, category: P0) -> super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_CATEGORY>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), category.into()))
+    pub unsafe fn GetBreakOnCategory(&self, producer: ::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), ::core::mem::transmute(category)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBreakOnSeverity<'a, P0>(&self, producer: ::windows::core::GUID, severity: P0) -> super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<DXGI_INFO_QUEUE_MESSAGE_SEVERITY>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), severity.into()))
+    pub unsafe fn GetBreakOnSeverity(&self, producer: ::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(producer), ::core::mem::transmute(severity)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7910,11 +7855,8 @@ impl IDXGIOutput {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8101,11 +8043,8 @@ impl IDXGIOutput1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8170,11 +8109,8 @@ impl IDXGIOutput1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8315,11 +8251,8 @@ impl IDXGIOutput2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8384,11 +8317,8 @@ impl IDXGIOutput2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8543,11 +8473,8 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8612,11 +8539,8 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8648,13 +8572,12 @@ impl IDXGIOutput3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0, P1>(&self, enumformat: P0, pconcerneddevice: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlaySupport)(::windows::core::Interface::as_raw(self), enumformat.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CheckOverlaySupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput3> for ::windows::core::IUnknown {
@@ -8796,11 +8719,8 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -8865,11 +8785,8 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -8901,24 +8818,21 @@ impl IDXGIOutput4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0, P1>(&self, enumformat: P0, pconcerneddevice: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckOverlaySupport)(::windows::core::Interface::as_raw(self), enumformat.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckOverlaySupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0, P1, P2>(&self, format: P0, colorspace: P1, pconcerneddevice: P2) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(::windows::core::Interface::as_raw(self), format.into(), colorspace.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput4> for ::windows::core::IUnknown {
@@ -9075,11 +8989,8 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9144,11 +9055,8 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -9180,24 +9088,21 @@ impl IDXGIOutput5 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0, P1>(&self, enumformat: P0, pconcerneddevice: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CheckOverlaySupport)(::windows::core::Interface::as_raw(self), enumformat.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CheckOverlaySupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0, P1, P2>(&self, format: P0, colorspace: P1, pconcerneddevice: P2) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckOverlayColorSpaceSupport)(::windows::core::Interface::as_raw(self), format.into(), colorspace.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckOverlayColorSpaceSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9378,11 +9283,8 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetDisplayModeList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9447,11 +9349,8 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1<'a, P0>(&self, enumformat: P0, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), enumformat.into(), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDisplayModeList1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -9483,24 +9382,21 @@ impl IDXGIOutput6 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, P0, P1>(&self, enumformat: P0, pconcerneddevice: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlaySupport<'a, P0>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckOverlaySupport)(::windows::core::Interface::as_raw(self), enumformat.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CheckOverlaySupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enumformat), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0, P1, P2>(&self, format: P0, colorspace: P1, pconcerneddevice: P2) -> ::windows::core::Result<u32>
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, P0>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CheckOverlayColorSpaceSupport)(::windows::core::Interface::as_raw(self), format.into(), colorspace.into(), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CheckOverlayColorSpaceSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -9864,11 +9760,8 @@ impl IDXGIResource {
         (::windows::core::Interface::vtable(self).GetUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn SetEvictionPriority<'a, P0>(&self, evictionpriority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_RESOURCE_PRIORITY>,
-    {
-        (::windows::core::Interface::vtable(self).SetEvictionPriority)(::windows::core::Interface::as_raw(self), evictionpriority.into()).ok()
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEvictionPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(evictionpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetEvictionPriority(&self) -> ::windows::core::Result<u32> {
@@ -10000,11 +9893,8 @@ impl IDXGIResource1 {
         (::windows::core::Interface::vtable(self).base__.GetUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn SetEvictionPriority<'a, P0>(&self, evictionpriority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_RESOURCE_PRIORITY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetEvictionPriority)(::windows::core::Interface::as_raw(self), evictionpriority.into()).ok()
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEvictionPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(evictionpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub unsafe fn GetEvictionPriority(&self) -> ::windows::core::Result<u32> {
@@ -10641,11 +10531,8 @@ impl IDXGISwapChain {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers<'a, P0>(&self, buffercount: u32, width: u32, height: u32, newformat: P0, swapchainflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), newformat.into(), ::core::mem::transmute(swapchainflags)).ok()
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10832,11 +10719,8 @@ impl IDXGISwapChain1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers<'a, P0>(&self, buffercount: u32, width: u32, height: u32, newformat: P0, swapchainflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), newformat.into(), ::core::mem::transmute(swapchainflags)).ok()
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -10910,11 +10794,8 @@ impl IDXGISwapChain1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation<'a, P0>(&self, rotation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_MODE_ROTATION>,
-    {
-        (::windows::core::Interface::vtable(self).SetRotation)(::windows::core::Interface::as_raw(self), rotation.into()).ok()
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11109,11 +10990,8 @@ impl IDXGISwapChain2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers<'a, P0>(&self, buffercount: u32, width: u32, height: u32, newformat: P0, swapchainflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), newformat.into(), ::core::mem::transmute(swapchainflags)).ok()
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11187,11 +11065,8 @@ impl IDXGISwapChain2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation<'a, P0>(&self, rotation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_MODE_ROTATION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetRotation)(::windows::core::Interface::as_raw(self), rotation.into()).ok()
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11410,11 +11285,8 @@ impl IDXGISwapChain3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers<'a, P0>(&self, buffercount: u32, width: u32, height: u32, newformat: P0, swapchainflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), newformat.into(), ::core::mem::transmute(swapchainflags)).ok()
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11488,11 +11360,8 @@ impl IDXGISwapChain3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation<'a, P0>(&self, rotation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_MODE_ROTATION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRotation)(::windows::core::Interface::as_raw(self), rotation.into()).ok()
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11537,28 +11406,19 @@ impl IDXGISwapChain3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckColorSpaceSupport<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-    {
+    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckColorSpaceSupport)(::windows::core::Interface::as_raw(self), colorspace.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CheckColorSpaceSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetColorSpace1<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetColorSpace1)(::windows::core::Interface::as_raw(self), colorspace.into()).ok()
+    pub unsafe fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetColorSpace1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers1<'a, P0>(&self, buffercount: u32, width: u32, height: u32, format: P0, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).ResizeBuffers1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
+    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResizeBuffers1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
     }
 }
 impl ::core::convert::From<IDXGISwapChain3> for ::windows::core::IUnknown {
@@ -11758,11 +11618,8 @@ impl IDXGISwapChain4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers<'a, P0>(&self, buffercount: u32, width: u32, height: u32, newformat: P0, swapchainflags: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), newformat.into(), ::core::mem::transmute(swapchainflags)).ok()
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.ResizeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11836,11 +11693,8 @@ impl IDXGISwapChain4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation<'a, P0>(&self, rotation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_MODE_ROTATION>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRotation)(::windows::core::Interface::as_raw(self), rotation.into()).ok()
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11885,35 +11739,23 @@ impl IDXGISwapChain4 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckColorSpaceSupport<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-    {
+    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckColorSpaceSupport)(::windows::core::Interface::as_raw(self), colorspace.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckColorSpaceSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetColorSpace1<'a, P0>(&self, colorspace: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_COLOR_SPACE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetColorSpace1)(::windows::core::Interface::as_raw(self), colorspace.into()).ok()
+    pub unsafe fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetColorSpace1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers1<'a, P0>(&self, buffercount: u32, width: u32, height: u32, format: P0, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<Common::DXGI_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ResizeBuffers1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), format.into(), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
+    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ResizeBuffers1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub unsafe fn SetHDRMetaData<'a, P0>(&self, r#type: P0, pmetadata: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DXGI_HDR_METADATA_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetHDRMetaData)(::windows::core::Interface::as_raw(self), r#type.into(), pmetadata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pmetadata))).ok()
+    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHDRMetaData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), pmetadata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pmetadata))).ok()
     }
 }
 impl ::core::convert::From<IDXGISwapChain4> for ::windows::core::IUnknown {

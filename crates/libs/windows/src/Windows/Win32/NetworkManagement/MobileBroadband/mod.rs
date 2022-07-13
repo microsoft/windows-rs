@@ -88,13 +88,12 @@ impl IMbnConnection {
         (::windows::core::Interface::vtable(self).InterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-    pub unsafe fn Connect<'a, P0, P1>(&self, connectionmode: P0, strprofile: P1) -> ::windows::core::Result<u32>
+    pub unsafe fn Connect<'a, P0>(&self, connectionmode: MBN_CONNECTION_MODE, strprofile: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<MBN_CONNECTION_MODE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), connectionmode.into(), strprofile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionmode), strprofile.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<u32> {
@@ -914,12 +913,11 @@ pub struct IMbnDeviceServiceStateEvents(::windows::core::IUnknown);
 impl IMbnDeviceServiceStateEvents {
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnSessionsStateChange<'a, P0, P1>(&self, interfaceid: P0, statechange: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnSessionsStateChange<'a, P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<MBN_DEVICE_SERVICE_SESSIONS_STATE>,
     {
-        (::windows::core::Interface::vtable(self).OnSessionsStateChange)(::windows::core::Interface::as_raw(self), interfaceid.into().abi(), statechange.into()).ok()
+        (::windows::core::Interface::vtable(self).OnSessionsStateChange)(::windows::core::Interface::as_raw(self), interfaceid.into().abi(), ::core::mem::transmute(statechange)).ok()
     }
 }
 impl ::core::convert::From<IMbnDeviceServiceStateEvents> for ::windows::core::IUnknown {
@@ -1127,12 +1125,11 @@ impl IMbnDeviceServicesEvents {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnInterfaceStateChange<'a, P0, P1>(&self, interfaceid: P0, statechange: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnInterfaceStateChange<'a, P0>(&self, interfaceid: P0, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<MBN_DEVICE_SERVICES_INTERFACE_STATE>,
     {
-        (::windows::core::Interface::vtable(self).OnInterfaceStateChange)(::windows::core::Interface::as_raw(self), interfaceid.into().abi(), statechange.into()).ok()
+        (::windows::core::Interface::vtable(self).OnInterfaceStateChange)(::windows::core::Interface::as_raw(self), interfaceid.into().abi(), ::core::mem::transmute(statechange)).ok()
     }
 }
 impl ::core::convert::From<IMbnDeviceServicesEvents> for ::windows::core::IUnknown {
@@ -2035,12 +2032,9 @@ impl IMbnPinManager {
         (::windows::core::Interface::vtable(self).GetPinList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-    pub unsafe fn GetPin<'a, P0>(&self, pintype: P0) -> ::windows::core::Result<IMbnPin>
-    where
-        P0: ::std::convert::Into<MBN_PIN_TYPE>,
-    {
+    pub unsafe fn GetPin(&self, pintype: MBN_PIN_TYPE) -> ::windows::core::Result<IMbnPin> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPin)(::windows::core::Interface::as_raw(self), pintype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMbnPin>(result__)
+        (::windows::core::Interface::vtable(self).GetPin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pintype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMbnPin>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
     pub unsafe fn GetPinState(&self) -> ::windows::core::Result<u32> {
@@ -2170,12 +2164,9 @@ impl IMbnRadio {
         (::windows::core::Interface::vtable(self).HardwareRadioState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MBN_RADIO>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-    pub unsafe fn SetSoftwareRadioState<'a, P0>(&self, radiostate: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<MBN_RADIO>,
-    {
+    pub unsafe fn SetSoftwareRadioState(&self, radiostate: MBN_RADIO) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).SetSoftwareRadioState)(::windows::core::Interface::as_raw(self), radiostate.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetSoftwareRadioState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(radiostate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IMbnRadio> for ::windows::core::IUnknown {
@@ -2335,13 +2326,12 @@ impl IMbnRegistration {
         (::windows::core::Interface::vtable(self).GetPacketAttachNetworkError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-    pub unsafe fn SetRegisterMode<'a, P0, P1>(&self, registermode: P0, providerid: P1, dataclass: u32) -> ::windows::core::Result<u32>
+    pub unsafe fn SetRegisterMode<'a, P0>(&self, registermode: MBN_REGISTER_MODE, providerid: P0, dataclass: u32) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<MBN_REGISTER_MODE>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).SetRegisterMode)(::windows::core::Interface::as_raw(self), registermode.into(), providerid.into(), ::core::mem::transmute(dataclass), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetRegisterMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(registermode), providerid.into(), ::core::mem::transmute(dataclass), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IMbnRegistration> for ::windows::core::IUnknown {
@@ -2729,14 +2719,12 @@ impl IMbnSms {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SmsSendCdma<'a, P0, P1, P2>(&self, address: P0, encoding: P1, language: P2, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>
+    pub unsafe fn SmsSendCdma<'a, P0>(&self, address: P0, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<MBN_SMS_CDMA_ENCODING>,
-        P2: ::std::convert::Into<MBN_SMS_CDMA_LANG>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).SmsSendCdma)(::windows::core::Interface::as_raw(self), address.into(), encoding.into(), language.into(), ::core::mem::transmute(sizeincharacters), ::core::mem::transmute(message), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SmsSendCdma)(::windows::core::Interface::as_raw(self), address.into(), ::core::mem::transmute(encoding), ::core::mem::transmute(language), ::core::mem::transmute(sizeincharacters), ::core::mem::transmute(message), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2745,12 +2733,9 @@ impl IMbnSms {
         (::windows::core::Interface::vtable(self).SmsSendCdmaPdu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(message), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-    pub unsafe fn SmsRead<'a, P0>(&self, smsfilter: *const MBN_SMS_FILTER, smsformat: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<MBN_SMS_FORMAT>,
-    {
+    pub unsafe fn SmsRead(&self, smsfilter: *const MBN_SMS_FILTER, smsformat: MBN_SMS_FORMAT) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).SmsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(smsfilter), smsformat.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SmsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(smsfilter), ::core::mem::transmute(smsformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
     pub unsafe fn SmsDelete(&self, smsfilter: *const MBN_SMS_FILTER) -> ::windows::core::Result<u32> {
@@ -2850,11 +2835,8 @@ impl IMbnSmsConfiguration {
         (::windows::core::Interface::vtable(self).SmsFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MBN_SMS_FORMAT>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
-    pub unsafe fn SetSmsFormat<'a, P0>(&self, smsformat: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MBN_SMS_FORMAT>,
-    {
-        (::windows::core::Interface::vtable(self).SetSmsFormat)(::windows::core::Interface::as_raw(self), smsformat.into()).ok()
+    pub unsafe fn SetSmsFormat(&self, smsformat: MBN_SMS_FORMAT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSmsFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(smsformat)).ok()
     }
 }
 impl ::core::convert::From<IMbnSmsConfiguration> for ::windows::core::IUnknown {
@@ -2933,21 +2915,19 @@ impl IMbnSmsEvents {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsReadComplete<'a, P0, P1>(&self, sms: P0, smsformat: P1, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: i16, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn OnSmsReadComplete<'a, P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: i16, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMbnSms>>,
-        P1: ::std::convert::Into<MBN_SMS_FORMAT>,
     {
-        (::windows::core::Interface::vtable(self).OnSmsReadComplete)(::windows::core::Interface::as_raw(self), sms.into().abi(), smsformat.into(), ::core::mem::transmute(readmsgs), ::core::mem::transmute(moremsgs), ::core::mem::transmute(requestid), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).OnSmsReadComplete)(::windows::core::Interface::as_raw(self), sms.into().abi(), ::core::mem::transmute(smsformat), ::core::mem::transmute(readmsgs), ::core::mem::transmute(moremsgs), ::core::mem::transmute(requestid), ::core::mem::transmute(status)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnSmsNewClass0Message<'a, P0, P1>(&self, sms: P0, smsformat: P1, readmsgs: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+    pub unsafe fn OnSmsNewClass0Message<'a, P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IMbnSms>>,
-        P1: ::std::convert::Into<MBN_SMS_FORMAT>,
     {
-        (::windows::core::Interface::vtable(self).OnSmsNewClass0Message)(::windows::core::Interface::as_raw(self), sms.into().abi(), smsformat.into(), ::core::mem::transmute(readmsgs)).ok()
+        (::windows::core::Interface::vtable(self).OnSmsNewClass0Message)(::windows::core::Interface::as_raw(self), sms.into().abi(), ::core::mem::transmute(smsformat), ::core::mem::transmute(readmsgs)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
     pub unsafe fn OnSmsDeleteComplete<'a, P0>(&self, sms: P0, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>

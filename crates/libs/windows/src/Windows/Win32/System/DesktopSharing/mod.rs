@@ -738,11 +738,8 @@ impl IRDPSRAPIAttendee {
         (::windows::core::Interface::vtable(self).ControlLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CTRL_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SetControlLevel<'a, P0>(&self, pnewval: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CTRL_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).SetControlLevel)(::windows::core::Interface::as_raw(self), pnewval.into()).ok()
+    pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetControlLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnewval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2050,12 +2047,11 @@ impl IRDPSRAPISharingSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SendControlLevelChangeResponse<'a, P0, P1>(&self, pattendee: P0, requestedlevel: P1, reasoncode: i32) -> ::windows::core::Result<()>
+    pub unsafe fn SendControlLevelChangeResponse<'a, P0>(&self, pattendee: P0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRDPSRAPIAttendee>>,
-        P1: ::std::convert::Into<CTRL_LEVEL>,
     {
-        (::windows::core::Interface::vtable(self).SendControlLevelChangeResponse)(::windows::core::Interface::as_raw(self), pattendee.into().abi(), requestedlevel.into(), ::core::mem::transmute(reasoncode)).ok()
+        (::windows::core::Interface::vtable(self).SendControlLevelChangeResponse)(::windows::core::Interface::as_raw(self), pattendee.into().abi(), ::core::mem::transmute(requestedlevel), ::core::mem::transmute(reasoncode)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2579,11 +2575,8 @@ impl IRDPSRAPIViewer {
         (::windows::core::Interface::vtable(self).SmartSizing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn RequestControl<'a, P0>(&self, ctrllevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CTRL_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).RequestControl)(::windows::core::Interface::as_raw(self), ctrllevel.into()).ok()
+    pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RequestControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ctrllevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2744,11 +2737,8 @@ impl IRDPSRAPIVirtualChannel {
         (::windows::core::Interface::vtable(self).SendData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi(), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(channelsendflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SetAccess<'a, P0>(&self, lattendeeid: i32, accesstype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CHANNEL_ACCESS_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lattendeeid), accesstype.into()).ok()
+    pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(accesstype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2867,13 +2857,12 @@ impl IRDPSRAPIVirtualChannelManager {
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateVirtualChannel<'a, P0, P1>(&self, bstrchannelname: P0, priority: P1, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>
+    pub unsafe fn CreateVirtualChannel<'a, P0>(&self, bstrchannelname: P0, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<CHANNEL_PRIORITY>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), bstrchannelname.into().abi(), priority.into(), ::core::mem::transmute(channelflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIVirtualChannel>(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), bstrchannelname.into().abi(), ::core::mem::transmute(priority), ::core::mem::transmute(channelflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRDPSRAPIVirtualChannel>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3169,11 +3158,8 @@ pub struct IRDPSRAPIWindowList_Vtbl {
 pub struct IRDPViewerInputSink(::windows::core::IUnknown);
 impl IRDPViewerInputSink {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SendMouseButtonEvent<'a, P0>(&self, buttontype: P0, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RDPSRAPI_MOUSE_BUTTON_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SendMouseButtonEvent)(::windows::core::Interface::as_raw(self), buttontype.into(), ::core::mem::transmute(vbbuttondown), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
+    pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMouseButtonEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buttontype), ::core::mem::transmute(vbbuttondown), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
@@ -3184,11 +3170,8 @@ impl IRDPViewerInputSink {
         (::windows::core::Interface::vtable(self).SendMouseWheelEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wheelrotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-    pub unsafe fn SendKeyboardEvent<'a, P0>(&self, codetype: P0, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RDPSRAPI_KBD_CODE_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SendKeyboardEvent)(::windows::core::Interface::as_raw(self), codetype.into(), ::core::mem::transmute(keycode), ::core::mem::transmute(vbkeyup), ::core::mem::transmute(vbrepeat), ::core::mem::transmute(vbextended)).ok()
+    pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendKeyboardEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(codetype), ::core::mem::transmute(keycode), ::core::mem::transmute(vbkeyup), ::core::mem::transmute(vbrepeat), ::core::mem::transmute(vbextended)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> ::windows::core::Result<()> {

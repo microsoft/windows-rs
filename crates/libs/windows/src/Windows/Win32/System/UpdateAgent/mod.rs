@@ -667,11 +667,8 @@ impl IAutomaticUpdatesSettings {
         (::windows::core::Interface::vtable(self).NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>,
-    {
-        (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -689,11 +686,8 @@ impl IAutomaticUpdatesSettings {
         (::windows::core::Interface::vtable(self).ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>,
-    {
-        (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -802,11 +796,8 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).base__.NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -824,11 +815,8 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).base__.ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -857,13 +845,9 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn CheckPermission<'a, P0, P1>(&self, usertype: P0, permissiontype: P1) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesUserType>,
-        P1: ::std::convert::Into<AutomaticUpdatesPermissionType>,
-    {
+    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), usertype.into(), permissiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usertype), ::core::mem::transmute(permissiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -966,11 +950,8 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.base__.NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -988,11 +969,8 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.base__.ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -1021,13 +999,9 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn CheckPermission<'a, P0, P1>(&self, usertype: P0, permissiontype: P1) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<AutomaticUpdatesUserType>,
-        P1: ::std::convert::Into<AutomaticUpdatesPermissionType>,
-    {
+    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), usertype.into(), permissiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usertype), ::core::mem::transmute(permissiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn NonAdministratorsElevated(&self) -> ::windows::core::Result<i16> {
@@ -6273,11 +6247,8 @@ impl IUpdateDownloader {
         (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DownloadPriority>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DownloadPriority>,
-    {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetPriority(&self, value: DownloadPriority) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8443,11 +8414,8 @@ impl IUpdateSearcher {
         (::windows::core::Interface::vtable(self).ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ServerSelection>,
-    {
-        (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8678,11 +8646,8 @@ impl IUpdateSearcher2 {
         (::windows::core::Interface::vtable(self).base__.ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ServerSelection>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8897,11 +8862,8 @@ impl IUpdateSearcher3 {
         (::windows::core::Interface::vtable(self).base__.base__.ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ServerSelection>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8990,11 +8952,8 @@ impl IUpdateSearcher3 {
         (::windows::core::Interface::vtable(self).SearchScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SearchScope>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetSearchScope<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SearchScope>,
-    {
-        (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetSearchScope(&self, value: SearchScope) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

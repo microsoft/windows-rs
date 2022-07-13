@@ -1087,12 +1087,9 @@ impl IMarshalingStream {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbwritten)))
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn Seek<'a, P0>(&self, dlibmove: i64, dworigin: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<super::STREAM_SEEK>,
-    {
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
@@ -1106,11 +1103,8 @@ impl IMarshalingStream {
         (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn Commit<'a, P0>(&self, grfcommitflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::STGC>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
+    pub unsafe fn Commit(&self, grfcommitflags: super::STGC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
@@ -1135,12 +1129,9 @@ impl IMarshalingStream {
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-    pub unsafe fn GetMarshalingContextAttribute<'a, P0>(&self, attribute: P0) -> ::windows::core::Result<usize>
-    where
-        P0: ::std::convert::Into<super::CO_MARSHALING_CONTEXT_ATTRIBUTES>,
-    {
+    pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), attribute.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attribute), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IMarshalingStream> for ::windows::core::IUnknown {

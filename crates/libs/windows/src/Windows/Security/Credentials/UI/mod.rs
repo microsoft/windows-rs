@@ -158,12 +158,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetAuthenticationProtocol<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AuthenticationProtocol>,
-    {
+    pub fn SetAuthenticationProtocol(&self, value: AuthenticationProtocol) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn AuthenticationProtocol(&self) -> ::windows::core::Result<AuthenticationProtocol> {
@@ -235,12 +232,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetCredentialSaveOption<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CredentialSaveOption>,
-    {
+    pub fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCredentialSaveOption)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCredentialSaveOption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption> {

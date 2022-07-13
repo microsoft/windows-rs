@@ -62,15 +62,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
-pub unsafe fn GetDeviceRegistrationInfo<'a, P0>(deviceinformationclass: P0, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<REGISTRATION_INFORMATION_CLASS>,
-{
+pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    GetDeviceRegistrationInfo(deviceinformationclass.into(), ::core::mem::transmute(ppdeviceregistrationinfo)).ok()
+    GetDeviceRegistrationInfo(::core::mem::transmute(deviceinformationclass), ::core::mem::transmute(ppdeviceregistrationinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]

@@ -461,12 +461,9 @@ pub struct IProvideWinSATResultsInfo(::windows::core::IUnknown);
 impl IProvideWinSATResultsInfo {
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAssessmentInfo<'a, P0>(&self, assessment: P0) -> ::windows::core::Result<IProvideWinSATAssessmentInfo>
-    where
-        P0: ::std::convert::Into<WINSAT_ASSESSMENT_TYPE>,
-    {
+    pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> ::windows::core::Result<IProvideWinSATAssessmentInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAssessmentInfo)(::windows::core::Interface::as_raw(self), assessment.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IProvideWinSATAssessmentInfo>(result__)
+        (::windows::core::Interface::vtable(self).GetAssessmentInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(assessment), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IProvideWinSATAssessmentInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
     pub unsafe fn AssessmentState(&self) -> ::windows::core::Result<WINSAT_ASSESSMENT_STATE> {
@@ -578,13 +575,9 @@ pub struct IProvideWinSATVisuals(::windows::core::IUnknown);
 impl IProvideWinSATVisuals {
     #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn get_Bitmap<'a, P0, P1>(&self, bitmapsize: P0, state: P1, rating: f32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>
-    where
-        P0: ::std::convert::Into<WINSAT_BITMAP_SIZE>,
-        P1: ::std::convert::Into<WINSAT_ASSESSMENT_STATE>,
-    {
+    pub unsafe fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::HBITMAP>::zeroed();
-        (::windows::core::Interface::vtable(self).get_Bitmap)(::windows::core::Interface::as_raw(self), bitmapsize.into(), state.into(), ::core::mem::transmute(rating), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Interface::vtable(self).get_Bitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bitmapsize), ::core::mem::transmute(state), ::core::mem::transmute(rating), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 impl ::core::convert::From<IProvideWinSATVisuals> for ::windows::core::IUnknown {

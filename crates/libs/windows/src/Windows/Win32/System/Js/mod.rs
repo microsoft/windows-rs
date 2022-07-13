@@ -187,16 +187,12 @@ pub unsafe fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error:
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
-pub unsafe fn JsCreateRuntime<'a, P0, P1>(attributes: P0, runtimeversion: P1, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode
-where
-    P0: ::std::convert::Into<JsRuntimeAttributes>,
-    P1: ::std::convert::Into<JsRuntimeVersion>,
-{
+pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: *mut ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsCreateRuntime(attributes.into(), runtimeversion.into(), ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime)))
+    ::core::mem::transmute(JsCreateRuntime(::core::mem::transmute(attributes), ::core::mem::transmute(runtimeversion), ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -963,16 +959,15 @@ where
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
-pub unsafe fn JsStartProfiling<'a, P0, P1>(callback: P0, eventmask: P1, context: u32) -> JsErrorCode
+pub unsafe fn JsStartProfiling<'a, P0>(callback: P0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Diagnostics::Debug::IActiveScriptProfilerCallback>>,
-    P1: ::std::convert::Into<super::Diagnostics::Debug::PROFILER_EVENT_MASK>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn JsStartProfiling(callback: *mut ::core::ffi::c_void, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
     }
-    ::core::mem::transmute(JsStartProfiling(callback.into().abi(), eventmask.into(), ::core::mem::transmute(context)))
+    ::core::mem::transmute(JsStartProfiling(callback.into().abi(), ::core::mem::transmute(eventmask), ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]

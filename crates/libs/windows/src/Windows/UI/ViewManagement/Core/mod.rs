@@ -385,14 +385,11 @@ impl CoreInputView {
     }
     #[doc = "*Required features: `\"UI_ViewManagement_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryTransferXYFocusToPrimaryView<'a, P0>(&self, origin: super::super::super::Foundation::Rect, direction: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CoreInputViewXYFocusTransferDirection>,
-    {
+    pub fn TryTransferXYFocusToPrimaryView(&self, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreInputView2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryTransferXYFocusToPrimaryView)(::windows::core::Interface::as_raw(this), origin, direction.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryTransferXYFocusToPrimaryView)(::windows::core::Interface::as_raw(this), origin, direction, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -404,14 +401,11 @@ impl CoreInputView {
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
-    pub fn TryShowWithKind<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CoreInputViewKind>,
-    {
+    pub fn TryShowWithKind(&self, r#type: CoreInputViewKind) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreInputView3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowWithKind)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryShowWithKind)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
@@ -459,14 +453,11 @@ impl CoreInputView {
         unsafe { (::windows::core::Interface::vtable(this).RemovePrimaryViewHiding)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
-    pub fn IsKindSupported<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<CoreInputViewKind>,
-    {
+    pub fn IsKindSupported(&self, r#type: CoreInputViewKind) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICoreInputView5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsKindSupported)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsKindSupported)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement_Core\"`, `\"Foundation\"`*"]

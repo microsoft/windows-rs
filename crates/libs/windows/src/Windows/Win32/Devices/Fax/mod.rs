@@ -3581,11 +3581,8 @@ impl IFaxAccount {
         (::windows::core::Interface::vtable(self).Folders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFaxAccountFolders>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn ListenToAccountEvents<'a, P0>(&self, eventtypes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_ACCOUNT_EVENTS_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).ListenToAccountEvents)(::windows::core::Interface::as_raw(self), eventtypes.into()).ok()
+    pub unsafe fn ListenToAccountEvents(&self, eventtypes: FAX_ACCOUNT_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ListenToAccountEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_ACCOUNT_EVENTS_TYPE_ENUM> {
@@ -5120,11 +5117,8 @@ impl IFaxDevice {
         (::windows::core::Interface::vtable(self).ReceiveMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_DEVICE_RECEIVE_MODE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetReceiveMode<'a, P0>(&self, receivemode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_DEVICE_RECEIVE_MODE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetReceiveMode)(::windows::core::Interface::as_raw(self), receivemode.into()).ok()
+    pub unsafe fn SetReceiveMode(&self, receivemode: FAX_DEVICE_RECEIVE_MODE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReceiveMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(receivemode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RingsBeforeAnswer(&self) -> ::windows::core::Result<i32> {
@@ -5943,11 +5937,8 @@ impl IFaxDocument {
         (::windows::core::Interface::vtable(self).CoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_COVERPAGE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetCoverPageType<'a, P0>(&self, coverpagetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_COVERPAGE_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetCoverPageType)(::windows::core::Interface::as_raw(self), coverpagetype.into()).ok()
+    pub unsafe fn SetCoverPageType(&self, coverpagetype: FAX_COVERPAGE_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(coverpagetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM> {
@@ -5955,11 +5946,8 @@ impl IFaxDocument {
         (::windows::core::Interface::vtable(self).ScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetScheduleType<'a, P0>(&self, scheduletype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_SCHEDULE_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetScheduleType)(::windows::core::Interface::as_raw(self), scheduletype.into()).ok()
+    pub unsafe fn SetScheduleType(&self, scheduletype: FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scheduletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
@@ -5967,11 +5955,8 @@ impl IFaxDocument {
         (::windows::core::Interface::vtable(self).ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetReceiptType<'a, P0>(&self, receipttype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_RECEIPT_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetReceiptType)(::windows::core::Interface::as_raw(self), receipttype.into()).ok()
+    pub unsafe fn SetReceiptType(&self, receipttype: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(receipttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16> {
@@ -5988,11 +5973,8 @@ impl IFaxDocument {
         (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetPriority<'a, P0>(&self, priority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_PRIORITY_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), priority.into()).ok()
+    pub unsafe fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6317,11 +6299,8 @@ impl IFaxDocument2 {
         (::windows::core::Interface::vtable(self).base__.CoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_COVERPAGE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetCoverPageType<'a, P0>(&self, coverpagetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_COVERPAGE_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetCoverPageType)(::windows::core::Interface::as_raw(self), coverpagetype.into()).ok()
+    pub unsafe fn SetCoverPageType(&self, coverpagetype: FAX_COVERPAGE_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(coverpagetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM> {
@@ -6329,11 +6308,8 @@ impl IFaxDocument2 {
         (::windows::core::Interface::vtable(self).base__.ScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetScheduleType<'a, P0>(&self, scheduletype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_SCHEDULE_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetScheduleType)(::windows::core::Interface::as_raw(self), scheduletype.into()).ok()
+    pub unsafe fn SetScheduleType(&self, scheduletype: FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scheduletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
@@ -6341,11 +6317,8 @@ impl IFaxDocument2 {
         (::windows::core::Interface::vtable(self).base__.ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetReceiptType<'a, P0>(&self, receipttype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_RECEIPT_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetReceiptType)(::windows::core::Interface::as_raw(self), receipttype.into()).ok()
+    pub unsafe fn SetReceiptType(&self, receipttype: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(receipttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16> {
@@ -6362,11 +6335,8 @@ impl IFaxDocument2 {
         (::windows::core::Interface::vtable(self).base__.Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetPriority<'a, P0>(&self, priority: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_PRIORITY_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), priority.into()).ok()
+    pub unsafe fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6563,11 +6533,8 @@ impl IFaxEventLogging {
         (::windows::core::Interface::vtable(self).InitEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetInitEventsLevel<'a, P0>(&self, initeventlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_LOG_LEVEL_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetInitEventsLevel)(::windows::core::Interface::as_raw(self), initeventlevel.into()).ok()
+    pub unsafe fn SetInitEventsLevel(&self, initeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInitEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initeventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InboundEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
@@ -6575,11 +6542,8 @@ impl IFaxEventLogging {
         (::windows::core::Interface::vtable(self).InboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetInboundEventsLevel<'a, P0>(&self, inboundeventlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_LOG_LEVEL_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetInboundEventsLevel)(::windows::core::Interface::as_raw(self), inboundeventlevel.into()).ok()
+    pub unsafe fn SetInboundEventsLevel(&self, inboundeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inboundeventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OutboundEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
@@ -6587,11 +6551,8 @@ impl IFaxEventLogging {
         (::windows::core::Interface::vtable(self).OutboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetOutboundEventsLevel<'a, P0>(&self, outboundeventlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_LOG_LEVEL_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetOutboundEventsLevel)(::windows::core::Interface::as_raw(self), outboundeventlevel.into()).ok()
+    pub unsafe fn SetOutboundEventsLevel(&self, outboundeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOutboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(outboundeventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GeneralEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
@@ -6599,11 +6560,8 @@ impl IFaxEventLogging {
         (::windows::core::Interface::vtable(self).GeneralEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetGeneralEventsLevel<'a, P0>(&self, generaleventlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_LOG_LEVEL_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetGeneralEventsLevel)(::windows::core::Interface::as_raw(self), generaleventlevel.into()).ok()
+    pub unsafe fn SetGeneralEventsLevel(&self, generaleventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGeneralEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(generaleventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -11176,11 +11134,8 @@ impl IFaxReceiptOptions {
         (::windows::core::Interface::vtable(self).AuthenticationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_SMTP_AUTHENTICATION_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetAuthenticationType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_SMTP_AUTHENTICATION_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetAuthenticationType)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
+    pub unsafe fn SetAuthenticationType(&self, r#type: FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11239,11 +11194,8 @@ impl IFaxReceiptOptions {
         (::windows::core::Interface::vtable(self).AllowedReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn SetAllowedReceipts<'a, P0>(&self, allowedreceipts: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_RECEIPT_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).SetAllowedReceipts)(::windows::core::Interface::as_raw(self), allowedreceipts.into()).ok()
+    pub unsafe fn SetAllowedReceipts(&self, allowedreceipts: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAllowedReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedreceipts)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12423,11 +12375,8 @@ impl IFaxServer {
         (::windows::core::Interface::vtable(self).SetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into().abi(), vproperty.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn ListenToServerEvents<'a, P0>(&self, eventtypes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_SERVER_EVENTS_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).ListenToServerEvents)(::windows::core::Interface::as_raw(self), eventtypes.into()).ok()
+    pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ListenToServerEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12744,11 +12693,8 @@ impl IFaxServer2 {
         (::windows::core::Interface::vtable(self).base__.SetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into().abi(), vproperty.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
-    pub unsafe fn ListenToServerEvents<'a, P0>(&self, eventtypes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FAX_SERVER_EVENTS_TYPE_ENUM>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ListenToServerEvents)(::windows::core::Interface::as_raw(self), eventtypes.into()).ok()
+    pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ListenToServerEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14576,16 +14522,15 @@ pub const SUPPORTS_MSCPLUS_STR: &str = "SupportsMSCPlus";
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[inline]
-pub unsafe fn SendToFaxRecipient<'a, P0, P1>(sndmode: P0, lpfilename: P1) -> u32
+pub unsafe fn SendToFaxRecipient<'a, P0>(sndmode: SendToMode, lpfilename: P0) -> u32
 where
-    P0: ::std::convert::Into<SendToMode>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(SendToFaxRecipient(sndmode.into(), lpfilename.into()))
+    ::core::mem::transmute(SendToFaxRecipient(::core::mem::transmute(sndmode), lpfilename.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]

@@ -489,16 +489,13 @@ pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattrib
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
-pub unsafe fn DCompositionGetFrameId<'a, P0>(frameidtype: P0) -> ::windows::core::Result<u64>
-where
-    P0: ::std::convert::Into<COMPOSITION_FRAME_ID_TYPE>,
-{
+pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE, frameid: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    DCompositionGetFrameId(frameidtype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    DCompositionGetFrameId(::core::mem::transmute(frameidtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -576,19 +573,13 @@ impl IDCompositionAffineTransform2DEffect {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetInterpolationMode<'a, P0>(&self, interpolationmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode.into()).ok()
+    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInterpolationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interpolationmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetBorderMode<'a, P0>(&self, bordermode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_BORDER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode.into()).ok()
+    pub unsafe fn SetBorderMode(&self, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bordermode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -947,11 +938,8 @@ impl IDCompositionBlendEffect {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_BLEND_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionBlendEffect> for ::windows::core::IUnknown {
@@ -1253,11 +1241,8 @@ impl IDCompositionColorMatrixEffect {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetAlphaMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetAlphaMode(&self, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1365,11 +1350,8 @@ impl IDCompositionCompositeEffect {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_COMPOSITE_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionCompositeEffect> for ::windows::core::IUnknown {
@@ -1550,23 +1532,15 @@ impl IDCompositionDesktopDevice {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSurface<'a, P0, P1>(&self, width: u32, height: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateVirtualSurface<'a, P0, P1>(&self, initialwidth: u32, initialheight: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionVirtualSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
@@ -1769,23 +1743,15 @@ impl IDCompositionDevice {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSurface<'a, P0, P1>(&self, width: u32, height: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateVirtualSurface<'a, P0, P1>(&self, initialwidth: u32, initialheight: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionVirtualSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2000,23 +1966,15 @@ impl IDCompositionDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSurface<'a, P0, P1>(&self, width: u32, height: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateVirtualSurface<'a, P0, P1>(&self, initialwidth: u32, initialheight: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionVirtualSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
@@ -2192,23 +2150,15 @@ impl IDCompositionDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSurface<'a, P0, P1>(&self, width: u32, height: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateVirtualSurface<'a, P0, P1>(&self, initialwidth: u32, initialheight: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionVirtualSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn CreateTranslateTransform(&self) -> ::windows::core::Result<IDCompositionTranslateTransform> {
@@ -2686,11 +2636,8 @@ impl IDCompositionGaussianBlurEffect {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetBorderMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_BORDER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetBorderMode(&self, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
@@ -4662,23 +4609,15 @@ pub struct IDCompositionSurfaceFactory(::windows::core::IUnknown);
 impl IDCompositionSurfaceFactory {
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSurface<'a, P0, P1>(&self, width: u32, height: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateVirtualSurface<'a, P0, P1>(&self, initialwidth: u32, initialheight: u32, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<IDCompositionVirtualSurface>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>,
-    {
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), pixelformat.into(), alphamode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualSurface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialwidth), ::core::mem::transmute(initialheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(alphamode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
     }
 }
 impl ::core::convert::From<IDCompositionSurfaceFactory> for ::windows::core::IUnknown {
@@ -5395,11 +5334,8 @@ impl IDCompositionTurbulenceEffect {
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetNoise<'a, P0>(&self, noise: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Direct2D::Common::D2D1_TURBULENCE_NOISE>,
-    {
-        (::windows::core::Interface::vtable(self).SetNoise)(::windows::core::Interface::as_raw(self), noise.into()).ok()
+    pub unsafe fn SetNoise(&self, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNoise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(noise)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5651,18 +5587,12 @@ impl IDCompositionVisual {
         (::windows::core::Interface::vtable(self).SetEffect)(::windows::core::Interface::as_raw(self), effect.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBitmapInterpolationMode<'a, P0>(&self, interpolationmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BITMAP_INTERPOLATION_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode.into()).ok()
+    pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interpolationmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBorderMode<'a, P0>(&self, bordermode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BORDER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode.into()).ok()
+    pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBorderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bordermode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
@@ -5705,11 +5635,8 @@ impl IDCompositionVisual {
         (::windows::core::Interface::vtable(self).RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetCompositeMode<'a, P0>(&self, compositemode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_COMPOSITE_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode.into()).ok()
+    pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCompositeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compositemode)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionVisual> for ::windows::core::IUnknown {
@@ -5831,18 +5758,12 @@ impl IDCompositionVisual2 {
         (::windows::core::Interface::vtable(self).base__.SetEffect)(::windows::core::Interface::as_raw(self), effect.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBitmapInterpolationMode<'a, P0>(&self, interpolationmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BITMAP_INTERPOLATION_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode.into()).ok()
+    pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interpolationmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBorderMode<'a, P0>(&self, bordermode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BORDER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode.into()).ok()
+    pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetBorderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bordermode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
@@ -5885,25 +5806,16 @@ impl IDCompositionVisual2 {
         (::windows::core::Interface::vtable(self).base__.RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetCompositeMode<'a, P0>(&self, compositemode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_COMPOSITE_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode.into()).ok()
+    pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compositemode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetOpacityMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_OPACITY_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetOpacityMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOpacityMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBackFaceVisibility<'a, P0>(&self, visibility: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BACKFACE_VISIBILITY>,
-    {
-        (::windows::core::Interface::vtable(self).SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), visibility.into()).ok()
+    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(visibility)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionVisual2> for ::windows::core::IUnknown {
@@ -6016,18 +5928,12 @@ impl IDCompositionVisual3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetEffect)(::windows::core::Interface::as_raw(self), effect.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBitmapInterpolationMode<'a, P0>(&self, interpolationmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BITMAP_INTERPOLATION_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode.into()).ok()
+    pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interpolationmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBorderMode<'a, P0>(&self, bordermode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BORDER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode.into()).ok()
+    pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetBorderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bordermode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
@@ -6070,25 +5976,16 @@ impl IDCompositionVisual3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetCompositeMode<'a, P0>(&self, compositemode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_COMPOSITE_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode.into()).ok()
+    pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compositemode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetOpacityMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_OPACITY_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetOpacityMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetOpacityMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBackFaceVisibility<'a, P0>(&self, visibility: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BACKFACE_VISIBILITY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), visibility.into()).ok()
+    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(visibility)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6108,11 +6005,8 @@ impl IDCompositionVisual3 {
         (::windows::core::Interface::vtable(self).base__.DisableRedrawRegions)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetDepthMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_DEPTH_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetDepthMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDepthMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn SetOffsetZ<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
@@ -6309,18 +6203,12 @@ impl IDCompositionVisualDebug {
         (::windows::core::Interface::vtable(self).base__.base__.SetEffect)(::windows::core::Interface::as_raw(self), effect.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBitmapInterpolationMode<'a, P0>(&self, interpolationmode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BITMAP_INTERPOLATION_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), interpolationmode.into()).ok()
+    pub unsafe fn SetBitmapInterpolationMode(&self, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetBitmapInterpolationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interpolationmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBorderMode<'a, P0>(&self, bordermode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BORDER_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetBorderMode)(::windows::core::Interface::as_raw(self), bordermode.into()).ok()
+    pub unsafe fn SetBorderMode(&self, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetBorderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bordermode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     pub unsafe fn SetClip<'a, P0>(&self, clip: P0) -> ::windows::core::Result<()>
@@ -6363,25 +6251,16 @@ impl IDCompositionVisualDebug {
         (::windows::core::Interface::vtable(self).base__.base__.RemoveAllVisuals)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetCompositeMode<'a, P0>(&self, compositemode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_COMPOSITE_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), compositemode.into()).ok()
+    pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetCompositeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compositemode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetOpacityMode<'a, P0>(&self, mode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_OPACITY_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetOpacityMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
+    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetOpacityMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
-    pub unsafe fn SetBackFaceVisibility<'a, P0>(&self, visibility: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DCOMPOSITION_BACKFACE_VISIBILITY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), visibility.into()).ok()
+    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetBackFaceVisibility)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(visibility)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]

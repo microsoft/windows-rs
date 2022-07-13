@@ -73,33 +73,30 @@ impl Playlist {
     }
     #[doc = "*Required features: `\"Media_Playlists\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveAsAsync<'a, P0, E0, P1, P2>(&self, savelocation: P0, desiredname: P1, option: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsAsync<'a, P0, E0, P1>(&self, savelocation: P0, desiredname: P1, option: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<super::super::Storage::NameCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveAsAsync)(::windows::core::Interface::as_raw(this), savelocation.try_into().map_err(|e| e.into())?.abi(), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).SaveAsAsync)(::windows::core::Interface::as_raw(this), savelocation.try_into().map_err(|e| e.into())?.abi(), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playlists\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SaveAsWithFormatAsync<'a, P0, E0, P1, P2, P3>(&self, savelocation: P0, desiredname: P1, option: P2, playlistformat: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsWithFormatAsync<'a, P0, E0, P1>(&self, savelocation: P0, desiredname: P1, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<super::super::Storage::NameCollisionOption>,
-        P3: ::std::convert::Into<PlaylistFormat>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveAsWithFormatAsync)(::windows::core::Interface::as_raw(this), savelocation.try_into().map_err(|e| e.into())?.abi(), desiredname.into().abi(), option.into(), playlistformat.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).SaveAsWithFormatAsync)(::windows::core::Interface::as_raw(this), savelocation.try_into().map_err(|e| e.into())?.abi(), desiredname.into().abi(), option, playlistformat, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playlists\"`, `\"Foundation\"`, `\"Storage\"`*"]

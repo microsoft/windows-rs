@@ -1265,12 +1265,9 @@ impl MediaFrameReader {
         }
     }
     #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-    pub fn SetAcquisitionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaFrameReaderAcquisitionMode>,
-    {
+    pub fn SetAcquisitionMode(&self, value: MediaFrameReaderAcquisitionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrameReader2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAcquisitionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAcquisitionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
     pub fn AcquisitionMode(&self) -> ::windows::core::Result<MediaFrameReaderAcquisitionMode> {
@@ -2478,12 +2475,9 @@ impl MultiSourceMediaFrameReader {
         }
     }
     #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-    pub fn SetAcquisitionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaFrameReaderAcquisitionMode>,
-    {
+    pub fn SetAcquisitionMode(&self, value: MediaFrameReaderAcquisitionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMultiSourceMediaFrameReader2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAcquisitionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAcquisitionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
     pub fn AcquisitionMode(&self) -> ::windows::core::Result<MediaFrameReaderAcquisitionMode> {

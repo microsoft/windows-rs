@@ -999,16 +999,14 @@ impl CodecQuery {
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync<'a, P0, P1, P2>(&self, kind: P0, category: P1, subtype: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>
+    pub fn FindAllAsync<'a, P0>(&self, kind: CodecKind, category: CodecCategory, subtype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>
     where
-        P0: ::std::convert::Into<CodecKind>,
-        P1: ::std::convert::Into<CodecCategory>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), kind.into(), category.into(), subtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), kind, category, subtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>>(result__)
         }
     }
 }
@@ -1841,12 +1839,9 @@ impl FaceDetectionEffectDefinition {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetDetectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FaceDetectionMode>,
-    {
+    pub fn SetDetectionMode(&self, value: FaceDetectionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFaceDetectionEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDetectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDetectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn DetectionMode(&self) -> ::windows::core::Result<FaceDetectionMode> {
@@ -7637,12 +7632,9 @@ impl MediaStreamSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveSwitchStreamsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn NotifyError<'a, P0>(&self, errorstatus: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaStreamSourceErrorStatus>,
-    {
+    pub fn NotifyError(&self, errorstatus: MediaStreamSourceErrorStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).NotifyError)(::windows::core::Interface::as_raw(this), errorstatus.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).NotifyError)(::windows::core::Interface::as_raw(this), errorstatus).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn AddStreamDescriptor<'a, P0, E0>(&self, descriptor: P0) -> ::windows::core::Result<()>
@@ -9201,12 +9193,9 @@ impl MseSourceBuffer {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MseAppendMode>,
-    {
+    pub fn SetMode(&self, value: MseAppendMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn IsUpdating(&self) -> ::windows::core::Result<bool> {
@@ -9622,12 +9611,9 @@ impl MseStreamSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceBuffer)(::windows::core::Interface::as_raw(this), buffer.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn EndOfStream<'a, P0>(&self, status: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MseEndOfStreamStatus>,
-    {
+    pub fn EndOfStream(&self, status: MseEndOfStreamStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).EndOfStream)(::windows::core::Interface::as_raw(this), status.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).EndOfStream)(::windows::core::Interface::as_raw(this), status).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -10999,15 +10985,14 @@ impl TimedMetadataTrack {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn Create<'a, P0, P1, P2>(id: P0, language: P1, kind: P2) -> ::windows::core::Result<TimedMetadataTrack>
+    pub fn Create<'a, P0, P1>(id: P0, language: P1, kind: TimedMetadataKind) -> ::windows::core::Result<TimedMetadataTrack>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<TimedMetadataKind>,
     {
         Self::ITimedMetadataTrackFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), language.into().abi(), kind.into(), result__.as_mut_ptr()).from_abi::<TimedMetadataTrack>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), language.into().abi(), kind, result__.as_mut_ptr()).from_abi::<TimedMetadataTrack>(result__)
         })
     }
     #[doc(hidden)]
@@ -11304,12 +11289,9 @@ impl TimedTextBouten {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextBoutenType>,
-    {
+    pub fn SetType(&self, value: TimedTextBoutenType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -11335,12 +11317,9 @@ impl TimedTextBouten {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetPosition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextBoutenPosition>,
-    {
+    pub fn SetPosition(&self, value: TimedTextBoutenPosition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for TimedTextBouten {
@@ -12093,12 +12072,9 @@ impl TimedTextRegion {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetWritingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextWritingMode>,
-    {
+    pub fn SetWritingMode(&self, value: TimedTextWritingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWritingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWritingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn DisplayAlignment(&self) -> ::windows::core::Result<TimedTextDisplayAlignment> {
@@ -12109,12 +12085,9 @@ impl TimedTextRegion {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetDisplayAlignment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextDisplayAlignment>,
-    {
+    pub fn SetDisplayAlignment(&self, value: TimedTextDisplayAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayAlignment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn LineHeight(&self) -> ::windows::core::Result<TimedTextDouble> {
@@ -12164,12 +12137,9 @@ impl TimedTextRegion {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetTextWrapping<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextWrapping>,
-    {
+    pub fn SetTextWrapping(&self, value: TimedTextWrapping) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTextWrapping)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTextWrapping)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
@@ -12193,12 +12163,9 @@ impl TimedTextRegion {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetScrollMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextScrollMode>,
-    {
+    pub fn SetScrollMode(&self, value: TimedTextScrollMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScrollMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScrollMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for TimedTextRegion {
@@ -12292,12 +12259,9 @@ impl TimedTextRuby {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetPosition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextRubyPosition>,
-    {
+    pub fn SetPosition(&self, value: TimedTextRubyPosition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn Align(&self) -> ::windows::core::Result<TimedTextRubyAlign> {
@@ -12308,12 +12272,9 @@ impl TimedTextRuby {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetAlign<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextRubyAlign>,
-    {
+    pub fn SetAlign(&self, value: TimedTextRubyAlign) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlign)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlign)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn Reserve(&self) -> ::windows::core::Result<TimedTextRubyReserve> {
@@ -12324,12 +12285,9 @@ impl TimedTextRuby {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetReserve<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextRubyReserve>,
-    {
+    pub fn SetReserve(&self, value: TimedTextRubyReserve) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReserve)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReserve)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for TimedTextRuby {
@@ -12923,12 +12881,9 @@ impl TimedTextStyle {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetFontWeight<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextWeight>,
-    {
+    pub fn SetFontWeight(&self, value: TimedTextWeight) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFontWeight)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFontWeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -12982,12 +12937,9 @@ impl TimedTextStyle {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetFlowDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextFlowDirection>,
-    {
+    pub fn SetFlowDirection(&self, value: TimedTextFlowDirection) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFlowDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn LineAlignment(&self) -> ::windows::core::Result<TimedTextLineAlignment> {
@@ -12998,12 +12950,9 @@ impl TimedTextStyle {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetLineAlignment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextLineAlignment>,
-    {
+    pub fn SetLineAlignment(&self, value: TimedTextLineAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLineAlignment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLineAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -13055,12 +13004,9 @@ impl TimedTextStyle {
         }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
-    pub fn SetFontStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TimedTextFontStyle>,
-    {
+    pub fn SetFontStyle(&self, value: TimedTextFontStyle) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITimedTextStyle2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFontStyle)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFontStyle)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn IsUnderlineEnabled(&self) -> ::windows::core::Result<bool> {

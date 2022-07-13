@@ -277,13 +277,12 @@ pub struct IGameExplorer(::windows::core::IUnknown);
 impl IGameExplorer {
     #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddGame<'a, P0, P1, P2>(&self, bstrgdfbinarypath: P0, bstrgameinstalldirectory: P1, installscope: P2, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
+    pub unsafe fn AddGame<'a, P0, P1>(&self, bstrgdfbinarypath: P0, bstrgameinstalldirectory: P1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::BSTR>>,
-        P2: ::std::convert::Into<GAME_INSTALL_SCOPE>,
     {
-        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into().abi(), bstrgameinstalldirectory.into().abi(), installscope.into(), ::core::mem::transmute(pguidinstanceid)).ok()
+        (::windows::core::Interface::vtable(self).AddGame)(::windows::core::Interface::as_raw(self), bstrgdfbinarypath.into().abi(), bstrgameinstalldirectory.into().abi(), ::core::mem::transmute(installscope), ::core::mem::transmute(pguidinstanceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn RemoveGame(&self, guidinstanceid: ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -358,13 +357,12 @@ pub struct IGameExplorer_Vtbl {
 pub struct IGameExplorer2(::windows::core::IUnknown);
 impl IGameExplorer2 {
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub unsafe fn InstallGame<'a, P0, P1, P2>(&self, binarygdfpath: P0, installdirectory: P1, installscope: P2) -> ::windows::core::Result<()>
+    pub unsafe fn InstallGame<'a, P0, P1>(&self, binarygdfpath: P0, installdirectory: P1, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<GAME_INSTALL_SCOPE>,
     {
-        (::windows::core::Interface::vtable(self).InstallGame)(::windows::core::Interface::as_raw(self), binarygdfpath.into(), installdirectory.into(), installscope.into()).ok()
+        (::windows::core::Interface::vtable(self).InstallGame)(::windows::core::Interface::as_raw(self), binarygdfpath.into(), installdirectory.into(), ::core::mem::transmute(installscope)).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn UninstallGame<'a, P0>(&self, binarygdfpath: P0) -> ::windows::core::Result<()>
@@ -560,12 +558,11 @@ pub struct IGameStatistics_Vtbl {
 pub struct IGameStatisticsMgr(::windows::core::IUnknown);
 impl IGameStatisticsMgr {
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub unsafe fn GetGameStatistics<'a, P0, P1>(&self, gdfbinarypath: P0, opentype: P1, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>
+    pub unsafe fn GetGameStatistics<'a, P0>(&self, gdfbinarypath: P0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<GAMESTATS_OPEN_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).GetGameStatistics)(::windows::core::Interface::as_raw(self), gdfbinarypath.into(), opentype.into(), ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
+        (::windows::core::Interface::vtable(self).GetGameStatistics)(::windows::core::Interface::as_raw(self), gdfbinarypath.into(), ::core::mem::transmute(opentype), ::core::mem::transmute(popenresult), ::core::mem::transmute(ppistats)).ok()
     }
     #[doc = "*Required features: `\"Win32_Gaming\"`*"]
     pub unsafe fn RemoveGameStatistics<'a, P0>(&self, gdfbinarypath: P0) -> ::windows::core::Result<()>

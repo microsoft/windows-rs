@@ -2272,13 +2272,10 @@ impl LearningModelDevice {
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
-    pub fn Create<'a, P0>(devicekind: P0) -> ::windows::core::Result<LearningModelDevice>
-    where
-        P0: ::std::convert::Into<LearningModelDeviceKind>,
-    {
+    pub fn Create(devicekind: LearningModelDeviceKind) -> ::windows::core::Result<LearningModelDevice> {
         Self::ILearningModelDeviceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), devicekind.into(), result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), devicekind, result__.as_mut_ptr()).from_abi::<LearningModelDevice>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Graphics_DirectX_Direct3D11\"`*"]

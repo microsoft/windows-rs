@@ -161,70 +161,65 @@ impl PnpObject {
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIdAsync<'a, P0, P1, P2, E2>(r#type: P0, id: P1, requestedproperties: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
+    pub fn CreateFromIdAsync<'a, P0, P1, E1>(r#type: PnpObjectType, id: P0, requestedproperties: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
     where
-        P0: ::std::convert::Into<PnpObjectType>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IPnpObjectStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromIdAsync)(::windows::core::Interface::as_raw(this), r#type, id.into().abi(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObject>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAllAsync<'a, P0, E0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IPnpObjectStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAllAsyncAqsFilter<'a, P0, E0, P1>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIdAsync)(::windows::core::Interface::as_raw(this), r#type.into(), id.into().abi(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObject>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.try_into().map_err(|e| e.into())?.abi(), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync<'a, P0, P1, E1>(r#type: P0, requestedproperties: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    pub fn CreateWatcher<'a, P0, E0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows::core::Result<PnpObjectWatcher>
     where
-        P0: ::std::convert::Into<PnpObjectType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncAqsFilter<'a, P0, P1, E1, P2>(r#type: P0, requestedproperties: P1, aqsfilter: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    pub fn CreateWatcherAqsFilter<'a, P0, E0, P1>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: P1) -> ::windows::core::Result<PnpObjectWatcher>
     where
-        P0: ::std::convert::Into<PnpObjectType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcher<'a, P0, P1, E1>(r#type: P0, requestedproperties: P1) -> ::windows::core::Result<PnpObjectWatcher>
-    where
-        P0: ::std::convert::Into<PnpObjectType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherAqsFilter<'a, P0, P1, E1, P2>(r#type: P0, requestedproperties: P1, aqsfilter: P2) -> ::windows::core::Result<PnpObjectWatcher>
-    where
-        P0: ::std::convert::Into<PnpObjectType>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-    {
-        Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherAqsFilter)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherAqsFilter)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.try_into().map_err(|e| e.into())?.abi(), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
         })
     }
     #[doc(hidden)]

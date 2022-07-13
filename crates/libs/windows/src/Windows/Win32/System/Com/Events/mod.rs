@@ -795,30 +795,27 @@ pub struct IEventObjectChange(::windows::core::IUnknown);
 impl IEventObjectChange {
     #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangedSubscription<'a, P0, P1>(&self, changetype: P0, bstrsubscriptionid: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ChangedSubscription<'a, P0>(&self, changetype: EOC_ChangeType, bstrsubscriptionid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<EOC_ChangeType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), changetype.into(), bstrsubscriptionid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changetype), bstrsubscriptionid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangedEventClass<'a, P0, P1>(&self, changetype: P0, bstreventclassid: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ChangedEventClass<'a, P0>(&self, changetype: EOC_ChangeType, bstreventclassid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<EOC_ChangeType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), changetype.into(), bstreventclassid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changetype), bstreventclassid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangedPublisher<'a, P0, P1>(&self, changetype: P0, bstrpublisherid: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ChangedPublisher<'a, P0>(&self, changetype: EOC_ChangeType, bstrpublisherid: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<EOC_ChangeType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).ChangedPublisher)(::windows::core::Interface::as_raw(self), changetype.into(), bstrpublisherid.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangedPublisher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(changetype), bstrpublisherid.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IEventObjectChange> for ::windows::core::IUnknown {

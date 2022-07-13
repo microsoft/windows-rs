@@ -297,12 +297,9 @@ impl UserDataAccount {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
-    pub fn SetOtherAppReadAccess<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataAccountOtherAppReadAccess>,
-    {
+    pub fn SetOtherAppReadAccess(&self, value: UserDataAccountOtherAppReadAccess) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -619,24 +616,18 @@ pub struct UserDataAccountManager;
 impl UserDataAccountManager {
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync<'a, P0>(storeaccesstype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>
-    where
-        P0: ::std::convert::Into<UserDataAccountStoreAccessType>,
-    {
+    pub fn RequestStoreAsync(storeaccesstype: UserDataAccountStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), storeaccesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), storeaccesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowAddAccountAsync<'a, P0>(contentkinds: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
-    where
-        P0: ::std::convert::Into<UserDataAccountContentKinds>,
-    {
+    pub fn ShowAddAccountAsync(contentkinds: UserDataAccountContentKinds) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShowAddAccountAsync)(::windows::core::Interface::as_raw(this), contentkinds.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ShowAddAccountAsync)(::windows::core::Interface::as_raw(this), contentkinds, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"Foundation\"`*"]
@@ -692,14 +683,11 @@ pub struct UserDataAccountManagerForUser(::windows::core::IUnknown);
 impl UserDataAccountManagerForUser {
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync<'a, P0>(&self, storeaccesstype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>
-    where
-        P0: ::std::convert::Into<UserDataAccountStoreAccessType>,
-    {
+    pub fn RequestStoreAsync(&self, storeaccesstype: UserDataAccountStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), storeaccesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), storeaccesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataAccountStore>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"System\"`*"]

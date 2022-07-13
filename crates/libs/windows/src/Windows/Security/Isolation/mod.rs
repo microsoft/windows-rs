@@ -579,31 +579,29 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyAsync<'a, P0, P1, P2>(&self, hostexepath: P0, arguments: P1, activator: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
+    pub fn StartProcessSilentlyAsync<'a, P0, P1>(&self, hostexepath: P0, arguments: P1, activator: IsolatedWindowsEnvironmentActivator) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyWithTelemetryAsync<'a, P0, P1, P2, P3>(&self, hostexepath: P0, arguments: P1, activator: P2, telemetryparameters: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
+    pub fn StartProcessSilentlyWithTelemetryAsync<'a, P0, P1, P2>(&self, hostexepath: P0, arguments: P1, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator.into(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator, telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
@@ -1593,12 +1591,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetAllowedClipboardFormats<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IsolatedWindowsEnvironmentAllowedClipboardFormats>,
-    {
+    pub fn SetAllowedClipboardFormats(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowedClipboardFormats)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowedClipboardFormats)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ClipboardCopyPasteDirections(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentClipboardCopyPasteDirections> {
@@ -1609,12 +1604,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetClipboardCopyPasteDirections<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>,
-    {
+    pub fn SetClipboardCopyPasteDirections(&self, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AvailablePrinters(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAvailablePrinters> {
@@ -1625,12 +1617,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetAvailablePrinters<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IsolatedWindowsEnvironmentAvailablePrinters>,
-    {
+    pub fn SetAvailablePrinters(&self, value: IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAvailablePrinters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAvailablePrinters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SharedHostFolderPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {

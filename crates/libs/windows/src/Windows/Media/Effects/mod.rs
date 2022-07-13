@@ -355,52 +355,46 @@ pub struct AudioEffectsManager;
 impl AudioEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManager<'a, P0, P1>(deviceid: P0, category: P1) -> ::windows::core::Result<AudioRenderEffectsManager>
+    pub fn CreateAudioRenderEffectsManager<'a, P0>(deviceid: P0, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::Render::AudioRenderCategory>,
     {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManagerWithMode<'a, P0, P1, P2>(deviceid: P0, category: P1, mode: P2) -> ::windows::core::Result<AudioRenderEffectsManager>
+    pub fn CreateAudioRenderEffectsManagerWithMode<'a, P0>(deviceid: P0, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::Render::AudioRenderCategory>,
-        P2: ::std::convert::Into<super::AudioProcessing>,
     {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), mode.into(), result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category, mode, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManager<'a, P0, P1>(deviceid: P0, category: P1) -> ::windows::core::Result<AudioCaptureEffectsManager>
+    pub fn CreateAudioCaptureEffectsManager<'a, P0>(deviceid: P0, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::Capture::MediaCategory>,
     {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManagerWithMode<'a, P0, P1, P2>(deviceid: P0, category: P1, mode: P2) -> ::windows::core::Result<AudioCaptureEffectsManager>
+    pub fn CreateAudioCaptureEffectsManagerWithMode<'a, P0>(deviceid: P0, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::Capture::MediaCategory>,
-        P2: ::std::convert::Into<super::AudioProcessing>,
     {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), mode.into(), result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category, mode, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -896,12 +890,9 @@ impl IBasicAudioEffect {
         unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaEffectClosedReason>,
-    {
+    pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
@@ -1069,12 +1060,9 @@ impl IBasicVideoEffect {
         unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaEffectClosedReason>,
-    {
+    pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
@@ -1283,12 +1271,9 @@ impl IVideoCompositor {
         unsafe { (::windows::core::Interface::vtable(this).CompositeFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaEffectClosedReason>,
-    {
+    pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
@@ -2426,12 +2411,9 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::MediaRotation>,
-    {
+    pub fn SetRotation(&self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
@@ -2444,21 +2426,15 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetMirror<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::MediaMirroringOptions>,
-    {
+    pub fn SetMirror(&self, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMirror)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMirror)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Transcoding\"`*"]
     #[cfg(feature = "Media_Transcoding")]
-    pub fn SetProcessingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Transcoding::MediaVideoProcessingAlgorithm>,
-    {
+    pub fn SetProcessingAlgorithm(&self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Transcoding\"`*"]
     #[cfg(feature = "Media_Transcoding")]
@@ -2587,12 +2563,9 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetFrameFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::MediaProperties::SphericalVideoFrameFormat>,
-    {
+    pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Playback\"`*"]
     #[cfg(feature = "Media_Playback")]
@@ -2605,12 +2578,9 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Playback\"`*"]
     #[cfg(feature = "Media_Playback")]
-    pub fn SetProjectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Playback::SphericalVideoProjectionMode>,
-    {
+    pub fn SetProjectionMode(&self, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64> {

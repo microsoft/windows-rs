@@ -1157,15 +1157,12 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetStdHandle<'a, P0>(nstdhandle: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<STD_HANDLE>,
-{
+pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStdHandle(nstdhandle: STD_HANDLE) -> super::super::Foundation::HANDLE;
     }
-    let result__ = GetStdHandle(nstdhandle.into());
+    let result__ = GetStdHandle(::core::mem::transmute(nstdhandle));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1782,16 +1779,15 @@ pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetConsoleMode<'a, P0, P1>(hconsolehandle: P0, dwmode: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetConsoleMode<'a, P0>(hconsolehandle: P0, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<CONSOLE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetConsoleMode(hconsolehandle: super::super::Foundation::HANDLE, dwmode: CONSOLE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetConsoleMode(hconsolehandle.into(), dwmode.into()))
+    ::core::mem::transmute(SetConsoleMode(hconsolehandle.into(), ::core::mem::transmute(dwmode)))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1925,30 +1921,28 @@ where
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetStdHandle<'a, P0, P1>(nstdhandle: P0, hhandle: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetStdHandle<'a, P0>(nstdhandle: STD_HANDLE, hhandle: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<STD_HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetStdHandle(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetStdHandle(nstdhandle.into(), hhandle.into()))
+    ::core::mem::transmute(SetStdHandle(::core::mem::transmute(nstdhandle), hhandle.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetStdHandleEx<'a, P0, P1>(nstdhandle: P0, hhandle: P1, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
+pub unsafe fn SetStdHandleEx<'a, P0>(nstdhandle: STD_HANDLE, hhandle: P0, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<STD_HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: super::super::Foundation::HANDLE, phprevvalue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetStdHandleEx(nstdhandle.into(), hhandle.into(), ::core::mem::transmute(phprevvalue)))
+    ::core::mem::transmute(SetStdHandleEx(::core::mem::transmute(nstdhandle), hhandle.into(), ::core::mem::transmute(phprevvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;

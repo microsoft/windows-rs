@@ -439,30 +439,26 @@ impl CertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InstallCertificateAsync<'a, P0, P1>(certificate: P0, installoption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn InstallCertificateAsync<'a, P0>(certificate: P0, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<InstallOptions>,
     {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), installoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), installoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataAsync<'a, P0, P1, P2, P3, P4, P5>(pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportPfxDataAsync<'a, P0, P1, P2>(pfxdata: P0, password: P1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<ExportOption>,
-        P3: ::std::convert::Into<KeyProtectionLevel>,
-        P4: ::std::convert::Into<InstallOptions>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable.into(), keyprotectionlevel.into(), installoption.into(), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -474,19 +470,16 @@ impl CertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataToKspAsync<'a, P0, P1, P2, P3, P4, P5, P6>(pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5, keystorageprovider: P6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportPfxDataToKspAsync<'a, P0, P1, P2, P3>(pfxdata: P0, password: P1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: P2, keystorageprovider: P3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<ExportOption>,
-        P3: ::std::convert::Into<KeyProtectionLevel>,
-        P4: ::std::convert::Into<InstallOptions>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable.into(), keyprotectionlevel.into(), installoption.into(), friendlyname.into().abi(), keystorageprovider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into().abi(), keystorageprovider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -1103,12 +1096,9 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetExportable<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ExportOption>,
-    {
+    pub fn SetExportable(&self, value: ExportOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyUsages(&self) -> ::windows::core::Result<EnrollKeyUsages> {
@@ -1119,12 +1109,9 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyUsages<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EnrollKeyUsages>,
-    {
+    pub fn SetKeyUsages(&self, value: EnrollKeyUsages) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyUsages)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyUsages)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyProtectionLevel(&self) -> ::windows::core::Result<KeyProtectionLevel> {
@@ -1135,12 +1122,9 @@ impl CertificateRequestProperties {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<KeyProtectionLevel>,
-    {
+    pub fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyStorageProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1709,12 +1693,9 @@ impl ChainValidationParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetCertificateChainPolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CertificateChainPolicy>,
-    {
+    pub fn SetCertificateChainPolicy(&self, value: CertificateChainPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCertificateChainPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCertificateChainPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
@@ -3651,12 +3632,9 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetExportable<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ExportOption>,
-    {
+    pub fn SetExportable(&self, value: ExportOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyProtectionLevel(&self) -> ::windows::core::Result<KeyProtectionLevel> {
@@ -3667,12 +3645,9 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetKeyProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<KeyProtectionLevel>,
-    {
+    pub fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn InstallOptions(&self) -> ::windows::core::Result<InstallOptions> {
@@ -3683,12 +3658,9 @@ impl PfxImportParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-    pub fn SetInstallOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InstallOptions>,
-    {
+    pub fn SetInstallOptions(&self, value: InstallOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4095,50 +4067,43 @@ impl UserCertificateEnrollmentManager {
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InstallCertificateAsync<'a, P0, P1>(&self, certificate: P0, installoption: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn InstallCertificateAsync<'a, P0>(&self, certificate: P0, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<InstallOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), installoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into().abi(), installoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataAsync<'a, P0, P1, P2, P3, P4, P5>(&self, pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportPfxDataAsync<'a, P0, P1, P2>(&self, pfxdata: P0, password: P1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<ExportOption>,
-        P3: ::std::convert::Into<KeyProtectionLevel>,
-        P4: ::std::convert::Into<InstallOptions>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable.into(), keyprotectionlevel.into(), installoption.into(), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImportPfxDataToKspAsync<'a, P0, P1, P2, P3, P4, P5, P6>(&self, pfxdata: P0, password: P1, exportable: P2, keyprotectionlevel: P3, installoption: P4, friendlyname: P5, keystorageprovider: P6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportPfxDataToKspAsync<'a, P0, P1, P2, P3>(&self, pfxdata: P0, password: P1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: P2, keystorageprovider: P3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<ExportOption>,
-        P3: ::std::convert::Into<KeyProtectionLevel>,
-        P4: ::std::convert::Into<InstallOptions>,
-        P5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P6: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable.into(), keyprotectionlevel.into(), installoption.into(), friendlyname.into().abi(), keystorageprovider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into().abi(), password.into().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into().abi(), keystorageprovider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]

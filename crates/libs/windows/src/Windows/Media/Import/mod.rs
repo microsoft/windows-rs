@@ -888,12 +888,9 @@ impl PhotoImportFindItemsResult {
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetImportMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhotoImportImportMode>,
-    {
+    pub fn SetImportMode(&self, value: PhotoImportImportMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetImportMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImportMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn ImportMode(&self) -> ::windows::core::Result<PhotoImportImportMode> {
@@ -1962,12 +1959,9 @@ impl PhotoImportSession {
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetSubfolderCreationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhotoImportSubfolderCreationMode>,
-    {
+    pub fn SetSubfolderCreationMode(&self, value: PhotoImportSubfolderCreationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubfolderCreationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubfolderCreationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SubfolderCreationMode(&self) -> ::windows::core::Result<PhotoImportSubfolderCreationMode> {
@@ -1995,24 +1989,17 @@ impl PhotoImportSession {
     }
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FindItemsAsync<'a, P0, P1>(&self, contenttypefilter: P0, itemselectionmode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>
-    where
-        P0: ::std::convert::Into<PhotoImportContentTypeFilter>,
-        P1: ::std::convert::Into<PhotoImportItemSelectionMode>,
-    {
+    pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindItemsAsync)(::windows::core::Interface::as_raw(this), contenttypefilter.into(), itemselectionmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>(result__)
+            (::windows::core::Interface::vtable(this).FindItemsAsync)(::windows::core::Interface::as_raw(this), contenttypefilter, itemselectionmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
-    pub fn SetSubfolderDateFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PhotoImportSubfolderDateFormat>,
-    {
+    pub fn SetSubfolderDateFormat(&self, value: PhotoImportSubfolderDateFormat) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPhotoImportSession2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubfolderDateFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubfolderDateFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Import\"`*"]
     pub fn SubfolderDateFormat(&self) -> ::windows::core::Result<PhotoImportSubfolderDateFormat> {

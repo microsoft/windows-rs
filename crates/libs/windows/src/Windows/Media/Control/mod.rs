@@ -202,14 +202,11 @@ impl GlobalSystemMediaTransportControlsSession {
     }
     #[doc = "*Required features: `\"Media_Control\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryChangeAutoRepeatModeAsync<'a, P0>(&self, requestedautorepeatmode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<super::MediaPlaybackAutoRepeatMode>,
-    {
+    pub fn TryChangeAutoRepeatModeAsync(&self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryChangeAutoRepeatModeAsync)(::windows::core::Interface::as_raw(this), requestedautorepeatmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryChangeAutoRepeatModeAsync)(::windows::core::Interface::as_raw(this), requestedautorepeatmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Control\"`, `\"Foundation\"`*"]

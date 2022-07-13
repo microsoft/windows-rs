@@ -298,29 +298,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn AddFontResourceExA<'a, P0, P1>(name: P0, fl: P1, res: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn AddFontResourceExA<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<FONT_RESOURCE_CHARACTERISTICS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddFontResourceExA(name: ::windows::core::PCSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(AddFontResourceExA(name.into(), fl.into(), ::core::mem::transmute(res)))
+    ::core::mem::transmute(AddFontResourceExA(name.into(), ::core::mem::transmute(fl), ::core::mem::transmute(res)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn AddFontResourceExW<'a, P0, P1>(name: P0, fl: P1, res: *mut ::core::ffi::c_void) -> i32
+pub unsafe fn AddFontResourceExW<'a, P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<FONT_RESOURCE_CHARACTERISTICS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddFontResourceExW(name: ::windows::core::PCWSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32;
     }
-    ::core::mem::transmute(AddFontResourceExW(name.into(), fl.into(), ::core::mem::transmute(res)))
+    ::core::mem::transmute(AddFontResourceExW(name.into(), ::core::mem::transmute(fl), ::core::mem::transmute(res)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -880,17 +878,16 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BitBlt<'a, P0, P1, P2>(hdc: P0, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: P1, x1: i32, y1: i32, rop: P2) -> super::super::Foundation::BOOL
+pub unsafe fn BitBlt<'a, P0, P1>(hdc: P0, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: P1, x1: i32, y1: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HDC>,
-    P2: ::std::convert::Into<ROP_CODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BitBlt(hdc: HDC, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: HDC, x1: i32, y1: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BitBlt(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), hdcsrc.into(), ::core::mem::transmute(x1), ::core::mem::transmute(y1), rop.into()))
+    ::core::mem::transmute(BitBlt(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), hdcsrc.into(), ::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(rop)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CA_LOG_FILTER: u32 = 2u32;
@@ -1327,58 +1324,50 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeDisplaySettingsA<'a, P0>(lpdevmode: *const DEVMODEA, dwflags: P0) -> DISP_CHANGE
-where
-    P0: ::std::convert::Into<CDS_TYPE>,
-{
+pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsA(::core::mem::transmute(lpdevmode), dwflags.into()))
+    ::core::mem::transmute(ChangeDisplaySettingsA(::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeDisplaySettingsExA<'a, P0, P1, P2>(lpszdevicename: P0, lpdevmode: *const DEVMODEA, hwnd: P1, dwflags: P2, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE
+pub unsafe fn ChangeDisplaySettingsExA<'a, P0, P1>(lpszdevicename: P0, lpdevmode: *const DEVMODEA, hwnd: P1, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
-    P2: ::std::convert::Into<CDS_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeDisplaySettingsExA(lpszdevicename: ::windows::core::PCSTR, lpdevmode: *const DEVMODEA, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), dwflags.into(), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(ChangeDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lparam)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeDisplaySettingsExW<'a, P0, P1, P2>(lpszdevicename: P0, lpdevmode: *const DEVMODEW, hwnd: P1, dwflags: P2, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE
+pub unsafe fn ChangeDisplaySettingsExW<'a, P0, P1>(lpszdevicename: P0, lpdevmode: *const DEVMODEW, hwnd: P1, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
-    P2: ::std::convert::Into<CDS_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeDisplaySettingsExW(lpszdevicename: ::windows::core::PCWSTR, lpdevmode: *const DEVMODEW, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), dwflags.into(), ::core::mem::transmute(lparam)))
+    ::core::mem::transmute(ChangeDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(lpdevmode), hwnd.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lparam)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeDisplaySettingsW<'a, P0>(lpdevmode: *const DEVMODEW, dwflags: P0) -> DISP_CHANGE
-where
-    P0: ::std::convert::Into<CDS_TYPE>,
-{
+pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE;
     }
-    ::core::mem::transmute(ChangeDisplaySettingsW(::core::mem::transmute(lpdevmode), dwflags.into()))
+    ::core::mem::transmute(ChangeDisplaySettingsW(::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1445,18 +1434,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CombineRgn<'a, P0, P1, P2, P3>(hrgndst: P0, hrgnsrc1: P1, hrgnsrc2: P2, imode: P3) -> i32
+pub unsafe fn CombineRgn<'a, P0, P1, P2>(hrgndst: P0, hrgnsrc1: P1, hrgnsrc2: P2, imode: RGN_COMBINE_MODE) -> i32
 where
     P0: ::std::convert::Into<HRGN>,
     P1: ::std::convert::Into<HRGN>,
     P2: ::std::convert::Into<HRGN>,
-    P3: ::std::convert::Into<RGN_COMBINE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE) -> i32;
     }
-    ::core::mem::transmute(CombineRgn(hrgndst.into(), hrgnsrc1.into(), hrgnsrc2.into(), imode.into()))
+    ::core::mem::transmute(CombineRgn(hrgndst.into(), hrgnsrc1.into(), hrgnsrc2.into(), ::core::mem::transmute(imode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1613,56 +1601,48 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateDIBPatternBrush<'a, P0>(h: isize, iusage: P0) -> HBRUSH
-where
-    P0: ::std::convert::Into<DIB_USAGE>,
-{
+pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateDIBPatternBrush(::core::mem::transmute(h), iusage.into()))
+    ::core::mem::transmute(CreateDIBPatternBrush(::core::mem::transmute(h), ::core::mem::transmute(iusage)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateDIBPatternBrushPt<'a, P0>(lppackeddib: *const ::core::ffi::c_void, iusage: P0) -> HBRUSH
-where
-    P0: ::std::convert::Into<DIB_USAGE>,
-{
+pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateDIBPatternBrushPt(::core::mem::transmute(lppackeddib), iusage.into()))
+    ::core::mem::transmute(CreateDIBPatternBrushPt(::core::mem::transmute(lppackeddib), ::core::mem::transmute(iusage)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDIBSection<'a, P0, P1, P2>(hdc: P0, pbmi: *const BITMAPINFO, usage: P1, ppvbits: *mut *mut ::core::ffi::c_void, hsection: P2, offset: u32) -> ::windows::core::Result<HBITMAP>
+pub unsafe fn CreateDIBSection<'a, P0, P1>(hdc: P0, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::core::ffi::c_void, hsection: P1, offset: u32) -> ::windows::core::Result<HBITMAP>
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DIB_USAGE>,
-    P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDIBSection(hdc: HDC, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::core::ffi::c_void, hsection: super::super::Foundation::HANDLE, offset: u32) -> HBITMAP;
     }
-    let result__ = CreateDIBSection(hdc.into(), ::core::mem::transmute(pbmi), usage.into(), ::core::mem::transmute(ppvbits), hsection.into(), ::core::mem::transmute(offset));
+    let result__ = CreateDIBSection(hdc.into(), ::core::mem::transmute(pbmi), ::core::mem::transmute(usage), ::core::mem::transmute(ppvbits), hsection.into(), ::core::mem::transmute(offset));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateDIBitmap<'a, P0, P1>(hdc: P0, pbmih: *const BITMAPINFOHEADER, flinit: u32, pjbits: *const ::core::ffi::c_void, pbmi: *const BITMAPINFO, iusage: P1) -> HBITMAP
+pub unsafe fn CreateDIBitmap<'a, P0>(hdc: P0, pbmih: *const BITMAPINFOHEADER, flinit: u32, pjbits: *const ::core::ffi::c_void, pbmi: *const BITMAPINFO, iusage: DIB_USAGE) -> HBITMAP
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DIB_USAGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateDIBitmap(hdc: HDC, pbmih: *const BITMAPINFOHEADER, flinit: u32, pjbits: *const ::core::ffi::c_void, pbmi: *const BITMAPINFO, iusage: DIB_USAGE) -> HBITMAP;
     }
-    ::core::mem::transmute(CreateDIBitmap(hdc.into(), ::core::mem::transmute(pbmih), ::core::mem::transmute(flinit), ::core::mem::transmute(pjbits), ::core::mem::transmute(pbmi), iusage.into()))
+    ::core::mem::transmute(CreateDIBitmap(hdc.into(), ::core::mem::transmute(pbmih), ::core::mem::transmute(flinit), ::core::mem::transmute(pjbits), ::core::mem::transmute(pbmi), ::core::mem::transmute(iusage)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1727,19 +1707,30 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateFontA<'a, P0, P1, P2, P3, P4>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: P0, iclipprecision: P1, iquality: P2, ipitchandfamily: P3, pszfacename: P4) -> HFONT
+pub unsafe fn CreateFontA<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: P0) -> HFONT
 where
-    P0: ::std::convert::Into<FONT_OUTPUT_PRECISION>,
-    P1: ::std::convert::Into<FONT_CLIP_PRECISION>,
-    P2: ::std::convert::Into<FONT_QUALITY>,
-    P3: ::std::convert::Into<FONT_PITCH_AND_FAMILY>,
-    P4: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFontA(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: ::windows::core::PCSTR) -> HFONT;
     }
-    ::core::mem::transmute(CreateFontA(::core::mem::transmute(cheight), ::core::mem::transmute(cwidth), ::core::mem::transmute(cescapement), ::core::mem::transmute(corientation), ::core::mem::transmute(cweight), ::core::mem::transmute(bitalic), ::core::mem::transmute(bunderline), ::core::mem::transmute(bstrikeout), ::core::mem::transmute(icharset), ioutprecision.into(), iclipprecision.into(), iquality.into(), ipitchandfamily.into(), pszfacename.into()))
+    ::core::mem::transmute(CreateFontA(
+        ::core::mem::transmute(cheight),
+        ::core::mem::transmute(cwidth),
+        ::core::mem::transmute(cescapement),
+        ::core::mem::transmute(corientation),
+        ::core::mem::transmute(cweight),
+        ::core::mem::transmute(bitalic),
+        ::core::mem::transmute(bunderline),
+        ::core::mem::transmute(bstrikeout),
+        ::core::mem::transmute(icharset),
+        ::core::mem::transmute(ioutprecision),
+        ::core::mem::transmute(iclipprecision),
+        ::core::mem::transmute(iquality),
+        ::core::mem::transmute(ipitchandfamily),
+        pszfacename.into(),
+    ))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1781,11 +1772,7 @@ pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateFontPackage<'a, P0, P1>(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: P0, ussubsetencoding: P1, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<CREATE_FONT_PACKAGE_SUBSET_PLATFORM>,
-    P1: ::std::convert::Into<CREATE_FONT_PACKAGE_SUBSET_ENCODING>,
-{
+pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: *mut ::core::ffi::c_void, lpfnreallocate: *mut ::core::ffi::c_void, lpfnfree: *mut ::core::ffi::c_void, lpvreserved: *mut ::core::ffi::c_void) -> u32;
@@ -1800,8 +1787,8 @@ where
         ::core::mem::transmute(usttcindex),
         ::core::mem::transmute(ussubsetformat),
         ::core::mem::transmute(ussubsetlanguage),
-        ussubsetplatform.into(),
-        ussubsetencoding.into(),
+        ::core::mem::transmute(ussubsetplatform),
+        ::core::mem::transmute(ussubsetencoding),
         ::core::mem::transmute(pussubsetkeeplist),
         ::core::mem::transmute(ussubsetlistcount),
         ::core::mem::transmute(lpfnallocate),
@@ -1812,19 +1799,30 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateFontW<'a, P0, P1, P2, P3, P4>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: P0, iclipprecision: P1, iquality: P2, ipitchandfamily: P3, pszfacename: P4) -> HFONT
+pub unsafe fn CreateFontW<'a, P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: P0) -> HFONT
 where
-    P0: ::std::convert::Into<FONT_OUTPUT_PRECISION>,
-    P1: ::std::convert::Into<FONT_CLIP_PRECISION>,
-    P2: ::std::convert::Into<FONT_QUALITY>,
-    P3: ::std::convert::Into<FONT_PITCH_AND_FAMILY>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateFontW(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: ::windows::core::PCWSTR) -> HFONT;
     }
-    ::core::mem::transmute(CreateFontW(::core::mem::transmute(cheight), ::core::mem::transmute(cwidth), ::core::mem::transmute(cescapement), ::core::mem::transmute(corientation), ::core::mem::transmute(cweight), ::core::mem::transmute(bitalic), ::core::mem::transmute(bunderline), ::core::mem::transmute(bstrikeout), ::core::mem::transmute(icharset), ioutprecision.into(), iclipprecision.into(), iquality.into(), ipitchandfamily.into(), pszfacename.into()))
+    ::core::mem::transmute(CreateFontW(
+        ::core::mem::transmute(cheight),
+        ::core::mem::transmute(cwidth),
+        ::core::mem::transmute(cescapement),
+        ::core::mem::transmute(corientation),
+        ::core::mem::transmute(cweight),
+        ::core::mem::transmute(bitalic),
+        ::core::mem::transmute(bunderline),
+        ::core::mem::transmute(bstrikeout),
+        ::core::mem::transmute(icharset),
+        ::core::mem::transmute(ioutprecision),
+        ::core::mem::transmute(iclipprecision),
+        ::core::mem::transmute(iquality),
+        ::core::mem::transmute(ipitchandfamily),
+        pszfacename.into(),
+    ))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -1840,15 +1838,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateHatchBrush<'a, P0>(ihatch: P0, color: u32) -> HBRUSH
-where
-    P0: ::std::convert::Into<HATCH_BRUSH_STYLE>,
-{
+pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH;
     }
-    ::core::mem::transmute(CreateHatchBrush(ihatch.into(), ::core::mem::transmute(color)))
+    ::core::mem::transmute(CreateHatchBrush(::core::mem::transmute(ihatch), ::core::mem::transmute(color)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1927,15 +1922,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreatePen<'a, P0>(istyle: P0, cwidth: i32, color: u32) -> HPEN
-where
-    P0: ::std::convert::Into<PEN_STYLE>,
-{
+pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN;
     }
-    ::core::mem::transmute(CreatePen(istyle.into(), ::core::mem::transmute(cwidth), ::core::mem::transmute(color)))
+    ::core::mem::transmute(CreatePen(::core::mem::transmute(istyle), ::core::mem::transmute(cwidth), ::core::mem::transmute(color)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1950,28 +1942,22 @@ pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePolyPolygonRgn<'a, P0>(pptl: *const super::super::Foundation::POINT, pc: &[i32], imode: P0) -> HRGN
-where
-    P0: ::std::convert::Into<CREATE_POLYGON_RGN_MODE>,
-{
+pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: &[i32], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: *const i32, cpoly: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN;
     }
-    ::core::mem::transmute(CreatePolyPolygonRgn(::core::mem::transmute(pptl), ::core::mem::transmute(::windows::core::as_ptr_or_null(pc)), pc.len() as _, imode.into()))
+    ::core::mem::transmute(CreatePolyPolygonRgn(::core::mem::transmute(pptl), ::core::mem::transmute(::windows::core::as_ptr_or_null(pc)), pc.len() as _, ::core::mem::transmute(imode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePolygonRgn<'a, P0>(pptl: &[super::super::Foundation::POINT], imode: P0) -> HRGN
-where
-    P0: ::std::convert::Into<CREATE_POLYGON_RGN_MODE>,
-{
+pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePolygonRgn(pptl: *const super::super::Foundation::POINT, cpoint: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN;
     }
-    ::core::mem::transmute(CreatePolygonRgn(::core::mem::transmute(::windows::core::as_ptr_or_null(pptl)), pptl.len() as _, imode.into()))
+    ::core::mem::transmute(CreatePolygonRgn(::core::mem::transmute(::windows::core::as_ptr_or_null(pptl)), pptl.len() as _, ::core::mem::transmute(imode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -4040,32 +4026,29 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawCaption<'a, P0, P1, P2>(hwnd: P0, hdc: P1, lprect: *const super::super::Foundation::RECT, flags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn DrawCaption<'a, P0, P1>(hwnd: P0, hdc: P1, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<HDC>,
-    P2: ::std::convert::Into<DRAW_CAPTION_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawCaption(hwnd: super::super::Foundation::HWND, hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawCaption(hwnd.into(), hdc.into(), ::core::mem::transmute(lprect), flags.into()))
+    ::core::mem::transmute(DrawCaption(hwnd.into(), hdc.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawEdge<'a, P0, P1, P2>(hdc: P0, qrc: *mut super::super::Foundation::RECT, edge: P1, grfflags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn DrawEdge<'a, P0>(hdc: P0, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DRAWEDGE_FLAGS>,
-    P2: ::std::convert::Into<DRAW_EDGE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawEdge(hdc: HDC, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawEdge(hdc.into(), ::core::mem::transmute(qrc), edge.into(), grfflags.into()))
+    ::core::mem::transmute(DrawEdge(hdc.into(), ::core::mem::transmute(qrc), ::core::mem::transmute(edge), ::core::mem::transmute(grfflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -4096,107 +4079,99 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawFrameControl<'a, P0, P1, P2>(param0: P0, param1: *mut super::super::Foundation::RECT, param2: P1, param3: P2) -> super::super::Foundation::BOOL
+pub unsafe fn DrawFrameControl<'a, P0>(param0: P0, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DFC_TYPE>,
-    P2: ::std::convert::Into<DFCS_STATE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawFrameControl(param0.into(), ::core::mem::transmute(param1), param2.into(), param3.into()))
+    ::core::mem::transmute(DrawFrameControl(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawStateA<'a, P0, P1, P2, P3, P4>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: P4) -> super::super::Foundation::BOOL
+pub unsafe fn DrawStateA<'a, P0, P1, P2, P3>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HBRUSH>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     P3: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P4: ::std::convert::Into<DRAWSTATE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: *mut ::core::ffi::c_void, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawStateA(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), uflags.into()))
+    ::core::mem::transmute(DrawStateA(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(uflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawStateW<'a, P0, P1, P2, P3, P4>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: P4) -> super::super::Foundation::BOOL
+pub unsafe fn DrawStateW<'a, P0, P1, P2, P3>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HBRUSH>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     P3: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P4: ::std::convert::Into<DRAWSTATE_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: *mut ::core::ffi::c_void, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DrawStateW(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), uflags.into()))
+    ::core::mem::transmute(DrawStateW(hdc.into(), hbrfore.into(), ::core::mem::transmute(qfncallback), ldata.into(), wdata.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), ::core::mem::transmute(uflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawTextA<'a, P0, P1>(hdc: P0, lpchtext: &[u8], lprc: *mut super::super::Foundation::RECT, format: P1) -> i32
+pub unsafe fn DrawTextA<'a, P0>(hdc: P0, lpchtext: &[u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DRAW_TEXT_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawTextA(hdc: HDC, lpchtext: ::windows::core::PCSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     }
-    ::core::mem::transmute(DrawTextA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format.into()))
+    ::core::mem::transmute(DrawTextA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawTextExA<'a, P0, P1>(hdc: P0, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: P1, lpdtp: *const DRAWTEXTPARAMS) -> i32
+pub unsafe fn DrawTextExA<'a, P0>(hdc: P0, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DRAW_TEXT_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawTextExA(hdc: HDC, lpchtext: ::windows::core::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
     }
-    ::core::mem::transmute(DrawTextExA(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format.into(), ::core::mem::transmute(lpdtp)))
+    ::core::mem::transmute(DrawTextExA(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawTextExW<'a, P0, P1>(hdc: P0, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: P1, lpdtp: *const DRAWTEXTPARAMS) -> i32
+pub unsafe fn DrawTextExW<'a, P0>(hdc: P0, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DRAW_TEXT_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawTextExW(hdc: HDC, lpchtext: ::windows::core::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
     }
-    ::core::mem::transmute(DrawTextExW(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format.into(), ::core::mem::transmute(lpdtp)))
+    ::core::mem::transmute(DrawTextExW(hdc.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format), ::core::mem::transmute(lpdtp)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawTextW<'a, P0, P1>(hdc: P0, lpchtext: &[u16], lprc: *mut super::super::Foundation::RECT, format: P1) -> i32
+pub unsafe fn DrawTextW<'a, P0>(hdc: P0, lpchtext: &[u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DRAW_TEXT_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrawTextW(hdc: HDC, lpchtext: ::windows::core::PCWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     }
-    ::core::mem::transmute(DrawTextW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), format.into()))
+    ::core::mem::transmute(DrawTextW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpchtext)), lpchtext.len() as _, ::core::mem::transmute(lprc), ::core::mem::transmute(format)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EASTEUROPE_CHARSET: u32 = 238u32;
@@ -8163,58 +8138,54 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDisplaySettingsA<'a, P0, P1>(lpszdevicename: P0, imodenum: P1, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDisplaySettingsA<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<ENUM_DISPLAY_SETTINGS_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumDisplaySettingsA(lpszdevicename: ::windows::core::PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsA(lpszdevicename.into(), imodenum.into(), ::core::mem::transmute(lpdevmode)))
+    ::core::mem::transmute(EnumDisplaySettingsA(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDisplaySettingsExA<'a, P0, P1>(lpszdevicename: P0, imodenum: P1, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDisplaySettingsExA<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<ENUM_DISPLAY_SETTINGS_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumDisplaySettingsExA(lpszdevicename: ::windows::core::PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsExA(lpszdevicename.into(), imodenum.into(), ::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumDisplaySettingsExA(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDisplaySettingsExW<'a, P0, P1>(lpszdevicename: P0, imodenum: P1, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDisplaySettingsExW<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<ENUM_DISPLAY_SETTINGS_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumDisplaySettingsExW(lpszdevicename: ::windows::core::PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsExW(lpszdevicename.into(), imodenum.into(), ::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(EnumDisplaySettingsExW(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDisplaySettingsW<'a, P0, P1>(lpszdevicename: P0, imodenum: P1, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDisplaySettingsW<'a, P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<ENUM_DISPLAY_SETTINGS_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumDisplaySettingsW(lpszdevicename: ::windows::core::PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EnumDisplaySettingsW(lpszdevicename.into(), imodenum.into(), ::core::mem::transmute(lpdevmode)))
+    ::core::mem::transmute(EnumDisplaySettingsW(lpszdevicename.into(), ::core::mem::transmute(imodenum), ::core::mem::transmute(lpdevmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8336,17 +8307,16 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumObjects<'a, P0, P1, P2>(hdc: P0, ntype: P1, lpfunc: GOBJENUMPROC, lparam: P2) -> i32
+pub unsafe fn EnumObjects<'a, P0, P1>(hdc: P0, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: P1) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<OBJ_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(EnumObjects(hdc.into(), ntype.into(), ::core::mem::transmute(lpfunc), lparam.into()))
+    ::core::mem::transmute(EnumObjects(hdc.into(), ::core::mem::transmute(ntype), ::core::mem::transmute(lpfunc), lparam.into()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8400,15 +8370,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn ExtCreatePen<'a, P0>(ipenstyle: P0, cwidth: u32, plbrush: *const LOGBRUSH, pstyle: &[u32]) -> HPEN
-where
-    P0: ::std::convert::Into<PEN_STYLE>,
-{
+pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, pstyle: &[u32]) -> HPEN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, cstyle: u32, pstyle: *const u32) -> HPEN;
     }
-    ::core::mem::transmute(ExtCreatePen(ipenstyle.into(), ::core::mem::transmute(cwidth), ::core::mem::transmute(plbrush), pstyle.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstyle))))
+    ::core::mem::transmute(ExtCreatePen(::core::mem::transmute(ipenstyle), ::core::mem::transmute(cwidth), ::core::mem::transmute(plbrush), pstyle.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstyle))))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8423,58 +8390,54 @@ pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGN
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtFloodFill<'a, P0, P1>(hdc: P0, x: i32, y: i32, color: u32, r#type: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ExtFloodFill<'a, P0>(hdc: P0, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<EXT_FLOOD_FILL_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtFloodFill(hdc: HDC, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtFloodFill(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(color), r#type.into()))
+    ::core::mem::transmute(ExtFloodFill(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(color), ::core::mem::transmute(r#type)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn ExtSelectClipRgn<'a, P0, P1, P2>(hdc: P0, hrgn: P1, mode: P2) -> i32
+pub unsafe fn ExtSelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1, mode: RGN_COMBINE_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HRGN>,
-    P2: ::std::convert::Into<RGN_COMBINE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE) -> i32;
     }
-    ::core::mem::transmute(ExtSelectClipRgn(hdc.into(), hrgn.into(), mode.into()))
+    ::core::mem::transmute(ExtSelectClipRgn(hdc.into(), hrgn.into(), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtTextOutA<'a, P0, P1>(hdc: P0, x: i32, y: i32, options: P1, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL
+pub unsafe fn ExtTextOutA<'a, P0>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<ETO_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtTextOutA(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtTextOutA(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), options.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
+    ::core::mem::transmute(ExtTextOutA(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtTextOutW<'a, P0, P1>(hdc: P0, x: i32, y: i32, options: P1, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL
+pub unsafe fn ExtTextOutW<'a, P0>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<ETO_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExtTextOutW(hdc: HDC, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: ::windows::core::PCWSTR, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExtTextOutW(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), options.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
+    ::core::mem::transmute(ExtTextOutW(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(options), ::core::mem::transmute(lprect), ::core::mem::transmute(lpstring), ::core::mem::transmute(c), ::core::mem::transmute(lpdx)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_CUSTPAPER: u32 = 3u32;
@@ -9750,16 +9713,15 @@ pub unsafe fn GdiGetBatchLimit() -> u32 {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GdiGradientFill<'a, P0, P1>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: P1) -> super::super::Foundation::BOOL
+pub unsafe fn GdiGradientFill<'a, P0>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GRADIENT_FILL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GdiGradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GdiGradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(ncount), ulmode.into()))
+    ::core::mem::transmute(GdiGradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(ncount), ::core::mem::transmute(ulmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10042,29 +10004,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetCharacterPlacementA<'a, P0, P1>(hdc: P0, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: P1) -> u32
+pub unsafe fn GetCharacterPlacementA<'a, P0>(hdc: P0, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GET_CHARACTER_PLACEMENT_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCharacterPlacementA(hdc: HDC, lpstring: ::windows::core::PCSTR, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetCharacterPlacementA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), dwflags.into()))
+    ::core::mem::transmute(GetCharacterPlacementA(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetCharacterPlacementW<'a, P0, P1>(hdc: P0, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: P1) -> u32
+pub unsafe fn GetCharacterPlacementW<'a, P0>(hdc: P0, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GET_CHARACTER_PLACEMENT_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCharacterPlacementW(hdc: HDC, lpstring: ::windows::core::PCWSTR, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(GetCharacterPlacementW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), dwflags.into()))
+    ::core::mem::transmute(GetCharacterPlacementW(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpstring)), lpstring.len() as _, ::core::mem::transmute(nmexextent), ::core::mem::transmute(lpresults), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10107,16 +10067,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetCurrentObject<'a, P0, P1>(hdc: P0, r#type: P1) -> HGDIOBJ
+pub unsafe fn GetCurrentObject<'a, P0>(hdc: P0, r#type: OBJ_TYPE) -> HGDIOBJ
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<OBJ_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCurrentObject(hdc: HDC, r#type: OBJ_TYPE) -> HGDIOBJ;
     }
-    ::core::mem::transmute(GetCurrentObject(hdc.into(), r#type.into()))
+    ::core::mem::transmute(GetCurrentObject(hdc.into(), ::core::mem::transmute(r#type)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10159,17 +10118,16 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDCEx<'a, P0, P1, P2>(hwnd: P0, hrgnclip: P1, flags: P2) -> HDC
+pub unsafe fn GetDCEx<'a, P0, P1>(hwnd: P0, hrgnclip: P1, flags: GET_DCX_FLAGS) -> HDC
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<HRGN>,
-    P2: ::std::convert::Into<GET_DCX_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDCEx(hwnd: super::super::Foundation::HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS) -> HDC;
     }
-    ::core::mem::transmute(GetDCEx(hwnd.into(), hrgnclip.into(), flags.into()))
+    ::core::mem::transmute(GetDCEx(hwnd.into(), hrgnclip.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10210,30 +10168,28 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetDIBits<'a, P0, P1, P2>(hdc: P0, hbm: P1, start: u32, clines: u32, lpvbits: *mut ::core::ffi::c_void, lpbmi: *mut BITMAPINFO, usage: P2) -> i32
+pub unsafe fn GetDIBits<'a, P0, P1>(hdc: P0, hbm: P1, start: u32, clines: u32, lpvbits: *mut ::core::ffi::c_void, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HBITMAP>,
-    P2: ::std::convert::Into<DIB_USAGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, clines: u32, lpvbits: *mut ::core::ffi::c_void, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32;
     }
-    ::core::mem::transmute(GetDIBits(hdc.into(), hbm.into(), ::core::mem::transmute(start), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), usage.into()))
+    ::core::mem::transmute(GetDIBits(hdc.into(), hbm.into(), ::core::mem::transmute(start), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(usage)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetDeviceCaps<'a, P0, P1>(hdc: P0, index: P1) -> i32
+pub unsafe fn GetDeviceCaps<'a, P0>(hdc: P0, index: GET_DEVICE_CAPS_INDEX) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GET_DEVICE_CAPS_INDEX>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDeviceCaps(hdc: HDC, index: GET_DEVICE_CAPS_INDEX) -> i32;
     }
-    ::core::mem::transmute(GetDeviceCaps(hdc.into(), index.into()))
+    ::core::mem::transmute(GetDeviceCaps(hdc.into(), ::core::mem::transmute(index)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10383,30 +10339,28 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGlyphOutlineA<'a, P0, P1>(hdc: P0, uchar: u32, fuformat: P1, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32
+pub unsafe fn GetGlyphOutlineA<'a, P0>(hdc: P0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GET_GLYPH_OUTLINE_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetGlyphOutlineA(hdc: HDC, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32;
     }
-    ::core::mem::transmute(GetGlyphOutlineA(hdc.into(), ::core::mem::transmute(uchar), fuformat.into(), ::core::mem::transmute(lpgm), ::core::mem::transmute(cjbuffer), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
+    ::core::mem::transmute(GetGlyphOutlineA(hdc.into(), ::core::mem::transmute(uchar), ::core::mem::transmute(fuformat), ::core::mem::transmute(lpgm), ::core::mem::transmute(cjbuffer), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGlyphOutlineW<'a, P0, P1>(hdc: P0, uchar: u32, fuformat: P1, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32
+pub unsafe fn GetGlyphOutlineW<'a, P0>(hdc: P0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GET_GLYPH_OUTLINE_FORMAT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetGlyphOutlineW(hdc: HDC, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32;
     }
-    ::core::mem::transmute(GetGlyphOutlineW(hdc.into(), ::core::mem::transmute(uchar), fuformat.into(), ::core::mem::transmute(lpgm), ::core::mem::transmute(cjbuffer), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
+    ::core::mem::transmute(GetGlyphOutlineW(hdc.into(), ::core::mem::transmute(uchar), ::core::mem::transmute(fuformat), ::core::mem::transmute(lpgm), ::core::mem::transmute(cjbuffer), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(lpmat2)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10754,15 +10708,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetStockObject<'a, P0>(i: P0) -> HGDIOBJ
-where
-    P0: ::std::convert::Into<GET_STOCK_OBJECT_FLAGS>,
-{
+pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ;
     }
-    ::core::mem::transmute(GetStockObject(i.into()))
+    ::core::mem::transmute(GetStockObject(::core::mem::transmute(i)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -11173,16 +11124,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GradientFill<'a, P0, P1>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: P1) -> super::super::Foundation::BOOL
+pub unsafe fn GradientFill<'a, P0>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GRADIENT_FILL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ulmode.into()))
+    ::core::mem::transmute(GradientFill(hdc.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pvertex)), pvertex.len() as _, ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ::core::mem::transmute(ulmode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12830,56 +12780,48 @@ pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffer
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ModifyWorldTransform<'a, P0, P1>(hdc: P0, lpxf: *const XFORM, mode: P1) -> super::super::Foundation::BOOL
+pub unsafe fn ModifyWorldTransform<'a, P0>(hdc: P0, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<MODIFY_WORLD_TRANSFORM_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ModifyWorldTransform(hdc: HDC, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ModifyWorldTransform(hdc.into(), ::core::mem::transmute(lpxf), mode.into()))
+    ::core::mem::transmute(ModifyWorldTransform(hdc.into(), ::core::mem::transmute(lpxf), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MonitorFromPoint<'a, P0>(pt: super::super::Foundation::POINT, dwflags: P0) -> HMONITOR
-where
-    P0: ::std::convert::Into<MONITOR_FROM_FLAGS>,
-{
+pub unsafe fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
     }
-    ::core::mem::transmute(MonitorFromPoint(::core::mem::transmute(pt), dwflags.into()))
+    ::core::mem::transmute(MonitorFromPoint(::core::mem::transmute(pt), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MonitorFromRect<'a, P0>(lprc: *const super::super::Foundation::RECT, dwflags: P0) -> HMONITOR
-where
-    P0: ::std::convert::Into<MONITOR_FROM_FLAGS>,
-{
+pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
     }
-    ::core::mem::transmute(MonitorFromRect(::core::mem::transmute(lprc), dwflags.into()))
+    ::core::mem::transmute(MonitorFromRect(::core::mem::transmute(lprc), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MonitorFromWindow<'a, P0, P1>(hwnd: P0, dwflags: P1) -> HMONITOR
+pub unsafe fn MonitorFromWindow<'a, P0>(hwnd: P0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<MONITOR_FROM_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MonitorFromWindow(hwnd: super::super::Foundation::HWND, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
     }
-    ::core::mem::transmute(MonitorFromWindow(hwnd.into(), dwflags.into()))
+    ::core::mem::transmute(MonitorFromWindow(hwnd.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14078,16 +14020,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PatBlt<'a, P0, P1>(hdc: P0, x: i32, y: i32, w: i32, h: i32, rop: P1) -> super::super::Foundation::BOOL
+pub unsafe fn PatBlt<'a, P0>(hdc: P0, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<ROP_CODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PatBlt(hdc: HDC, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PatBlt(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(w), ::core::mem::transmute(h), rop.into()))
+    ::core::mem::transmute(PatBlt(hdc.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(rop)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -14907,17 +14848,16 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RedrawWindow<'a, P0, P1, P2>(hwnd: P0, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: P1, flags: P2) -> super::super::Foundation::BOOL
+pub unsafe fn RedrawWindow<'a, P0, P1>(hwnd: P0, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: P1, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<HRGN>,
-    P2: ::std::convert::Into<REDRAW_WINDOW_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RedrawWindow(hwnd: super::super::Foundation::HWND, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RedrawWindow(hwnd.into(), ::core::mem::transmute(lprcupdate), hrgnupdate.into(), flags.into()))
+    ::core::mem::transmute(RedrawWindow(hwnd.into(), ::core::mem::transmute(lprcupdate), hrgnupdate.into(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15336,16 +15276,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SelectClipPath<'a, P0, P1>(hdc: P0, mode: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SelectClipPath<'a, P0>(hdc: P0, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<RGN_COMBINE_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SelectClipPath(hdc.into(), mode.into()))
+    ::core::mem::transmute(SelectClipPath(hdc.into(), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15390,16 +15329,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetArcDirection<'a, P0, P1>(hdc: P0, dir: P1) -> i32
+pub unsafe fn SetArcDirection<'a, P0>(hdc: P0, dir: ARC_DIRECTION) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<ARC_DIRECTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetArcDirection(hdc: HDC, dir: ARC_DIRECTION) -> i32;
     }
-    ::core::mem::transmute(SetArcDirection(hdc.into(), dir.into()))
+    ::core::mem::transmute(SetArcDirection(hdc.into(), ::core::mem::transmute(dir)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15440,30 +15378,28 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetBkMode<'a, P0, P1>(hdc: P0, mode: P1) -> i32
+pub unsafe fn SetBkMode<'a, P0>(hdc: P0, mode: BACKGROUND_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<BACKGROUND_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetBkMode(hdc: HDC, mode: BACKGROUND_MODE) -> i32;
     }
-    ::core::mem::transmute(SetBkMode(hdc.into(), mode.into()))
+    ::core::mem::transmute(SetBkMode(hdc.into(), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetBoundsRect<'a, P0, P1>(hdc: P0, lprect: *const super::super::Foundation::RECT, flags: P1) -> u32
+pub unsafe fn SetBoundsRect<'a, P0>(hdc: P0, lprect: *const super::super::Foundation::RECT, flags: SET_BOUNDS_RECT_FLAGS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<SET_BOUNDS_RECT_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetBoundsRect(hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: SET_BOUNDS_RECT_FLAGS) -> u32;
     }
-    ::core::mem::transmute(SetBoundsRect(hdc.into(), ::core::mem::transmute(lprect), flags.into()))
+    ::core::mem::transmute(SetBoundsRect(hdc.into(), ::core::mem::transmute(lprect), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15529,30 +15465,28 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetDIBits<'a, P0, P1, P2>(hdc: P0, hbm: P1, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: P2) -> i32
+pub unsafe fn SetDIBits<'a, P0, P1>(hdc: P0, hbm: P1, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HBITMAP>,
-    P2: ::std::convert::Into<DIB_USAGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDIBits(hdc: HDC, hbm: HBITMAP, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32;
     }
-    ::core::mem::transmute(SetDIBits(hdc.into(), hbm.into(), ::core::mem::transmute(start), ::core::mem::transmute(clines), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), coloruse.into()))
+    ::core::mem::transmute(SetDIBits(hdc.into(), hbm.into(), ::core::mem::transmute(start), ::core::mem::transmute(clines), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(coloruse)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetDIBitsToDevice<'a, P0, P1>(hdc: P0, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: P1) -> i32
+pub unsafe fn SetDIBitsToDevice<'a, P0>(hdc: P0, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DIB_USAGE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDIBitsToDevice(hdc: HDC, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32;
     }
-    ::core::mem::transmute(SetDIBitsToDevice(hdc.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(startscan), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), coloruse.into()))
+    ::core::mem::transmute(SetDIBitsToDevice(hdc.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(startscan), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(coloruse)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15565,42 +15499,39 @@ pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetGraphicsMode<'a, P0, P1>(hdc: P0, imode: P1) -> i32
+pub unsafe fn SetGraphicsMode<'a, P0>(hdc: P0, imode: GRAPHICS_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<GRAPHICS_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE) -> i32;
     }
-    ::core::mem::transmute(SetGraphicsMode(hdc.into(), imode.into()))
+    ::core::mem::transmute(SetGraphicsMode(hdc.into(), ::core::mem::transmute(imode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetLayout<'a, P0, P1>(hdc: P0, l: P1) -> u32
+pub unsafe fn SetLayout<'a, P0>(hdc: P0, l: DC_LAYOUT) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DC_LAYOUT>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLayout(hdc: HDC, l: DC_LAYOUT) -> u32;
     }
-    ::core::mem::transmute(SetLayout(hdc.into(), l.into()))
+    ::core::mem::transmute(SetLayout(hdc.into(), ::core::mem::transmute(l)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetMapMode<'a, P0, P1>(hdc: P0, imode: P1) -> i32
+pub unsafe fn SetMapMode<'a, P0>(hdc: P0, imode: HDC_MAP_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<HDC_MAP_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMapMode(hdc: HDC, imode: HDC_MAP_MODE) -> i32;
     }
-    ::core::mem::transmute(SetMapMode(hdc.into(), imode.into()))
+    ::core::mem::transmute(SetMapMode(hdc.into(), ::core::mem::transmute(imode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15687,29 +15618,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetPolyFillMode<'a, P0, P1>(hdc: P0, mode: P1) -> i32
+pub unsafe fn SetPolyFillMode<'a, P0>(hdc: P0, mode: CREATE_POLYGON_RGN_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<CREATE_POLYGON_RGN_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE) -> i32;
     }
-    ::core::mem::transmute(SetPolyFillMode(hdc.into(), mode.into()))
+    ::core::mem::transmute(SetPolyFillMode(hdc.into(), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetROP2<'a, P0, P1>(hdc: P0, rop2: P1) -> i32
+pub unsafe fn SetROP2<'a, P0>(hdc: P0, rop2: R2_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<R2_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetROP2(hdc: HDC, rop2: R2_MODE) -> i32;
     }
-    ::core::mem::transmute(SetROP2(hdc.into(), rop2.into()))
+    ::core::mem::transmute(SetROP2(hdc.into(), ::core::mem::transmute(rop2)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15746,42 +15675,39 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetStretchBltMode<'a, P0, P1>(hdc: P0, mode: P1) -> i32
+pub unsafe fn SetStretchBltMode<'a, P0>(hdc: P0, mode: STRETCH_BLT_MODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<STRETCH_BLT_MODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE) -> i32;
     }
-    ::core::mem::transmute(SetStretchBltMode(hdc.into(), mode.into()))
+    ::core::mem::transmute(SetStretchBltMode(hdc.into(), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetSystemPaletteUse<'a, P0, P1>(hdc: P0, r#use: P1) -> u32
+pub unsafe fn SetSystemPaletteUse<'a, P0>(hdc: P0, r#use: SYSTEM_PALETTE_USE) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<SYSTEM_PALETTE_USE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetSystemPaletteUse(hdc: HDC, r#use: SYSTEM_PALETTE_USE) -> u32;
     }
-    ::core::mem::transmute(SetSystemPaletteUse(hdc.into(), r#use.into()))
+    ::core::mem::transmute(SetSystemPaletteUse(hdc.into(), ::core::mem::transmute(r#use)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetTextAlign<'a, P0, P1>(hdc: P0, align: P1) -> u32
+pub unsafe fn SetTextAlign<'a, P0>(hdc: P0, align: TEXT_ALIGN_OPTIONS) -> u32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<TEXT_ALIGN_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetTextAlign(hdc: HDC, align: TEXT_ALIGN_OPTIONS) -> u32;
     }
-    ::core::mem::transmute(SetTextAlign(hdc.into(), align.into()))
+    ::core::mem::transmute(SetTextAlign(hdc.into(), ::core::mem::transmute(align)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15903,31 +15829,28 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StretchBlt<'a, P0, P1, P2>(hdcdest: P0, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: P2) -> super::super::Foundation::BOOL
+pub unsafe fn StretchBlt<'a, P0, P1>(hdcdest: P0, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HDC>,
-    P2: ::std::convert::Into<ROP_CODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StretchBlt(hdcdest: HDC, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(StretchBlt(hdcdest.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), rop.into()))
+    ::core::mem::transmute(StretchBlt(hdcdest.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(rop)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn StretchDIBits<'a, P0, P1, P2>(hdc: P0, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: P1, rop: P2) -> i32
+pub unsafe fn StretchDIBits<'a, P0>(hdc: P0, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<DIB_USAGE>,
-    P2: ::std::convert::Into<ROP_CODE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StretchDIBits(hdc: HDC, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32;
     }
-    ::core::mem::transmute(StretchDIBits(hdc.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(destwidth), ::core::mem::transmute(destheight), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(srcwidth), ::core::mem::transmute(srcheight), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), iusage.into(), rop.into()))
+    ::core::mem::transmute(StretchDIBits(hdc.into(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(destwidth), ::core::mem::transmute(destheight), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(srcwidth), ::core::mem::transmute(srcheight), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(iusage), ::core::mem::transmute(rop)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16375,46 +16298,54 @@ pub const TTEMBED_WEBOBJECT: u32 = 128u32;
 pub const TTEMBED_XORENCRYPTDATA: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn TTEmbedFont<'a, P0, P1, P2>(hdc: P0, ulflags: P1, ulcharset: P2, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
+pub unsafe fn TTEmbedFont<'a, P0>(hdc: P0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<TTEMBED_FLAGS>,
-    P2: ::std::convert::Into<EMBED_FONT_CHARSET>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: *mut ::core::ffi::c_void, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     }
-    ::core::mem::transmute(TTEmbedFont(hdc.into(), ulflags.into(), ulcharset.into(), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+    ::core::mem::transmute(TTEmbedFont(hdc.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn TTEmbedFontEx<'a, P0, P1, P2>(hdc: P0, ulflags: P1, ulcharset: P2, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: &[u32], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
+pub unsafe fn TTEmbedFontEx<'a, P0>(hdc: P0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: &[u32], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
 where
     P0: ::std::convert::Into<HDC>,
-    P1: ::std::convert::Into<TTEMBED_FLAGS>,
-    P2: ::std::convert::Into<EMBED_FONT_CHARSET>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: *mut ::core::ffi::c_void, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     }
-    ::core::mem::transmute(TTEmbedFontEx(hdc.into(), ulflags.into(), ulcharset.into(), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(pulcharcodeset)), pulcharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+    ::core::mem::transmute(TTEmbedFontEx(hdc.into(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(pulcharcodeset)), pulcharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn TTEmbedFontFromFileA<'a, P0, P1, P2, P3>(hdc: P0, szfontfilename: P1, usttcindex: u16, ulflags: P2, ulcharset: P3, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
+pub unsafe fn TTEmbedFontFromFileA<'a, P0, P1>(hdc: P0, szfontfilename: P1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<TTEMBED_FLAGS>,
-    P3: ::std::convert::Into<EMBED_FONT_CHARSET>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TTEmbedFontFromFileA(hdc: HDC, szfontfilename: ::windows::core::PCSTR, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: *mut ::core::ffi::c_void, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     }
-    ::core::mem::transmute(TTEmbedFontFromFileA(hdc.into(), szfontfilename.into(), ::core::mem::transmute(usttcindex), ulflags.into(), ulcharset.into(), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)), puscharcodeset.len() as _, ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
+    ::core::mem::transmute(TTEmbedFontFromFileA(
+        hdc.into(),
+        szfontfilename.into(),
+        ::core::mem::transmute(usttcindex),
+        ::core::mem::transmute(ulflags),
+        ::core::mem::transmute(ulcharset),
+        ::core::mem::transmute(pulprivstatus),
+        ::core::mem::transmute(pulstatus),
+        ::core::mem::transmute(lpfnwritetostream),
+        ::core::mem::transmute(lpvwritestream),
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(puscharcodeset)),
+        puscharcodeset.len() as _,
+        ::core::mem::transmute(uslanguage),
+        ::core::mem::transmute(pttembedinfo),
+    ))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16460,16 +16391,12 @@ pub const TTFMFP_SUBSET: u32 = 0u32;
 pub const TTFMFP_SUBSET1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn TTGetEmbeddedFontInfo<'a, P0, P1>(ulflags: P0, pulprivstatus: *mut u32, ulprivs: P1, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32
-where
-    P0: ::std::convert::Into<TTEMBED_FLAGS>,
-    P1: ::std::convert::Into<FONT_LICENSE_PRIVS>,
-{
+pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: *mut ::core::ffi::c_void, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32;
     }
-    ::core::mem::transmute(TTGetEmbeddedFontInfo(ulflags.into(), ::core::mem::transmute(pulprivstatus), ulprivs.into(), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), ::core::mem::transmute(pttloadinfo)))
+    ::core::mem::transmute(TTGetEmbeddedFontInfo(::core::mem::transmute(ulflags), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(ulprivs), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), ::core::mem::transmute(pttloadinfo)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -16615,17 +16542,16 @@ pub const TTLOAD_PRIVATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TTLoadEmbeddedFont<'a, P0, P1, P2>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: P0, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: P1, szmacfamilyname: P2, pttloadinfo: *const TTLOADINFO) -> i32
+pub unsafe fn TTLoadEmbeddedFont<'a, P0, P1>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: P0, szmacfamilyname: P1, pttloadinfo: *const TTLOADINFO) -> i32
 where
-    P0: ::std::convert::Into<FONT_LICENSE_PRIVS>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn TTLoadEmbeddedFont(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: *mut ::core::ffi::c_void, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: ::windows::core::PCWSTR, szmacfamilyname: ::windows::core::PCSTR, pttloadinfo: *const TTLOADINFO) -> i32;
     }
-    ::core::mem::transmute(TTLoadEmbeddedFont(::core::mem::transmute(phfontreference), ::core::mem::transmute(ulflags), ::core::mem::transmute(pulprivstatus), ulprivs.into(), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo)))
+    ::core::mem::transmute(TTLoadEmbeddedFont(::core::mem::transmute(phfontreference), ::core::mem::transmute(ulflags), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(ulprivs), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), szwinfamilyname.into(), szmacfamilyname.into(), ::core::mem::transmute(pttloadinfo)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]

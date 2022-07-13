@@ -149,12 +149,9 @@ impl SceneLightingEffect {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
-    pub fn SetReflectanceModel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SceneLightingEffectReflectanceModel>,
-    {
+    pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SceneLightingEffect {

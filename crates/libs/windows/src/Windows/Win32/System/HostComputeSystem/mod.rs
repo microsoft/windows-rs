@@ -1126,16 +1126,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetComputeSystemCallback<'a, P0, P1>(computesystem: P0, callbackoptions: P1, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetComputeSystemCallback<'a, P0>(computesystem: P0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_SYSTEM>,
-    P1: ::std::convert::Into<HCS_EVENT_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetComputeSystemCallback(computesystem.into(), callbackoptions.into(), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    HcsSetComputeSystemCallback(computesystem.into(), ::core::mem::transmute(callbackoptions), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -1163,16 +1162,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
-pub unsafe fn HcsSetProcessCallback<'a, P0, P1>(process: P0, callbackoptions: P1, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
+pub unsafe fn HcsSetProcessCallback<'a, P0>(process: P0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HCS_PROCESS>,
-    P1: ::std::convert::Into<HCS_EVENT_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    HcsSetProcessCallback(process.into(), callbackoptions.into(), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
+    HcsSetProcessCallback(process.into(), ::core::mem::transmute(callbackoptions), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

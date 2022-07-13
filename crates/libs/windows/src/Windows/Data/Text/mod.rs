@@ -1146,17 +1146,16 @@ impl TextPredictionGenerator {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCandidatesWithParametersAsync<'a, P0, P1, P2, E2>(&self, input: P0, maxcandidates: u32, predictionoptions: P1, previousstrings: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>
+    pub fn GetCandidatesWithParametersAsync<'a, P0, P1, E1>(&self, input: P0, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<TextPredictionOptions>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), maxcandidates, predictionoptions.into(), previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), maxcandidates, predictionoptions, previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1183,12 +1182,9 @@ impl TextPredictionGenerator {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"UI_Text_Core\"`*"]
     #[cfg(feature = "UI_Text_Core")]
-    pub fn SetInputScope<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::UI::Text::Core::CoreTextInputScope>,
-    {
+    pub fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn Create<'a, P0>(languagetag: P0) -> ::windows::core::Result<TextPredictionGenerator>

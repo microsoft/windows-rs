@@ -413,11 +413,8 @@ impl IMediaRadioManager {
         (::windows::core::Interface::vtable(self).GetRadioInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRadioInstanceCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-    pub unsafe fn OnSystemRadioStateChange<'a, P0>(&self, sysradiostate: P0, utimeoutsec: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYSTEM_RADIO_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).OnSystemRadioStateChange)(::windows::core::Interface::as_raw(self), sysradiostate.into(), ::core::mem::transmute(utimeoutsec)).ok()
+    pub unsafe fn OnSystemRadioStateChange(&self, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnSystemRadioStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sysradiostate), ::core::mem::transmute(utimeoutsec)).ok()
     }
 }
 impl ::core::convert::From<IMediaRadioManager> for ::windows::core::IUnknown {
@@ -483,12 +480,11 @@ impl IMediaRadioManagerNotifySink {
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnInstanceRadioChange<'a, P0, P1>(&self, bstrradioinstanceid: P0, radiostate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnInstanceRadioChange<'a, P0>(&self, bstrradioinstanceid: P0, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<DEVICE_RADIO_STATE>,
     {
-        (::windows::core::Interface::vtable(self).OnInstanceRadioChange)(::windows::core::Interface::as_raw(self), bstrradioinstanceid.into().abi(), radiostate.into()).ok()
+        (::windows::core::Interface::vtable(self).OnInstanceRadioChange)(::windows::core::Interface::as_raw(self), bstrradioinstanceid.into().abi(), ::core::mem::transmute(radiostate)).ok()
     }
 }
 impl ::core::convert::From<IMediaRadioManagerNotifySink> for ::windows::core::IUnknown {
@@ -1151,12 +1147,9 @@ impl IPortableDeviceDataStream {
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek<'a, P0>(&self, dlibmove: i64, dworigin: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STREAM_SEEK>,
-    {
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1173,11 +1166,8 @@ impl IPortableDeviceDataStream {
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit<'a, P0>(&self, grfcommitflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STGC>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
+    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2606,12 +2596,9 @@ pub struct IPortableDeviceServiceOpenCallback_Vtbl {
 pub struct IPortableDeviceUnitsStream(::windows::core::IUnknown);
 impl IPortableDeviceUnitsStream {
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-    pub unsafe fn SeekInUnits<'a, P0>(&self, dlibmove: i64, units: P0, dworigin: u32) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<WPD_STREAM_UNITS>,
-    {
+    pub unsafe fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).SeekInUnits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), units.into(), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).SeekInUnits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(units), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
@@ -3302,11 +3289,8 @@ impl IRadioInstance {
         (::windows::core::Interface::vtable(self).GetRadioState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DEVICE_RADIO_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-    pub unsafe fn SetRadioState<'a, P0>(&self, radiostate: P0, utimeoutsec: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DEVICE_RADIO_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetRadioState)(::windows::core::Interface::as_raw(self), radiostate.into(), ::core::mem::transmute(utimeoutsec)).ok()
+    pub unsafe fn SetRadioState(&self, radiostate: DEVICE_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRadioState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(radiostate), ::core::mem::transmute(utimeoutsec)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

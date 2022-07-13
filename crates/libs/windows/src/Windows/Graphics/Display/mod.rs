@@ -81,25 +81,19 @@ impl AdvancedColorInfo {
         }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn IsHdrMetadataFormatCurrentlySupported<'a, P0>(&self, format: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<HdrMetadataFormat>,
-    {
+    pub fn IsHdrMetadataFormatCurrentlySupported(&self, format: HdrMetadataFormat) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsHdrMetadataFormatCurrentlySupported)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHdrMetadataFormatCurrentlySupported)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn IsAdvancedColorKindAvailable<'a, P0>(&self, kind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<AdvancedColorKind>,
-    {
+    pub fn IsAdvancedColorKindAvailable(&self, kind: AdvancedColorKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsAdvancedColorKindAvailable)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAdvancedColorKindAvailable)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -229,31 +223,21 @@ impl BrightnessOverride {
         }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn SetBrightnessLevel<'a, P0>(&self, brightnesslevel: f64, options: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayBrightnessOverrideOptions>,
-    {
+    pub fn SetBrightnessLevel(&self, brightnesslevel: f64, options: DisplayBrightnessOverrideOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBrightnessLevel)(::windows::core::Interface::as_raw(this), brightnesslevel, options.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBrightnessLevel)(::windows::core::Interface::as_raw(this), brightnesslevel, options).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn SetBrightnessScenario<'a, P0, P1>(&self, scenario: P0, options: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayBrightnessScenario>,
-        P1: ::std::convert::Into<DisplayBrightnessOverrideOptions>,
-    {
+    pub fn SetBrightnessScenario(&self, scenario: DisplayBrightnessScenario, options: DisplayBrightnessOverrideOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBrightnessScenario)(::windows::core::Interface::as_raw(this), scenario.into(), options.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBrightnessScenario)(::windows::core::Interface::as_raw(this), scenario, options).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn GetLevelForScenario<'a, P0>(&self, scenario: P0) -> ::windows::core::Result<f64>
-    where
-        P0: ::std::convert::Into<DisplayBrightnessScenario>,
-    {
+    pub fn GetLevelForScenario(&self, scenario: DisplayBrightnessScenario) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLevelForScenario)(::windows::core::Interface::as_raw(this), scenario.into(), result__.as_mut_ptr()).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetLevelForScenario)(::windows::core::Interface::as_raw(this), scenario, result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
@@ -448,13 +432,10 @@ impl BrightnessOverrideSettings {
         })
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn CreateFromDisplayBrightnessOverrideScenario<'a, P0>(overridescenario: P0) -> ::windows::core::Result<BrightnessOverrideSettings>
-    where
-        P0: ::std::convert::Into<DisplayBrightnessOverrideScenario>,
-    {
+    pub fn CreateFromDisplayBrightnessOverrideScenario(overridescenario: DisplayBrightnessOverrideScenario) -> ::windows::core::Result<BrightnessOverrideSettings> {
         Self::IBrightnessOverrideSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromDisplayBrightnessOverrideScenario)(::windows::core::Interface::as_raw(this), overridescenario.into(), result__.as_mut_ptr()).from_abi::<BrightnessOverrideSettings>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromDisplayBrightnessOverrideScenario)(::windows::core::Interface::as_raw(this), overridescenario, result__.as_mut_ptr()).from_abi::<BrightnessOverrideSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -538,13 +519,10 @@ impl ColorOverrideSettings {
         }
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn CreateFromDisplayColorOverrideScenario<'a, P0>(overridescenario: P0) -> ::windows::core::Result<ColorOverrideSettings>
-    where
-        P0: ::std::convert::Into<DisplayColorOverrideScenario>,
-    {
+    pub fn CreateFromDisplayColorOverrideScenario(overridescenario: DisplayColorOverrideScenario) -> ::windows::core::Result<ColorOverrideSettings> {
         Self::IColorOverrideSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromDisplayColorOverrideScenario)(::windows::core::Interface::as_raw(this), overridescenario.into(), result__.as_mut_ptr()).from_abi::<ColorOverrideSettings>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromDisplayColorOverrideScenario)(::windows::core::Interface::as_raw(this), overridescenario, result__.as_mut_ptr()).from_abi::<ColorOverrideSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -1362,11 +1340,8 @@ impl DisplayInformation {
         })
     }
     #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    pub fn SetAutoRotationPreferences<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayOrientations>,
-    {
-        Self::IDisplayInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAutoRotationPreferences)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn SetAutoRotationPreferences(value: DisplayOrientations) -> ::windows::core::Result<()> {
+        Self::IDisplayInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAutoRotationPreferences)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"Graphics_Display\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1548,11 +1523,8 @@ impl DisplayProperties {
     }
     #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetAutoRotationPreferences<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DisplayOrientations>,
-    {
-        Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAutoRotationPreferences)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn SetAutoRotationPreferences(value: DisplayOrientations) -> ::windows::core::Result<()> {
+        Self::IDisplayPropertiesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAutoRotationPreferences)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"Graphics_Display\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]

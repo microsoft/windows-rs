@@ -210,22 +210,18 @@ impl GameChatOverlay {
         }
     }
     #[doc = "*Required features: `\"Gaming_UI\"`*"]
-    pub fn SetDesiredPosition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GameChatOverlayPosition>,
-    {
+    pub fn SetDesiredPosition(&self, value: GameChatOverlayPosition) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredPosition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_UI\"`*"]
-    pub fn AddMessage<'a, P0, P1, P2>(&self, sender: P0, message: P1, origin: P2) -> ::windows::core::Result<()>
+    pub fn AddMessage<'a, P0, P1>(&self, sender: P0, message: P1, origin: GameChatMessageOrigin) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<GameChatMessageOrigin>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddMessage)(::windows::core::Interface::as_raw(this), sender.into().abi(), message.into().abi(), origin.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddMessage)(::windows::core::Interface::as_raw(this), sender.into().abi(), message.into().abi(), origin).ok() }
     }
     #[doc = "*Required features: `\"Gaming_UI\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<GameChatOverlay> {

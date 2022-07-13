@@ -28,20 +28,14 @@ impl CurrencyFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CurrencyFormatterMode>,
-    {
+    pub fn SetMode(&self, value: CurrencyFormatterMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICurrencyFormatter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn ApplyRoundingForCurrency<'a, P0>(&self, roundingalgorithm: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RoundingAlgorithm>,
-    {
+    pub fn ApplyRoundingForCurrency(&self, roundingalgorithm: RoundingAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICurrencyFormatter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ApplyRoundingForCurrency)(::windows::core::Interface::as_raw(this), roundingalgorithm.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ApplyRoundingForCurrency)(::windows::core::Interface::as_raw(this), roundingalgorithm).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
     pub fn CreateCurrencyFormatterCode<'a, P0>(currencycode: P0) -> ::windows::core::Result<CurrencyFormatter>
@@ -2027,12 +2021,9 @@ impl IncrementNumberRounder {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetRoundingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RoundingAlgorithm>,
-    {
+    pub fn SetRoundingAlgorithm(&self, value: RoundingAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IIncrementNumberRounder>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRoundingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRoundingAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
     pub fn Increment(&self) -> ::windows::core::Result<f64> {
@@ -3329,12 +3320,9 @@ impl SignificantDigitsNumberRounder {
         }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
-    pub fn SetRoundingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<RoundingAlgorithm>,
-    {
+    pub fn SetRoundingAlgorithm(&self, value: RoundingAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRoundingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRoundingAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
     pub fn SignificantDigits(&self) -> ::windows::core::Result<u32> {

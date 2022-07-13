@@ -688,17 +688,15 @@ pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::s
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCATOpen<'a, P0, P1, P2>(pwszfilename: P0, fdwopenflags: P1, hprov: usize, dwpublicversion: P2, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE
+pub unsafe fn CryptCATOpen<'a, P0>(pwszfilename: P0, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<CRYPTCAT_OPEN_FLAGS>,
-    P2: ::std::convert::Into<CRYPTCAT_VERSION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CryptCATOpen(pwszfilename: ::windows::core::PCWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE;
     }
-    ::core::mem::transmute(CryptCATOpen(pwszfilename.into(), fdwopenflags.into(), ::core::mem::transmute(hprov), dwpublicversion.into(), ::core::mem::transmute(dwencodingtype)))
+    ::core::mem::transmute(CryptCATOpen(pwszfilename.into(), ::core::mem::transmute(fdwopenflags), ::core::mem::transmute(hprov), ::core::mem::transmute(dwpublicversion), ::core::mem::transmute(dwencodingtype)))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

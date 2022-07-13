@@ -657,15 +657,12 @@ impl ::core::default::Default for CM_POWER_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
-pub unsafe fn CallNtPowerInformation<'a, P0>(informationlevel: P0, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32
-where
-    P0: ::std::convert::Into<POWER_INFORMATION_LEVEL>,
-{
+pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
     }
-    ::core::mem::transmute(CallNtPowerInformation(informationlevel.into(), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(inputbufferlength), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(outputbufferlength)))
+    ::core::mem::transmute(CallNtPowerInformation(::core::mem::transmute(informationlevel), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(inputbufferlength), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(outputbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2467,16 +2464,15 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::w
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PowerClearRequest<'a, P0, P1>(powerrequest: P0, requesttype: P1) -> super::super::Foundation::BOOL
+pub unsafe fn PowerClearRequest<'a, P0>(powerrequest: P0, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<POWER_REQUEST_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PowerClearRequest(powerrequest.into(), requesttype.into()))
+    ::core::mem::transmute(PowerClearRequest(powerrequest.into(), ::core::mem::transmute(requesttype)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2539,15 +2535,12 @@ pub unsafe fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
-pub unsafe fn PowerDeterminePlatformRoleEx<'a, P0>(version: P0) -> POWER_PLATFORM_ROLE
-where
-    P0: ::std::convert::Into<POWER_PLATFORM_ROLE_VERSION>,
-{
+pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE;
     }
-    ::core::mem::transmute(PowerDeterminePlatformRoleEx(version.into()))
+    ::core::mem::transmute(PowerDeterminePlatformRoleEx(::core::mem::transmute(version)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2565,16 +2558,15 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerEnumerate<'a, P0, P1>(rootpowerkey: P0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: P1, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32
+pub unsafe fn PowerEnumerate<'a, P0>(rootpowerkey: P0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::Registry::HKEY>,
-    P1: ::std::convert::Into<POWER_DATA_ACCESSOR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerEnumerate(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PowerEnumerate(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), accessflags.into(), ::core::mem::transmute(index), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(PowerEnumerate(rootpowerkey.into(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(accessflags), ::core::mem::transmute(index), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2939,56 +2931,47 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PowerSetRequest<'a, P0, P1>(powerrequest: P0, requesttype: P1) -> super::super::Foundation::BOOL
+pub unsafe fn PowerSetRequest<'a, P0>(powerrequest: P0, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<POWER_REQUEST_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PowerSetRequest(powerrequest.into(), requesttype.into()))
+    ::core::mem::transmute(PowerSetRequest(powerrequest.into(), ::core::mem::transmute(requesttype)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
-pub unsafe fn PowerSettingAccessCheck<'a, P0>(accessflags: P0, powerguid: *const ::windows::core::GUID) -> u32
-where
-    P0: ::std::convert::Into<POWER_DATA_ACCESSOR>,
-{
+pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32;
     }
-    ::core::mem::transmute(PowerSettingAccessCheck(accessflags.into(), ::core::mem::transmute(powerguid)))
+    ::core::mem::transmute(PowerSettingAccessCheck(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerSettingAccessCheckEx<'a, P0, P1>(accessflags: P0, powerguid: *const ::windows::core::GUID, accesstype: P1) -> u32
-where
-    P0: ::std::convert::Into<POWER_DATA_ACCESSOR>,
-    P1: ::std::convert::Into<super::Registry::REG_SAM_FLAGS>,
-{
+pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32;
     }
-    ::core::mem::transmute(PowerSettingAccessCheckEx(accessflags.into(), ::core::mem::transmute(powerguid), accesstype.into()))
+    ::core::mem::transmute(PowerSettingAccessCheckEx(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid), ::core::mem::transmute(accesstype)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PowerSettingRegisterNotification<'a, P0, P1>(settingguid: *const ::windows::core::GUID, flags: P0, recipient: P1, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32
+pub unsafe fn PowerSettingRegisterNotification<'a, P0>(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: P0, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::std::convert::Into<POWER_SETTING_REGISTER_NOTIFICATION_FLAGS>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PowerSettingRegisterNotification(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PowerSettingRegisterNotification(::core::mem::transmute(settingguid), flags.into(), recipient.into(), ::core::mem::transmute(registrationhandle)))
+    ::core::mem::transmute(PowerSettingRegisterNotification(::core::mem::transmute(settingguid), ::core::mem::transmute(flags), recipient.into(), ::core::mem::transmute(registrationhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
@@ -3275,15 +3258,12 @@ where
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RequestWakeupLatency<'a, P0>(latency: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<LATENCY_TIME>,
-{
+pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RequestWakeupLatency(latency.into()))
+    ::core::mem::transmute(RequestWakeupLatency(::core::mem::transmute(latency)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -3785,15 +3765,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
-pub unsafe fn SetThreadExecutionState<'a, P0>(esflags: P0) -> EXECUTION_STATE
-where
-    P0: ::std::convert::Into<EXECUTION_STATE>,
-{
+pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
     }
-    ::core::mem::transmute(SetThreadExecutionState(esflags.into()))
+    ::core::mem::transmute(SetThreadExecutionState(::core::mem::transmute(esflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;

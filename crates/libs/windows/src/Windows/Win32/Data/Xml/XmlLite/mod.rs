@@ -520,11 +520,8 @@ impl IXmlWriter {
         (::windows::core::Interface::vtable(self).WriteRawChars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-    pub unsafe fn WriteStartDocument<'a, P0>(&self, standalone: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XmlStandalone>,
-    {
-        (::windows::core::Interface::vtable(self).WriteStartDocument)(::windows::core::Interface::as_raw(self), standalone.into()).ok()
+    pub unsafe fn WriteStartDocument(&self, standalone: XmlStandalone) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteStartDocument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(standalone)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteStartElement<'a, P0, P1, P2>(&self, pwszprefix: P0, pwszlocalname: P1, pwsznamespaceuri: P2) -> ::windows::core::Result<()>
@@ -779,11 +776,8 @@ impl IXmlWriterLite {
         (::windows::core::Interface::vtable(self).WriteRawChars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-    pub unsafe fn WriteStartDocument<'a, P0>(&self, standalone: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XmlStandalone>,
-    {
-        (::windows::core::Interface::vtable(self).WriteStartDocument)(::windows::core::Interface::as_raw(self), standalone.into()).ok()
+    pub unsafe fn WriteStartDocument(&self, standalone: XmlStandalone) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteStartDocument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(standalone)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteStartElement(&self, pwszqname: &[u16]) -> ::windows::core::Result<()> {

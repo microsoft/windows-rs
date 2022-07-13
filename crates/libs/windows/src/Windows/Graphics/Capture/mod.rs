@@ -131,14 +131,13 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Recreate<'a, P0, E0, P1>(&self, device: P0, pixelformat: P1, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<()>
+    pub fn Recreate<'a, P0, E0>(&self, device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::DirectX::DirectXPixelFormat>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Recreate)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat.into(), numberofbuffers, size).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Recreate)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`*"]
     pub fn TryGetNextFrame(&self) -> ::windows::core::Result<Direct3D11CaptureFrame> {
@@ -188,28 +187,26 @@ impl Direct3D11CaptureFramePool {
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Create<'a, P0, E0, P1>(device: P0, pixelformat: P1, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<Direct3D11CaptureFramePool>
+    pub fn Create<'a, P0, E0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<Direct3D11CaptureFramePool>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::DirectX::DirectXPixelFormat>,
     {
         Self::IDirect3D11CaptureFramePoolStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat.into(), numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFreeThreaded<'a, P0, E0, P1>(device: P0, pixelformat: P1, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<Direct3D11CaptureFramePool>
+    pub fn CreateFreeThreaded<'a, P0, E0>(device: P0, pixelformat: super::DirectX::DirectXPixelFormat, numberofbuffers: i32, size: super::SizeInt32) -> ::windows::core::Result<Direct3D11CaptureFramePool>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DDevice>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::DirectX::DirectXPixelFormat>,
     {
         Self::IDirect3D11CaptureFramePoolStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFreeThreaded)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat.into(), numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
+            (::windows::core::Interface::vtable(this).CreateFreeThreaded)(::windows::core::Interface::as_raw(this), device.try_into().map_err(|e| e.into())?.abi(), pixelformat, numberofbuffers, size, result__.as_mut_ptr()).from_abi::<Direct3D11CaptureFramePool>(result__)
         })
     }
     #[doc(hidden)]
@@ -312,13 +309,10 @@ pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`, `\"Security_Authorization_AppCapabilityAccess\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]
-    pub fn RequestAccessAsync<'a, P0>(request: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>>
-    where
-        P0: ::std::convert::Into<GraphicsCaptureAccessKind>,
-    {
+    pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), request.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), request, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>>(result__)
         })
     }
     #[doc(hidden)]

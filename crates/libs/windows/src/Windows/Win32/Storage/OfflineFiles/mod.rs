@@ -687,12 +687,11 @@ impl IOfflineFilesConnectionInfo {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConnectState<'a, P0, P1>(&self, hwndparent: P0, dwflags: u32, connectstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetConnectState<'a, P0>(&self, hwndparent: P0, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<OFFLINEFILES_CONNECT_STATE>,
     {
-        (::windows::core::Interface::vtable(self).SetConnectState)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwflags), connectstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SetConnectState)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(connectstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1021,30 +1020,27 @@ impl IOfflineFilesEvents {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecAdded<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecUpdated<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecRemoved<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1059,88 +1055,78 @@ impl IOfflineFilesEvents {
         (::windows::core::Interface::vtable(self).NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDisconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemReconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, P0, P1, P2, P3>(&self, pszpath: P0, itemtype: P1, bmodifieddata: P2, bmodifiedattributes: P3) -> ::windows::core::Result<()>
+    pub unsafe fn ItemModified<'a, P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAddedToCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDeletedFromCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, P0, P1, P2>(&self, pszoldpath: P0, psznewpath: P1, itemtype: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ItemRenamed<'a, P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1286,30 +1272,27 @@ impl IOfflineFilesEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecAdded<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecUpdated<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecRemoved<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1324,88 +1307,78 @@ impl IOfflineFilesEvents2 {
         (::windows::core::Interface::vtable(self).base__.NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDisconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemReconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, P0, P1, P2, P3>(&self, pszpath: P0, itemtype: P1, bmodifieddata: P2, bmodifiedattributes: P3) -> ::windows::core::Result<()>
+    pub unsafe fn ItemModified<'a, P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAddedToCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDeletedFromCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, P0, P1, P2>(&self, pszoldpath: P0, psznewpath: P1, itemtype: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ItemRenamed<'a, P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1568,30 +1541,27 @@ impl IOfflineFilesEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecAdded<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecUpdated<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecRemoved<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1606,88 +1576,78 @@ impl IOfflineFilesEvents3 {
         (::windows::core::Interface::vtable(self).base__.base__.NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDisconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemReconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, P0, P1, P2, P3>(&self, pszpath: P0, itemtype: P1, bmodifieddata: P2, bmodifiedattributes: P3) -> ::windows::core::Result<()>
+    pub unsafe fn ItemModified<'a, P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAddedToCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDeletedFromCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, P0, P1, P2>(&self, pszoldpath: P0, psznewpath: P1, itemtype: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ItemRenamed<'a, P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1735,16 +1695,14 @@ impl IOfflineFilesEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransparentCacheItemNotify<'a, P0, P1, P2, P3, P4, P5>(&self, pszpath: P0, eventtype: P1, itemtype: P2, bmodifieddata: P3, bmodifiedattributes: P4, pzsoldpath: P5) -> ::windows::core::Result<()>
+    pub unsafe fn TransparentCacheItemNotify<'a, P0, P1, P2, P3>(&self, pszpath: P0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2, pzsoldpath: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_EVENTS>,
-        P2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P4: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P5: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P3: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), pszpath.into(), eventtype.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into()).ok()
+        (::windows::core::Interface::vtable(self).TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(eventtype), ::core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn PrefetchFileBegin<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
@@ -1889,30 +1847,27 @@ impl IOfflineFilesEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecAdded<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecUpdated<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, P0, P1>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SyncConflictRecRemoved<'a, P0>(&self, pszconflictpath: P0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1927,88 +1882,78 @@ impl IOfflineFilesEvents4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDisconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemReconnected<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotAvailableOffline<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemNotPinned<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, P0, P1, P2, P3>(&self, pszpath: P0, itemtype: P1, bmodifieddata: P2, bmodifiedattributes: P3) -> ::windows::core::Result<()>
+    pub unsafe fn ItemModified<'a, P0, P1, P2>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemAddedToCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, P0, P1>(&self, pszpath: P0, itemtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ItemDeletedFromCache<'a, P0>(&self, pszpath: P0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, P0, P1, P2>(&self, pszoldpath: P0, psznewpath: P1, itemtype: P2) -> ::windows::core::Result<()>
+    pub unsafe fn ItemRenamed<'a, P0, P1>(&self, pszoldpath: P0, psznewpath: P1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), itemtype.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into(), psznewpath.into(), ::core::mem::transmute(itemtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -2056,16 +2001,14 @@ impl IOfflineFilesEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransparentCacheItemNotify<'a, P0, P1, P2, P3, P4, P5>(&self, pszpath: P0, eventtype: P1, itemtype: P2, bmodifieddata: P3, bmodifiedattributes: P4, pzsoldpath: P5) -> ::windows::core::Result<()>
+    pub unsafe fn TransparentCacheItemNotify<'a, P0, P1, P2, P3>(&self, pszpath: P0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: P1, bmodifiedattributes: P2, pzsoldpath: P3) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_EVENTS>,
-        P2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>,
-        P3: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P4: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P5: ::std::convert::Into<::windows::core::PCWSTR>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P3: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).base__.TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), pszpath.into(), eventtype.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(eventtype), ::core::mem::transmute(itemtype), bmodifieddata.into(), bmodifiedattributes.into(), pzsoldpath.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn PrefetchFileBegin<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
@@ -2347,28 +2290,19 @@ pub struct IOfflineFilesFileItem_Vtbl {
 pub struct IOfflineFilesFileSysInfo(::windows::core::IUnknown);
 impl IOfflineFilesFileSysInfo {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn GetAttributes<'a, P0>(&self, copy: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<OFFLINEFILES_ITEM_COPY>,
-    {
+    pub unsafe fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), copy.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes<'a, P0>(&self, copy: P0, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<OFFLINEFILES_ITEM_COPY>,
-    {
-        (::windows::core::Interface::vtable(self).GetTimes)(::windows::core::Interface::as_raw(self), copy.into(), ::core::mem::transmute(pftcreationtime), ::core::mem::transmute(pftlastwritetime), ::core::mem::transmute(pftchangetime), ::core::mem::transmute(pftlastaccesstime)).ok()
+    pub unsafe fn GetTimes(&self, copy: OFFLINEFILES_ITEM_COPY, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTimes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copy), ::core::mem::transmute(pftcreationtime), ::core::mem::transmute(pftlastwritetime), ::core::mem::transmute(pftchangetime), ::core::mem::transmute(pftlastaccesstime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn GetFileSize<'a, P0>(&self, copy: P0) -> ::windows::core::Result<i64>
-    where
-        P0: ::std::convert::Into<OFFLINEFILES_ITEM_COPY>,
-    {
+    pub unsafe fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), copy.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+        (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
 impl ::core::convert::From<IOfflineFilesFileSysInfo> for ::windows::core::IUnknown {
@@ -3491,12 +3425,11 @@ pub struct IOfflineFilesSuspendInfo_Vtbl {
 pub struct IOfflineFilesSyncConflictHandler(::windows::core::IUnknown);
 impl IOfflineFilesSyncConflictHandler {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ResolveConflict<'a, P0, P1>(&self, pszpath: P0, fstateknown: u32, state: P1, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    pub unsafe fn ResolveConflict<'a, P0>(&self, pszpath: P0, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>,
     {
-        (::windows::core::Interface::vtable(self).ResolveConflict)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(fstateknown), state.into(), ::core::mem::transmute(fchangedetails), ::core::mem::transmute(pconflictresolution), ::core::mem::transmute(ppsznewname)).ok()
+        (::windows::core::Interface::vtable(self).ResolveConflict)(::windows::core::Interface::as_raw(self), pszpath.into(), ::core::mem::transmute(fstateknown), ::core::mem::transmute(state), ::core::mem::transmute(fchangedetails), ::core::mem::transmute(pconflictresolution), ::core::mem::transmute(ppsznewname)).ok()
     }
 }
 impl ::core::convert::From<IOfflineFilesSyncConflictHandler> for ::windows::core::IUnknown {

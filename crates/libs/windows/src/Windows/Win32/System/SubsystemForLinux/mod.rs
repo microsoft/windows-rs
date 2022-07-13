@@ -59,16 +59,15 @@ impl ::core::ops::Not for WSL_DISTRIBUTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]
-pub unsafe fn WslConfigureDistribution<'a, P0, P1>(distributionname: P0, defaultuid: u32, wsldistributionflags: P1) -> ::windows::core::Result<()>
+pub unsafe fn WslConfigureDistribution<'a, P0>(distributionname: P0, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<WSL_DISTRIBUTION_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WslConfigureDistribution(distributionname: ::windows::core::PCWSTR, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> ::windows::core::HRESULT;
     }
-    WslConfigureDistribution(distributionname.into(), ::core::mem::transmute(defaultuid), wsldistributionflags.into()).ok()
+    WslConfigureDistribution(distributionname.into(), ::core::mem::transmute(defaultuid), ::core::mem::transmute(wsldistributionflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_SubsystemForLinux\"`*"]
 #[inline]

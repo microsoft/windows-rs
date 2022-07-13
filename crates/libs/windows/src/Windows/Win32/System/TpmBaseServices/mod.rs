@@ -375,16 +375,12 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
-pub unsafe fn Tbsip_Submit_Command<'a, P0, P1>(hcontext: *const ::core::ffi::c_void, locality: P0, priority: P1, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32
-where
-    P0: ::std::convert::Into<TBS_COMMAND_LOCALITY>,
-    P1: ::std::convert::Into<TBS_COMMAND_PRIORITY>,
-{
+pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32;
     }
-    ::core::mem::transmute(Tbsip_Submit_Command(::core::mem::transmute(hcontext), locality.into(), priority.into(), ::core::mem::transmute(pabcommand), ::core::mem::transmute(cbcommand), ::core::mem::transmute(pabresult), ::core::mem::transmute(pcbresult)))
+    ::core::mem::transmute(Tbsip_Submit_Command(::core::mem::transmute(hcontext), ::core::mem::transmute(locality), ::core::mem::transmute(priority), ::core::mem::transmute(pabcommand), ::core::mem::transmute(cbcommand), ::core::mem::transmute(pabresult), ::core::mem::transmute(pcbresult)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]

@@ -106,16 +106,15 @@ impl PlatformDiagnosticActions {
     }
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryEscalateScenario<'a, P0, P1, P2, E2>(scenarioid: ::windows::core::GUID, escalationtype: P0, outputdirectory: P1, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P2) -> ::windows::core::Result<bool>
+    pub fn TryEscalateScenario<'a, P0, P1, E1>(scenarioid: ::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: P0, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P1) -> ::windows::core::Result<bool>
     where
-        P0: ::std::convert::Into<PlatformDiagnosticEscalationType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryEscalateScenario)(::windows::core::Interface::as_raw(this), scenarioid, escalationtype.into(), outputdirectory.into().abi(), timestampoutputdirectory, forceescalationupload, triggers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryEscalateScenario)(::windows::core::Interface::as_raw(this), scenarioid, escalationtype, outputdirectory.into().abi(), timestampoutputdirectory, forceescalationupload, triggers.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
@@ -138,44 +137,32 @@ impl PlatformDiagnosticActions {
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-    pub fn ForceUpload<'a, P0>(latency: P0, uploadovercostednetwork: bool, uploadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState>
-    where
-        P0: ::std::convert::Into<PlatformDiagnosticEventBufferLatencies>,
-    {
+    pub fn ForceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool) -> ::windows::core::Result<PlatformDiagnosticActionState> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PlatformDiagnosticActionState>::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpload)(::windows::core::Interface::as_raw(this), latency.into(), uploadovercostednetwork, uploadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
+            (::windows::core::Interface::vtable(this).ForceUpload)(::windows::core::Interface::as_raw(this), latency, uploadovercostednetwork, uploadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-    pub fn IsTraceRunning<'a, P0>(slottype: P0, scenarioid: ::windows::core::GUID, traceprofilehash: u64) -> ::windows::core::Result<PlatformDiagnosticTraceSlotState>
-    where
-        P0: ::std::convert::Into<PlatformDiagnosticTraceSlotType>,
-    {
+    pub fn IsTraceRunning(slottype: PlatformDiagnosticTraceSlotType, scenarioid: ::windows::core::GUID, traceprofilehash: u64) -> ::windows::core::Result<PlatformDiagnosticTraceSlotState> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PlatformDiagnosticTraceSlotState>::zeroed();
-            (::windows::core::Interface::vtable(this).IsTraceRunning)(::windows::core::Interface::as_raw(this), slottype.into(), scenarioid, traceprofilehash, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceSlotState>(result__)
+            (::windows::core::Interface::vtable(this).IsTraceRunning)(::windows::core::Interface::as_raw(this), slottype, scenarioid, traceprofilehash, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceSlotState>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-    pub fn GetActiveTraceRuntime<'a, P0>(slottype: P0) -> ::windows::core::Result<PlatformDiagnosticTraceRuntimeInfo>
-    where
-        P0: ::std::convert::Into<PlatformDiagnosticTraceSlotType>,
-    {
+    pub fn GetActiveTraceRuntime(slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<PlatformDiagnosticTraceRuntimeInfo> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetActiveTraceRuntime)(::windows::core::Interface::as_raw(this), slottype.into(), result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceRuntimeInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetActiveTraceRuntime)(::windows::core::Interface::as_raw(this), slottype, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceRuntimeInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetKnownTraceList<'a, P0>(slottype: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>>
-    where
-        P0: ::std::convert::Into<PlatformDiagnosticTraceSlotType>,
-    {
+    pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetKnownTraceList)(::windows::core::Interface::as_raw(this), slottype.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetKnownTraceList)(::windows::core::Interface::as_raw(this), slottype, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>>(result__)
         })
     }
     #[doc(hidden)]

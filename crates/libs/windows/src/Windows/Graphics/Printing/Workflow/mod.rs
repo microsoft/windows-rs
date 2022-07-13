@@ -839,12 +839,9 @@ impl PrintWorkflowConfiguration {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-    pub fn AbortPrintFlow<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintWorkflowJobAbortReason>,
-    {
+    pub fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintWorkflowConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AbortPrintFlow)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AbortPrintFlow)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
 }
 impl ::core::clone::Clone for PrintWorkflowConfiguration {
@@ -2248,14 +2245,11 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-    pub fn GetPdlConverter<'a, P0>(&self, conversiontype: P0) -> ::windows::core::Result<PrintWorkflowPdlConverter>
-    where
-        P0: ::std::convert::Into<PrintWorkflowPdlConversionType>,
-    {
+    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> ::windows::core::Result<PrintWorkflowPdlConverter> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPdlConverter)(::windows::core::Interface::as_raw(this), conversiontype.into(), result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlConverter>(result__)
+            (::windows::core::Interface::vtable(this).GetPdlConverter)(::windows::core::Interface::as_raw(this), conversiontype, result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlConverter>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`, `\"Foundation\"`*"]
@@ -2437,12 +2431,9 @@ impl PrintWorkflowPdlTargetStream {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-    pub fn CompleteStreamSubmission<'a, P0>(&self, status: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintWorkflowSubmittedStatus>,
-    {
+    pub fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CompleteStreamSubmission)(::windows::core::Interface::as_raw(this), status.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CompleteStreamSubmission)(::windows::core::Interface::as_raw(this), status).ok() }
     }
 }
 impl ::core::clone::Clone for PrintWorkflowPdlTargetStream {
@@ -3078,12 +3069,9 @@ unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
 pub struct PrintWorkflowSubmittedOperation(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedOperation {
     #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-    pub fn Complete<'a, P0>(&self, status: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintWorkflowSubmittedStatus>,
-    {
+    pub fn Complete(&self, status: PrintWorkflowSubmittedStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this), status.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this), status).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
     pub fn Configuration(&self) -> ::windows::core::Result<PrintWorkflowConfiguration> {

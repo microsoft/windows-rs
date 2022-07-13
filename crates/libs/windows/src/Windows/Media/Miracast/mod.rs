@@ -802,21 +802,17 @@ impl MiracastReceiverConnection {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn Disconnect<'a, P0>(&self, reason: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MiracastReceiverDisconnectReason>,
-    {
+    pub fn Disconnect(&self, reason: MiracastReceiverDisconnectReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn DisconnectWithMessage<'a, P0, P1>(&self, reason: P0, message: P1) -> ::windows::core::Result<()>
+    pub fn DisconnectWithMessage<'a, P0>(&self, reason: MiracastReceiverDisconnectReason, message: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<MiracastReceiverDisconnectReason>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DisconnectWithMessage)(::windows::core::Interface::as_raw(this), reason.into(), message.into().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DisconnectWithMessage)(::windows::core::Interface::as_raw(this), reason, message.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
@@ -1445,12 +1441,9 @@ impl MiracastReceiverGameControllerDevice {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MiracastReceiverGameControllerDeviceUsageMode>,
-    {
+    pub fn SetMode(&self, value: MiracastReceiverGameControllerDeviceUsageMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2275,12 +2268,9 @@ impl MiracastReceiverSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetAuthorizationMethod<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MiracastReceiverAuthorizationMethod>,
-    {
+    pub fn SetAuthorizationMethod(&self, value: MiracastReceiverAuthorizationMethod) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthorizationMethod)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthorizationMethod)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
     pub fn RequireAuthorizationFromKnownTransmitters(&self) -> ::windows::core::Result<bool> {
@@ -2743,12 +2733,9 @@ impl MiracastTransmitter {
         }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`*"]
-    pub fn SetAuthorizationStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MiracastTransmitterAuthorizationStatus>,
-    {
+    pub fn SetAuthorizationStatus(&self, value: MiracastTransmitterAuthorizationStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthorizationStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthorizationStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Miracast\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

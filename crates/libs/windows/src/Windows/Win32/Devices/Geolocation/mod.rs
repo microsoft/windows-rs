@@ -3623,11 +3623,8 @@ impl ILocation {
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Devices_Sensors\"`*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
-    pub unsafe fn SetDesiredAccuracy<'a, P0>(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Sensors::LOCATION_DESIRED_ACCURACY>,
-    {
-        (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), desiredaccuracy.into()).ok()
+    pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDesiredAccuracy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(desiredaccuracy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3709,11 +3706,8 @@ impl ILocationEvents {
         (::windows::core::Interface::vtable(self).OnLocationChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), plocationreport.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-    pub unsafe fn OnStatusChanged<'a, P0>(&self, reporttype: *const ::windows::core::GUID, newstatus: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LOCATION_REPORT_STATUS>,
-    {
-        (::windows::core::Interface::vtable(self).OnStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), newstatus.into()).ok()
+    pub unsafe fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(newstatus)).ok()
     }
 }
 impl ::core::convert::From<ILocationEvents> for ::windows::core::IUnknown {

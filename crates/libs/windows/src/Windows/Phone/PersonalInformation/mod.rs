@@ -430,14 +430,11 @@ impl ContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ToVcardWithOptionsAsync<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<VCardFormat>,
-    {
+    pub fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToVcardWithOptionsAsync)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).ToVcardWithOptionsAsync)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -568,12 +565,9 @@ impl ContactQueryOptions {
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-    pub fn SetOrderBy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ContactQueryResultOrdering>,
-    {
+    pub fn SetOrderBy(&self, value: ContactQueryResultOrdering) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrderBy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrderBy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ContactQueryOptions {
@@ -904,14 +898,10 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateOrOpenWithOptionsAsync<'a, P0, P1>(access: P0, sharing: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>>
-    where
-        P0: ::std::convert::Into<ContactStoreSystemAccessMode>,
-        P1: ::std::convert::Into<ContactStoreApplicationAccessMode>,
-    {
+    pub fn CreateOrOpenWithOptionsAsync(access: ContactStoreSystemAccessMode, sharing: ContactStoreApplicationAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactStoreStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateOrOpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), access.into(), sharing.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactStore>>(result__)
+            (::windows::core::Interface::vtable(this).CreateOrOpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), access, sharing, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactStore>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1223,14 +1213,11 @@ impl IContactInformation {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ToVcardWithOptionsAsync<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<VCardFormat>,
-    {
+    pub fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToVcardWithOptionsAsync)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).ToVcardWithOptionsAsync)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
 }
@@ -2039,14 +2026,11 @@ impl StoredContact {
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ToVcardWithOptionsAsync<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<VCardFormat>,
-    {
+    pub fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = &::windows::core::Interface::cast::<IContactInformation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToVcardWithOptionsAsync)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).ToVcardWithOptionsAsync)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`, `\"Foundation\"`*"]

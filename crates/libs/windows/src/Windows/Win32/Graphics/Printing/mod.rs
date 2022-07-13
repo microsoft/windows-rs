@@ -1881,19 +1881,17 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
-pub unsafe fn CreatePrintAsyncNotifyChannel<'a, P0, P1, P2, P3>(pszname: P0, pnotificationtype: *const ::windows::core::GUID, euserfilter: P1, econversationstyle: P2, pcallback: P3) -> ::windows::core::Result<IPrintAsyncNotifyChannel>
+pub unsafe fn CreatePrintAsyncNotifyChannel<'a, P0, P1>(pszname: P0, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: P1) -> ::windows::core::Result<IPrintAsyncNotifyChannel>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PrintAsyncNotifyUserFilter>,
-    P2: ::std::convert::Into<PrintAsyncNotifyConversationStyle>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePrintAsyncNotifyChannel(pszname: ::windows::core::PCWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: *mut ::core::ffi::c_void, ppiasynchnotification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreatePrintAsyncNotifyChannel(pszname.into(), ::core::mem::transmute(pnotificationtype), euserfilter.into(), econversationstyle.into(), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
+    CreatePrintAsyncNotifyChannel(pszname.into(), ::core::mem::transmute(pnotificationtype), ::core::mem::transmute(euserfilter), ::core::mem::transmute(econversationstyle), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7582,11 +7580,8 @@ impl IFixedPage {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
@@ -8154,11 +8149,8 @@ impl IPartBase {
         (::windows::core::Interface::vtable(self).GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
 }
 impl ::core::convert::From<IPartBase> for ::windows::core::IUnknown {
@@ -8229,11 +8221,8 @@ impl IPartColorProfile {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
 }
 impl ::core::convert::From<IPartColorProfile> for ::windows::core::IUnknown {
@@ -8366,11 +8355,8 @@ impl IPartFont {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8385,11 +8371,8 @@ impl IPartFont {
         (::windows::core::Interface::vtable(self).SetFontContent)(::windows::core::Interface::as_raw(self), pcontenttype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontOptions<'a, P0>(&self, options: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsFontOptions>,
-    {
-        (::windows::core::Interface::vtable(self).SetFontOptions)(::windows::core::Interface::as_raw(self), options.into()).ok()
+    pub unsafe fn SetFontOptions(&self, options: EXpsFontOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFontOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options)).ok()
     }
 }
 impl ::core::convert::From<IPartFont> for ::windows::core::IUnknown {
@@ -8474,11 +8457,8 @@ impl IPartFont2 {
         (::windows::core::Interface::vtable(self).base__.base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8493,11 +8473,8 @@ impl IPartFont2 {
         (::windows::core::Interface::vtable(self).base__.SetFontContent)(::windows::core::Interface::as_raw(self), pcontenttype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetFontOptions<'a, P0>(&self, options: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsFontOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFontOptions)(::windows::core::Interface::as_raw(self), options.into()).ok()
+    pub unsafe fn SetFontOptions(&self, options: EXpsFontOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFontOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn GetFontRestriction(&self) -> ::windows::core::Result<EXpsFontRestriction> {
@@ -8597,11 +8574,8 @@ impl IPartImage {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8698,11 +8672,8 @@ impl IPartPrintTicket {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
 }
 impl ::core::convert::From<IPartPrintTicket> for ::windows::core::IUnknown {
@@ -8781,11 +8752,8 @@ impl IPartResourceDictionary {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
 }
 impl ::core::convert::From<IPartResourceDictionary> for ::windows::core::IUnknown {
@@ -8864,11 +8832,8 @@ impl IPartThumbnail {
         (::windows::core::Interface::vtable(self).base__.GetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EXpsCompressionOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetPartCompression<'a, P0>(&self, compression: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsCompressionOptions>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), compression.into()).ok()
+    pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPartCompression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(compression)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9077,24 +9042,20 @@ pub struct IPrintAsyncNewChannelCookie_Vtbl {
 pub struct IPrintAsyncNotify(::windows::core::IUnknown);
 impl IPrintAsyncNotify {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn CreatePrintAsyncNotifyChannel<'a, P0, P1, P2>(&self, param0: u32, param1: *const ::windows::core::GUID, param2: P0, param3: P1, param4: P2) -> ::windows::core::Result<IPrintAsyncNotifyChannel>
+    pub unsafe fn CreatePrintAsyncNotifyChannel<'a, P0>(&self, param0: u32, param1: *const ::windows::core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: P0) -> ::windows::core::Result<IPrintAsyncNotifyChannel>
     where
-        P0: ::std::convert::Into<PrintAsyncNotifyUserFilter>,
-        P1: ::std::convert::Into<PrintAsyncNotifyConversationStyle>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePrintAsyncNotifyChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2.into(), param3.into(), param4.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
+        (::windows::core::Interface::vtable(self).CreatePrintAsyncNotifyChannel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyChannel>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn CreatePrintAsyncNotifyRegistration<'a, P0, P1, P2>(&self, param0: *const ::windows::core::GUID, param1: P0, param2: P1, param3: P2) -> ::windows::core::Result<IPrintAsyncNotifyRegistration>
+    pub unsafe fn CreatePrintAsyncNotifyRegistration<'a, P0>(&self, param0: *const ::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: P0) -> ::windows::core::Result<IPrintAsyncNotifyRegistration>
     where
-        P0: ::std::convert::Into<PrintAsyncNotifyUserFilter>,
-        P1: ::std::convert::Into<PrintAsyncNotifyConversationStyle>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePrintAsyncNotifyRegistration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into(), param2.into(), param3.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyRegistration>(result__)
+        (::windows::core::Interface::vtable(self).CreatePrintAsyncNotifyRegistration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintAsyncNotifyRegistration>(result__)
     }
 }
 impl ::core::convert::From<IPrintAsyncNotify> for ::windows::core::IUnknown {
@@ -11297,11 +11258,8 @@ pub struct IPrintPipelineManagerControl_Vtbl {
 pub struct IPrintPipelineProgressReport(::windows::core::IUnknown);
 impl IPrintPipelineProgressReport {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn ReportProgress<'a, P0>(&self, update: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EXpsJobConsumption>,
-    {
-        (::windows::core::Interface::vtable(self).ReportProgress)(::windows::core::Interface::as_raw(self), update.into()).ok()
+    pub unsafe fn ReportProgress(&self, update: EXpsJobConsumption) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReportProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(update)).ok()
     }
 }
 impl ::core::convert::From<IPrintPipelineProgressReport> for ::windows::core::IUnknown {
@@ -11432,11 +11390,8 @@ pub struct IPrintPipelinePropertyBag_Vtbl {
 pub struct IPrintPreviewDxgiPackageTarget(::windows::core::IUnknown);
 impl IPrintPreviewDxgiPackageTarget {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-    pub unsafe fn SetJobPageCount<'a, P0>(&self, counttype: P0, count: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PageCountType>,
-    {
-        (::windows::core::Interface::vtable(self).SetJobPageCount)(::windows::core::Interface::as_raw(self), counttype.into(), ::core::mem::transmute(count)).ok()
+    pub unsafe fn SetJobPageCount(&self, counttype: PageCountType, count: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetJobPageCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(counttype), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -16528,12 +16483,9 @@ impl IPrinterScriptableStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek<'a, P0>(&self, loffset: i32, streamseek: P0) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STREAM_SEEK>,
-    {
+    pub unsafe fn Seek(&self, loffset: i32, streamseek: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(loffset), streamseek.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(loffset), ::core::mem::transmute(streamseek), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
     pub unsafe fn SetSize(&self, lsize: i32) -> ::windows::core::Result<()> {
@@ -16918,14 +16870,12 @@ pub struct IXpsRasterizationFactory(::windows::core::IUnknown);
 impl IXpsRasterizationFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn CreateRasterizer<'a, P0, P1, P2>(&self, xpspage: P0, dpi: f32, nontextrenderingmode: P1, textrenderingmode: P2) -> ::windows::core::Result<IXpsRasterizer>
+    pub unsafe fn CreateRasterizer<'a, P0>(&self, xpspage: P0, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE) -> ::windows::core::Result<IXpsRasterizer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Xps::IXpsOMPage>>,
-        P1: ::std::convert::Into<XPSRAS_RENDERING_MODE>,
-        P2: ::std::convert::Into<XPSRAS_RENDERING_MODE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRasterizer)(::windows::core::Interface::as_raw(self), xpspage.into().abi(), ::core::mem::transmute(dpi), nontextrenderingmode.into(), textrenderingmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsRasterizer>(result__)
+        (::windows::core::Interface::vtable(self).CreateRasterizer)(::windows::core::Interface::as_raw(self), xpspage.into().abi(), ::core::mem::transmute(dpi), ::core::mem::transmute(nontextrenderingmode), ::core::mem::transmute(textrenderingmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsRasterizer>(result__)
     }
 }
 impl ::core::convert::From<IXpsRasterizationFactory> for ::windows::core::IUnknown {
@@ -16978,15 +16928,12 @@ pub struct IXpsRasterizationFactory1(::windows::core::IUnknown);
 impl IXpsRasterizationFactory1 {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn CreateRasterizer<'a, P0, P1, P2, P3>(&self, xpspage: P0, dpi: f32, nontextrenderingmode: P1, textrenderingmode: P2, pixelformat: P3) -> ::windows::core::Result<IXpsRasterizer>
+    pub unsafe fn CreateRasterizer<'a, P0>(&self, xpspage: P0, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT) -> ::windows::core::Result<IXpsRasterizer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Xps::IXpsOMPage>>,
-        P1: ::std::convert::Into<XPSRAS_RENDERING_MODE>,
-        P2: ::std::convert::Into<XPSRAS_RENDERING_MODE>,
-        P3: ::std::convert::Into<XPSRAS_PIXEL_FORMAT>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRasterizer)(::windows::core::Interface::as_raw(self), xpspage.into().abi(), ::core::mem::transmute(dpi), nontextrenderingmode.into(), textrenderingmode.into(), pixelformat.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsRasterizer>(result__)
+        (::windows::core::Interface::vtable(self).CreateRasterizer)(::windows::core::Interface::as_raw(self), xpspage.into().abi(), ::core::mem::transmute(dpi), ::core::mem::transmute(nontextrenderingmode), ::core::mem::transmute(textrenderingmode), ::core::mem::transmute(pixelformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsRasterizer>(result__)
     }
 }
 impl ::core::convert::From<IXpsRasterizationFactory1> for ::windows::core::IUnknown {
@@ -17039,16 +16986,12 @@ pub struct IXpsRasterizationFactory2(::windows::core::IUnknown);
 impl IXpsRasterizationFactory2 {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
-    pub unsafe fn CreateRasterizer<'a, P0, P1, P2, P3, P4>(&self, xpspage: P0, dpix: f32, dpiy: f32, nontextrenderingmode: P1, textrenderingmode: P2, pixelformat: P3, backgroundcolor: P4) -> ::windows::core::Result<IXpsRasterizer>
+    pub unsafe fn CreateRasterizer<'a, P0>(&self, xpspage: P0, dpix: f32, dpiy: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, backgroundcolor: XPSRAS_BACKGROUND_COLOR) -> ::windows::core::Result<IXpsRasterizer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Xps::IXpsOMPage>>,
-        P1: ::std::convert::Into<XPSRAS_RENDERING_MODE>,
-        P2: ::std::convert::Into<XPSRAS_RENDERING_MODE>,
-        P3: ::std::convert::Into<XPSRAS_PIXEL_FORMAT>,
-        P4: ::std::convert::Into<XPSRAS_BACKGROUND_COLOR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRasterizer)(::windows::core::Interface::as_raw(self), xpspage.into().abi(), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), nontextrenderingmode.into(), textrenderingmode.into(), pixelformat.into(), backgroundcolor.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsRasterizer>(result__)
+        (::windows::core::Interface::vtable(self).CreateRasterizer)(::windows::core::Interface::as_raw(self), xpspage.into().abi(), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(nontextrenderingmode), ::core::mem::transmute(textrenderingmode), ::core::mem::transmute(pixelformat), ::core::mem::transmute(backgroundcolor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsRasterizer>(result__)
     }
 }
 impl ::core::convert::From<IXpsRasterizationFactory2> for ::windows::core::IUnknown {
@@ -23526,19 +23469,17 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterForPrintAsyncNotifications<'a, P0, P1, P2, P3>(pszname: P0, pnotificationtype: *const ::windows::core::GUID, euserfilter: P1, econversationstyle: P2, pcallback: P3) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn RegisterForPrintAsyncNotifications<'a, P0, P1>(pszname: P0, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<PrintAsyncNotifyUserFilter>,
-    P2: ::std::convert::Into<PrintAsyncNotifyConversationStyle>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IPrintAsyncNotifyCallback>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterForPrintAsyncNotifications(pszname: ::windows::core::PCWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: *mut ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    RegisterForPrintAsyncNotifications(pszname.into(), ::core::mem::transmute(pnotificationtype), euserfilter.into(), econversationstyle.into(), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    RegisterForPrintAsyncNotifications(pszname.into(), ::core::mem::transmute(pnotificationtype), ::core::mem::transmute(euserfilter), ::core::mem::transmute(econversationstyle), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23582,17 +23523,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportJobProcessingProgress<'a, P0, P1, P2>(printerhandle: P0, jobid: u32, joboperation: P1, jobprogress: P2) -> ::windows::core::Result<()>
+pub unsafe fn ReportJobProcessingProgress<'a, P0>(printerhandle: P0, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<EPrintXPSJobOperation>,
-    P2: ::std::convert::Into<EPrintXPSJobProgress>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReportJobProcessingProgress(printerhandle: super::super::Foundation::HANDLE, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::core::HRESULT;
     }
-    ReportJobProcessingProgress(printerhandle.into(), ::core::mem::transmute(jobid), joboperation.into(), jobprogress.into()).ok()
+    ReportJobProcessingProgress(printerhandle.into(), ::core::mem::transmute(jobid), ::core::mem::transmute(joboperation), ::core::mem::transmute(jobprogress)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

@@ -355,12 +355,9 @@ impl ProviderSpiConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ProviderSpiMode>,
-    {
+    pub fn SetMode(&self, value: ProviderSpiMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn DataBitLength(&self) -> ::windows::core::Result<i32> {
@@ -397,12 +394,9 @@ impl ProviderSpiConnectionSettings {
         }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
-    pub fn SetSharingMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ProviderSpiSharingMode>,
-    {
+    pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
     pub fn Create(chipselectline: i32) -> ::windows::core::Result<ProviderSpiConnectionSettings> {

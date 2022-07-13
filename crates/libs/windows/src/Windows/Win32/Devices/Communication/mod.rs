@@ -658,16 +658,15 @@ impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EscapeCommFunction<'a, P0, P1>(hfile: P0, dwfunc: P1) -> super::super::Foundation::BOOL
+pub unsafe fn EscapeCommFunction<'a, P0>(hfile: P0, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<ESCAPE_COMM_FUNCTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EscapeCommFunction(hfile: super::super::Foundation::HANDLE, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(EscapeCommFunction(hfile.into(), dwfunc.into()))
+    ::core::mem::transmute(EscapeCommFunction(hfile.into(), ::core::mem::transmute(dwfunc)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1452,16 +1451,15 @@ impl ::core::ops::Not for PURGE_COMM_FLAGS {
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PurgeComm<'a, P0, P1>(hfile: P0, dwflags: P1) -> super::super::Foundation::BOOL
+pub unsafe fn PurgeComm<'a, P0>(hfile: P0, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<PURGE_COMM_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PurgeComm(hfile: super::super::Foundation::HANDLE, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PurgeComm(hfile.into(), dwflags.into()))
+    ::core::mem::transmute(PurgeComm(hfile.into(), ::core::mem::transmute(dwflags)))
 }
 pub const SID_3GPP_SUPSVCMODEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d08e07_d767_4478_b14a_eecc87ea12f7);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
@@ -1493,16 +1491,15 @@ where
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommMask<'a, P0, P1>(hfile: P0, dwevtmask: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetCommMask<'a, P0>(hfile: P0, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<COMM_EVENT_MASK>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetCommMask(hfile.into(), dwevtmask.into()))
+    ::core::mem::transmute(SetCommMask(hfile.into(), ::core::mem::transmute(dwevtmask)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

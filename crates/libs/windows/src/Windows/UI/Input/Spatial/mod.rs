@@ -1185,14 +1185,11 @@ impl SpatialGestureRecognizer {
         unsafe { (::windows::core::Interface::vtable(this).CancelPendingGestures)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn TrySetGestureSettings<'a, P0>(&self, settings: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<SpatialGestureSettings>,
-    {
+    pub fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetGestureSettings)(::windows::core::Interface::as_raw(this), settings.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetGestureSettings)(::windows::core::Interface::as_raw(this), settings, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1204,13 +1201,10 @@ impl SpatialGestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn Create<'a, P0>(settings: P0) -> ::windows::core::Result<SpatialGestureRecognizer>
-    where
-        P0: ::std::convert::Into<SpatialGestureSettings>,
-    {
+    pub fn Create(settings: SpatialGestureSettings) -> ::windows::core::Result<SpatialGestureRecognizer> {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), settings.into(), result__.as_mut_ptr()).from_abi::<SpatialGestureRecognizer>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), settings, result__.as_mut_ptr()).from_abi::<SpatialGestureRecognizer>(result__)
         })
     }
     #[doc(hidden)]
@@ -2156,13 +2150,10 @@ impl SpatialInteractionManager {
         })
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn IsSourceKindSupported<'a, P0>(kind: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<SpatialInteractionSourceKind>,
-    {
+    pub fn IsSourceKindSupported(kind: SpatialInteractionSourceKind) -> ::windows::core::Result<bool> {
         Self::ISpatialInteractionManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -4103,14 +4094,11 @@ impl SpatialRecognitionStartedEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn IsGesturePossible<'a, P0>(&self, gesture: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<SpatialGestureSettings>,
-    {
+    pub fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsGesturePossible)(::windows::core::Interface::as_raw(this), gesture.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGesturePossible)(::windows::core::Interface::as_raw(this), gesture, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }

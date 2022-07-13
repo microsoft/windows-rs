@@ -137,15 +137,14 @@ impl PhoneNumberFormatter {
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn FormatWithOutputFormat<'a, P0, P1>(&self, number: P0, numberformat: P1) -> ::windows::core::Result<::windows::core::HSTRING>
+    pub fn FormatWithOutputFormat<'a, P0>(&self, number: P0, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
-        P1: ::std::convert::Into<PhoneNumberFormat>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).FormatWithOutputFormat)(::windows::core::Interface::as_raw(this), number.into().abi(), numberformat.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatWithOutputFormat)(::windows::core::Interface::as_raw(this), number.into().abi(), numberformat, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]

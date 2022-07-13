@@ -2377,28 +2377,22 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
-pub unsafe fn GetFeatureEnabledState<'a, P0>(featureid: u32, changetime: P0) -> FEATURE_ENABLED_STATE
-where
-    P0: ::std::convert::Into<FEATURE_CHANGE_TIME>,
-{
+pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
     }
-    ::core::mem::transmute(GetFeatureEnabledState(::core::mem::transmute(featureid), changetime.into()))
+    ::core::mem::transmute(GetFeatureEnabledState(::core::mem::transmute(featureid), ::core::mem::transmute(changetime)))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFeatureVariant<'a, P0>(featureid: u32, changetime: P0, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32
-where
-    P0: ::std::convert::Into<FEATURE_CHANGE_TIME>,
-{
+pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(GetFeatureVariant(::core::mem::transmute(featureid), changetime.into(), ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification)))
+    ::core::mem::transmute(GetFeatureVariant(::core::mem::transmute(featureid), ::core::mem::transmute(changetime), ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification)))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2939,18 +2933,13 @@ pub struct ICameraUIControl(::windows::core::IUnknown);
 impl ICameraUIControl {
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<'a, P0, P1, P2, P3, P4, P5, P6, P7>(&self, pwindow: P0, mode: P1, selectionmode: P2, capturemode: P3, photoformat: P4, videoformat: P5, bhasclosebutton: P6, peventcallback: P7) -> ::windows::core::Result<()>
+    pub unsafe fn Show<'a, P0, P1, P2>(&self, pwindow: P0, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: P1, peventcallback: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<CameraUIControlMode>,
-        P2: ::std::convert::Into<CameraUIControlLinearSelectionMode>,
-        P3: ::std::convert::Into<CameraUIControlCaptureMode>,
-        P4: ::std::convert::Into<CameraUIControlPhotoFormat>,
-        P5: ::std::convert::Into<CameraUIControlVideoFormat>,
-        P6: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P7: ::std::convert::Into<::windows::core::InParam<'a, ICameraUIControlEventCallback>>,
+        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ICameraUIControlEventCallback>>,
     {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), pwindow.into().abi(), mode.into(), selectionmode.into(), capturemode.into(), photoformat.into(), videoformat.into(), bhasclosebutton.into(), peventcallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), pwindow.into().abi(), ::core::mem::transmute(mode), ::core::mem::transmute(selectionmode), ::core::mem::transmute(capturemode), ::core::mem::transmute(photoformat), ::core::mem::transmute(videoformat), bhasclosebutton.into(), peventcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -4689,29 +4678,25 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQueryObject<'a, P0, P1>(handle: P0, objectinformationclass: P1, objectinformation: *mut ::core::ffi::c_void, objectinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn NtQueryObject<'a, P0>(handle: P0, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: *mut ::core::ffi::c_void, objectinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<OBJECT_INFORMATION_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NtQueryObject(handle: super::super::Foundation::HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: *mut ::core::ffi::c_void, objectinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtQueryObject(handle.into(), objectinformationclass.into(), ::core::mem::transmute(objectinformation), ::core::mem::transmute(objectinformationlength), ::core::mem::transmute(returnlength)).ok()
+    NtQueryObject(handle.into(), ::core::mem::transmute(objectinformationclass), ::core::mem::transmute(objectinformation), ::core::mem::transmute(objectinformationlength), ::core::mem::transmute(returnlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtQuerySystemInformation<'a, P0>(systeminformationclass: P0, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<SYSTEM_INFORMATION_CLASS>,
-{
+pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtQuerySystemInformation(systeminformationclass.into(), ::core::mem::transmute(systeminformation), ::core::mem::transmute(systeminformationlength), ::core::mem::transmute(returnlength)).ok()
+    NtQuerySystemInformation(::core::mem::transmute(systeminformationclass), ::core::mem::transmute(systeminformation), ::core::mem::transmute(systeminformationlength), ::core::mem::transmute(returnlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4749,16 +4734,15 @@ where
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtSetInformationKey<'a, P0, P1>(keyhandle: P0, keysetinformationclass: P1, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> ::windows::core::Result<()>
+pub unsafe fn NtSetInformationKey<'a, P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<KEY_SET_INFORMATION_CLASS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NtSetInformationKey(keyhandle: super::super::Foundation::HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    NtSetInformationKey(keyhandle.into(), keysetinformationclass.into(), ::core::mem::transmute(keysetinformation), ::core::mem::transmute(keysetinformationlength)).ok()
+    NtSetInformationKey(keyhandle.into(), ::core::mem::transmute(keysetinformationclass), ::core::mem::transmute(keysetinformation), ::core::mem::transmute(keysetinformationlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

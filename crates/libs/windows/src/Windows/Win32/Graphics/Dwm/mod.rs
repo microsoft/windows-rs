@@ -734,16 +734,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmGetWindowAttribute<'a, P0, P1>(hwnd: P0, dwattribute: P1, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
+pub unsafe fn DwmGetWindowAttribute<'a, P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<DWMWINDOWATTRIBUTE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    DwmGetWindowAttribute(hwnd.into(), dwattribute.into(), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    DwmGetWindowAttribute(hwnd.into(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -812,15 +811,12 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmRenderGesture<'a, P0>(gt: P0, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<GESTURE_TYPE>,
-{
+pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
-    DwmRenderGesture(gt.into(), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
+    DwmRenderGesture(::core::mem::transmute(gt), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -879,28 +875,24 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmSetWindowAttribute<'a, P0, P1>(hwnd: P0, dwattribute: P1, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
+pub unsafe fn DwmSetWindowAttribute<'a, P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<DWMWINDOWATTRIBUTE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    DwmSetWindowAttribute(hwnd.into(), dwattribute.into(), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    DwmSetWindowAttribute(hwnd.into(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
-pub unsafe fn DwmShowContact<'a, P0>(dwpointerid: u32, eshowcontact: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<DWM_SHOWCONTACT>,
-{
+pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::HRESULT;
     }
-    DwmShowContact(::core::mem::transmute(dwpointerid), eshowcontact.into()).ok()
+    DwmShowContact(::core::mem::transmute(dwpointerid), ::core::mem::transmute(eshowcontact)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -918,16 +910,15 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DwmTransitionOwnedWindow<'a, P0, P1>(hwnd: P0, target: P1) -> ::windows::core::Result<()>
+pub unsafe fn DwmTransitionOwnedWindow<'a, P0>(hwnd: P0, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<DWMTRANSITION_OWNEDWINDOW_TARGET>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::HRESULT;
     }
-    DwmTransitionOwnedWindow(hwnd.into(), target.into()).ok()
+    DwmTransitionOwnedWindow(hwnd.into(), ::core::mem::transmute(target)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]

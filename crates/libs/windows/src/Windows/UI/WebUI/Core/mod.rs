@@ -670,12 +670,9 @@ impl WebUICommandBar {
         }
     }
     #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
-    pub fn SetClosedDisplayMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WebUICommandBarClosedDisplayMode>,
-    {
+    pub fn SetClosedDisplayMode(&self, value: WebUICommandBarClosedDisplayMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClosedDisplayMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClosedDisplayMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
     pub fn IsOpen(&self) -> ::windows::core::Result<bool> {

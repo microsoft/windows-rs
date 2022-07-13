@@ -66,15 +66,12 @@ impl ::core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateToolhelp32Snapshot<'a, P0>(dwflags: P0, th32processid: u32) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<CREATE_TOOLHELP_SNAPSHOT_FLAGS>,
-{
+pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> super::super::super::Foundation::HANDLE;
     }
-    let result__ = CreateToolhelp32Snapshot(dwflags.into(), ::core::mem::transmute(th32processid));
+    let result__ = CreateToolhelp32Snapshot(::core::mem::transmute(dwflags), ::core::mem::transmute(th32processid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(C)]

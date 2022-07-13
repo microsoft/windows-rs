@@ -4536,27 +4536,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsDword<'a, P0>(session: *const WSMAN_SESSION, option: P0, value: *mut u32) -> u32
-where
-    P0: ::std::convert::Into<WSManSessionOption>,
-{
+pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WSManGetSessionOptionAsDword(::core::mem::transmute(session), option.into(), ::core::mem::transmute(value)))
+    ::core::mem::transmute(WSManGetSessionOptionAsDword(::core::mem::transmute(session), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManGetSessionOptionAsString<'a, P0>(session: *const WSMAN_SESSION, option: P0, string: &mut [u16], stringlengthused: *mut u32) -> u32
-where
-    P0: ::std::convert::Into<WSManSessionOption>,
-{
+pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, string: &mut [u16], stringlengthused: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: ::windows::core::PWSTR, stringlengthused: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WSManGetSessionOptionAsString(::core::mem::transmute(session), option.into(), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)), ::core::mem::transmute(stringlengthused)))
+    ::core::mem::transmute(WSManGetSessionOptionAsString(::core::mem::transmute(session), ::core::mem::transmute(option), string.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(string)), ::core::mem::transmute(stringlengthused)))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
@@ -4971,15 +4965,12 @@ impl ::core::fmt::Debug for WSManSessionOption {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[inline]
-pub unsafe fn WSManSetSessionOption<'a, P0>(session: *const WSMAN_SESSION, option: P0, data: *const WSMAN_DATA) -> u32
-where
-    P0: ::std::convert::Into<WSManSessionOption>,
-{
+pub unsafe fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32;
     }
-    ::core::mem::transmute(WSManSetSessionOption(::core::mem::transmute(session), option.into(), ::core::mem::transmute(data)))
+    ::core::mem::transmute(WSManSetSessionOption(::core::mem::transmute(session), ::core::mem::transmute(option), ::core::mem::transmute(data)))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]

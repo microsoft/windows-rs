@@ -651,12 +651,9 @@ impl TargetedContentCollection {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportInteraction<'a, P0>(&self, interaction: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TargetedContentInteraction>,
-    {
+    pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportCustomInteraction<'a, P0>(&self, custominteractionname: P0) -> ::windows::core::Result<()>
@@ -1178,12 +1175,9 @@ impl TargetedContentItem {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportInteraction<'a, P0>(&self, interaction: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<TargetedContentInteraction>,
-    {
+    pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportCustomInteraction<'a, P0>(&self, custominteractionname: P0) -> ::windows::core::Result<()>

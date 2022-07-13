@@ -259,12 +259,9 @@ impl CoreDragOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
-    pub fn SetDragUIContentMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CoreDragUIContentMode>,
-    {
+    pub fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragUIContentMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragUIContentMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -284,12 +281,9 @@ impl CoreDragOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`*"]
-    pub fn SetAllowedOperations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::DataPackageOperation>,
-    {
+    pub fn SetAllowedOperations(&self, value: super::super::DataPackageOperation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreDragOperation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowedOperations)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowedOperations)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CoreDragOperation {

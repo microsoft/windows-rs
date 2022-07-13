@@ -712,14 +712,11 @@ impl ISyndicationNode {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
 }
@@ -1023,14 +1020,11 @@ impl ISyndicationText {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
 }
@@ -1501,14 +1495,11 @@ impl SyndicationCategory {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc(hidden)]
@@ -1833,14 +1824,13 @@ impl SyndicationContent {
         unsafe { (::windows::core::Interface::vtable(this).SetSourceUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
-    pub fn CreateSyndicationContent<'a, P0, P1>(text: P0, r#type: P1) -> ::windows::core::Result<SyndicationContent>
+    pub fn CreateSyndicationContent<'a, P0>(text: P0, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationContent>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<SyndicationTextType>,
     {
         Self::ISyndicationContentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSyndicationContent)(::windows::core::Interface::as_raw(this), text.into().abi(), r#type.into(), result__.as_mut_ptr()).from_abi::<SyndicationContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateSyndicationContent)(::windows::core::Interface::as_raw(this), text.into().abi(), r#type, result__.as_mut_ptr()).from_abi::<SyndicationContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Foundation\"`*"]
@@ -1956,14 +1946,11 @@ impl SyndicationContent {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -2545,14 +2532,11 @@ impl SyndicationFeed {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc(hidden)]
@@ -2853,14 +2837,11 @@ impl SyndicationGenerator {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc(hidden)]
@@ -3311,14 +3292,11 @@ impl SyndicationItem {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc(hidden)]
@@ -3641,14 +3619,11 @@ impl SyndicationLink {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc(hidden)]
@@ -3851,14 +3826,11 @@ impl SyndicationNode {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -4073,14 +4045,11 @@ impl SyndicationPerson {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -4356,14 +4325,11 @@ impl SyndicationText {
     }
     #[doc = "*Required features: `\"Web_Syndication\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetXmlDocument<'a, P0>(&self, format: P0) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>
-    where
-        P0: ::std::convert::Into<SyndicationFormat>,
-    {
+    pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<ISyndicationNode>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -4427,14 +4393,13 @@ impl SyndicationText {
         })
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
-    pub fn CreateSyndicationTextEx<'a, P0, P1>(text: P0, r#type: P1) -> ::windows::core::Result<SyndicationText>
+    pub fn CreateSyndicationTextEx<'a, P0>(text: P0, r#type: SyndicationTextType) -> ::windows::core::Result<SyndicationText>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<SyndicationTextType>,
     {
         Self::ISyndicationTextFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSyndicationTextEx)(::windows::core::Interface::as_raw(this), text.into().abi(), r#type.into(), result__.as_mut_ptr()).from_abi::<SyndicationText>(result__)
+            (::windows::core::Interface::vtable(this).CreateSyndicationTextEx)(::windows::core::Interface::as_raw(this), text.into().abi(), r#type, result__.as_mut_ptr()).from_abi::<SyndicationText>(result__)
         })
     }
     #[doc(hidden)]

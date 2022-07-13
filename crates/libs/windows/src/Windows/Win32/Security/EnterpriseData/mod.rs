@@ -678,28 +678,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
-pub unsafe fn SrpHostingInitialize<'a, P0, P1>(version: P0, r#type: P1, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<SRPHOSTING_VERSION>,
-    P1: ::std::convert::Into<SRPHOSTING_TYPE>,
-{
+pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> ::windows::core::HRESULT;
     }
-    SrpHostingInitialize(version.into(), r#type.into(), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata)).ok()
+    SrpHostingInitialize(::core::mem::transmute(version), ::core::mem::transmute(r#type), ::core::mem::transmute(pvdata), ::core::mem::transmute(cbdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[inline]
-pub unsafe fn SrpHostingTerminate<'a, P0>(r#type: P0)
-where
-    P0: ::std::convert::Into<SRPHOSTING_TYPE>,
-{
+pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
     }
-    SrpHostingTerminate(r#type.into())
+    SrpHostingTerminate(::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

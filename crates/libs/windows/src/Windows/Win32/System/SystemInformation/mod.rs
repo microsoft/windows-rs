@@ -382,15 +382,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn EnumSystemFirmwareTables<'a, P0>(firmwaretableprovidersignature: P0, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32
-where
-    P0: ::std::convert::Into<FIRMWARE_TABLE_PROVIDER>,
-{
+pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(EnumSystemFirmwareTables(firmwaretableprovidersignature.into(), ::core::mem::transmute(pfirmwaretableenumbuffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(EnumSystemFirmwareTables(::core::mem::transmute(firmwaretableprovidersignature), ::core::mem::transmute(pfirmwaretableenumbuffer), ::core::mem::transmute(buffersize)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -547,28 +544,22 @@ impl ::core::default::Default for GROUP_RELATIONSHIP {
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetComputerNameExA<'a, P0>(nametype: P0, lpbuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<COMPUTER_NAME_FORMAT>,
-{
+pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetComputerNameExA(nametype.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+    ::core::mem::transmute(GetComputerNameExA(::core::mem::transmute(nametype), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetComputerNameExW<'a, P0>(nametype: P0, lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<COMPUTER_NAME_FORMAT>,
-{
+pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetComputerNameExW(nametype.into(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+    ::core::mem::transmute(GetComputerNameExW(::core::mem::transmute(nametype), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -613,15 +604,12 @@ pub unsafe fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESS
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLogicalProcessorInformationEx<'a, P0>(relationshiptype: P0, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<LOGICAL_PROCESSOR_RELATIONSHIP>,
-{
+pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetLogicalProcessorInformationEx(relationshiptype.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(returnedlength)))
+    ::core::mem::transmute(GetLogicalProcessorInformationEx(::core::mem::transmute(relationshiptype), ::core::mem::transmute(buffer), ::core::mem::transmute(returnedlength)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -725,16 +713,15 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn GetSystemFirmwareTable<'a, P0, P1>(firmwaretableprovidersignature: P0, firmwaretableid: P1, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32
+pub unsafe fn GetSystemFirmwareTable<'a, P0>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: P0, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32
 where
-    P0: ::std::convert::Into<FIRMWARE_TABLE_PROVIDER>,
-    P1: ::std::convert::Into<FIRMWARE_TABLE_ID>,
+    P0: ::std::convert::Into<FIRMWARE_TABLE_ID>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
     }
-    ::core::mem::transmute(GetSystemFirmwareTable(firmwaretableprovidersignature.into(), firmwaretableid.into(), ::core::mem::transmute(pfirmwaretablebuffer), ::core::mem::transmute(buffersize)))
+    ::core::mem::transmute(GetSystemFirmwareTable(::core::mem::transmute(firmwaretableprovidersignature), firmwaretableid.into(), ::core::mem::transmute(pfirmwaretablebuffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -826,27 +813,21 @@ pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn GetSystemWow64Directory2A<'a, P0>(lpbuffer: &mut [u8], imagefilemachinetype: P0) -> u32
-where
-    P0: ::std::convert::Into<IMAGE_FILE_MACHINE>,
-{
+pub unsafe fn GetSystemWow64Directory2A(lpbuffer: &mut [u8], imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSystemWow64Directory2A(lpbuffer: ::windows::core::PSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32;
     }
-    ::core::mem::transmute(GetSystemWow64Directory2A(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, imagefilemachinetype.into()))
+    ::core::mem::transmute(GetSystemWow64Directory2A(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(imagefilemachinetype)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn GetSystemWow64Directory2W<'a, P0>(lpbuffer: &mut [u16], imagefilemachinetype: P0) -> u32
-where
-    P0: ::std::convert::Into<IMAGE_FILE_MACHINE>,
-{
+pub unsafe fn GetSystemWow64Directory2W(lpbuffer: &mut [u16], imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetSystemWow64Directory2W(lpbuffer: ::windows::core::PWSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32;
     }
-    ::core::mem::transmute(GetSystemWow64Directory2W(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, imagefilemachinetype.into()))
+    ::core::mem::transmute(GetSystemWow64Directory2W(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpbuffer)), lpbuffer.len() as _, ::core::mem::transmute(imagefilemachinetype)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -1040,29 +1021,23 @@ impl ::core::fmt::Debug for IMAGE_FILE_MACHINE {
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsUserCetAvailableInEnvironment<'a, P0>(usercetenvironment: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<USER_CET_ENVIRONMENT>,
-{
+pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsUserCetAvailableInEnvironment(usercetenvironment.into()))
+    ::core::mem::transmute(IsUserCetAvailableInEnvironment(::core::mem::transmute(usercetenvironment)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsWow64GuestMachineSupported<'a, P0>(wowguestmachine: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-where
-    P0: ::std::convert::Into<IMAGE_FILE_MACHINE>,
-{
+pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-    IsWow64GuestMachineSupported(wowguestmachine.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    IsWow64GuestMachineSupported(::core::mem::transmute(wowguestmachine), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
@@ -1947,15 +1922,12 @@ pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajo
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn RtlGetSystemGlobalData<'a, P0>(dataid: P0, buffer: *mut ::core::ffi::c_void, size: u32) -> u32
-where
-    P0: ::std::convert::Into<RTL_SYSTEM_GLOBAL_DATA_ID>,
-{
+pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::core::ffi::c_void, size: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::core::ffi::c_void, size: u32) -> u32;
     }
-    ::core::mem::transmute(RtlGetSystemGlobalData(dataid.into(), ::core::mem::transmute(buffer), ::core::mem::transmute(size)))
+    ::core::mem::transmute(RtlGetSystemGlobalData(::core::mem::transmute(dataid), ::core::mem::transmute(buffer), ::core::mem::transmute(size)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -2554,44 +2526,41 @@ where
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameEx2W<'a, P0, P1>(nametype: P0, flags: u32, lpbuffer: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetComputerNameEx2W<'a, P0>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<COMPUTER_NAME_FORMAT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameEx2W(nametype.into(), ::core::mem::transmute(flags), lpbuffer.into()))
+    ::core::mem::transmute(SetComputerNameEx2W(::core::mem::transmute(nametype), ::core::mem::transmute(flags), lpbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameExA<'a, P0, P1>(nametype: P0, lpbuffer: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetComputerNameExA<'a, P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<COMPUTER_NAME_FORMAT>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameExA(nametype.into(), lpbuffer.into()))
+    ::core::mem::transmute(SetComputerNameExA(::core::mem::transmute(nametype), lpbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetComputerNameExW<'a, P0, P1>(nametype: P0, lpbuffer: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetComputerNameExW<'a, P0>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<COMPUTER_NAME_FORMAT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetComputerNameExW(nametype.into(), lpbuffer.into()))
+    ::core::mem::transmute(SetComputerNameExW(::core::mem::transmute(nametype), lpbuffer.into()))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2752,41 +2721,32 @@ impl ::core::ops::Not for VER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn VerSetConditionMask<'a, P0>(conditionmask: u64, typemask: P0, condition: u8) -> u64
-where
-    P0: ::std::convert::Into<VER_FLAGS>,
-{
+pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64;
     }
-    ::core::mem::transmute(VerSetConditionMask(::core::mem::transmute(conditionmask), typemask.into(), ::core::mem::transmute(condition)))
+    ::core::mem::transmute(VerSetConditionMask(::core::mem::transmute(conditionmask), ::core::mem::transmute(typemask), ::core::mem::transmute(condition)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyVersionInfoA<'a, P0>(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: P0, dwlconditionmask: u64) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<VER_FLAGS>,
-{
+pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VerifyVersionInfoA(::core::mem::transmute(lpversioninformation), dwtypemask.into(), ::core::mem::transmute(dwlconditionmask)))
+    ::core::mem::transmute(VerifyVersionInfoA(::core::mem::transmute(lpversioninformation), ::core::mem::transmute(dwtypemask), ::core::mem::transmute(dwlconditionmask)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifyVersionInfoW<'a, P0>(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: P0, dwlconditionmask: u64) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<VER_FLAGS>,
-{
+pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(VerifyVersionInfoW(::core::mem::transmute(lpversioninformation), dwtypemask.into(), ::core::mem::transmute(dwlconditionmask)))
+    ::core::mem::transmute(VerifyVersionInfoW(::core::mem::transmute(lpversioninformation), ::core::mem::transmute(dwtypemask), ::core::mem::transmute(dwlconditionmask)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const WDK_NTDDI_VERSION: u32 = 167772171u32;

@@ -980,15 +980,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn DrtCreateIpv6UdpTransport<'a, P0>(scope: P0, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<DRT_SCOPE>,
-{
+pub unsafe fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: u32, dwlocalitythreshold: u32, pwport: *mut u16, phtransport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DrtCreateIpv6UdpTransport(scope.into(), ::core::mem::transmute(dwscopeid), ::core::mem::transmute(dwlocalitythreshold), ::core::mem::transmute(pwport), ::core::mem::transmute(phtransport)).ok()
+    DrtCreateIpv6UdpTransport(::core::mem::transmute(scope), ::core::mem::transmute(dwscopeid), ::core::mem::transmute(dwlocalitythreshold), ::core::mem::transmute(pwport), ::core::mem::transmute(phtransport)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4541,15 +4538,12 @@ pub unsafe fn PeerCollabDeleteObject(pobjectid: *const ::windows::core::GUID) ->
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabEnumApplicationRegistrationInfo<'a, P0>(registrationtype: P0, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PEER_APPLICATION_REGISTRATION_TYPE>,
-{
+pub unsafe fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PeerCollabEnumApplicationRegistrationInfo(registrationtype.into(), ::core::mem::transmute(phpeerenum)).ok()
+    PeerCollabEnumApplicationRegistrationInfo(::core::mem::transmute(registrationtype), ::core::mem::transmute(phpeerenum)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -4625,16 +4619,13 @@ pub unsafe fn PeerCollabGetAppLaunchInfo() -> ::windows::core::Result<*mut PEER_
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabGetApplicationRegistrationInfo<'a, P0>(papplicationid: *const ::windows::core::GUID, registrationtype: P0) -> ::windows::core::Result<*mut PEER_APPLICATION_REGISTRATION_INFO>
-where
-    P0: ::std::convert::Into<PEER_APPLICATION_REGISTRATION_TYPE>,
-{
+pub unsafe fn PeerCollabGetApplicationRegistrationInfo(papplicationid: *const ::windows::core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::core::Result<*mut PEER_APPLICATION_REGISTRATION_INFO> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabGetApplicationRegistrationInfo(papplicationid: *const ::windows::core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, ppapplication: *mut *mut PEER_APPLICATION_REGISTRATION_INFO) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut PEER_APPLICATION_REGISTRATION_INFO>::zeroed();
-    PeerCollabGetApplicationRegistrationInfo(::core::mem::transmute(papplicationid), registrationtype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_APPLICATION_REGISTRATION_INFO>(result__)
+    PeerCollabGetApplicationRegistrationInfo(::core::mem::transmute(papplicationid), ::core::mem::transmute(registrationtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PEER_APPLICATION_REGISTRATION_INFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4765,15 +4756,12 @@ pub unsafe fn PeerCollabRefreshEndpointData(pcendpoint: *const PEER_ENDPOINT) ->
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabRegisterApplication<'a, P0>(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PEER_APPLICATION_REGISTRATION_TYPE>,
-{
+pub unsafe fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabRegisterApplication(pcapplication: *const PEER_APPLICATION_REGISTRATION_INFO, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::core::HRESULT;
     }
-    PeerCollabRegisterApplication(::core::mem::transmute(pcapplication), registrationtype.into()).ok()
+    PeerCollabRegisterApplication(::core::mem::transmute(pcapplication), ::core::mem::transmute(registrationtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4870,15 +4858,12 @@ pub unsafe fn PeerCollabSubscribeEndpointData(pcendpoint: *const PEER_ENDPOINT) 
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerCollabUnregisterApplication<'a, P0>(papplicationid: *const ::windows::core::GUID, registrationtype: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PEER_APPLICATION_REGISTRATION_TYPE>,
-{
+pub unsafe fn PeerCollabUnregisterApplication(papplicationid: *const ::windows::core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerCollabUnregisterApplication(papplicationid: *const ::windows::core::GUID, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE) -> ::windows::core::HRESULT;
     }
-    PeerCollabUnregisterApplication(::core::mem::transmute(papplicationid), registrationtype.into()).ok()
+    PeerCollabUnregisterApplication(::core::mem::transmute(papplicationid), ::core::mem::transmute(registrationtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
@@ -4997,15 +4982,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[inline]
-pub unsafe fn PeerDistClientGetInformationByHandle<'a, P0>(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: P0, dwbuffersize: u32, lpinformation: *mut ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS>,
-{
+pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: u32, lpinformation: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthandle: isize, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: u32, lpinformation: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PeerDistClientGetInformationByHandle(::core::mem::transmute(hpeerdist), ::core::mem::transmute(hcontenthandle), peerdistclientinfoclass.into(), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(lpinformation)))
+    ::core::mem::transmute(PeerDistClientGetInformationByHandle(::core::mem::transmute(hpeerdist), ::core::mem::transmute(hcontenthandle), ::core::mem::transmute(peerdistclientinfoclass), ::core::mem::transmute(dwbuffersize), ::core::mem::transmute(lpinformation)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

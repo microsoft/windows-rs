@@ -211,14 +211,11 @@ impl ApplicationData {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ClearAsync<'a, P0>(&self, locality: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<ApplicationDataLocality>,
-    {
+    pub fn ClearAsync(&self, locality: ApplicationDataLocality) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ClearAsync)(::windows::core::Interface::as_raw(this), locality.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearAsync)(::windows::core::Interface::as_raw(this), locality, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -781,15 +778,14 @@ impl ApplicationDataContainer {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn CreateContainer<'a, P0, P1>(&self, name: P0, disposition: P1) -> ::windows::core::Result<ApplicationDataContainer>
+    pub fn CreateContainer<'a, P0>(&self, name: P0, disposition: ApplicationDataCreateDisposition) -> ::windows::core::Result<ApplicationDataContainer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<ApplicationDataCreateDisposition>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into().abi(), disposition.into(), result__.as_mut_ptr()).from_abi::<ApplicationDataContainer>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into().abi(), disposition, result__.as_mut_ptr()).from_abi::<ApplicationDataContainer>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -1430,26 +1426,24 @@ impl DownloadsFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFileWithCollisionOptionAsync<'a, P0, P1>(desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CreateFileWithCollisionOptionAsync<'a, P0>(desiredname: P0, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CreationCollisionOption>,
     {
         Self::IDownloadsFolderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFileWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFolderWithCollisionOptionAsync<'a, P0, P1>(desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
+    pub fn CreateFolderWithCollisionOptionAsync<'a, P0>(desiredname: P0, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CreationCollisionOption>,
     {
         Self::IDownloadsFolderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"System\"`*"]
@@ -1478,28 +1472,26 @@ impl DownloadsFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn CreateFileForUserWithCollisionOptionAsync<'a, P0, P1, P2>(user: P0, desiredname: P1, option: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CreateFileForUserWithCollisionOptionAsync<'a, P0, P1>(user: P0, desiredname: P1, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<CreationCollisionOption>,
     {
         Self::IDownloadsFolderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFileForUserWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileForUserWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn CreateFolderForUserWithCollisionOptionAsync<'a, P0, P1, P2>(user: P0, desiredname: P1, option: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
+    pub fn CreateFolderForUserWithCollisionOptionAsync<'a, P0, P1>(user: P0, desiredname: P1, option: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<CreationCollisionOption>,
     {
         Self::IDownloadsFolderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderForUserWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderForUserWithCollisionOptionAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1633,15 +1625,14 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadTextWithEncodingAsync<'a, P0, E0, P1>(file: P0, encoding: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn ReadTextWithEncodingAsync<'a, P0, E0>(file: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ReadTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -1659,16 +1650,15 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteTextWithEncodingAsync<'a, P0, E0, P1, P2>(file: P0, contents: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteTextWithEncodingAsync<'a, P0, E0, P1>(file: P0, contents: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contents.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contents.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -1686,16 +1676,15 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn AppendTextWithEncodingAsync<'a, P0, E0, P1, P2>(file: P0, contents: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendTextWithEncodingAsync<'a, P0, E0, P1>(file: P0, contents: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contents.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AppendTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contents.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`*"]
@@ -1712,15 +1701,14 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ReadLinesWithEncodingAsync<'a, P0, E0, P1>(file: P0, encoding: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
+    pub fn ReadLinesWithEncodingAsync<'a, P0, E0>(file: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).ReadLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`*"]
@@ -1739,17 +1727,16 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn WriteLinesWithEncodingAsync<'a, P0, E0, P1, E1, P2>(file: P0, lines: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteLinesWithEncodingAsync<'a, P0, E0, P1, E1>(file: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`*"]
@@ -1768,17 +1755,16 @@ impl FileIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn AppendLinesWithEncodingAsync<'a, P0, E0, P1, E1, P2>(file: P0, lines: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendLinesWithEncodingAsync<'a, P0, E0, P1, E1>(file: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFile>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IFileIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AppendLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2370,14 +2356,11 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn OpenAsync<'a, P0>(&self, accessmode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<FileAccessMode>,
-    {
+    pub fn OpenAsync(&self, accessmode: FileAccessMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), accessmode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -2418,17 +2401,16 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverload<'a, P0, E0, P1, P2>(&self, destinationfolder: P0, desirednewname: P1, option: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverload<'a, P0, E0, P1>(&self, destinationfolder: P0, desirednewname: P1, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<NameCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CopyOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -2473,17 +2455,16 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverload<'a, P0, E0, P1, P2>(&self, destinationfolder: P0, desirednewname: P1, option: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverload<'a, P0, E0, P1>(&self, destinationfolder: P0, desirednewname: P1, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<NameCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MoveOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MoveOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -2531,15 +2512,14 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenameAsync<'a, P0, P1>(&self, desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn RenameAsync<'a, P0>(&self, desiredname: P0, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<NameCollisionOption>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -2553,14 +2533,11 @@ impl IStorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<StorageDeleteOption>,
-    {
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`*"]
@@ -2606,14 +2583,11 @@ impl IStorageFile {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -2790,27 +2764,20 @@ pub struct IStorageFile2(::windows::core::IUnknown);
 impl IStorageFile2 {
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn OpenWithOptionsAsync<'a, P0, P1>(&self, accessmode: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<FileAccessMode>,
-        P1: ::std::convert::Into<StorageOpenOptions>,
-    {
+    pub fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), accessmode.into(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), accessmode, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenTransactedWriteWithOptionsAsync<'a, P0>(&self, options: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>
-    where
-        P0: ::std::convert::Into<StorageOpenOptions>,
-    {
+    pub fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageStreamTransaction>>(result__)
         }
     }
 }
@@ -3030,15 +2997,14 @@ impl IStorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFileAsync<'a, P0, P1>(&self, desiredname: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CreateFileAsync<'a, P0>(&self, desiredname: P0, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CreationCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFileAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -3055,15 +3021,14 @@ impl IStorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFolderAsync<'a, P0, P1>(&self, desiredname: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
+    pub fn CreateFolderAsync<'a, P0>(&self, desiredname: P0, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CreationCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -3143,15 +3108,14 @@ impl IStorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenameAsync<'a, P0, P1>(&self, desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn RenameAsync<'a, P0>(&self, desiredname: P0, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<NameCollisionOption>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -3165,14 +3129,11 @@ impl IStorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<StorageDeleteOption>,
-    {
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`*"]
@@ -3218,14 +3179,11 @@ impl IStorageFolder {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3496,15 +3454,14 @@ impl IStorageItem {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenameAsync<'a, P0, P1>(&self, desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn RenameAsync<'a, P0>(&self, desiredname: P0, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<NameCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -3518,14 +3475,11 @@ impl IStorageItem {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<StorageDeleteOption>,
-    {
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`*"]
@@ -3571,14 +3525,11 @@ impl IStorageItem {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3711,15 +3662,14 @@ impl IStorageItem2 {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenameAsync<'a, P0, P1>(&self, desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn RenameAsync<'a, P0>(&self, desiredname: P0, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<NameCollisionOption>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -3733,14 +3683,11 @@ impl IStorageItem2 {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<StorageDeleteOption>,
-    {
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`*"]
@@ -3786,14 +3733,11 @@ impl IStorageItem2 {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3889,39 +3833,29 @@ pub struct IStorageItemProperties(::windows::core::IUnknown);
 impl IStorageItemProperties {
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -4045,76 +3979,56 @@ pub struct IStorageItemProperties2(::windows::core::IUnknown);
 impl IStorageItemProperties2 {
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -4258,39 +4172,29 @@ impl IStorageItemPropertiesWithProvider {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -4679,12 +4583,9 @@ pub struct IStorageStreamTransaction_Vtbl {
 pub struct IStreamedFileDataRequest(::windows::core::IUnknown);
 impl IStreamedFileDataRequest {
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn FailAndClose<'a, P0>(&self, failuremode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StreamedFileFailureMode>,
-    {
+    pub fn FailAndClose(&self, failuremode: StreamedFileFailureMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).FailAndClose)(::windows::core::Interface::as_raw(this), failuremode.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).FailAndClose)(::windows::core::Interface::as_raw(this), failuremode).ok() }
     }
 }
 impl ::core::convert::From<IStreamedFileDataRequest> for ::windows::core::IUnknown {
@@ -5122,48 +5023,40 @@ impl KnownFolders {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetFolderForUserAsync<'a, P0, P1>(user: P0, folderid: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
+    pub fn GetFolderForUserAsync<'a, P0>(user: P0, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>,
-        P1: ::std::convert::Into<KnownFolderId>,
     {
         Self::IKnownFoldersStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), folderid.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), folderid, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessAsync<'a, P0>(folderid: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>
-    where
-        P0: ::std::convert::Into<KnownFolderId>,
-    {
+    pub fn RequestAccessAsync(folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>> {
         Self::IKnownFoldersStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), folderid.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), folderid, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn RequestAccessForUserAsync<'a, P0, P1>(user: P0, folderid: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>
+    pub fn RequestAccessForUserAsync<'a, P0>(user: P0, folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>,
-        P1: ::std::convert::Into<KnownFolderId>,
     {
         Self::IKnownFoldersStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), folderid.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), folderid, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFolderAsync<'a, P0>(folderid: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
-    where
-        P0: ::std::convert::Into<KnownFolderId>,
-    {
+    pub fn GetFolderAsync(folderid: KnownFolderId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>> {
         Self::IKnownFoldersStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderAsync)(::windows::core::Interface::as_raw(this), folderid, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5330,14 +5223,13 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadTextWithEncodingAsync<'a, P0, P1>(absolutepath: P0, encoding: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
+    pub fn ReadTextWithEncodingAsync<'a, P0>(absolutepath: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ReadTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -5354,15 +5246,14 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteTextWithEncodingAsync<'a, P0, P1, P2>(absolutepath: P0, contents: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteTextWithEncodingAsync<'a, P0, P1>(absolutepath: P0, contents: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), contents.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), contents.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -5379,15 +5270,14 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn AppendTextWithEncodingAsync<'a, P0, P1, P2>(absolutepath: P0, contents: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendTextWithEncodingAsync<'a, P0, P1>(absolutepath: P0, contents: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), contents.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AppendTextWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), contents.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`*"]
@@ -5403,14 +5293,13 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ReadLinesWithEncodingAsync<'a, P0, P1>(absolutepath: P0, encoding: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
+    pub fn ReadLinesWithEncodingAsync<'a, P0>(absolutepath: P0, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).ReadLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`*"]
@@ -5428,16 +5317,15 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn WriteLinesWithEncodingAsync<'a, P0, P1, E1, P2>(absolutepath: P0, lines: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn WriteLinesWithEncodingAsync<'a, P0, P1, E1>(absolutepath: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`*"]
@@ -5455,16 +5343,15 @@ impl PathIO {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn AppendLinesWithEncodingAsync<'a, P0, P1, E1, P2>(absolutepath: P0, lines: P1, encoding: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn AppendLinesWithEncodingAsync<'a, P0, P1, E1>(absolutepath: P0, lines: P1, encoding: Streams::UnicodeEncoding) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
         P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>,
         E1: ::std::convert::Into<::windows::core::Error>,
-        P2: ::std::convert::Into<Streams::UnicodeEncoding>,
     {
         Self::IPathIOStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AppendLinesWithEncodingAsync)(::windows::core::Interface::as_raw(this), absolutepath.into().abi(), lines.try_into().map_err(|e| e.into())?.abi(), encoding, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -5748,14 +5635,11 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn OpenAsync<'a, P0>(&self, accessmode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<FileAccessMode>,
-    {
+    pub fn OpenAsync(&self, accessmode: FileAccessMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), accessmode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -5796,17 +5680,16 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyOverload<'a, P0, E0, P1, P2>(&self, destinationfolder: P0, desirednewname: P1, option: P2) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CopyOverload<'a, P0, E0, P1>(&self, destinationfolder: P0, desirednewname: P1, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<NameCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CopyOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -5851,17 +5734,16 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MoveOverload<'a, P0, E0, P1, P2>(&self, destinationfolder: P0, desirednewname: P1, option: P2) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn MoveOverload<'a, P0, E0, P1>(&self, destinationfolder: P0, desirednewname: P1, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IStorageFolder>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P2: ::std::convert::Into<NameCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MoveOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MoveOverload)(::windows::core::Interface::as_raw(this), destinationfolder.try_into().map_err(|e| e.into())?.abi(), desirednewname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -5879,27 +5761,20 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn OpenWithOptionsAsync<'a, P0, P1>(&self, accessmode: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>
-    where
-        P0: ::std::convert::Into<FileAccessMode>,
-        P1: ::std::convert::Into<StorageOpenOptions>,
-    {
+    pub fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>> {
         let this = &::windows::core::Interface::cast::<IStorageFile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), accessmode.into(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), accessmode, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenTransactedWriteWithOptionsAsync<'a, P0>(&self, options: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>
-    where
-        P0: ::std::convert::Into<StorageOpenOptions>,
-    {
+    pub fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>> {
         let this = &::windows::core::Interface::cast::<IStorageFile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageStreamTransaction>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -6016,15 +5891,14 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenameAsync<'a, P0, P1>(&self, desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn RenameAsync<'a, P0>(&self, desiredname: P0, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<NameCollisionOption>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6038,14 +5912,11 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<StorageDeleteOption>,
-    {
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`*"]
@@ -6091,14 +5962,11 @@ impl StorageFile {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6124,39 +5992,29 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -6194,39 +6052,29 @@ impl StorageFile {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -6522,15 +6370,14 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFileAsync<'a, P0, P1>(&self, desiredname: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
+    pub fn CreateFileAsync<'a, P0>(&self, desiredname: P0, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CreationCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFileAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6547,15 +6394,14 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFolderAsync<'a, P0, P1>(&self, desiredname: P0, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
+    pub fn CreateFolderAsync<'a, P0>(&self, desiredname: P0, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CreationCollisionOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6661,14 +6507,11 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn CreateFileQuery<'a, P0>(&self, query: P0) -> ::windows::core::Result<Search::StorageFileQueryResult>
-    where
-        P0: ::std::convert::Into<Search::CommonFileQuery>,
-    {
+    pub fn CreateFileQuery(&self, query: Search::CommonFileQuery) -> ::windows::core::Result<Search::StorageFileQueryResult> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFileQuery)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFileQuery)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Storage_Search\"`*"]
@@ -6694,14 +6537,11 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn CreateFolderQuery<'a, P0>(&self, query: P0) -> ::windows::core::Result<Search::StorageFolderQueryResult>
-    where
-        P0: ::std::convert::Into<Search::CommonFolderQuery>,
-    {
+    pub fn CreateFolderQuery(&self, query: Search::CommonFolderQuery) -> ::windows::core::Result<Search::StorageFolderQueryResult> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderQuery)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<Search::StorageFolderQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderQuery)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<Search::StorageFolderQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Storage_Search\"`*"]
@@ -6739,50 +6579,38 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn GetFilesAsync<'a, P0>(&self, query: P0, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>
-    where
-        P0: ::std::convert::Into<Search::CommonFileQuery>,
-    {
+    pub fn GetFilesAsync(&self, query: Search::CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFilesAsync)(::windows::core::Interface::as_raw(this), query.into(), startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsync)(::windows::core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn GetFilesAsyncOverloadDefaultStartAndCount<'a, P0>(&self, query: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>
-    where
-        P0: ::std::convert::Into<Search::CommonFileQuery>,
-    {
+    pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: Search::CommonFileQuery) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFilesAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn GetFoldersAsync<'a, P0>(&self, query: P0, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>
-    where
-        P0: ::std::convert::Into<Search::CommonFolderQuery>,
-    {
+    pub fn GetFoldersAsync(&self, query: Search::CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFoldersAsync)(::windows::core::Interface::as_raw(this), query.into(), startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsync)(::windows::core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Search\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
-    pub fn GetFoldersAsyncOverloadDefaultStartAndCount<'a, P0>(&self, query: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>
-    where
-        P0: ::std::convert::Into<Search::CommonFolderQuery>,
-    {
+    pub fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: Search::CommonFolderQuery) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>(result__)
+            (::windows::core::Interface::vtable(this).GetFoldersAsyncOverloadDefaultStartAndCount)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Search\"`*"]
@@ -6808,26 +6636,20 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn IsCommonFolderQuerySupported<'a, P0>(&self, query: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<Search::CommonFolderQuery>,
-    {
+    pub fn IsCommonFolderQuerySupported(&self, query: Search::CommonFolderQuery) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsCommonFolderQuerySupported)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCommonFolderQuerySupported)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Storage_Search\"`*"]
     #[cfg(feature = "Storage_Search")]
-    pub fn IsCommonFileQuerySupported<'a, P0>(&self, query: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<Search::CommonFileQuery>,
-    {
+    pub fn IsCommonFileQuerySupported(&self, query: Search::CommonFileQuery) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<Search::IStorageFolderQueryOperations>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsCommonFileQuerySupported)(::windows::core::Interface::as_raw(this), query.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCommonFileQuerySupported)(::windows::core::Interface::as_raw(this), query, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6867,15 +6689,14 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenameAsync<'a, P0, P1>(&self, desiredname: P0, option: P1) -> ::windows::core::Result<super::Foundation::IAsyncAction>
+    pub fn RenameAsync<'a, P0>(&self, desiredname: P0, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<NameCollisionOption>,
     {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RenameAsync)(::windows::core::Interface::as_raw(this), desiredname.into().abi(), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6889,14 +6710,11 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, P0>(&self, option: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<StorageDeleteOption>,
-    {
+    pub fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), option, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`*"]
@@ -6942,14 +6760,11 @@ impl StorageFolder {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -6975,39 +6790,29 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -7045,39 +6850,29 @@ impl StorageFolder {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions<'a, P0>(&self, mode: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions<'a, P0>(&self, mode: P0, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-    {
+    pub fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsyncOverloadDefaultOptions)(::windows::core::Interface::as_raw(this), mode, requestedsize, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn GetScaledImageAsThumbnailAsync<'a, P0, P1>(&self, mode: P0, requestedsize: u32, options: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>
-    where
-        P0: ::std::convert::Into<FileProperties::ThumbnailMode>,
-        P1: ::std::convert::Into<FileProperties::ThumbnailOptions>,
-    {
+    pub fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>> {
         let this = &::windows::core::Interface::cast::<IStorageItemProperties2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(::windows::core::Interface::as_raw(this), mode.into(), requestedsize, options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
+            (::windows::core::Interface::vtable(this).GetScaledImageAsThumbnailAsync)(::windows::core::Interface::as_raw(this), mode, requestedsize, options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -7456,25 +7251,21 @@ impl StorageLibrary {
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetLibraryAsync<'a, P0>(libraryid: P0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>
-    where
-        P0: ::std::convert::Into<KnownLibraryId>,
-    {
+    pub fn GetLibraryAsync(libraryid: KnownLibraryId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>> {
         Self::IStorageLibraryStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLibraryAsync)(::windows::core::Interface::as_raw(this), libraryid.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageLibrary>>(result__)
+            (::windows::core::Interface::vtable(this).GetLibraryAsync)(::windows::core::Interface::as_raw(this), libraryid, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageLibrary>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetLibraryForUserAsync<'a, P0, P1>(user: P0, libraryid: P1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>
+    pub fn GetLibraryForUserAsync<'a, P0>(user: P0, libraryid: KnownLibraryId) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageLibrary>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>,
-        P1: ::std::convert::Into<KnownLibraryId>,
     {
         Self::IStorageLibraryStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLibraryForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), libraryid.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageLibrary>>(result__)
+            (::windows::core::Interface::vtable(this).GetLibraryForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), libraryid, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StorageLibrary>>(result__)
         })
     }
     #[doc(hidden)]
@@ -7577,14 +7368,11 @@ impl StorageLibraryChange {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn IsOfType<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<StorageItemTypes>,
-    {
+    pub fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOfType)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
@@ -8360,12 +8148,9 @@ impl StreamedFileDataRequest {
         }
     }
     #[doc = "*Required features: `\"Storage\"`*"]
-    pub fn FailAndClose<'a, P0>(&self, failuremode: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<StreamedFileFailureMode>,
-    {
+    pub fn FailAndClose(&self, failuremode: StreamedFileFailureMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStreamedFileDataRequest>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).FailAndClose)(::windows::core::Interface::as_raw(this), failuremode.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).FailAndClose)(::windows::core::Interface::as_raw(this), failuremode).ok() }
     }
 }
 #[cfg(feature = "Storage_Streams")]

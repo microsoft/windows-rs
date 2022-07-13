@@ -295,12 +295,9 @@ impl MessageDialog {
         }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
-    pub fn SetOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MessageDialogOptions>,
-    {
+    pub fn SetOptions(&self, value: MessageDialogOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Create<'a, P0>(content: P0) -> ::windows::core::Result<MessageDialog>
@@ -528,14 +525,11 @@ impl PopupMenu {
     }
     #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowAsyncWithRectAndPlacement<'a, P0>(&self, selection: super::super::Foundation::Rect, preferredplacement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>>
-    where
-        P0: ::std::convert::Into<Placement>,
-    {
+    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShowAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
+            (::windows::core::Interface::vtable(this).ShowAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
 }

@@ -80,33 +80,30 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertDevModeToPrintTicket<'a, P0, P1, P2>(hprovider: P0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: P1, pprintticket: P2) -> ::windows::core::Result<()>
+pub unsafe fn PTConvertDevModeToPrintTicket<'a, P0, P1>(hprovider: P0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P1) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
-    P1: ::std::convert::Into<EPrintTicketScope>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PTConvertDevModeToPrintTicket(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PTConvertDevModeToPrintTicket(hprovider.into(), ::core::mem::transmute(cbdevmode), ::core::mem::transmute(pdevmode), scope.into(), pprintticket.into().abi()).ok()
+    PTConvertDevModeToPrintTicket(hprovider.into(), ::core::mem::transmute(cbdevmode), ::core::mem::transmute(pdevmode), ::core::mem::transmute(scope), pprintticket.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertPrintTicketToDevMode<'a, P0, P1, P2, P3>(hprovider: P0, pprintticket: P1, basedevmodetype: P2, scope: P3, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+pub unsafe fn PTConvertPrintTicketToDevMode<'a, P0, P1>(hprovider: P0, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-    P2: ::std::convert::Into<EDefaultDevmodeType>,
-    P3: ::std::convert::Into<EPrintTicketScope>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PTConvertPrintTicketToDevMode(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pprintticket: *mut ::core::ffi::c_void, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    PTConvertPrintTicketToDevMode(hprovider.into(), pprintticket.into().abi(), basedevmodetype.into(), scope.into(), ::core::mem::transmute(pcbdevmode), ::core::mem::transmute(ppdevmode), ::core::mem::transmute(pbstrerrormessage)).ok()
+    PTConvertPrintTicketToDevMode(hprovider.into(), pprintticket.into().abi(), ::core::mem::transmute(basedevmodetype), ::core::mem::transmute(scope), ::core::mem::transmute(pcbdevmode), ::core::mem::transmute(ppdevmode), ::core::mem::transmute(pbstrerrormessage)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
@@ -160,20 +157,19 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTMergeAndValidatePrintTicket<'a, P0, P1, P2, P3, P4>(hprovider: P0, pbaseticket: P1, pdeltaticket: P2, scope: P3, presultticket: P4) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
+pub unsafe fn PTMergeAndValidatePrintTicket<'a, P0, P1, P2, P3>(hprovider: P0, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P3) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
 where
     P0: ::std::convert::Into<super::super::super::Storage::Xps::HPTPROVIDER>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
-    P3: ::std::convert::Into<EPrintTicketScope>,
-    P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
+    P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IStream>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PTMergeAndValidatePrintTicket(hprovider: super::super::super::Storage::Xps::HPTPROVIDER, pbaseticket: *mut ::core::ffi::c_void, pdeltaticket: *mut ::core::ffi::c_void, scope: EPrintTicketScope, presultticket: *mut ::core::ffi::c_void, pbstrerrormessage: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-    PTMergeAndValidatePrintTicket(hprovider.into(), pbaseticket.into().abi(), pdeltaticket.into().abi(), scope.into(), presultticket.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    PTMergeAndValidatePrintTicket(hprovider.into(), pbaseticket.into().abi(), pdeltaticket.into().abi(), ::core::mem::transmute(scope), presultticket.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]

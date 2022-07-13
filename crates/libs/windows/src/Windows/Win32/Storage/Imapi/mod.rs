@@ -572,13 +572,12 @@ pub struct DFileSystemImageImportEvents(::windows::core::IUnknown);
 impl DFileSystemImageImportEvents {
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn UpdateImport<'a, P0, P1, P2>(&self, object: P0, filesystem: P1, currentitem: P2, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>
+    pub unsafe fn UpdateImport<'a, P0, P1>(&self, object: P0, filesystem: FsiFileSystems, currentitem: P1, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>,
-        P1: ::std::convert::Into<FsiFileSystems>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).UpdateImport)(::windows::core::Interface::as_raw(self), object.into().abi(), filesystem.into(), currentitem.into().abi(), ::core::mem::transmute(importeddirectoryitems), ::core::mem::transmute(totaldirectoryitems), ::core::mem::transmute(importedfileitems), ::core::mem::transmute(totalfileitems)).ok()
+        (::windows::core::Interface::vtable(self).UpdateImport)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(filesystem), currentitem.into().abi(), ::core::mem::transmute(importeddirectoryitems), ::core::mem::transmute(totaldirectoryitems), ::core::mem::transmute(importedfileitems), ::core::mem::transmute(totalfileitems)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1428,11 +1427,8 @@ impl IBootOptions {
         (::windows::core::Interface::vtable(self).PlatformId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PlatformId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetPlatformId<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PlatformId>,
-    {
-        (::windows::core::Interface::vtable(self).SetPlatformId)(::windows::core::Interface::as_raw(self), newval.into()).ok()
+    pub unsafe fn SetPlatformId(&self, newval: PlatformId) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPlatformId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn Emulation(&self) -> ::windows::core::Result<EmulationType> {
@@ -1440,11 +1436,8 @@ impl IBootOptions {
         (::windows::core::Interface::vtable(self).Emulation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EmulationType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetEmulation<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<EmulationType>,
-    {
-        (::windows::core::Interface::vtable(self).SetEmulation)(::windows::core::Interface::as_raw(self), newval.into()).ok()
+    pub unsafe fn SetEmulation(&self, newval: EmulationType) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEmulation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn ImageSize(&self) -> ::windows::core::Result<u32> {
@@ -1553,11 +1546,8 @@ pub struct IBootOptions_Vtbl {
 pub struct IBurnVerification(::windows::core::IUnknown);
 impl IBurnVerification {
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetBurnVerificationLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_BURN_VERIFICATION_LEVEL>,
-    {
-        (::windows::core::Interface::vtable(self).SetBurnVerificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBurnVerificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn BurnVerificationLevel(&self) -> ::windows::core::Result<IMAPI_BURN_VERIFICATION_LEVEL> {
@@ -2538,11 +2528,8 @@ impl IDiscFormat2RawCD {
         (::windows::core::Interface::vtable(self).SupportedSectorTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetRequestedSectorType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetRequestedSectorType)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRequestedSectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn RequestedSectorType(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE> {
@@ -4089,35 +4076,24 @@ impl IDiscRecorder2Ex {
         (::windows::core::Interface::vtable(self).GetDiscInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(discinformation), ::core::mem::transmute(bytesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn GetTrackInformation<'a, P0>(&self, address: u32, addresstype: P0, trackinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_READ_TRACK_ADDRESS_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).GetTrackInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(address), addresstype.into(), ::core::mem::transmute(trackinformation), ::core::mem::transmute(bytesize)).ok()
+    pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTrackInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(address), ::core::mem::transmute(addresstype), ::core::mem::transmute(trackinformation), ::core::mem::transmute(bytesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFeaturePage<'a, P0, P1>(&self, requestedfeature: P0, currentfeatureonly: P1, featuredata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn GetFeaturePage<'a, P0>(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: P0, featuredata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<IMAPI_FEATURE_PAGE_TYPE>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
     {
-        (::windows::core::Interface::vtable(self).GetFeaturePage)(::windows::core::Interface::as_raw(self), requestedfeature.into(), currentfeatureonly.into(), ::core::mem::transmute(featuredata), ::core::mem::transmute(bytesize)).ok()
+        (::windows::core::Interface::vtable(self).GetFeaturePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestedfeature), currentfeatureonly.into(), ::core::mem::transmute(featuredata), ::core::mem::transmute(bytesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn GetModePage<'a, P0, P1>(&self, requestedmodepage: P0, requesttype: P1, modepagedata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_MODE_PAGE_TYPE>,
-        P1: ::std::convert::Into<IMAPI_MODE_PAGE_REQUEST_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).GetModePage)(::windows::core::Interface::as_raw(self), requestedmodepage.into(), requesttype.into(), ::core::mem::transmute(modepagedata), ::core::mem::transmute(bytesize)).ok()
+    pub unsafe fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetModePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestedmodepage), ::core::mem::transmute(requesttype), ::core::mem::transmute(modepagedata), ::core::mem::transmute(bytesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetModePage<'a, P0>(&self, requesttype: P0, data: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_MODE_PAGE_REQUEST_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetModePage)(::windows::core::Interface::as_raw(self), requesttype.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetModePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requesttype), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4136,11 +4112,8 @@ impl IDiscRecorder2Ex {
         (::windows::core::Interface::vtable(self).GetSupportedProfiles)(::windows::core::Interface::as_raw(self), currentonly.into(), ::core::mem::transmute(profiletypes), ::core::mem::transmute(validprofiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn GetSupportedModePages<'a, P0>(&self, requesttype: P0, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_MODE_PAGE_REQUEST_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).GetSupportedModePages)(::windows::core::Interface::as_raw(self), requesttype.into(), ::core::mem::transmute(modepagetypes), ::core::mem::transmute(validpages)).ok()
+    pub unsafe fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetSupportedModePages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requesttype), ::core::mem::transmute(modepagetypes), ::core::mem::transmute(validpages)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn GetByteAlignmentMask(&self) -> ::windows::core::Result<u32> {
@@ -4627,11 +4600,8 @@ impl IFileSystemImage {
         (::windows::core::Interface::vtable(self).FileSystemsToCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetFileSystemsToCreate<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
-        (::windows::core::Interface::vtable(self).SetFileSystemsToCreate)(::windows::core::Interface::as_raw(self), newval.into()).ok()
+    pub unsafe fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFileSystemsToCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn FileSystemsSupported(&self) -> ::windows::core::Result<FsiFileSystems> {
@@ -4662,11 +4632,8 @@ impl IFileSystemImage {
         (::windows::core::Interface::vtable(self).ChooseImageDefaults)(::windows::core::Interface::as_raw(self), discrecorder.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ChooseImageDefaultsForMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_MEDIA_PHYSICAL_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).ChooseImageDefaultsForMediaType)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ChooseImageDefaultsForMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn SetISO9660InterchangeLevel(&self, newval: i32) -> ::windows::core::Result<()> {
@@ -4714,12 +4681,9 @@ impl IFileSystemImage {
         (::windows::core::Interface::vtable(self).IdentifyFileSystemsOnDisc)(::windows::core::Interface::as_raw(self), discrecorder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn GetDefaultFileSystemForImport<'a, P0>(&self, filesystems: P0) -> ::windows::core::Result<FsiFileSystems>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems> {
         let mut result__ = ::core::mem::MaybeUninit::<FsiFileSystems>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultFileSystemForImport)(::windows::core::Interface::as_raw(self), filesystems.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultFileSystemForImport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystems), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn ImportFileSystem(&self) -> ::windows::core::Result<FsiFileSystems> {
@@ -4727,11 +4691,8 @@ impl IFileSystemImage {
         (::windows::core::Interface::vtable(self).ImportFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ImportSpecificFileSystem<'a, P0>(&self, filesystemtouse: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
-        (::windows::core::Interface::vtable(self).ImportSpecificFileSystem)(::windows::core::Interface::as_raw(self), filesystemtouse.into()).ok()
+    pub unsafe fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ImportSpecificFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystemtouse)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn RollbackToChangePoint(&self, changepoint: i32) -> ::windows::core::Result<()> {
@@ -5114,11 +5075,8 @@ impl IFileSystemImage2 {
         (::windows::core::Interface::vtable(self).base__.FileSystemsToCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetFileSystemsToCreate<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
-        (::windows::core::Interface::vtable(self).base__.SetFileSystemsToCreate)(::windows::core::Interface::as_raw(self), newval.into()).ok()
+    pub unsafe fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileSystemsToCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn FileSystemsSupported(&self) -> ::windows::core::Result<FsiFileSystems> {
@@ -5149,11 +5107,8 @@ impl IFileSystemImage2 {
         (::windows::core::Interface::vtable(self).base__.ChooseImageDefaults)(::windows::core::Interface::as_raw(self), discrecorder.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ChooseImageDefaultsForMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_MEDIA_PHYSICAL_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ChooseImageDefaultsForMediaType)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ChooseImageDefaultsForMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn SetISO9660InterchangeLevel(&self, newval: i32) -> ::windows::core::Result<()> {
@@ -5201,12 +5156,9 @@ impl IFileSystemImage2 {
         (::windows::core::Interface::vtable(self).base__.IdentifyFileSystemsOnDisc)(::windows::core::Interface::as_raw(self), discrecorder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn GetDefaultFileSystemForImport<'a, P0>(&self, filesystems: P0) -> ::windows::core::Result<FsiFileSystems>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems> {
         let mut result__ = ::core::mem::MaybeUninit::<FsiFileSystems>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDefaultFileSystemForImport)(::windows::core::Interface::as_raw(self), filesystems.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDefaultFileSystemForImport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystems), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn ImportFileSystem(&self) -> ::windows::core::Result<FsiFileSystems> {
@@ -5214,11 +5166,8 @@ impl IFileSystemImage2 {
         (::windows::core::Interface::vtable(self).base__.ImportFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ImportSpecificFileSystem<'a, P0>(&self, filesystemtouse: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
-        (::windows::core::Interface::vtable(self).base__.ImportSpecificFileSystem)(::windows::core::Interface::as_raw(self), filesystemtouse.into()).ok()
+    pub unsafe fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ImportSpecificFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystemtouse)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn RollbackToChangePoint(&self, changepoint: i32) -> ::windows::core::Result<()> {
@@ -5519,11 +5468,8 @@ impl IFileSystemImage3 {
         (::windows::core::Interface::vtable(self).base__.base__.FileSystemsToCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetFileSystemsToCreate<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFileSystemsToCreate)(::windows::core::Interface::as_raw(self), newval.into()).ok()
+    pub unsafe fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFileSystemsToCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn FileSystemsSupported(&self) -> ::windows::core::Result<FsiFileSystems> {
@@ -5554,11 +5500,8 @@ impl IFileSystemImage3 {
         (::windows::core::Interface::vtable(self).base__.base__.ChooseImageDefaults)(::windows::core::Interface::as_raw(self), discrecorder.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ChooseImageDefaultsForMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_MEDIA_PHYSICAL_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.ChooseImageDefaultsForMediaType)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ChooseImageDefaultsForMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn SetISO9660InterchangeLevel(&self, newval: i32) -> ::windows::core::Result<()> {
@@ -5606,12 +5549,9 @@ impl IFileSystemImage3 {
         (::windows::core::Interface::vtable(self).base__.base__.IdentifyFileSystemsOnDisc)(::windows::core::Interface::as_raw(self), discrecorder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn GetDefaultFileSystemForImport<'a, P0>(&self, filesystems: P0) -> ::windows::core::Result<FsiFileSystems>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems> {
         let mut result__ = ::core::mem::MaybeUninit::<FsiFileSystems>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetDefaultFileSystemForImport)(::windows::core::Interface::as_raw(self), filesystems.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetDefaultFileSystemForImport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystems), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn ImportFileSystem(&self) -> ::windows::core::Result<FsiFileSystems> {
@@ -5619,11 +5559,8 @@ impl IFileSystemImage3 {
         (::windows::core::Interface::vtable(self).base__.base__.ImportFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsiFileSystems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ImportSpecificFileSystem<'a, P0>(&self, filesystemtouse: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.ImportSpecificFileSystem)(::windows::core::Interface::as_raw(self), filesystemtouse.into()).ok()
+    pub unsafe fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ImportSpecificFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystemtouse)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn RollbackToChangePoint(&self, changepoint: i32) -> ::windows::core::Result<()> {
@@ -5710,12 +5647,9 @@ impl IFileSystemImage3 {
         (::windows::core::Interface::vtable(self).SetCreateRedundantUdfMetadataFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn ProbeSpecificFileSystem<'a, P0>(&self, filesystemtoprobe: P0) -> ::windows::core::Result<i16>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).ProbeSpecificFileSystem)(::windows::core::Interface::as_raw(self), filesystemtoprobe.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ProbeSpecificFileSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystemtoprobe), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6126,21 +6060,15 @@ impl IFsiDirectoryItem {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemName<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileSystemName)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileSystemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemPath<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileSystemPath)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileSystemPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -6392,21 +6320,15 @@ impl IFsiDirectoryItem2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemName<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FileSystemName)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FileSystemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemPath<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FileSystemPath)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FileSystemPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -6654,21 +6576,15 @@ impl IFsiFileItem {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemName<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileSystemName)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileSystemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemPath<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileSystemPath)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileSystemPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn DataSize(&self) -> ::windows::core::Result<i64> {
@@ -6852,21 +6768,15 @@ impl IFsiFileItem2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemName<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FileSystemName)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FileSystemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemPath<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FileSystemPath)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FileSystemPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn DataSize(&self) -> ::windows::core::Result<i64> {
@@ -7109,21 +7019,15 @@ impl IFsiItem {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemName<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).FileSystemName)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FileSystemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FileSystemPath<'a, P0>(&self, filesystem: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
-    where
-        P0: ::std::convert::Into<FsiFileSystems>,
-    {
+    pub unsafe fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).FileSystemPath)(::windows::core::Interface::as_raw(self), filesystem.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FileSystemPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesystem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9501,13 +9405,12 @@ impl IRawCDImageCreator {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddTrack<'a, P0, P1>(&self, datatype: P0, data: P1) -> ::windows::core::Result<i32>
+    pub unsafe fn AddTrack<'a, P0>(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: P0) -> ::windows::core::Result<i32>
     where
-        P0: ::std::convert::Into<IMAPI_CD_SECTOR_TYPE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).AddTrack)(::windows::core::Interface::as_raw(self), datatype.into(), data.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AddTrack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datatype), data.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9526,11 +9429,8 @@ impl IRawCDImageCreator {
         (::windows::core::Interface::vtable(self).AddSubcodeRWGenerator)(::windows::core::Interface::as_raw(self), subcode.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetResultingImageType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>,
-    {
-        (::windows::core::Interface::vtable(self).SetResultingImageType)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResultingImageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn ResultingImageType(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE> {
@@ -9762,11 +9662,8 @@ impl IRawCDImageTrackInfo {
         (::windows::core::Interface::vtable(self).DigitalAudioCopySetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-    pub unsafe fn SetDigitalAudioCopySetting<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>,
-    {
-        (::windows::core::Interface::vtable(self).SetDigitalAudioCopySetting)(::windows::core::Interface::as_raw(self), value.into()).ok()
+    pub unsafe fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDigitalAudioCopySetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
     pub unsafe fn AudioHasPreemphasis(&self) -> ::windows::core::Result<i16> {
@@ -9989,12 +9886,9 @@ impl IStreamConcatenate {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek<'a, P0>(&self, dlibmove: i64, dworigin: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STREAM_SEEK>,
-    {
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10011,11 +9905,8 @@ impl IStreamConcatenate {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit<'a, P0>(&self, grfcommitflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STGC>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
+    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10190,12 +10081,9 @@ impl IStreamInterleave {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek<'a, P0>(&self, dlibmove: i64, dworigin: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STREAM_SEEK>,
-    {
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10212,11 +10100,8 @@ impl IStreamInterleave {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit<'a, P0>(&self, grfcommitflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STGC>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
+    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10357,12 +10242,9 @@ impl IStreamPseudoRandomBased {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek<'a, P0>(&self, dlibmove: i64, dworigin: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STREAM_SEEK>,
-    {
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10379,11 +10261,8 @@ impl IStreamPseudoRandomBased {
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit<'a, P0>(&self, grfcommitflags: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::System::Com::STGC>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
+    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

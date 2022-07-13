@@ -2146,23 +2146,21 @@ impl ISWbemObjectEx {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetText_<'a, P0, P1>(&self, iobjecttextformat: P0, iflags: i32, objwbemnamedvalueset: P1) -> ::windows::core::Result<super::super::Foundation::BSTR>
+    pub unsafe fn GetText_<'a, P0>(&self, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
-        P0: ::std::convert::Into<WbemObjectTextFormatEnum>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetText_)(::windows::core::Interface::as_raw(self), iobjecttextformat.into(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetText_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iobjecttextformat), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SetFromText_<'a, P0, P1, P2>(&self, bstext: P0, iobjecttextformat: P1, iflags: i32, objwbemnamedvalueset: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetFromText_<'a, P0, P1>(&self, bstext: P0, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<WbemObjectTextFormatEnum>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        (::windows::core::Interface::vtable(self).SetFromText_)(::windows::core::Interface::as_raw(self), bstext.into().abi(), iobjecttextformat.into(), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFromText_)(::windows::core::Interface::as_raw(self), bstext.into().abi(), ::core::mem::transmute(iobjecttextformat), ::core::mem::transmute(iflags), objwbemnamedvalueset.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2811,12 +2809,9 @@ impl ISWbemPrivilegeSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Item<'a, P0>(&self, iprivilege: P0) -> ::windows::core::Result<ISWbemPrivilege>
-    where
-        P0: ::std::convert::Into<WbemPrivilegeEnum>,
-    {
+    pub unsafe fn Item(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<ISWbemPrivilege> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), iprivilege.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iprivilege), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -2825,19 +2820,13 @@ impl ISWbemPrivilegeSet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, P0>(&self, iprivilege: P0, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege>
-    where
-        P0: ::std::convert::Into<WbemPrivilegeEnum>,
-    {
+    pub unsafe fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), iprivilege.into(), ::core::mem::transmute(bisenabled), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iprivilege), ::core::mem::transmute(bisenabled), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn Remove<'a, P0>(&self, iprivilege: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WbemPrivilegeEnum>,
-    {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), iprivilege.into()).ok()
+    pub unsafe fn Remove(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iprivilege)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn DeleteAll(&self) -> ::windows::core::Result<()> {
@@ -3104,13 +3093,12 @@ impl ISWbemPropertySet {
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Add<'a, P0, P1>(&self, strname: P0, icimtype: P1, bisarray: i16, iflags: i32) -> ::windows::core::Result<ISWbemProperty>
+    pub unsafe fn Add<'a, P0>(&self, strname: P0, icimtype: WbemCimtypeEnum, bisarray: i16, iflags: i32) -> ::windows::core::Result<ISWbemProperty>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<WbemCimtypeEnum>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), icimtype.into(), ::core::mem::transmute(bisarray), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(icimtype), ::core::mem::transmute(bisarray), ::core::mem::transmute(iflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3759,11 +3747,8 @@ impl ISWbemSecurity {
         (::windows::core::Interface::vtable(self).ImpersonationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemImpersonationLevelEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetImpersonationLevel<'a, P0>(&self, iimpersonationlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WbemImpersonationLevelEnum>,
-    {
-        (::windows::core::Interface::vtable(self).SetImpersonationLevel)(::windows::core::Interface::as_raw(self), iimpersonationlevel.into()).ok()
+    pub unsafe fn SetImpersonationLevel(&self, iimpersonationlevel: WbemImpersonationLevelEnum) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetImpersonationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iimpersonationlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
     pub unsafe fn AuthenticationLevel(&self) -> ::windows::core::Result<WbemAuthenticationLevelEnum> {
@@ -3771,11 +3756,8 @@ impl ISWbemSecurity {
         (::windows::core::Interface::vtable(self).AuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemAuthenticationLevelEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-    pub unsafe fn SetAuthenticationLevel<'a, P0>(&self, iauthenticationlevel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WbemAuthenticationLevelEnum>,
-    {
-        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), iauthenticationlevel.into()).ok()
+    pub unsafe fn SetAuthenticationLevel(&self, iauthenticationlevel: WbemAuthenticationLevelEnum) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iauthenticationlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

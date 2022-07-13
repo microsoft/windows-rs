@@ -204,12 +204,9 @@ impl ExtendedExecutionSession {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
-    pub fn SetReason<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ExtendedExecutionReason>,
-    {
+    pub fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReason)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReason)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {

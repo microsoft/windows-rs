@@ -63,15 +63,13 @@ impl CustomDevice {
     }
     #[doc = "*Required features: `\"Devices_Custom\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, P0, P1, P2>(deviceid: P0, desiredaccess: P1, sharingmode: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>>
+    pub fn FromIdAsync<'a, P0>(deviceid: P0, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<DeviceAccessMode>,
-        P2: ::std::convert::Into<DeviceSharingMode>,
     {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), desiredaccess.into(), sharingmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CustomDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), desiredaccess, sharingmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CustomDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -511,14 +509,10 @@ impl IOControlCode {
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
-    pub fn CreateIOControlCode<'a, P0, P1>(devicetype: u16, function: u16, accessmode: P0, bufferingmethod: P1) -> ::windows::core::Result<IOControlCode>
-    where
-        P0: ::std::convert::Into<IOControlAccessMode>,
-        P1: ::std::convert::Into<IOControlBufferingMethod>,
-    {
+    pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> ::windows::core::Result<IOControlCode> {
         Self::IIOControlCodeFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateIOControlCode)(::windows::core::Interface::as_raw(this), devicetype, function, accessmode.into(), bufferingmethod.into(), result__.as_mut_ptr()).from_abi::<IOControlCode>(result__)
+            (::windows::core::Interface::vtable(this).CreateIOControlCode)(::windows::core::Interface::as_raw(this), devicetype, function, accessmode, bufferingmethod, result__.as_mut_ptr()).from_abi::<IOControlCode>(result__)
         })
     }
     #[doc(hidden)]

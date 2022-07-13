@@ -1856,41 +1856,36 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Foundation\"`, `\"Media_Capture\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture"))]
-    pub fn CreateDeviceInputNodeAsync<'a, P0>(&self, category: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-    {
+    pub fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeAsync)(::windows::core::Interface::as_raw(this), category.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeAsync)(::windows::core::Interface::as_raw(this), category, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatAsync<'a, P0, P1>(&self, category: P0, encodingproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    pub fn CreateDeviceInputNodeWithFormatAsync<'a, P0>(&self, category: super::Capture::MediaCategory, encodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(::windows::core::Interface::as_raw(this), category.into(), encodingproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(::windows::core::Interface::as_raw(this), category, encodingproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<'a, P0, P1, P2>(&self, category: P0, encodingproperties: P1, device: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<'a, P0, P1>(&self, category: super::Capture::MediaCategory, encodingproperties: P0, device: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Enumeration::DeviceInformation>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Enumeration::DeviceInformation>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(::windows::core::Interface::as_raw(this), category.into(), encodingproperties.into().abi(), device.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(::windows::core::Interface::as_raw(this), category, encodingproperties.into().abi(), device.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -2116,17 +2111,16 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<'a, P0, P1, P2, P3>(&self, category: P0, encodingproperties: P1, device: P2, emitter: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<'a, P0, P1, P2>(&self, category: super::Capture::MediaCategory, encodingproperties: P0, device: P1, emitter: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
     where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Enumeration::DeviceInformation>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, AudioNodeEmitter>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Enumeration::DeviceInformation>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, AudioNodeEmitter>>,
     {
         let this = &::windows::core::Interface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(::windows::core::Interface::as_raw(this), category.into(), encodingproperties.into().abi(), device.into().abi(), emitter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(::windows::core::Interface::as_raw(this), category, encodingproperties.into().abi(), device.into().abi(), emitter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Foundation\"`, `\"Storage\"`*"]
@@ -2582,12 +2576,9 @@ impl AudioGraphSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
-    pub fn SetQuantumSizeSelectionMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<QuantumSizeSelectionMode>,
-    {
+    pub fn SetQuantumSizeSelectionMode(&self, value: QuantumSizeSelectionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetQuantumSizeSelectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetQuantumSizeSelectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
     pub fn DesiredSamplesPerQuantum(&self) -> ::windows::core::Result<i32> {
@@ -2613,12 +2604,9 @@ impl AudioGraphSettings {
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn SetAudioRenderCategory<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::Render::AudioRenderCategory>,
-    {
+    pub fn SetAudioRenderCategory(&self, value: super::Render::AudioRenderCategory) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioRenderCategory)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioRenderCategory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
     pub fn DesiredRenderDeviceAudioProcessing(&self) -> ::windows::core::Result<super::AudioProcessing> {
@@ -2629,12 +2617,9 @@ impl AudioGraphSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
-    pub fn SetDesiredRenderDeviceAudioProcessing<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::AudioProcessing>,
-    {
+    pub fn SetDesiredRenderDeviceAudioProcessing(&self, value: super::AudioProcessing) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRenderDeviceAudioProcessing)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredRenderDeviceAudioProcessing)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
     pub fn SetMaxPlaybackSpeedFactor(&self, value: f64) -> ::windows::core::Result<()> {
@@ -2651,13 +2636,10 @@ impl AudioGraphSettings {
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn Create<'a, P0>(audiorendercategory: P0) -> ::windows::core::Result<AudioGraphSettings>
-    where
-        P0: ::std::convert::Into<super::Render::AudioRenderCategory>,
-    {
+    pub fn Create(audiorendercategory: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioGraphSettings> {
         Self::IAudioGraphSettingsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), audiorendercategory.into(), result__.as_mut_ptr()).from_abi::<AudioGraphSettings>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), audiorendercategory, result__.as_mut_ptr()).from_abi::<AudioGraphSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -2967,23 +2949,19 @@ impl AudioNodeEmitter {
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
-    pub fn SetSpatialAudioModel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SpatialAudioModel>,
-    {
+    pub fn SetSpatialAudioModel(&self, value: SpatialAudioModel) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAudioNodeEmitter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSpatialAudioModel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpatialAudioModel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
-    pub fn CreateAudioNodeEmitter<'a, P0, P1, P2>(shape: P0, decaymodel: P1, settings: P2) -> ::windows::core::Result<AudioNodeEmitter>
+    pub fn CreateAudioNodeEmitter<'a, P0, P1>(shape: P0, decaymodel: P1, settings: AudioNodeEmitterSettings) -> ::windows::core::Result<AudioNodeEmitter>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AudioNodeEmitterShape>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, AudioNodeEmitterDecayModel>>,
-        P2: ::std::convert::Into<AudioNodeEmitterSettings>,
     {
         Self::IAudioNodeEmitterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioNodeEmitter)(::windows::core::Interface::as_raw(this), shape.into().abi(), decaymodel.into().abi(), settings.into(), result__.as_mut_ptr()).from_abi::<AudioNodeEmitter>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioNodeEmitter)(::windows::core::Interface::as_raw(this), shape.into().abi(), decaymodel.into().abi(), settings, result__.as_mut_ptr()).from_abi::<AudioNodeEmitter>(result__)
         })
     }
     #[doc(hidden)]
@@ -4084,37 +4062,29 @@ impl AudioStateMonitor {
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateForRenderMonitoringWithCategory<'a, P0>(category: P0) -> ::windows::core::Result<AudioStateMonitor>
-    where
-        P0: ::std::convert::Into<super::Render::AudioRenderCategory>,
-    {
+    pub fn CreateForRenderMonitoringWithCategory(category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategory)(::windows::core::Interface::as_raw(this), category.into(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategory)(::windows::core::Interface::as_raw(this), category, result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Devices\"`, `\"Media_Render\"`*"]
     #[cfg(all(feature = "Media_Devices", feature = "Media_Render"))]
-    pub fn CreateForRenderMonitoringWithCategoryAndDeviceRole<'a, P0, P1>(category: P0, role: P1) -> ::windows::core::Result<AudioStateMonitor>
-    where
-        P0: ::std::convert::Into<super::Render::AudioRenderCategory>,
-        P1: ::std::convert::Into<super::Devices::AudioDeviceRole>,
-    {
+    pub fn CreateForRenderMonitoringWithCategoryAndDeviceRole(category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> ::windows::core::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceRole)(::windows::core::Interface::as_raw(this), category.into(), role.into(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceRole)(::windows::core::Interface::as_raw(this), category, role, result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateForRenderMonitoringWithCategoryAndDeviceId<'a, P0, P1>(category: P0, deviceid: P1) -> ::windows::core::Result<AudioStateMonitor>
+    pub fn CreateForRenderMonitoringWithCategoryAndDeviceId<'a, P0>(category: super::Render::AudioRenderCategory, deviceid: P0) -> ::windows::core::Result<AudioStateMonitor>
     where
-        P0: ::std::convert::Into<super::Render::AudioRenderCategory>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category.into(), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForRenderMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category, deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
@@ -4126,37 +4096,29 @@ impl AudioStateMonitor {
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateForCaptureMonitoringWithCategory<'a, P0>(category: P0) -> ::windows::core::Result<AudioStateMonitor>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-    {
+    pub fn CreateForCaptureMonitoringWithCategory(category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategory)(::windows::core::Interface::as_raw(this), category.into(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategory)(::windows::core::Interface::as_raw(this), category, result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Capture\"`, `\"Media_Devices\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices"))]
-    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceRole<'a, P0, P1>(category: P0, role: P1) -> ::windows::core::Result<AudioStateMonitor>
-    where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-        P1: ::std::convert::Into<super::Devices::AudioDeviceRole>,
-    {
+    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceRole(category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> ::windows::core::Result<AudioStateMonitor> {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceRole)(::windows::core::Interface::as_raw(this), category.into(), role.into(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceRole)(::windows::core::Interface::as_raw(this), category, role, result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Audio\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId<'a, P0, P1>(category: P0, deviceid: P1) -> ::windows::core::Result<AudioStateMonitor>
+    pub fn CreateForCaptureMonitoringWithCategoryAndDeviceId<'a, P0>(category: super::Capture::MediaCategory, deviceid: P0) -> ::windows::core::Result<AudioStateMonitor>
     where
-        P0: ::std::convert::Into<super::Capture::MediaCategory>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IAudioStateMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category.into(), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
+            (::windows::core::Interface::vtable(this).CreateForCaptureMonitoringWithCategoryAndDeviceId)(::windows::core::Interface::as_raw(this), category, deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioStateMonitor>(result__)
         })
     }
     #[doc(hidden)]
@@ -9088,12 +9050,9 @@ impl SpatialAudioFormatConfiguration {
         }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
-    pub fn SetMixedRealityExclusiveModePolicy<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MixedRealitySpatialAudioFormatPolicy>,
-    {
+    pub fn SetMixedRealityExclusiveModePolicy(&self, value: MixedRealitySpatialAudioFormatPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMixedRealityExclusiveModePolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMixedRealityExclusiveModePolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Audio\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<SpatialAudioFormatConfiguration> {

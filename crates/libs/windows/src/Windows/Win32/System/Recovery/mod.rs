@@ -119,16 +119,15 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::Windo
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[inline]
-pub unsafe fn RegisterApplicationRestart<'a, P0, P1>(pwzcommandline: P0, dwflags: P1) -> ::windows::core::Result<()>
+pub unsafe fn RegisterApplicationRestart<'a, P0>(pwzcommandline: P0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<REGISTER_APPLICATION_RESTART_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterApplicationRestart(pwzcommandline: ::windows::core::PCWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::HRESULT;
     }
-    RegisterApplicationRestart(pwzcommandline.into(), dwflags.into()).ok()
+    RegisterApplicationRestart(pwzcommandline.into(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 #[inline]

@@ -478,12 +478,9 @@ impl UserDataTask {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetDetailsKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskDetailsKind>,
-    {
+    pub fn SetDetailsKind(&self, value: UserDataTaskDetailsKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDetailsKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDetailsKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -521,12 +518,9 @@ impl UserDataTask {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetPriority<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskPriority>,
-    {
+    pub fn SetPriority(&self, value: UserDataTaskPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPriority)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn RecurrenceProperties(&self) -> ::windows::core::Result<UserDataTaskRecurrenceProperties> {
@@ -588,12 +582,9 @@ impl UserDataTask {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetSensitivity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskSensitivity>,
-    {
+    pub fn SetSensitivity(&self, value: UserDataTaskSensitivity) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSensitivity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSensitivity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -959,12 +950,9 @@ impl UserDataTaskList {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetOtherAppReadAccess<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskListOtherAppReadAccess>,
-    {
+    pub fn SetOtherAppReadAccess(&self, value: UserDataTaskListOtherAppReadAccess) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn OtherAppWriteAccess(&self) -> ::windows::core::Result<UserDataTaskListOtherAppWriteAccess> {
@@ -975,12 +963,9 @@ impl UserDataTaskList {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetOtherAppWriteAccess<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskListOtherAppWriteAccess>,
-    {
+    pub fn SetOtherAppWriteAccess(&self, value: UserDataTaskListOtherAppWriteAccess) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppWriteAccess)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppWriteAccess)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn LimitedWriteOperations(&self) -> ::windows::core::Result<UserDataTaskListLimitedWriteOperations> {
@@ -1370,12 +1355,9 @@ impl UserDataTaskListSyncManager {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskListSyncStatus>,
-    {
+    pub fn SetStatus(&self, value: UserDataTaskListSyncStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1511,14 +1493,11 @@ pub struct UserDataTaskManager(::windows::core::IUnknown);
 impl UserDataTaskManager {
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync<'a, P0>(&self, accesstype: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>
-    where
-        P0: ::std::convert::Into<UserDataTaskStoreAccessType>,
-    {
+    pub fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserDataTaskStore>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"System\"`*"]
@@ -1706,12 +1685,9 @@ impl UserDataTaskQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetSortProperty<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskQuerySortProperty>,
-    {
+    pub fn SetSortProperty(&self, value: UserDataTaskQuerySortProperty) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSortProperty)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSortProperty)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataTaskQueryKind> {
@@ -1722,12 +1698,9 @@ impl UserDataTaskQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetKind<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskQueryKind>,
-    {
+    pub fn SetKind(&self, value: UserDataTaskQueryKind) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for UserDataTaskQueryOptions {
@@ -1921,12 +1894,9 @@ impl UserDataTaskRecurrenceProperties {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetUnit<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskRecurrenceUnit>,
-    {
+    pub fn SetUnit(&self, value: UserDataTaskRecurrenceUnit) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2176,12 +2146,9 @@ impl UserDataTaskRegenerationProperties {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
-    pub fn SetUnit<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UserDataTaskRegenerationUnit>,
-    {
+    pub fn SetUnit(&self, value: UserDataTaskRegenerationUnit) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

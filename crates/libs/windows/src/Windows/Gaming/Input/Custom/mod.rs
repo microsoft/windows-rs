@@ -18,14 +18,12 @@ impl GameControllerFactoryManager {
         Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCustomFactoryForHardwareId)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), hardwarevendorid, hardwareproductid).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn RegisterCustomFactoryForXusbType<'a, P0, E0, P1, P2>(factory: P0, xusbtype: P1, xusbsubtype: P2) -> ::windows::core::Result<()>
+    pub fn RegisterCustomFactoryForXusbType<'a, P0, E0>(factory: P0, xusbtype: XusbDeviceType, xusbsubtype: XusbDeviceSubtype) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICustomGameControllerFactory>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<XusbDeviceType>,
-        P2: ::std::convert::Into<XusbDeviceSubtype>,
     {
-        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCustomFactoryForXusbType)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), xusbtype.into(), xusbsubtype.into()).ok() })
+        Self::IGameControllerFactoryManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterCustomFactoryForXusbType)(::windows::core::Interface::as_raw(this), factory.try_into().map_err(|e| e.into())?.abi(), xusbtype, xusbsubtype).ok() })
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     pub fn TryGetFactoryControllerFromGameController<'a, P0, E0, P1, E1>(factory: P0, gamecontroller: P1) -> ::windows::core::Result<super::IGameController>
@@ -303,20 +301,14 @@ impl GipGameControllerProvider {
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn SendMessage<'a, P0>(&self, messageclass: P0, messageid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GipMessageClass>,
-    {
+    pub fn SendMessage(&self, messageclass: GipMessageClass, messageid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), messageclass.into(), messageid, messagebuffer.len() as u32, ::core::mem::transmute(messagebuffer.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), messageclass, messageid, messagebuffer.len() as u32, ::core::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn SendReceiveMessage<'a, P0>(&self, messageclass: P0, messageid: u8, requestmessagebuffer: &[u8], responsemessagebuffer: &mut [u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GipMessageClass>,
-    {
+    pub fn SendReceiveMessage(&self, messageclass: GipMessageClass, messageid: u8, requestmessagebuffer: &[u8], responsemessagebuffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendReceiveMessage)(::windows::core::Interface::as_raw(this), messageclass.into(), messageid, requestmessagebuffer.len() as u32, ::core::mem::transmute(requestmessagebuffer.as_ptr()), responsemessagebuffer.len() as u32, ::core::mem::transmute_copy(&responsemessagebuffer)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendReceiveMessage)(::windows::core::Interface::as_raw(this), messageclass, messageid, requestmessagebuffer.len() as u32, ::core::mem::transmute(requestmessagebuffer.as_ptr()), responsemessagebuffer.len() as u32, ::core::mem::transmute_copy(&responsemessagebuffer)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -949,12 +941,9 @@ impl IGipGameControllerInputSink {
         unsafe { (::windows::core::Interface::vtable(this).OnKeyReceived)(::windows::core::Interface::as_raw(this), timestamp, keycode, ispressed).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-    pub fn OnMessageReceived<'a, P0>(&self, timestamp: u64, messageclass: P0, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GipMessageClass>,
-    {
+    pub fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).OnMessageReceived)(::windows::core::Interface::as_raw(this), timestamp, messageclass.into(), messageid, sequenceid, messagebuffer.len() as u32, ::core::mem::transmute(messagebuffer.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).OnMessageReceived)(::windows::core::Interface::as_raw(this), timestamp, messageclass, messageid, sequenceid, messagebuffer.len() as u32, ::core::mem::transmute(messagebuffer.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     pub fn OnInputResumed(&self, timestamp: u64) -> ::windows::core::Result<()> {

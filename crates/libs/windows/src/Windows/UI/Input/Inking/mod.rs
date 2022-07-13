@@ -811,15 +811,14 @@ impl IInkRecognizerContainer {
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync<'a, P0, P1>(&self, strokecollection: P0, recognitiontarget: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
+    pub fn RecognizeAsync<'a, P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-        P1: ::std::convert::Into<InkRecognitionTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), strokecollection.into().abi(), recognitiontarget.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), strokecollection.into().abi(), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
@@ -1596,12 +1595,9 @@ impl InkDrawingAttributes {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetPenTip<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PenTipShape>,
-    {
+    pub fn SetPenTip(&self, value: PenTipShape) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenTip)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenTip)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2052,12 +2048,9 @@ impl InkInputProcessingConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InkInputProcessingMode>,
-    {
+    pub fn SetMode(&self, value: InkInputProcessingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
     pub fn RightDragAction(&self) -> ::windows::core::Result<InkInputRightDragAction> {
@@ -2068,12 +2061,9 @@ impl InkInputProcessingConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetRightDragAction<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InkInputRightDragAction>,
-    {
+    pub fn SetRightDragAction(&self, value: InkInputRightDragAction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRightDragAction)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRightDragAction)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for InkInputProcessingConfiguration {
@@ -2227,12 +2217,9 @@ impl InkManager {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InkManipulationMode>,
-    {
+    pub fn SetMode(&self, value: InkManipulationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
     pub fn ProcessPointerDown<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<()>
@@ -2275,14 +2262,11 @@ impl InkManager {
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync2<'a, P0>(&self, recognitiontarget: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
-    where
-        P0: ::std::convert::Into<InkRecognitionTarget>,
-    {
+    pub fn RecognizeAsync2(&self, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizeAsync2)(::windows::core::Interface::as_raw(this), recognitiontarget.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync2)(::windows::core::Interface::as_raw(this), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -2295,15 +2279,14 @@ impl InkManager {
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync<'a, P0, P1>(&self, strokecollection: P0, recognitiontarget: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
+    pub fn RecognizeAsync<'a, P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-        P1: ::std::convert::Into<InkRecognitionTarget>,
     {
         let this = &::windows::core::Interface::cast::<IInkRecognizerContainer>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), strokecollection.into().abi(), recognitiontarget.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), strokecollection.into().abi(), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
@@ -2886,12 +2869,9 @@ impl InkPresenter {
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
-    pub fn SetInputDeviceTypes<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Core::CoreInputDeviceTypes>,
-    {
+    pub fn SetInputDeviceTypes(&self, value: super::super::Core::CoreInputDeviceTypes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputDeviceTypes)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputDeviceTypes)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
     pub fn UnprocessedInput(&self) -> ::windows::core::Result<InkUnprocessedInput> {
@@ -2958,12 +2938,9 @@ impl InkPresenter {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetPredefinedConfiguration<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InkPresenterPredefinedConfiguration>,
-    {
+    pub fn SetPredefinedConfiguration(&self, value: InkPresenterPredefinedConfiguration) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPredefinedConfiguration)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPredefinedConfiguration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3010,12 +2987,9 @@ impl InkPresenter {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetHighContrastAdjustment<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<InkHighContrastAdjustment>,
-    {
+    pub fn SetHighContrastAdjustment(&self, value: InkHighContrastAdjustment) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInkPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetHighContrastAdjustment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHighContrastAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
     pub fn InputConfiguration(&self) -> ::windows::core::Result<InkInputConfiguration> {
@@ -3849,15 +3823,14 @@ impl InkRecognizerContainer {
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RecognizeAsync<'a, P0, P1>(&self, strokecollection: P0, recognitiontarget: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
+    pub fn RecognizeAsync<'a, P0>(&self, strokecollection: P0, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, InkStrokeContainer>>,
-        P1: ::std::convert::Into<InkRecognitionTarget>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), strokecollection.into().abi(), recognitiontarget.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), strokecollection.into().abi(), recognitiontarget, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`*"]
@@ -4471,16 +4444,15 @@ impl InkStrokeContainer {
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SaveWithFormatAsync<'a, P0, E0, P1>(&self, outputstream: P0, inkpersistenceformat: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
+    pub fn SaveWithFormatAsync<'a, P0, E0>(&self, outputstream: P0, inkpersistenceformat: InkPersistenceFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<InkPersistenceFormat>,
     {
         let this = &::windows::core::Interface::cast::<IInkStrokeContainer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveWithFormatAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), inkpersistenceformat.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).SaveWithFormatAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), inkpersistenceformat, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
@@ -5325,12 +5297,9 @@ impl PenAndInkSettings {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
-    pub fn SetPenHandedness<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PenHandedness>,
-    {
+    pub fn SetPenHandedness(&self, value: PenHandedness) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPenAndInkSettings2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenHandedness)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenHandedness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<PenAndInkSettings> {

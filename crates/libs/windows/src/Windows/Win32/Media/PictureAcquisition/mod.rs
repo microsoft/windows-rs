@@ -679,13 +679,12 @@ impl IPhotoAcquireProgressCB {
         (::windows::core::Interface::vtable(self).GetDeleteAfterAcquire)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
-    pub unsafe fn ErrorAdvise<'a, P0, P1>(&self, hr: ::windows::core::HRESULT, pszerrormessage: P0, nmessagetype: P1) -> ::windows::core::Result<ERROR_ADVISE_RESULT>
+    pub unsafe fn ErrorAdvise<'a, P0>(&self, hr: ::windows::core::HRESULT, pszerrormessage: P0, nmessagetype: ERROR_ADVISE_MESSAGE_TYPE) -> ::windows::core::Result<ERROR_ADVISE_RESULT>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
-        P1: ::std::convert::Into<ERROR_ADVISE_MESSAGE_TYPE>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<ERROR_ADVISE_RESULT>::zeroed();
-        (::windows::core::Interface::vtable(self).ErrorAdvise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), pszerrormessage.into(), nmessagetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ERROR_ADVISE_RESULT>(result__)
+        (::windows::core::Interface::vtable(self).ErrorAdvise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hr), pszerrormessage.into(), ::core::mem::transmute(nmessagetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ERROR_ADVISE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1117,46 +1116,39 @@ impl IPhotoProgressDialog {
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowCheckbox<'a, P0, P1>(&self, ncheckboxid: P0, fshow: P1) -> ::windows::core::Result<()>
+    pub unsafe fn ShowCheckbox<'a, P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<PROGRESS_DIALOG_CHECKBOX_ID>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).ShowCheckbox)(::windows::core::Interface::as_raw(self), ncheckboxid.into(), fshow.into()).ok()
+        (::windows::core::Interface::vtable(self).ShowCheckbox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncheckboxid), fshow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
-    pub unsafe fn SetCheckboxText<'a, P0, P1>(&self, ncheckboxid: P0, pszcheckboxtext: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetCheckboxText<'a, P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<PROGRESS_DIALOG_CHECKBOX_ID>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetCheckboxText)(::windows::core::Interface::as_raw(self), ncheckboxid.into(), pszcheckboxtext.into()).ok()
+        (::windows::core::Interface::vtable(self).SetCheckboxText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncheckboxid), pszcheckboxtext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCheckboxCheck<'a, P0, P1>(&self, ncheckboxid: P0, fchecked: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetCheckboxCheck<'a, P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<PROGRESS_DIALOG_CHECKBOX_ID>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetCheckboxCheck)(::windows::core::Interface::as_raw(self), ncheckboxid.into(), fchecked.into()).ok()
+        (::windows::core::Interface::vtable(self).SetCheckboxCheck)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncheckboxid), fchecked.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
-    pub unsafe fn SetCheckboxTooltip<'a, P0, P1>(&self, ncheckboxid: P0, pszcheckboxtooltiptext: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetCheckboxTooltip<'a, P0>(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtooltiptext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<PROGRESS_DIALOG_CHECKBOX_ID>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SetCheckboxTooltip)(::windows::core::Interface::as_raw(self), ncheckboxid.into(), pszcheckboxtooltiptext.into()).ok()
+        (::windows::core::Interface::vtable(self).SetCheckboxTooltip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncheckboxid), pszcheckboxtooltiptext.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCheckboxChecked<'a, P0>(&self, ncheckboxid: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<PROGRESS_DIALOG_CHECKBOX_ID>,
-    {
+    pub unsafe fn IsCheckboxChecked(&self, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsCheckboxChecked)(::windows::core::Interface::as_raw(self), ncheckboxid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsCheckboxChecked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncheckboxid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
     pub unsafe fn SetCaption<'a, P0>(&self, psztitle: P0) -> ::windows::core::Result<()>
@@ -1167,13 +1159,12 @@ impl IPhotoProgressDialog {
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn SetImage<'a, P0, P1, P2>(&self, nimagetype: P0, hicon: P1, hbitmap: P2) -> ::windows::core::Result<()>
+    pub unsafe fn SetImage<'a, P0, P1>(&self, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: P0, hbitmap: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<PROGRESS_DIALOG_IMAGE_TYPE>,
-        P1: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>,
-        P2: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
+        P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>,
+        P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (::windows::core::Interface::vtable(self).SetImage)(::windows::core::Interface::as_raw(self), nimagetype.into(), hicon.into(), hbitmap.into()).ok()
+        (::windows::core::Interface::vtable(self).SetImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nimagetype), hicon.into(), hbitmap.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
     pub unsafe fn SetPercentComplete(&self, npercent: i32) -> ::windows::core::Result<()> {

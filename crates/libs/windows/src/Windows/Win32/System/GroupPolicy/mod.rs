@@ -1246,23 +1246,21 @@ impl IGPM {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRSOP<'a, P0, P1>(&self, gpmrsopmode: P0, bstrnamespace: P1, lflags: i32) -> ::windows::core::Result<IGPMRSOP>
+    pub unsafe fn GetRSOP<'a, P0>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: P0, lflags: i32) -> ::windows::core::Result<IGPMRSOP>
     where
-        P0: ::std::convert::Into<GPMRSOPMode>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRSOP)(::windows::core::Interface::as_raw(self), gpmrsopmode.into(), bstrnamespace.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMRSOP>(result__)
+        (::windows::core::Interface::vtable(self).GetRSOP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmrsopmode), bstrnamespace.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMRSOP>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePermission<'a, P0, P1>(&self, bstrtrustee: P0, perm: P1, binheritable: i16) -> ::windows::core::Result<IGPMPermission>
+    pub unsafe fn CreatePermission<'a, P0>(&self, bstrtrustee: P0, perm: GPMPermissionType, binheritable: i16) -> ::windows::core::Result<IGPMPermission>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<GPMPermissionType>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePermission)(::windows::core::Interface::as_raw(self), bstrtrustee.into().abi(), perm.into(), ::core::mem::transmute(binheritable), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMPermission>(result__)
+        (::windows::core::Interface::vtable(self).CreatePermission)(::windows::core::Interface::as_raw(self), bstrtrustee.into().abi(), ::core::mem::transmute(perm), ::core::mem::transmute(binheritable), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMPermission>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1468,23 +1466,21 @@ impl IGPM2 {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRSOP<'a, P0, P1>(&self, gpmrsopmode: P0, bstrnamespace: P1, lflags: i32) -> ::windows::core::Result<IGPMRSOP>
+    pub unsafe fn GetRSOP<'a, P0>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: P0, lflags: i32) -> ::windows::core::Result<IGPMRSOP>
     where
-        P0: ::std::convert::Into<GPMRSOPMode>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetRSOP)(::windows::core::Interface::as_raw(self), gpmrsopmode.into(), bstrnamespace.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMRSOP>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRSOP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmrsopmode), bstrnamespace.into().abi(), ::core::mem::transmute(lflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMRSOP>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePermission<'a, P0, P1>(&self, bstrtrustee: P0, perm: P1, binheritable: i16) -> ::windows::core::Result<IGPMPermission>
+    pub unsafe fn CreatePermission<'a, P0>(&self, bstrtrustee: P0, perm: GPMPermissionType, binheritable: i16) -> ::windows::core::Result<IGPMPermission>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<GPMPermissionType>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreatePermission)(::windows::core::Interface::as_raw(self), bstrtrustee.into().abi(), perm.into(), ::core::mem::transmute(binheritable), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMPermission>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreatePermission)(::windows::core::Interface::as_raw(self), bstrtrustee.into().abi(), ::core::mem::transmute(perm), ::core::mem::transmute(binheritable), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMPermission>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1538,13 +1534,12 @@ impl IGPM2 {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetBackupDirEx<'a, P0, P1>(&self, bstrbackupdir: P0, backupdirtype: P1) -> ::windows::core::Result<IGPMBackupDirEx>
+    pub unsafe fn GetBackupDirEx<'a, P0>(&self, bstrbackupdir: P0, backupdirtype: GPMBackupType) -> ::windows::core::Result<IGPMBackupDirEx>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<GPMBackupType>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackupDirEx)(::windows::core::Interface::as_raw(self), bstrbackupdir.into().abi(), backupdirtype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMBackupDirEx>(result__)
+        (::windows::core::Interface::vtable(self).GetBackupDirEx)(::windows::core::Interface::as_raw(self), bstrbackupdir.into().abi(), ::core::mem::transmute(backupdirtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMBackupDirEx>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1866,21 +1861,17 @@ impl IGPMBackup {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4008,11 +3999,8 @@ impl IGPMDomain3 {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4286,21 +4274,17 @@ impl IGPMGPO {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4615,21 +4599,17 @@ impl IGPMGPO2 {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).base__.GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4907,21 +4887,17 @@ impl IGPMGPO3 {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).base__.base__.GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5666,13 +5642,12 @@ impl IGPMMigrationTable {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddEntry<'a, P0, P1>(&self, bstrsource: P0, gpmentrytype: P1, pvardestination: *const super::Com::VARIANT) -> ::windows::core::Result<IGPMMapEntry>
+    pub unsafe fn AddEntry<'a, P0>(&self, bstrsource: P0, gpmentrytype: GPMEntryType, pvardestination: *const super::Com::VARIANT) -> ::windows::core::Result<IGPMMapEntry>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-        P1: ::std::convert::Into<GPMEntryType>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddEntry)(::windows::core::Interface::as_raw(self), bstrsource.into().abi(), gpmentrytype.into(), ::core::mem::transmute(pvardestination), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMMapEntry>(result__)
+        (::windows::core::Interface::vtable(self).AddEntry)(::windows::core::Interface::as_raw(self), bstrsource.into().abi(), ::core::mem::transmute(gpmentrytype), ::core::mem::transmute(pvardestination), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMMapEntry>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -6139,21 +6114,17 @@ impl IGPMRSOP {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6715,13 +6686,11 @@ pub struct IGPMSearchCriteria(::windows::core::IUnknown);
 impl IGPMSearchCriteria {
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, P0, P1, P2>(&self, searchproperty: P0, searchoperation: P1, varvalue: P2) -> ::windows::core::Result<()>
+    pub unsafe fn Add<'a, P0>(&self, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<GPMSearchProperty>,
-        P1: ::std::convert::Into<GPMSearchOperation>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>,
     {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), searchproperty.into(), searchoperation.into(), varvalue.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(searchproperty), ::core::mem::transmute(searchoperation), varvalue.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7173,22 +7142,18 @@ impl IGPMStarterGPO {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT) -> ::windows::core::Result<IGPMResult>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT) -> ::windows::core::Result<IGPMResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7396,21 +7361,17 @@ impl IGPMStarterGPOBackup {
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GenerateReport<'a, P0>(&self, gpmreporttype: P0, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GPMReportType>,
-    {
-        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GenerateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GenerateReportToFile<'a, P0, P1>(&self, gpmreporttype: P0, bstrtargetfilepath: P1) -> ::windows::core::Result<IGPMResult>
+    pub unsafe fn GenerateReportToFile<'a, P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows::core::Result<IGPMResult>
     where
-        P0: ::std::convert::Into<GPMReportType>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), gpmreporttype.into(), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
+        (::windows::core::Interface::vtable(self).GenerateReportToFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gpmreporttype), bstrtargetfilepath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IGPMResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

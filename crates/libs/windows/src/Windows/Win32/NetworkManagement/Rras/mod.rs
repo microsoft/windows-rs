@@ -2994,16 +2994,15 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MgmGroupEnumerationStart<'a, P0, P1>(hprotocol: P0, metenumtype: P1, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn MgmGroupEnumerationStart<'a, P0>(hprotocol: P0, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<MGM_ENUM_TYPES>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into(), metenumtype.into(), ::core::mem::transmute(phenumhandle)))
+    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into(), ::core::mem::transmute(metenumtype), ::core::mem::transmute(phenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10788,16 +10787,15 @@ pub unsafe fn RasGetPCscf(lpszpcscf: ::windows::core::PWSTR) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetProjectionInfoA<'a, P0, P1>(param0: P0, param1: P1, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32
+pub unsafe fn RasGetProjectionInfoA<'a, P0>(param0: P0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HRASCONN>,
-    P1: ::std::convert::Into<RASPROJECTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoA(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(RasGetProjectionInfoA(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -10814,16 +10812,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
-pub unsafe fn RasGetProjectionInfoW<'a, P0, P1>(param0: P0, param1: P1, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32
+pub unsafe fn RasGetProjectionInfoW<'a, P0>(param0: P0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HRASCONN>,
-    P1: ::std::convert::Into<RASPROJECTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    ::core::mem::transmute(RasGetProjectionInfoW(param0.into(), param1.into(), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    ::core::mem::transmute(RasGetProjectionInfoW(param0.into(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]

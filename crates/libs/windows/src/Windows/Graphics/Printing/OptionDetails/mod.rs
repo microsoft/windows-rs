@@ -191,12 +191,9 @@ impl IPrintCustomOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -433,12 +430,9 @@ impl IPrintItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -638,12 +632,9 @@ impl IPrintNumberOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -793,12 +784,9 @@ impl IPrintOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -1080,12 +1068,9 @@ impl IPrintTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintOptionDetails>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -1275,12 +1260,9 @@ impl PrintBindingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -1488,12 +1470,9 @@ impl PrintBorderingOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -1701,12 +1680,9 @@ impl PrintCollationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -1914,12 +1890,9 @@ impl PrintColorModeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -2134,12 +2107,9 @@ impl PrintCopiesOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -2476,12 +2446,9 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -2728,12 +2695,9 @@ impl PrintCustomTextOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -2948,12 +2912,9 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -3161,12 +3122,9 @@ impl PrintDuplexOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -3374,12 +3332,9 @@ impl PrintHolePunchOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -3587,12 +3542,9 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -3800,12 +3752,9 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -4081,12 +4030,9 @@ impl PrintOrientationOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -4285,12 +4231,9 @@ impl PrintPageRangeOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -4479,12 +4422,9 @@ impl PrintQualityOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {
@@ -4692,12 +4632,9 @@ impl PrintStapleOptionDetails {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
-    pub fn SetState<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PrintOptionStates>,
-    {
+    pub fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
     pub fn State(&self) -> ::windows::core::Result<PrintOptionStates> {

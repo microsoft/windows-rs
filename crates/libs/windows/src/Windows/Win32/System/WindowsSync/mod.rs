@@ -219,11 +219,8 @@ impl IChangeConflict {
         (::windows::core::Interface::vtable(self).GetResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetResolveActionForChange<'a, P0>(&self, resolveaction: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_RESOLVE_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).SetResolveActionForChange)(::windows::core::Interface::as_raw(self), resolveaction.into()).ok()
+    pub unsafe fn SetResolveActionForChange(&self, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetResolveActionForChangeUnit<'a, P0>(&self, pchangeunit: P0, presolveaction: *mut SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()>
@@ -233,12 +230,11 @@ impl IChangeConflict {
         (::windows::core::Interface::vtable(self).GetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(presolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetResolveActionForChangeUnit<'a, P0, P1>(&self, pchangeunit: P0, resolveaction: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetResolveActionForChangeUnit<'a, P0>(&self, pchangeunit: P0, resolveaction: SYNC_RESOLVE_ACTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>,
-        P1: ::std::convert::Into<SYNC_RESOLVE_ACTION>,
     {
-        (::windows::core::Interface::vtable(self).SetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), resolveaction.into()).ok()
+        (::windows::core::Interface::vtable(self).SetResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(resolveaction)).ok()
     }
 }
 impl ::core::convert::From<IChangeConflict> for ::windows::core::IUnknown {
@@ -657,11 +653,8 @@ impl IConstraintConflict {
         (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pconstraintresolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetConstraintResolveActionForChange<'a, P0>(&self, constraintresolveaction: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_CONSTRAINT_RESOLVE_ACTION>,
-    {
-        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChange)(::windows::core::Interface::as_raw(self), constraintresolveaction.into()).ok()
+    pub unsafe fn SetConstraintResolveActionForChange(&self, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(constraintresolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetConstraintResolveActionForChangeUnit<'a, P0>(&self, pchangeunit: P0, pconstraintresolveaction: *mut SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()>
@@ -671,12 +664,11 @@ impl IConstraintConflict {
         (::windows::core::Interface::vtable(self).GetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(pconstraintresolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SetConstraintResolveActionForChangeUnit<'a, P0, P1>(&self, pchangeunit: P0, constraintresolveaction: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetConstraintResolveActionForChangeUnit<'a, P0>(&self, pchangeunit: P0, constraintresolveaction: SYNC_CONSTRAINT_RESOLVE_ACTION) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeUnit>>,
-        P1: ::std::convert::Into<SYNC_CONSTRAINT_RESOLVE_ACTION>,
     {
-        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), constraintresolveaction.into()).ok()
+        (::windows::core::Interface::vtable(self).SetConstraintResolveActionForChangeUnit)(::windows::core::Interface::as_raw(self), pchangeunit.into().abi(), ::core::mem::transmute(constraintresolveaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetConstraintConflictReason(&self, pconstraintconflictreason: *mut CONSTRAINT_CONFLICT_REASON) -> ::windows::core::Result<()> {
@@ -2008,12 +2000,11 @@ pub struct IFilterKeyMap_Vtbl {
 pub struct IFilterRequestCallback(::windows::core::IUnknown);
 impl IFilterRequestCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn RequestFilter<'a, P0, P1>(&self, pfilter: P0, filteringtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RequestFilter<'a, P0>(&self, pfilter: P0, filteringtype: FILTERING_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<FILTERING_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).RequestFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi(), filteringtype.into()).ok()
+        (::windows::core::Interface::vtable(self).RequestFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi(), ::core::mem::transmute(filteringtype)).ok()
     }
 }
 impl ::core::convert::From<IFilterRequestCallback> for ::windows::core::IUnknown {
@@ -2426,12 +2417,11 @@ impl IKnowledgeSyncProvider {
         (::windows::core::Interface::vtable(self).base__.GetIdParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn BeginSession<'a, P0, P1>(&self, role: P0, psessionstate: P1) -> ::windows::core::Result<()>
+    pub unsafe fn BeginSession<'a, P0>(&self, role: SYNC_PROVIDER_ROLE, psessionstate: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<SYNC_PROVIDER_ROLE>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ISyncSessionState>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISyncSessionState>>,
     {
-        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), role.into(), psessionstate.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeginSession)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(role), psessionstate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetSyncBatchParameters(&self, ppsyncknowledge: *mut ::core::option::Option<ISyncKnowledge>, pdwrequestedbatchsize: *mut u32) -> ::windows::core::Result<()> {
@@ -2452,24 +2442,22 @@ impl IKnowledgeSyncProvider {
         (::windows::core::Interface::vtable(self).GetFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatchsize), ::core::mem::transmute(pblowerenumerationbound), psyncknowledge.into().abi(), ::core::mem::transmute(ppsyncchangebatch), ::core::mem::transmute(ppunkdataretriever)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ProcessChangeBatch<'a, P0, P1, P2, P3>(&self, resolutionpolicy: P0, psourcechangebatch: P1, punkdataretriever: P2, pcallback: P3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessChangeBatch<'a, P0, P1, P2>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: P0, punkdataretriever: P1, pcallback: P2, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CONFLICT_RESOLUTION_POLICY>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeBatch>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ISyncCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISyncChangeBatch>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ISyncCallback>>,
     {
-        (::windows::core::Interface::vtable(self).ProcessChangeBatch)(::windows::core::Interface::as_raw(self), resolutionpolicy.into(), psourcechangebatch.into().abi(), punkdataretriever.into().abi(), pcallback.into().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
+        (::windows::core::Interface::vtable(self).ProcessChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resolutionpolicy), psourcechangebatch.into().abi(), punkdataretriever.into().abi(), pcallback.into().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn ProcessFullEnumerationChangeBatch<'a, P0, P1, P2, P3>(&self, resolutionpolicy: P0, psourcechangebatch: P1, punkdataretriever: P2, pcallback: P3, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()>
+    pub unsafe fn ProcessFullEnumerationChangeBatch<'a, P0, P1, P2>(&self, resolutionpolicy: CONFLICT_RESOLUTION_POLICY, psourcechangebatch: P0, punkdataretriever: P1, pcallback: P2, psyncsessionstatistics: *mut SYNC_SESSION_STATISTICS) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CONFLICT_RESOLUTION_POLICY>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ISyncFullEnumerationChangeBatch>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P3: ::std::convert::Into<::windows::core::InParam<'a, ISyncCallback>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ISyncFullEnumerationChangeBatch>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, ISyncCallback>>,
     {
-        (::windows::core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), resolutionpolicy.into(), psourcechangebatch.into().abi(), punkdataretriever.into().abi(), pcallback.into().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
+        (::windows::core::Interface::vtable(self).ProcessFullEnumerationChangeBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resolutionpolicy), psourcechangebatch.into().abi(), punkdataretriever.into().abi(), pcallback.into().abi(), ::core::mem::transmute(psyncsessionstatistics)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn EndSession<'a, P0>(&self, psessionstate: P0) -> ::windows::core::Result<()>
@@ -3107,12 +3095,11 @@ pub struct ISingleItemException_Vtbl {
 pub struct ISupportFilteredSync(::windows::core::IUnknown);
 impl ISupportFilteredSync {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn AddFilter<'a, P0, P1>(&self, pfilter: P0, filteringtype: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddFilter<'a, P0>(&self, pfilter: P0, filteringtype: FILTERING_TYPE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<FILTERING_TYPE>,
     {
-        (::windows::core::Interface::vtable(self).AddFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi(), filteringtype.into()).ok()
+        (::windows::core::Interface::vtable(self).AddFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi(), ::core::mem::transmute(filteringtype)).ok()
     }
 }
 impl ::core::convert::From<ISupportFilteredSync> for ::windows::core::IUnknown {
@@ -3216,12 +3203,8 @@ pub struct ISupportLastWriteTime_Vtbl {
 pub struct ISyncCallback(::windows::core::IUnknown);
 impl ISyncCallback {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress<'a, P0, P1>(&self, provider: P0, syncstage: P1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_PROVIDER_ROLE>,
-        P1: ::std::convert::Into<SYNC_PROGRESS_STAGE>,
-    {
-        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChange<'a, P0>(&self, psyncchange: P0) -> ::windows::core::Result<()>
@@ -3299,12 +3282,8 @@ pub struct ISyncCallback_Vtbl {
 pub struct ISyncCallback2(::windows::core::IUnknown);
 impl ISyncCallback2 {
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress<'a, P0, P1>(&self, provider: P0, syncstage: P1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_PROVIDER_ROLE>,
-        P1: ::std::convert::Into<SYNC_PROGRESS_STAGE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn OnChange<'a, P0>(&self, psyncchange: P0) -> ::windows::core::Result<()>
@@ -4091,11 +4070,8 @@ impl ISyncChangeBatchBase2 {
         (::windows::core::Interface::vtable(self).base__.Serialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbchangebatch), ::core::mem::transmute(pcbchangebatch)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SerializeWithOptions<'a, P0>(&self, targetformatversion: P0, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_SERIALIZATION_VERSION>,
-    {
-        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), targetformatversion.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
+    pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetformatversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
     }
 }
 impl ::core::convert::From<ISyncChangeBatchBase2> for ::windows::core::IUnknown {
@@ -5760,11 +5736,8 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).ProjectOntoColumnSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppcolumns), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISyncKnowledge2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn SerializeWithOptions<'a, P0>(&self, targetformatversion: P0, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_SERIALIZATION_VERSION>,
-    {
-        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), targetformatversion.into(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
+    pub unsafe fn SerializeWithOptions(&self, targetformatversion: SYNC_SERIALIZATION_VERSION, dwflags: u32, pbbuffer: *mut u8, pdwserializedsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SerializeWithOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetformatversion), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwserializedsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn GetLowestUncontainedId<'a, P0>(&self, pisyncknowledge: P0, pbitemid: *mut u8, pcbitemidsize: *mut u32) -> ::windows::core::Result<()>
@@ -5782,11 +5755,8 @@ impl ISyncKnowledge2 {
         (::windows::core::Interface::vtable(self).GetMinimumSupportedVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn GetStatistics<'a, P0>(&self, which: P0, pvalue: *mut u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_STATISTICS>,
-    {
-        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), which.into(), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn GetStatistics(&self, which: SYNC_STATISTICS, pvalue: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(which), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
     pub unsafe fn ContainsKnowledgeForItem<'a, P0>(&self, pknowledge: P0, pbitemid: *const u8) -> ::windows::core::Result<()>
@@ -6638,12 +6608,8 @@ impl ISyncSessionState {
         (::windows::core::Interface::vtable(self).SetForgottenKnowledgeRecoveryRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prange)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress<'a, P0, P1>(&self, provider: P0, syncstage: P1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_PROVIDER_ROLE>,
-        P1: ::std::convert::Into<SYNC_PROGRESS_STAGE>,
-    {
-        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
 }
 impl ::core::convert::From<ISyncSessionState> for ::windows::core::IUnknown {
@@ -6726,12 +6692,8 @@ impl ISyncSessionState2 {
         (::windows::core::Interface::vtable(self).base__.SetForgottenKnowledgeRecoveryRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prange)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-    pub unsafe fn OnProgress<'a, P0, P1>(&self, provider: P0, syncstage: P1, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SYNC_PROVIDER_ROLE>,
-        P1: ::std::convert::Into<SYNC_PROGRESS_STAGE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), provider.into(), syncstage.into(), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
+    pub unsafe fn OnProgress(&self, provider: SYNC_PROVIDER_ROLE, syncstage: SYNC_PROGRESS_STAGE, dwcompletedwork: u32, dwtotalwork: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider), ::core::mem::transmute(syncstage), ::core::mem::transmute(dwcompletedwork), ::core::mem::transmute(dwtotalwork)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

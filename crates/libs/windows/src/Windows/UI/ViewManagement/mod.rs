@@ -123,14 +123,11 @@ impl ActivationViewSwitcher {
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowAsStandaloneWithSizePreferenceAsync<'a, P0>(&self, viewid: i32, sizepreference: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<ViewSizePreference>,
-    {
+    pub fn ShowAsStandaloneWithSizePreferenceAsync(&self, viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -347,14 +344,11 @@ impl ApplicationView {
         unsafe { (::windows::core::Interface::vtable(this).RemoveVisibleBoundsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn SetDesiredBoundsMode<'a, P0>(&self, boundsmode: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<ApplicationViewBoundsMode>,
-    {
+    pub fn SetDesiredBoundsMode(&self, boundsmode: ApplicationViewBoundsMode) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IApplicationView2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).SetDesiredBoundsMode)(::windows::core::Interface::as_raw(this), boundsmode.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SetDesiredBoundsMode)(::windows::core::Interface::as_raw(this), boundsmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -382,12 +376,9 @@ impl ApplicationView {
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn SetFullScreenSystemOverlayMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<FullScreenSystemOverlayMode>,
-    {
+    pub fn SetFullScreenSystemOverlayMode(&self, value: FullScreenSystemOverlayMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IApplicationView3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFullScreenSystemOverlayMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFullScreenSystemOverlayMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     pub fn IsFullScreenMode(&self) -> ::windows::core::Result<bool> {
@@ -439,39 +430,32 @@ impl ApplicationView {
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn IsViewModeSupported<'a, P0>(&self, viewmode: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<ApplicationViewMode>,
-    {
+    pub fn IsViewModeSupported(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsViewModeSupported)(::windows::core::Interface::as_raw(this), viewmode.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsViewModeSupported)(::windows::core::Interface::as_raw(this), viewmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryEnterViewModeAsync<'a, P0>(&self, viewmode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<ApplicationViewMode>,
-    {
+    pub fn TryEnterViewModeAsync(&self, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnterViewModeAsync)(::windows::core::Interface::as_raw(this), viewmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryEnterViewModeAsync)(::windows::core::Interface::as_raw(this), viewmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryEnterViewModeWithPreferencesAsync<'a, P0, P1>(&self, viewmode: P0, viewmodepreferences: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryEnterViewModeWithPreferencesAsync<'a, P0>(&self, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::Into<ApplicationViewMode>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
     {
         let this = &::windows::core::Interface::cast::<IApplicationView4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewmode.into(), viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryEnterViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewmode, viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
@@ -579,11 +563,8 @@ impl ApplicationView {
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn SetPreferredLaunchWindowingMode<'a, P0>(value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ApplicationViewWindowingMode>,
-    {
-        Self::IApplicationViewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredLaunchWindowingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() })
+    pub fn SetPreferredLaunchWindowingMode(value: ApplicationViewWindowingMode) -> ::windows::core::Result<()> {
+        Self::IApplicationViewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredLaunchWindowingMode)(::windows::core::Interface::as_raw(this), value).ok() })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1042,25 +1023,18 @@ impl ApplicationViewSwitcher {
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryShowAsStandaloneWithSizePreferenceAsync<'a, P0>(viewid: i32, sizepreference: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<ViewSizePreference>,
-    {
+    pub fn TryShowAsStandaloneWithSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync<'a, P0, P1>(viewid: i32, sizepreference: P0, anchorviewid: i32, anchorsizepreference: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<ViewSizePreference>,
-        P1: ::std::convert::Into<ViewSizePreference>,
-    {
+    pub fn TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync(viewid: i32, sizepreference: ViewSizePreference, anchorviewid: i32, anchorsizepreference: ViewSizePreference) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference.into(), anchorviewid, anchorsizepreference.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync)(::windows::core::Interface::as_raw(this), viewid, sizepreference, anchorviewid, anchorsizepreference, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
@@ -1081,24 +1055,18 @@ impl ApplicationViewSwitcher {
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SwitchFromViewWithOptionsAsync<'a, P0>(toviewid: i32, fromviewid: i32, options: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<ApplicationViewSwitchingOptions>,
-    {
+    pub fn SwitchFromViewWithOptionsAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SwitchFromViewWithOptionsAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SwitchFromViewWithOptionsAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrepareForCustomAnimatedSwitchAsync<'a, P0>(toviewid: i32, fromviewid: i32, options: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<ApplicationViewSwitchingOptions>,
-    {
+    pub fn PrepareForCustomAnimatedSwitchAsync(toviewid: i32, fromviewid: i32, options: ApplicationViewSwitchingOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareForCustomAnimatedSwitchAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareForCustomAnimatedSwitchAsync)(::windows::core::Interface::as_raw(this), toviewid, fromviewid, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -1107,25 +1075,21 @@ impl ApplicationViewSwitcher {
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryShowAsViewModeAsync<'a, P0>(viewid: i32, viewmode: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<ApplicationViewMode>,
-    {
+    pub fn TryShowAsViewModeAsync(viewid: i32, viewmode: ApplicationViewMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IApplicationViewSwitcherStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsViewModeAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryShowAsViewModeAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryShowAsViewModeWithPreferencesAsync<'a, P0, P1>(viewid: i32, viewmode: P0, viewmodepreferences: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryShowAsViewModeWithPreferencesAsync<'a, P0>(viewid: i32, viewmode: ApplicationViewMode, viewmodepreferences: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::Into<ApplicationViewMode>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ViewModePreferences>>,
     {
         Self::IApplicationViewSwitcherStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode.into(), viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryShowAsViewModeWithPreferencesAsync)(::windows::core::Interface::as_raw(this), viewid, viewmode, viewmodepreferences.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3121,13 +3085,10 @@ impl ProjectionManager {
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn RequestStartProjectingWithPlacementAsync<'a, P0>(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
-    where
-        P0: ::std::convert::Into<super::Popups::Placement>,
-    {
+    pub fn RequestStartProjectingWithPlacementAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IProjectionManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStartProjectingWithPlacementAsync)(::windows::core::Interface::as_raw(this), projectionviewid, anchorviewid, selection, prefferedplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStartProjectingWithPlacementAsync)(::windows::core::Interface::as_raw(this), projectionviewid, anchorviewid, selection, prefferedplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3684,14 +3645,11 @@ impl UISettings {
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn UIElementColor<'a, P0>(&self, desiredelement: P0) -> ::windows::core::Result<super::Color>
-    where
-        P0: ::std::convert::Into<UIElementType>,
-    {
+    pub fn UIElementColor(&self, desiredelement: UIElementType) -> ::windows::core::Result<super::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Color>::zeroed();
-            (::windows::core::Interface::vtable(this).UIElementColor)(::windows::core::Interface::as_raw(this), desiredelement.into(), result__.as_mut_ptr()).from_abi::<super::Color>(result__)
+            (::windows::core::Interface::vtable(this).UIElementColor)(::windows::core::Interface::as_raw(this), desiredelement, result__.as_mut_ptr()).from_abi::<super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
@@ -3721,14 +3679,11 @@ impl UISettings {
         unsafe { (::windows::core::Interface::vtable(this).RemoveTextScaleFactorChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn GetColorValue<'a, P0>(&self, desiredcolor: P0) -> ::windows::core::Result<super::Color>
-    where
-        P0: ::std::convert::Into<UIColorType>,
-    {
+    pub fn GetColorValue(&self, desiredcolor: UIColorType) -> ::windows::core::Result<super::Color> {
         let this = &::windows::core::Interface::cast::<IUISettings3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Color>::zeroed();
-            (::windows::core::Interface::vtable(this).GetColorValue)(::windows::core::Interface::as_raw(this), desiredcolor.into(), result__.as_mut_ptr()).from_abi::<super::Color>(result__)
+            (::windows::core::Interface::vtable(this).GetColorValue)(::windows::core::Interface::as_raw(this), desiredcolor, result__.as_mut_ptr()).from_abi::<super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
@@ -4232,12 +4187,9 @@ impl ViewModePreferences {
         }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn SetViewSizePreference<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<ViewSizePreference>,
-    {
+    pub fn SetViewSizePreference(&self, value: ViewSizePreference) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewSizePreference)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewSizePreference)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4255,13 +4207,10 @@ impl ViewModePreferences {
         unsafe { (::windows::core::Interface::vtable(this).SetCustomSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    pub fn CreateDefault<'a, P0>(mode: P0) -> ::windows::core::Result<ViewModePreferences>
-    where
-        P0: ::std::convert::Into<ApplicationViewMode>,
-    {
+    pub fn CreateDefault(mode: ApplicationViewMode) -> ::windows::core::Result<ViewModePreferences> {
         Self::IViewModePreferencesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDefault)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<ViewModePreferences>(result__)
+            (::windows::core::Interface::vtable(this).CreateDefault)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<ViewModePreferences>(result__)
         })
     }
     #[doc(hidden)]

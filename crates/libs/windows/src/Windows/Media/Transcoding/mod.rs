@@ -244,12 +244,9 @@ impl MediaTranscoder {
         }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
-    pub fn SetVideoProcessingAlgorithm<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<MediaVideoProcessingAlgorithm>,
-    {
+    pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTranscoder2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
     pub fn VideoProcessingAlgorithm(&self) -> ::windows::core::Result<MediaVideoProcessingAlgorithm> {

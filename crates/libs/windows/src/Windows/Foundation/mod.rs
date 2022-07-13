@@ -15,14 +15,13 @@ impl AsyncActionCompletedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncAction>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<AsyncStatus>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -207,14 +206,13 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionWithProgressC
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<AsyncStatus>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -307,14 +305,13 @@ impl<TResult: ::windows::core::RuntimeType + 'static> AsyncOperationCompletedHan
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperation<TResult>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<AsyncStatus>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]
@@ -513,14 +510,13 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
-    pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, asyncstatus: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<AsyncStatus>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), asyncinfo.try_into().map_err(|e| e.into())?.abi(), asyncstatus).ok() }
     }
 }
 #[repr(C)]

@@ -290,10 +290,9 @@ where
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateRandomAccessStreamOverStream<'a, P0, P1, T>(stream: P0, options: P1) -> ::windows::core::Result<T>
+pub unsafe fn CreateRandomAccessStreamOverStream<'a, P0, T>(stream: P0, options: BSOS_OPTIONS) -> ::windows::core::Result<T>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>,
-    P1: ::std::convert::Into<BSOS_OPTIONS>,
     T: ::windows::core::Interface,
 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -301,7 +300,7 @@ where
         fn CreateRandomAccessStreamOverStream(stream: *mut ::core::ffi::c_void, options: BSOS_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::option::Option::None;
-    CreateRandomAccessStreamOverStream(stream.into().abi(), options.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    CreateRandomAccessStreamOverStream(stream.into().abi(), ::core::mem::transmute(options), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -1043,19 +1042,15 @@ pub struct ICastingController_Vtbl {
 pub struct ICastingEventHandler(::windows::core::IUnknown);
 impl ICastingEventHandler {
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn OnStateChanged<'a, P0>(&self, newstate: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<CASTING_CONNECTION_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), newstate.into()).ok()
+    pub unsafe fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-    pub unsafe fn OnError<'a, P0, P1>(&self, errorstatus: P0, errormessage: P1) -> ::windows::core::Result<()>
+    pub unsafe fn OnError<'a, P0>(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<CASTING_CONNECTION_ERROR_STATUS>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), errorstatus.into(), errormessage.into()).ok()
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(errorstatus), errormessage.into()).ok()
     }
 }
 impl ::core::convert::From<ICastingEventHandler> for ::windows::core::IUnknown {
@@ -3486,17 +3481,16 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoGetAgileReference<'a, P0, P1>(options: P0, riid: *const ::windows::core::GUID, punk: P1) -> ::windows::core::Result<IAgileReference>
+pub unsafe fn RoGetAgileReference<'a, P0>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: P0) -> ::windows::core::Result<IAgileReference>
 where
-    P0: ::std::convert::Into<AgileReferenceOptions>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    RoGetAgileReference(options.into(), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
+    RoGetAgileReference(::core::mem::transmute(options), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
@@ -3565,15 +3559,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
-pub unsafe fn RoInitialize<'a, P0>(inittype: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<RO_INIT_TYPE>,
-{
+pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::HRESULT;
     }
-    RoInitialize(inittype.into()).ok()
+    RoInitialize(::core::mem::transmute(inittype)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]

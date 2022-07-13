@@ -1485,12 +1485,11 @@ pub struct IAudioProcessingObjectConfiguration_Vtbl {
 pub struct IAudioProcessingObjectLoggingService(::windows::core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
-    pub unsafe fn ApoLog<'a, P0, P1>(&self, level: P0, format: P1)
+    pub unsafe fn ApoLog<'a, P0>(&self, level: APO_LOG_LEVEL, format: P0)
     where
-        P0: ::std::convert::Into<APO_LOG_LEVEL>,
-        P1: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).ApoLog)(::windows::core::Interface::as_raw(self), level.into(), format.into())
+        (::windows::core::Interface::vtable(self).ApoLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), format.into())
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectLoggingService> for ::windows::core::IUnknown {
@@ -1898,11 +1897,8 @@ impl IAudioSystemEffects3 {
         (::windows::core::Interface::vtable(self).GetControllableSystemEffectsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effects), ::core::mem::transmute(numeffects), event.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
-    pub unsafe fn SetAudioSystemEffectState<'a, P0>(&self, effectid: ::windows::core::GUID, state: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<AUDIO_SYSTEMEFFECT_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetAudioSystemEffectState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effectid), state.into()).ok()
+    pub unsafe fn SetAudioSystemEffectState(&self, effectid: ::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAudioSystemEffectState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effectid), ::core::mem::transmute(state)).ok()
     }
 }
 impl ::core::convert::From<IAudioSystemEffects3> for ::windows::core::IUnknown {

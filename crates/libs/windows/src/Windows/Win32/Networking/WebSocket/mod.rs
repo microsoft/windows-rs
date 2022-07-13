@@ -476,28 +476,24 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketGetAction<'a, P0, P1>(hwebsocket: P0, eactionqueue: P1, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WebSocketGetAction<'a, P0>(hwebsocket: P0, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
-    P1: ::std::convert::Into<WEB_SOCKET_ACTION_QUEUE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WebSocketGetAction(hwebsocket.into(), eactionqueue.into(), ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext), ::core::mem::transmute(pvactioncontext)).ok()
+    WebSocketGetAction(hwebsocket.into(), ::core::mem::transmute(eactionqueue), ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext), ::core::mem::transmute(pvactioncontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketGetGlobalProperty<'a, P0>(etype: P0, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<WEB_SOCKET_PROPERTY_TYPE>,
-{
+pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    WebSocketGetGlobalProperty(etype.into(), ::core::mem::transmute(pvvalue), ::core::mem::transmute(ulsize)).ok()
+    WebSocketGetGlobalProperty(::core::mem::transmute(etype), ::core::mem::transmute(pvvalue), ::core::mem::transmute(ulsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
@@ -513,16 +509,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
-pub unsafe fn WebSocketSend<'a, P0, P1>(hwebsocket: P0, buffertype: P1, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn WebSocketSend<'a, P0>(hwebsocket: P0, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<WEB_SOCKET_HANDLE>,
-    P1: ::std::convert::Into<WEB_SOCKET_BUFFER_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WebSocketSend(hwebsocket.into(), buffertype.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(context)).ok()
+    WebSocketSend(hwebsocket.into(), ::core::mem::transmute(buffertype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(context)).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

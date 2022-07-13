@@ -517,26 +517,20 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetBooleanControlDescriptions<'a, P0>(&self, reporttype: P0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>
-    where
-        P0: ::std::convert::Into<HidReportType>,
-    {
+    pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype.into(), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNumericControlDescriptions<'a, P0>(&self, reporttype: P0, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>
-    where
-        P0: ::std::convert::Into<HidReportType>,
-    {
+    pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype.into(), usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
+            (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
@@ -573,14 +567,13 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn FromIdAsync<'a, P0, P1>(deviceid: P0, accessmode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>
+    pub fn FromIdAsync<'a, P0>(deviceid: P0, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<super::super::Storage::FileAccessMode>,
     {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), accessmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidDevice>>(result__)
         })
     }
     #[doc(hidden)]

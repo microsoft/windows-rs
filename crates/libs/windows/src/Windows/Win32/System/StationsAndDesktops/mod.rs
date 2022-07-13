@@ -186,47 +186,44 @@ where
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BroadcastSystemMessageExA<'a, P0, P1, P2>(flags: P0, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P1, lparam: P2, pbsminfo: *mut BSMINFO) -> i32
+pub unsafe fn BroadcastSystemMessageExA<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P0, lparam: P1, pbsminfo: *mut BSMINFO) -> i32
 where
-    P0: ::std::convert::Into<BROADCAST_SYSTEM_MESSAGE_FLAGS>,
-    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pbsminfo: *mut BSMINFO) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageExA(flags.into(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo)))
+    ::core::mem::transmute(BroadcastSystemMessageExA(::core::mem::transmute(flags), ::core::mem::transmute(lpinfo), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo)))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BroadcastSystemMessageExW<'a, P0, P1, P2>(flags: P0, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P1, lparam: P2, pbsminfo: *mut BSMINFO) -> i32
+pub unsafe fn BroadcastSystemMessageExW<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P0, lparam: P1, pbsminfo: *mut BSMINFO) -> i32
 where
-    P0: ::std::convert::Into<BROADCAST_SYSTEM_MESSAGE_FLAGS>,
-    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pbsminfo: *mut BSMINFO) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageExW(flags.into(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo)))
+    ::core::mem::transmute(BroadcastSystemMessageExW(::core::mem::transmute(flags), ::core::mem::transmute(lpinfo), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo)))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BroadcastSystemMessageW<'a, P0, P1, P2>(flags: P0, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P1, lparam: P2) -> i32
+pub unsafe fn BroadcastSystemMessageW<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: P0, lparam: P1) -> i32
 where
-    P0: ::std::convert::Into<BROADCAST_SYSTEM_MESSAGE_FLAGS>,
-    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> i32;
     }
-    ::core::mem::transmute(BroadcastSystemMessageW(flags.into(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(msg), wparam.into(), lparam.into()))
+    ::core::mem::transmute(BroadcastSystemMessageW(::core::mem::transmute(flags), ::core::mem::transmute(lpinfo), ::core::mem::transmute(msg), wparam.into(), lparam.into()))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -439,30 +436,28 @@ pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserObjectInformationA<'a, P0, P1>(hobj: P0, nindex: P1, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetUserObjectInformationA<'a, P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<USER_OBJECT_INFORMATION_INDEX>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetUserObjectInformationA(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserObjectInformationA(hobj.into(), nindex.into(), ::core::mem::transmute(pvinfo), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
+    ::core::mem::transmute(GetUserObjectInformationA(hobj.into(), ::core::mem::transmute(nindex), ::core::mem::transmute(pvinfo), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUserObjectInformationW<'a, P0, P1>(hobj: P0, nindex: P1, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetUserObjectInformationW<'a, P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<USER_OBJECT_INFORMATION_INDEX>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetUserObjectInformationW(hobj.into(), nindex.into(), ::core::mem::transmute(pvinfo), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
+    ::core::mem::transmute(GetUserObjectInformationW(hobj.into(), ::core::mem::transmute(nindex), ::core::mem::transmute(pvinfo), ::core::mem::transmute(nlength), ::core::mem::transmute(lpnlengthneeded)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

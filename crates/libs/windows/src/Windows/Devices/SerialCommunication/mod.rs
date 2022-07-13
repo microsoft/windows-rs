@@ -358,12 +358,9 @@ impl SerialDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn SetHandshake<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SerialHandshake>,
-    {
+    pub fn SetHandshake(&self, value: SerialHandshake) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHandshake)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHandshake)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn IsDataTerminalReadyEnabled(&self) -> ::windows::core::Result<bool> {
@@ -400,12 +397,9 @@ impl SerialDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn SetParity<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SerialParity>,
-    {
+    pub fn SetParity(&self, value: SerialParity) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetParity)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn PortName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -439,12 +433,9 @@ impl SerialDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
-    pub fn SetStopBits<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SerialStopBitCount>,
-    {
+    pub fn SetStopBits(&self, value: SerialStopBitCount) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStopBits)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStopBits)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn UsbVendorId(&self) -> ::windows::core::Result<u16> {

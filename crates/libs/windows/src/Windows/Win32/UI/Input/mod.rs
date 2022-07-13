@@ -54,44 +54,41 @@ pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeh
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[inline]
-pub unsafe fn GetRawInputData<'a, P0, P1>(hrawinput: P0, uicommand: P1, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32
+pub unsafe fn GetRawInputData<'a, P0>(hrawinput: P0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32
 where
     P0: ::std::convert::Into<HRAWINPUT>,
-    P1: ::std::convert::Into<RAW_INPUT_DATA_COMMAND_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputData(hrawinput.into(), uicommand.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), ::core::mem::transmute(cbsizeheader)))
+    ::core::mem::transmute(GetRawInputData(hrawinput.into(), ::core::mem::transmute(uicommand), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), ::core::mem::transmute(cbsizeheader)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoA<'a, P0, P1>(hdevice: P0, uicommand: P1, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32
+pub unsafe fn GetRawInputDeviceInfoA<'a, P0>(hdevice: P0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<RAW_INPUT_DEVICE_INFO_COMMAND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRawInputDeviceInfoA(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceInfoA(hdevice.into(), uicommand.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
+    ::core::mem::transmute(GetRawInputDeviceInfoA(hdevice.into(), ::core::mem::transmute(uicommand), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoW<'a, P0, P1>(hdevice: P0, uicommand: P1, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32
+pub unsafe fn GetRawInputDeviceInfoW<'a, P0>(hdevice: P0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<RAW_INPUT_DEVICE_INFO_COMMAND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRawInputDeviceInfoW(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceInfoW(hdevice.into(), uicommand.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
+    ::core::mem::transmute(GetRawInputDeviceInfoW(hdevice.into(), ::core::mem::transmute(uicommand), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

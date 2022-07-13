@@ -757,12 +757,9 @@ impl SocialFeedItem {
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetBadgeStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SocialItemBadgeStyle>,
-    {
+    pub fn SetBadgeStyle(&self, value: SocialItemBadgeStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBadgeStyle)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBadgeStyle)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -826,12 +823,9 @@ impl SocialFeedItem {
     }
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetStyle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<SocialFeedItemStyle>,
-    {
+    pub fn SetStyle(&self, value: SocialFeedItemStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStyle)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStyle)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 #[cfg(feature = "deprecated")]

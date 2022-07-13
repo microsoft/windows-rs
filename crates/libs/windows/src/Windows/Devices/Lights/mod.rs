@@ -516,25 +516,19 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetIndicesForKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::Array<i32>>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> ::windows::core::Result<::windows::core::Array<i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<i32>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetIndicesForKey)(::windows::core::Interface::as_raw(this), key.into(), ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).GetIndicesForKey)(::windows::core::Interface::as_raw(this), key, ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`*"]
-    pub fn GetIndicesForPurposes<'a, P0>(&self, purposes: P0) -> ::windows::core::Result<::windows::core::Array<i32>>
-    where
-        P0: ::std::convert::Into<LampPurposes>,
-    {
+    pub fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> ::windows::core::Result<::windows::core::Array<i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<i32>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetIndicesForPurposes)(::windows::core::Interface::as_raw(this), purposes.into(), ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).GetIndicesForPurposes)(::windows::core::Interface::as_raw(this), purposes, ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
@@ -563,12 +557,9 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`, `\"UI\"`*"]
     #[cfg(all(feature = "System", feature = "UI"))]
-    pub fn SetColorsForKey<'a, P0>(&self, desiredcolor: super::super::UI::Color, key: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::System::VirtualKey>,
-    {
+    pub fn SetColorsForKey(&self, desiredcolor: super::super::UI::Color, key: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorsForKey)(::windows::core::Interface::as_raw(this), desiredcolor, key.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorsForKey)(::windows::core::Interface::as_raw(this), desiredcolor, key).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`, `\"UI\"`*"]
     #[cfg(all(feature = "System", feature = "UI"))]
@@ -578,12 +569,9 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetColorsForPurposes<'a, P0>(&self, desiredcolor: super::super::UI::Color, purposes: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<LampPurposes>,
-    {
+    pub fn SetColorsForPurposes(&self, desiredcolor: super::super::UI::Color, purposes: LampPurposes) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorsForPurposes)(::windows::core::Interface::as_raw(this), desiredcolor, purposes.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorsForPurposes)(::windows::core::Interface::as_raw(this), desiredcolor, purposes).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]

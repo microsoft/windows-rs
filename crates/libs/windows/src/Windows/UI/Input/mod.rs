@@ -708,12 +708,9 @@ impl GestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn SetGestureSettings<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<GestureSettings>,
-    {
+    pub fn SetGestureSettings(&self, value: GestureSettings) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGestureSettings)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGestureSettings)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
     pub fn IsInertial(&self) -> ::windows::core::Result<bool> {
@@ -5379,14 +5376,11 @@ impl RadialControllerConfiguration {
         unsafe { (::windows::core::Interface::vtable(this).ResetToDefaultMenuItems)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn TrySelectDefaultMenuItem<'a, P0>(&self, r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<RadialControllerSystemMenuItemKind>,
-    {
+    pub fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySelectDefaultMenuItem)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySelectDefaultMenuItem)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -5787,14 +5781,13 @@ impl RadialControllerMenuItem {
         })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
-    pub fn CreateFromKnownIcon<'a, P0, P1>(displaytext: P0, value: P1) -> ::windows::core::Result<RadialControllerMenuItem>
+    pub fn CreateFromKnownIcon<'a, P0>(displaytext: P0, value: RadialControllerMenuKnownIcon) -> ::windows::core::Result<RadialControllerMenuItem>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<RadialControllerMenuKnownIcon>,
     {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromKnownIcon)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), value.into(), result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromKnownIcon)(::windows::core::Interface::as_raw(this), displaytext.into().abi(), value, result__.as_mut_ptr()).from_abi::<RadialControllerMenuItem>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]

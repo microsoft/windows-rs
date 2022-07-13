@@ -676,12 +676,9 @@ impl VoiceCommandContentTile {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-    pub fn SetContentTileType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<VoiceCommandContentTileType>,
-    {
+    pub fn SetContentTileType(&self, value: VoiceCommandContentTileType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentTileType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentTileType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for VoiceCommandContentTile {

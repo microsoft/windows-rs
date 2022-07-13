@@ -911,30 +911,28 @@ pub struct SpatialAnchorExporter(::windows::core::IUnknown);
 impl SpatialAnchorExporter {
     #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAnchorExportSufficiencyAsync<'a, P0, P1>(&self, anchor: P0, purpose: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>
+    pub fn GetAnchorExportSufficiencyAsync<'a, P0>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialAnchor>>,
-        P1: ::std::convert::Into<SpatialAnchorExportPurpose>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAnchorExportSufficiencyAsync)(::windows::core::Interface::as_raw(this), anchor.into().abi(), purpose.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>(result__)
+            (::windows::core::Interface::vtable(this).GetAnchorExportSufficiencyAsync)(::windows::core::Interface::as_raw(this), anchor.into().abi(), purpose, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryExportAnchorAsync<'a, P0, P1, P2, E2>(&self, anchor: P0, purpose: P1, stream: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryExportAnchorAsync<'a, P0, P1, E1>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose, stream: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialAnchor>>,
-        P1: ::std::convert::Into<SpatialAnchorExportPurpose>,
-        P2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E2>,
-        E2: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryExportAnchorAsync)(::windows::core::Interface::as_raw(this), anchor.into().abi(), purpose.into(), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryExportAnchorAsync)(::windows::core::Interface::as_raw(this), anchor.into().abi(), purpose, stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial\"`*"]

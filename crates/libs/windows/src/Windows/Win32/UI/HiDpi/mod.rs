@@ -1,17 +1,15 @@
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn AdjustWindowRectExForDpi<'a, P0, P1, P2>(lprect: *mut super::super::Foundation::RECT, dwstyle: P0, bmenu: P1, dwexstyle: P2, dpi: u32) -> super::super::Foundation::BOOL
+pub unsafe fn AdjustWindowRectExForDpi<'a, P0>(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: P0, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::WindowsAndMessaging::WINDOW_STYLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<super::WindowsAndMessaging::WINDOW_EX_STYLE>,
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AdjustWindowRectExForDpi(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: super::super::Foundation::BOOL, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AdjustWindowRectExForDpi(::core::mem::transmute(lprect), dwstyle.into(), bmenu.into(), dwexstyle.into(), ::core::mem::transmute(dpi)))
+    ::core::mem::transmute(AdjustWindowRectExForDpi(::core::mem::transmute(lprect), ::core::mem::transmute(dwstyle), bmenu.into(), ::core::mem::transmute(dwexstyle), ::core::mem::transmute(dpi)))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -312,16 +310,15 @@ where
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetDpiForMonitor<'a, P0, P1>(hmonitor: P0, dpitype: P1, dpix: *mut u32, dpiy: *mut u32) -> ::windows::core::Result<()>
+pub unsafe fn GetDpiForMonitor<'a, P0>(hmonitor: P0, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
-    P1: ::std::convert::Into<MONITOR_DPI_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows::core::HRESULT;
     }
-    GetDpiForMonitor(hmonitor.into(), dpitype.into(), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
+    GetDpiForMonitor(hmonitor.into(), ::core::mem::transmute(dpitype), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
@@ -553,44 +550,37 @@ where
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDialogControlDpiChangeBehavior<'a, P0, P1, P2>(hwnd: P0, mask: P1, values: P2) -> super::super::Foundation::BOOL
+pub unsafe fn SetDialogControlDpiChangeBehavior<'a, P0>(hwnd: P0, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS>,
-    P2: ::std::convert::Into<DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDialogControlDpiChangeBehavior(hwnd: super::super::Foundation::HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDialogControlDpiChangeBehavior(hwnd.into(), mask.into(), values.into()))
+    ::core::mem::transmute(SetDialogControlDpiChangeBehavior(hwnd.into(), ::core::mem::transmute(mask), ::core::mem::transmute(values)))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDialogDpiChangeBehavior<'a, P0, P1, P2>(hdlg: P0, mask: P1, values: P2) -> super::super::Foundation::BOOL
+pub unsafe fn SetDialogDpiChangeBehavior<'a, P0>(hdlg: P0, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<DIALOG_DPI_CHANGE_BEHAVIORS>,
-    P2: ::std::convert::Into<DIALOG_DPI_CHANGE_BEHAVIORS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetDialogDpiChangeBehavior(hdlg.into(), mask.into(), values.into()))
+    ::core::mem::transmute(SetDialogDpiChangeBehavior(hdlg.into(), ::core::mem::transmute(mask), ::core::mem::transmute(values)))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
-pub unsafe fn SetProcessDpiAwareness<'a, P0>(value: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PROCESS_DPI_AWARENESS>,
-{
+pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::HRESULT;
     }
-    SetProcessDpiAwareness(value.into()).ok()
+    SetProcessDpiAwareness(::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -619,15 +609,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
-pub unsafe fn SetThreadDpiHostingBehavior<'a, P0>(value: P0) -> DPI_HOSTING_BEHAVIOR
-where
-    P0: ::std::convert::Into<DPI_HOSTING_BEHAVIOR>,
-{
+pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR;
     }
-    ::core::mem::transmute(SetThreadDpiHostingBehavior(value.into()))
+    ::core::mem::transmute(SetThreadDpiHostingBehavior(::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

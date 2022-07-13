@@ -1659,12 +1659,9 @@ impl PerceptionPropertyChangeRequest {
     }
     #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetStatus<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::PerceptionFrameSourcePropertyChangeStatus>,
-    {
+    pub fn SetStatus(&self, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2004,14 +2001,10 @@ impl PerceptionVideoFrameAllocator {
     }
     #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated"))]
-    pub fn Create<'a, P0, P1>(maxoutstandingframecountforwrite: u32, format: P0, resolution: super::super::super::Foundation::Size, alpha: P1) -> ::windows::core::Result<PerceptionVideoFrameAllocator>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::Imaging::BitmapPixelFormat>,
-        P1: ::std::convert::Into<super::super::super::Graphics::Imaging::BitmapAlphaMode>,
-    {
+    pub fn Create(maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<PerceptionVideoFrameAllocator> {
         Self::IPerceptionVideoFrameAllocatorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), maxoutstandingframecountforwrite, format.into(), resolution, alpha.into(), result__.as_mut_ptr()).from_abi::<PerceptionVideoFrameAllocator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), maxoutstandingframecountforwrite, format, resolution, alpha, result__.as_mut_ptr()).from_abi::<PerceptionVideoFrameAllocator>(result__)
         })
     }
     #[doc(hidden)]

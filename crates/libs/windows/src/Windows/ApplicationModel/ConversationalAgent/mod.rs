@@ -174,30 +174,28 @@ impl ActivationSignalDetectionConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ApplyTrainingData<'a, P0, P1, E1>(&self, trainingdataformat: P0, trainingdata: P1) -> ::windows::core::Result<DetectionConfigurationTrainingStatus>
+    pub fn ApplyTrainingData<'a, P0, E0>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: P0) -> ::windows::core::Result<DetectionConfigurationTrainingStatus>
     where
-        P0: ::std::convert::Into<ActivationSignalDetectionTrainingDataFormat>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<DetectionConfigurationTrainingStatus>::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyTrainingData)(::windows::core::Interface::as_raw(this), trainingdataformat.into(), trainingdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DetectionConfigurationTrainingStatus>(result__)
+            (::windows::core::Interface::vtable(this).ApplyTrainingData)(::windows::core::Interface::as_raw(this), trainingdataformat, trainingdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DetectionConfigurationTrainingStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ApplyTrainingDataAsync<'a, P0, P1, E1>(&self, trainingdataformat: P0, trainingdata: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>
+    pub fn ApplyTrainingDataAsync<'a, P0, E0>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>
     where
-        P0: ::std::convert::Into<ActivationSignalDetectionTrainingDataFormat>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyTrainingDataAsync)(::windows::core::Interface::as_raw(this), trainingdataformat.into(), trainingdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ApplyTrainingDataAsync)(::windows::core::Interface::as_raw(this), trainingdataformat, trainingdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1114,26 +1112,20 @@ impl ConversationalAgentDetectorManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetActivationSignalDetectors<'a, P0>(&self, kind: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>
-    where
-        P0: ::std::convert::Into<ActivationSignalDetectorKind>,
-    {
+    pub fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationSignalDetectors)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
+            (::windows::core::Interface::vtable(this).GetActivationSignalDetectors)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetActivationSignalDetectorsAsync<'a, P0>(&self, kind: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>
-    where
-        P0: ::std::convert::Into<ActivationSignalDetectorKind>,
-    {
+    pub fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorsAsync)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
+            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorsAsync)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1381,25 +1373,19 @@ impl ConversationalAgentSession {
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAgentStateChangeAsync<'a, P0>(&self, state: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>
-    where
-        P0: ::std::convert::Into<ConversationalAgentState>,
-    {
+    pub fn RequestAgentStateChangeAsync(&self, state: ConversationalAgentState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAgentStateChangeAsync)(::windows::core::Interface::as_raw(this), state.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAgentStateChangeAsync)(::windows::core::Interface::as_raw(this), state, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-    pub fn RequestAgentStateChange<'a, P0>(&self, state: P0) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse>
-    where
-        P0: ::std::convert::Into<ConversationalAgentState>,
-    {
+    pub fn RequestAgentStateChange(&self, state: ConversationalAgentState) -> ::windows::core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<ConversationalAgentSessionUpdateResponse>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAgentStateChange)(::windows::core::Interface::as_raw(this), state.into(), result__.as_mut_ptr()).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).RequestAgentStateChange)(::windows::core::Interface::as_raw(this), state, result__.as_mut_ptr()).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1548,25 +1534,19 @@ impl ConversationalAgentSession {
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestActivationAsync<'a, P0>(&self, activationkind: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>
-    where
-        P0: ::std::convert::Into<ConversationalAgentActivationKind>,
-    {
+    pub fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>> {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestActivationAsync)(::windows::core::Interface::as_raw(this), activationkind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestActivationAsync)(::windows::core::Interface::as_raw(this), activationkind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
-    pub fn RequestActivation<'a, P0>(&self, activationkind: P0) -> ::windows::core::Result<ConversationalAgentActivationResult>
-    where
-        P0: ::std::convert::Into<ConversationalAgentActivationKind>,
-    {
+    pub fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows::core::Result<ConversationalAgentActivationResult> {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<ConversationalAgentActivationResult>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestActivation)(::windows::core::Interface::as_raw(this), activationkind.into(), result__.as_mut_ptr()).from_abi::<ConversationalAgentActivationResult>(result__)
+            (::windows::core::Interface::vtable(this).RequestActivation)(::windows::core::Interface::as_raw(this), activationkind, result__.as_mut_ptr()).from_abi::<ConversationalAgentActivationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]

@@ -336,11 +336,8 @@ pub struct IReferenceTrackerExtension_Vtbl {
 pub struct IReferenceTrackerHost(::windows::core::IUnknown);
 impl IReferenceTrackerHost {
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-    pub unsafe fn DisconnectUnusedReferenceSources<'a, P0>(&self, options: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<XAML_REFERENCETRACKER_DISCONNECT>,
-    {
-        (::windows::core::Interface::vtable(self).DisconnectUnusedReferenceSources)(::windows::core::Interface::as_raw(self), options.into()).ok()
+    pub unsafe fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisconnectUnusedReferenceSources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
     pub unsafe fn ReleaseDisconnectedReferenceSources(&self) -> ::windows::core::Result<()> {

@@ -6279,16 +6279,15 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmEngineGetOption0<'a, P0, P1>(enginehandle: P0, option: P1, value: *mut *mut FWP_VALUE0) -> u32
+pub unsafe fn FwpmEngineGetOption0<'a, P0>(enginehandle: P0, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FWPM_ENGINE_OPTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FwpmEngineGetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32;
     }
-    ::core::mem::transmute(FwpmEngineGetOption0(enginehandle.into(), option.into(), ::core::mem::transmute(value)))
+    ::core::mem::transmute(FwpmEngineGetOption0(enginehandle.into(), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -6319,16 +6318,15 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FwpmEngineSetOption0<'a, P0, P1>(enginehandle: P0, option: P1, newvalue: *const FWP_VALUE0) -> u32
+pub unsafe fn FwpmEngineSetOption0<'a, P0>(enginehandle: P0, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<FWPM_ENGINE_OPTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FwpmEngineSetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32;
     }
-    ::core::mem::transmute(FwpmEngineSetOption0(enginehandle.into(), option.into(), ::core::mem::transmute(newvalue)))
+    ::core::mem::transmute(FwpmEngineSetOption0(enginehandle.into(), ::core::mem::transmute(option), ::core::mem::transmute(newvalue)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

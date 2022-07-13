@@ -222,32 +222,29 @@ pub struct ICreateObject_Vtbl {
 pub struct IDelayedPropertyStoreFactory(::windows::core::IUnknown);
 impl IDelayedPropertyStoreFactory {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetPropertyStore<'a, P0, P1, T>(&self, flags: P0, punkfactory: P1) -> ::windows::core::Result<T>
+    pub unsafe fn GetPropertyStore<'a, P0, T>(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: P0) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetPropertyStore)(::windows::core::Interface::as_raw(self), flags.into(), punkfactory.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), punkfactory.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetPropertyStoreForKeys<'a, P0, T>(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetPropertyStoreForKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgkeys), ::core::mem::transmute(ckeys), flags.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyStoreForKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgkeys), ::core::mem::transmute(ckeys), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetDelayedPropertyStore<'a, P0, T>(&self, flags: P0, dwstoreid: u32) -> ::windows::core::Result<T>
+    pub unsafe fn GetDelayedPropertyStore<T>(&self, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDelayedPropertyStore)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(dwstoreid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetDelayedPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(dwstoreid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDelayedPropertyStoreFactory> for ::windows::core::IUnknown {
@@ -904,12 +901,9 @@ impl IPropertyDescription {
         (::windows::core::Interface::vtable(self).GetEditInvitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetTypeFlags<'a, P0>(&self, mask: P0) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>
-    where
-        P0: ::std::convert::Into<PROPDESC_TYPE_FLAGS>,
-    {
+    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<PROPDESC_TYPE_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeFlags)(::windows::core::Interface::as_raw(self), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).GetTypeFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetViewFlags(&self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS> {
@@ -985,12 +979,9 @@ impl IPropertyDescription {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
+    pub unsafe fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1107,12 +1098,9 @@ impl IPropertyDescription2 {
         (::windows::core::Interface::vtable(self).base__.GetEditInvitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetTypeFlags<'a, P0>(&self, mask: P0) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>
-    where
-        P0: ::std::convert::Into<PROPDESC_TYPE_FLAGS>,
-    {
+    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<PROPDESC_TYPE_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetViewFlags(&self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS> {
@@ -1188,12 +1176,9 @@ impl IPropertyDescription2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
+    pub unsafe fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1296,12 +1281,9 @@ impl IPropertyDescriptionAliasInfo {
         (::windows::core::Interface::vtable(self).base__.GetEditInvitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetTypeFlags<'a, P0>(&self, mask: P0) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>
-    where
-        P0: ::std::convert::Into<PROPDESC_TYPE_FLAGS>,
-    {
+    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<PROPDESC_TYPE_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetViewFlags(&self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS> {
@@ -1377,12 +1359,9 @@ impl IPropertyDescriptionAliasInfo {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
+    pub unsafe fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1553,12 +1532,9 @@ impl IPropertyDescriptionRelatedPropertyInfo {
         (::windows::core::Interface::vtable(self).base__.GetEditInvitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetTypeFlags<'a, P0>(&self, mask: P0) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>
-    where
-        P0: ::std::convert::Into<PROPDESC_TYPE_FLAGS>,
-    {
+    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<PROPDESC_TYPE_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetViewFlags(&self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS> {
@@ -1634,12 +1610,9 @@ impl IPropertyDescriptionRelatedPropertyInfo {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
+    pub unsafe fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1742,12 +1715,9 @@ impl IPropertyDescriptionSearchInfo {
         (::windows::core::Interface::vtable(self).base__.GetEditInvitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetTypeFlags<'a, P0>(&self, mask: P0) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>
-    where
-        P0: ::std::convert::Into<PROPDESC_TYPE_FLAGS>,
-    {
+    pub unsafe fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS> {
         let mut result__ = ::core::mem::MaybeUninit::<PROPDESC_TYPE_FLAGS>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetTypeFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_TYPE_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetViewFlags(&self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS> {
@@ -1823,12 +1793,9 @@ impl IPropertyDescriptionSearchInfo {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
+    pub unsafe fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -2296,19 +2263,13 @@ impl IPropertyStoreCache {
         (::windows::core::Interface::vtable(self).GetValueAndState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn SetState<'a, P0>(&self, key: *const PROPERTYKEY, state: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PSC_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), state.into()).ok()
+    pub unsafe fn SetState(&self, key: *const PROPERTYKEY, state: PSC_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(state)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetValueAndState<'a, P0>(&self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PSC_STATE>,
-    {
-        (::windows::core::Interface::vtable(self).SetValueAndState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), state.into()).ok()
+    pub unsafe fn SetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueAndState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), ::core::mem::transmute(state)).ok()
     }
 }
 impl ::core::convert::From<IPropertyStoreCache> for ::windows::core::IUnknown {
@@ -2431,23 +2392,21 @@ pub struct IPropertyStoreCapabilities_Vtbl {
 pub struct IPropertyStoreFactory(::windows::core::IUnknown);
 impl IPropertyStoreFactory {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetPropertyStore<'a, P0, P1, T>(&self, flags: P0, punkfactory: P1) -> ::windows::core::Result<T>
+    pub unsafe fn GetPropertyStore<'a, P0, T>(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: P0) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetPropertyStore)(::windows::core::Interface::as_raw(self), flags.into(), punkfactory.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), punkfactory.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetPropertyStoreForKeys<'a, P0, T>(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: P0) -> ::windows::core::Result<T>
+    pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetPropertyStoreForKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgkeys), ::core::mem::transmute(ckeys), flags.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyStoreForKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgkeys), ::core::mem::transmute(ckeys), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IPropertyStoreFactory> for ::windows::core::IUnknown {
@@ -2523,30 +2482,23 @@ impl IPropertySystem {
         (::windows::core::Interface::vtable(self).GetPropertyDescriptionListFromString)(::windows::core::Interface::as_raw(self), pszproplist.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn EnumeratePropertyDescriptions<'a, P0, T>(&self, filteron: P0) -> ::windows::core::Result<T>
+    pub unsafe fn EnumeratePropertyDescriptions<T>(&self, filteron: PROPDESC_ENUMFILTER) -> ::windows::core::Result<T>
     where
-        P0: ::std::convert::Into<PROPDESC_ENUMFILTER>,
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumeratePropertyDescriptions)(::windows::core::Interface::as_raw(self), filteron.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).EnumeratePropertyDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filteron), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: P0, psztext: &mut [u16]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), pdff.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _).ok()
+    pub unsafe fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplayAlloc<'a, P0>(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-    where
-        P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-    {
+    pub unsafe fn FormatForDisplayAlloc(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        (::windows::core::Interface::vtable(self).FormatForDisplayAlloc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), pdff.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).FormatForDisplayAlloc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn RegisterPropertySchema<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
@@ -2688,11 +2640,8 @@ impl IPropertyUI {
         (::windows::core::Interface::vtable(self).GetCannonicalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    pub unsafe fn GetDisplayName<'a, P0>(&self, fmtid: *const ::windows::core::GUID, pid: u32, flags: P0, pwsztext: &mut [u16]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PROPERTYUI_NAME_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), flags.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
+    pub unsafe fn GetDisplayName(&self, fmtid: *const ::windows::core::GUID, pid: u32, flags: PROPERTYUI_NAME_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetPropertyDescription(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
@@ -2710,11 +2659,8 @@ impl IPropertyUI {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn FormatForDisplay<'a, P0>(&self, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: P0, pwsztext: &mut [u16]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<PROPERTYUI_FORMAT_FLAGS>,
-    {
-        (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(ppropvar), puiff.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
+    pub unsafe fn FormatForDisplay(&self, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), ::core::mem::transmute(pid), ::core::mem::transmute(ppropvar), ::core::mem::transmute(puiff), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     pub unsafe fn GetHelpInfo(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwszhelpfile: &mut [u16], puhelpid: *mut u32) -> ::windows::core::Result<()> {
@@ -4422,16 +4368,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, P0, P1>(flags: P0, pdpsf: P1, rgstoreids: &[u32], riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, P0>(flags: GETPROPERTYSTOREFLAGS, pdpsf: P0, rgstoreids: &[u32], riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IDelayedPropertyStoreFactory>>,
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IDelayedPropertyStoreFactory>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: *mut ::core::ffi::c_void, rgstoreids: *const u32, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PSCreateDelayedMultiplexPropertyStore(flags.into(), pdpsf.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgstoreids)), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    PSCreateDelayedMultiplexPropertyStore(::core::mem::transmute(flags), pdpsf.into().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgstoreids)), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
@@ -4489,69 +4434,56 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PSCreateSimplePropertyChange<'a, P0>(flags: P0, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PKA_FLAGS>,
-{
+pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PSCreateSimplePropertyChange(flags.into(), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    PSCreateSimplePropertyChange(::core::mem::transmute(flags), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn PSEnumeratePropertyDescriptions<'a, P0>(filteron: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PROPDESC_ENUMFILTER>,
-{
+pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    PSEnumeratePropertyDescriptions(filteron.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    PSEnumeratePropertyDescriptions(::core::mem::transmute(filteron), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PSFormatForDisplay<'a, P0>(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: P0, pwsztext: &mut [u16]) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-{
+pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
     }
-    PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), pdfflags.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
+    PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PSFormatForDisplayAlloc<'a, P0>(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: P0) -> ::windows::core::Result<::windows::core::PWSTR>
-where
-    P0: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
-{
+pub unsafe fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PSFormatForDisplayAlloc(::core::mem::transmute(key), ::core::mem::transmute(propvar), pdff.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PSFormatForDisplayAlloc(::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn PSFormatPropertyValue<'a, P0, P1, P2>(pps: P0, ppd: P1, pdff: P2) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn PSFormatPropertyValue<'a, P0, P1>(pps: P0, ppd: P1, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IPropertyStore>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, IPropertyDescription>>,
-    P2: ::std::convert::Into<PROPDESC_FORMAT_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PSFormatPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    PSFormatPropertyValue(pps.into().abi(), ppd.into().abi(), pdff.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    PSFormatPropertyValue(pps.into().abi(), ppd.into().abi(), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5374,29 +5306,22 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantChangeType<'a, P0>(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: P0, vt: u16) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<PROPVAR_CHANGE_FLAGS>,
-{
+pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::HRESULT;
     }
-    PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), flags.into(), ::core::mem::transmute(vt)).ok()
+    PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), ::core::mem::transmute(flags), ::core::mem::transmute(vt)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantCompareEx<'a, P0, P1>(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: P0, flags: P1) -> i32
-where
-    P0: ::std::convert::Into<PROPVAR_COMPARE_UNIT>,
-    P1: ::std::convert::Into<PROPVAR_COMPARE_FLAGS>,
-{
+pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
     }
-    ::core::mem::transmute(PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), unit.into(), flags.into()))
+    ::core::mem::transmute(PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(unit), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5627,16 +5552,13 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::sup
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantToFileTime<'a, P0>(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: P0) -> ::windows::core::Result<super::super::super::Foundation::FILETIME>
-where
-    P0: ::std::convert::Into<PSTIME_FLAGS>,
-{
+pub unsafe fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
-    PropVariantToFileTime(::core::mem::transmute(propvar), pstfout.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
+    PropVariantToFileTime(::core::mem::transmute(propvar), ::core::mem::transmute(pstfout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6036,30 +5958,26 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
-pub unsafe fn SHGetPropertyStoreFromIDList<'a, P0>(pidl: *const super::Common::ITEMIDLIST, flags: P0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
-{
+pub unsafe fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    SHGetPropertyStoreFromIDList(::core::mem::transmute(pidl), flags.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    SHGetPropertyStoreFromIDList(::core::mem::transmute(pidl), ::core::mem::transmute(flags), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SHGetPropertyStoreFromParsingName<'a, P0, P1, P2>(pszpath: P0, pbc: P1, flags: P2, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn SHGetPropertyStoreFromParsingName<'a, P0, P1>(pszpath: P0, pbc: P1, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IBindCtx>>,
-    P2: ::std::convert::Into<GETPROPERTYSTOREFLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SHGetPropertyStoreFromParsingName(pszpath: ::windows::core::PCWSTR, pbc: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    SHGetPropertyStoreFromParsingName(pszpath.into(), pbc.into().abi(), flags.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    SHGetPropertyStoreFromParsingName(pszpath.into(), pbc.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -6476,16 +6394,13 @@ pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::Syst
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToFileTime<'a, P0>(varin: *const super::super::super::System::Com::VARIANT, stfout: P0) -> ::windows::core::Result<super::super::super::Foundation::FILETIME>
-where
-    P0: ::std::convert::Into<PSTIME_FLAGS>,
-{
+pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
-    VariantToFileTime(::core::mem::transmute(varin), stfout.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
+    VariantToFileTime(::core::mem::transmute(varin), ::core::mem::transmute(stfout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

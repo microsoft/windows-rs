@@ -1,33 +1,30 @@
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice<'a, P0, P1, T>(d3d12device: P0, flags: P1, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+pub unsafe fn DMLCreateDevice<'a, P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>,
-    P1: ::std::convert::Into<DML_CREATE_DEVICE_FLAGS>,
     T: ::windows::core::Interface,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DMLCreateDevice(d3d12device: *mut ::core::ffi::c_void, flags: DML_CREATE_DEVICE_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DMLCreateDevice(d3d12device.into().abi(), flags.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    DMLCreateDevice(d3d12device.into().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice1<'a, P0, P1, P2, T>(d3d12device: P0, flags: P1, minimumfeaturelevel: P2, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+pub unsafe fn DMLCreateDevice1<'a, P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>,
-    P1: ::std::convert::Into<DML_CREATE_DEVICE_FLAGS>,
-    P2: ::std::convert::Into<DML_FEATURE_LEVEL>,
     T: ::windows::core::Interface,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DMLCreateDevice1(d3d12device: *mut ::core::ffi::c_void, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    DMLCreateDevice1(d3d12device.into().abi(), flags.into(), minimumfeaturelevel.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    DMLCreateDevice1(d3d12device.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(minimumfeaturelevel), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
@@ -7568,11 +7565,8 @@ impl IDMLDevice {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-    pub unsafe fn CheckFeatureSupport<'a, P0>(&self, feature: P0, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DML_FEATURE>,
-    {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature.into(), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -7582,13 +7576,12 @@ impl IDMLDevice {
         (::windows::core::Interface::vtable(self).CreateOperator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-    pub unsafe fn CompileOperator<'a, P0, P1, T>(&self, op: P0, flags: P1, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileOperator<'a, P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDMLOperator>>,
-        P1: ::std::convert::Into<DML_EXECUTION_FLAGS>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Interface::vtable(self).CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), flags.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperatorInitializer<T>(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<T>
@@ -7731,11 +7724,8 @@ impl IDMLDevice1 {
         (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-    pub unsafe fn CheckFeatureSupport<'a, P0>(&self, feature: P0, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<DML_FEATURE>,
-    {
-        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), feature.into(), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CheckFeatureSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(feature), ::core::mem::transmute(featurequerydatasize), ::core::mem::transmute(featurequerydata), ::core::mem::transmute(featuresupportdatasize), ::core::mem::transmute(featuresupportdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -7745,13 +7735,12 @@ impl IDMLDevice1 {
         (::windows::core::Interface::vtable(self).base__.CreateOperator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-    pub unsafe fn CompileOperator<'a, P0, P1, T>(&self, op: P0, flags: P1, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileOperator<'a, P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDMLOperator>>,
-        P1: ::std::convert::Into<DML_EXECUTION_FLAGS>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Interface::vtable(self).base__.CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), flags.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).base__.CompileOperator)(::windows::core::Interface::as_raw(self), op.into().abi(), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
     pub unsafe fn CreateOperatorInitializer<T>(&self, operators: &[::core::option::Option<IDMLCompiledOperator>]) -> ::windows::core::Result<T>
@@ -7799,12 +7788,11 @@ impl IDMLDevice1 {
         (::windows::core::Interface::vtable(self).base__.GetParentDevice)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-    pub unsafe fn CompileGraph<'a, P0, T>(&self, desc: *const DML_GRAPH_DESC, flags: P0, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<DML_EXECUTION_FLAGS>,
         T: ::windows::core::Interface,
     {
-        (::windows::core::Interface::vtable(self).CompileGraph)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), flags.into(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+        (::windows::core::Interface::vtable(self).CompileGraph)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(desc), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
 impl ::core::convert::From<IDMLDevice1> for ::windows::core::IUnknown {

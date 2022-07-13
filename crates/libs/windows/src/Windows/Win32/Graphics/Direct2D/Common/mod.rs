@@ -1288,25 +1288,16 @@ impl ::core::default::Default for D2D_VECTOR_4F {
 pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-    pub unsafe fn SetFillMode<'a, P0>(&self, fillmode: P0)
-    where
-        P0: ::std::convert::Into<D2D1_FILL_MODE>,
-    {
-        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), fillmode.into())
+    pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
+        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fillmode))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-    pub unsafe fn SetSegmentFlags<'a, P0>(&self, vertexflags: P0)
-    where
-        P0: ::std::convert::Into<D2D1_PATH_SEGMENT>,
-    {
-        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), vertexflags.into())
+    pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
+        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vertexflags))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-    pub unsafe fn BeginFigure<'a, P0>(&self, startpoint: D2D_POINT_2F, figurebegin: P0)
-    where
-        P0: ::std::convert::Into<D2D1_FIGURE_BEGIN>,
-    {
-        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), figurebegin.into())
+    pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
+        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), ::core::mem::transmute(figurebegin))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
@@ -1317,11 +1308,8 @@ impl ID2D1SimplifiedGeometrySink {
         (::windows::core::Interface::vtable(self).AddBeziers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(beziers)), beziers.len() as _)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-    pub unsafe fn EndFigure<'a, P0>(&self, figureend: P0)
-    where
-        P0: ::std::convert::Into<D2D1_FIGURE_END>,
-    {
-        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), figureend.into())
+    pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
+        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(figureend))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {

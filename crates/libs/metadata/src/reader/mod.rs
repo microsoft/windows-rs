@@ -799,6 +799,12 @@ impl<'a> Reader<'a> {
             _ => !self.type_def_is_blittable(row),
         }
     }
+    pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeKind::Struct => self.type_def_is_handle(row) && self.type_def_type_name(row) != TypeName::BSTR,
+            _ => false,
+        }
+    }
     pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
@@ -1537,7 +1543,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_is_convertible(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_primitive(*row),
+            Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
             Type::PCSTR | Type::PCWSTR => true,
             _ => false,
         }

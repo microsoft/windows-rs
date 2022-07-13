@@ -1545,13 +1545,10 @@ impl SystemDiagnosticInfo {
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
-    pub fn IsArchitectureSupported<'a, P0>(r#type: P0) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<super::ProcessorArchitecture>,
-    {
+    pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> ::windows::core::Result<bool> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]

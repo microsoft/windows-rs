@@ -697,12 +697,9 @@ impl UsbBulkInPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetReadOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UsbReadOptions>,
-    {
+    pub fn SetReadOptions(&self, value: UsbReadOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ReadOptions(&self) -> ::windows::core::Result<UsbReadOptions> {
@@ -902,12 +899,9 @@ impl UsbBulkOutPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetWriteOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UsbWriteOptions>,
-    {
+    pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
@@ -1263,12 +1257,9 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetDirection<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UsbTransferDirection>,
-    {
+    pub fn SetDirection(&self, value: UsbTransferDirection) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ControlTransferType(&self) -> ::windows::core::Result<UsbControlTransferType> {
@@ -1279,12 +1270,9 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetControlTransferType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UsbControlTransferType>,
-    {
+    pub fn SetControlTransferType(&self, value: UsbControlTransferType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Recipient(&self) -> ::windows::core::Result<UsbControlRecipient> {
@@ -1295,12 +1283,9 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetRecipient<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UsbControlRecipient>,
-    {
+    pub fn SetRecipient(&self, value: UsbControlRecipient) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn AsByte(&self) -> ::windows::core::Result<u8> {
@@ -3081,12 +3066,9 @@ impl UsbInterruptOutPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetWriteOptions<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<UsbWriteOptions>,
-    {
+    pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {

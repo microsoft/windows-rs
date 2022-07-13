@@ -43,66 +43,60 @@ pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::core::Result<super:
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 #[inline]
-pub unsafe fn D3D10CreateDevice<'a, P0, P1, P2>(padapter: P0, drivertype: P1, software: P2, flags: u32, sdkversion: u32) -> ::windows::core::Result<ID3D10Device>
+pub unsafe fn D3D10CreateDevice<'a, P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, sdkversion: u32) -> ::windows::core::Result<ID3D10Device>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGIAdapter>>,
-    P1: ::std::convert::Into<D3D10_DRIVER_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CreateDevice(padapter: *mut ::core::ffi::c_void, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, sdkversion: u32, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    D3D10CreateDevice(padapter.into().abi(), drivertype.into(), software.into(), ::core::mem::transmute(flags), ::core::mem::transmute(sdkversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3D10Device>(result__)
+    D3D10CreateDevice(padapter.into().abi(), ::core::mem::transmute(drivertype), software.into(), ::core::mem::transmute(flags), ::core::mem::transmute(sdkversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3D10Device>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 #[inline]
-pub unsafe fn D3D10CreateDevice1<'a, P0, P1, P2, P3>(padapter: P0, drivertype: P1, software: P2, flags: u32, hardwarelevel: P3, sdkversion: u32) -> ::windows::core::Result<ID3D10Device1>
+pub unsafe fn D3D10CreateDevice1<'a, P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32) -> ::windows::core::Result<ID3D10Device1>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGIAdapter>>,
-    P1: ::std::convert::Into<D3D10_DRIVER_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P3: ::std::convert::Into<D3D10_FEATURE_LEVEL1>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CreateDevice1(padapter: *mut ::core::ffi::c_void, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    D3D10CreateDevice1(padapter.into().abi(), drivertype.into(), software.into(), ::core::mem::transmute(flags), hardwarelevel.into(), ::core::mem::transmute(sdkversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3D10Device1>(result__)
+    D3D10CreateDevice1(padapter.into().abi(), ::core::mem::transmute(drivertype), software.into(), ::core::mem::transmute(flags), ::core::mem::transmute(hardwarelevel), ::core::mem::transmute(sdkversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3D10Device1>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 #[inline]
-pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, P0, P1, P2>(padapter: P0, drivertype: P1, software: P2, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ::windows::core::Result<()>
+pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGIAdapter>>,
-    P1: ::std::convert::Into<D3D10_DRIVER_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CreateDeviceAndSwapChain(padapter: *mut ::core::ffi::c_void, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10CreateDeviceAndSwapChain(padapter.into().abi(), drivertype.into(), software.into(), ::core::mem::transmute(flags), ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice)).ok()
+    D3D10CreateDeviceAndSwapChain(padapter.into().abi(), ::core::mem::transmute(drivertype), software.into(), ::core::mem::transmute(flags), ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 #[inline]
-pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, P0, P1, P2, P3>(padapter: P0, drivertype: P1, software: P2, flags: u32, hardwarelevel: P3, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::Result<()>
+pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, P0, P1>(padapter: P0, drivertype: D3D10_DRIVER_TYPE, software: P1, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Dxgi::IDXGIAdapter>>,
-    P1: ::std::convert::Into<D3D10_DRIVER_TYPE>,
-    P2: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P3: ::std::convert::Into<D3D10_FEATURE_LEVEL1>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10CreateDeviceAndSwapChain1(padapter: *mut ::core::ffi::c_void, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    D3D10CreateDeviceAndSwapChain1(padapter.into().abi(), drivertype.into(), software.into(), ::core::mem::transmute(flags), hardwarelevel.into(), ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice)).ok()
+    D3D10CreateDeviceAndSwapChain1(padapter.into().abi(), ::core::mem::transmute(drivertype), software.into(), ::core::mem::transmute(flags), ::core::mem::transmute(hardwarelevel), ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -301,15 +295,12 @@ pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::core::Result<D3D10_S
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10StateBlockMaskDisableCapture<'a, P0>(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: P0, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<D3D10_DEVICE_STATE_TYPES>,
-{
+pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::HRESULT;
     }
-    D3D10StateBlockMaskDisableCapture(::core::mem::transmute(pmask), statetype.into(), ::core::mem::transmute(rangestart), ::core::mem::transmute(rangelength)).ok()
+    D3D10StateBlockMaskDisableCapture(::core::mem::transmute(pmask), ::core::mem::transmute(statetype), ::core::mem::transmute(rangestart), ::core::mem::transmute(rangelength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -323,28 +314,22 @@ pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::core::Result<D3D10_ST
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
-pub unsafe fn D3D10StateBlockMaskEnableCapture<'a, P0>(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: P0, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<D3D10_DEVICE_STATE_TYPES>,
-{
+pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::HRESULT;
     }
-    D3D10StateBlockMaskEnableCapture(::core::mem::transmute(pmask), statetype.into(), ::core::mem::transmute(rangestart), ::core::mem::transmute(rangelength)).ok()
+    D3D10StateBlockMaskEnableCapture(::core::mem::transmute(pmask), ::core::mem::transmute(statetype), ::core::mem::transmute(rangestart), ::core::mem::transmute(rangelength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3D10StateBlockMaskGetSetting<'a, P0>(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: P0, entry: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<D3D10_DEVICE_STATE_TYPES>,
-{
+pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(D3D10StateBlockMaskGetSetting(::core::mem::transmute(pmask), statetype.into(), ::core::mem::transmute(entry)))
+    ::core::mem::transmute(D3D10StateBlockMaskGetSetting(::core::mem::transmute(pmask), ::core::mem::transmute(statetype), ::core::mem::transmute(entry)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
 #[inline]
@@ -7053,11 +7038,8 @@ impl ID3D10Buffer {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetEvictionPriority)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn Map<'a, P0>(&self, maptype: P0, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<D3D10_MAP>,
-    {
-        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), maptype.into(), ::core::mem::transmute(mapflags), ::core::mem::transmute(ppdata)).ok()
+    pub unsafe fn Map(&self, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maptype), ::core::mem::transmute(mapflags), ::core::mem::transmute(ppdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn Unmap(&self) {
@@ -7608,12 +7590,11 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn IASetIndexBuffer<'a, P0, P1>(&self, pindexbuffer: P0, format: P1, offset: u32)
+    pub unsafe fn IASetIndexBuffer<'a, P0>(&self, pindexbuffer: P0, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D10Buffer>>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
     {
-        (::windows::core::Interface::vtable(self).IASetIndexBuffer)(::windows::core::Interface::as_raw(self), pindexbuffer.into().abi(), format.into(), ::core::mem::transmute(offset))
+        (::windows::core::Interface::vtable(self).IASetIndexBuffer)(::windows::core::Interface::as_raw(self), pindexbuffer.into().abi(), ::core::mem::transmute(format), ::core::mem::transmute(offset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
@@ -7636,11 +7617,8 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn IASetPrimitiveTopology<'a, P0>(&self, topology: P0)
-    where
-        P0: ::std::convert::Into<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>,
-    {
-        (::windows::core::Interface::vtable(self).IASetPrimitiveTopology)(::windows::core::Interface::as_raw(self), topology.into())
+    pub unsafe fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
+        (::windows::core::Interface::vtable(self).IASetPrimitiveTopology)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(topology))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn VSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
@@ -7758,13 +7736,12 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResolveSubresource<'a, P0, P1, P2>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P1, srcsubresource: u32, format: P2)
+    pub unsafe fn ResolveSubresource<'a, P0, P1>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P1, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D10Resource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D10Resource>>,
-        P2: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
     {
-        (::windows::core::Interface::vtable(self).ResolveSubresource)(::windows::core::Interface::as_raw(self), pdstresource.into().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into().abi(), ::core::mem::transmute(srcsubresource), format.into())
+        (::windows::core::Interface::vtable(self).ResolveSubresource)(::windows::core::Interface::as_raw(self), pdstresource.into().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
@@ -8017,21 +7994,15 @@ impl ID3D10Device {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckFormatSupport<'a, P0>(&self, format: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-    {
+    pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckFormatSupport)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CheckFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckMultisampleQualityLevels<'a, P0>(&self, format: P0, samplecount: u32) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-    {
+    pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckMultisampleQualityLevels)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(samplecount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CheckMultisampleQualityLevels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO) {
@@ -8320,12 +8291,11 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn IASetIndexBuffer<'a, P0, P1>(&self, pindexbuffer: P0, format: P1, offset: u32)
+    pub unsafe fn IASetIndexBuffer<'a, P0>(&self, pindexbuffer: P0, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D10Buffer>>,
-        P1: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
     {
-        (::windows::core::Interface::vtable(self).base__.IASetIndexBuffer)(::windows::core::Interface::as_raw(self), pindexbuffer.into().abi(), format.into(), ::core::mem::transmute(offset))
+        (::windows::core::Interface::vtable(self).base__.IASetIndexBuffer)(::windows::core::Interface::as_raw(self), pindexbuffer.into().abi(), ::core::mem::transmute(format), ::core::mem::transmute(offset))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
@@ -8348,11 +8318,8 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn IASetPrimitiveTopology<'a, P0>(&self, topology: P0)
-    where
-        P0: ::std::convert::Into<super::Direct3D::D3D_PRIMITIVE_TOPOLOGY>,
-    {
-        (::windows::core::Interface::vtable(self).base__.IASetPrimitiveTopology)(::windows::core::Interface::as_raw(self), topology.into())
+    pub unsafe fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
+        (::windows::core::Interface::vtable(self).base__.IASetPrimitiveTopology)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(topology))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn VSSetShaderResources(&self, startslot: u32, ppshaderresourceviews: &[::core::option::Option<ID3D10ShaderResourceView>]) {
@@ -8470,13 +8437,12 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResolveSubresource<'a, P0, P1, P2>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P1, srcsubresource: u32, format: P2)
+    pub unsafe fn ResolveSubresource<'a, P0, P1>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P1, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D10Resource>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D10Resource>>,
-        P2: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
     {
-        (::windows::core::Interface::vtable(self).base__.ResolveSubresource)(::windows::core::Interface::as_raw(self), pdstresource.into().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into().abi(), ::core::mem::transmute(srcsubresource), format.into())
+        (::windows::core::Interface::vtable(self).base__.ResolveSubresource)(::windows::core::Interface::as_raw(self), pdstresource.into().abi(), ::core::mem::transmute(dstsubresource), psrcresource.into().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(format))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: &mut [::core::option::Option<ID3D10Buffer>]) {
@@ -8729,21 +8695,15 @@ impl ID3D10Device1 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckFormatSupport<'a, P0>(&self, format: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-    {
+    pub unsafe fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckFormatSupport)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckFormatSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckMultisampleQualityLevels<'a, P0>(&self, format: P0, samplecount: u32) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<super::Dxgi::Common::DXGI_FORMAT>,
-    {
+    pub unsafe fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckMultisampleQualityLevels)(::windows::core::Interface::as_raw(self), format.into(), ::core::mem::transmute(samplecount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckMultisampleQualityLevels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO) {
@@ -12190,73 +12150,57 @@ impl ID3D10InfoQueue {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetRetrievalFilterStackSize)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn AddMessage<'a, P0, P1, P2, P3>(&self, category: P0, severity: P1, id: P2, pdescription: P3) -> ::windows::core::Result<()>
+    pub unsafe fn AddMessage<'a, P0>(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<D3D10_MESSAGE_CATEGORY>,
-        P1: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>,
-        P2: ::std::convert::Into<D3D10_MESSAGE_ID>,
-        P3: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), category.into(), severity.into(), id.into(), pdescription.into()).ok()
+        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(severity), ::core::mem::transmute(id), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn AddApplicationMessage<'a, P0, P1>(&self, severity: P0, pdescription: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddApplicationMessage<'a, P0>(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>,
-        P1: ::std::convert::Into<::windows::core::PCSTR>,
+        P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), severity.into(), pdescription.into()).ok()
+        (::windows::core::Interface::vtable(self).AddApplicationMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(severity), pdescription.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnCategory<'a, P0, P1>(&self, category: P0, benable: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnCategory<'a, P0>(&self, category: D3D10_MESSAGE_CATEGORY, benable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<D3D10_MESSAGE_CATEGORY>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetBreakOnCategory)(::windows::core::Interface::as_raw(self), category.into(), benable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBreakOnCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnSeverity<'a, P0, P1>(&self, severity: P0, benable: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnSeverity<'a, P0>(&self, severity: D3D10_MESSAGE_SEVERITY, benable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetBreakOnSeverity)(::windows::core::Interface::as_raw(self), severity.into(), benable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBreakOnSeverity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(severity), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBreakOnID<'a, P0, P1>(&self, id: P0, benable: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetBreakOnID<'a, P0>(&self, id: D3D10_MESSAGE_ID, benable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<D3D10_MESSAGE_ID>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Interface::vtable(self).SetBreakOnID)(::windows::core::Interface::as_raw(self), id.into(), benable.into()).ok()
+        (::windows::core::Interface::vtable(self).SetBreakOnID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), benable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBreakOnCategory<'a, P0>(&self, category: P0) -> super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<D3D10_MESSAGE_CATEGORY>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnCategory)(::windows::core::Interface::as_raw(self), category.into()))
+    pub unsafe fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBreakOnSeverity<'a, P0>(&self, severity: P0) -> super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<D3D10_MESSAGE_SEVERITY>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), severity.into()))
+    pub unsafe fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnSeverity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(severity)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBreakOnID<'a, P0>(&self, id: P0) -> super::super::Foundation::BOOL
-    where
-        P0: ::std::convert::Into<D3D10_MESSAGE_ID>,
-    {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnID)(::windows::core::Interface::as_raw(self), id.into()))
+    pub unsafe fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBreakOnID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14081,11 +14025,8 @@ impl ID3D10Texture1D {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetEvictionPriority)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn Map<'a, P0>(&self, subresource: u32, maptype: P0, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<D3D10_MAP>,
-    {
-        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subresource), maptype.into(), ::core::mem::transmute(mapflags), ::core::mem::transmute(ppdata)).ok()
+    pub unsafe fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subresource), ::core::mem::transmute(maptype), ::core::mem::transmute(mapflags), ::core::mem::transmute(ppdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn Unmap(&self, subresource: u32) {
@@ -14211,12 +14152,9 @@ impl ID3D10Texture2D {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetEvictionPriority)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn Map<'a, P0>(&self, subresource: u32, maptype: P0, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE2D>
-    where
-        P0: ::std::convert::Into<D3D10_MAP>,
-    {
+    pub unsafe fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE2D> {
         let mut result__ = ::core::mem::MaybeUninit::<D3D10_MAPPED_TEXTURE2D>::zeroed();
-        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subresource), maptype.into(), ::core::mem::transmute(mapflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_MAPPED_TEXTURE2D>(result__)
+        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subresource), ::core::mem::transmute(maptype), ::core::mem::transmute(mapflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_MAPPED_TEXTURE2D>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn Unmap(&self, subresource: u32) {
@@ -14342,12 +14280,9 @@ impl ID3D10Texture3D {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.GetEvictionPriority)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
-    pub unsafe fn Map<'a, P0>(&self, subresource: u32, maptype: P0, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE3D>
-    where
-        P0: ::std::convert::Into<D3D10_MAP>,
-    {
+    pub unsafe fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE3D> {
         let mut result__ = ::core::mem::MaybeUninit::<D3D10_MAPPED_TEXTURE3D>::zeroed();
-        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subresource), maptype.into(), ::core::mem::transmute(mapflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_MAPPED_TEXTURE3D>(result__)
+        (::windows::core::Interface::vtable(self).Map)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(subresource), ::core::mem::transmute(maptype), ::core::mem::transmute(mapflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_MAPPED_TEXTURE3D>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`*"]
     pub unsafe fn Unmap(&self, subresource: u32) {

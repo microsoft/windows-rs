@@ -2214,11 +2214,8 @@ impl IWSDUdpAddress {
         (::windows::core::Interface::vtable(self).GetExclusive)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-    pub unsafe fn SetMessageType<'a, P0>(&self, messagetype: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<WSDUdpMessageType>,
-    {
-        (::windows::core::Interface::vtable(self).SetMessageType)(::windows::core::Interface::as_raw(self), messagetype.into()).ok()
+    pub unsafe fn SetMessageType(&self, messagetype: WSDUdpMessageType) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMessageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(messagetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetMessageType(&self) -> ::windows::core::Result<WSDUdpMessageType> {

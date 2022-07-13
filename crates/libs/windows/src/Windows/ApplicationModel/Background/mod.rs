@@ -908,26 +908,24 @@ impl BackgroundExecutionManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessKindAsync<'a, P0, P1>(requestedaccess: P0, reason: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestAccessKindAsync<'a, P0>(requestedaccess: BackgroundAccessRequestKind, reason: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::Into<BackgroundAccessRequestKind>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundExecutionManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessKindAsync)(::windows::core::Interface::as_raw(this), requestedaccess.into(), reason.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessKindAsync)(::windows::core::Interface::as_raw(this), requestedaccess, reason.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestAccessKindForModernStandbyAsync<'a, P0, P1>(requestedaccess: P0, reason: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestAccessKindForModernStandbyAsync<'a, P0>(requestedaccess: BackgroundAccessRequestKind, reason: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::std::convert::Into<BackgroundAccessRequestKind>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessKindForModernStandbyAsync)(::windows::core::Interface::as_raw(this), requestedaccess.into(), reason.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessKindForModernStandbyAsync)(::windows::core::Interface::as_raw(this), requestedaccess, reason.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -1152,14 +1150,13 @@ impl BackgroundTaskCanceledEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Invoke<'a, P0, E0, P1>(&self, sender: P0, reason: P1) -> ::windows::core::Result<()>
+    pub fn Invoke<'a, P0, E0>(&self, sender: P0, reason: BackgroundTaskCancellationReason) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IBackgroundTaskInstance>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<BackgroundTaskCancellationReason>,
     {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), reason.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), reason).ok() }
     }
 }
 #[repr(C)]
@@ -3269,14 +3266,13 @@ impl CustomSystemEventTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, P0, P1>(triggerid: P0, recurrence: P1) -> ::windows::core::Result<CustomSystemEventTrigger>
+    pub fn Create<'a, P0>(triggerid: P0, recurrence: CustomSystemEventTriggerRecurrence) -> ::windows::core::Result<CustomSystemEventTrigger>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
-        P1: ::std::convert::Into<CustomSystemEventTriggerRecurrence>,
     {
         Self::ICustomSystemEventTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggerid.into().abi(), recurrence.into(), result__.as_mut_ptr()).from_abi::<CustomSystemEventTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggerid.into().abi(), recurrence, result__.as_mut_ptr()).from_abi::<CustomSystemEventTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -4149,14 +4145,13 @@ impl GattCharacteristicNotificationTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
-    pub fn CreateWithEventTriggeringMode<'a, P0, P1>(characteristic: P0, eventtriggeringmode: P1) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>
+    pub fn CreateWithEventTriggeringMode<'a, P0>(characteristic: P0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows::core::Result<GattCharacteristicNotificationTrigger>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>>,
-        P1: ::std::convert::Into<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>,
     {
         Self::IGattCharacteristicNotificationTriggerFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithEventTriggeringMode)(::windows::core::Interface::as_raw(this), characteristic.into().abi(), eventtriggeringmode.into(), result__.as_mut_ptr()).from_abi::<GattCharacteristicNotificationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithEventTriggeringMode)(::windows::core::Interface::as_raw(this), characteristic.into().abi(), eventtriggeringmode, result__.as_mut_ptr()).from_abi::<GattCharacteristicNotificationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -4494,12 +4489,9 @@ impl GeovisitTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn SetMonitoringScope<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Devices::Geolocation::VisitMonitoringScope>,
-    {
+    pub fn SetMonitoringScope(&self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMonitoringScope)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMonitoringScope)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for GeovisitTrigger {
@@ -5200,14 +5192,11 @@ pub struct IBackgroundTaskInstance_Vtbl {
 pub struct IBackgroundTaskInstance2(::windows::core::IUnknown);
 impl IBackgroundTaskInstance2 {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn GetThrottleCount<'a, P0>(&self, counter: P0) -> ::windows::core::Result<u32>
-    where
-        P0: ::std::convert::Into<BackgroundTaskThrottleCounter>,
-    {
+    pub fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).GetThrottleCount)(::windows::core::Interface::as_raw(this), counter.into(), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetThrottleCount)(::windows::core::Interface::as_raw(this), counter, result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
@@ -7161,13 +7150,10 @@ impl LocationTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, P0>(triggertype: P0) -> ::windows::core::Result<LocationTrigger>
-    where
-        P0: ::std::convert::Into<LocationTriggerType>,
-    {
+    pub fn Create(triggertype: LocationTriggerType) -> ::windows::core::Result<LocationTrigger> {
         Self::ILocationTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype.into(), result__.as_mut_ptr()).from_abi::<LocationTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype, result__.as_mut_ptr()).from_abi::<LocationTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -8422,13 +8408,10 @@ impl PhoneTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"ApplicationModel_Calls_Background\"`*"]
     #[cfg(feature = "ApplicationModel_Calls_Background")]
-    pub fn Create<'a, P0>(r#type: P0, oneshot: bool) -> ::windows::core::Result<PhoneTrigger>
-    where
-        P0: ::std::convert::Into<super::Calls::Background::PhoneTriggerType>,
-    {
+    pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows::core::Result<PhoneTrigger> {
         Self::IPhoneTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), r#type.into(), oneshot, result__.as_mut_ptr()).from_abi::<PhoneTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), r#type, oneshot, result__.as_mut_ptr()).from_abi::<PhoneTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -8772,12 +8755,9 @@ impl RfcommConnectionTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
-    pub fn SetProtectionLevel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Networking::Sockets::SocketProtectionLevel>,
-    {
+    pub fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
@@ -9106,13 +9086,10 @@ impl SmartCardTrigger {
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Devices_SmartCards\"`*"]
     #[cfg(feature = "Devices_SmartCards")]
-    pub fn Create<'a, P0>(triggertype: P0) -> ::windows::core::Result<SmartCardTrigger>
-    where
-        P0: ::std::convert::Into<super::super::Devices::SmartCards::SmartCardTriggerType>,
-    {
+    pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows::core::Result<SmartCardTrigger> {
         Self::ISmartCardTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype.into(), result__.as_mut_ptr()).from_abi::<SmartCardTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype, result__.as_mut_ptr()).from_abi::<SmartCardTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -9630,13 +9607,10 @@ impl SystemCondition {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, P0>(conditiontype: P0) -> ::windows::core::Result<SystemCondition>
-    where
-        P0: ::std::convert::Into<SystemConditionType>,
-    {
+    pub fn Create(conditiontype: SystemConditionType) -> ::windows::core::Result<SystemCondition> {
         Self::ISystemConditionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), conditiontype.into(), result__.as_mut_ptr()).from_abi::<SystemCondition>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), conditiontype, result__.as_mut_ptr()).from_abi::<SystemCondition>(result__)
         })
     }
     #[doc(hidden)]
@@ -9786,13 +9760,10 @@ impl SystemTrigger {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    pub fn Create<'a, P0>(triggertype: P0, oneshot: bool) -> ::windows::core::Result<SystemTrigger>
-    where
-        P0: ::std::convert::Into<SystemTriggerType>,
-    {
+    pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> ::windows::core::Result<SystemTrigger> {
         Self::ISystemTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype.into(), oneshot, result__.as_mut_ptr()).from_abi::<SystemTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), triggertype, oneshot, result__.as_mut_ptr()).from_abi::<SystemTrigger>(result__)
         })
     }
     #[doc(hidden)]
@@ -10355,13 +10326,10 @@ pub struct UserNotificationChangedTrigger(::windows::core::IUnknown);
 impl UserNotificationChangedTrigger {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn Create<'a, P0>(notificationkinds: P0) -> ::windows::core::Result<UserNotificationChangedTrigger>
-    where
-        P0: ::std::convert::Into<super::super::UI::Notifications::NotificationKinds>,
-    {
+    pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows::core::Result<UserNotificationChangedTrigger> {
         Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), notificationkinds.into(), result__.as_mut_ptr()).from_abi::<UserNotificationChangedTrigger>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), notificationkinds, result__.as_mut_ptr()).from_abi::<UserNotificationChangedTrigger>(result__)
         })
     }
     #[doc(hidden)]

@@ -4589,13 +4589,12 @@ pub struct INetCfgLock_Vtbl {
 pub struct INetCfgPnpReconfigCallback(::windows::core::IUnknown);
 impl INetCfgPnpReconfigCallback {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-    pub unsafe fn SendPnpReconfig<'a, P0, P1, P2>(&self, layer: P0, pszwupper: P1, pszwlower: P2, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>
+    pub unsafe fn SendPnpReconfig<'a, P0, P1>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: P0, pszwlower: P1, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<NCPNP_RECONFIG_LAYER>,
+        P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
-        P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), layer.into(), pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
+        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(layer), pszwupper.into(), pszwlower.into(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
     }
 }
 impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
@@ -8541,16 +8540,15 @@ pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetEnumerateComputerNames<'a, P0, P1>(server: P0, nametype: P1, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32
+pub unsafe fn NetEnumerateComputerNames<'a, P0>(server: P0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<NET_COMPUTER_NAME_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetEnumerateComputerNames(server: ::windows::core::PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(NetEnumerateComputerNames(server.into(), nametype.into(), ::core::mem::transmute(reserved), ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames)))
+    ::core::mem::transmute(NetEnumerateComputerNames(server.into(), ::core::mem::transmute(nametype), ::core::mem::transmute(reserved), ::core::mem::transmute(entrycount), ::core::mem::transmute(computernames)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8826,20 +8824,19 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetJoinDomain<'a, P0, P1, P2, P3, P4, P5>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: P5) -> u32
+pub unsafe fn NetJoinDomain<'a, P0, P1, P2, P3, P4>(lpserver: P0, lpdomain: P1, lpmachineaccountou: P2, lpaccount: P3, lppassword: P4, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
     P4: ::std::convert::Into<::windows::core::PCWSTR>,
-    P5: ::std::convert::Into<NET_JOIN_DOMAIN_JOIN_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetJoinDomain(lpserver: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32;
     }
-    ::core::mem::transmute(NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), fjoinoptions.into()))
+    ::core::mem::transmute(NetJoinDomain(lpserver.into(), lpdomain.into(), lpmachineaccountou.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(fjoinoptions)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9053,19 +9050,18 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetProvisionComputerAccount<'a, P0, P1, P2, P3, P4>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: P4, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows::core::PWSTR) -> u32
+pub unsafe fn NetProvisionComputerAccount<'a, P0, P1, P2, P3>(lpdomain: P0, lpmachinename: P1, lpmachineaccountou: P2, lpdcname: P3, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows::core::PWSTR) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<NETSETUP_PROVISION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetProvisionComputerAccount(lpdomain: ::windows::core::PCWSTR, lpmachinename: ::windows::core::PCWSTR, lpmachineaccountou: ::windows::core::PCWSTR, lpdcname: ::windows::core::PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), dwoptions.into(), ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata)))
+    ::core::mem::transmute(NetProvisionComputerAccount(lpdomain.into(), lpmachinename.into(), lpmachineaccountou.into(), lpdcname.into(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata)))
 }
 pub const NetProvisioning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -9096,16 +9092,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetRemoteComputerSupports<'a, P0, P1>(uncservername: P0, optionswanted: P1, optionssupported: *mut u32) -> u32
+pub unsafe fn NetRemoteComputerSupports<'a, P0>(uncservername: P0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetRemoteComputerSupports(uncservername: ::windows::core::PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetRemoteComputerSupports(uncservername.into(), optionswanted.into(), ::core::mem::transmute(optionssupported)))
+    ::core::mem::transmute(NetRemoteComputerSupports(uncservername.into(), ::core::mem::transmute(optionswanted), ::core::mem::transmute(optionssupported)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9354,29 +9349,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetRequestOfflineDomainJoin<'a, P0, P1>(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: P0, lpwindowspath: P1) -> u32
+pub unsafe fn NetRequestOfflineDomainJoin<'a, P0>(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0) -> u32
 where
-    P0: ::std::convert::Into<NET_REQUEST_PROVISION_OPTIONS>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetRequestOfflineDomainJoin(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(cbprovisionbindatasize), dwoptions.into(), lpwindowspath.into()))
+    ::core::mem::transmute(NetRequestOfflineDomainJoin(::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(cbprovisionbindatasize), ::core::mem::transmute(dwoptions), lpwindowspath.into()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<'a, P0, P1>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: P0, lpwindowspath: P1, pvreserved: *mut ::core::ffi::c_void) -> u32
+pub unsafe fn NetRequestProvisioningPackageInstall<'a, P0>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: *mut ::core::ffi::c_void) -> u32
 where
-    P0: ::std::convert::Into<NET_REQUEST_PROVISION_OPTIONS>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetRequestProvisioningPackageInstall(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata), ::core::mem::transmute(dwpackagebindatasize), dwprovisionoptions.into(), lpwindowspath.into(), ::core::mem::transmute(pvreserved)))
+    ::core::mem::transmute(NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata), ::core::mem::transmute(dwpackagebindatasize), ::core::mem::transmute(dwprovisionoptions), lpwindowspath.into(), ::core::mem::transmute(pvreserved)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9467,17 +9460,16 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetServerEnum<'a, P0, P1, P2>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: P1, domain: P2, resume_handle: *mut u32) -> u32
+pub unsafe fn NetServerEnum<'a, P0, P1>(servername: P0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: P1, resume_handle: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<NET_SERVER_TYPE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetServerEnum(servername: ::windows::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: ::windows::core::PCWSTR, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetServerEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), servertype.into(), domain.into(), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetServerEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(servertype), domain.into(), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9642,17 +9634,16 @@ pub unsafe fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, 
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetUseDel<'a, P0, P1, P2>(uncservername: P0, usename: P1, forcelevelflags: P2) -> u32
+pub unsafe fn NetUseDel<'a, P0, P1>(uncservername: P0, usename: P1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<FORCE_LEVEL_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetUseDel(uncservername: ::windows::core::PCWSTR, usename: ::windows::core::PCWSTR, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32;
     }
-    ::core::mem::transmute(NetUseDel(uncservername.into(), usename.into(), forcelevelflags.into()))
+    ::core::mem::transmute(NetUseDel(uncservername.into(), usename.into(), ::core::mem::transmute(forcelevelflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9721,16 +9712,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetUserEnum<'a, P0, P1>(servername: P0, level: u32, filter: P1, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32
+pub unsafe fn NetUserEnum<'a, P0>(servername: P0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<NET_USER_ENUM_FILTER_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetUserEnum(servername: ::windows::core::PCWSTR, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
     }
-    ::core::mem::transmute(NetUserEnum(servername.into(), ::core::mem::transmute(level), filter.into(), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
+    ::core::mem::transmute(NetUserEnum(servername.into(), ::core::mem::transmute(level), ::core::mem::transmute(filter), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9823,32 +9813,30 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetValidateName<'a, P0, P1, P2, P3, P4>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: P4) -> u32
+pub unsafe fn NetValidateName<'a, P0, P1, P2, P3>(lpserver: P0, lpname: P1, lpaccount: P2, lppassword: P3, nametype: NETSETUP_NAME_TYPE) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<NETSETUP_NAME_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetValidateName(lpserver: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpaccount: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, nametype: NETSETUP_NAME_TYPE) -> u32;
     }
-    ::core::mem::transmute(NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), nametype.into()))
+    ::core::mem::transmute(NetValidateName(lpserver.into(), lpname.into(), lpaccount.into(), lppassword.into(), ::core::mem::transmute(nametype)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetValidatePasswordPolicy<'a, P0, P1>(servername: P0, qualifier: *mut ::core::ffi::c_void, validationtype: P1, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32
+pub unsafe fn NetValidatePasswordPolicy<'a, P0>(servername: P0, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<NET_VALIDATE_PASSWORD_TYPE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetValidatePasswordPolicy(servername: ::windows::core::PCWSTR, qualifier: *mut ::core::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::core::ffi::c_void, outputarg: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(NetValidatePasswordPolicy(servername.into(), ::core::mem::transmute(qualifier), validationtype.into(), ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg)))
+    ::core::mem::transmute(NetValidatePasswordPolicy(servername.into(), ::core::mem::transmute(qualifier), ::core::mem::transmute(validationtype), ::core::mem::transmute(inputarg), ::core::mem::transmute(outputarg)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -9894,17 +9882,16 @@ pub unsafe fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *cons
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetWkstaTransportDel<'a, P0, P1, P2>(servername: P0, transportname: P1, ucond: P2) -> u32
+pub unsafe fn NetWkstaTransportDel<'a, P0, P1>(servername: P0, transportname: P1, ucond: FORCE_LEVEL_FLAGS) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<FORCE_LEVEL_FLAGS>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NetWkstaTransportDel(servername: ::windows::core::PCWSTR, transportname: ::windows::core::PCWSTR, ucond: FORCE_LEVEL_FLAGS) -> u32;
     }
-    ::core::mem::transmute(NetWkstaTransportDel(servername.into(), transportname.into(), ucond.into()))
+    ::core::mem::transmute(NetWkstaTransportDel(servername.into(), transportname.into(), ::core::mem::transmute(ucond)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]

@@ -546,12 +546,9 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetVertexPositionFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-    {
+    pub fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -564,12 +561,9 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetTriangleIndexFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-    {
+    pub fn SetTriangleIndexFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -582,12 +576,9 @@ impl SpatialSurfaceMeshOptions {
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn SetVertexNormalFormat<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::Graphics::DirectX::DirectXPixelFormat>,
-    {
+    pub fn SetVertexNormalFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
     pub fn IncludeVertexNormals(&self) -> ::windows::core::Result<bool> {

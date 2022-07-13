@@ -584,18 +584,14 @@ impl BitmapDecoder {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPixelDataTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
+            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
@@ -609,31 +605,23 @@ impl BitmapDecoder {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSoftwareBitmapConvertedAsync<'a, P0, P1>(&self, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
-    where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-    {
+    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSoftwareBitmapTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn GetSoftwareBitmapTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
     #[doc(hidden)]
@@ -823,13 +811,9 @@ impl BitmapEncoder {
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn SetPixelData<'a, P0, P1>(&self, pixelformat: P0, alphamode: P1, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[u8]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-    {
+    pub fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPixelData)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), width, height, dpix, dpiy, pixels.len() as u32, ::core::mem::transmute(pixels.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPixelData)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, width, height, dpix, dpiy, pixels.len() as u32, ::core::mem::transmute(pixels.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1181,18 +1165,14 @@ impl BitmapFrame {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPixelDataTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
+            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
@@ -1206,31 +1186,23 @@ impl BitmapFrame {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSoftwareBitmapConvertedAsync<'a, P0, P1>(&self, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
-    where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-    {
+    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSoftwareBitmapTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn GetSoftwareBitmapTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
 }
@@ -2012,12 +1984,9 @@ impl BitmapTransform {
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn SetInterpolationMode<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BitmapInterpolationMode>,
-    {
+    pub fn SetInterpolationMode(&self, value: BitmapInterpolationMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterpolationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Flip(&self) -> ::windows::core::Result<BitmapFlip> {
@@ -2028,12 +1997,9 @@ impl BitmapTransform {
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn SetFlip<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BitmapFlip>,
-    {
+    pub fn SetFlip(&self, value: BitmapFlip) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFlip)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFlip)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Rotation(&self) -> ::windows::core::Result<BitmapRotation> {
@@ -2044,12 +2010,9 @@ impl BitmapTransform {
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn SetRotation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<BitmapRotation>,
-    {
+    pub fn SetRotation(&self, value: BitmapRotation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Bounds(&self) -> ::windows::core::Result<BitmapBounds> {
@@ -2150,14 +2113,13 @@ impl BitmapTypedValue {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, P0, P1>(value: P0, r#type: P1) -> ::windows::core::Result<BitmapTypedValue>
+    pub fn Create<'a, P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-        P1: ::std::convert::Into<super::super::Foundation::PropertyType>,
     {
         Self::IBitmapTypedValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value.into().abi(), r#type.into(), result__.as_mut_ptr()).from_abi::<BitmapTypedValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value.into().abi(), r#type, result__.as_mut_ptr()).from_abi::<BitmapTypedValue>(result__)
         })
     }
     #[doc(hidden)]
@@ -2595,18 +2557,14 @@ impl IBitmapFrame {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPixelDataTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
+            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
 }
@@ -2708,31 +2666,23 @@ impl IBitmapFrameWithSoftwareBitmap {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSoftwareBitmapConvertedAsync<'a, P0, P1>(&self, pixelformat: P0, alphamode: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
-    where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-    {
+    pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSoftwareBitmapTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn GetSoftwareBitmapTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2827,18 +2777,14 @@ impl IBitmapFrameWithSoftwareBitmap {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetPixelDataTransformedAsync<'a, P0, P1, P2, P3, P4>(&self, pixelformat: P0, alphamode: P1, transform: P2, exiforientationmode: P3, colormanagementmode: P4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
+    pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
-        P3: ::std::convert::Into<ExifOrientationMode>,
-        P4: ::std::convert::Into<ColorManagementMode>,
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BitmapTransform>>,
     {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat.into(), alphamode.into(), transform.into().abi(), exiforientationmode.into(), colormanagementmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
+            (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
 }
@@ -3205,16 +3151,15 @@ impl ImageStream {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, P0, E0, P1>(&self, buffer: P0, count: u32, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
+    pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<super::super::Storage::Streams::InputStreamOptions>,
     {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3751,14 +3696,11 @@ impl SoftwareBitmap {
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn LockBuffer<'a, P0>(&self, mode: P0) -> ::windows::core::Result<BitmapBuffer>
-    where
-        P0: ::std::convert::Into<BitmapBufferAccessMode>,
-    {
+    pub fn LockBuffer(&self, mode: BitmapBufferAccessMode) -> ::windows::core::Result<BitmapBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<BitmapBuffer>(result__)
+            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<BitmapBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -3798,24 +3740,17 @@ impl SoftwareBitmap {
         }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn Create<'a, P0>(format: P0, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>
-    where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-    {
+    pub fn Create(format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format.into(), width, height, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format, width, height, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn CreateWithAlpha<'a, P0, P1>(format: P0, width: i32, height: i32, alpha: P1) -> ::windows::core::Result<SoftwareBitmap>
-    where
-        P0: ::std::convert::Into<BitmapPixelFormat>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
-    {
+    pub fn CreateWithAlpha(format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format.into(), width, height, alpha.into(), result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format, width, height, alpha, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -3829,53 +3764,47 @@ impl SoftwareBitmap {
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn Convert<'a, P0, P1>(source: P0, format: P1) -> ::windows::core::Result<SoftwareBitmap>
+    pub fn Convert<'a, P0>(source: P0, format: BitmapPixelFormat) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
-        P1: ::std::convert::Into<BitmapPixelFormat>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Convert)(::windows::core::Interface::as_raw(this), source.into().abi(), format.into(), result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).Convert)(::windows::core::Interface::as_raw(this), source.into().abi(), format, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
-    pub fn ConvertWithAlpha<'a, P0, P1, P2>(source: P0, format: P1, alpha: P2) -> ::windows::core::Result<SoftwareBitmap>
+    pub fn ConvertWithAlpha<'a, P0>(source: P0, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
-        P1: ::std::convert::Into<BitmapPixelFormat>,
-        P2: ::std::convert::Into<BitmapAlphaMode>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertWithAlpha)(::windows::core::Interface::as_raw(this), source.into().abi(), format.into(), alpha.into(), result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).ConvertWithAlpha)(::windows::core::Interface::as_raw(this), source.into().abi(), format, alpha, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCopyFromBuffer<'a, P0, E0, P1>(source: P0, format: P1, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>
+    pub fn CreateCopyFromBuffer<'a, P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<BitmapPixelFormat>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCopyFromBuffer)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), format.into(), width, height, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).CreateCopyFromBuffer)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), format, width, height, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCopyWithAlphaFromBuffer<'a, P0, E0, P1, P2>(source: P0, format: P1, width: i32, height: i32, alpha: P2) -> ::windows::core::Result<SoftwareBitmap>
+    pub fn CreateCopyWithAlphaFromBuffer<'a, P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<BitmapPixelFormat>,
-        P2: ::std::convert::Into<BitmapAlphaMode>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCopyWithAlphaFromBuffer)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), format.into(), width, height, alpha.into(), result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).CreateCopyWithAlphaFromBuffer)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), format, width, height, alpha, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -3892,15 +3821,14 @@ impl SoftwareBitmap {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CreateCopyWithAlphaFromSurfaceAsync<'a, P0, E0, P1>(surface: P0, alpha: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
+    pub fn CreateCopyWithAlphaFromSurfaceAsync<'a, P0, E0>(surface: P0, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>,
         E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::Into<BitmapAlphaMode>,
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCopyWithAlphaFromSurfaceAsync)(::windows::core::Interface::as_raw(this), surface.try_into().map_err(|e| e.into())?.abi(), alpha.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).CreateCopyWithAlphaFromSurfaceAsync)(::windows::core::Interface::as_raw(this), surface.try_into().map_err(|e| e.into())?.abi(), alpha, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         })
     }
     #[doc(hidden)]

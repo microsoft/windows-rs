@@ -269,14 +269,11 @@ impl GameListEntry {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCategoryAsync<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<GameListCategory>,
-    {
+    pub fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
@@ -928,14 +925,11 @@ impl IGameListEntry {
     }
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCategoryAsync<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<GameListCategory>,
-    {
+    pub fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetCategoryAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
