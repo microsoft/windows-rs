@@ -125,7 +125,7 @@ where
     extern "system" {
         fn PdfCreateRenderer(pdevice: *mut ::core::ffi::c_void, pprenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PdfCreateRenderer(pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPdfRendererNative>(result__)
 }
 #[cfg(feature = "implement")]

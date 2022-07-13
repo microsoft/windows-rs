@@ -5,7 +5,7 @@ impl BackPressedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -152,7 +152,7 @@ impl HardwareButtons {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::EventHandler<BackPressedEventArgs>>>,
     {
         Self::IHardwareButtonsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BackPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -168,7 +168,7 @@ impl HardwareButtons {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::EventHandler<CameraEventArgs>>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CameraHalfPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -184,7 +184,7 @@ impl HardwareButtons {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::EventHandler<CameraEventArgs>>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CameraPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -200,7 +200,7 @@ impl HardwareButtons {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::EventHandler<CameraEventArgs>>>,
     {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CameraReleased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }

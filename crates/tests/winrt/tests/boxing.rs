@@ -1,6 +1,6 @@
 use core::convert::{TryFrom, TryInto};
-use windows::core::{IInspectable, Interface, HSTRING};
-use windows::Foundation::{IPropertyValue, PropertyValue};
+use windows::core::*;
+use windows::Foundation::*;
 
 macro_rules! primitive_try_into_test {
     ($(($t:ty, $v:literal)),+) => {
@@ -25,7 +25,7 @@ macro_rules! primitive_try_from_test {
 }
 
 #[test]
-fn boxing_into() -> windows::core::Result<()> {
+fn boxing_into() -> Result<()> {
     primitive_try_into_test! {
         (bool, true),
         (bool, false),
@@ -80,14 +80,14 @@ fn boxing_into() -> windows::core::Result<()> {
 }
 
 #[test]
-fn explicit_boxing() -> windows::core::Result<()> {
+fn explicit_boxing() -> Result<()> {
     let object = PropertyValue::CreateString(&HSTRING::from("hello"))?;
     let pv: IPropertyValue = object.cast()?;
     assert!(pv.GetString()? == "hello");
 
     let object = PropertyValue::CreateUInt32Array(&[1, 2, 3])?;
     let pv: IPropertyValue = object.cast()?;
-    let mut array = windows::core::Array::new();
+    let mut array = Array::new();
     assert!(array.is_empty());
     assert!(array.is_empty());
 
@@ -98,7 +98,7 @@ fn explicit_boxing() -> windows::core::Result<()> {
 
     let object = PropertyValue::CreateStringArray(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
     let pv: IPropertyValue = object.cast()?;
-    let mut array = windows::core::Array::new();
+    let mut array = Array::new();
     assert!(array.is_empty());
     assert!(array.is_empty());
 
@@ -108,5 +108,14 @@ fn explicit_boxing() -> windows::core::Result<()> {
     assert!(array.len() == 3);
     array.clear();
 
+    Ok(())
+}
+
+#[test]
+fn reference_array() -> Result<()> {
+    let object = PropertyValue::CreateInt32Array(&[1, 2, 3])?;
+    let array: IReferenceArray<i32> = object.cast()?;
+    let array: Array<i32> = array.Value()?;
+    assert_eq!(array[..], [1, 2, 3]);
     Ok(())
 }

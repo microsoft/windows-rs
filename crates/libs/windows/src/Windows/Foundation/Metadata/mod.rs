@@ -6,7 +6,7 @@ impl ApiInformation {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsTypePresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -16,7 +16,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMethodPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), methodname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -26,7 +26,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMethodPresentWithArity)(::windows::core::Interface::as_raw(this), typename.into().abi(), methodname.into().abi(), inputparametercount, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -36,7 +36,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEventPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), eventname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -46,7 +46,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsPropertyPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -56,7 +56,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsReadOnlyPropertyPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -66,7 +66,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsWriteablePropertyPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -76,7 +76,7 @@ impl ApiInformation {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEnumNamedValuePresent)(::windows::core::Interface::as_raw(this), enumtypename.into().abi(), valuename.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -85,7 +85,7 @@ impl ApiInformation {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsApiContractPresentByMajor)(::windows::core::Interface::as_raw(this), contractname.into().abi(), majorversion, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -94,7 +94,7 @@ impl ApiInformation {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IApiInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsApiContractPresentByMajorAndMinor)(::windows::core::Interface::as_raw(this), contractname.into().abi(), majorversion, minorversion, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }

@@ -112,7 +112,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let params = gen.win32_params(leading_params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen.type_name(&return_type);
-            let abi_return_type_tokens = gen.type_abi_name(&return_type);
 
             quote! {
                 #doc
@@ -123,7 +122,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     extern "system" {
                         fn #name(#(#abi_params),*) #abi_return_type;
                     }
-                    let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
                     #name(#args ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<#return_type_tokens>(result__)
                 }
             }

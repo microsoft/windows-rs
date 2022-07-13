@@ -72,13 +72,13 @@ pub struct ColorHelper(::windows::core::IUnknown);
 impl ColorHelper {
     pub fn FromArgb(a: u8, r: u8, g: u8, b: u8) -> ::windows::core::Result<Color> {
         Self::IColorHelperStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromArgb)(::windows::core::Interface::as_raw(this), a, r, g, b, result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn ToDisplayName(color: Color) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IColorHelperStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ToDisplayName)(::windows::core::Interface::as_raw(this), color, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -161,847 +161,847 @@ pub struct Colors(::windows::core::IUnknown);
 impl Colors {
     pub fn AliceBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AliceBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn AntiqueWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AntiqueWhite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Aqua() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Aqua)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Aquamarine() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Aquamarine)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Azure() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Azure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Beige() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Beige)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Bisque() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Bisque)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Black() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Black)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn BlanchedAlmond() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BlanchedAlmond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Blue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Blue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn BlueViolet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BlueViolet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Brown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Brown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn BurlyWood() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BurlyWood)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn CadetBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CadetBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Chartreuse() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Chartreuse)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Chocolate() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Chocolate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Coral() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Coral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn CornflowerBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CornflowerBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Cornsilk() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Cornsilk)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Crimson() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Crimson)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Cyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Cyan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkCyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkCyan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkGoldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkGoldenrod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkGray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkKhaki() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkKhaki)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkMagenta() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkMagenta)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkOliveGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkOliveGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkOrange() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkOrange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkOrchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkOrchid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkRed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkSalmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkSalmon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkSeaGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkSlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkSlateBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkSlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkSlateGray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkTurquoise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DarkViolet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DarkViolet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DeepPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeepPink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DeepSkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeepSkyBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DimGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DimGray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn DodgerBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DodgerBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Firebrick() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Firebrick)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn FloralWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FloralWhite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn ForestGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ForestGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Fuchsia() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Fuchsia)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Gainsboro() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Gainsboro)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn GhostWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GhostWhite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Gold() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Gold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Goldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Goldenrod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Gray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Gray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Green() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Green)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn GreenYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GreenYellow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Honeydew() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Honeydew)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn HotPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HotPink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn IndianRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndianRed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Indigo() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Indigo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Ivory() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Ivory)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Khaki() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Khaki)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Lavender() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lavender)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LavenderBlush() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LavenderBlush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LawnGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LawnGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LemonChiffon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LemonChiffon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightCoral() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightCoral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightCyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightCyan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightGoldenrodYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightGoldenrodYellow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightGray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightPink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightSalmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightSalmon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightSeaGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightSkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightSkyBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightSlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightSlateGray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightSteelBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightSteelBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LightYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LightYellow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Lime() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn LimeGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LimeGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Linen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Linen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Magenta() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Magenta)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Maroon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Maroon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumAquamarine() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumAquamarine)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumOrchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumOrchid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumPurple() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumPurple)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumSeaGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumSlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumSlateBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumSpringGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumSpringGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumTurquoise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MediumVioletRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediumVioletRed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MidnightBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MidnightBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MintCream() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MintCream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn MistyRose() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MistyRose)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Moccasin() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Moccasin)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn NavajoWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NavajoWhite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Navy() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Navy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn OldLace() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OldLace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Olive() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Olive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn OliveDrab() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OliveDrab)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Orange() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Orange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn OrangeRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OrangeRed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Orchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Orchid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PaleGoldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PaleGoldenrod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PaleGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PaleGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PaleTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PaleTurquoise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PaleVioletRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PaleVioletRed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PapayaWhip() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PapayaWhip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PeachPuff() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PeachPuff)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Peru() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Peru)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Pink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Pink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Plum() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Plum)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn PowderBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PowderBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Purple() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Purple)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Red() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Red)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn RosyBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RosyBrown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn RoyalBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RoyalBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SaddleBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SaddleBrown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Salmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Salmon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SandyBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SandyBrown)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SeaGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SeaShell() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SeaShell)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Sienna() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Sienna)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Silver() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Silver)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SkyBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SlateBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SlateGray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Snow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Snow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SpringGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SpringGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn SteelBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SteelBlue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Tan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Tan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Teal() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Teal)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Thistle() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Thistle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Tomato() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Tomato)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Transparent() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Transparent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Turquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Turquoise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Violet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Violet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Wheat() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Wheat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn White() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).White)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn WhiteSmoke() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WhiteSmoke)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn Yellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Yellow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
     pub fn YellowGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Color>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).YellowGreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Color>(result__)
         })
     }
@@ -1308,7 +1308,7 @@ impl UIContentRoot {
     pub fn UIContext(&self) -> ::windows::core::Result<UIContext> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UIContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UIContext>(result__)
         }
     }

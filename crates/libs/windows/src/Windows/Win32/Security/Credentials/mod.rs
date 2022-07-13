@@ -1748,7 +1748,7 @@ pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::core::Result<*m
     extern "system" {
         fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut KeyCredentialManagerInfo>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     KeyCredentialManagerGetInformation(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut KeyCredentialManagerInfo>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]

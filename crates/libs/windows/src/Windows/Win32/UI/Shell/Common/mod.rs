@@ -91,7 +91,7 @@ impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
 pub struct IObjectArray(::windows::core::IUnknown);
 impl IObjectArray {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows::core::Result<T>
@@ -149,7 +149,7 @@ pub struct IObjectArray_Vtbl {
 pub struct IObjectCollection(::windows::core::IUnknown);
 impl IObjectCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows::core::Result<T>

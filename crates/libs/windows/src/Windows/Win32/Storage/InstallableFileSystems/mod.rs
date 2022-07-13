@@ -625,7 +625,7 @@ where
     extern "system" {
         fn FilterConnectCommunicationPort(lpportname: ::windows::core::PCWSTR, dwoptions: u32, lpcontext: *const ::core::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, hport: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     FilterConnectCommunicationPort(lpportname.into(), dwoptions, ::core::mem::transmute(lpcontext), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
@@ -638,7 +638,7 @@ where
     extern "system" {
         fn FilterCreate(lpfiltername: ::windows::core::PCWSTR, hfilter: *mut HFILTER) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HFILTER>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     FilterCreate(lpfiltername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HFILTER>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
@@ -783,7 +783,7 @@ where
     extern "system" {
         fn FilterInstanceCreate(lpfiltername: ::windows::core::PCWSTR, lpvolumename: ::windows::core::PCWSTR, lpinstancename: ::windows::core::PCWSTR, hinstance: *mut HFILTER_INSTANCE) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HFILTER_INSTANCE>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     FilterInstanceCreate(lpfiltername.into(), lpvolumename.into(), lpinstancename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HFILTER_INSTANCE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]

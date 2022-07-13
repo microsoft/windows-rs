@@ -7997,7 +7997,7 @@ where
     extern "system" {
         fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundation::HANDLE, partition: *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<WHV_PARTITION_HANDLE>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvAcceptPartitionMigration(migrationhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_PARTITION_HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -8020,7 +8020,7 @@ pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, 
     extern "system" {
         fn WHvAllocateVpciResource(providerid: *const ::windows::core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::core::ffi::c_void, resourcedescriptorsizeinbytes: u32, vpciresource: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvAllocateVpciResource(::core::mem::transmute(providerid), flags, ::core::mem::transmute(::windows::core::as_ptr_or_null(resourcedescriptor)), resourcedescriptor.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -8080,7 +8080,7 @@ pub unsafe fn WHvCreatePartition() -> ::windows::core::Result<WHV_PARTITION_HAND
     extern "system" {
         fn WHvCreatePartition(partition: *mut WHV_PARTITION_HANDLE) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<WHV_PARTITION_HANDLE>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvCreatePartition(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_PARTITION_HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
@@ -8220,7 +8220,7 @@ pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, co
     extern "system" {
         fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<WHV_EMULATOR_STATUS>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvEmulatorTryIoEmulation(::core::mem::transmute(emulator), ::core::mem::transmute(context), ::core::mem::transmute(vpcontext), ::core::mem::transmute(ioinstructioncontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_EMULATOR_STATUS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -8230,7 +8230,7 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, 
     extern "system" {
         fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus: *mut WHV_EMULATOR_STATUS) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<WHV_EMULATOR_STATUS>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvEmulatorTryMmioEmulation(::core::mem::transmute(emulator), ::core::mem::transmute(context), ::core::mem::transmute(vpcontext), ::core::mem::transmute(mmioinstructioncontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_EMULATOR_STATUS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -8300,7 +8300,7 @@ where
     extern "system" {
         fn WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE, vpindex: u32, eax: u32, ecx: u32, cpuidoutput: *mut WHV_CPUID_OUTPUT) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<WHV_CPUID_OUTPUT>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvGetVirtualProcessorCpuidOutput(partition.into(), vpindex, eax, ecx, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WHV_CPUID_OUTPUT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -8703,7 +8703,7 @@ where
     extern "system" {
         fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvSignalVirtualProcessorSynicEvent(partition.into(), ::core::mem::transmute(synicevent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_Foundation\"`*"]
@@ -8717,7 +8717,7 @@ where
     extern "system" {
         fn WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE, migrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WHvStartPartitionMigration(partition.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]

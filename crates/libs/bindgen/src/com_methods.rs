@@ -58,13 +58,12 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let params = gen.win32_params(leading_params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen.type_name(&return_type);
-            let abi_return_type_tokens = gen.type_abi_name(&return_type);
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
-                    let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(result__.as_mut_ptr()))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
