@@ -3529,25 +3529,25 @@ impl IAlternativeName {
         (::windows::core::Interface::vtable(self).InitializeFromOtherName)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), encoding, strrawdata.into().abi(), tobewrapped).ok()
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<AlternativeNameType> {
-        let mut result__ = ::core::mem::MaybeUninit::<AlternativeNameType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AlternativeNameType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StrValue(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).StrValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -3652,15 +3652,15 @@ impl IAlternativeNames {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IAlternativeName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAlternativeName>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3769,13 +3769,13 @@ impl IBinaryConverter {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).StringToString)(::windows::core::Interface::as_raw(self), strencodedin.into().abi(), encodingin, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).VariantByteArrayToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarbytearray), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3784,7 +3784,7 @@ impl IBinaryConverter {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).StringToVariantByteArray)(::windows::core::Interface::as_raw(self), strencoded.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -3879,13 +3879,13 @@ impl IBinaryConverter2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.StringToString)(::windows::core::Interface::as_raw(self), strencodedin.into().abi(), encodingin, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.VariantByteArrayToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarbytearray), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3894,19 +3894,19 @@ impl IBinaryConverter2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.StringToVariantByteArray)(::windows::core::Interface::as_raw(self), strencoded.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).StringArrayToVariantArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarstringarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).VariantArrayToStringArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarvariantarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -4034,7 +4034,7 @@ impl ICEnroll {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).createPKCS10)(::windows::core::Interface::as_raw(self), dnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4051,19 +4051,19 @@ impl ICEnroll {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).getCertFromPKCS7)(::windows::core::Interface::as_raw(self), wszpkcs7.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4077,7 +4077,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MyStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4091,7 +4091,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MyStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4103,7 +4103,7 @@ impl ICEnroll {
         (::windows::core::Interface::vtable(self).SetMyStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4112,7 +4112,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4126,7 +4126,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4138,7 +4138,7 @@ impl ICEnroll {
         (::windows::core::Interface::vtable(self).SetCAStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4147,7 +4147,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RootStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4161,7 +4161,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RootStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4173,7 +4173,7 @@ impl ICEnroll {
         (::windows::core::Interface::vtable(self).SetRootStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4182,7 +4182,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4196,7 +4196,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4208,7 +4208,7 @@ impl ICEnroll {
         (::windows::core::Interface::vtable(self).SetRequestStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4217,7 +4217,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4231,7 +4231,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4243,21 +4243,21 @@ impl ICEnroll {
         (::windows::core::Interface::vtable(self).SetProviderName)(::windows::core::Interface::as_raw(self), bstrprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4266,7 +4266,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UseExistingKeySet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4278,7 +4278,7 @@ impl ICEnroll {
         (::windows::core::Interface::vtable(self).SetUseExistingKeySet)(::windows::core::Interface::as_raw(self), fuseexistingkeys.into()).ok()
     }
     pub unsafe fn GenKeyFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4287,7 +4287,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DeleteRequestCert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4301,7 +4301,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WriteCertToCSP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4315,7 +4315,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SPCFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SPCFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4329,7 +4329,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PVKFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PVKFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4343,7 +4343,7 @@ impl ICEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4629,7 +4629,7 @@ impl ICEnroll2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.createPKCS10)(::windows::core::Interface::as_raw(self), dnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4646,19 +4646,19 @@ impl ICEnroll2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.getCertFromPKCS7)(::windows::core::Interface::as_raw(self), wszpkcs7.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4672,7 +4672,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MyStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4686,7 +4686,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MyStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4698,7 +4698,7 @@ impl ICEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetMyStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4707,7 +4707,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CAStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4721,7 +4721,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CAStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4733,7 +4733,7 @@ impl ICEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetCAStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4742,7 +4742,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RootStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4756,7 +4756,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RootStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4768,7 +4768,7 @@ impl ICEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetRootStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4777,7 +4777,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequestStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4791,7 +4791,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequestStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4803,7 +4803,7 @@ impl ICEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetRequestStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4812,7 +4812,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4826,7 +4826,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4838,21 +4838,21 @@ impl ICEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetProviderName)(::windows::core::Interface::as_raw(self), bstrprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4861,7 +4861,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UseExistingKeySet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4873,7 +4873,7 @@ impl ICEnroll2 {
         (::windows::core::Interface::vtable(self).base__.SetUseExistingKeySet)(::windows::core::Interface::as_raw(self), fuseexistingkeys.into()).ok()
     }
     pub unsafe fn GenKeyFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -4882,7 +4882,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.DeleteRequestCert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4896,7 +4896,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.WriteCertToCSP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4910,7 +4910,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SPCFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SPCFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4924,7 +4924,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PVKFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PVKFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4938,7 +4938,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4969,7 +4969,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WriteCertToUserDS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4983,7 +4983,7 @@ impl ICEnroll2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnableT61DNEncoding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5135,7 +5135,7 @@ impl ICEnroll3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.createPKCS10)(::windows::core::Interface::as_raw(self), dnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5152,19 +5152,19 @@ impl ICEnroll3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.getCertFromPKCS7)(::windows::core::Interface::as_raw(self), wszpkcs7.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5178,7 +5178,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MyStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5192,7 +5192,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MyStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5204,7 +5204,7 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetMyStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5213,7 +5213,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CAStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5227,7 +5227,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CAStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5239,7 +5239,7 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetCAStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5248,7 +5248,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RootStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5262,7 +5262,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RootStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5274,7 +5274,7 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetRootStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5283,7 +5283,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RequestStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5297,7 +5297,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RequestStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5309,7 +5309,7 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetRequestStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5318,7 +5318,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5332,7 +5332,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5344,21 +5344,21 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetProviderName)(::windows::core::Interface::as_raw(self), bstrprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5367,7 +5367,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.UseExistingKeySet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5379,7 +5379,7 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetUseExistingKeySet)(::windows::core::Interface::as_raw(self), fuseexistingkeys.into()).ok()
     }
     pub unsafe fn GenKeyFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5388,7 +5388,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.DeleteRequestCert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5402,7 +5402,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.WriteCertToCSP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5416,7 +5416,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SPCFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SPCFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5430,7 +5430,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PVKFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.PVKFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5444,7 +5444,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5475,7 +5475,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.WriteCertToUserDS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5489,7 +5489,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnableT61DNEncoding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5512,7 +5512,7 @@ impl ICEnroll3 {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetSupportedKeySpec(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSupportedKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5522,17 +5522,17 @@ impl ICEnroll3 {
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetKeyLen)(::windows::core::Interface::as_raw(self), fmin.into(), fexchange.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumAlgs)(::windows::core::Interface::as_raw(self), dwindex, algclass, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlgName(&self, algid: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAlgName)(::windows::core::Interface::as_raw(self), algid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5546,14 +5546,14 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReuseHardwareKeyIfUnableToGenNew)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHashAlgID)(::windows::core::Interface::as_raw(self), hashalgid).ok()
     }
     pub unsafe fn HashAlgID(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HashAlgID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5567,7 +5567,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LimitExchangeKeyToEncipherment(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LimitExchangeKeyToEncipherment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5581,7 +5581,7 @@ impl ICEnroll3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSMIMECapabilities(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnableSMIMECapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
@@ -5760,7 +5760,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.createPKCS10)(::windows::core::Interface::as_raw(self), dnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5777,19 +5777,19 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.getCertFromPKCS7)(::windows::core::Interface::as_raw(self), wszpkcs7.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumProviders(&self, dwindex: i32, dwflags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.enumProviders)(::windows::core::Interface::as_raw(self), dwindex, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn enumContainers(&self, dwindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.enumContainers)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5803,7 +5803,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MyStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5817,7 +5817,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MyStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MyStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5829,7 +5829,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetMyStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn MyStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MyStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMyStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5838,7 +5838,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CAStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5852,7 +5852,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CAStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5864,7 +5864,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetCAStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn CAStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CAStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetCAStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5873,7 +5873,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RootStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5887,7 +5887,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RootStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5899,7 +5899,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetRootStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RootStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RootStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRootStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5908,7 +5908,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RequestStoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5922,7 +5922,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestStoreType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RequestStoreType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5934,7 +5934,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetRequestStoreType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi()).ok()
     }
     pub unsafe fn RequestStoreFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.RequestStoreFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetRequestStoreFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5943,7 +5943,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5957,7 +5957,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5969,21 +5969,21 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetProviderName)(::windows::core::Interface::as_raw(self), bstrprovider.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderType(&self, dwtype: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetProviderType)(::windows::core::Interface::as_raw(self), dwtype).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetKeySpec(&self, dw: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetKeySpec)(::windows::core::Interface::as_raw(self), dw).ok()
     }
     pub unsafe fn ProviderFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ProviderFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -5992,7 +5992,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseExistingKeySet(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.UseExistingKeySet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6004,7 +6004,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetUseExistingKeySet)(::windows::core::Interface::as_raw(self), fuseexistingkeys.into()).ok()
     }
     pub unsafe fn GenKeyFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GenKeyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetGenKeyFlags(&self, dwflags: i32) -> ::windows::core::Result<()> {
@@ -6013,7 +6013,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteRequestCert(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.DeleteRequestCert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6027,7 +6027,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToCSP(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.WriteCertToCSP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6041,7 +6041,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SPCFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SPCFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6055,7 +6055,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PVKFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.PVKFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6069,7 +6069,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6100,7 +6100,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteCertToUserDS(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.WriteCertToUserDS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6114,7 +6114,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableT61DNEncoding(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnableT61DNEncoding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6137,7 +6137,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetSupportedKeySpec(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSupportedKeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6147,17 +6147,17 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
         P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetKeyLen)(::windows::core::Interface::as_raw(self), fmin.into(), fexchange.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn EnumAlgs(&self, dwindex: i32, algclass: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumAlgs)(::windows::core::Interface::as_raw(self), dwindex, algclass, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlgName(&self, algid: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAlgName)(::windows::core::Interface::as_raw(self), algid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6171,14 +6171,14 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReuseHardwareKeyIfUnableToGenNew(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ReuseHardwareKeyIfUnableToGenNew)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn SetHashAlgID(&self, hashalgid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetHashAlgID)(::windows::core::Interface::as_raw(self), hashalgid).ok()
     }
     pub unsafe fn HashAlgID(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.HashAlgID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6192,7 +6192,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LimitExchangeKeyToEncipherment(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.LimitExchangeKeyToEncipherment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6206,7 +6206,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSMIMECapabilities(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnableSMIMECapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6220,7 +6220,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrivateKeyArchiveCertificate(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PrivateKeyArchiveCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6234,7 +6234,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ThumbPrint(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ThumbPrint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6243,7 +6243,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).binaryToString)(::windows::core::Interface::as_raw(self), flags, strbinary.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6252,7 +6252,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).stringToBinary)(::windows::core::Interface::as_raw(self), flags, strencoded.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6295,7 +6295,7 @@ impl ICEnroll4 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).createRequest)(::windows::core::Interface::as_raw(self), flags, strdnname.into().abi(), usage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6330,7 +6330,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).getCertFromResponse)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6339,7 +6339,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).getCertFromFileResponse)(::windows::core::Interface::as_raw(self), strresponsefilename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6348,7 +6348,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).createPFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6373,7 +6373,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).enumPendingRequest)(::windows::core::Interface::as_raw(self), lindex, ldesiredproperty, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6385,7 +6385,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).removePendingRequest)(::windows::core::Interface::as_raw(self), strthumbprint.into().abi()).ok()
     }
     pub unsafe fn GetKeyLenEx(&self, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetKeyLenEx)(::windows::core::Interface::as_raw(self), lsizespec, lkeyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6394,7 +6394,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstallPKCS7Ex)(::windows::core::Interface::as_raw(self), pkcs7.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6412,7 +6412,7 @@ impl ICEnroll4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).getProviderType)(::windows::core::Interface::as_raw(self), strprovname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6427,7 +6427,7 @@ impl ICEnroll4 {
         (::windows::core::Interface::vtable(self).SetClientId)(::windows::core::Interface::as_raw(self), lclientid).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6452,7 +6452,7 @@ impl ICEnroll4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IncludeSubjectKeyID(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IncludeSubjectKeyID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
 }
@@ -6708,11 +6708,11 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsValidCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetRevocationReason(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRevocationReason)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6756,7 +6756,7 @@ impl ICertAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ResubmitRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6773,7 +6773,7 @@ impl ICertAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6783,7 +6783,7 @@ impl ICertAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ImportCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strcertificate.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -6904,11 +6904,11 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsValidCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetRevocationReason(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRevocationReason)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6952,7 +6952,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ResubmitRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6969,7 +6969,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCRL)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6979,7 +6979,7 @@ impl ICertAdmin2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ImportCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strcertificate.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6996,7 +6996,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7013,7 +7013,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7022,7 +7022,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7031,7 +7031,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetArchivedKey)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7042,7 +7042,7 @@ impl ICertAdmin2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetConfigEntry)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strnodepath.into().abi(), strentryname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7071,7 +7071,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTADMIN_GET_ROLES_FLAGS>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMyRoles)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTADMIN_GET_ROLES_FLAGS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7080,7 +7080,7 @@ impl ICertAdmin2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DeleteRow)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), flags, date, table, rowid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -7220,11 +7220,11 @@ pub struct ICertConfig(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertConfig {
     pub unsafe fn Reset(&self, index: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn Next(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7233,13 +7233,13 @@ impl ICertConfig {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetField)(::windows::core::Interface::as_raw(self), strfieldname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfig(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetConfig)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -7327,11 +7327,11 @@ pub struct ICertConfig2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertConfig2 {
     pub unsafe fn Reset(&self, index: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn Next(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7340,13 +7340,13 @@ impl ICertConfig2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetField)(::windows::core::Interface::as_raw(self), strfieldname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfig(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetConfig)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7462,17 +7462,17 @@ impl ICertEncodeAltName {
         (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetNameCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetNameChoice(&self, nameindex: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNameChoice)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Reset(&self, namecount: i32) -> ::windows::core::Result<()> {
@@ -7489,7 +7489,7 @@ impl ICertEncodeAltName {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -7594,17 +7594,17 @@ impl ICertEncodeAltName2 {
         (::windows::core::Interface::vtable(self).base__.Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetNameCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetNameChoice(&self, nameindex: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetNameChoice)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Reset(&self, namecount: i32) -> ::windows::core::Result<()> {
@@ -7621,7 +7621,7 @@ impl ICertEncodeAltName2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7635,13 +7635,13 @@ impl ICertEncodeAltName2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNameBlob(&self, nameindex: i32, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNameBlob)(::windows::core::Interface::as_raw(self), nameindex, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7769,13 +7769,13 @@ impl ICertEncodeBitString {
         (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetBitCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBitCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBitString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBitString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7784,7 +7784,7 @@ impl ICertEncodeBitString {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), bitcount, strbitstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -7883,13 +7883,13 @@ impl ICertEncodeBitString2 {
         (::windows::core::Interface::vtable(self).base__.Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetBitCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetBitCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBitString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetBitString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7898,7 +7898,7 @@ impl ICertEncodeBitString2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), bitcount, strbitstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7915,13 +7915,13 @@ impl ICertEncodeBitString2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), bitcount, strbitstring.into().abi(), encodingin, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBitStringBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBitStringBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8037,21 +8037,21 @@ impl ICertEncodeCRLDistInfo {
         (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetDistPointCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDistPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetNameCount(&self, distpointindex: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNameCount)(::windows::core::Interface::as_raw(self), distpointindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetNameChoice(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNameChoice)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Reset(&self, distpointcount: i32) -> ::windows::core::Result<()> {
@@ -8071,7 +8071,7 @@ impl ICertEncodeCRLDistInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8178,21 +8178,21 @@ impl ICertEncodeCRLDistInfo2 {
         (::windows::core::Interface::vtable(self).base__.Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetDistPointCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDistPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetNameCount(&self, distpointindex: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetNameCount)(::windows::core::Interface::as_raw(self), distpointindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetNameChoice(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetNameChoice)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self, distpointindex: i32, nameindex: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), distpointindex, nameindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Reset(&self, distpointcount: i32) -> ::windows::core::Result<()> {
@@ -8212,7 +8212,7 @@ impl ICertEncodeCRLDistInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8226,7 +8226,7 @@ impl ICertEncodeCRLDistInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8338,11 +8338,11 @@ impl ICertEncodeDateArray {
         (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
@@ -8354,7 +8354,7 @@ impl ICertEncodeDateArray {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8452,11 +8452,11 @@ impl ICertEncodeDateArray2 {
         (::windows::core::Interface::vtable(self).base__.Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
@@ -8468,7 +8468,7 @@ impl ICertEncodeDateArray2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8482,7 +8482,7 @@ impl ICertEncodeDateArray2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8594,11 +8594,11 @@ impl ICertEncodeLongArray {
         (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
@@ -8610,7 +8610,7 @@ impl ICertEncodeLongArray {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8708,11 +8708,11 @@ impl ICertEncodeLongArray2 {
         (::windows::core::Interface::vtable(self).base__.Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn Reset(&self, count: i32) -> ::windows::core::Result<()> {
@@ -8724,7 +8724,7 @@ impl ICertEncodeLongArray2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8738,7 +8738,7 @@ impl ICertEncodeLongArray2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8850,17 +8850,17 @@ impl ICertEncodeStringArray {
         (::windows::core::Interface::vtable(self).Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetStringType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStringType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Reset(&self, count: i32, stringtype: super::CERT_RDN_ATTR_VALUE_TYPE) -> ::windows::core::Result<()> {
@@ -8877,7 +8877,7 @@ impl ICertEncodeStringArray {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8982,17 +8982,17 @@ impl ICertEncodeStringArray2 {
         (::windows::core::Interface::vtable(self).base__.Decode)(::windows::core::Interface::as_raw(self), strbinary.into().abi()).ok()
     }
     pub unsafe fn GetStringType(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStringType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Reset(&self, count: i32, stringtype: super::CERT_RDN_ATTR_VALUE_TYPE) -> ::windows::core::Result<()> {
@@ -9009,7 +9009,7 @@ impl ICertEncodeStringArray2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Encode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9023,7 +9023,7 @@ impl ICertEncodeStringArray2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncodeBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -9132,7 +9132,7 @@ impl ICertExit {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CERT_EXIT_EVENT_MASK>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERT_EXIT_EVENT_MASK>(result__)
     }
     pub unsafe fn Notify(&self, exitevent: i32, context: i32) -> ::windows::core::Result<()> {
@@ -9141,7 +9141,7 @@ impl ICertExit {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -9233,7 +9233,7 @@ impl ICertExit2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CERT_EXIT_EVENT_MASK>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERT_EXIT_EVENT_MASK>(result__)
     }
     pub unsafe fn Notify(&self, exitevent: i32, context: i32) -> ::windows::core::Result<()> {
@@ -9242,13 +9242,13 @@ impl ICertExit2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetManageModule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertManageModule>(result__)
     }
 }
@@ -9350,7 +9350,7 @@ impl ICertGetConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfig(&self, flags: CERT_GET_CONFIG_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetConfig)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -9439,7 +9439,7 @@ impl ICertManageModule {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strstoragelocation.into().abi(), strpropertyname.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9561,13 +9561,13 @@ impl ICertPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).VerifyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), context, bnewrequest, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn ShutDown(&self) -> ::windows::core::Result<()> {
@@ -9674,13 +9674,13 @@ impl ICertPolicy2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.VerifyRequest)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), context, bnewrequest, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn ShutDown(&self) -> ::windows::core::Result<()> {
@@ -9689,7 +9689,7 @@ impl ICertPolicy2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetManageModule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertManageModule>(result__)
     }
 }
@@ -9791,15 +9791,15 @@ impl ICertProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertProperty> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertProperty>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9931,7 +9931,7 @@ impl ICertProperty {
         (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -9940,7 +9940,7 @@ impl ICertProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10072,7 +10072,7 @@ impl ICertPropertyArchived {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -10081,7 +10081,7 @@ impl ICertPropertyArchived {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10104,7 +10104,7 @@ impl ICertPropertyArchived {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), archivedvalue).ok()
     }
     pub unsafe fn Archived(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Archived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
@@ -10218,7 +10218,7 @@ impl ICertPropertyArchivedKeyHash {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -10227,7 +10227,7 @@ impl ICertPropertyArchivedKeyHash {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10257,7 +10257,7 @@ impl ICertPropertyArchivedKeyHash {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_ArchivedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ArchivedKeyHash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -10377,7 +10377,7 @@ impl ICertPropertyAutoEnroll {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -10386,7 +10386,7 @@ impl ICertPropertyAutoEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10416,7 +10416,7 @@ impl ICertPropertyAutoEnroll {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TemplateName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -10536,7 +10536,7 @@ impl ICertPropertyBackedUp {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -10545,7 +10545,7 @@ impl ICertPropertyBackedUp {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10571,11 +10571,11 @@ impl ICertPropertyBackedUp {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), backedupvalue, date).ok()
     }
     pub unsafe fn BackedUpValue(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BackedUpValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn BackedUpTime(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BackedUpTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
 }
@@ -10691,7 +10691,7 @@ impl ICertPropertyDescription {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -10700,7 +10700,7 @@ impl ICertPropertyDescription {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10730,7 +10730,7 @@ impl ICertPropertyDescription {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -10850,7 +10850,7 @@ impl ICertPropertyEnrollment {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -10859,7 +10859,7 @@ impl ICertPropertyEnrollment {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10889,25 +10889,25 @@ impl ICertPropertyEnrollment {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), requestid, strcadnsname.into().abi(), strcaname.into().abi(), strfriendlyname.into().abi()).ok()
     }
     pub unsafe fn RequestId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CADnsName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CADnsName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -11036,7 +11036,7 @@ impl ICertPropertyEnrollmentPolicyServer {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -11045,7 +11045,7 @@ impl ICertPropertyEnrollmentPolicyServer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11078,41 +11078,41 @@ impl ICertPropertyEnrollmentPolicyServer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPolicyServerUrl(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPolicyServerUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPolicyServerId(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPolicyServerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnrollmentServerUrl(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnrollmentServerUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRequestIdString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetPropertyFlags(&self) -> ::windows::core::Result<EnrollmentPolicyServerPropertyFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<EnrollmentPolicyServerPropertyFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EnrollmentPolicyServerPropertyFlags>(result__)
     }
     pub unsafe fn GetUrlFlags(&self) -> ::windows::core::Result<PolicyServerUrlFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<PolicyServerUrlFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUrlFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PolicyServerUrlFlags>(result__)
     }
     pub unsafe fn GetAuthentication(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509EnrollmentAuthFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAuthentication)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509EnrollmentAuthFlags>(result__)
     }
     pub unsafe fn GetEnrollmentServerAuthentication(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509EnrollmentAuthFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnrollmentServerAuthentication)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509EnrollmentAuthFlags>(result__)
     }
 }
@@ -11248,7 +11248,7 @@ impl ICertPropertyFriendlyName {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -11257,7 +11257,7 @@ impl ICertPropertyFriendlyName {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11287,7 +11287,7 @@ impl ICertPropertyFriendlyName {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -11407,7 +11407,7 @@ impl ICertPropertyKeyProvInfo {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -11416,7 +11416,7 @@ impl ICertPropertyKeyProvInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11446,7 +11446,7 @@ impl ICertPropertyKeyProvInfo {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
 }
@@ -11566,7 +11566,7 @@ impl ICertPropertyRenewal {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -11575,7 +11575,7 @@ impl ICertPropertyRenewal {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11613,7 +11613,7 @@ impl ICertPropertyRenewal {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Renewal(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Renewal)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -11737,7 +11737,7 @@ impl ICertPropertyRequestOriginator {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -11746,7 +11746,7 @@ impl ICertPropertyRequestOriginator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11779,7 +11779,7 @@ impl ICertPropertyRequestOriginator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestOriginator(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestOriginator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -11900,7 +11900,7 @@ impl ICertPropertySHA1Hash {
         (::windows::core::Interface::vtable(self).base__.InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_PROPERTYID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_PROPERTYID>(result__)
     }
     pub unsafe fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()> {
@@ -11909,7 +11909,7 @@ impl ICertPropertySHA1Hash {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11939,7 +11939,7 @@ impl ICertPropertySHA1Hash {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SHA1Hash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_SHA1Hash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -12050,7 +12050,7 @@ impl ICertRequest {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Submit)(::windows::core::Interface::as_raw(self), flags, strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12059,21 +12059,21 @@ impl ICertRequest {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RetrievePending)(::windows::core::Interface::as_raw(self), requestid, strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetLastStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLastStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetRequestId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDispositionMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDispositionMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12082,13 +12082,13 @@ impl ICertRequest {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCACertificate)(::windows::core::Interface::as_raw(self), fexchangecertificate, strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificate)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -12195,7 +12195,7 @@ impl ICertRequest2 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Submit)(::windows::core::Interface::as_raw(self), flags, strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12204,21 +12204,21 @@ impl ICertRequest2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RetrievePending)(::windows::core::Interface::as_raw(self), requestid, strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetLastStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetLastStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetRequestId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRequestId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDispositionMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDispositionMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12227,13 +12227,13 @@ impl ICertRequest2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCACertificate)(::windows::core::Interface::as_raw(self), fexchangecertificate, strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCertificate)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12243,13 +12243,13 @@ impl ICertRequest2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CR_DISP>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIssuedCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetErrorMessageText)(::windows::core::Interface::as_raw(self), hrmessage, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12258,7 +12258,7 @@ impl ICertRequest2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12267,7 +12267,7 @@ impl ICertRequest2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12276,13 +12276,13 @@ impl ICertRequest2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFullResponseProperty)(::windows::core::Interface::as_raw(self), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -12409,7 +12409,7 @@ impl ICertRequest3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Submit)(::windows::core::Interface::as_raw(self), flags, strrequest.into().abi(), strattributes.into().abi(), strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12418,21 +12418,21 @@ impl ICertRequest3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RetrievePending)(::windows::core::Interface::as_raw(self), requestid, strconfig.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetLastStatus(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetLastStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetRequestId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetRequestId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDispositionMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetDispositionMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12441,13 +12441,13 @@ impl ICertRequest3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetCACertificate)(::windows::core::Interface::as_raw(self), fexchangecertificate, strconfig.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetCertificate)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12457,13 +12457,13 @@ impl ICertRequest3 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CR_DISP>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetIssuedCertificate)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), requestid, strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorMessageText(&self, hrmessage: i32, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetErrorMessageText)(::windows::core::Interface::as_raw(self), hrmessage, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12472,7 +12472,7 @@ impl ICertRequest3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCAProperty)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12481,7 +12481,7 @@ impl ICertRequest3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCAPropertyFlags)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12490,13 +12490,13 @@ impl ICertRequest3 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCAPropertyDisplayName)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFullResponseProperty)(::windows::core::Interface::as_raw(self), propid, propindex, proptype, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12511,7 +12511,7 @@ impl ICertRequest3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRequestIdString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12522,11 +12522,11 @@ impl ICertRequest3 {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CR_DISP>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIssuedCertificate2)(::windows::core::Interface::as_raw(self), strconfig.into().abi(), strrequestid.into().abi(), strserialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CR_DISP>(result__)
     }
     pub unsafe fn GetRefreshPolicy(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRefreshPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
@@ -12661,7 +12661,7 @@ impl ICertRequestD {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCACert)(::windows::core::Interface::as_raw(self), fchain, pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     pub unsafe fn Ping<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
@@ -12729,7 +12729,7 @@ impl ICertRequestD2 {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCACert)(::windows::core::Interface::as_raw(self), fchain, pwszauthority.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     pub unsafe fn Ping<'a, P0>(&self, pwszauthority: P0) -> ::windows::core::Result<()>
@@ -12750,7 +12750,7 @@ impl ICertRequestD2 {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTTRANSBLOB>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAProperty)(::windows::core::Interface::as_raw(self), pwszauthority.into(), propid, propindex, proptype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTTRANSBLOB>(result__)
     }
     pub unsafe fn GetCAPropertyInfo<'a, P0>(&self, pwszauthority: P0, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>
@@ -12840,7 +12840,7 @@ impl ICertServerExit {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12849,7 +12849,7 @@ impl ICertServerExit {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestAttribute)(::windows::core::Interface::as_raw(self), strattributename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12858,7 +12858,7 @@ impl ICertServerExit {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12867,11 +12867,11 @@ impl ICertServerExit {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCertificateExtensionFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateExtensionFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> ::windows::core::Result<()> {
@@ -12880,7 +12880,7 @@ impl ICertServerExit {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateExtensions(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn EnumerateExtensionsClose(&self) -> ::windows::core::Result<()> {
@@ -12892,7 +12892,7 @@ impl ICertServerExit {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn EnumerateAttributesClose(&self) -> ::windows::core::Result<()> {
@@ -13011,7 +13011,7 @@ impl ICertServerPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13020,7 +13020,7 @@ impl ICertServerPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequestAttribute)(::windows::core::Interface::as_raw(self), strattributename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -13029,7 +13029,7 @@ impl ICertServerPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateProperty)(::windows::core::Interface::as_raw(self), strpropertyname.into().abi(), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -13046,11 +13046,11 @@ impl ICertServerPolicy {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateExtension)(::windows::core::Interface::as_raw(self), strextensionname.into().abi(), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn GetCertificateExtensionFlags(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateExtensionFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -13067,7 +13067,7 @@ impl ICertServerPolicy {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateExtensions(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn EnumerateExtensionsClose(&self) -> ::windows::core::Result<()> {
@@ -13079,7 +13079,7 @@ impl ICertServerPolicy {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumerateAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn EnumerateAttributesClose(&self) -> ::windows::core::Result<()> {
@@ -13208,7 +13208,7 @@ impl ICertView {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCertViewColumn)(::windows::core::Interface::as_raw(self), fresultcolumn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
     }
     pub unsafe fn GetColumnCount(&self, fresultcolumn: CVRC_COLUMN, pccolumn: *mut i32) -> ::windows::core::Result<()> {
@@ -13236,7 +13236,7 @@ impl ICertView {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenView(&self) -> ::windows::core::Result<IEnumCERTVIEWROW> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OpenView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWROW>(result__)
     }
 }
@@ -13347,7 +13347,7 @@ impl ICertView2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self, fresultcolumn: CVRC_COLUMN) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumCertViewColumn)(::windows::core::Interface::as_raw(self), fresultcolumn, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
     }
     pub unsafe fn GetColumnCount(&self, fresultcolumn: CVRC_COLUMN, pccolumn: *mut i32) -> ::windows::core::Result<()> {
@@ -13375,7 +13375,7 @@ impl ICertView2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenView(&self) -> ::windows::core::Result<IEnumCERTVIEWROW> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.OpenView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWROW>(result__)
     }
     pub unsafe fn SetTable(&self, table: CVRC_TABLE) -> ::windows::core::Result<()> {
@@ -13485,13 +13485,13 @@ impl ICertificateAttestationChallenge {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecryptChallenge(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DecryptChallenge)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -13591,13 +13591,13 @@ impl ICertificateAttestationChallenge2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecryptChallenge(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.DecryptChallenge)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequestID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13719,15 +13719,15 @@ impl ICertificatePolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificatePolicy> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificatePolicy>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -13841,13 +13841,13 @@ impl ICertificatePolicy {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyQualifiers(&self) -> ::windows::core::Result<IPolicyQualifiers> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolicyQualifiers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPolicyQualifiers>(result__)
     }
 }
@@ -13939,15 +13939,15 @@ impl ICertificationAuthorities {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificationAuthority> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificationAuthority>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -13973,7 +13973,7 @@ impl ICertificationAuthorities {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificationAuthority>(result__)
     }
 }
@@ -14070,7 +14070,7 @@ impl ICertificationAuthority {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -14170,13 +14170,13 @@ impl ICryptAttribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Values(&self) -> ::windows::core::Result<IX509Attributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Values)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Attributes>(result__)
     }
 }
@@ -14272,15 +14272,15 @@ impl ICryptAttributes {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICryptAttribute> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttribute>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14303,7 +14303,7 @@ impl ICryptAttributes {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_IndexByObjectId)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14411,47 +14411,47 @@ impl ICspAlgorithm {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAlgorithmOid(&self, length: i32, algflags: AlgorithmFlags) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAlgorithmOid)(::windows::core::Interface::as_raw(self), length, algflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn DefaultLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DefaultLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn IncrementLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IncrementLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LongName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LongName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Valid(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Valid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn MaxLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MaxLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn MinLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MinLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<AlgorithmType> {
-        let mut result__ = ::core::mem::MaybeUninit::<AlgorithmType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AlgorithmType>(result__)
     }
     pub unsafe fn Operations(&self) -> ::windows::core::Result<AlgorithmOperationFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<AlgorithmOperationFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Operations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AlgorithmOperationFlags>(result__)
     }
 }
@@ -14550,15 +14550,15 @@ impl ICspAlgorithms {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspAlgorithm> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithm>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14581,7 +14581,7 @@ impl ICspAlgorithms {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithm>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14590,7 +14590,7 @@ impl ICspAlgorithms {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_IndexByObjectId)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -14706,63 +14706,63 @@ impl ICspInformation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspAlgorithms(&self) -> ::windows::core::Result<ICspAlgorithms> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspAlgorithms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithms>(result__)
     }
     pub unsafe fn HasHardwareRandomNumberGenerator(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HasHardwareRandomNumberGenerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn IsHardwareDevice(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsHardwareDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn IsRemovable(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsRemovable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn IsSoftwareDevice(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSoftwareDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn Valid(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Valid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn MaxKeyContainerNameLength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MaxKeyContainerNameLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509ProviderType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509ProviderType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509ProviderType>(result__)
     }
     pub unsafe fn Version(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509KeySpec>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509KeySpec>(result__)
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultSecurityDescriptor(&self, machinecontext: i16) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultSecurityDescriptor)(::windows::core::Interface::as_raw(self), machinecontext, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn LegacyCsp(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LegacyCsp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14771,7 +14771,7 @@ impl ICspInformation {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCspStatusFromOperations)(::windows::core::Interface::as_raw(self), palgorithm.into().abi(), operations, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
 }
@@ -14886,15 +14886,15 @@ impl ICspInformations {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformation>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14920,7 +14920,7 @@ impl ICspInformations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -14929,7 +14929,7 @@ impl ICspInformations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCspStatusFromProviderName)(::windows::core::Interface::as_raw(self), strprovidername.into().abi(), legacykeyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14938,7 +14938,7 @@ impl ICspInformations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCspStatusesFromOperations)(::windows::core::Interface::as_raw(self), operations, pcspinformation.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14947,7 +14947,7 @@ impl ICspInformations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEncryptionCspAlgorithms)(::windows::core::Interface::as_raw(self), pcspinformation.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithms>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -14956,7 +14956,7 @@ impl ICspInformations {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICspInformation>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetHashAlgorithms)(::windows::core::Interface::as_raw(self), pcspinformation.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
 }
@@ -15076,7 +15076,7 @@ impl ICspStatus {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pcsp.into().abi(), palgorithm.into().abi()).ok()
     }
     pub unsafe fn Ordinal(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ordinal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetOrdinal(&self, value: i32) -> ::windows::core::Result<()> {
@@ -15085,25 +15085,25 @@ impl ICspStatus {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspAlgorithm(&self) -> ::windows::core::Result<ICspAlgorithm> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspAlgorithm>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformation(&self) -> ::windows::core::Result<ICspInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnrollmentStatus(&self) -> ::windows::core::Result<IX509EnrollmentStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnrollmentStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -15205,15 +15205,15 @@ impl ICspStatuses {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -15237,13 +15237,13 @@ impl ICspStatuses {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), strcspname.into().abi(), stralgorithmname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByOrdinal(&self, ordinal: i32) -> ::windows::core::Result<ICspStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByOrdinal)(::windows::core::Interface::as_raw(self), ordinal, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -15253,7 +15253,7 @@ impl ICspStatuses {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByOperations)(::windows::core::Interface::as_raw(self), strcspname.into().abi(), stralgorithmname.into().abi(), operations, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -15262,7 +15262,7 @@ impl ICspStatuses {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICspStatus>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByProvider)(::windows::core::Interface::as_raw(self), pcspstatus.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
 }
@@ -17066,7 +17066,7 @@ impl IEnumCERTVIEWATTRIBUTE {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWATTRIBUTE> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWATTRIBUTE>(result__)
     }
 }
@@ -17194,7 +17194,7 @@ impl IEnumCERTVIEWCOLUMN {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
     }
 }
@@ -17318,7 +17318,7 @@ impl IEnumCERTVIEWEXTENSION {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWEXTENSION> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWEXTENSION>(result__)
     }
 }
@@ -17417,19 +17417,19 @@ impl IEnumCERTVIEWROW {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewColumn(&self) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCertViewColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWCOLUMN>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewAttribute(&self, flags: i32) -> ::windows::core::Result<IEnumCERTVIEWATTRIBUTE> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCertViewAttribute)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWATTRIBUTE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCertViewExtension(&self, flags: i32) -> ::windows::core::Result<IEnumCERTVIEWEXTENSION> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCertViewExtension)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWEXTENSION>(result__)
     }
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
@@ -17441,7 +17441,7 @@ impl IEnumCERTVIEWROW {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWROW> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumCERTVIEWROW>(result__)
     }
     pub unsafe fn GetMaxIndex(&self, pindex: *mut i32) -> ::windows::core::Result<()> {
@@ -17578,7 +17578,7 @@ impl INDESPolicy {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GenerateChallenge)(::windows::core::Interface::as_raw(self), pwsztemplate.into(), pwszparams.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17655,13 +17655,13 @@ impl IOCSPAdmin {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OCSPServiceProperties(&self) -> ::windows::core::Result<IOCSPPropertyCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OCSPServiceProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOCSPPropertyCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OCSPCAConfigurationCollection(&self) -> ::windows::core::Result<IOCSPCAConfigurationCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OCSPCAConfigurationCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOCSPCAConfigurationCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17686,7 +17686,7 @@ impl IOCSPAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMyRoles)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17712,7 +17712,7 @@ impl IOCSPAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -17721,7 +17721,7 @@ impl IOCSPAdmin {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSigningCertificates)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), ::core::mem::transmute(pcacertvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -17731,7 +17731,7 @@ impl IOCSPAdmin {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetHashAlgorithms)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), bstrcaid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -17851,19 +17851,19 @@ impl IOCSPCAConfiguration {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Identifier(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Identifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CACertificate(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CACertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17875,7 +17875,7 @@ impl IOCSPCAConfiguration {
         (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     pub unsafe fn SigningFlags(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SigningFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetSigningFlags(&self, newval: u32) -> ::windows::core::Result<()> {
@@ -17884,7 +17884,7 @@ impl IOCSPCAConfiguration {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SigningCertificate(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SigningCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -17896,30 +17896,30 @@ impl IOCSPCAConfiguration {
         (::windows::core::Interface::vtable(self).SetSigningCertificate)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     pub unsafe fn ReminderDuration(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReminderDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetReminderDuration(&self, newval: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetReminderDuration)(::windows::core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn ErrorCode(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ErrorCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSPName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CSPName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17933,7 +17933,7 @@ impl IOCSPCAConfiguration {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ProviderProperties(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -17945,13 +17945,13 @@ impl IOCSPCAConfiguration {
         (::windows::core::Interface::vtable(self).SetProviderProperties)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     pub unsafe fn Modified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Modified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LocalRevocationInformation(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LocalRevocationInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -17965,7 +17965,7 @@ impl IOCSPCAConfiguration {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SigningCertificateTemplate(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SigningCertificateTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17979,7 +17979,7 @@ impl IOCSPCAConfiguration {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAConfig(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAConfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -18140,17 +18140,17 @@ pub struct IOCSPCAConfigurationCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPCAConfigurationCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -18159,7 +18159,7 @@ impl IOCSPCAConfigurationCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), bstridentifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -18169,7 +18169,7 @@ impl IOCSPCAConfigurationCollection {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::VARIANT>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateCAConfiguration)(::windows::core::Interface::as_raw(self), bstridentifier.into().abi(), varcacert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOCSPCAConfiguration>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -18275,13 +18275,13 @@ impl IOCSPProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -18293,7 +18293,7 @@ impl IOCSPProperty {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     pub unsafe fn Modified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Modified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
@@ -18384,17 +18384,17 @@ pub struct IOCSPPropertyCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPPropertyCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -18403,7 +18403,7 @@ impl IOCSPPropertyCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), bstrpropname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -18412,7 +18412,7 @@ impl IOCSPPropertyCollection {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateProperty)(::windows::core::Interface::as_raw(self), bstrpropname.into().abi(), ::core::mem::transmute(pvarpropvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOCSPProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -18431,7 +18431,7 @@ impl IOCSPPropertyCollection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetAllProperties(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAllProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -18554,13 +18554,13 @@ impl IObjectId {
         (::windows::core::Interface::vtable(self).InitializeFromAlgorithmName)(::windows::core::Interface::as_raw(self), groupid, keyflags, algflags, stralgorithmname.into().abi()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<CERTENROLL_OBJECTID> {
-        let mut result__ = ::core::mem::MaybeUninit::<CERTENROLL_OBJECTID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CERTENROLL_OBJECTID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -18574,13 +18574,13 @@ impl IObjectId {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAlgorithmName)(::windows::core::Interface::as_raw(self), groupid, keyflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -18686,15 +18686,15 @@ impl IObjectIds {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -18820,23 +18820,23 @@ impl IPolicyQualifier {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Qualifier(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Qualifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<PolicyQualifierType> {
-        let mut result__ = ::core::mem::MaybeUninit::<PolicyQualifierType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PolicyQualifierType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -18933,15 +18933,15 @@ impl IPolicyQualifiers {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IPolicyQualifier> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPolicyQualifier>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -19071,24 +19071,24 @@ impl ISignerCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -19097,7 +19097,7 @@ impl ISignerCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -19119,7 +19119,7 @@ impl ISignerCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
 }
@@ -19231,15 +19231,15 @@ impl ISignerCertificates {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -19262,7 +19262,7 @@ impl ISignerCertificates {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISignerCertificate>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Find)(::windows::core::Interface::as_raw(self), psignercert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -19358,15 +19358,15 @@ impl ISmimeCapabilities {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISmimeCapability> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISmimeCapability>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -19496,11 +19496,11 @@ impl ISmimeCapability {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn BitCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BitCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -19605,13 +19605,13 @@ impl IX500DistinguishedName {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncodedName(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_EncodedName)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -19716,13 +19716,13 @@ impl IX509Attribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -19823,13 +19823,13 @@ impl IX509AttributeArchiveKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -19853,17 +19853,17 @@ impl IX509AttributeArchiveKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_EncryptedKeyBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncryptionAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn EncryptionStrength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -19987,13 +19987,13 @@ impl IX509AttributeArchiveKeyHash {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20015,7 +20015,7 @@ impl IX509AttributeArchiveKeyHash {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyHashBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_EncryptedKeyHashBlob)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -20134,13 +20134,13 @@ impl IX509AttributeClientId {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20162,25 +20162,25 @@ impl IX509AttributeClientId {
         (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MachineDnsName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MachineDnsName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserSamName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UserSamName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProcessName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProcessName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -20308,13 +20308,13 @@ impl IX509AttributeCspProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20335,19 +20335,19 @@ impl IX509AttributeCspProvider {
         (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509KeySpec>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509KeySpec>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -20471,13 +20471,13 @@ impl IX509AttributeExtensions {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -20499,7 +20499,7 @@ impl IX509AttributeExtensions {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
 }
@@ -20618,13 +20618,13 @@ impl IX509AttributeOSVersion {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20646,7 +20646,7 @@ impl IX509AttributeOSVersion {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OSVersion(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OSVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -20765,13 +20765,13 @@ impl IX509AttributeRenewalCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20793,7 +20793,7 @@ impl IX509AttributeRenewalCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -20903,15 +20903,15 @@ impl IX509Attributes {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Attribute> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Attribute>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21026,26 +21026,26 @@ impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -21054,7 +21054,7 @@ impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21066,7 +21066,7 @@ impl IX509CertificateRequest {
         (::windows::core::Interface::vtable(self).SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21075,7 +21075,7 @@ impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21087,7 +21087,7 @@ impl IX509CertificateRequest {
         (::windows::core::Interface::vtable(self).put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -21096,7 +21096,7 @@ impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21110,7 +21110,7 @@ impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21122,7 +21122,7 @@ impl IX509CertificateRequest {
         (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21131,7 +21131,7 @@ impl IX509CertificateRequest {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -21275,26 +21275,26 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -21303,7 +21303,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21315,7 +21315,7 @@ impl IX509CertificateRequestCertificate {
         (::windows::core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21324,7 +21324,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21336,7 +21336,7 @@ impl IX509CertificateRequestCertificate {
         (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -21345,7 +21345,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21359,7 +21359,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21371,7 +21371,7 @@ impl IX509CertificateRequestCertificate {
         (::windows::core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21380,7 +21380,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21429,45 +21429,45 @@ impl IX509CertificateRequestCertificate {
         (::windows::core::Interface::vtable(self).base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn ReuseKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ReuseKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21481,11 +21481,11 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21494,13 +21494,13 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.KeyContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21514,43 +21514,43 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21564,7 +21564,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Issuer(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Issuer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21576,14 +21576,14 @@ impl IX509CertificateRequestCertificate {
         (::windows::core::Interface::vtable(self).SetIssuer)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn NotBefore(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NotBefore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetNotBefore(&self, value: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotBefore)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn NotAfter(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NotAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetNotAfter(&self, value: f64) -> ::windows::core::Result<()> {
@@ -21592,7 +21592,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21606,7 +21606,7 @@ impl IX509CertificateRequestCertificate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21771,26 +21771,26 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -21799,7 +21799,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21811,7 +21811,7 @@ impl IX509CertificateRequestCertificate2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21820,7 +21820,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21832,7 +21832,7 @@ impl IX509CertificateRequestCertificate2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -21841,7 +21841,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21855,7 +21855,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21867,7 +21867,7 @@ impl IX509CertificateRequestCertificate2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21876,7 +21876,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21925,45 +21925,45 @@ impl IX509CertificateRequestCertificate2 {
         (::windows::core::Interface::vtable(self).base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.PublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn ReuseKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ReuseKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -21977,11 +21977,11 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
@@ -21990,13 +21990,13 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.KeyContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22010,43 +22010,43 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22060,7 +22060,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Issuer(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Issuer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22072,14 +22072,14 @@ impl IX509CertificateRequestCertificate2 {
         (::windows::core::Interface::vtable(self).base__.SetIssuer)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn NotBefore(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NotBefore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetNotBefore(&self, value: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetNotBefore)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn NotAfter(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NotAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetNotAfter(&self, value: f64) -> ::windows::core::Result<()> {
@@ -22088,7 +22088,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22102,7 +22102,7 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22135,13 +22135,13 @@ impl IX509CertificateRequestCertificate2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
 }
@@ -22300,26 +22300,26 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -22328,7 +22328,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22340,7 +22340,7 @@ impl IX509CertificateRequestCmc {
         (::windows::core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -22349,7 +22349,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22361,7 +22361,7 @@ impl IX509CertificateRequestCmc {
         (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -22370,7 +22370,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22384,7 +22384,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22396,7 +22396,7 @@ impl IX509CertificateRequestCmc {
         (::windows::core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -22405,7 +22405,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22443,7 +22443,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequesterName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequesterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22457,7 +22457,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22480,45 +22480,45 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NameValuePairs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePairs>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     pub unsafe fn TransactionId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetTransactionId(&self, value: i32) -> ::windows::core::Result<()> {
@@ -22527,7 +22527,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SenderNonce(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_SenderNonce)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22541,11 +22541,11 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     pub unsafe fn ArchivePrivateKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ArchivePrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetArchivePrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
@@ -22554,7 +22554,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_KeyArchivalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22568,7 +22568,7 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncryptionAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22580,7 +22580,7 @@ impl IX509CertificateRequestCmc {
         (::windows::core::Interface::vtable(self).SetEncryptionAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn EncryptionStrength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
@@ -22589,13 +22589,13 @@ impl IX509CertificateRequestCmc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_EncryptedKeyHash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificates(&self) -> ::windows::core::Result<ISignerCertificates> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignerCertificates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificates>(result__)
     }
 }
@@ -22791,26 +22791,26 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -22819,7 +22819,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22831,7 +22831,7 @@ impl IX509CertificateRequestCmc2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -22840,7 +22840,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22852,7 +22852,7 @@ impl IX509CertificateRequestCmc2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -22861,7 +22861,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22875,7 +22875,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22887,7 +22887,7 @@ impl IX509CertificateRequestCmc2 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -22896,7 +22896,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22934,7 +22934,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequesterName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.RequesterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22948,7 +22948,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -22971,45 +22971,45 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NameValuePairs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePairs>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     pub unsafe fn TransactionId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.TransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetTransactionId(&self, value: i32) -> ::windows::core::Result<()> {
@@ -23018,7 +23018,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SenderNonce(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_SenderNonce)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23032,11 +23032,11 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     pub unsafe fn ArchivePrivateKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ArchivePrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetArchivePrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23045,7 +23045,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_KeyArchivalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_KeyArchivalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23059,7 +23059,7 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EncryptionAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23071,7 +23071,7 @@ impl IX509CertificateRequestCmc2 {
         (::windows::core::Interface::vtable(self).base__.SetEncryptionAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn EncryptionStrength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
@@ -23080,13 +23080,13 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_EncryptedKeyHash)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificates(&self) -> ::windows::core::Result<ISignerCertificates> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignerCertificates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificates>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23111,13 +23111,13 @@ impl IX509CertificateRequestCmc2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     pub unsafe fn CheckSignature(&self, allowedsignaturetypes: Pkcs10AllowedSignatureTypes) -> ::windows::core::Result<()> {
@@ -23292,26 +23292,26 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -23320,7 +23320,7 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23332,7 +23332,7 @@ impl IX509CertificateRequestPkcs10 {
         (::windows::core::Interface::vtable(self).base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23341,7 +23341,7 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23353,7 +23353,7 @@ impl IX509CertificateRequestPkcs10 {
         (::windows::core::Interface::vtable(self).base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -23362,7 +23362,7 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23376,7 +23376,7 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23388,7 +23388,7 @@ impl IX509CertificateRequestPkcs10 {
         (::windows::core::Interface::vtable(self).base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23397,7 +23397,7 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23446,45 +23446,45 @@ impl IX509CertificateRequestPkcs10 {
         (::windows::core::Interface::vtable(self).CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn ReuseKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReuseKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23498,11 +23498,11 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23511,13 +23511,13 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeyContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23531,43 +23531,43 @@ impl IX509CertificateRequestPkcs10 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
 }
@@ -23768,26 +23768,26 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -23796,7 +23796,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23808,7 +23808,7 @@ impl IX509CertificateRequestPkcs10V2 {
         (::windows::core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23817,7 +23817,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23829,7 +23829,7 @@ impl IX509CertificateRequestPkcs10V2 {
         (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -23838,7 +23838,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23852,7 +23852,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23864,7 +23864,7 @@ impl IX509CertificateRequestPkcs10V2 {
         (::windows::core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23873,7 +23873,7 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -23922,45 +23922,45 @@ impl IX509CertificateRequestPkcs10V2 {
         (::windows::core::Interface::vtable(self).base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn ReuseKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ReuseKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -23974,11 +23974,11 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
@@ -23987,13 +23987,13 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.KeyContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24007,43 +24007,43 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24078,13 +24078,13 @@ impl IX509CertificateRequestPkcs10V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
 }
@@ -24229,26 +24229,26 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -24257,7 +24257,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24269,7 +24269,7 @@ impl IX509CertificateRequestPkcs10V3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -24278,7 +24278,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24290,7 +24290,7 @@ impl IX509CertificateRequestPkcs10V3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -24299,7 +24299,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24313,7 +24313,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24325,7 +24325,7 @@ impl IX509CertificateRequestPkcs10V3 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -24334,7 +24334,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24383,45 +24383,45 @@ impl IX509CertificateRequestPkcs10V3 {
         (::windows::core::Interface::vtable(self).base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.PublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn ReuseKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ReuseKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24435,11 +24435,11 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
@@ -24448,13 +24448,13 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.KeyContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24468,43 +24468,43 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24539,17 +24539,17 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     pub unsafe fn AttestPrivateKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AttestPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAttestPrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
@@ -24558,7 +24558,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24572,7 +24572,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncryptionAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24584,7 +24584,7 @@ impl IX509CertificateRequestPkcs10V3 {
         (::windows::core::Interface::vtable(self).SetEncryptionAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn EncryptionStrength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
@@ -24593,7 +24593,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChallengePassword(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ChallengePassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24607,7 +24607,7 @@ impl IX509CertificateRequestPkcs10V3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NameValuePairs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePairs>(result__)
     }
 }
@@ -24782,26 +24782,26 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -24810,7 +24810,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24822,7 +24822,7 @@ impl IX509CertificateRequestPkcs10V4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -24831,7 +24831,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24843,7 +24843,7 @@ impl IX509CertificateRequestPkcs10V4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -24852,7 +24852,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24866,7 +24866,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24878,7 +24878,7 @@ impl IX509CertificateRequestPkcs10V4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -24887,7 +24887,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24936,45 +24936,45 @@ impl IX509CertificateRequestPkcs10V4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.CheckSignature)(::windows::core::Interface::as_raw(self), allowedsignaturetypes).ok()
     }
     pub unsafe fn IsSmartCard(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.IsSmartCard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.TemplateObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.PublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.PrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PrivateKey>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn ReuseKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.ReuseKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_OldCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -24988,11 +24988,11 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CspStatuses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSmimeCapabilities(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25001,13 +25001,13 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.KeyContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25021,43 +25021,43 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptAttributes(&self) -> ::windows::core::Result<ICryptAttributes> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CryptAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICryptAttributes>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.SuppressOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetCspStatuses)(::windows::core::Interface::as_raw(self), keyspec, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatuses>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25092,17 +25092,17 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     pub unsafe fn AttestPrivateKey(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.AttestPrivateKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAttestPrivateKey(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25111,7 +25111,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_AttestationEncryptionCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25125,7 +25125,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EncryptionAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25137,7 +25137,7 @@ impl IX509CertificateRequestPkcs10V4 {
         (::windows::core::Interface::vtable(self).base__.SetEncryptionAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn EncryptionStrength(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EncryptionStrength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()> {
@@ -25146,7 +25146,7 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChallengePassword(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ChallengePassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25160,18 +25160,18 @@ impl IX509CertificateRequestPkcs10V4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NameValuePairs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePairs>(result__)
     }
     pub unsafe fn ClaimType(&self) -> ::windows::core::Result<KeyAttestationClaimType> {
-        let mut result__ = ::core::mem::MaybeUninit::<KeyAttestationClaimType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClaimType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KeyAttestationClaimType>(result__)
     }
     pub unsafe fn SetClaimType(&self, value: KeyAttestationClaimType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClaimType)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn AttestPrivateKeyPreferred(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AttestPrivateKeyPreferred)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAttestPrivateKeyPreferred(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25339,26 +25339,26 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -25367,7 +25367,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25379,7 +25379,7 @@ impl IX509CertificateRequestPkcs7 {
         (::windows::core::Interface::vtable(self).base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25388,7 +25388,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25400,7 +25400,7 @@ impl IX509CertificateRequestPkcs7 {
         (::windows::core::Interface::vtable(self).base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -25409,7 +25409,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25423,7 +25423,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25435,7 +25435,7 @@ impl IX509CertificateRequestPkcs7 {
         (::windows::core::Interface::vtable(self).base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25444,7 +25444,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25482,7 +25482,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequesterName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequesterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25496,7 +25496,7 @@ impl IX509CertificateRequestPkcs7 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25643,26 +25643,26 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInnerRequest(&self, level: InnerRequestLevel) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetInnerRequest)(::windows::core::Interface::as_raw(self), level, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<X509RequestType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509RequestType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509RequestType>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -25671,7 +25671,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25683,7 +25683,7 @@ impl IX509CertificateRequestPkcs7V2 {
         (::windows::core::Interface::vtable(self).base__.base__.SetUIContextMessage)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn SuppressDefaults(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.SuppressDefaults)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25692,7 +25692,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25704,7 +25704,7 @@ impl IX509CertificateRequestPkcs7V2 {
         (::windows::core::Interface::vtable(self).base__.base__.put_RenewalCertificate)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId> {
-        let mut result__ = ::core::mem::MaybeUninit::<RequestClientInfoClientId>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RequestClientInfoClientId>(result__)
     }
     pub unsafe fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()> {
@@ -25713,7 +25713,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25727,7 +25727,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25739,7 +25739,7 @@ impl IX509CertificateRequestPkcs7V2 {
         (::windows::core::Interface::vtable(self).base__.base__.SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -25748,7 +25748,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25786,7 +25786,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequesterName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequesterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -25800,7 +25800,7 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -25823,13 +25823,13 @@ impl IX509CertificateRequestPkcs7V2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     pub unsafe fn CheckCertificateSignature(&self, validatecertificatechain: i16) -> ::windows::core::Result<()> {
@@ -25989,7 +25989,7 @@ impl IX509CertificateRevocationList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Issuer(&self) -> ::windows::core::Result<IX500DistinguishedName> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Issuer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX500DistinguishedName>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26001,14 +26001,14 @@ impl IX509CertificateRevocationList {
         (::windows::core::Interface::vtable(self).SetIssuer)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn ThisUpdate(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ThisUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetThisUpdate(&self, value: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetThisUpdate)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn NextUpdate(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NextUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetNextUpdate(&self, value: f64) -> ::windows::core::Result<()> {
@@ -26017,25 +26017,25 @@ impl IX509CertificateRevocationList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509CRLEntries(&self) -> ::windows::core::Result<IX509CertificateRevocationListEntries> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509CRLEntries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRevocationListEntries>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26049,7 +26049,7 @@ impl IX509CertificateRevocationList {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CRLNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_CRLNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -26061,24 +26061,24 @@ impl IX509CertificateRevocationList {
         (::windows::core::Interface::vtable(self).put_CRLNumber)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn CAVersion(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetCAVersion(&self, pvalue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCAVersion)(::windows::core::Interface::as_raw(self), pvalue).ok()
     }
     pub unsafe fn BaseCRL(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BaseCRL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26090,7 +26090,7 @@ impl IX509CertificateRevocationList {
         (::windows::core::Interface::vtable(self).SetHashAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
@@ -26099,25 +26099,25 @@ impl IX509CertificateRevocationList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignatureInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SignatureInformation>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawDataToBeSigned)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Signature)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -26279,15 +26279,15 @@ impl IX509CertificateRevocationListEntries {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateRevocationListEntry> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRevocationListEntry>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26310,7 +26310,7 @@ impl IX509CertificateRevocationListEntries {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_IndexBySerialNumber)(::windows::core::Interface::as_raw(self), encoding, serialnumber.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26426,15 +26426,15 @@ impl IX509CertificateRevocationListEntry {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_SerialNumber)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn RevocationDate(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RevocationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn RevocationReason(&self) -> ::windows::core::Result<CRLRevocationReason> {
-        let mut result__ = ::core::mem::MaybeUninit::<CRLRevocationReason>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RevocationReason)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CRLRevocationReason>(result__)
     }
     pub unsafe fn SetRevocationReason(&self, value: CRLRevocationReason) -> ::windows::core::Result<()> {
@@ -26443,13 +26443,13 @@ impl IX509CertificateRevocationListEntry {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509Extensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CriticalExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
 }
@@ -26548,7 +26548,7 @@ impl IX509CertificateTemplate {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
@@ -26648,7 +26648,7 @@ impl IX509CertificateTemplateWritable {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -26662,7 +26662,7 @@ impl IX509CertificateTemplateWritable {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
 }
@@ -26762,15 +26762,15 @@ impl IX509CertificateTemplates {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26793,7 +26793,7 @@ impl IX509CertificateTemplates {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByName)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -26802,7 +26802,7 @@ impl IX509CertificateTemplates {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByOid)(::windows::core::Interface::as_raw(self), poid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
 }
@@ -26902,7 +26902,7 @@ impl IX509EndorsementKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -26914,11 +26914,11 @@ impl IX509EndorsementKey {
         (::windows::core::Interface::vtable(self).SetProviderName)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Length)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn Opened(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Opened)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -26940,17 +26940,17 @@ impl IX509EndorsementKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificateByIndex(&self, manufactureronly: i16, dwindex: i32, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateByIndex)(::windows::core::Interface::as_raw(self), manufactureronly, dwindex, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetCertificateCount(&self, manufactureronly: i16) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCertificateCount)(::windows::core::Interface::as_raw(self), manufactureronly, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExportPublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExportPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
@@ -27084,7 +27084,7 @@ impl IX509Enrollment {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequest(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRequest)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Enroll(&self) -> ::windows::core::Result<()> {
@@ -27105,24 +27105,24 @@ impl IX509Enrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), exportoptions, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -27131,35 +27131,35 @@ impl IX509Enrollment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NameValuePairs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePairs>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<IX509EnrollmentStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Response(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Response)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CertificateFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CertificateFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -27173,7 +27173,7 @@ impl IX509Enrollment {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CertificateDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CertificateDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -27185,13 +27185,13 @@ impl IX509Enrollment {
         (::windows::core::Interface::vtable(self).SetCertificateDescription)(::windows::core::Interface::as_raw(self), strvalue.into().abi()).ok()
     }
     pub unsafe fn RequestId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAConfigString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CAConfigString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -27358,7 +27358,7 @@ impl IX509Enrollment2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequest(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRequest)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Enroll(&self) -> ::windows::core::Result<()> {
@@ -27379,24 +27379,24 @@ impl IX509Enrollment2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePFX)(::windows::core::Interface::as_raw(self), strpassword.into().abi(), exportoptions, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows::core::Result<IX509CertificateRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequest>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -27405,35 +27405,35 @@ impl IX509Enrollment2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NameValuePairs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePairs>(result__)
     }
     pub unsafe fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509CertificateEnrollmentContext>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnrollmentContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509CertificateEnrollmentContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<IX509EnrollmentStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Response(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Response)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CertificateFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CertificateFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -27447,7 +27447,7 @@ impl IX509Enrollment2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CertificateDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CertificateDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -27459,13 +27459,13 @@ impl IX509Enrollment2 {
         (::windows::core::Interface::vtable(self).base__.SetCertificateDescription)(::windows::core::Interface::as_raw(self), strvalue.into().abi()).ok()
     }
     pub unsafe fn RequestId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RequestId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CAConfigString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CAConfigString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -27491,19 +27491,19 @@ impl IX509Enrollment2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PolicyServer(&self) -> ::windows::core::Result<IX509EnrollmentPolicyServer> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolicyServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentPolicyServer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Template)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplate>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestIdString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestIdString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -27646,7 +27646,7 @@ impl IX509EnrollmentHelper {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Enroll)(::windows::core::Interface::as_raw(self), strenrollmentpolicyserveruri.into().abi(), strtemplatename.into().abi(), encoding, enrollflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()> {
@@ -27754,7 +27754,7 @@ impl IX509EnrollmentPolicyServer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTemplates(&self) -> ::windows::core::Result<IX509CertificateTemplates> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateTemplates>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -27763,13 +27763,13 @@ impl IX509EnrollmentPolicyServer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IX509CertificateTemplate>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAsForTemplate)(::windows::core::Interface::as_raw(self), ptemplate.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificationAuthorities>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCAs(&self) -> ::windows::core::Result<ICertificationAuthorities> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCAs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificationAuthorities>(result__)
     }
     pub unsafe fn Validate(&self) -> ::windows::core::Result<()> {
@@ -27778,61 +27778,61 @@ impl IX509EnrollmentPolicyServer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCustomOids(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomOids)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
     pub unsafe fn GetNextUpdateTime(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNextUpdateTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn GetLastUpdateTime(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLastUpdateTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPolicyServerUrl(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPolicyServerUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPolicyServerId(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPolicyServerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetIsDefaultCEP(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIsDefaultCEP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn GetUseClientId(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUseClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn GetAllowUnTrustedCA(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAllowUnTrustedCA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCachePath(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCachePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCacheDir(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCacheDir)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetAuthFlags(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509EnrollmentAuthFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAuthFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509EnrollmentAuthFlags>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -27845,7 +27845,7 @@ impl IX509EnrollmentPolicyServer {
         (::windows::core::Interface::vtable(self).SetCredential)(::windows::core::Interface::as_raw(self), hwndparent, flag, strcredential.into().abi(), strpassword.into().abi()).ok()
     }
     pub unsafe fn QueryChanges(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryChanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -27859,11 +27859,11 @@ impl IX509EnrollmentPolicyServer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), exportflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
     pub unsafe fn Cost(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Cost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetCost(&self, value: u32) -> ::windows::core::Result<()> {
@@ -28017,7 +28017,7 @@ impl IX509EnrollmentStatus {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Text(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Text)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -28029,28 +28029,28 @@ impl IX509EnrollmentStatus {
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn Selected(&self) -> ::windows::core::Result<EnrollmentSelectionStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<EnrollmentSelectionStatus>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Selected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EnrollmentSelectionStatus>(result__)
     }
     pub unsafe fn SetSelected(&self, value: EnrollmentSelectionStatus) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Display(&self) -> ::windows::core::Result<EnrollmentDisplayStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<EnrollmentDisplayStatus>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Display)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EnrollmentDisplayStatus>(result__)
     }
     pub unsafe fn SetDisplay(&self, value: EnrollmentDisplayStatus) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDisplay)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Status(&self) -> ::windows::core::Result<EnrollmentEnrollStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<EnrollmentEnrollStatus>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EnrollmentEnrollStatus>(result__)
     }
     pub unsafe fn SetStatus(&self, value: EnrollmentEnrollStatus) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Error(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
     pub unsafe fn SetError(&self, value: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -28059,7 +28059,7 @@ impl IX509EnrollmentStatus {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ErrorText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ErrorText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -28166,7 +28166,7 @@ impl IX509EnrollmentWebClassFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateObject)(::windows::core::Interface::as_raw(self), strprogid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
@@ -28259,17 +28259,17 @@ impl IX509Extension {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -28375,17 +28375,17 @@ impl IX509ExtensionAlternativeNames {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -28410,7 +28410,7 @@ impl IX509ExtensionAlternativeNames {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AlternativeNames(&self) -> ::windows::core::Result<IAlternativeNames> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternativeNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAlternativeNames>(result__)
     }
 }
@@ -28529,17 +28529,17 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -28564,7 +28564,7 @@ impl IX509ExtensionAuthorityKeyIdentifier {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AuthorityKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_AuthorityKeyIdentifier)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -28683,17 +28683,17 @@ impl IX509ExtensionBasicConstraints {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -28711,11 +28711,11 @@ impl IX509ExtensionBasicConstraints {
         (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn IsCA(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsCA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn PathLenConstraint(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PathLenConstraint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -28829,17 +28829,17 @@ impl IX509ExtensionCertificatePolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -28864,7 +28864,7 @@ impl IX509ExtensionCertificatePolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Policies(&self) -> ::windows::core::Result<ICertificatePolicies> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Policies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificatePolicies>(result__)
     }
 }
@@ -28983,17 +28983,17 @@ impl IX509ExtensionEnhancedKeyUsage {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29018,7 +29018,7 @@ impl IX509ExtensionEnhancedKeyUsage {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnhancedKeyUsage(&self) -> ::windows::core::Result<IObjectIds> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnhancedKeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectIds>(result__)
     }
 }
@@ -29137,17 +29137,17 @@ impl IX509ExtensionKeyUsage {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29165,7 +29165,7 @@ impl IX509ExtensionKeyUsage {
         (::windows::core::Interface::vtable(self).InitializeDecode)(::windows::core::Interface::as_raw(self), encoding, strencodeddata.into().abi()).ok()
     }
     pub unsafe fn KeyUsage(&self) -> ::windows::core::Result<X509KeyUsageFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509KeyUsageFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509KeyUsageFlags>(result__)
     }
 }
@@ -29278,17 +29278,17 @@ impl IX509ExtensionMSApplicationPolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29313,7 +29313,7 @@ impl IX509ExtensionMSApplicationPolicies {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Policies(&self) -> ::windows::core::Result<ICertificatePolicies> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Policies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICertificatePolicies>(result__)
     }
 }
@@ -29432,17 +29432,17 @@ impl IX509ExtensionSmimeCapabilities {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29467,7 +29467,7 @@ impl IX509ExtensionSmimeCapabilities {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SmimeCapabilities(&self) -> ::windows::core::Result<ISmimeCapabilities> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SmimeCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISmimeCapabilities>(result__)
     }
 }
@@ -29586,17 +29586,17 @@ impl IX509ExtensionSubjectKeyIdentifier {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29621,7 +29621,7 @@ impl IX509ExtensionSubjectKeyIdentifier {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SubjectKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_SubjectKeyIdentifier)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -29740,17 +29740,17 @@ impl IX509ExtensionTemplate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29775,15 +29775,15 @@ impl IX509ExtensionTemplate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TemplateOid(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TemplateOid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn MajorVersion(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn MinorVersion(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -29904,17 +29904,17 @@ impl IX509ExtensionTemplateName {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectId(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ObjectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_RawData)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Critical(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Critical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetCritical(&self, value: i16) -> ::windows::core::Result<()> {
@@ -29939,7 +29939,7 @@ impl IX509ExtensionTemplateName {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TemplateName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TemplateName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -30049,15 +30049,15 @@ impl IX509Extensions {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Extension> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509Extension>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30080,7 +30080,7 @@ impl IX509Extensions {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectId>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_IndexByObjectId)(::windows::core::Interface::as_raw(self), pobjectid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30191,7 +30191,7 @@ impl IX509MachineEnrollmentFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateObject)(::windows::core::Interface::as_raw(self), strprogid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentHelper>(result__)
     }
 }
@@ -30284,13 +30284,13 @@ impl IX509NameValuePair {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -30382,15 +30382,15 @@ impl IX509NameValuePairs {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509NameValuePair> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509NameValuePair>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30496,15 +30496,15 @@ impl IX509PolicyServerListManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509PolicyServerUrl> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_ItemByIndex)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PolicyServerUrl>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30617,7 +30617,7 @@ impl IX509PolicyServerUrl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Url(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30629,28 +30629,28 @@ impl IX509PolicyServerUrl {
         (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn Default(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Default)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetDefault(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefault)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Flags(&self) -> ::windows::core::Result<PolicyServerUrlFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<PolicyServerUrlFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PolicyServerUrlFlags>(result__)
     }
     pub unsafe fn SetFlags(&self, flags: PolicyServerUrlFlags) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn AuthFlags(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509EnrollmentAuthFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AuthFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509EnrollmentAuthFlags>(result__)
     }
     pub unsafe fn SetAuthFlags(&self, flags: X509EnrollmentAuthFlags) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAuthFlags)(::windows::core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn Cost(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Cost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetCost(&self, value: u32) -> ::windows::core::Result<()> {
@@ -30659,7 +30659,7 @@ impl IX509PolicyServerUrl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStringProperty(&self, propertyid: PolicyServerUrlPropertyID) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStringProperty)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30807,19 +30807,19 @@ impl IX509PrivateKey {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExportPublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExportPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30833,7 +30833,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30847,7 +30847,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReaderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReaderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30861,7 +30861,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30875,7 +30875,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatus(&self) -> ::windows::core::Result<ICspStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CspStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30889,7 +30889,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30901,14 +30901,14 @@ impl IX509PrivateKey {
         (::windows::core::Interface::vtable(self).SetProviderName)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self) -> ::windows::core::Result<X509ProviderType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509ProviderType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509ProviderType>(result__)
     }
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProviderType)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn LegacyCsp(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LegacyCsp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetLegacyCsp(&self, value: i16) -> ::windows::core::Result<()> {
@@ -30917,7 +30917,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Algorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Algorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -30929,42 +30929,42 @@ impl IX509PrivateKey {
         (::windows::core::Interface::vtable(self).SetAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509KeySpec>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509KeySpec>(result__)
     }
     pub unsafe fn SetKeySpec(&self, value: X509KeySpec) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetKeySpec)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Length)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetLength(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ExportPolicy(&self) -> ::windows::core::Result<X509PrivateKeyExportFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509PrivateKeyExportFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExportPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509PrivateKeyExportFlags>(result__)
     }
     pub unsafe fn SetExportPolicy(&self, value: X509PrivateKeyExportFlags) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExportPolicy)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn KeyUsage(&self) -> ::windows::core::Result<X509PrivateKeyUsageFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509PrivateKeyUsageFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509PrivateKeyUsageFlags>(result__)
     }
     pub unsafe fn SetKeyUsage(&self, value: X509PrivateKeyUsageFlags) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetKeyUsage)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn KeyProtection(&self) -> ::windows::core::Result<X509PrivateKeyProtection> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509PrivateKeyProtection>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeyProtection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509PrivateKeyProtection>(result__)
     }
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetKeyProtection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn MachineContext(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MachineContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetMachineContext(&self, value: i16) -> ::windows::core::Result<()> {
@@ -30973,7 +30973,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -30987,7 +30987,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31001,33 +31001,33 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UniqueContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UniqueContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Opened(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Opened)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn DefaultContainer(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DefaultContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn Existing(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Existing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetExisting(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExisting)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -31036,7 +31036,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31058,7 +31058,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31072,7 +31072,7 @@ impl IX509PrivateKey {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31332,19 +31332,19 @@ impl IX509PrivateKey2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Export)(::windows::core::Interface::as_raw(self), strexporttype.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExportPublicKey(&self) -> ::windows::core::Result<IX509PublicKey> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExportPublicKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509PublicKey>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31358,7 +31358,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainerNamePrefix(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ContainerNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31372,7 +31372,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReaderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ReaderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31386,7 +31386,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspInformations(&self) -> ::windows::core::Result<ICspInformations> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CspInformations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspInformations>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -31400,7 +31400,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CspStatus(&self) -> ::windows::core::Result<ICspStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CspStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICspStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -31414,7 +31414,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31426,14 +31426,14 @@ impl IX509PrivateKey2 {
         (::windows::core::Interface::vtable(self).base__.SetProviderName)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn ProviderType(&self) -> ::windows::core::Result<X509ProviderType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509ProviderType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509ProviderType>(result__)
     }
     pub unsafe fn SetProviderType(&self, value: X509ProviderType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetProviderType)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn LegacyCsp(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.LegacyCsp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetLegacyCsp(&self, value: i16) -> ::windows::core::Result<()> {
@@ -31442,7 +31442,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Algorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Algorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -31454,42 +31454,42 @@ impl IX509PrivateKey2 {
         (::windows::core::Interface::vtable(self).base__.SetAlgorithm)(::windows::core::Interface::as_raw(self), pvalue.into().abi()).ok()
     }
     pub unsafe fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509KeySpec>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.KeySpec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509KeySpec>(result__)
     }
     pub unsafe fn SetKeySpec(&self, value: X509KeySpec) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetKeySpec)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Length)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetLength(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetLength)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ExportPolicy(&self) -> ::windows::core::Result<X509PrivateKeyExportFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509PrivateKeyExportFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExportPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509PrivateKeyExportFlags>(result__)
     }
     pub unsafe fn SetExportPolicy(&self, value: X509PrivateKeyExportFlags) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetExportPolicy)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn KeyUsage(&self) -> ::windows::core::Result<X509PrivateKeyUsageFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509PrivateKeyUsageFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.KeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509PrivateKeyUsageFlags>(result__)
     }
     pub unsafe fn SetKeyUsage(&self, value: X509PrivateKeyUsageFlags) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetKeyUsage)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn KeyProtection(&self) -> ::windows::core::Result<X509PrivateKeyProtection> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509PrivateKeyProtection>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.KeyProtection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509PrivateKeyProtection>(result__)
     }
     pub unsafe fn SetKeyProtection(&self, value: X509PrivateKeyProtection) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetKeyProtection)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn MachineContext(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MachineContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetMachineContext(&self, value: i16) -> ::windows::core::Result<()> {
@@ -31498,7 +31498,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31512,7 +31512,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31526,33 +31526,33 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UniqueContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UniqueContainerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Opened(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Opened)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn DefaultContainer(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.DefaultContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn Existing(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Existing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetExisting(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetExisting)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSilent)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ParentWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetParentWindow(&self, value: i32) -> ::windows::core::Result<()> {
@@ -31561,7 +31561,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UIContextMessage(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UIContextMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31583,7 +31583,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31597,7 +31597,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31609,7 +31609,7 @@ impl IX509PrivateKey2 {
         (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn HardwareKeyUsage(&self) -> ::windows::core::Result<X509HardwareKeyUsageFlags> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509HardwareKeyUsageFlags>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HardwareKeyUsage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509HardwareKeyUsageFlags>(result__)
     }
     pub unsafe fn SetHardwareKeyUsage(&self, value: X509HardwareKeyUsageFlags) -> ::windows::core::Result<()> {
@@ -31618,7 +31618,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlternateStorageLocation(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternateStorageLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31632,7 +31632,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AlgorithmName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlgorithmName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31646,7 +31646,7 @@ impl IX509PrivateKey2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AlgorithmParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_AlgorithmParameters)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31658,7 +31658,7 @@ impl IX509PrivateKey2 {
         (::windows::core::Interface::vtable(self).put_AlgorithmParameters)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn ParametersExportType(&self) -> ::windows::core::Result<X509KeyParametersExportType> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509KeyParametersExportType>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParametersExportType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509KeyParametersExportType>(result__)
     }
     pub unsafe fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> ::windows::core::Result<()> {
@@ -31805,29 +31805,29 @@ impl IX509PublicKey {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Algorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Algorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Length)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncodedKey(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_EncodedKey)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EncodedParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_EncodedParameters)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComputeKeyIdentifier(&self, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ComputeKeyIdentifier)(::windows::core::Interface::as_raw(self), algorithm, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -31945,13 +31945,13 @@ impl IX509SCEPEnrollment {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequestMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRequestMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRetrievePendingMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRetrievePendingMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31961,7 +31961,7 @@ impl IX509SCEPEnrollment {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRetrieveCertificateMessage)(::windows::core::Interface::as_raw(self), context, strissuer.into().abi(), issuerencoding, strserialnumber.into().abi(), serialnumberencoding, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31970,7 +31970,7 @@ impl IX509SCEPEnrollment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProcessResponseMessage)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -31982,13 +31982,13 @@ impl IX509SCEPEnrollment {
         (::windows::core::Interface::vtable(self).SetServerCapabilities)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn FailInfo(&self) -> ::windows::core::Result<X509SCEPFailInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPFailInfo>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FailInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPFailInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -32002,7 +32002,7 @@ impl IX509SCEPEnrollment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OldCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -32016,7 +32016,7 @@ impl IX509SCEPEnrollment {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_TransactionId(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_TransactionId)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32030,13 +32030,13 @@ impl IX509SCEPEnrollment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows::core::Result<IX509CertificateRequestPkcs10> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequestPkcs10>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CertificateFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CertificateFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32050,17 +32050,17 @@ impl IX509SCEPEnrollment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<IX509EnrollmentStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
@@ -32232,13 +32232,13 @@ impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequestMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRequestMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRetrievePendingMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRetrievePendingMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32248,7 +32248,7 @@ impl IX509SCEPEnrollment2 {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRetrieveCertificateMessage)(::windows::core::Interface::as_raw(self), context, strissuer.into().abi(), issuerencoding, strserialnumber.into().abi(), serialnumberencoding, encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32257,7 +32257,7 @@ impl IX509SCEPEnrollment2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProcessResponseMessage)(::windows::core::Interface::as_raw(self), strresponse.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32269,13 +32269,13 @@ impl IX509SCEPEnrollment2 {
         (::windows::core::Interface::vtable(self).base__.SetServerCapabilities)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     pub unsafe fn FailInfo(&self) -> ::windows::core::Result<X509SCEPFailInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPFailInfo>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FailInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPFailInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SignerCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -32289,7 +32289,7 @@ impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OldCertificate(&self) -> ::windows::core::Result<ISignerCertificate> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.OldCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISignerCertificate>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -32303,7 +32303,7 @@ impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_TransactionId(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_TransactionId)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32317,13 +32317,13 @@ impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows::core::Result<IX509CertificateRequestPkcs10> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Request)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509CertificateRequestPkcs10>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CertificateFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CertificateFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32337,17 +32337,17 @@ impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<IX509EnrollmentStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509EnrollmentStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.get_Certificate)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Silent(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Silent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSilent(&self, value: i16) -> ::windows::core::Result<()> {
@@ -32359,7 +32359,7 @@ impl IX509SCEPEnrollment2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateChallengeAnswerMessage(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateChallengeAnswerMessage)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32368,23 +32368,23 @@ impl IX509SCEPEnrollment2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProcessResponseMessage2)(::windows::core::Interface::as_raw(self), flags, strresponse.into().abi(), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResultMessageText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ResultMessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn DelayRetry(&self) -> ::windows::core::Result<DelayRetryAction> {
-        let mut result__ = ::core::mem::MaybeUninit::<DelayRetryAction>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DelayRetry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DelayRetryAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ActivityId(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActivityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32530,23 +32530,23 @@ impl IX509SCEPEnrollmentHelper {
         (::windows::core::Interface::vtable(self).InitializeForPending)(::windows::core::Interface::as_raw(self), strserverurl.into().abi(), strrequestheaders.into().abi(), context, strtransactionid.into().abi()).ok()
     }
     pub unsafe fn Enroll(&self, processflags: X509SCEPProcessMessageFlags) -> ::windows::core::Result<X509SCEPDisposition> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Enroll)(::windows::core::Interface::as_raw(self), processflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     pub unsafe fn FetchPending(&self, processflags: X509SCEPProcessMessageFlags) -> ::windows::core::Result<X509SCEPDisposition> {
-        let mut result__ = ::core::mem::MaybeUninit::<X509SCEPDisposition>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FetchPending)(::windows::core::Interface::as_raw(self), processflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<X509SCEPDisposition>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn X509SCEPEnrollment(&self) -> ::windows::core::Result<IX509SCEPEnrollment> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).X509SCEPEnrollment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IX509SCEPEnrollment>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResultMessageText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ResultMessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
 }
@@ -32644,7 +32644,7 @@ impl IX509SignatureInformation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HashAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -32658,7 +32658,7 @@ impl IX509SignatureInformation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PublicKeyAlgorithm(&self) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublicKeyAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -32672,7 +32672,7 @@ impl IX509SignatureInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Parameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Parameters)(::windows::core::Interface::as_raw(self), encoding, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32684,18 +32684,18 @@ impl IX509SignatureInformation {
         (::windows::core::Interface::vtable(self).put_Parameters)(::windows::core::Interface::as_raw(self), encoding, value.into().abi()).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlternateSignatureAlgorithm)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn AlternateSignatureAlgorithmSet(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternateSignatureAlgorithmSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn NullSigned(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NullSigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetNullSigned(&self, value: i16) -> ::windows::core::Result<()> {
@@ -32704,7 +32704,7 @@ impl IX509SignatureInformation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignatureAlgorithm(&self, pkcs7signature: i16, signaturekey: i16) -> ::windows::core::Result<IObjectId> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureAlgorithm)(::windows::core::Interface::as_raw(self), pkcs7signature, signaturekey, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectId>(result__)
     }
     pub unsafe fn SetDefaultValues(&self) -> ::windows::core::Result<()> {

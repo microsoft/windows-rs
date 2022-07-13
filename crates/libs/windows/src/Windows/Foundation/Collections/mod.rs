@@ -43,7 +43,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<T>>(result__)
         }
     }
@@ -138,28 +138,28 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<T as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
     pub fn HasCurrent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasCurrent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn MoveNext(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MoveNext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetMany(&self, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -254,14 +254,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     pub fn Key(&self) -> ::windows::core::Result<K> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<K as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<K>(result__)
         }
     }
     pub fn Value(&self) -> ::windows::core::Result<V> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
@@ -349,14 +349,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -366,14 +366,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<K, V>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<K, V>>(result__)
         }
     }
@@ -384,7 +384,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -402,7 +402,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<K, V>>>(result__)
         }
     }
@@ -524,14 +524,14 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgs<K> {
     pub fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<CollectionChange>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CollectionChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CollectionChange>(result__)
         }
     }
     pub fn Key(&self) -> ::windows::core::Result<K> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<K as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<K>(result__)
         }
     }
@@ -617,14 +617,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -634,7 +634,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -645,7 +645,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<K, V>>>(result__)
         }
     }
@@ -768,7 +768,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
@@ -779,7 +779,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<K, V>>>(result__)
         }
     }
@@ -789,14 +789,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -806,14 +806,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<K, V>> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<K, V>>(result__)
         }
     }
@@ -824,7 +824,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -974,7 +974,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VectorChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
@@ -985,28 +985,28 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = &::windows::core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<T>>(result__)
         }
     }
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<T> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<T as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IVectorView<T>> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IVectorView<T>>(result__)
         }
     }
@@ -1016,7 +1016,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
     {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -1056,7 +1056,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -1192,7 +1192,7 @@ impl IPropertySet {
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
@@ -1202,14 +1202,14 @@ impl IPropertySet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -1219,14 +1219,14 @@ impl IPropertySet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
@@ -1237,7 +1237,7 @@ impl IPropertySet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -1258,7 +1258,7 @@ impl IPropertySet {
     {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
@@ -1409,21 +1409,21 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<T as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IVectorView<T>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IVectorView<T>>(result__)
         }
     }
@@ -1433,7 +1433,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -1473,7 +1473,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -1484,7 +1484,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = &::windows::core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<T>>(result__)
         }
     }
@@ -1625,14 +1625,14 @@ impl IVectorChangedEventArgs {
     pub fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<CollectionChange>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CollectionChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CollectionChange>(result__)
         }
     }
     pub fn Index(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -1710,14 +1710,14 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<<T as ::windows::core::Abi>::Abi>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -1727,21 +1727,21 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = &::windows::core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<T>>(result__)
         }
     }
@@ -1986,7 +1986,7 @@ impl PropertySet {
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
@@ -1996,14 +1996,14 @@ impl PropertySet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -2013,14 +2013,14 @@ impl PropertySet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
@@ -2031,7 +2031,7 @@ impl PropertySet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -2052,7 +2052,7 @@ impl PropertySet {
     {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
@@ -2227,7 +2227,7 @@ impl StringMap {
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
@@ -2237,14 +2237,14 @@ impl StringMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -2254,14 +2254,14 @@ impl StringMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
@@ -2272,7 +2272,7 @@ impl StringMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -2293,7 +2293,7 @@ impl StringMap {
     {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
@@ -2449,7 +2449,7 @@ impl ValueSet {
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
@@ -2459,14 +2459,14 @@ impl ValueSet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -2476,14 +2476,14 @@ impl ValueSet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
@@ -2494,7 +2494,7 @@ impl ValueSet {
     {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -2515,7 +2515,7 @@ impl ValueSet {
     {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }

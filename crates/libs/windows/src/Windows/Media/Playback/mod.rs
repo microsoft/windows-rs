@@ -43,7 +43,7 @@ impl BackgroundMediaPlayer {
     #[cfg(feature = "deprecated")]
     pub fn Current() -> ::windows::core::Result<MediaPlayer> {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayer>(result__)
         })
     }
@@ -54,7 +54,7 @@ impl BackgroundMediaPlayer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>,
     {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -70,7 +70,7 @@ impl BackgroundMediaPlayer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>,
     {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -99,7 +99,7 @@ impl BackgroundMediaPlayer {
     #[cfg(feature = "deprecated")]
     pub fn IsMediaPlaying() -> ::windows::core::Result<bool> {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMediaPlaying)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -126,21 +126,21 @@ impl CurrentMediaPlaybackItemChangedEventArgs {
     pub fn NewItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NewItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
     pub fn OldItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OldItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
     pub fn Reason(&self) -> ::windows::core::Result<MediaPlaybackItemChangedReason> {
         let this = &::windows::core::Interface::cast::<ICurrentMediaPlaybackItemChangedEventArgs2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlaybackItemChangedReason>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItemChangedReason>(result__)
         }
     }
@@ -514,7 +514,7 @@ impl IMediaEnginePlaybackSource {
     pub fn CurrentItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
@@ -2160,7 +2160,7 @@ impl MediaBreak {
     pub fn PlaybackList(&self) -> ::windows::core::Result<MediaPlaybackList> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackList)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackList>(result__)
         }
     }
@@ -2169,14 +2169,14 @@ impl MediaBreak {
     pub fn PresentationPosition(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PresentationPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     pub fn InsertionMethod(&self) -> ::windows::core::Result<MediaBreakInsertionMethod> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaBreakInsertionMethod>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertionMethod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreakInsertionMethod>(result__)
         }
     }
@@ -2185,14 +2185,14 @@ impl MediaBreak {
     pub fn CustomProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CustomProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     pub fn CanStart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanStart)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -2202,7 +2202,7 @@ impl MediaBreak {
     }
     pub fn Create(insertionmethod: MediaBreakInsertionMethod) -> ::windows::core::Result<MediaBreak> {
         Self::IMediaBreakFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), insertionmethod, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         })
     }
@@ -2210,7 +2210,7 @@ impl MediaBreak {
     #[cfg(feature = "Foundation")]
     pub fn CreateWithPresentationPosition(insertionmethod: MediaBreakInsertionMethod, presentationposition: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaBreak> {
         Self::IMediaBreakFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithPresentationPosition)(::windows::core::Interface::as_raw(this), insertionmethod, presentationposition, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         })
     }
@@ -2289,7 +2289,7 @@ impl MediaBreakEndedEventArgs {
     pub fn MediaBreak(&self) -> ::windows::core::Result<MediaBreak> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaBreak)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         }
     }
@@ -2402,7 +2402,7 @@ impl MediaBreakManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BreaksSeekedOver)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2420,7 +2420,7 @@ impl MediaBreakManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BreakStarted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2438,7 +2438,7 @@ impl MediaBreakManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BreakEnded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2456,7 +2456,7 @@ impl MediaBreakManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BreakSkipped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2469,14 +2469,14 @@ impl MediaBreakManager {
     pub fn CurrentBreak(&self) -> ::windows::core::Result<MediaBreak> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentBreak)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         }
     }
     pub fn PlaybackSession(&self) -> ::windows::core::Result<MediaPlaybackSession> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackSession>(result__)
         }
     }
@@ -2566,7 +2566,7 @@ impl MediaBreakSchedule {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ScheduleChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2595,7 +2595,7 @@ impl MediaBreakSchedule {
     pub fn MidrollBreaks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaBreak>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MidrollBreaks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaBreak>>(result__)
         }
     }
@@ -2609,7 +2609,7 @@ impl MediaBreakSchedule {
     pub fn PrerollBreak(&self) -> ::windows::core::Result<MediaBreak> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PrerollBreak)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         }
     }
@@ -2623,14 +2623,14 @@ impl MediaBreakSchedule {
     pub fn PostrollBreak(&self) -> ::windows::core::Result<MediaBreak> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PostrollBreak)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         }
     }
     pub fn PlaybackItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
@@ -2706,7 +2706,7 @@ impl MediaBreakSeekedOverEventArgs {
     pub fn SeekedOverBreaks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaBreak>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SeekedOverBreaks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaBreak>>(result__)
         }
     }
@@ -2715,7 +2715,7 @@ impl MediaBreakSeekedOverEventArgs {
     pub fn OldPosition(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OldPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -2724,7 +2724,7 @@ impl MediaBreakSeekedOverEventArgs {
     pub fn NewPosition(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NewPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -2798,7 +2798,7 @@ impl MediaBreakSkippedEventArgs {
     pub fn MediaBreak(&self) -> ::windows::core::Result<MediaBreak> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaBreak)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         }
     }
@@ -2872,7 +2872,7 @@ impl MediaBreakStartedEventArgs {
     pub fn MediaBreak(&self) -> ::windows::core::Result<MediaBreak> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaBreak)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         }
     }
@@ -2981,7 +2981,7 @@ impl MediaItemDisplayProperties {
     pub fn Type(&self) -> ::windows::core::Result<super::MediaPlaybackType> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::MediaPlaybackType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaPlaybackType>(result__)
         }
     }
@@ -2992,14 +2992,14 @@ impl MediaItemDisplayProperties {
     pub fn MusicProperties(&self) -> ::windows::core::Result<super::MusicDisplayProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MusicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MusicDisplayProperties>(result__)
         }
     }
     pub fn VideoProperties(&self) -> ::windows::core::Result<super::VideoDisplayProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VideoProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::VideoDisplayProperties>(result__)
         }
     }
@@ -3008,7 +3008,7 @@ impl MediaItemDisplayProperties {
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
@@ -3099,7 +3099,7 @@ impl MediaPlaybackAudioTrackList {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::Core::AudioTrack>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::Core::AudioTrack>>(result__)
         }
     }
@@ -3111,7 +3111,7 @@ impl MediaPlaybackAudioTrackList {
     {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectedIndexChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3132,7 +3132,7 @@ impl MediaPlaybackAudioTrackList {
     pub fn SelectedIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectedIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
@@ -3141,7 +3141,7 @@ impl MediaPlaybackAudioTrackList {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Core::AudioTrack> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<super::Core::AudioTrack>(result__)
         }
     }
@@ -3150,7 +3150,7 @@ impl MediaPlaybackAudioTrackList {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -3162,7 +3162,7 @@ impl MediaPlaybackAudioTrackList {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3171,7 +3171,7 @@ impl MediaPlaybackAudioTrackList {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::AudioTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -3342,7 +3342,7 @@ impl MediaPlaybackCommandManager {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3353,77 +3353,77 @@ impl MediaPlaybackCommandManager {
     pub fn MediaPlayer(&self) -> ::windows::core::Result<MediaPlayer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaPlayer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayer>(result__)
         }
     }
     pub fn PlayBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlayBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn PauseBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PauseBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn NextBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn PreviousBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn FastForwardBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FastForwardBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn RewindBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RewindBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn ShuffleBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ShuffleBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn AutoRepeatModeBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AutoRepeatModeBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn PositionBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PositionBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
     pub fn RateBehavior(&self) -> ::windows::core::Result<MediaPlaybackCommandManagerCommandBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RateBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManagerCommandBehavior>(result__)
         }
     }
@@ -3435,7 +3435,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlayReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3453,7 +3453,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PauseReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3471,7 +3471,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3489,7 +3489,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3507,7 +3507,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FastForwardReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3525,7 +3525,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RewindReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3543,7 +3543,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ShuffleReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3561,7 +3561,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AutoRepeatModeReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3579,7 +3579,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PositionReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3597,7 +3597,7 @@ impl MediaPlaybackCommandManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RateReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3677,7 +3677,7 @@ impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3688,7 +3688,7 @@ impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     pub fn AutoRepeatMode(&self) -> ::windows::core::Result<super::MediaPlaybackAutoRepeatMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::MediaPlaybackAutoRepeatMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AutoRepeatMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaPlaybackAutoRepeatMode>(result__)
         }
     }
@@ -3697,7 +3697,7 @@ impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -3771,21 +3771,21 @@ impl MediaPlaybackCommandManagerCommandBehavior {
     pub fn CommandManager(&self) -> ::windows::core::Result<MediaPlaybackCommandManager> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CommandManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManager>(result__)
         }
     }
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn EnablingRule(&self) -> ::windows::core::Result<MediaCommandEnablingRule> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaCommandEnablingRule>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).EnablingRule)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaCommandEnablingRule>(result__)
         }
     }
@@ -3801,7 +3801,7 @@ impl MediaPlaybackCommandManagerCommandBehavior {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3881,7 +3881,7 @@ impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3894,7 +3894,7 @@ impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -3968,7 +3968,7 @@ impl MediaPlaybackCommandManagerNextReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3981,7 +3981,7 @@ impl MediaPlaybackCommandManagerNextReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4055,7 +4055,7 @@ impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4068,7 +4068,7 @@ impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4142,7 +4142,7 @@ impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4155,7 +4155,7 @@ impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4229,7 +4229,7 @@ impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4242,7 +4242,7 @@ impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -4251,7 +4251,7 @@ impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4325,7 +4325,7 @@ impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4338,7 +4338,7 @@ impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4412,7 +4412,7 @@ impl MediaPlaybackCommandManagerRateReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4423,7 +4423,7 @@ impl MediaPlaybackCommandManagerRateReceivedEventArgs {
     pub fn PlaybackRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -4432,7 +4432,7 @@ impl MediaPlaybackCommandManagerRateReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4506,7 +4506,7 @@ impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4519,7 +4519,7 @@ impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4593,7 +4593,7 @@ impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4604,7 +4604,7 @@ impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     pub fn IsShuffleRequested(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsShuffleRequested)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4613,7 +4613,7 @@ impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -4692,7 +4692,7 @@ impl MediaPlaybackItem {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioTracksChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -4710,7 +4710,7 @@ impl MediaPlaybackItem {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VideoTracksChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -4728,7 +4728,7 @@ impl MediaPlaybackItem {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimedMetadataTracksChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -4743,7 +4743,7 @@ impl MediaPlaybackItem {
     pub fn Source(&self) -> ::windows::core::Result<super::Core::MediaSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::MediaSource>(result__)
         }
     }
@@ -4752,7 +4752,7 @@ impl MediaPlaybackItem {
     pub fn AudioTracks(&self) -> ::windows::core::Result<MediaPlaybackAudioTrackList> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioTracks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackAudioTrackList>(result__)
         }
     }
@@ -4761,7 +4761,7 @@ impl MediaPlaybackItem {
     pub fn VideoTracks(&self) -> ::windows::core::Result<MediaPlaybackVideoTrackList> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VideoTracks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackVideoTrackList>(result__)
         }
     }
@@ -4770,14 +4770,14 @@ impl MediaPlaybackItem {
     pub fn TimedMetadataTracks(&self) -> ::windows::core::Result<MediaPlaybackTimedMetadataTrackList> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimedMetadataTracks)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackTimedMetadataTrackList>(result__)
         }
     }
     pub fn BreakSchedule(&self) -> ::windows::core::Result<MediaBreakSchedule> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BreakSchedule)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreakSchedule>(result__)
         }
     }
@@ -4786,7 +4786,7 @@ impl MediaPlaybackItem {
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -4795,14 +4795,14 @@ impl MediaPlaybackItem {
     pub fn DurationLimit(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DurationLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     pub fn CanSkip(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanSkip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4813,7 +4813,7 @@ impl MediaPlaybackItem {
     pub fn GetDisplayProperties(&self) -> ::windows::core::Result<MediaItemDisplayProperties> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDisplayProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaItemDisplayProperties>(result__)
         }
     }
@@ -4827,7 +4827,7 @@ impl MediaPlaybackItem {
     pub fn IsDisabledInPlaybackList(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsDisabledInPlaybackList)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4838,14 +4838,14 @@ impl MediaPlaybackItem {
     pub fn TotalDownloadProgress(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TotalDownloadProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn AutoLoadedDisplayProperties(&self) -> ::windows::core::Result<AutoLoadedDisplayPropertyKind> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<AutoLoadedDisplayPropertyKind>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AutoLoadedDisplayProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AutoLoadedDisplayPropertyKind>(result__)
         }
     }
@@ -4860,7 +4860,7 @@ impl MediaPlaybackItem {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>,
     {
         Self::IMediaPlaybackItemFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
@@ -4871,7 +4871,7 @@ impl MediaPlaybackItem {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>,
     {
         Self::IMediaPlaybackItemFactory2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithStartTime)(::windows::core::Interface::as_raw(this), source.into().abi(), starttime, result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
@@ -4882,7 +4882,7 @@ impl MediaPlaybackItem {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>,
     {
         Self::IMediaPlaybackItemFactory2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithStartTimeAndDurationLimit)(::windows::core::Interface::as_raw(this), source.into().abi(), starttime, durationlimit, result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
@@ -4893,7 +4893,7 @@ impl MediaPlaybackItem {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>,
     {
         Self::IMediaPlaybackItemStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FindFromMediaSource)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
@@ -5037,14 +5037,14 @@ impl MediaPlaybackItemError {
     pub fn ErrorCode(&self) -> ::windows::core::Result<MediaPlaybackItemErrorCode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlaybackItemErrorCode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItemErrorCode>(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
@@ -5156,14 +5156,14 @@ impl MediaPlaybackItemFailedEventArgs {
     pub fn Item(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Item)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
     pub fn Error(&self) -> ::windows::core::Result<MediaPlaybackItemError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItemError>(result__)
         }
     }
@@ -5237,7 +5237,7 @@ impl MediaPlaybackItemOpenedEventArgs {
     pub fn Item(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Item)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
@@ -5323,7 +5323,7 @@ impl MediaPlaybackList {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ItemFailed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5341,7 +5341,7 @@ impl MediaPlaybackList {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentItemChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5359,7 +5359,7 @@ impl MediaPlaybackList {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ItemOpened)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5374,14 +5374,14 @@ impl MediaPlaybackList {
     pub fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IObservableVector<MediaPlaybackItem>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IObservableVector<MediaPlaybackItem>>(result__)
         }
     }
     pub fn AutoRepeatEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AutoRepeatEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -5392,7 +5392,7 @@ impl MediaPlaybackList {
     pub fn ShuffleEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ShuffleEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -5403,35 +5403,35 @@ impl MediaPlaybackList {
     pub fn CurrentItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
     pub fn CurrentItemIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentItemIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn MoveNext(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MoveNext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
     pub fn MovePrevious(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MovePrevious)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
     pub fn MoveTo(&self, itemindex: u32) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MoveTo)(::windows::core::Interface::as_raw(this), itemindex, result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
@@ -5440,7 +5440,7 @@ impl MediaPlaybackList {
     pub fn MaxPrefetchTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxPrefetchTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
@@ -5457,7 +5457,7 @@ impl MediaPlaybackList {
     pub fn StartingItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StartingItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         }
     }
@@ -5473,7 +5473,7 @@ impl MediaPlaybackList {
     pub fn ShuffledItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaPlaybackItem>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ShuffledItems)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<MediaPlaybackItem>>(result__)
         }
     }
@@ -5492,7 +5492,7 @@ impl MediaPlaybackList {
     pub fn MaxPlayedItemsToKeepOpen(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxPlayedItemsToKeepOpen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
@@ -5600,7 +5600,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackStateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5618,7 +5618,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackRateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5636,7 +5636,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SeekCompleted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5654,7 +5654,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingStarted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5672,7 +5672,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingEnded)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5690,7 +5690,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingProgressChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5708,7 +5708,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DownloadProgressChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5726,7 +5726,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NaturalDurationChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5744,7 +5744,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PositionChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5762,7 +5762,7 @@ impl MediaPlaybackSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NaturalVideoSizeChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5775,7 +5775,7 @@ impl MediaPlaybackSession {
     pub fn MediaPlayer(&self) -> ::windows::core::Result<MediaPlayer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaPlayer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayer>(result__)
         }
     }
@@ -5784,7 +5784,7 @@ impl MediaPlaybackSession {
     pub fn NaturalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NaturalDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -5793,7 +5793,7 @@ impl MediaPlaybackSession {
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -5806,35 +5806,35 @@ impl MediaPlaybackSession {
     pub fn PlaybackState(&self) -> ::windows::core::Result<MediaPlaybackState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlaybackState>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackState>(result__)
         }
     }
     pub fn CanSeek(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanSeek)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn CanPause(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanPause)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsProtected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsProtected)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn PlaybackRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -5845,28 +5845,28 @@ impl MediaPlaybackSession {
     pub fn BufferingProgress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn DownloadProgress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DownloadProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn NaturalVideoHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NaturalVideoHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn NaturalVideoWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NaturalVideoWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -5875,7 +5875,7 @@ impl MediaPlaybackSession {
     pub fn NormalizedSourceRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Rect>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NormalizedSourceRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
@@ -5890,7 +5890,7 @@ impl MediaPlaybackSession {
     pub fn StereoscopicVideoPackingMode(&self) -> ::windows::core::Result<super::MediaProperties::StereoscopicVideoPackingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::MediaProperties::StereoscopicVideoPackingMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StereoscopicVideoPackingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::StereoscopicVideoPackingMode>(result__)
         }
     }
@@ -5908,7 +5908,7 @@ impl MediaPlaybackSession {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferedRangesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5926,7 +5926,7 @@ impl MediaPlaybackSession {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlayedRangesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5944,7 +5944,7 @@ impl MediaPlaybackSession {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SeekableRangesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5962,7 +5962,7 @@ impl MediaPlaybackSession {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SupportedPlaybackRatesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5975,14 +5975,14 @@ impl MediaPlaybackSession {
     pub fn SphericalVideoProjection(&self) -> ::windows::core::Result<MediaPlaybackSphericalVideoProjection> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SphericalVideoProjection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackSphericalVideoProjection>(result__)
         }
     }
     pub fn IsMirroring(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMirroring)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -5995,7 +5995,7 @@ impl MediaPlaybackSession {
     pub fn GetBufferedRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetBufferedRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>>(result__)
         }
     }
@@ -6004,7 +6004,7 @@ impl MediaPlaybackSession {
     pub fn GetPlayedRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetPlayedRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>>(result__)
         }
     }
@@ -6013,14 +6013,14 @@ impl MediaPlaybackSession {
     pub fn GetSeekableRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetSeekableRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>>(result__)
         }
     }
     pub fn IsSupportedPlaybackRateRange(&self, rate1: f64, rate2: f64) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsSupportedPlaybackRateRange)(::windows::core::Interface::as_raw(this), rate1, rate2, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6029,7 +6029,7 @@ impl MediaPlaybackSession {
     pub fn PlaybackRotation(&self) -> ::windows::core::Result<super::MediaProperties::MediaRotation> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::MediaProperties::MediaRotation>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackRotation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaRotation>(result__)
         }
     }
@@ -6042,7 +6042,7 @@ impl MediaPlaybackSession {
     pub fn GetOutputDegradationPolicyState(&self) -> ::windows::core::Result<MediaPlaybackSessionOutputDegradationPolicyState> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetOutputDegradationPolicyState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackSessionOutputDegradationPolicyState>(result__)
         }
     }
@@ -6116,7 +6116,7 @@ impl MediaPlaybackSessionBufferingStartedEventArgs {
     pub fn IsPlaybackInterruption(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsPlaybackInterruption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6190,7 +6190,7 @@ impl MediaPlaybackSessionOutputDegradationPolicyState {
     pub fn VideoConstrictionReason(&self) -> ::windows::core::Result<MediaPlaybackSessionVideoConstrictionReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlaybackSessionVideoConstrictionReason>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VideoConstrictionReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackSessionVideoConstrictionReason>(result__)
         }
     }
@@ -6303,7 +6303,7 @@ impl MediaPlaybackSphericalVideoProjection {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6316,7 +6316,7 @@ impl MediaPlaybackSphericalVideoProjection {
     pub fn FrameFormat(&self) -> ::windows::core::Result<super::MediaProperties::SphericalVideoFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::MediaProperties::SphericalVideoFrameFormat>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FrameFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaProperties::SphericalVideoFrameFormat>(result__)
         }
     }
@@ -6329,7 +6329,7 @@ impl MediaPlaybackSphericalVideoProjection {
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HorizontalFieldOfViewInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -6342,7 +6342,7 @@ impl MediaPlaybackSphericalVideoProjection {
     pub fn ViewOrientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Quaternion>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ViewOrientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
@@ -6355,7 +6355,7 @@ impl MediaPlaybackSphericalVideoProjection {
     pub fn ProjectionMode(&self) -> ::windows::core::Result<SphericalVideoProjectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<SphericalVideoProjectionMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProjectionMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SphericalVideoProjectionMode>(result__)
         }
     }
@@ -6474,7 +6474,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::Core::TimedMetadataTrack>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::Core::TimedMetadataTrack>>(result__)
         }
     }
@@ -6486,7 +6486,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PresentationModeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -6499,7 +6499,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     pub fn GetPresentationMode(&self, index: u32) -> ::windows::core::Result<TimedMetadataTrackPresentationMode> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<TimedMetadataTrackPresentationMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetPresentationMode)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<TimedMetadataTrackPresentationMode>(result__)
         }
     }
@@ -6512,7 +6512,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Core::TimedMetadataTrack> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<super::Core::TimedMetadataTrack>(result__)
         }
     }
@@ -6521,7 +6521,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6533,7 +6533,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6542,7 +6542,7 @@ impl MediaPlaybackTimedMetadataTrackList {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::TimedMetadataTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6695,7 +6695,7 @@ impl MediaPlaybackVideoTrackList {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::Core::VideoTrack>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::Core::VideoTrack>>(result__)
         }
     }
@@ -6707,7 +6707,7 @@ impl MediaPlaybackVideoTrackList {
     {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectedIndexChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -6728,7 +6728,7 @@ impl MediaPlaybackVideoTrackList {
     pub fn SelectedIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectedIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
@@ -6737,7 +6737,7 @@ impl MediaPlaybackVideoTrackList {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Core::VideoTrack> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<super::Core::VideoTrack>(result__)
         }
     }
@@ -6746,7 +6746,7 @@ impl MediaPlaybackVideoTrackList {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6758,7 +6758,7 @@ impl MediaPlaybackVideoTrackList {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6767,7 +6767,7 @@ impl MediaPlaybackVideoTrackList {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::VideoTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6951,7 +6951,7 @@ impl MediaPlayer {
     pub fn AutoPlay(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AutoPlay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6964,7 +6964,7 @@ impl MediaPlayer {
     pub fn NaturalDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NaturalDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -6973,7 +6973,7 @@ impl MediaPlayer {
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -6988,7 +6988,7 @@ impl MediaPlayer {
     pub fn BufferingProgress(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -6997,7 +6997,7 @@ impl MediaPlayer {
     pub fn CurrentState(&self) -> ::windows::core::Result<MediaPlayerState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlayerState>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayerState>(result__)
         }
     }
@@ -7006,7 +7006,7 @@ impl MediaPlayer {
     pub fn CanSeek(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanSeek)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7015,14 +7015,14 @@ impl MediaPlayer {
     pub fn CanPause(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanPause)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsLoopingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsLoopingEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7035,14 +7035,14 @@ impl MediaPlayer {
     pub fn IsProtected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsProtected)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsMuted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMuted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7055,7 +7055,7 @@ impl MediaPlayer {
     pub fn PlaybackRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -7068,7 +7068,7 @@ impl MediaPlayer {
     pub fn Volume(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Volume)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -7081,7 +7081,7 @@ impl MediaPlayer {
     pub fn PlaybackMediaMarkers(&self) -> ::windows::core::Result<PlaybackMediaMarkerSequence> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackMediaMarkers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarkerSequence>(result__)
         }
     }
@@ -7093,7 +7093,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaOpened)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7111,7 +7111,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaEnded)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7129,7 +7129,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaFailed)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7147,7 +7147,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentStateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7165,7 +7165,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackMediaMarkerReached)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7183,7 +7183,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaPlayerRateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7201,7 +7201,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VolumeChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7219,7 +7219,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SeekCompleted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7237,7 +7237,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingStarted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7255,7 +7255,7 @@ impl MediaPlayer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BufferingEnded)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7285,14 +7285,14 @@ impl MediaPlayer {
     pub fn SystemMediaTransportControls(&self) -> ::windows::core::Result<super::SystemMediaTransportControls> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SystemMediaTransportControls)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::SystemMediaTransportControls>(result__)
         }
     }
     pub fn AudioCategory(&self) -> ::windows::core::Result<MediaPlayerAudioCategory> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlayerAudioCategory>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioCategory)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayerAudioCategory>(result__)
         }
     }
@@ -7303,7 +7303,7 @@ impl MediaPlayer {
     pub fn AudioDeviceType(&self) -> ::windows::core::Result<MediaPlayerAudioDeviceType> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlayerAudioDeviceType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayerAudioDeviceType>(result__)
         }
     }
@@ -7319,7 +7319,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMutedChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7337,7 +7337,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SourceChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7350,7 +7350,7 @@ impl MediaPlayer {
     pub fn AudioBalance(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioBalance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -7361,7 +7361,7 @@ impl MediaPlayer {
     pub fn RealTimePlayback(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RealTimePlayback)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7372,7 +7372,7 @@ impl MediaPlayer {
     pub fn StereoscopicVideoRenderMode(&self) -> ::windows::core::Result<StereoscopicVideoRenderMode> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<StereoscopicVideoRenderMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StereoscopicVideoRenderMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StereoscopicVideoRenderMode>(result__)
         }
     }
@@ -7383,14 +7383,14 @@ impl MediaPlayer {
     pub fn BreakManager(&self) -> ::windows::core::Result<MediaBreakManager> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BreakManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaBreakManager>(result__)
         }
     }
     pub fn CommandManager(&self) -> ::windows::core::Result<MediaPlaybackCommandManager> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CommandManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackCommandManager>(result__)
         }
     }
@@ -7399,7 +7399,7 @@ impl MediaPlayer {
     pub fn AudioDevice(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
         }
     }
@@ -7415,7 +7415,7 @@ impl MediaPlayer {
     pub fn TimelineController(&self) -> ::windows::core::Result<super::MediaTimelineController> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimelineController)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::MediaTimelineController>(result__)
         }
     }
@@ -7431,7 +7431,7 @@ impl MediaPlayer {
     pub fn TimelineControllerPositionOffset(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimelineControllerPositionOffset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -7444,7 +7444,7 @@ impl MediaPlayer {
     pub fn PlaybackSession(&self) -> ::windows::core::Result<MediaPlaybackSession> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlaybackSession>(result__)
         }
     }
@@ -7461,7 +7461,7 @@ impl MediaPlayer {
     pub fn GetAsCastingSource(&self) -> ::windows::core::Result<super::Casting::CastingSource> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAsCastingSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Casting::CastingSource>(result__)
         }
     }
@@ -7479,7 +7479,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetSurface)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<MediaPlayerSurface>(result__)
         }
     }
@@ -7491,7 +7491,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).VideoFrameAvailable)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7504,7 +7504,7 @@ impl MediaPlayer {
     pub fn IsVideoFrameServerEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsVideoFrameServerEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7552,7 +7552,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubtitleFrameChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -7571,7 +7571,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RenderSubtitlesToSurface)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7584,7 +7584,7 @@ impl MediaPlayer {
     {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RenderSubtitlesToSurfaceWithTargetRectangle)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), targetrectangle, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -7593,7 +7593,7 @@ impl MediaPlayer {
     pub fn AudioStateMonitor(&self) -> ::windows::core::Result<super::Audio::AudioStateMonitor> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer7>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AudioStateMonitor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Audio::AudioStateMonitor>(result__)
         }
     }
@@ -7628,7 +7628,7 @@ impl MediaPlayer {
     pub fn ProtectionManager(&self) -> ::windows::core::Result<super::Protection::MediaProtectionManager> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtectionManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Protection::MediaProtectionManager>(result__)
         }
     }
@@ -7674,7 +7674,7 @@ impl MediaPlayer {
     pub fn Source(&self) -> ::windows::core::Result<IMediaPlaybackSource> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMediaPlaybackSource>(result__)
         }
     }
@@ -7857,7 +7857,7 @@ impl MediaPlayerDataReceivedEventArgs {
     pub fn Data(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
@@ -7968,21 +7968,21 @@ impl MediaPlayerFailedEventArgs {
     pub fn Error(&self) -> ::windows::core::Result<MediaPlayerError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MediaPlayerError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayerError>(result__)
         }
     }
     pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ExtendedErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     pub fn ErrorMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ErrorMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -8056,7 +8056,7 @@ impl MediaPlayerRateChangedEventArgs {
     pub fn NewRate(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NewRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -8184,7 +8184,7 @@ impl MediaPlayerSurface {
     pub fn CompositionSurface(&self) -> ::windows::core::Result<super::super::UI::Composition::ICompositionSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CompositionSurface)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Composition::ICompositionSurface>(result__)
         }
     }
@@ -8193,14 +8193,14 @@ impl MediaPlayerSurface {
     pub fn Compositor(&self) -> ::windows::core::Result<super::super::UI::Composition::Compositor> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Composition::Compositor>(result__)
         }
     }
     pub fn MediaPlayer(&self) -> ::windows::core::Result<MediaPlayer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaPlayer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaPlayer>(result__)
         }
     }
@@ -8298,21 +8298,21 @@ impl PlaybackMediaMarker {
     pub fn Time(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Time)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     pub fn MediaMarkerType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MediaMarkerType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -8320,7 +8320,7 @@ impl PlaybackMediaMarker {
     #[cfg(feature = "Foundation")]
     pub fn CreateFromTime(value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<PlaybackMediaMarker> {
         Self::IPlaybackMediaMarkerFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromTime)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
         })
     }
@@ -8332,7 +8332,7 @@ impl PlaybackMediaMarker {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPlaybackMediaMarkerFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value, mediamarkettype.into().abi(), text.into().abi(), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
         })
     }
@@ -8411,7 +8411,7 @@ impl PlaybackMediaMarkerReachedEventArgs {
     pub fn PlaybackMediaMarker(&self) -> ::windows::core::Result<PlaybackMediaMarker> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PlaybackMediaMarker)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
         }
     }
@@ -8487,14 +8487,14 @@ impl PlaybackMediaMarkerSequence {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<PlaybackMediaMarker>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<PlaybackMediaMarker>>(result__)
         }
     }
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -8687,21 +8687,21 @@ impl TimedMetadataPresentationModeChangedEventArgs {
     pub fn Track(&self) -> ::windows::core::Result<super::Core::TimedMetadataTrack> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Track)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::TimedMetadataTrack>(result__)
         }
     }
     pub fn OldPresentationMode(&self) -> ::windows::core::Result<TimedMetadataTrackPresentationMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<TimedMetadataTrackPresentationMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OldPresentationMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimedMetadataTrackPresentationMode>(result__)
         }
     }
     pub fn NewPresentationMode(&self) -> ::windows::core::Result<TimedMetadataTrackPresentationMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<TimedMetadataTrackPresentationMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NewPresentationMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimedMetadataTrackPresentationMode>(result__)
         }
     }

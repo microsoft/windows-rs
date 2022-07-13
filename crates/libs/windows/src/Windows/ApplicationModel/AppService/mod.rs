@@ -8,7 +8,7 @@ impl AppServiceCatalog {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IAppServiceCatalogStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FindAppServiceProvidersAsync)(::windows::core::Interface::as_raw(this), appservicename.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>(result__)
         })
     }
@@ -28,7 +28,7 @@ impl AppServiceClosedEventArgs {
     pub fn Status(&self) -> ::windows::core::Result<AppServiceClosedStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<AppServiceClosedStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceClosedStatus>(result__)
         }
     }
@@ -145,7 +145,7 @@ impl AppServiceConnection {
     pub fn AppServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppServiceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -159,7 +159,7 @@ impl AppServiceConnection {
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -175,7 +175,7 @@ impl AppServiceConnection {
     pub fn OpenAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>(result__)
         }
     }
@@ -187,7 +187,7 @@ impl AppServiceConnection {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceResponse>>(result__)
         }
     }
@@ -199,7 +199,7 @@ impl AppServiceConnection {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -217,7 +217,7 @@ impl AppServiceConnection {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServiceClosed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -235,7 +235,7 @@ impl AppServiceConnection {
     {
         let this = &::windows::core::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OpenRemoteAsync)(::windows::core::Interface::as_raw(this), remotesystemconnectionrequest.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>(result__)
         }
     }
@@ -244,7 +244,7 @@ impl AppServiceConnection {
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
@@ -266,7 +266,7 @@ impl AppServiceConnection {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
     {
         Self::IAppServiceConnectionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SendStatelessMessageAsync)(::windows::core::Interface::as_raw(this), connection.into().abi(), connectionrequest.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>(result__)
         })
     }
@@ -490,7 +490,7 @@ impl AppServiceRequest {
     pub fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
@@ -502,7 +502,7 @@ impl AppServiceRequest {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SendResponseAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>(result__)
         }
     }
@@ -576,14 +576,14 @@ impl AppServiceRequestReceivedEventArgs {
     pub fn Request(&self) -> ::windows::core::Result<AppServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceRequest>(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows::core::Result<AppServiceDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceDeferral>(result__)
         }
     }
@@ -659,14 +659,14 @@ impl AppServiceResponse {
     pub fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<AppServiceResponseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<AppServiceResponseStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceResponseStatus>(result__)
         }
     }
@@ -783,28 +783,28 @@ impl AppServiceTriggerDetails {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn AppServiceConnection(&self) -> ::windows::core::Result<AppServiceConnection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppServiceConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppServiceConnection>(result__)
         }
     }
     pub fn IsRemoteSystemConnection(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppServiceTriggerDetails2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsRemoteSystemConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -816,14 +816,14 @@ impl AppServiceTriggerDetails {
     {
         let this = &::windows::core::Interface::cast::<IAppServiceTriggerDetails3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CheckCallerForCapabilityAsync)(::windows::core::Interface::as_raw(this), capabilityname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn CallerRemoteConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppServiceTriggerDetails4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CallerRemoteConnectionToken)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1146,14 +1146,14 @@ impl StatelessAppServiceResponse {
     pub fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<StatelessAppServiceResponseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<StatelessAppServiceResponseStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StatelessAppServiceResponseStatus>(result__)
         }
     }

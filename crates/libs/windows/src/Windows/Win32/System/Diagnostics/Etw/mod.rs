@@ -3889,15 +3889,15 @@ pub unsafe fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64 {
 pub struct ITraceEvent(::windows::core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITraceEvent> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITraceEvent>(result__)
     }
     pub unsafe fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUserContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
     pub unsafe fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut EVENT_RECORD>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEventRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut EVENT_RECORD>(result__)
     }
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> ::windows::core::Result<()> {
@@ -4058,7 +4058,7 @@ impl ITraceRelogger {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AddLogfileTraceStream)(::windows::core::Interface::as_raw(self), logfilename.into().abi(), ::core::mem::transmute(usercontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4067,7 +4067,7 @@ impl ITraceRelogger {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AddRealtimeTraceStream)(::windows::core::Interface::as_raw(self), loggername.into().abi(), ::core::mem::transmute(usercontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn RegisterCallback<'a, P0>(&self, callback: P0) -> ::windows::core::Result<()>
@@ -4083,7 +4083,7 @@ impl ITraceRelogger {
         (::windows::core::Interface::vtable(self).Inject)(::windows::core::Interface::as_raw(self), event.into().abi()).ok()
     }
     pub unsafe fn CreateEventInstance(&self, tracehandle: u64, flags: u32) -> ::windows::core::Result<ITraceEvent> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateEventInstance)(::windows::core::Interface::as_raw(self), tracehandle, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITraceEvent>(result__)
     }
     pub unsafe fn ProcessTrace(&self) -> ::windows::core::Result<()> {

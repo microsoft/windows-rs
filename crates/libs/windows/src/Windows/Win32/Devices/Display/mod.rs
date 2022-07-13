@@ -6607,7 +6607,7 @@ where
     extern "system" {
         fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: *mut ::core::ffi::c_void, pdwnumberofphysicalmonitors: *mut u32) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -7904,7 +7904,7 @@ impl IViewHelper {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {

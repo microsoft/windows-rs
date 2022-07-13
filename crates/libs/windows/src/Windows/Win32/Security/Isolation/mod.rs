@@ -11,7 +11,7 @@ where
     extern "system" {
         fn CreateAppContainerProfile(pszappcontainername: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, pszdescription: ::windows::core::PCWSTR, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::PSID>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateAppContainerProfile(pszappcontainername.into(), pszdisplayname.into(), pszdescription.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcapabilities)), pcapabilities.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
@@ -37,7 +37,7 @@ where
     extern "system" {
         fn DeriveAppContainerSidFromAppContainerName(pszappcontainername: ::windows::core::PCWSTR, ppsidappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::PSID>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DeriveAppContainerSidFromAppContainerName(pszappcontainername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
@@ -52,7 +52,7 @@ where
     extern "system" {
         fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid: super::super::Foundation::PSID, pszrestrictedappcontainername: ::windows::core::PCWSTR, ppsidrestrictedappcontainersid: *mut super::super::Foundation::PSID) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::PSID>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into(), pszrestrictedappcontainername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
@@ -65,7 +65,7 @@ where
     extern "system" {
         fn GetAppContainerFolderPath(pszappcontainersid: ::windows::core::PCWSTR, ppszpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetAppContainerFolderPath(pszappcontainersid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
@@ -90,7 +90,7 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::
     extern "system" {
         fn GetAppContainerRegistryLocation(desiredaccess: u32, phappcontainerkey: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::System::Registry::HKEY>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetAppContainerRegistryLocation(desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Registry::HKEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
@@ -159,7 +159,7 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::s
     extern "system" {
         fn IsProcessInIsolatedContainer(isprocessinisolatedcontainer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     IsProcessInIsolatedContainer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
@@ -170,7 +170,7 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result
     extern "system" {
         fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     IsProcessInIsolatedWindowsEnvironment(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
@@ -181,7 +181,7 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> 
     extern "system" {
         fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     IsProcessInWDAGContainer(::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 pub const IsolatedAppLauncher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);

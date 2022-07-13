@@ -5,7 +5,7 @@ impl ConnectionRequestedEventArgs {
     pub fn PeerInformation(&self) -> ::windows::core::Result<PeerInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PeerInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeerInformation>(result__)
         }
     }
@@ -780,7 +780,7 @@ pub struct PeerFinder;
 impl PeerFinder {
     pub fn AllowBluetooth() -> ::windows::core::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AllowBluetooth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -789,7 +789,7 @@ impl PeerFinder {
     }
     pub fn AllowInfrastructure() -> ::windows::core::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AllowInfrastructure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -798,7 +798,7 @@ impl PeerFinder {
     }
     pub fn AllowWiFiDirect() -> ::windows::core::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AllowWiFiDirect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -807,7 +807,7 @@ impl PeerFinder {
     }
     pub fn DisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -819,7 +819,7 @@ impl PeerFinder {
     }
     pub fn SupportedDiscoveryTypes() -> ::windows::core::Result<PeerDiscoveryTypes> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<PeerDiscoveryTypes>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SupportedDiscoveryTypes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeerDiscoveryTypes>(result__)
         })
     }
@@ -827,7 +827,7 @@ impl PeerFinder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AlternateIdentities() -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlternateIdentities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         })
     }
@@ -850,7 +850,7 @@ impl PeerFinder {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TriggeredConnectionStateChangedEventArgs>>>,
     {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -866,7 +866,7 @@ impl PeerFinder {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ConnectionRequestedEventArgs>>>,
     {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ConnectionRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -879,7 +879,7 @@ impl PeerFinder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllPeersAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>> {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FindAllPeersAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>>(result__)
         })
     }
@@ -890,13 +890,13 @@ impl PeerFinder {
         P0: ::std::convert::Into<::windows::core::InParam<'a, PeerInformation>>,
     {
         Self::IPeerFinderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), peerinformation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>(result__)
         })
     }
     pub fn Role() -> ::windows::core::Result<PeerRole> {
         Self::IPeerFinderStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<PeerRole>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Role)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeerRole>(result__)
         })
     }
@@ -907,7 +907,7 @@ impl PeerFinder {
     #[cfg(feature = "Storage_Streams")]
     pub fn DiscoveryData() -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IPeerFinderStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DiscoveryData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
@@ -922,7 +922,7 @@ impl PeerFinder {
     }
     pub fn CreateWatcher() -> ::windows::core::Result<PeerWatcher> {
         Self::IPeerFinderStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeerWatcher>(result__)
         })
     }
@@ -947,14 +947,14 @@ impl PeerInformation {
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPeerInformation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -963,21 +963,21 @@ impl PeerInformation {
     pub fn DiscoveryData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::core::Interface::cast::<IPeerInformation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DiscoveryData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn HostName(&self) -> ::windows::core::Result<super::HostName> {
         let this = &::windows::core::Interface::cast::<IPeerInformationWithHostAndService>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HostName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
         }
     }
     pub fn ServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPeerInformationWithHostAndService>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServiceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1091,7 +1091,7 @@ impl PeerWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1109,7 +1109,7 @@ impl PeerWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1127,7 +1127,7 @@ impl PeerWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1145,7 +1145,7 @@ impl PeerWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1163,7 +1163,7 @@ impl PeerWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1176,7 +1176,7 @@ impl PeerWatcher {
     pub fn Status(&self) -> ::windows::core::Result<PeerWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<PeerWatcherStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeerWatcherStatus>(result__)
         }
     }
@@ -1300,7 +1300,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubscribeForMessage)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), messagereceivedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1311,7 +1311,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublishMessage)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1323,7 +1323,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublishMessageWithCallback)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.into().abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1337,7 +1337,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublishBinaryMessage)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1352,7 +1352,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublishBinaryMessageWithCallback)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.try_into().map_err(|e| e.into())?.abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1364,7 +1364,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublishUriMessage)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1377,7 +1377,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublishUriMessageWithCallback)(::windows::core::Interface::as_raw(this), message.into().abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1397,7 +1397,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceArrived)(::windows::core::Interface::as_raw(this), arrivedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1415,7 +1415,7 @@ impl ProximityDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceDeparted)(::windows::core::Interface::as_raw(this), departedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1428,33 +1428,33 @@ impl ProximityDevice {
     pub fn MaxMessageBytes(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxMessageBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn BitsPerSecond(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BitsPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IProximityDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     pub fn GetDefault() -> ::windows::core::Result<ProximityDevice> {
         Self::IProximityDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximityDevice>(result__)
         })
     }
@@ -1463,7 +1463,7 @@ impl ProximityDevice {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IProximityDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<ProximityDevice>(result__)
         })
     }
@@ -1542,14 +1542,14 @@ impl ProximityMessage {
     pub fn MessageType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MessageType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn SubscriptionId(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubscriptionId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
@@ -1558,14 +1558,14 @@ impl ProximityMessage {
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn DataAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DataAsString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1677,14 +1677,14 @@ impl TriggeredConnectionStateChangedEventArgs {
     pub fn State(&self) -> ::windows::core::Result<TriggeredConnectState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<TriggeredConnectState>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TriggeredConnectState>(result__)
         }
     }
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -1693,7 +1693,7 @@ impl TriggeredConnectionStateChangedEventArgs {
     pub fn Socket(&self) -> ::windows::core::Result<super::Sockets::StreamSocket> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Socket)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Sockets::StreamSocket>(result__)
         }
     }

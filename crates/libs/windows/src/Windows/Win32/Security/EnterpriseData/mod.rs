@@ -614,7 +614,7 @@ where
     extern "system" {
         fn SrpCreateThreadNetworkContext(enterpriseid: ::windows::core::PCWSTR, threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HTHREAD_NETWORK_CONTEXT>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SrpCreateThreadNetworkContext(enterpriseid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HTHREAD_NETWORK_CONTEXT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
@@ -634,7 +634,7 @@ pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Sto
     extern "system" {
         fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID, isallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SrpDoesPolicyAllowAppExecution(::core::mem::transmute(packageid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
@@ -673,7 +673,7 @@ where
     extern "system" {
         fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE, policyflags: *mut ENTERPRISE_DATA_POLICIES) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<ENTERPRISE_DATA_POLICIES>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SrpGetEnterprisePolicy(tokenhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ENTERPRISE_DATA_POLICIES>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]

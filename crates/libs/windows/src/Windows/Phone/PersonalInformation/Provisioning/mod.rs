@@ -10,7 +10,7 @@ impl ContactPartnerProvisioningManager {
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), networkname.into().abi(), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -22,7 +22,7 @@ impl ContactPartnerProvisioningManager {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ImportVcardToSystemAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -35,7 +35,7 @@ impl ContactPartnerProvisioningManager {
         P2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), networkname.into().abi(), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -122,7 +122,7 @@ impl MessagePartnerProvisioningManager {
         E2: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ImportSmsToSystemAsync)(::windows::core::Interface::as_raw(this), incoming, read, body.into().abi(), sender.into().abi(), recipients.try_into().map_err(|e| e.into())?.abi(), deliverytime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -138,7 +138,7 @@ impl MessagePartnerProvisioningManager {
         E3: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ImportMmsToSystemAsync)(::windows::core::Interface::as_raw(this), incoming, read, subject.into().abi(), sender.into().abi(), recipients.try_into().map_err(|e| e.into())?.abi(), deliverytime, attachments.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }

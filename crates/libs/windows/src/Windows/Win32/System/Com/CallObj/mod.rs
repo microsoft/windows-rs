@@ -303,7 +303,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<CALLFRAMEINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::<CALLFRAMEINFO>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CALLFRAMEINFO>(result__)
     }
     pub unsafe fn GetIIDAndMethod(&self, piid: *mut ::windows::core::GUID, pimethod: *mut u32) -> ::windows::core::Result<()> {
@@ -327,7 +327,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetParamInfo(&self, iparam: u32) -> ::windows::core::Result<CALLFRAMEPARAMINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::<CALLFRAMEPARAMINFO>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetParamInfo)(::windows::core::Interface::as_raw(self), iparam, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CALLFRAMEPARAMINFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
@@ -338,14 +338,14 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetParam(&self, iparam: u32) -> ::windows::core::Result<super::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetParam)(::windows::core::Interface::as_raw(self), iparam, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::VARIANT>(result__)
     }
     pub unsafe fn Copy<'a, P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> ::windows::core::Result<ICallFrame>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ICallFrameWalker>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), copycontrol, pwalker.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICallFrame>(result__)
     }
     pub unsafe fn Free<'a, P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> ::windows::core::Result<()>
@@ -372,7 +372,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMarshalSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmshlcontext), mshlflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -383,7 +383,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unmarshal(&self, pbuffer: &[u8], datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Unmarshal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer)), pbuffer.len() as _, datarep, ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -601,7 +601,7 @@ impl ICallIndirect {
         (::windows::core::Interface::vtable(self).GetMethodInfo)(::windows::core::Interface::as_raw(self), imethod, ::core::mem::transmute(pinfo), ::core::mem::transmute(pwszmethod)).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStackSize)(::windows::core::Interface::as_raw(self), imethod, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -673,7 +673,7 @@ impl ICallInterceptor {
         (::windows::core::Interface::vtable(self).base__.GetMethodInfo)(::windows::core::Interface::as_raw(self), imethod, ::core::mem::transmute(pinfo), ::core::mem::transmute(pwszmethod)).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStackSize)(::windows::core::Interface::as_raw(self), imethod, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -688,7 +688,7 @@ impl ICallInterceptor {
         (::windows::core::Interface::vtable(self).RegisterSink)(::windows::core::Interface::as_raw(self), psink.into().abi()).ok()
     }
     pub unsafe fn GetRegisteredSink(&self) -> ::windows::core::Result<ICallFrameEvents> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRegisteredSink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICallFrameEvents>(result__)
     }
 }
@@ -823,7 +823,7 @@ impl IInterfaceRelated {
         (::windows::core::Interface::vtable(self).SetIID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid)).ok()
     }
     pub unsafe fn GetIID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }

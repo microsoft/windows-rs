@@ -9,7 +9,7 @@ where
     extern "system" {
         fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice: *mut ::core::ffi::c_void, graphicsdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
@@ -23,7 +23,7 @@ where
     extern "system" {
         fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface: *mut ::core::ffi::c_void, graphicssurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]

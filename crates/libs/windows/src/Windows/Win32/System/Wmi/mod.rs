@@ -76,7 +76,7 @@ impl IEnumWbemClassObject {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).NextAsync)(::windows::core::Interface::as_raw(self), ucount, psink.into().abi()))
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     pub unsafe fn Skip(&self, ltimeout: i32, ncount: u32) -> ::windows::core::HRESULT {
@@ -212,7 +212,7 @@ impl ISWbemDateTime {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -224,126 +224,126 @@ impl ISWbemDateTime {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), strvalue.into().abi()).ok()
     }
     pub unsafe fn Year(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Year)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetYear(&self, iyear: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetYear)(::windows::core::Interface::as_raw(self), iyear).ok()
     }
     pub unsafe fn YearSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).YearSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetYearSpecified(&self, byearspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetYearSpecified)(::windows::core::Interface::as_raw(self), byearspecified).ok()
     }
     pub unsafe fn Month(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Month)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMonth(&self, imonth: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMonth)(::windows::core::Interface::as_raw(self), imonth).ok()
     }
     pub unsafe fn MonthSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MonthSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetMonthSpecified(&self, bmonthspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMonthSpecified)(::windows::core::Interface::as_raw(self), bmonthspecified).ok()
     }
     pub unsafe fn Day(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Day)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetDay(&self, iday: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDay)(::windows::core::Interface::as_raw(self), iday).ok()
     }
     pub unsafe fn DaySpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DaySpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetDaySpecified(&self, bdayspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDaySpecified)(::windows::core::Interface::as_raw(self), bdayspecified).ok()
     }
     pub unsafe fn Hours(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Hours)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetHours(&self, ihours: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHours)(::windows::core::Interface::as_raw(self), ihours).ok()
     }
     pub unsafe fn HoursSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HoursSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetHoursSpecified(&self, bhoursspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHoursSpecified)(::windows::core::Interface::as_raw(self), bhoursspecified).ok()
     }
     pub unsafe fn Minutes(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Minutes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMinutes(&self, iminutes: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMinutes)(::windows::core::Interface::as_raw(self), iminutes).ok()
     }
     pub unsafe fn MinutesSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MinutesSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetMinutesSpecified(&self, bminutesspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMinutesSpecified)(::windows::core::Interface::as_raw(self), bminutesspecified).ok()
     }
     pub unsafe fn Seconds(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Seconds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetSeconds(&self, iseconds: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSeconds)(::windows::core::Interface::as_raw(self), iseconds).ok()
     }
     pub unsafe fn SecondsSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SecondsSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetSecondsSpecified(&self, bsecondsspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSecondsSpecified)(::windows::core::Interface::as_raw(self), bsecondsspecified).ok()
     }
     pub unsafe fn Microseconds(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Microseconds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetMicroseconds(&self, imicroseconds: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMicroseconds)(::windows::core::Interface::as_raw(self), imicroseconds).ok()
     }
     pub unsafe fn MicrosecondsSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MicrosecondsSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetMicrosecondsSpecified(&self, bmicrosecondsspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMicrosecondsSpecified)(::windows::core::Interface::as_raw(self), bmicrosecondsspecified).ok()
     }
     pub unsafe fn UTC(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UTC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetUTC(&self, iutc: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetUTC)(::windows::core::Interface::as_raw(self), iutc).ok()
     }
     pub unsafe fn UTCSpecified(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UTCSpecified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetUTCSpecified(&self, butcspecified: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetUTCSpecified)(::windows::core::Interface::as_raw(self), butcspecified).ok()
     }
     pub unsafe fn IsInterval(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetIsInterval(&self, bisinterval: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIsInterval)(::windows::core::Interface::as_raw(self), bisinterval).ok()
     }
     pub unsafe fn GetVarDate(&self, bislocal: i16) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVarDate)(::windows::core::Interface::as_raw(self), bislocal, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     pub unsafe fn SetVarDate(&self, dvardate: f64, bislocal: i16) -> ::windows::core::Result<()> {
@@ -352,7 +352,7 @@ impl ISWbemDateTime {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFileTime(&self, bislocal: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileTime)(::windows::core::Interface::as_raw(self), bislocal, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -492,13 +492,13 @@ impl ISWbemEventSource {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NextEvent(&self, itimeoutms: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NextEvent)(::windows::core::Interface::as_raw(self), itimeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
 }
@@ -589,7 +589,7 @@ impl ISWbemLastError {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Put_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -626,7 +626,7 @@ impl ISWbemLastError {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Instances_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -645,7 +645,7 @@ impl ISWbemLastError {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Subclasses_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -670,7 +670,7 @@ impl ISWbemLastError {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -698,7 +698,7 @@ impl ISWbemLastError {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.References_)(::windows::core::Interface::as_raw(self), strresultclass.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -722,7 +722,7 @@ impl ISWbemLastError {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into().abi(), objwbeminparameters.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -740,25 +740,25 @@ impl ISWbemLastError {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone_(&self) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Clone_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectText_(&self, iflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetObjectText_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SpawnDerivedClass_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpawnInstance_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SpawnInstance_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -767,43 +767,43 @@ impl ISWbemLastError {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Qualifiers_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties_(&self) -> ::windows::core::Result<ISWbemPropertySet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Properties_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPropertySet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Methods_(&self) -> ::windows::core::Result<ISWbemMethodSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Methods_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemMethodSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Derivation_(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Derivation_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Path_(&self) -> ::windows::core::Result<ISWbemObjectPath> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Path_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
 }
@@ -910,13 +910,13 @@ impl ISWbemLocator {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), strserver.into().abi(), strnamespace.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), strauthority.into().abi(), isecurityflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemServices>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
 }
@@ -1004,31 +1004,31 @@ impl ISWbemMethod {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Origin(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Origin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InParameters(&self) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutParameters(&self) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OutParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Qualifiers_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifierSet>(result__)
     }
 }
@@ -1126,7 +1126,7 @@ pub struct ISWbemMethodSet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemMethodSet {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1135,11 +1135,11 @@ impl ISWbemMethodSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemMethod>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -1225,7 +1225,7 @@ impl ISWbemNamedValue {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1236,7 +1236,7 @@ impl ISWbemNamedValue {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
@@ -1326,7 +1326,7 @@ pub struct ISWbemNamedValueSet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemNamedValueSet {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1335,11 +1335,11 @@ impl ISWbemNamedValueSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValue>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1348,7 +1348,7 @@ impl ISWbemNamedValueSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(varvalue), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValue>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1362,7 +1362,7 @@ impl ISWbemNamedValueSet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ISWbemNamedValueSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValueSet>(result__)
     }
     pub unsafe fn DeleteAll(&self) -> ::windows::core::Result<()> {
@@ -1467,7 +1467,7 @@ impl ISWbemObject {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Put_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1504,7 +1504,7 @@ impl ISWbemObject {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Instances_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1523,7 +1523,7 @@ impl ISWbemObject {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Subclasses_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1548,7 +1548,7 @@ impl ISWbemObject {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1576,7 +1576,7 @@ impl ISWbemObject {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).References_)(::windows::core::Interface::as_raw(self), strresultclass.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1600,7 +1600,7 @@ impl ISWbemObject {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into().abi(), objwbeminparameters.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1618,25 +1618,25 @@ impl ISWbemObject {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone_(&self) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectText_(&self, iflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetObjectText_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SpawnDerivedClass_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpawnInstance_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SpawnInstance_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1645,43 +1645,43 @@ impl ISWbemObject {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Qualifiers_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties_(&self) -> ::windows::core::Result<ISWbemPropertySet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Properties_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPropertySet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Methods_(&self) -> ::windows::core::Result<ISWbemMethodSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Methods_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemMethodSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Derivation_(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Derivation_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Path_(&self) -> ::windows::core::Result<ISWbemObjectPath> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
 }
@@ -1864,7 +1864,7 @@ impl ISWbemObjectEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Put_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1901,7 +1901,7 @@ impl ISWbemObjectEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Instances_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1920,7 +1920,7 @@ impl ISWbemObjectEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Subclasses_)(::windows::core::Interface::as_raw(self), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1945,7 +1945,7 @@ impl ISWbemObjectEx {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Associators_)(::windows::core::Interface::as_raw(self), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1973,7 +1973,7 @@ impl ISWbemObjectEx {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.References_)(::windows::core::Interface::as_raw(self), strresultclass.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1997,7 +1997,7 @@ impl ISWbemObjectEx {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExecMethod_)(::windows::core::Interface::as_raw(self), strmethodname.into().abi(), objwbeminparameters.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2015,25 +2015,25 @@ impl ISWbemObjectEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone_(&self) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Clone_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectText_(&self, iflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetObjectText_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SpawnDerivedClass_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SpawnInstance_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SpawnInstance_)(::windows::core::Interface::as_raw(self), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2042,43 +2042,43 @@ impl ISWbemObjectEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CompareTo_)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Qualifiers_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties_(&self) -> ::windows::core::Result<ISWbemPropertySet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Properties_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPropertySet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Methods_(&self) -> ::windows::core::Result<ISWbemMethodSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Methods_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemMethodSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Derivation_(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Derivation_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Path_(&self) -> ::windows::core::Result<ISWbemObjectPath> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Path_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2092,7 +2092,7 @@ impl ISWbemObjectEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SystemProperties_(&self) -> ::windows::core::Result<ISWbemPropertySet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SystemProperties_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPropertySet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2101,7 +2101,7 @@ impl ISWbemObjectEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetText_)(::windows::core::Interface::as_raw(self), iobjecttextformat, iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2224,7 +2224,7 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2238,7 +2238,7 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RelPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2252,7 +2252,7 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Server(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Server)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2266,7 +2266,7 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Namespace(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Namespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2280,13 +2280,13 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ParentNamespace(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParentNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2300,7 +2300,7 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2312,14 +2312,14 @@ impl ISWbemObjectPath {
         (::windows::core::Interface::vtable(self).SetClass)(::windows::core::Interface::as_raw(self), strclass.into().abi()).ok()
     }
     pub unsafe fn IsClass(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAsClass(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAsClass)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn IsSingleton(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSingleton)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAsSingleton(&self) -> ::windows::core::Result<()> {
@@ -2328,19 +2328,19 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Keys(&self) -> ::windows::core::Result<ISWbemNamedValueSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Keys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemNamedValueSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Locale(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Locale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2354,7 +2354,7 @@ impl ISWbemObjectPath {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Authority(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Authority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2520,7 +2520,7 @@ pub struct ISWbemObjectSet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemObjectSet {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2529,23 +2529,23 @@ impl ISWbemObjectSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ItemIndex(&self, lindex: i32) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ItemIndex)(::windows::core::Interface::as_raw(self), lindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
 }
@@ -2637,7 +2637,7 @@ pub struct ISWbemPrivilege(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemPrivilege {
     pub unsafe fn IsEnabled(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetIsEnabled(&self, bisenabled: i16) -> ::windows::core::Result<()> {
@@ -2646,17 +2646,17 @@ impl ISWbemPrivilege {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn Identifier(&self) -> ::windows::core::Result<WbemPrivilegeEnum> {
-        let mut result__ = ::core::mem::MaybeUninit::<WbemPrivilegeEnum>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Identifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemPrivilegeEnum>(result__)
     }
 }
@@ -2745,23 +2745,23 @@ pub struct ISWbemPrivilegeSet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemPrivilegeSet {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<ISWbemPrivilege> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), iprivilege, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), iprivilege, bisenabled, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
     pub unsafe fn Remove(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<()> {
@@ -2776,7 +2776,7 @@ impl ISWbemPrivilegeSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AddAsString)(::windows::core::Interface::as_raw(self), strprivilege.into().abi(), bisenabled, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilege>(result__)
     }
 }
@@ -2872,7 +2872,7 @@ impl ISWbemProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -2883,31 +2883,31 @@ impl ISWbemProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn IsLocal(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsLocal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Origin(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Origin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn CIMType(&self) -> ::windows::core::Result<WbemCimtypeEnum> {
-        let mut result__ = ::core::mem::MaybeUninit::<WbemCimtypeEnum>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CIMType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemCimtypeEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Qualifiers_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifierSet>(result__)
     }
     pub unsafe fn IsArray(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
@@ -3008,7 +3008,7 @@ pub struct ISWbemPropertySet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemPropertySet {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3017,11 +3017,11 @@ impl ISWbemPropertySet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), strname.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3030,7 +3030,7 @@ impl ISWbemPropertySet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), icimtype, bisarray, iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3132,7 +3132,7 @@ impl ISWbemQualifier {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3143,36 +3143,36 @@ impl ISWbemQualifier {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn IsLocal(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsLocal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn PropagatesToSubclass(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropagatesToSubclass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetPropagatesToSubclass(&self, bpropagatestosubclass: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPropagatesToSubclass)(::windows::core::Interface::as_raw(self), bpropagatestosubclass).ok()
     }
     pub unsafe fn PropagatesToInstance(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropagatesToInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetPropagatesToInstance(&self, bpropagatestoinstance: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPropagatesToInstance)(::windows::core::Interface::as_raw(self), bpropagatestoinstance).ok()
     }
     pub unsafe fn IsOverridable(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsOverridable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetIsOverridable(&self, bisoverridable: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIsOverridable)(::windows::core::Interface::as_raw(self), bisoverridable).ok()
     }
     pub unsafe fn IsAmended(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsAmended)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
@@ -3270,7 +3270,7 @@ pub struct ISWbemQualifierSet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemQualifierSet {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3279,11 +3279,11 @@ impl ISWbemQualifierSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), name.into().abi(), iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifier>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3292,7 +3292,7 @@ impl ISWbemQualifierSet {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), strname.into().abi(), ::core::mem::transmute(varval), bpropagatestosubclass, bpropagatestoinstance, bisoverridable, iflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemQualifier>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3392,29 +3392,29 @@ pub struct ISWbemRefreshableItem(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemRefreshableItem {
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Refresher(&self) -> ::windows::core::Result<ISWbemRefresher> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Refresher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefresher>(result__)
     }
     pub unsafe fn IsSet(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Object(&self) -> ::windows::core::Result<ISWbemObjectEx> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Object)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectEx>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ObjectSet(&self) -> ::windows::core::Result<ISWbemObjectSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ObjectSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     pub unsafe fn Remove(&self, iflags: i32) -> ::windows::core::Result<()> {
@@ -3510,17 +3510,17 @@ pub struct ISWbemRefresher(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemRefresher {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, iindex: i32) -> ::windows::core::Result<ISWbemRefreshableItem> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), iindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3531,7 +3531,7 @@ impl ISWbemRefresher {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), objwbemservices.into().abi(), bsinstancepath.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3542,7 +3542,7 @@ impl ISWbemRefresher {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AddEnum)(::windows::core::Interface::as_raw(self), objwbemservices.into().abi(), bsclassname.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemRefreshableItem>(result__)
     }
     pub unsafe fn Remove(&self, iindex: i32, iflags: i32) -> ::windows::core::Result<()> {
@@ -3552,7 +3552,7 @@ impl ISWbemRefresher {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self), iflags).ok()
     }
     pub unsafe fn AutoReconnect(&self) -> ::windows::core::Result<i16> {
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AutoReconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     pub unsafe fn SetAutoReconnect(&self, bcount: i16) -> ::windows::core::Result<()> {
@@ -3655,14 +3655,14 @@ pub struct ISWbemSecurity(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemSecurity {
     pub unsafe fn ImpersonationLevel(&self) -> ::windows::core::Result<WbemImpersonationLevelEnum> {
-        let mut result__ = ::core::mem::MaybeUninit::<WbemImpersonationLevelEnum>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ImpersonationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemImpersonationLevelEnum>(result__)
     }
     pub unsafe fn SetImpersonationLevel(&self, iimpersonationlevel: WbemImpersonationLevelEnum) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetImpersonationLevel)(::windows::core::Interface::as_raw(self), iimpersonationlevel).ok()
     }
     pub unsafe fn AuthenticationLevel(&self) -> ::windows::core::Result<WbemAuthenticationLevelEnum> {
-        let mut result__ = ::core::mem::MaybeUninit::<WbemAuthenticationLevelEnum>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AuthenticationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WbemAuthenticationLevelEnum>(result__)
     }
     pub unsafe fn SetAuthenticationLevel(&self, iauthenticationlevel: WbemAuthenticationLevelEnum) -> ::windows::core::Result<()> {
@@ -3671,7 +3671,7 @@ impl ISWbemSecurity {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Privileges(&self) -> ::windows::core::Result<ISWbemPrivilegeSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Privileges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemPrivilegeSet>(result__)
     }
 }
@@ -3763,7 +3763,7 @@ impl ISWbemServices {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3804,7 +3804,7 @@ impl ISWbemServices {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstancesOf)(::windows::core::Interface::as_raw(self), strclass.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3825,7 +3825,7 @@ impl ISWbemServices {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SubclassesOf)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3847,7 +3847,7 @@ impl ISWbemServices {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3875,7 +3875,7 @@ impl ISWbemServices {
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AssociatorsOf)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3905,7 +3905,7 @@ impl ISWbemServices {
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReferencesTo)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strresultclass.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3930,7 +3930,7 @@ impl ISWbemServices {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemEventSource>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3954,7 +3954,7 @@ impl ISWbemServices {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3973,7 +3973,7 @@ impl ISWbemServices {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
 }
@@ -4148,7 +4148,7 @@ impl ISWbemServicesEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4189,7 +4189,7 @@ impl ISWbemServicesEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.InstancesOf)(::windows::core::Interface::as_raw(self), strclass.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4210,7 +4210,7 @@ impl ISWbemServicesEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SubclassesOf)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4232,7 +4232,7 @@ impl ISWbemServicesEx {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExecQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4260,7 +4260,7 @@ impl ISWbemServicesEx {
         P6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P7: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.AssociatorsOf)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strassocclass.into().abi(), strresultclass.into().abi(), strresultrole.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredassocqualifier.into().abi(), strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4290,7 +4290,7 @@ impl ISWbemServicesEx {
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ReferencesTo)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strresultclass.into().abi(), strrole.into().abi(), bclassesonly, bschemaonly, strrequiredqualifier.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4315,7 +4315,7 @@ impl ISWbemServicesEx {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquery.into().abi(), strquerylanguage.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemEventSource>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4339,7 +4339,7 @@ impl ISWbemServicesEx {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ExecMethod)(::windows::core::Interface::as_raw(self), strobjectpath.into().abi(), strmethodname.into().abi(), objwbeminparameters.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4358,7 +4358,7 @@ impl ISWbemServicesEx {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Security_)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemSecurity>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4368,7 +4368,7 @@ impl ISWbemServicesEx {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ISWbemObjectEx>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), objwbemobject.into().abi(), iflags, objwbemnamedvalueset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObjectPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4635,7 +4635,7 @@ impl IUnsecuredApartment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateObjectStub)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
@@ -4689,19 +4689,19 @@ impl IWMIExtension {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WMIObjectPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WMIObjectPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIObject(&self) -> ::windows::core::Result<ISWbemObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetWMIObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIServices(&self) -> ::windows::core::Result<ISWbemServices> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetWMIServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISWbemServices>(result__)
     }
 }
@@ -4980,21 +4980,21 @@ pub struct IWbemBackupRestoreEx_Vtbl {
 pub struct IWbemCallResult(::windows::core::IUnknown);
 impl IWbemCallResult {
     pub unsafe fn GetResultObject(&self, ltimeout: i32) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetResultObject)(::windows::core::Interface::as_raw(self), ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetResultString(&self, ltimeout: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetResultString)(::windows::core::Interface::as_raw(self), ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetResultServices(&self, ltimeout: i32) -> ::windows::core::Result<IWbemServices> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetResultServices)(::windows::core::Interface::as_raw(self), ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
     pub unsafe fn GetCallStatus(&self, ltimeout: i32) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCallStatus)(::windows::core::Interface::as_raw(self), ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
@@ -5050,7 +5050,7 @@ pub struct IWbemCallResult_Vtbl {
 pub struct IWbemClassObject(::windows::core::IUnknown);
 impl IWbemClassObject {
     pub unsafe fn GetQualifierSet(&self) -> ::windows::core::Result<IWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetQualifierSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5081,7 +5081,7 @@ impl IWbemClassObject {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNames)(::windows::core::Interface::as_raw(self), wszqualifiername.into(), lflags, ::core::mem::transmute(pqualifierval), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
@@ -5099,25 +5099,25 @@ impl IWbemClassObject {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyQualifierSet)(::windows::core::Interface::as_raw(self), wszproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectText(&self, lflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetObjectText)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn SpawnDerivedClass(&self, lflags: i32) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SpawnDerivedClass)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     pub unsafe fn SpawnInstance(&self, lflags: i32) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SpawnInstance)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     pub unsafe fn CompareTo<'a, P0>(&self, lflags: i32, pcompareto: P0) -> ::windows::core::Result<()>
@@ -5132,7 +5132,7 @@ impl IWbemClassObject {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyOrigin)(::windows::core::Interface::as_raw(self), wszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn InheritsFrom<'a, P0>(&self, strancestor: P0) -> ::windows::core::Result<()>
@@ -5176,7 +5176,7 @@ impl IWbemClassObject {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMethodQualifierSet)(::windows::core::Interface::as_raw(self), wszmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5185,7 +5185,7 @@ impl IWbemClassObject {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMethodOrigin)(::windows::core::Interface::as_raw(self), wszmethodname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
@@ -5382,7 +5382,7 @@ impl IWbemClientTransport {
         P5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P6: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), straddresstype.into().abi(), abbinaryaddress.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(abbinaryaddress)), strnetworkresource.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), lsecurityflags, strauthority.into().abi(), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
@@ -5645,13 +5645,13 @@ pub struct IWbemConstructClassObject_Vtbl {
 pub struct IWbemContext(::windows::core::IUnknown);
 impl IWbemContext {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNames(&self, lflags: i32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNames)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn BeginEnumeration(&self, lflags: i32) -> ::windows::core::Result<()> {
@@ -5679,7 +5679,7 @@ impl IWbemContext {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), wszname.into(), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     pub unsafe fn DeleteValue<'a, P0>(&self, wszname: P0, lflags: i32) -> ::windows::core::Result<()>
@@ -5775,14 +5775,14 @@ impl IWbemDecoupledBasicEventProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSink)(::windows::core::Interface::as_raw(self), a_flags, a_context.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
     }
     pub unsafe fn GetService<'a, P0>(&self, a_flags: i32, a_context: P0) -> ::windows::core::Result<IWbemServices>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetService)(::windows::core::Interface::as_raw(self), a_flags, a_context.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
@@ -5912,7 +5912,7 @@ impl IWbemEventConsumerProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindConsumer)(::windows::core::Interface::as_raw(self), plogicalconsumer.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemUnboundObjectSink>(result__)
     }
 }
@@ -6137,7 +6137,7 @@ impl IWbemEventSink {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRestrictedSink)(::windows::core::Interface::as_raw(self), awszqueries.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(awszqueries)), pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemEventSink>(result__)
     }
     pub unsafe fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::core::Result<()> {
@@ -6281,7 +6281,7 @@ impl IWbemHiPerfProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemServices>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRefresher)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemRefresher>(result__)
     }
     pub unsafe fn CreateRefreshableObject<'a, P0, P1, P2, P3>(&self, pnamespace: P0, ptemplate: P1, prefresher: P2, lflags: i32, pcontext: P3, pprefreshable: *mut ::core::option::Option<IWbemObjectAccess>, plid: *mut i32) -> ::windows::core::Result<()>
@@ -6307,7 +6307,7 @@ impl IWbemHiPerfProvider {
         P3: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
         P4: ::std::convert::Into<::windows::core::InParam<'a, IWbemHiPerfEnum>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRefreshableEnum)(::windows::core::Interface::as_raw(self), pnamespace.into().abi(), wszclass.into(), prefresher.into().abi(), lflags, pcontext.into().abi(), phiperfenum.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn GetObjects<'a, P0, P1>(&self, pnamespace: P0, apobj: &mut [::core::option::Option<IWbemObjectAccess>], lflags: i32, pcontext: P1) -> ::windows::core::Result<()>
@@ -6372,7 +6372,7 @@ impl IWbemLevel1Login {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EstablishPosition)(::windows::core::Interface::as_raw(self), wszlocalelist.into(), dwnumlocales, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn RequestChallenge<'a, P0, P1>(&self, wsznetworkresource: P0, wszuser: P1) -> ::windows::core::Result<u8>
@@ -6380,7 +6380,7 @@ impl IWbemLevel1Login {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestChallenge)(::windows::core::Interface::as_raw(self), wsznetworkresource.into(), wszuser.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     pub unsafe fn WBEMLogin<'a, P0, P1>(&self, wszpreferredlocale: P0, accesstoken: *const u8, lflags: i32, pctx: P1) -> ::windows::core::Result<IWbemServices>
@@ -6388,7 +6388,7 @@ impl IWbemLevel1Login {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WBEMLogin)(::windows::core::Interface::as_raw(self), wszpreferredlocale.into(), ::core::mem::transmute(accesstoken), lflags, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
     pub unsafe fn NTLMLogin<'a, P0, P1, P2>(&self, wsznetworkresource: P0, wszpreferredlocale: P1, lflags: i32, pctx: P2) -> ::windows::core::Result<IWbemServices>
@@ -6397,7 +6397,7 @@ impl IWbemLevel1Login {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NTLMLogin)(::windows::core::Interface::as_raw(self), wsznetworkresource.into(), wszpreferredlocale.into(), lflags, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
@@ -6460,7 +6460,7 @@ impl IWbemLocator {
         P4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P5: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ConnectServer)(::windows::core::Interface::as_raw(self), strnetworkresource.into().abi(), struser.into().abi(), strpassword.into().abi(), strlocale.into().abi(), lsecurityflags, strauthority.into().abi(), pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemServices>(result__)
     }
 }
@@ -6513,7 +6513,7 @@ pub struct IWbemLocator_Vtbl {
 pub struct IWbemObjectAccess(::windows::core::IUnknown);
 impl IWbemObjectAccess {
     pub unsafe fn GetQualifierSet(&self) -> ::windows::core::Result<IWbemQualifierSet> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetQualifierSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6544,7 +6544,7 @@ impl IWbemObjectAccess {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetNames)(::windows::core::Interface::as_raw(self), wszqualifiername.into(), lflags, ::core::mem::transmute(pqualifierval), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> ::windows::core::Result<()> {
@@ -6562,25 +6562,25 @@ impl IWbemObjectAccess {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPropertyQualifierSet)(::windows::core::Interface::as_raw(self), wszproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectText(&self, lflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetObjectText)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn SpawnDerivedClass(&self, lflags: i32) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SpawnDerivedClass)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     pub unsafe fn SpawnInstance(&self, lflags: i32) -> ::windows::core::Result<IWbemClassObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SpawnInstance)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
     pub unsafe fn CompareTo<'a, P0>(&self, lflags: i32, pcompareto: P0) -> ::windows::core::Result<()>
@@ -6595,7 +6595,7 @@ impl IWbemObjectAccess {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPropertyOrigin)(::windows::core::Interface::as_raw(self), wszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn InheritsFrom<'a, P0>(&self, strancestor: P0) -> ::windows::core::Result<()>
@@ -6639,7 +6639,7 @@ impl IWbemObjectAccess {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetMethodQualifierSet)(::windows::core::Interface::as_raw(self), wszmethod.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemQualifierSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6648,7 +6648,7 @@ impl IWbemObjectAccess {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetMethodOrigin)(::windows::core::Interface::as_raw(self), wszmethodname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetPropertyHandle<'a, P0>(&self, wszpropertyname: P0, ptype: *mut i32, plhandle: *mut i32) -> ::windows::core::Result<()>
@@ -6664,14 +6664,14 @@ impl IWbemObjectAccess {
         (::windows::core::Interface::vtable(self).ReadPropertyValue)(::windows::core::Interface::as_raw(self), lhandle, adata.len() as _, ::core::mem::transmute(plnumbytes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(adata))).ok()
     }
     pub unsafe fn ReadDWORD(&self, lhandle: i32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReadDWORD)(::windows::core::Interface::as_raw(self), lhandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn WriteDWORD(&self, lhandle: i32, dw: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteDWORD)(::windows::core::Interface::as_raw(self), lhandle, dw).ok()
     }
     pub unsafe fn ReadQWORD(&self, lhandle: i32) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReadQWORD)(::windows::core::Interface::as_raw(self), lhandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn WriteQWORD(&self, lhandle: i32, pw: u64) -> ::windows::core::Result<()> {
@@ -6847,7 +6847,7 @@ impl IWbemObjectSinkEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WriteError)(::windows::core::Interface::as_raw(self), pobjerror.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6856,7 +6856,7 @@ impl IWbemObjectSinkEx {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PromptUser)(::windows::core::Interface::as_raw(self), strmessage.into().abi(), uprompttype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6961,7 +6961,7 @@ impl IWbemObjectTextSrc {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemClassObject>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), lflags, pobj.into().abi(), uobjtextformat, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6971,7 +6971,7 @@ impl IWbemObjectTextSrc {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFromText)(::windows::core::Interface::as_raw(self), lflags, strtext.into().abi(), uobjtextformat, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemClassObject>(result__)
     }
 }
@@ -7037,7 +7037,7 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(pubufflength), ::core::mem::transmute(psztext)).ok()
     }
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), urequestedinfo, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn SetServer<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
@@ -7050,7 +7050,7 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(punamebuflength), ::core::mem::transmute(pname)).ok()
     }
     pub unsafe fn GetNamespaceCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNamespaceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetNamespaceAt<'a, P0>(&self, uindex: u32, pszname: P0) -> ::windows::core::Result<()>
@@ -7069,7 +7069,7 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).RemoveAllNamespaces)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetScopeCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetScopeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetScope<'a, P0>(&self, uindex: u32, pszclass: P0) -> ::windows::core::Result<()>
@@ -7106,7 +7106,7 @@ impl IWbemPath {
         (::windows::core::Interface::vtable(self).GetClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pubufflength), ::core::mem::transmute(pszname)).ok()
     }
     pub unsafe fn GetKeyList(&self) -> ::windows::core::Result<IWbemPathKeyList> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetKeyList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemPathKeyList>(result__)
     }
     pub unsafe fn CreateClassPart<'a, P0>(&self, lflags: i32, name: P0) -> ::windows::core::Result<()>
@@ -7236,7 +7236,7 @@ pub struct IWbemPath_Vtbl {
 pub struct IWbemPathKeyList(::windows::core::IUnknown);
 impl IWbemPathKeyList {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn SetKey<'a, P0>(&self, wszname: P0, uflags: u32, ucimtype: u32, pkeyval: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -7274,7 +7274,7 @@ impl IWbemPathKeyList {
         (::windows::core::Interface::vtable(self).MakeSingleton)(::windows::core::Interface::as_raw(self), bset).ok()
     }
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), urequestedinfo, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -7350,7 +7350,7 @@ impl IWbemPropertyProvider {
         P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), lflags, strlocale.into().abi(), strclassmapping.into().abi(), strinstmapping.into().abi(), strpropmapping.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7600,7 +7600,7 @@ impl IWbemQualifierSet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNames(&self, lflags: i32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNames)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn BeginEnumeration(&self, lflags: i32) -> ::windows::core::Result<()> {
@@ -7820,7 +7820,7 @@ impl IWbemServices {
         (::windows::core::Interface::vtable(self).CancelAsyncCall)(::windows::core::Interface::as_raw(self), psink.into().abi()).ok()
     }
     pub unsafe fn QueryObjectSink(&self, lflags: i32) -> ::windows::core::Result<IWbemObjectSink> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryObjectSink)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7883,7 +7883,7 @@ impl IWbemServices {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateClassEnum)(::windows::core::Interface::as_raw(self), strsuperclass.into().abi(), lflags, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7937,7 +7937,7 @@ impl IWbemServices {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstanceEnum)(::windows::core::Interface::as_raw(self), strfilter.into().abi(), lflags, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7958,7 +7958,7 @@ impl IWbemServices {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecQuery)(::windows::core::Interface::as_raw(self), strquerylanguage.into().abi(), strquery.into().abi(), lflags, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7980,7 +7980,7 @@ impl IWbemServices {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<'a, IWbemContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecNotificationQuery)(::windows::core::Interface::as_raw(self), strquerylanguage.into().abi(), strquery.into().abi(), lflags, pctx.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWbemClassObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8191,13 +8191,13 @@ impl IWbemStatusCodeText {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorCodeText(&self, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetErrorCodeText)(::windows::core::Interface::as_raw(self), hres, localeid, lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFacilityCodeText(&self, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFacilityCodeText)(::windows::core::Interface::as_raw(self), hres, localeid, lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
@@ -8358,7 +8358,7 @@ impl IWbemUnsecuredApartment {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateObjectStub)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn CreateSinkStub<'a, P0, P1>(&self, psink: P0, dwflags: u32, wszreserved: P1) -> ::windows::core::Result<IWbemObjectSink>
@@ -8366,7 +8366,7 @@ impl IWbemUnsecuredApartment {
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWbemObjectSink>>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateSinkStub)(::windows::core::Interface::as_raw(self), psink.into().abi(), dwflags, wszreserved.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWbemObjectSink>(result__)
     }
 }

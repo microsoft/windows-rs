@@ -45,31 +45,31 @@ pub struct MdmPolicy;
 impl MdmPolicy {
     pub fn IsBrowserAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsBrowserAllowed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsCameraAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsCameraAllowed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsMicrosoftAccountAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMicrosoftAccountAllowed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn IsStoreAllowed() -> ::windows::core::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsStoreAllowed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     pub fn GetMessagingSyncPolicy() -> ::windows::core::Result<MessagingSyncPolicy> {
         Self::IMdmPolicyStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<MessagingSyncPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMessagingSyncPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MessagingSyncPolicy>(result__)
         })
     }
@@ -127,7 +127,7 @@ pub struct WorkplaceSettings;
 impl WorkplaceSettings {
     pub fn IsMicrosoftAccountOptional() -> ::windows::core::Result<bool> {
         Self::IWorkplaceSettingsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMicrosoftAccountOptional)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }

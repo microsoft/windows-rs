@@ -95,42 +95,42 @@ impl PwmController {
     pub fn PinCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PinCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn ActualFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ActualFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn SetDesiredFrequency(&self, desiredfrequency: f64) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SetDesiredFrequency)(::windows::core::Interface::as_raw(this), desiredfrequency, result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn MinFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MinFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn MaxFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn OpenPin(&self, pinnumber: i32) -> ::windows::core::Result<PwmPin> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OpenPin)(::windows::core::Interface::as_raw(this), pinnumber, result__.as_mut_ptr()).from_abi::<PwmPin>(result__)
         }
     }
@@ -142,7 +142,7 @@ impl PwmController {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPwmControllerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>(result__)
         })
     }
@@ -150,13 +150,13 @@ impl PwmController {
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -165,7 +165,7 @@ impl PwmController {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPwmControllerStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -176,7 +176,7 @@ impl PwmController {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPwmControllerStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
         })
     }
@@ -271,14 +271,14 @@ impl PwmPin {
     pub fn Controller(&self) -> ::windows::core::Result<PwmController> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PwmController>(result__)
         }
     }
     pub fn GetActiveDutyCyclePercentage(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetActiveDutyCyclePercentage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -289,7 +289,7 @@ impl PwmPin {
     pub fn Polarity(&self) -> ::windows::core::Result<PwmPulsePolarity> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<PwmPulsePolarity>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Polarity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PwmPulsePolarity>(result__)
         }
     }
@@ -308,7 +308,7 @@ impl PwmPin {
     pub fn IsStarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsStarted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }

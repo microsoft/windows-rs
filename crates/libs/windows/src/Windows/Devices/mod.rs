@@ -69,7 +69,7 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AdcControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Adc::Provider::IAdcControllerProvider>(result__)
         }
     }
@@ -78,7 +78,7 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PwmControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Pwm::Provider::IPwmControllerProvider>(result__)
         }
     }
@@ -87,7 +87,7 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GpioControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Gpio::Provider::IGpioControllerProvider>(result__)
         }
     }
@@ -96,7 +96,7 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).I2cControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<I2c::Provider::II2cControllerProvider>(result__)
         }
     }
@@ -105,7 +105,7 @@ impl ILowLevelDevicesAggregateProvider {
     pub fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SpiControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Spi::Provider::ISpiControllerProvider>(result__)
         }
     }
@@ -243,7 +243,7 @@ impl LowLevelDevicesAggregateProvider {
     pub fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AdcControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Adc::Provider::IAdcControllerProvider>(result__)
         }
     }
@@ -252,7 +252,7 @@ impl LowLevelDevicesAggregateProvider {
     pub fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PwmControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Pwm::Provider::IPwmControllerProvider>(result__)
         }
     }
@@ -261,7 +261,7 @@ impl LowLevelDevicesAggregateProvider {
     pub fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GpioControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Gpio::Provider::IGpioControllerProvider>(result__)
         }
     }
@@ -270,7 +270,7 @@ impl LowLevelDevicesAggregateProvider {
     pub fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).I2cControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<I2c::Provider::II2cControllerProvider>(result__)
         }
     }
@@ -279,7 +279,7 @@ impl LowLevelDevicesAggregateProvider {
     pub fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SpiControllerProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Spi::Provider::ISpiControllerProvider>(result__)
         }
     }
@@ -299,7 +299,7 @@ impl LowLevelDevicesAggregateProvider {
         E4: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ILowLevelDevicesAggregateProviderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), adc.try_into().map_err(|e| e.into())?.abi(), pwm.try_into().map_err(|e| e.into())?.abi(), gpio.try_into().map_err(|e| e.into())?.abi(), i2c.try_into().map_err(|e| e.into())?.abi(), spi.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<LowLevelDevicesAggregateProvider>(result__)
         })
     }
@@ -396,7 +396,7 @@ pub struct LowLevelDevicesController(::windows::core::IUnknown);
 impl LowLevelDevicesController {
     pub fn DefaultProvider() -> ::windows::core::Result<ILowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DefaultProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ILowLevelDevicesAggregateProvider>(result__)
         })
     }

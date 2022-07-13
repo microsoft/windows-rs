@@ -169,7 +169,7 @@ impl CompositionDebugSettings {
     pub fn HeatMaps(&self) -> ::windows::core::Result<CompositionDebugHeatMaps> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HeatMaps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionDebugHeatMaps>(result__)
         }
     }
@@ -178,7 +178,7 @@ impl CompositionDebugSettings {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
     {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryGetSettings)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<CompositionDebugSettings>(result__)
         })
     }

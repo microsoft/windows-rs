@@ -7,21 +7,21 @@ impl GattCharacteristic {
     pub fn GetDescriptors(&self, descriptoruuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDescriptors)(::windows::core::Interface::as_raw(this), descriptoruuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
     pub fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCharacteristicProperties>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCharacteristicProperties>(result__)
         }
     }
     pub fn ProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -32,21 +32,21 @@ impl GattCharacteristic {
     pub fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     pub fn AttributeHandle(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
@@ -55,7 +55,7 @@ impl GattCharacteristic {
     pub fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
         }
     }
@@ -64,7 +64,7 @@ impl GattCharacteristic {
     pub fn ReadValueAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadValueAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
@@ -73,7 +73,7 @@ impl GattCharacteristic {
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
@@ -86,7 +86,7 @@ impl GattCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteValueAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
@@ -99,7 +99,7 @@ impl GattCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
@@ -108,7 +108,7 @@ impl GattCharacteristic {
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>>(result__)
         }
     }
@@ -117,7 +117,7 @@ impl GattCharacteristic {
     pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
@@ -129,7 +129,7 @@ impl GattCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ValueChanged)(::windows::core::Interface::as_raw(this), valuechangedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -142,7 +142,7 @@ impl GattCharacteristic {
     pub fn Service(&self) -> ::windows::core::Result<GattDeviceService> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattDeviceService>(result__)
         }
     }
@@ -151,7 +151,7 @@ impl GattCharacteristic {
     pub fn GetAllDescriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAllDescriptors)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
@@ -160,7 +160,7 @@ impl GattCharacteristic {
     pub fn GetDescriptorsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDescriptorsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
@@ -169,7 +169,7 @@ impl GattCharacteristic {
     pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
@@ -178,7 +178,7 @@ impl GattCharacteristic {
     pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDescriptorsForUuidAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
@@ -187,7 +187,7 @@ impl GattCharacteristic {
     pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
@@ -200,7 +200,7 @@ impl GattCharacteristic {
     {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
@@ -213,7 +213,7 @@ impl GattCharacteristic {
     {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
@@ -222,7 +222,7 @@ impl GattCharacteristic {
     pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
@@ -230,7 +230,7 @@ impl GattCharacteristic {
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
@@ -378,487 +378,487 @@ pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BatteryLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BloodPressureFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BloodPressureFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BloodPressureMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BloodPressureMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BodySensorLocation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BodySensorLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CscFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CscFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CscMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CscMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GlucoseFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GlucoseFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GlucoseMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GlucoseMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GlucoseMeasurementContext() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GlucoseMeasurementContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HeartRateControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HeartRateControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HeartRateMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HeartRateMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn IntermediateCuffPressure() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IntermediateCuffPressure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn IntermediateTemperature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IntermediateTemperature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn MeasurementInterval() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MeasurementInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn RecordAccessControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RecordAccessControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn RscFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RscFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn RscMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RscMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SCControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SCControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SensorLocation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SensorLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TemperatureMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TemperatureMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TemperatureType() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TemperatureType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn AlertCategoryId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlertCategoryId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn AlertCategoryIdBitMask() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlertCategoryIdBitMask)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn AlertLevel() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlertLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn AlertNotificationControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlertNotificationControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn AlertStatus() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlertStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GapAppearance() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GapAppearance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BootKeyboardInputReport() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BootKeyboardInputReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BootKeyboardOutputReport() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BootKeyboardOutputReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BootMouseInputReport() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BootMouseInputReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CurrentTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CyclingPowerControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CyclingPowerControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CyclingPowerFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CyclingPowerFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CyclingPowerMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CyclingPowerMeasurement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CyclingPowerVector() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CyclingPowerVector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn DateTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn DayDateTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DayDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn DayOfWeek() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DayOfWeek)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GapDeviceName() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GapDeviceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn DstOffset() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DstOffset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ExactTime256() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ExactTime256)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn FirmwareRevisionString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirmwareRevisionString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HardwareRevisionString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HardwareRevisionString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HidControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HidControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HidInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HidInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn Ieee1107320601RegulatoryCertificationDataList() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Ieee1107320601RegulatoryCertificationDataList)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn LnControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LnControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn LnFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LnFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn LocalTimeInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalTimeInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn LocationAndSpeed() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocationAndSpeed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ManufacturerNameString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ManufacturerNameString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ModelNumberString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ModelNumberString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn Navigation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Navigation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn NewAlert() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NewAlert)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GapPeripheralPreferredConnectionParameters() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GapPeripheralPreferredConnectionParameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GapPeripheralPrivacyFlag() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GapPeripheralPrivacyFlag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn PnpId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PnpId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn PositionQuality() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PositionQuality)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ProtocolMode() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GapReconnectionAddress() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GapReconnectionAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ReferenceTimeInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReferenceTimeInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn Report() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Report)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ReportMap() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReportMap)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn RingerControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RingerControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn RingerSetting() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RingerSetting)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ScanIntervalWindow() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ScanIntervalWindow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ScanRefresh() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ScanRefresh)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SerialNumberString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SerialNumberString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GattServiceChanged() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GattServiceChanged)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SoftwareRevisionString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SoftwareRevisionString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SupportedNewAlertCategory() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SupportedNewAlertCategory)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SupportUnreadAlertCategory() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SupportUnreadAlertCategory)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn SystemId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SystemId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TimeAccuracy() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimeAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TimeSource() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimeSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TimeUpdateControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimeUpdateControlPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TimeUpdateState() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimeUpdateState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TimeWithDst() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimeWithDst)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TimeZone() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TimeZone)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TxPowerLevel() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TxPowerLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn UnreadAlertStatus() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UnreadAlertStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
@@ -883,7 +883,7 @@ impl GattCharacteristicsResult {
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
@@ -892,7 +892,7 @@ impl GattCharacteristicsResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
@@ -901,7 +901,7 @@ impl GattCharacteristicsResult {
     pub fn Characteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Characteristics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
@@ -1010,14 +1010,14 @@ impl GattClientNotificationResult {
     pub fn SubscribedClient(&self) -> ::windows::core::Result<GattSubscribedClient> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubscribedClient)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSubscribedClient>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
@@ -1026,14 +1026,14 @@ impl GattClientNotificationResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
     pub fn BytesSent(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IGattClientNotificationResult2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BytesSent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
@@ -1143,7 +1143,7 @@ impl GattDescriptor {
     pub fn ProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -1154,14 +1154,14 @@ impl GattDescriptor {
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     pub fn AttributeHandle(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
@@ -1170,7 +1170,7 @@ impl GattDescriptor {
     pub fn ReadValueAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadValueAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
@@ -1179,7 +1179,7 @@ impl GattDescriptor {
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
@@ -1192,7 +1192,7 @@ impl GattDescriptor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteValueAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
@@ -1205,7 +1205,7 @@ impl GattDescriptor {
     {
         let this = &::windows::core::Interface::cast::<IGattDescriptor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
@@ -1213,7 +1213,7 @@ impl GattDescriptor {
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
@@ -1290,37 +1290,37 @@ pub struct GattDescriptorUuids;
 impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicAggregateFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CharacteristicExtendedProperties() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicExtendedProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CharacteristicPresentationFormat() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicPresentationFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CharacteristicUserDescription() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicUserDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ClientCharacteristicConfiguration() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ClientCharacteristicConfiguration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ServerCharacteristicConfiguration() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServerCharacteristicConfiguration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
@@ -1340,7 +1340,7 @@ impl GattDescriptorsResult {
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
@@ -1349,7 +1349,7 @@ impl GattDescriptorsResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
@@ -1358,7 +1358,7 @@ impl GattDescriptorsResult {
     pub fn Descriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
@@ -1440,7 +1440,7 @@ impl GattDeviceService {
     pub fn GetCharacteristics(&self, characteristicuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCharacteristics)(::windows::core::Interface::as_raw(this), characteristicuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
@@ -1449,28 +1449,28 @@ impl GattDeviceService {
     pub fn GetIncludedServices(&self, serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetIncludedServices)(::windows::core::Interface::as_raw(this), serviceuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     pub fn AttributeHandle(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
@@ -1479,7 +1479,7 @@ impl GattDeviceService {
     pub fn Device(&self) -> ::windows::core::Result<super::BluetoothLEDevice> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothLEDevice>(result__)
         }
     }
@@ -1488,7 +1488,7 @@ impl GattDeviceService {
     pub fn ParentServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentServices)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
@@ -1497,7 +1497,7 @@ impl GattDeviceService {
     pub fn GetAllCharacteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAllCharacteristics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
@@ -1506,7 +1506,7 @@ impl GattDeviceService {
     pub fn GetAllIncludedServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAllIncludedServices)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
@@ -1515,21 +1515,21 @@ impl GattDeviceService {
     pub fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceAccessInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Enumeration::DeviceAccessInformation>(result__)
         }
     }
     pub fn Session(&self) -> ::windows::core::Result<GattSession> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSession>(result__)
         }
     }
     pub fn SharingMode(&self) -> ::windows::core::Result<GattSharingMode> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattSharingMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSharingMode>(result__)
         }
     }
@@ -1538,7 +1538,7 @@ impl GattDeviceService {
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
@@ -1547,7 +1547,7 @@ impl GattDeviceService {
     pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), sharingmode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>(result__)
         }
     }
@@ -1556,7 +1556,7 @@ impl GattDeviceService {
     pub fn GetCharacteristicsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCharacteristicsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
@@ -1565,7 +1565,7 @@ impl GattDeviceService {
     pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
@@ -1574,7 +1574,7 @@ impl GattDeviceService {
     pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
@@ -1583,7 +1583,7 @@ impl GattDeviceService {
     pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
@@ -1592,7 +1592,7 @@ impl GattDeviceService {
     pub fn GetIncludedServicesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetIncludedServicesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
@@ -1601,7 +1601,7 @@ impl GattDeviceService {
     pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
@@ -1610,7 +1610,7 @@ impl GattDeviceService {
     pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(::windows::core::Interface::as_raw(this), serviceuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
@@ -1619,7 +1619,7 @@ impl GattDeviceService {
     pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), serviceuuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
@@ -1630,13 +1630,13 @@ impl GattDeviceService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IGattDeviceServiceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
         })
     }
     pub fn GetDeviceSelectorFromUuid(serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromUuid)(::windows::core::Interface::as_raw(this), serviceuuid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1644,7 +1644,7 @@ impl GattDeviceService {
     #[cfg(feature = "deprecated")]
     pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromShortId)(::windows::core::Interface::as_raw(this), serviceshortid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1652,7 +1652,7 @@ impl GattDeviceService {
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
@@ -1663,7 +1663,7 @@ impl GattDeviceService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromIdWithSharingModeAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), sharingmode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
         })
     }
@@ -1672,7 +1672,7 @@ impl GattDeviceService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1681,7 +1681,7 @@ impl GattDeviceService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), cachemode, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1690,7 +1690,7 @@ impl GattDeviceService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), serviceuuid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1699,7 +1699,7 @@ impl GattDeviceService {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
     {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into().abi(), serviceuuid, cachemode, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1805,7 +1805,7 @@ impl GattDeviceServicesResult {
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
@@ -1814,7 +1814,7 @@ impl GattDeviceServicesResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
@@ -1823,7 +1823,7 @@ impl GattDeviceServicesResult {
     pub fn Services(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Services)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
@@ -1897,7 +1897,7 @@ impl GattLocalCharacteristic {
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
@@ -1906,28 +1906,28 @@ impl GattLocalCharacteristic {
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCharacteristicProperties>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCharacteristicProperties>(result__)
         }
     }
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -1939,7 +1939,7 @@ impl GattLocalCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateDescriptorAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, parameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>(result__)
         }
     }
@@ -1948,14 +1948,14 @@ impl GattLocalCharacteristic {
     pub fn Descriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>>(result__)
         }
     }
     pub fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1964,7 +1964,7 @@ impl GattLocalCharacteristic {
     pub fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
         }
     }
@@ -1973,7 +1973,7 @@ impl GattLocalCharacteristic {
     pub fn SubscribedClients(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubscribedClients)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>>(result__)
         }
     }
@@ -1985,7 +1985,7 @@ impl GattLocalCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubscribedClientsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2003,7 +2003,7 @@ impl GattLocalCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2021,7 +2021,7 @@ impl GattLocalCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2040,7 +2040,7 @@ impl GattLocalCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NotifyValueAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>(result__)
         }
     }
@@ -2054,7 +2054,7 @@ impl GattLocalCharacteristic {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), subscribedclient.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>(result__)
         }
     }
@@ -2147,7 +2147,7 @@ impl GattLocalCharacteristicParameters {
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
@@ -2158,7 +2158,7 @@ impl GattLocalCharacteristicParameters {
     pub fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCharacteristicProperties>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCharacteristicProperties>(result__)
         }
     }
@@ -2169,7 +2169,7 @@ impl GattLocalCharacteristicParameters {
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -2180,7 +2180,7 @@ impl GattLocalCharacteristicParameters {
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -2194,7 +2194,7 @@ impl GattLocalCharacteristicParameters {
     pub fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2203,7 +2203,7 @@ impl GattLocalCharacteristicParameters {
     pub fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>>(result__)
         }
     }
@@ -2277,14 +2277,14 @@ impl GattLocalCharacteristicResult {
     pub fn Characteristic(&self) -> ::windows::core::Result<GattLocalCharacteristic> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Characteristic)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattLocalCharacteristic>(result__)
         }
     }
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::BluetoothError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
@@ -2358,7 +2358,7 @@ impl GattLocalDescriptor {
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
@@ -2367,21 +2367,21 @@ impl GattLocalDescriptor {
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -2393,7 +2393,7 @@ impl GattLocalDescriptor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2411,7 +2411,7 @@ impl GattLocalDescriptor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2510,7 +2510,7 @@ impl GattLocalDescriptorParameters {
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
@@ -2521,7 +2521,7 @@ impl GattLocalDescriptorParameters {
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -2532,7 +2532,7 @@ impl GattLocalDescriptorParameters {
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattProtectionLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
@@ -2606,14 +2606,14 @@ impl GattLocalDescriptorResult {
     pub fn Descriptor(&self) -> ::windows::core::Result<GattLocalDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Descriptor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattLocalDescriptor>(result__)
         }
     }
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::BluetoothError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
@@ -2687,7 +2687,7 @@ impl GattLocalService {
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
@@ -2699,7 +2699,7 @@ impl GattLocalService {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateCharacteristicAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, parameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>(result__)
         }
     }
@@ -2708,7 +2708,7 @@ impl GattLocalService {
     pub fn Characteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Characteristics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>>(result__)
         }
     }
@@ -2820,47 +2820,47 @@ impl GattPresentationFormat {
     pub fn FormatType(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FormatType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     pub fn Exponent(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Exponent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn Unit(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     pub fn Namespace(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Namespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     pub fn Description(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     pub fn BluetoothSigAssignedNumbers() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BluetoothSigAssignedNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn FromParts(formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> ::windows::core::Result<GattPresentationFormat> {
         Self::IGattPresentationFormatStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromParts)(::windows::core::Interface::as_raw(this), formattype, exponent, unit, namespaceid, description, result__.as_mut_ptr()).from_abi::<GattPresentationFormat>(result__)
         })
     }
@@ -2942,163 +2942,163 @@ pub struct GattPresentationFormatTypes;
 impl GattPresentationFormatTypes {
     pub fn Boolean() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Boolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Bit2() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Bit2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Nibble() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Nibble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt8() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt12() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt12)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt24() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt24)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt32() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt48() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt48)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt64() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UInt128() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UInt128)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt8() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt12() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt12)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt24() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt24)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt32() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt48() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt48)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt64() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SInt128() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SInt128)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Float32() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Float32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Float64() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Float64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn SFloat() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SFloat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Float() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Float)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn DUInt16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Utf8() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Utf8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Utf16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Utf16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn Struct() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Struct)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
@@ -3152,103 +3152,103 @@ pub struct GattProtocolError;
 impl GattProtocolError {
     pub fn InvalidHandle() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InvalidHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn ReadNotPermitted() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReadNotPermitted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn WriteNotPermitted() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WriteNotPermitted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InvalidPdu() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InvalidPdu)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InsufficientAuthentication() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsufficientAuthentication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn RequestNotSupported() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestNotSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InvalidOffset() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InvalidOffset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InsufficientAuthorization() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsufficientAuthorization)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn PrepareQueueFull() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PrepareQueueFull)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn AttributeNotFound() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttributeNotFound)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn AttributeNotLong() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttributeNotLong)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InsufficientEncryptionKeySize() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsufficientEncryptionKeySize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InvalidAttributeValueLength() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InvalidAttributeValueLength)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UnlikelyError() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UnlikelyError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InsufficientEncryption() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsufficientEncryption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn UnsupportedGroupType() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).UnsupportedGroupType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
     pub fn InsufficientResources() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsufficientResources)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         })
     }
@@ -3268,14 +3268,14 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     pub fn ClientCharacteristicConfigurationDescriptor(&self) -> ::windows::core::Result<GattClientCharacteristicConfigurationDescriptorValue> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattClientCharacteristicConfigurationDescriptorValue>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ClientCharacteristicConfigurationDescriptor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattClientCharacteristicConfigurationDescriptorValue>(result__)
         }
     }
@@ -3284,7 +3284,7 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &::windows::core::Interface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
@@ -3358,21 +3358,21 @@ impl GattReadRequest {
     pub fn Offset(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<GattRequestState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattRequestState>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattRequestState>(result__)
         }
     }
@@ -3384,7 +3384,7 @@ impl GattReadRequest {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3478,7 +3478,7 @@ impl GattReadRequestedEventArgs {
     pub fn Session(&self) -> ::windows::core::Result<GattSession> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSession>(result__)
         }
     }
@@ -3487,7 +3487,7 @@ impl GattReadRequestedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
@@ -3496,7 +3496,7 @@ impl GattReadRequestedEventArgs {
     pub fn GetRequestAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetRequestAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadRequest>>(result__)
         }
     }
@@ -3570,7 +3570,7 @@ impl GattReadResult {
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
@@ -3579,7 +3579,7 @@ impl GattReadResult {
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
@@ -3588,7 +3588,7 @@ impl GattReadResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &::windows::core::Interface::cast::<IGattReadResult2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
@@ -3682,7 +3682,7 @@ impl GattReliableWriteTransaction {
     pub fn CommitAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CommitAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
@@ -3691,7 +3691,7 @@ impl GattReliableWriteTransaction {
     pub fn CommitWithResultAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows::core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CommitWithResultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
@@ -3800,14 +3800,14 @@ impl GattRequestStateChangedEventArgs {
     pub fn State(&self) -> ::windows::core::Result<GattRequestState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattRequestState>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattRequestState>(result__)
         }
     }
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::BluetoothError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
@@ -3881,14 +3881,14 @@ impl GattServiceProvider {
     pub fn Service(&self) -> ::windows::core::Result<GattLocalService> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattLocalService>(result__)
         }
     }
     pub fn AdvertisementStatus(&self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattServiceProviderAdvertisementStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AdvertisementStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
         }
     }
@@ -3900,7 +3900,7 @@ impl GattServiceProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AdvertisementStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -3929,7 +3929,7 @@ impl GattServiceProvider {
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), serviceuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>>(result__)
         })
     }
@@ -4045,14 +4045,14 @@ impl GattServiceProviderAdvertisementStatusChangedEventArgs {
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::BluetoothError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<GattServiceProviderAdvertisementStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattServiceProviderAdvertisementStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
         }
     }
@@ -4137,7 +4137,7 @@ impl GattServiceProviderAdvertisingParameters {
     pub fn IsConnectable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsConnectable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4148,7 +4148,7 @@ impl GattServiceProviderAdvertisingParameters {
     pub fn IsDiscoverable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsDiscoverable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4167,7 +4167,7 @@ impl GattServiceProviderAdvertisingParameters {
     pub fn ServiceData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = &::windows::core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServiceData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
@@ -4241,14 +4241,14 @@ impl GattServiceProviderResult {
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::BluetoothError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
     pub fn ServiceProvider(&self) -> ::windows::core::Result<GattServiceProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServiceProvider)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattServiceProvider>(result__)
         }
     }
@@ -4320,133 +4320,133 @@ pub struct GattServiceUuids;
 impl GattServiceUuids {
     pub fn Battery() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Battery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn BloodPressure() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).BloodPressure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CyclingSpeedAndCadence() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CyclingSpeedAndCadence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GenericAccess() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GenericAccess)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn GenericAttribute() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GenericAttribute)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn Glucose() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Glucose)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HealthThermometer() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HealthThermometer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HeartRate() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HeartRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn RunningSpeedAndCadence() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RunningSpeedAndCadence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn AlertNotification() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AlertNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CurrentTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn CyclingPower() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CyclingPower)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn DeviceInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn HumanInterfaceDevice() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HumanInterfaceDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ImmediateAlert() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ImmediateAlert)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn LinkLoss() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LinkLoss)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn LocationAndNavigation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocationAndNavigation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn NextDstChange() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextDstChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn PhoneAlertStatus() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PhoneAlertStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ReferenceTimeUpdate() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReferenceTimeUpdate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn ScanParameters() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ScanParameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     pub fn TxPower() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TxPower)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
@@ -4477,14 +4477,14 @@ impl GattSession {
     pub fn DeviceId(&self) -> ::windows::core::Result<super::BluetoothDeviceId> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothDeviceId>(result__)
         }
     }
     pub fn CanMaintainConnection(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CanMaintainConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -4495,21 +4495,21 @@ impl GattSession {
     pub fn MaintainConnection(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaintainConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn MaxPduSize(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxPduSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     pub fn SessionStatus(&self) -> ::windows::core::Result<GattSessionStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattSessionStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SessionStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSessionStatus>(result__)
         }
     }
@@ -4521,7 +4521,7 @@ impl GattSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxPduSizeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -4539,7 +4539,7 @@ impl GattSession {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SessionStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -4556,7 +4556,7 @@ impl GattSession {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::BluetoothDeviceId>>,
     {
         Self::IGattSessionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromDeviceIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattSession>>(result__)
         })
     }
@@ -4691,14 +4691,14 @@ impl GattSessionStatusChangedEventArgs {
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::BluetoothError>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
     pub fn Status(&self) -> ::windows::core::Result<GattSessionStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattSessionStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSessionStatus>(result__)
         }
     }
@@ -4808,14 +4808,14 @@ impl GattSubscribedClient {
     pub fn Session(&self) -> ::windows::core::Result<GattSession> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSession>(result__)
         }
     }
     pub fn MaxNotificationSize(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxNotificationSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
@@ -4827,7 +4827,7 @@ impl GattSubscribedClient {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxNotificationSizeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -4909,7 +4909,7 @@ impl GattValueChangedEventArgs {
     pub fn CharacteristicValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CharacteristicValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
@@ -4918,7 +4918,7 @@ impl GattValueChangedEventArgs {
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::DateTime>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
@@ -5028,28 +5028,28 @@ impl GattWriteRequest {
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     pub fn Offset(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn Option(&self) -> ::windows::core::Result<GattWriteOption> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattWriteOption>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Option)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattWriteOption>(result__)
         }
     }
     pub fn State(&self) -> ::windows::core::Result<GattRequestState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattRequestState>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattRequestState>(result__)
         }
     }
@@ -5061,7 +5061,7 @@ impl GattWriteRequest {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -5149,7 +5149,7 @@ impl GattWriteRequestedEventArgs {
     pub fn Session(&self) -> ::windows::core::Result<GattSession> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSession>(result__)
         }
     }
@@ -5158,7 +5158,7 @@ impl GattWriteRequestedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
@@ -5167,7 +5167,7 @@ impl GattWriteRequestedEventArgs {
     pub fn GetRequestAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetRequestAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>>(result__)
         }
     }
@@ -5241,7 +5241,7 @@ impl GattWriteResult {
     pub fn Status(&self) -> ::windows::core::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GattCommunicationStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
@@ -5250,7 +5250,7 @@ impl GattWriteResult {
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }

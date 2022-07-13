@@ -577,7 +577,7 @@ where
     extern "system" {
         fn HcsCreateComputeSystem(id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsCreateComputeSystem(id.into(), configuration.into(), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -593,7 +593,7 @@ where
     extern "system" {
         fn HcsCreateComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, configuration: ::windows::core::PCWSTR, operation: HCS_OPERATION, options: *const HCS_CREATE_OPTIONS, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsCreateComputeSystemInNamespace(idnamespace.into(), id.into(), configuration.into(), operation.into(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -642,7 +642,7 @@ where
     extern "system" {
         fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: ::windows::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HCS_PROCESS>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsCreateProcess(computesystem.into(), processparameters.into(), operation.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -776,7 +776,7 @@ where
     extern "system" {
         fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE, mountpath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsGetLayerVhdMountPath(vhdhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -813,7 +813,7 @@ where
     extern "system" {
         fn HcsGetOperationResult(operation: HCS_OPERATION, resultdocument: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsGetOperationResult(operation.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -890,7 +890,7 @@ where
     extern "system" {
         fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename: ::windows::core::PCWSTR, processorfeaturesstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -903,7 +903,7 @@ where
     extern "system" {
         fn HcsGetServiceProperties(propertyquery: ::windows::core::PCWSTR, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsGetServiceProperties(propertyquery.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -1014,7 +1014,7 @@ where
     extern "system" {
         fn HcsModifyServiceSettings(settings: ::windows::core::PCWSTR, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsModifyServiceSettings(settings.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -1027,7 +1027,7 @@ where
     extern "system" {
         fn HcsOpenComputeSystem(id: ::windows::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsOpenComputeSystem(id.into(), requestedaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -1041,7 +1041,7 @@ where
     extern "system" {
         fn HcsOpenComputeSystemInNamespace(idnamespace: ::windows::core::PCWSTR, id: ::windows::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HCS_SYSTEM>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsOpenComputeSystemInNamespace(idnamespace.into(), id.into(), requestedaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_SYSTEM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -1054,7 +1054,7 @@ where
     extern "system" {
         fn HcsOpenProcess(computesystem: HCS_SYSTEM, processid: u32, requestedaccess: u32, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<HCS_PROCESS>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsOpenProcess(computesystem.into(), processid, requestedaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HCS_PROCESS>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -1293,7 +1293,7 @@ where
     extern "system" {
         fn HcsWaitForComputeSystemExit(computesystem: HCS_SYSTEM, timeoutms: u32, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsWaitForComputeSystemExit(computesystem.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
@@ -1306,7 +1306,7 @@ where
     extern "system" {
         fn HcsWaitForOperationResult(operation: HCS_OPERATION, timeoutms: u32, resultdocument: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsWaitForOperationResult(operation.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1332,7 +1332,7 @@ where
     extern "system" {
         fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HcsWaitForProcessExit(computesystem.into(), timeoutms, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[cfg(feature = "implement")]

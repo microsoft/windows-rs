@@ -272,7 +272,7 @@ pub struct IOplockBreakingHandler_Vtbl {
 pub struct IRandomAccessStreamFileAccessMode(::windows::core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
@@ -328,7 +328,7 @@ impl IStorageFolderHandleAccess {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
@@ -386,7 +386,7 @@ impl IStorageItemHandleAccess {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
@@ -491,7 +491,7 @@ impl IUnbufferedFileHandleProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUnbufferedFileHandleOplockCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Interface::as_raw(self), oplockbreakcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()> {

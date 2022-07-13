@@ -36,7 +36,7 @@ impl ISysStorageProviderEventSource {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).EventReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -127,7 +127,7 @@ impl ISysStorageProviderHandlerFactory {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetHttpRequestProvider)(::windows::core::Interface::as_raw(this), syncrootid.into().abi(), result__.as_mut_ptr()).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
         }
     }
@@ -138,7 +138,7 @@ impl ISysStorageProviderHandlerFactory {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetEventSource)(::windows::core::Interface::as_raw(this), syncrootid.into().abi(), eventname.into().abi(), result__.as_mut_ptr()).from_abi::<ISysStorageProviderEventSource>(result__)
         }
     }
@@ -219,7 +219,7 @@ impl ISysStorageProviderHttpRequestProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SendRequestAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>(result__)
         }
     }
@@ -297,7 +297,7 @@ impl SysStorageProviderEventReceivedEventArgs {
     pub fn Json(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Json)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -306,7 +306,7 @@ impl SysStorageProviderEventReceivedEventArgs {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), json.into().abi(), result__.as_mut_ptr()).from_abi::<SysStorageProviderEventReceivedEventArgs>(result__)
         })
     }

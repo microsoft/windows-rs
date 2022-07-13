@@ -641,14 +641,14 @@ impl SpatialAnchor {
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
     pub fn RawCoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RawCoordinateSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
@@ -660,7 +660,7 @@ impl SpatialAnchor {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RawCoordinateSystemAdjusted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -673,7 +673,7 @@ impl SpatialAnchor {
     pub fn RemovedByUser(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISpatialAnchor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemovedByUser)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -682,7 +682,7 @@ impl SpatialAnchor {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialAnchorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateRelativeTo)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialAnchor>(result__)
         })
     }
@@ -693,7 +693,7 @@ impl SpatialAnchor {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialAnchorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateWithPositionRelativeTo)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), position, result__.as_mut_ptr()).from_abi::<SpatialAnchor>(result__)
         })
     }
@@ -704,7 +704,7 @@ impl SpatialAnchor {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialAnchorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateWithPositionAndOrientationRelativeTo)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), position, orientation, result__.as_mut_ptr()).from_abi::<SpatialAnchor>(result__)
         })
     }
@@ -817,21 +817,21 @@ impl SpatialAnchorExportSufficiency {
     pub fn IsMinimallySufficient(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsMinimallySufficient)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn SufficiencyLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SufficiencyLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     pub fn RecommendedSufficiencyLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RecommendedSufficiencyLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
@@ -910,7 +910,7 @@ impl SpatialAnchorExporter {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAnchorExportSufficiencyAsync)(::windows::core::Interface::as_raw(this), anchor.into().abi(), purpose, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>>(result__)
         }
     }
@@ -924,13 +924,13 @@ impl SpatialAnchorExporter {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryExportAnchorAsync)(::windows::core::Interface::as_raw(this), anchor.into().abi(), purpose, stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<SpatialAnchorExporter> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialAnchorExporter>(result__)
         })
     }
@@ -938,7 +938,7 @@ impl SpatialAnchorExporter {
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>>(result__)
         })
     }
@@ -1017,7 +1017,7 @@ impl SpatialAnchorManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorStore>> {
         Self::ISpatialAnchorManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialAnchorStore>>(result__)
         })
     }
@@ -1039,7 +1039,7 @@ impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     pub fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Matrix4x4>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OldRawCoordinateSystemToNewRawCoordinateSystemTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
@@ -1115,7 +1115,7 @@ impl SpatialAnchorStore {
     pub fn GetAllSavedAnchors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAllSavedAnchors)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>(result__)
         }
     }
@@ -1126,7 +1126,7 @@ impl SpatialAnchorStore {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TrySave)(::windows::core::Interface::as_raw(this), id.into().abi(), anchor.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -1217,7 +1217,7 @@ impl SpatialAnchorTransferManager {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryImportAnchorsAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, SpatialAnchor>>>(result__)
         })
     }
@@ -1231,7 +1231,7 @@ impl SpatialAnchorTransferManager {
         E1: ::std::convert::Into<::windows::core::Error>,
     {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryExportAnchorsAsync)(::windows::core::Interface::as_raw(this), anchors.try_into().map_err(|e| e.into())?.abi(), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
@@ -1239,7 +1239,7 @@ impl SpatialAnchorTransferManager {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>>(result__)
         })
     }
@@ -1458,7 +1458,7 @@ impl SpatialBoundingVolume {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromBox)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), r#box, result__.as_mut_ptr()).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
@@ -1469,7 +1469,7 @@ impl SpatialBoundingVolume {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromOrientedBox)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), r#box, result__.as_mut_ptr()).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
@@ -1480,7 +1480,7 @@ impl SpatialBoundingVolume {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromSphere)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), sphere, result__.as_mut_ptr()).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
@@ -1491,7 +1491,7 @@ impl SpatialBoundingVolume {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialCoordinateSystem>>,
     {
         Self::ISpatialBoundingVolumeStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FromFrustum)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), frustum, result__.as_mut_ptr()).from_abi::<SpatialBoundingVolume>(result__)
         })
     }
@@ -1575,7 +1575,7 @@ impl SpatialCoordinateSystem {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryGetTransformTo)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>>(result__)
         }
     }
@@ -1649,14 +1649,14 @@ impl SpatialEntity {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Anchor(&self) -> ::windows::core::Result<SpatialAnchor> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Anchor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialAnchor>(result__)
         }
     }
@@ -1665,7 +1665,7 @@ impl SpatialEntity {
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
@@ -1674,7 +1674,7 @@ impl SpatialEntity {
         P0: ::std::convert::Into<::windows::core::InParam<'a, SpatialAnchor>>,
     {
         Self::ISpatialEntityFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithSpatialAnchor)(::windows::core::Interface::as_raw(this), spatialanchor.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialEntity>(result__)
         })
     }
@@ -1686,7 +1686,7 @@ impl SpatialEntity {
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>,
     {
         Self::ISpatialEntityFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithSpatialAnchorAndProperties)(::windows::core::Interface::as_raw(this), spatialanchor.into().abi(), propertyset.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialEntity>(result__)
         })
     }
@@ -1765,7 +1765,7 @@ impl SpatialEntityAddedEventArgs {
     pub fn Entity(&self) -> ::windows::core::Result<SpatialEntity> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Entity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialEntity>(result__)
         }
     }
@@ -1839,7 +1839,7 @@ impl SpatialEntityRemovedEventArgs {
     pub fn Entity(&self) -> ::windows::core::Result<SpatialEntity> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Entity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialEntity>(result__)
         }
     }
@@ -1918,7 +1918,7 @@ impl SpatialEntityStore {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), entity.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
@@ -1930,20 +1930,20 @@ impl SpatialEntityStore {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveAsync)(::windows::core::Interface::as_raw(this), entity.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     pub fn CreateEntityWatcher(&self) -> ::windows::core::Result<SpatialEntityWatcher> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateEntityWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialEntityWatcher>(result__)
         }
     }
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::ISpatialEntityStoreStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
@@ -1954,7 +1954,7 @@ impl SpatialEntityStore {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::RemoteSystems::RemoteSystemSession>>,
     {
         Self::ISpatialEntityStoreStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryGetForRemoteSystemSession)(::windows::core::Interface::as_raw(this), session.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialEntityStore>(result__)
         })
     }
@@ -2033,7 +2033,7 @@ impl SpatialEntityUpdatedEventArgs {
     pub fn Entity(&self) -> ::windows::core::Result<SpatialEntity> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Entity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialEntity>(result__)
         }
     }
@@ -2107,7 +2107,7 @@ impl SpatialEntityWatcher {
     pub fn Status(&self) -> ::windows::core::Result<SpatialEntityWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<SpatialEntityWatcherStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialEntityWatcherStatus>(result__)
         }
     }
@@ -2119,7 +2119,7 @@ impl SpatialEntityWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2137,7 +2137,7 @@ impl SpatialEntityWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2155,7 +2155,7 @@ impl SpatialEntityWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2173,7 +2173,7 @@ impl SpatialEntityWatcher {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2338,7 +2338,7 @@ impl SpatialLocation {
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Vector3>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
@@ -2347,7 +2347,7 @@ impl SpatialLocation {
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Quaternion>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
@@ -2356,7 +2356,7 @@ impl SpatialLocation {
     pub fn AbsoluteLinearVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Vector3>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AbsoluteLinearVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
@@ -2365,7 +2365,7 @@ impl SpatialLocation {
     pub fn AbsoluteLinearAcceleration(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Vector3>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AbsoluteLinearAcceleration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
@@ -2374,7 +2374,7 @@ impl SpatialLocation {
     pub fn AbsoluteAngularVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Quaternion>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AbsoluteAngularVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
@@ -2383,7 +2383,7 @@ impl SpatialLocation {
     pub fn AbsoluteAngularAcceleration(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Quaternion>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AbsoluteAngularAcceleration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
@@ -2392,7 +2392,7 @@ impl SpatialLocation {
     pub fn AbsoluteAngularVelocityAxisAngle(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<ISpatialLocation2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Vector3>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AbsoluteAngularVelocityAxisAngle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
@@ -2401,7 +2401,7 @@ impl SpatialLocation {
     pub fn AbsoluteAngularAccelerationAxisAngle(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<ISpatialLocation2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Vector3>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AbsoluteAngularAccelerationAxisAngle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
@@ -2475,7 +2475,7 @@ impl SpatialLocator {
     pub fn Locatability(&self) -> ::windows::core::Result<SpatialLocatability> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<SpatialLocatability>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Locatability)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialLocatability>(result__)
         }
     }
@@ -2487,7 +2487,7 @@ impl SpatialLocator {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocatabilityChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2505,7 +2505,7 @@ impl SpatialLocator {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PositionalTrackingDeactivating)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -2522,14 +2522,14 @@ impl SpatialLocator {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryLocateAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into().abi(), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialLocation>(result__)
         }
     }
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
@@ -2538,7 +2538,7 @@ impl SpatialLocator {
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition(&self, relativeposition: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition)(::windows::core::Interface::as_raw(this), relativeposition, result__.as_mut_ptr()).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
@@ -2547,7 +2547,7 @@ impl SpatialLocator {
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation)(::windows::core::Interface::as_raw(this), relativeposition, relativeorientation, result__.as_mut_ptr()).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
@@ -2556,14 +2556,14 @@ impl SpatialLocator {
     pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> ::windows::core::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading)(::windows::core::Interface::as_raw(this), relativeposition, relativeorientation, relativeheadinginradians, result__.as_mut_ptr()).from_abi::<SpatialLocatorAttachedFrameOfReference>(result__)
         }
     }
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
@@ -2572,7 +2572,7 @@ impl SpatialLocator {
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition(&self, relativeposition: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition)(::windows::core::Interface::as_raw(this), relativeposition, result__.as_mut_ptr()).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
@@ -2581,7 +2581,7 @@ impl SpatialLocator {
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation)(::windows::core::Interface::as_raw(this), relativeposition, relativeorientation, result__.as_mut_ptr()).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
@@ -2590,13 +2590,13 @@ impl SpatialLocator {
     pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> ::windows::core::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading)(::windows::core::Interface::as_raw(this), relativeposition, relativeorientation, relativeheadinginradians, result__.as_mut_ptr()).from_abi::<SpatialStationaryFrameOfReference>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<SpatialLocator> {
         Self::ISpatialLocatorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialLocator>(result__)
         })
     }
@@ -2677,7 +2677,7 @@ impl SpatialLocatorAttachedFrameOfReference {
     pub fn RelativePosition(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Vector3>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RelativePosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
@@ -2692,7 +2692,7 @@ impl SpatialLocatorAttachedFrameOfReference {
     pub fn RelativeOrientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::Numerics::Quaternion>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RelativeOrientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
@@ -2712,7 +2712,7 @@ impl SpatialLocatorAttachedFrameOfReference {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetStationaryCoordinateSystemAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
@@ -2724,7 +2724,7 @@ impl SpatialLocatorAttachedFrameOfReference {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryGetRelativeHeadingAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
@@ -2798,7 +2798,7 @@ impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     pub fn Canceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3027,21 +3027,21 @@ impl SpatialStageFrameOfReference {
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
     pub fn MovementRange(&self) -> ::windows::core::Result<SpatialMovementRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<SpatialMovementRange>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MovementRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialMovementRange>(result__)
         }
     }
     pub fn LookDirectionRange(&self) -> ::windows::core::Result<SpatialLookDirectionRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<SpatialLookDirectionRange>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LookDirectionRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialLookDirectionRange>(result__)
         }
     }
@@ -3051,7 +3051,7 @@ impl SpatialStageFrameOfReference {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCoordinateSystemAtCurrentLocation)(::windows::core::Interface::as_raw(this), locator.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }
@@ -3069,7 +3069,7 @@ impl SpatialStageFrameOfReference {
     }
     pub fn Current() -> ::windows::core::Result<SpatialStageFrameOfReference> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialStageFrameOfReference>(result__)
         })
     }
@@ -3080,7 +3080,7 @@ impl SpatialStageFrameOfReference {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
     {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
@@ -3093,7 +3093,7 @@ impl SpatialStageFrameOfReference {
     #[cfg(feature = "Foundation")]
     pub fn RequestNewStageAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpatialStageFrameOfReference>> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestNewStageAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpatialStageFrameOfReference>>(result__)
         })
     }
@@ -3172,7 +3172,7 @@ impl SpatialStationaryFrameOfReference {
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialCoordinateSystem>(result__)
         }
     }

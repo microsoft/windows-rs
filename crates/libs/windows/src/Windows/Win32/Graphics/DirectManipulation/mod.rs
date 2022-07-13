@@ -736,7 +736,7 @@ impl IDirectManipulationContent {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContentRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetContentRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -892,7 +892,7 @@ impl IDirectManipulationDragDropBehavior {
         (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), configuration).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<DIRECTMANIPULATION_DRAG_DROP_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::<DIRECTMANIPULATION_DRAG_DROP_STATUS>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIRECTMANIPULATION_DRAG_DROP_STATUS>(result__)
     }
 }
@@ -1123,7 +1123,7 @@ impl IDirectManipulationManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProcessInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(message), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> ::windows::core::Result<T>
@@ -1247,7 +1247,7 @@ impl IDirectManipulationManager2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ProcessInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(message), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> ::windows::core::Result<T>
@@ -1372,7 +1372,7 @@ impl IDirectManipulationManager3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.ProcessInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(message), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn GetUpdateManager<T>(&self) -> ::windows::core::Result<T>
@@ -1628,7 +1628,7 @@ impl IDirectManipulationUpdateManager {
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationUpdateHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterWaitHandleCallback)(::windows::core::Interface::as_raw(self), handle.into(), eventhandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn UnregisterWaitHandleCallback(&self, cookie: u32) -> ::windows::core::Result<()> {
@@ -1707,7 +1707,7 @@ impl IDirectManipulationViewport {
         (::windows::core::Interface::vtable(self).ReleaseAllContacts)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<DIRECTMANIPULATION_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::<DIRECTMANIPULATION_STATUS>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIRECTMANIPULATION_STATUS>(result__)
     }
     pub unsafe fn GetTag<T>(&self, id: *mut u32, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -1725,7 +1725,7 @@ impl IDirectManipulationViewport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetViewportRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetViewportRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1791,7 +1791,7 @@ impl IDirectManipulationViewport {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewportEventHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AddEventHandler)(::windows::core::Interface::as_raw(self), window.into(), eventhandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> ::windows::core::Result<()> {
@@ -1910,7 +1910,7 @@ impl IDirectManipulationViewport2 {
         (::windows::core::Interface::vtable(self).base__.ReleaseAllContacts)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<DIRECTMANIPULATION_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::<DIRECTMANIPULATION_STATUS>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIRECTMANIPULATION_STATUS>(result__)
     }
     pub unsafe fn GetTag<T>(&self, id: *mut u32, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -1928,7 +1928,7 @@ impl IDirectManipulationViewport2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetViewportRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::RECT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetViewportRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1994,7 +1994,7 @@ impl IDirectManipulationViewport2 {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IDirectManipulationViewportEventHandler>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.AddEventHandler)(::windows::core::Interface::as_raw(self), window.into(), eventhandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> ::windows::core::Result<()> {
@@ -2016,7 +2016,7 @@ impl IDirectManipulationViewport2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AddBehavior)(::windows::core::Interface::as_raw(self), behavior.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn RemoveBehavior(&self, cookie: u32) -> ::windows::core::Result<()> {

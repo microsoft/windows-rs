@@ -64,14 +64,14 @@ impl GpioChangeCounter {
     pub fn Polarity(&self) -> ::windows::core::Result<GpioChangePolarity> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioChangePolarity>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Polarity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangePolarity>(result__)
         }
     }
     pub fn IsStarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsStarted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -88,7 +88,7 @@ impl GpioChangeCounter {
     pub fn Read(&self) -> ::windows::core::Result<GpioChangeCount> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioChangeCount>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Read)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangeCount>(result__)
         }
     }
@@ -97,7 +97,7 @@ impl GpioChangeCounter {
     pub fn Reset(&self) -> ::windows::core::Result<GpioChangeCount> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioChangeCount>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Reset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangeCount>(result__)
         }
     }
@@ -106,7 +106,7 @@ impl GpioChangeCounter {
         P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
     {
         Self::IGpioChangeCounterFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), pin.into().abi(), result__.as_mut_ptr()).from_abi::<GpioChangeCounter>(result__)
         })
     }
@@ -248,28 +248,28 @@ impl GpioChangeReader {
     pub fn Capacity(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Capacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn Length(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn IsEmpty(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEmpty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn IsOverflowed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsOverflowed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -280,14 +280,14 @@ impl GpioChangeReader {
     pub fn Polarity(&self) -> ::windows::core::Result<GpioChangePolarity> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioChangePolarity>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Polarity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangePolarity>(result__)
         }
     }
     pub fn IsStarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsStarted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -308,7 +308,7 @@ impl GpioChangeReader {
     pub fn GetNextItem(&self) -> ::windows::core::Result<GpioChangeRecord> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioChangeRecord>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetNextItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangeRecord>(result__)
         }
     }
@@ -317,7 +317,7 @@ impl GpioChangeReader {
     pub fn PeekNextItem(&self) -> ::windows::core::Result<GpioChangeRecord> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioChangeRecord>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PeekNextItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioChangeRecord>(result__)
         }
     }
@@ -326,7 +326,7 @@ impl GpioChangeReader {
     pub fn GetAllItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<GpioChangeRecord>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAllItems)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<GpioChangeRecord>>(result__)
         }
     }
@@ -335,7 +335,7 @@ impl GpioChangeReader {
     pub fn WaitForItemsAsync(&self, count: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WaitForItemsAsync)(::windows::core::Interface::as_raw(this), count, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
@@ -344,7 +344,7 @@ impl GpioChangeReader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
     {
         Self::IGpioChangeReaderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), pin.into().abi(), result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
         })
     }
@@ -353,7 +353,7 @@ impl GpioChangeReader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, GpioPin>>,
     {
         Self::IGpioChangeReaderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithCapacity)(::windows::core::Interface::as_raw(this), pin.into().abi(), mincapacity, result__.as_mut_ptr()).from_abi::<GpioChangeReader>(result__)
         })
     }
@@ -501,34 +501,34 @@ impl GpioController {
     pub fn PinCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PinCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn OpenPin(&self, pinnumber: i32) -> ::windows::core::Result<GpioPin> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OpenPin)(::windows::core::Interface::as_raw(this), pinnumber, result__.as_mut_ptr()).from_abi::<GpioPin>(result__)
         }
     }
     pub fn OpenPinWithSharingMode(&self, pinnumber: i32, sharingmode: GpioSharingMode) -> ::windows::core::Result<GpioPin> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OpenPinWithSharingMode)(::windows::core::Interface::as_raw(this), pinnumber, sharingmode, result__.as_mut_ptr()).from_abi::<GpioPin>(result__)
         }
     }
     pub fn TryOpenPin(&self, pinnumber: i32, sharingmode: GpioSharingMode, pin: &mut ::core::option::Option<GpioPin>, openstatus: &mut GpioOpenStatus) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TryOpenPin)(::windows::core::Interface::as_raw(this), pinnumber, sharingmode, pin as *mut _ as _, openstatus, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetDefault() -> ::windows::core::Result<GpioController> {
         Self::IGpioControllerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioController>(result__)
         })
     }
@@ -540,7 +540,7 @@ impl GpioController {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IGpioControllerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>(result__)
         })
     }
@@ -548,7 +548,7 @@ impl GpioController {
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<GpioController>> {
         Self::IGpioControllerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<GpioController>>(result__)
         })
     }
@@ -680,7 +680,7 @@ impl GpioPin {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ValueChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -695,7 +695,7 @@ impl GpioPin {
     pub fn DebounceTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DebounceTimeout)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -708,28 +708,28 @@ impl GpioPin {
     pub fn PinNumber(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PinNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     pub fn SharingMode(&self) -> ::windows::core::Result<GpioSharingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioSharingMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioSharingMode>(result__)
         }
     }
     pub fn IsDriveModeSupported(&self, drivemode: GpioPinDriveMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsDriveModeSupported)(::windows::core::Interface::as_raw(this), drivemode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn GetDriveMode(&self) -> ::windows::core::Result<GpioPinDriveMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioPinDriveMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDriveMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioPinDriveMode>(result__)
         }
     }
@@ -744,7 +744,7 @@ impl GpioPin {
     pub fn Read(&self) -> ::windows::core::Result<GpioPinValue> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioPinValue>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Read)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioPinValue>(result__)
         }
     }
@@ -948,7 +948,7 @@ impl GpioPinValueChangedEventArgs {
     pub fn Edge(&self) -> ::windows::core::Result<GpioPinEdge> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<GpioPinEdge>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Edge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GpioPinEdge>(result__)
         }
     }

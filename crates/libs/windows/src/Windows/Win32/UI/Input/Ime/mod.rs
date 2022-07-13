@@ -734,15 +734,15 @@ impl IActiveIME {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterWord)(::windows::core::Interface::as_raw(self), szreading.into(), dwstyle, szregister.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordW>(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCodePageA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLangId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
 }
@@ -938,15 +938,15 @@ impl IActiveIME2 {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumRegisterWord)(::windows::core::Interface::as_raw(self), szreading.into(), dwstyle, szregister.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordW>(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCodePageA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetLangId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
     pub unsafe fn Sleep(&self) -> ::windows::core::Result<()> {
@@ -1032,7 +1032,7 @@ impl IActiveIMMApp {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AssociateContext)(::windows::core::Interface::as_raw(self), hwnd.into(), hime.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1056,7 +1056,7 @@ impl IActiveIMMApp {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1075,7 +1075,7 @@ impl IActiveIMMApp {
         P1: ::std::convert::Into<::windows::core::PCSTR>,
         P2: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterWordA)(::windows::core::Interface::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordA>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1086,7 +1086,7 @@ impl IActiveIMMApp {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterWordW)(::windows::core::Interface::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1145,7 +1145,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CANDIDATEFORM>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCandidateWindow)(::windows::core::Interface::as_raw(self), himc.into(), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CANDIDATEFORM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1154,7 +1154,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Graphics::Gdi::LOGFONTA>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCompositionFontA)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Gdi::LOGFONTA>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1163,7 +1163,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Graphics::Gdi::LOGFONTW>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCompositionFontW)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Gdi::LOGFONTW>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1188,7 +1188,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<COMPOSITIONFORM>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCompositionWindow)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<COMPOSITIONFORM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -1197,7 +1197,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetContext)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1234,7 +1234,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultIMEWnd)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1299,7 +1299,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), hkl.into(), fdwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1324,7 +1324,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::POINT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStatusWindowPos)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1333,7 +1333,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVirtualKey)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1343,7 +1343,7 @@ impl IActiveIMMApp {
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::TextServices::HKL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstallIMEA)(::windows::core::Interface::as_raw(self), szimefilename.into(), szlayouttext.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1353,7 +1353,7 @@ impl IActiveIMMApp {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::TextServices::HKL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstallIMEW)(::windows::core::Interface::as_raw(self), szimefilename.into(), szlayouttext.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1541,7 +1541,7 @@ impl IActiveIMMApp {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::LRESULT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnDefWindowProc)(::windows::core::Interface::as_raw(self), hwnd.into(), msg, wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     pub unsafe fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> ::windows::core::Result<()> {
@@ -1553,7 +1553,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCodePageA)(::windows::core::Interface::as_raw(self), hkl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1562,7 +1562,7 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLangId)(::windows::core::Interface::as_raw(self), hkl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -1594,7 +1594,7 @@ impl IActiveIMMApp {
         (::windows::core::Interface::vtable(self).GetImeMenuItemsW)(::windows::core::Interface::as_raw(self), himc.into(), dwflags, dwtype, ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), dwsize, ::core::mem::transmute(pdwresult)).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumInputContext)(::windows::core::Interface::as_raw(self), idthread, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumInputContext>(result__)
     }
 }
@@ -1909,7 +1909,7 @@ impl IActiveIMMIME {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AssociateContext)(::windows::core::Interface::as_raw(self), hwnd.into(), hime.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1933,7 +1933,7 @@ impl IActiveIMMIME {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1952,7 +1952,7 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<::windows::core::PCSTR>,
         P2: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterWordA)(::windows::core::Interface::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordA>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1963,7 +1963,7 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
         P2: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterWordW)(::windows::core::Interface::as_raw(self), hkl.into(), szreading.into(), dwstyle, szregister.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordW>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -2022,7 +2022,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<CANDIDATEFORM>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCandidateWindow)(::windows::core::Interface::as_raw(self), himc.into(), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CANDIDATEFORM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2031,7 +2031,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Graphics::Gdi::LOGFONTA>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCompositionFontA)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Gdi::LOGFONTA>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2040,7 +2040,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Graphics::Gdi::LOGFONTW>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCompositionFontW)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Gdi::LOGFONTW>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2065,7 +2065,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<COMPOSITIONFORM>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCompositionWindow)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<COMPOSITIONFORM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -2074,7 +2074,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetContext)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -2111,7 +2111,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultIMEWnd)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2176,7 +2176,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), hkl.into(), fdwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
@@ -2201,7 +2201,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::POINT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStatusWindowPos)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2210,7 +2210,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVirtualKey)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2220,7 +2220,7 @@ impl IActiveIMMIME {
         P0: ::std::convert::Into<::windows::core::PCSTR>,
         P1: ::std::convert::Into<::windows::core::PCSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::TextServices::HKL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstallIMEA)(::windows::core::Interface::as_raw(self), szimefilename.into(), szlayouttext.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2230,7 +2230,7 @@ impl IActiveIMMIME {
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::TextServices::HKL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstallIMEW)(::windows::core::Interface::as_raw(self), szimefilename.into(), szlayouttext.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::TextServices::HKL>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2413,7 +2413,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut INPUTCONTEXT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LockIMC)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut INPUTCONTEXT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2430,13 +2430,13 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIMCLockCount)(::windows::core::Interface::as_raw(self), himc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateIMCC(&self, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMCC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateIMCC)(::windows::core::Interface::as_raw(self), dwsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMCC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2469,7 +2469,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Globalization::HIMCC>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReSizeIMCC)(::windows::core::Interface::as_raw(self), himcc.into(), dwsize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Globalization::HIMCC>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2478,7 +2478,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIMCCSize)(::windows::core::Interface::as_raw(self), himcc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2487,7 +2487,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIMCCLockCount)(::windows::core::Interface::as_raw(self), himcc.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2509,7 +2509,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateSoftKeyboard)(::windows::core::Interface::as_raw(self), utype, howner.into(), x, y, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2534,7 +2534,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCodePageA)(::windows::core::Interface::as_raw(self), hkl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2543,7 +2543,7 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLangId)(::windows::core::Interface::as_raw(self), hkl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
     pub unsafe fn KeybdEvent(&self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::Result<()> {
@@ -2584,7 +2584,7 @@ impl IActiveIMMIME {
         (::windows::core::Interface::vtable(self).GetImeMenuItemsW)(::windows::core::Interface::as_raw(self), himc.into(), dwflags, dwtype, ::core::mem::transmute(pimeparentmenu), ::core::mem::transmute(pimemenu), dwsize, ::core::mem::transmute(pdwresult)).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumInputContext)(::windows::core::Interface::as_raw(self), idthread, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumInputContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -2595,7 +2595,7 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::LRESULT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestMessageA)(::windows::core::Interface::as_raw(self), himc.into(), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -2606,7 +2606,7 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::LRESULT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestMessageW)(::windows::core::Interface::as_raw(self), himc.into(), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2617,7 +2617,7 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::LRESULT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SendIMCA)(::windows::core::Interface::as_raw(self), hwnd.into(), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2628,7 +2628,7 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::LRESULT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SendIMCW)(::windows::core::Interface::as_raw(self), hwnd.into(), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::LRESULT>(result__)
     }
     pub unsafe fn IsSleeping(&self) -> ::windows::core::Result<()> {
@@ -3025,7 +3025,7 @@ impl IActiveIMMMessagePumpOwner {
         (::windows::core::Interface::vtable(self).OnTranslateMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmsg)).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     pub unsafe fn Resume(&self, dwcookie: u32) -> ::windows::core::Result<()> {
@@ -3142,7 +3142,7 @@ pub struct IActiveIMMRegistrar_Vtbl {
 pub struct IEnumInputContext(::windows::core::IUnknown);
 impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumInputContext> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumInputContext>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3209,7 +3209,7 @@ pub struct IEnumInputContext_Vtbl {
 pub struct IEnumRegisterWordA(::windows::core::IUnknown);
 impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordA> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordA>(result__)
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::Result<()> {
@@ -3271,7 +3271,7 @@ pub struct IEnumRegisterWordA_Vtbl {
 pub struct IEnumRegisterWordW(::windows::core::IUnknown);
 impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordW> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumRegisterWordW>(result__)
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::Result<()> {

@@ -479,7 +479,7 @@ pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32,
     extern "system" {
         fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut HDEVQUERY__>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DevCreateObjectQuery(objecttype, queryflags, prequestedproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestedproperties)), pfilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfilter)), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HDEVQUERY__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
@@ -490,7 +490,7 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
     extern "system" {
         fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut HDEVQUERY__>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DevCreateObjectQueryEx(objecttype, queryflags, prequestedproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestedproperties)), pfilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfilter)), pextendedparameters.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pextendedparameters)), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HDEVQUERY__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
@@ -504,7 +504,7 @@ where
     extern "system" {
         fn DevCreateObjectQueryFromId(objecttype: DEV_OBJECT_TYPE, pszobjectid: ::windows::core::PCWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut HDEVQUERY__>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DevCreateObjectQueryFromId(objecttype, pszobjectid.into(), queryflags, prequestedproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestedproperties)), pfilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfilter)), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HDEVQUERY__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
@@ -518,7 +518,7 @@ where
     extern "system" {
         fn DevCreateObjectQueryFromIdEx(objecttype: DEV_OBJECT_TYPE, pszobjectid: ::windows::core::PCWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut HDEVQUERY__>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DevCreateObjectQueryFromIdEx(objecttype, pszobjectid.into(), queryflags, prequestedproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestedproperties)), pfilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfilter)), pextendedparameters.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pextendedparameters)), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HDEVQUERY__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
@@ -532,7 +532,7 @@ where
     extern "system" {
         fn DevCreateObjectQueryFromIds(objecttype: DEV_OBJECT_TYPE, pszzobjectids: ::windows::core::PCWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut HDEVQUERY__>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DevCreateObjectQueryFromIds(objecttype, pszzobjectids.into(), queryflags, prequestedproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestedproperties)), pfilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfilter)), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HDEVQUERY__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]
@@ -546,7 +546,7 @@ where
     extern "system" {
         fn DevCreateObjectQueryFromIdsEx(objecttype: DEV_OBJECT_TYPE, pszzobjectids: ::windows::core::PCWSTR, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phdevquery: *mut *mut HDEVQUERY__) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut HDEVQUERY__>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DevCreateObjectQueryFromIdsEx(objecttype, pszzobjectids.into(), queryflags, prequestedproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prequestedproperties)), pfilter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfilter)), pextendedparameters.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pextendedparameters)), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HDEVQUERY__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceQuery\"`, `\"Win32_Devices_Properties\"`*"]

@@ -625,7 +625,7 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
     extern "system" {
         fn AVIGetFromClipboard(lppf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     AVIGetFromClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIFile>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -664,7 +664,7 @@ where
     extern "system" {
         fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     AVIMakeStreamFromClipboard(cfformat, hglobal.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -2703,7 +2703,7 @@ where
     extern "system" {
         fn EditStreamClone(pavi: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     EditStreamClone(pavi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -3158,7 +3158,7 @@ impl IAVIEditStream {
         (::windows::core::Interface::vtable(self).Paste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into().abi(), lstart, lend).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAVIStream> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3302,7 +3302,7 @@ impl IAVIPersistFile {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3338,7 +3338,7 @@ impl IAVIPersistFile {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurFile(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCurFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {

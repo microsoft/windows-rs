@@ -46,7 +46,7 @@ impl ContactPickerUI {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<AddContactResult>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), id.into().abi(), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
@@ -63,7 +63,7 @@ impl ContactPickerUI {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -72,14 +72,14 @@ impl ContactPickerUI {
     pub fn DesiredFields(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DesiredFields)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     pub fn SelectionMode(&self) -> ::windows::core::Result<super::ContactSelectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::ContactSelectionMode>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectionMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ContactSelectionMode>(result__)
         }
     }
@@ -91,7 +91,7 @@ impl ContactPickerUI {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ContactRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -107,7 +107,7 @@ impl ContactPickerUI {
     {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<AddContactResult>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
@@ -116,7 +116,7 @@ impl ContactPickerUI {
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>> {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>>(result__)
         }
     }
@@ -188,7 +188,7 @@ impl ContactRemovedEventArgs {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }

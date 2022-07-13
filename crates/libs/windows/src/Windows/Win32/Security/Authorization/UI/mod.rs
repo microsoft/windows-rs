@@ -425,7 +425,7 @@ pub struct ISecurityInformation2_Vtbl {
 pub struct ISecurityInformation3(::windows::core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFullResourceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

@@ -172,7 +172,7 @@ where
     extern "system" {
         fn CoGetStandardMarshal(riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32, ppmarshal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -185,7 +185,7 @@ where
     extern "system" {
         fn CoGetStdMarshalEx(punkouter: *mut ::core::ffi::c_void, smexflags: u32, ppunkinner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoGetStdMarshalEx(punkouter.into().abi(), smexflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -210,7 +210,7 @@ where
     extern "system" {
         fn CoMarshalInterThreadInterfaceInStream(riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoMarshalInterThreadInterfaceInStream(::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -248,7 +248,7 @@ where
     extern "system" {
         fn CoUnmarshalHresult(pstm: *mut ::core::ffi::c_void, phresult: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoUnmarshalHresult(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -1073,7 +1073,7 @@ impl IMarshalingStream {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pv), cb, ::core::mem::transmute(pcbwritten)))
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
@@ -1103,11 +1103,11 @@ impl IMarshalingStream {
         (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
     }
     pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
-        let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::windows::core::Interface::as_raw(self), attribute, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }

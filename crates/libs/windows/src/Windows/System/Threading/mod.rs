@@ -83,7 +83,7 @@ impl ThreadPool {
         P0: ::std::convert::Into<::windows::core::InParam<'a, WorkItemHandler>>,
     {
         Self::IThreadPoolStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RunAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -94,7 +94,7 @@ impl ThreadPool {
         P0: ::std::convert::Into<::windows::core::InParam<'a, WorkItemHandler>>,
     {
         Self::IThreadPoolStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RunWithPriorityAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -105,7 +105,7 @@ impl ThreadPool {
         P0: ::std::convert::Into<::windows::core::InParam<'a, WorkItemHandler>>,
     {
         Self::IThreadPoolStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
@@ -127,7 +127,7 @@ impl ThreadPoolTimer {
     pub fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Period)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -136,7 +136,7 @@ impl ThreadPoolTimer {
     pub fn Delay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::TimeSpan>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
@@ -151,7 +151,7 @@ impl ThreadPoolTimer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, TimerElapsedHandler>>,
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreatePeriodicTimer)(::windows::core::Interface::as_raw(this), handler.into().abi(), period, result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
@@ -162,7 +162,7 @@ impl ThreadPoolTimer {
         P0: ::std::convert::Into<::windows::core::InParam<'a, TimerElapsedHandler>>,
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateTimer)(::windows::core::Interface::as_raw(this), handler.into().abi(), delay, result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
@@ -174,7 +174,7 @@ impl ThreadPoolTimer {
         P1: ::std::convert::Into<::windows::core::InParam<'a, TimerDestroyedHandler>>,
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(::windows::core::Interface::as_raw(this), handler.into().abi(), period, destroyed.into().abi(), result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }
@@ -186,7 +186,7 @@ impl ThreadPoolTimer {
         P1: ::std::convert::Into<::windows::core::InParam<'a, TimerDestroyedHandler>>,
     {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateTimerWithCompletion)(::windows::core::Interface::as_raw(this), handler.into().abi(), delay, destroyed.into().abi(), result__.as_mut_ptr()).from_abi::<ThreadPoolTimer>(result__)
         })
     }

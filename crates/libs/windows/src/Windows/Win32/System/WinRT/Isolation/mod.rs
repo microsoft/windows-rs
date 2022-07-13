@@ -8,7 +8,7 @@ impl IIsolatedEnvironmentInterop {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetHostHwndInterop)(::windows::core::Interface::as_raw(self), containerhwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }

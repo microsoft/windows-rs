@@ -578,7 +578,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::core::Result<f64> {
     extern "system" {
         fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetIntegratedDisplaySize(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
@@ -1036,7 +1036,7 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) 
     extern "system" {
         fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     IsWow64GuestMachineSupported(wowguestmachine, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]

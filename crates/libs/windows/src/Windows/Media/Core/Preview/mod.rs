@@ -24,7 +24,7 @@ pub struct SoundLevelBroker;
 impl SoundLevelBroker {
     pub fn SoundLevel() -> ::windows::core::Result<super::super::SoundLevel> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::SoundLevel>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SoundLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::SoundLevel>(result__)
         })
     }
@@ -35,7 +35,7 @@ impl SoundLevelBroker {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
     {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SoundLevelChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }

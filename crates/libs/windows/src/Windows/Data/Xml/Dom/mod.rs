@@ -5,28 +5,28 @@ impl DtdEntity {
     pub fn PublicId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublicId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn SystemId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SystemId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn NotationName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NotationName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -40,77 +40,77 @@ impl DtdEntity {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -123,7 +123,7 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -136,7 +136,7 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -147,7 +147,7 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -158,35 +158,35 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -207,7 +207,7 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -217,7 +217,7 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -228,7 +228,7 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -239,21 +239,21 @@ impl DtdEntity {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -391,21 +391,21 @@ impl DtdNotation {
     pub fn PublicId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PublicId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn SystemId(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SystemId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -419,77 +419,77 @@ impl DtdNotation {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -502,7 +502,7 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -515,7 +515,7 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -526,7 +526,7 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -537,35 +537,35 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -586,7 +586,7 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -596,7 +596,7 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -607,7 +607,7 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -618,21 +618,21 @@ impl DtdNotation {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -827,7 +827,7 @@ impl IXmlCharacterData {
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -841,14 +841,14 @@ impl IXmlCharacterData {
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubstringData)(::windows::core::Interface::as_raw(this), offset, count, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -880,7 +880,7 @@ impl IXmlCharacterData {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -894,77 +894,77 @@ impl IXmlCharacterData {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -977,7 +977,7 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -990,7 +990,7 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1001,7 +1001,7 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1012,35 +1012,35 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -1061,7 +1061,7 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1071,7 +1071,7 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -1082,7 +1082,7 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1093,21 +1093,21 @@ impl IXmlCharacterData {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1479,7 +1479,7 @@ impl IXmlNode {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -1493,77 +1493,77 @@ impl IXmlNode {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -1576,7 +1576,7 @@ impl IXmlNode {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1589,7 +1589,7 @@ impl IXmlNode {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1600,7 +1600,7 @@ impl IXmlNode {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1611,35 +1611,35 @@ impl IXmlNode {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -1660,7 +1660,7 @@ impl IXmlNode {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1670,7 +1670,7 @@ impl IXmlNode {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -1681,7 +1681,7 @@ impl IXmlNode {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1692,21 +1692,21 @@ impl IXmlNode {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1865,7 +1865,7 @@ impl IXmlNodeSelector {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1875,7 +1875,7 @@ impl IXmlNodeSelector {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -1886,7 +1886,7 @@ impl IXmlNodeSelector {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -1897,7 +1897,7 @@ impl IXmlNodeSelector {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -1975,14 +1975,14 @@ impl IXmlNodeSerializer {
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2081,14 +2081,14 @@ impl IXmlText {
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SplitText)(::windows::core::Interface::as_raw(this), offset, result__.as_mut_ptr()).from_abi::<IXmlText>(result__)
         }
     }
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2102,14 +2102,14 @@ impl IXmlText {
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubstringData)(::windows::core::Interface::as_raw(this), offset, count, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2141,7 +2141,7 @@ impl IXmlText {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -2155,77 +2155,77 @@ impl IXmlText {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -2238,7 +2238,7 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2251,7 +2251,7 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2262,7 +2262,7 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2273,35 +2273,35 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -2322,7 +2322,7 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2332,7 +2332,7 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -2343,7 +2343,7 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2354,21 +2354,21 @@ impl IXmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2571,21 +2571,21 @@ impl XmlAttribute {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Specified(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Specified)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2599,7 +2599,7 @@ impl XmlAttribute {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -2613,77 +2613,77 @@ impl XmlAttribute {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -2696,7 +2696,7 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2709,7 +2709,7 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2720,7 +2720,7 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2731,35 +2731,35 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -2780,7 +2780,7 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2790,7 +2790,7 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -2801,7 +2801,7 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -2812,21 +2812,21 @@ impl XmlAttribute {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2964,7 +2964,7 @@ impl XmlCDataSection {
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2978,14 +2978,14 @@ impl XmlCDataSection {
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubstringData)(::windows::core::Interface::as_raw(this), offset, count, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3017,7 +3017,7 @@ impl XmlCDataSection {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -3031,77 +3031,77 @@ impl XmlCDataSection {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -3114,7 +3114,7 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3127,7 +3127,7 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3138,7 +3138,7 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3149,35 +3149,35 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -3198,7 +3198,7 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3208,7 +3208,7 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -3219,7 +3219,7 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3230,21 +3230,21 @@ impl XmlCDataSection {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3258,7 +3258,7 @@ impl XmlCDataSection {
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
         let this = &::windows::core::Interface::cast::<IXmlText>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SplitText)(::windows::core::Interface::as_raw(this), offset, result__.as_mut_ptr()).from_abi::<IXmlText>(result__)
         }
     }
@@ -3427,7 +3427,7 @@ impl XmlComment {
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3441,14 +3441,14 @@ impl XmlComment {
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubstringData)(::windows::core::Interface::as_raw(this), offset, count, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3480,7 +3480,7 @@ impl XmlComment {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -3494,77 +3494,77 @@ impl XmlComment {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -3577,7 +3577,7 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3590,7 +3590,7 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3601,7 +3601,7 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3612,35 +3612,35 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -3661,7 +3661,7 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3671,7 +3671,7 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -3682,7 +3682,7 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -3693,21 +3693,21 @@ impl XmlComment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3871,21 +3871,21 @@ impl XmlDocument {
     pub fn Doctype(&self) -> ::windows::core::Result<XmlDocumentType> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Doctype)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocumentType>(result__)
         }
     }
     pub fn Implementation(&self) -> ::windows::core::Result<XmlDomImplementation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Implementation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDomImplementation>(result__)
         }
     }
     pub fn DocumentElement(&self) -> ::windows::core::Result<XmlElement> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DocumentElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
@@ -3895,14 +3895,14 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateElement)(::windows::core::Interface::as_raw(this), tagname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
     pub fn CreateDocumentFragment(&self) -> ::windows::core::Result<XmlDocumentFragment> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateDocumentFragment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocumentFragment>(result__)
         }
     }
@@ -3912,7 +3912,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateTextNode)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlText>(result__)
         }
     }
@@ -3922,7 +3922,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateComment)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlComment>(result__)
         }
     }
@@ -3933,7 +3933,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateProcessingInstruction)(::windows::core::Interface::as_raw(this), target.into().abi(), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlProcessingInstruction>(result__)
         }
     }
@@ -3943,7 +3943,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAttribute)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
@@ -3953,7 +3953,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateEntityReference)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<XmlEntityReference>(result__)
         }
     }
@@ -3963,7 +3963,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetElementsByTagName)(::windows::core::Interface::as_raw(this), tagname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -3973,14 +3973,14 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateCDataSection)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<XmlCDataSection>(result__)
         }
     }
     pub fn DocumentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).DocumentUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3991,7 +3991,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), qualifiedname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
@@ -4002,7 +4002,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateElementNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), qualifiedname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
@@ -4012,7 +4012,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetElementById)(::windows::core::Interface::as_raw(this), elementid.into().abi(), result__.as_mut_ptr()).from_abi::<XmlElement>(result__)
         }
     }
@@ -4023,7 +4023,7 @@ impl XmlDocument {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ImportNode)(::windows::core::Interface::as_raw(this), node.try_into().map_err(|e| e.into())?.abi(), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4051,7 +4051,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlDocumentIO>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SaveToFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
@@ -4083,7 +4083,7 @@ impl XmlDocument {
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>,
     {
         Self::IXmlDocumentStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromUriAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
@@ -4095,7 +4095,7 @@ impl XmlDocument {
         P1: ::std::convert::Into<::windows::core::InParam<'a, XmlLoadSettings>>,
     {
         Self::IXmlDocumentStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), loadsettings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
@@ -4107,7 +4107,7 @@ impl XmlDocument {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IXmlDocumentStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
@@ -4120,14 +4120,14 @@ impl XmlDocument {
         P1: ::std::convert::Into<::windows::core::InParam<'a, XmlLoadSettings>>,
     {
         Self::IXmlDocumentStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), loadsettings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<XmlDocument>>(result__)
         })
     }
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4141,77 +4141,77 @@ impl XmlDocument {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -4224,7 +4224,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4237,7 +4237,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4248,7 +4248,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4259,35 +4259,35 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4308,7 +4308,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4318,7 +4318,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -4329,7 +4329,7 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4340,21 +4340,21 @@ impl XmlDocument {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -4497,7 +4497,7 @@ impl XmlDocumentFragment {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4511,77 +4511,77 @@ impl XmlDocumentFragment {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -4594,7 +4594,7 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4607,7 +4607,7 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4618,7 +4618,7 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4629,35 +4629,35 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4678,7 +4678,7 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4688,7 +4688,7 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -4699,7 +4699,7 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4710,21 +4710,21 @@ impl XmlDocumentFragment {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -4862,28 +4862,28 @@ impl XmlDocumentType {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Entities(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Entities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn Notations(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Notations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -4897,77 +4897,77 @@ impl XmlDocumentType {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -4980,7 +4980,7 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -4993,7 +4993,7 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5004,7 +5004,7 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5015,35 +5015,35 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -5064,7 +5064,7 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5074,7 +5074,7 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -5085,7 +5085,7 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5096,21 +5096,21 @@ impl XmlDocumentType {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -5252,7 +5252,7 @@ impl XmlDomImplementation {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasFeature)(::windows::core::Interface::as_raw(this), feature.into().abi(), version.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -5326,7 +5326,7 @@ impl XmlElement {
     pub fn TagName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TagName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -5336,7 +5336,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAttribute)(::windows::core::Interface::as_raw(this), attributename.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -5361,7 +5361,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAttributeNode)(::windows::core::Interface::as_raw(this), attributename.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
@@ -5371,7 +5371,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SetAttributeNode)(::windows::core::Interface::as_raw(this), newattribute.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
@@ -5381,7 +5381,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveAttributeNode)(::windows::core::Interface::as_raw(this), attributenode.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
@@ -5391,7 +5391,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetElementsByTagName)(::windows::core::Interface::as_raw(this), tagname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -5411,7 +5411,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAttributeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), localname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -5429,7 +5429,7 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SetAttributeNodeNS)(::windows::core::Interface::as_raw(this), newattribute.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
@@ -5440,14 +5440,14 @@ impl XmlElement {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAttributeNodeNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), localname.into().abi(), result__.as_mut_ptr()).from_abi::<XmlAttribute>(result__)
         }
     }
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -5461,77 +5461,77 @@ impl XmlElement {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -5544,7 +5544,7 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5557,7 +5557,7 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5568,7 +5568,7 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5579,35 +5579,35 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -5628,7 +5628,7 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5638,7 +5638,7 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -5649,7 +5649,7 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5660,21 +5660,21 @@ impl XmlElement {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -5812,7 +5812,7 @@ impl XmlEntityReference {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -5826,77 +5826,77 @@ impl XmlEntityReference {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -5909,7 +5909,7 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5922,7 +5922,7 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5933,7 +5933,7 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -5944,35 +5944,35 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -5993,7 +5993,7 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6003,7 +6003,7 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -6014,7 +6014,7 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6025,21 +6025,21 @@ impl XmlEntityReference {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -6184,7 +6184,7 @@ impl XmlLoadSettings {
     pub fn MaxElementDepth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).MaxElementDepth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6195,7 +6195,7 @@ impl XmlLoadSettings {
     pub fn ProhibitDtd(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProhibitDtd)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6206,7 +6206,7 @@ impl XmlLoadSettings {
     pub fn ResolveExternals(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ResolveExternals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6217,7 +6217,7 @@ impl XmlLoadSettings {
     pub fn ValidateOnParse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ValidateOnParse)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6228,7 +6228,7 @@ impl XmlLoadSettings {
     pub fn ElementContentWhiteSpace(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ElementContentWhiteSpace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6308,7 +6308,7 @@ impl XmlNamedNodeMap {
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<IXmlNode>>(result__)
         }
     }
@@ -6317,7 +6317,7 @@ impl XmlNamedNodeMap {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6326,7 +6326,7 @@ impl XmlNamedNodeMap {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6339,7 +6339,7 @@ impl XmlNamedNodeMap {
     {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6348,21 +6348,21 @@ impl XmlNamedNodeMap {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn Item(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Item)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6372,7 +6372,7 @@ impl XmlNamedNodeMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetNamedItem)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6383,7 +6383,7 @@ impl XmlNamedNodeMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SetNamedItem)(::windows::core::Interface::as_raw(this), node.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6393,7 +6393,7 @@ impl XmlNamedNodeMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveNamedItem)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6404,7 +6404,7 @@ impl XmlNamedNodeMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetNamedItemNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6415,7 +6415,7 @@ impl XmlNamedNodeMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveNamedItemNS)(::windows::core::Interface::as_raw(this), namespaceuri.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6426,7 +6426,7 @@ impl XmlNamedNodeMap {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SetNamedItemNS)(::windows::core::Interface::as_raw(this), node.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6562,7 +6562,7 @@ impl XmlNodeList {
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<IXmlNode>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<IXmlNode>>(result__)
         }
     }
@@ -6571,7 +6571,7 @@ impl XmlNodeList {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6580,7 +6580,7 @@ impl XmlNodeList {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -6593,7 +6593,7 @@ impl XmlNodeList {
     {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -6602,21 +6602,21 @@ impl XmlNodeList {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IXmlNode>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<IXmlNode>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn Item(&self, index: u32) -> ::windows::core::Result<IXmlNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Item)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6750,7 +6750,7 @@ impl XmlProcessingInstruction {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -6764,77 +6764,77 @@ impl XmlProcessingInstruction {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -6847,7 +6847,7 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6860,7 +6860,7 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6871,7 +6871,7 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6882,35 +6882,35 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -6931,7 +6931,7 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6941,7 +6941,7 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -6952,7 +6952,7 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -6963,21 +6963,21 @@ impl XmlProcessingInstruction {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -6991,14 +6991,14 @@ impl XmlProcessingInstruction {
     pub fn Target(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Target)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -7136,7 +7136,7 @@ impl XmlText {
     pub fn Data(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -7150,14 +7150,14 @@ impl XmlText {
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     pub fn SubstringData(&self, offset: u32, count: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlCharacterData>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SubstringData)(::windows::core::Interface::as_raw(this), offset, count, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -7189,7 +7189,7 @@ impl XmlText {
     pub fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -7203,77 +7203,77 @@ impl XmlText {
     pub fn NodeType(&self) -> ::windows::core::Result<NodeType> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<NodeType>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<NodeType>(result__)
         }
     }
     pub fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn ParentNode(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ParentNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn ChildNodes(&self) -> ::windows::core::Result<XmlNodeList> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn FirstChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FirstChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn LastChild(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastChild)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn PreviousSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).PreviousSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NextSibling(&self) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NextSibling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Attributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlNamedNodeMap>(result__)
         }
     }
     pub fn HasChildNodes(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).HasChildNodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     pub fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).OwnerDocument)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XmlDocument>(result__)
         }
     }
@@ -7286,7 +7286,7 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InsertBefore)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -7299,7 +7299,7 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ReplaceChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), referencechild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -7310,7 +7310,7 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RemoveChild)(::windows::core::Interface::as_raw(this), childnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -7321,35 +7321,35 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AppendChild)(::windows::core::Interface::as_raw(this), newchild.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CloneNode)(::windows::core::Interface::as_raw(this), deep, result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
     pub fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).NamespaceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LocalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     pub fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IXmlNode>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Prefix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
@@ -7370,7 +7370,7 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNode)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -7380,7 +7380,7 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodes)(::windows::core::Interface::as_raw(this), xpath.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
@@ -7391,7 +7391,7 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectSingleNodeNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<IXmlNode>(result__)
         }
     }
@@ -7402,21 +7402,21 @@ impl XmlText {
     {
         let this = &::windows::core::Interface::cast::<IXmlNodeSelector>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SelectNodesNS)(::windows::core::Interface::as_raw(this), xpath.into().abi(), namespaces.into().abi(), result__.as_mut_ptr()).from_abi::<XmlNodeList>(result__)
         }
     }
     pub fn GetXml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn InnerText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IXmlNodeSerializer>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).InnerText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -7430,7 +7430,7 @@ impl XmlText {
     pub fn SplitText(&self, offset: u32) -> ::windows::core::Result<IXmlText> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SplitText)(::windows::core::Interface::as_raw(this), offset, result__.as_mut_ptr()).from_abi::<IXmlText>(result__)
         }
     }

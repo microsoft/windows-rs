@@ -5,7 +5,7 @@ pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::core::Result<IVssEx
     extern "system" {
         fn CreateVssExpressWriterInternal(ppwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateVssExpressWriterInternal(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssExpressWriter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
@@ -19,7 +19,7 @@ impl IVssAdmin {
         (::windows::core::Interface::vtable(self).UnregisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
     pub unsafe fn QueryProviders(&self) -> ::windows::core::Result<IVssEnumObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumObject>(result__)
     }
     pub unsafe fn AbortAllSnapshotsInProgress(&self) -> ::windows::core::Result<()> {
@@ -81,18 +81,18 @@ impl IVssAdminEx {
         (::windows::core::Interface::vtable(self).base__.UnregisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
     pub unsafe fn QueryProviders(&self) -> ::windows::core::Result<IVssEnumObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumObject>(result__)
     }
     pub unsafe fn AbortAllSnapshotsInProgress(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.AbortAllSnapshotsInProgress)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetProviderCapability(&self, pproviderid: ::windows::core::GUID) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProviderCapability)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pproviderid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     pub unsafe fn GetProviderContext(&self, providerid: ::windows::core::GUID) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProviderContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     pub unsafe fn SetProviderContext(&self, providerid: ::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<()> {
@@ -238,7 +238,7 @@ impl IVssComponent {
         (::windows::core::Interface::vtable(self).GetAlternateLocationMappingCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcmappings)).ok()
     }
     pub unsafe fn GetAlternateLocationMapping(&self, imapping: u32) -> ::windows::core::Result<IVssWMFiledesc> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAlternateLocationMapping)(::windows::core::Interface::as_raw(self), imapping, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssWMFiledesc>(result__)
     }
     pub unsafe fn SetBackupMetadata<'a, P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
@@ -279,7 +279,7 @@ impl IVssComponent {
         (::windows::core::Interface::vtable(self).GetNewTargetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcnewtarget)).ok()
     }
     pub unsafe fn GetNewTarget(&self, inewtarget: u32) -> ::windows::core::Result<IVssWMFiledesc> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNewTarget)(::windows::core::Interface::as_raw(self), inewtarget, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssWMFiledesc>(result__)
     }
     pub unsafe fn AddDirectedTarget<'a, P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
@@ -557,7 +557,7 @@ impl IVssComponentEx {
         (::windows::core::Interface::vtable(self).base__.GetAlternateLocationMappingCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcmappings)).ok()
     }
     pub unsafe fn GetAlternateLocationMapping(&self, imapping: u32) -> ::windows::core::Result<IVssWMFiledesc> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAlternateLocationMapping)(::windows::core::Interface::as_raw(self), imapping, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssWMFiledesc>(result__)
     }
     pub unsafe fn SetBackupMetadata<'a, P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
@@ -598,7 +598,7 @@ impl IVssComponentEx {
         (::windows::core::Interface::vtable(self).base__.GetNewTargetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcnewtarget)).ok()
     }
     pub unsafe fn GetNewTarget(&self, inewtarget: u32) -> ::windows::core::Result<IVssWMFiledesc> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetNewTarget)(::windows::core::Interface::as_raw(self), inewtarget, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssWMFiledesc>(result__)
     }
     pub unsafe fn AddDirectedTarget<'a, P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
@@ -740,17 +740,17 @@ impl IVssComponentEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPrepareForBackupFailureMsg)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPostSnapshotFailureMsg)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool> {
-        let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAuthoritativeRestore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<bool>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -761,7 +761,7 @@ impl IVssComponentEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRestoreName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRestoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
@@ -863,7 +863,7 @@ impl IVssComponentEx2 {
         (::windows::core::Interface::vtable(self).base__.base__.GetAlternateLocationMappingCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcmappings)).ok()
     }
     pub unsafe fn GetAlternateLocationMapping(&self, imapping: u32) -> ::windows::core::Result<IVssWMFiledesc> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetAlternateLocationMapping)(::windows::core::Interface::as_raw(self), imapping, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssWMFiledesc>(result__)
     }
     pub unsafe fn SetBackupMetadata<'a, P0>(&self, wszdata: P0) -> ::windows::core::Result<()>
@@ -904,7 +904,7 @@ impl IVssComponentEx2 {
         (::windows::core::Interface::vtable(self).base__.base__.GetNewTargetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcnewtarget)).ok()
     }
     pub unsafe fn GetNewTarget(&self, inewtarget: u32) -> ::windows::core::Result<IVssWMFiledesc> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetNewTarget)(::windows::core::Interface::as_raw(self), inewtarget, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssWMFiledesc>(result__)
     }
     pub unsafe fn AddDirectedTarget<'a, P0, P1, P2, P3, P4, P5>(&self, wszsourcepath: P0, wszsourcefilename: P1, wszsourcerangelist: P2, wszdestinationpath: P3, wszdestinationfilename: P4, wszdestinationrangelist: P5) -> ::windows::core::Result<()>
@@ -1046,17 +1046,17 @@ impl IVssComponentEx2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPrepareForBackupFailureMsg)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPostSnapshotFailureMsg)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool> {
-        let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAuthoritativeRestore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<bool>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1067,7 +1067,7 @@ impl IVssComponentEx2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRestoreName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRestoreName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn SetFailure<'a, P0>(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: P0, dwreserved: u32) -> ::windows::core::Result<()>
@@ -1208,7 +1208,7 @@ impl IVssCreateExpressWriterMetadata {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaveAsXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SaveAsXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
@@ -1347,7 +1347,7 @@ impl IVssCreateWriterMetadata {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetDocument(&self) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMDocument>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1409,19 +1409,19 @@ impl IVssDifferentialSoftwareSnapshotMgmt {
         (::windows::core::Interface::vtable(self).ChangeDiffAreaMaximumSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), llmaximumdiffspace).ok()
     }
     pub unsafe fn QueryVolumesSupportedForDiffAreas(&self, pwszoriginalvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryVolumesSupportedForDiffAreas)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszoriginalvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasForVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryDiffAreasForVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasOnVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryDiffAreasOnVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasForSnapshot(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryDiffAreasForSnapshot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
 }
@@ -1482,19 +1482,19 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
         (::windows::core::Interface::vtable(self).base__.ChangeDiffAreaMaximumSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), llmaximumdiffspace).ok()
     }
     pub unsafe fn QueryVolumesSupportedForDiffAreas(&self, pwszoriginalvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryVolumesSupportedForDiffAreas)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszoriginalvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasForVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryDiffAreasForVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasOnVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryDiffAreasOnVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasForSnapshot(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryDiffAreasForSnapshot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1509,7 +1509,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
         (::windows::core::Interface::vtable(self).MigrateDiffAreas)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), ::core::mem::transmute(pwsznewdiffareavolumename)).ok()
     }
     pub unsafe fn QueryMigrationStatus(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<IVssAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryMigrationStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssAsync>(result__)
     }
     pub unsafe fn SetSnapshotPriority(&self, idsnapshot: ::windows::core::GUID, priority: u8) -> ::windows::core::Result<()> {
@@ -1589,19 +1589,19 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
         (::windows::core::Interface::vtable(self).base__.base__.ChangeDiffAreaMaximumSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), llmaximumdiffspace).ok()
     }
     pub unsafe fn QueryVolumesSupportedForDiffAreas(&self, pwszoriginalvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QueryVolumesSupportedForDiffAreas)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszoriginalvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasForVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QueryDiffAreasForVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasOnVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QueryDiffAreasOnVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QueryDiffAreasForSnapshot(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QueryDiffAreasForSnapshot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1616,7 +1616,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
         (::windows::core::Interface::vtable(self).base__.MigrateDiffAreas)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), ::core::mem::transmute(pwsznewdiffareavolumename)).ok()
     }
     pub unsafe fn QueryMigrationStatus(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<IVssAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryMigrationStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(pwszdiffareavolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssAsync>(result__)
     }
     pub unsafe fn SetSnapshotPriority(&self, idsnapshot: ::windows::core::GUID, priority: u8) -> ::windows::core::Result<()> {
@@ -1628,7 +1628,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16) -> ::windows::core::Result<VSS_VOLUME_PROTECTION_INFO> {
-        let mut result__ = ::core::mem::MaybeUninit::<VSS_VOLUME_PROTECTION_INFO>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVolumeProtectLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VSS_VOLUME_PROTECTION_INFO>(result__)
     }
     pub unsafe fn ClearVolumeProtectFault(&self, pwszvolumename: *const u16) -> ::windows::core::Result<()> {
@@ -1851,7 +1851,7 @@ impl IVssExpressWriter {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateMetadata)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(writerid), writername.into(), usagetype, versionmajor, versionminor, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssCreateExpressWriterMetadata>(result__)
     }
     pub unsafe fn LoadMetadata<'a, P0>(&self, metadata: P0, reserved: u32) -> ::windows::core::Result<()>
@@ -1919,11 +1919,11 @@ impl IVssFileShareSnapshotProvider {
         (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), lcontext).ok()
     }
     pub unsafe fn GetSnapshotProperties(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::<VSS_SNAPSHOT_PROP>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSnapshotProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VSS_SNAPSHOT_PROP>(result__)
     }
     pub unsafe fn Query(&self, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1940,7 +1940,7 @@ impl IVssFileShareSnapshotProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPathSupported(&self, pwszsharepath: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsPathSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszsharepath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2151,7 +2151,7 @@ impl IVssHardwareSnapshotProviderEx {
         (::windows::core::Interface::vtable(self).base__.OnLunEmpty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wszdevicename), ::core::mem::transmute(pinformation)).ok()
     }
     pub unsafe fn GetProviderCapabilities(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProviderCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`*"]
@@ -2162,7 +2162,7 @@ impl IVssHardwareSnapshotProviderEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn ResyncLuns(&self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<IVssAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ResyncLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psourceluns), ::core::mem::transmute(ptargetluns), ::core::mem::transmute(dwcount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`*"]
@@ -2381,15 +2381,15 @@ pub struct IVssProviderNotifications_Vtbl {
 pub struct IVssSnapshotMgmt(::windows::core::IUnknown);
 impl IVssSnapshotMgmt {
     pub unsafe fn GetProviderMgmtInterface(&self, providerid: ::windows::core::GUID, interfaceid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProviderMgmtInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(interfaceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     pub unsafe fn QueryVolumesSupportedForSnapshots(&self, providerid: ::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<IVssEnumMgmtObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryVolumesSupportedForSnapshots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), lcontext, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumMgmtObject>(result__)
     }
     pub unsafe fn QuerySnapshotsByVolume(&self, pwszvolumename: *const u16, providerid: ::windows::core::GUID) -> ::windows::core::Result<IVssEnumObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QuerySnapshotsByVolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(providerid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumObject>(result__)
     }
 }
@@ -2441,7 +2441,7 @@ pub struct IVssSnapshotMgmt_Vtbl {
 pub struct IVssSnapshotMgmt2(::windows::core::IUnknown);
 impl IVssSnapshotMgmt2 {
     pub unsafe fn GetMinDiffAreaSize(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMinDiffAreaSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
@@ -2494,11 +2494,11 @@ impl IVssSoftwareSnapshotProvider {
         (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), lcontext).ok()
     }
     pub unsafe fn GetSnapshotProperties(&self, snapshotid: ::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP> {
-        let mut result__ = ::core::mem::MaybeUninit::<VSS_SNAPSHOT_PROP>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSnapshotProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VSS_SNAPSHOT_PROP>(result__)
     }
     pub unsafe fn Query(&self, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssEnumObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2515,7 +2515,7 @@ impl IVssSoftwareSnapshotProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVolumeSupported(&self, pwszvolumename: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsVolumeSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolumename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2535,7 +2535,7 @@ impl IVssSoftwareSnapshotProvider {
         (::windows::core::Interface::vtable(self).RevertToSnapshot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(snapshotid)).ok()
     }
     pub unsafe fn QueryRevertStatus(&self, pwszvolume: *const u16) -> ::windows::core::Result<IVssAsync> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryRevertStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszvolume), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssAsync>(result__)
     }
 }
@@ -2675,27 +2675,27 @@ impl IVssWMFiledesc {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFilespec(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFilespec)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetRecursive(&self) -> ::windows::core::Result<bool> {
-        let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRecursive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<bool>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlternateLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAlternateLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetBackupTypeMask(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBackupTypeMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
@@ -2764,7 +2764,7 @@ impl IVssWriterComponents {
         (::windows::core::Interface::vtable(self).GetWriterInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidinstance), ::core::mem::transmute(pidwriter)).ok()
     }
     pub unsafe fn GetComponent(&self, icomponent: u32) -> ::windows::core::Result<IVssComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetComponent)(::windows::core::Interface::as_raw(self), icomponent, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssComponent>(result__)
     }
 }
@@ -2825,7 +2825,7 @@ impl IVssWriterImpl {
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSnapshotDeviceName)(::windows::core::Interface::as_raw(self), wszoriginalvolume.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     pub unsafe fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID {
@@ -2876,7 +2876,7 @@ impl IVssWriterImpl {
         (::windows::core::Interface::vtable(self).SetWriterFailureEx)(::windows::core::Interface::as_raw(self), hr, hrapplication, wszapplicationmessage.into()).ok()
     }
     pub unsafe fn GetSessionId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSessionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn IsWriterShuttingDown(&self) -> bool {

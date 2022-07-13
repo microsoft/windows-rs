@@ -60,7 +60,7 @@ impl BackgroundDownloader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateDownload)(::windows::core::Interface::as_raw(this), uri.into().abi(), resultfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DownloadOperation>(result__)
         }
     }
@@ -76,7 +76,7 @@ impl BackgroundDownloader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateDownloadFromFile)(::windows::core::Interface::as_raw(this), uri.into().abi(), resultfile.try_into().map_err(|e| e.into())?.abi(), requestbodyfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DownloadOperation>(result__)
         }
     }
@@ -92,14 +92,14 @@ impl BackgroundDownloader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateDownloadAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), resultfile.try_into().map_err(|e| e.into())?.abi(), requestbodystream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<DownloadOperation>>(result__)
         }
     }
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TransferGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
@@ -115,7 +115,7 @@ impl BackgroundDownloader {
     pub fn SuccessToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SuccessToastNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
@@ -133,7 +133,7 @@ impl BackgroundDownloader {
     pub fn FailureToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FailureToastNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
@@ -151,7 +151,7 @@ impl BackgroundDownloader {
     pub fn SuccessTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SuccessTileNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
@@ -169,7 +169,7 @@ impl BackgroundDownloader {
     pub fn FailureTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FailureTileNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
@@ -185,7 +185,7 @@ impl BackgroundDownloader {
     pub fn CompletionGroup(&self) -> ::windows::core::Result<BackgroundTransferCompletionGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CompletionGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCompletionGroup>(result__)
         }
     }
@@ -194,7 +194,7 @@ impl BackgroundDownloader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferCompletionGroup>>,
     {
         Self::IBackgroundDownloaderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithCompletionGroup)(::windows::core::Interface::as_raw(this), completiongroup.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundDownloader>(result__)
         })
     }
@@ -202,7 +202,7 @@ impl BackgroundDownloader {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentDownloadsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentDownloadsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
@@ -213,7 +213,7 @@ impl BackgroundDownloader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentDownloadsForGroupAsync)(::windows::core::Interface::as_raw(this), group.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
@@ -224,7 +224,7 @@ impl BackgroundDownloader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferGroup>>,
     {
         Self::IBackgroundDownloaderStaticMethods2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentDownloadsForTransferGroupAsync)(::windows::core::Interface::as_raw(this), group.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
@@ -236,7 +236,7 @@ impl BackgroundDownloader {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBackgroundDownloaderUserConsent(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestUnconstrainedDownloadsAsync)(::windows::core::Interface::as_raw(this), operations.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>(result__)
         })
     }
@@ -253,7 +253,7 @@ impl BackgroundDownloader {
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
@@ -271,7 +271,7 @@ impl BackgroundDownloader {
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
@@ -287,7 +287,7 @@ impl BackgroundDownloader {
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -303,7 +303,7 @@ impl BackgroundDownloader {
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Group)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -319,7 +319,7 @@ impl BackgroundDownloader {
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferCostPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CostPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
@@ -480,14 +480,14 @@ impl BackgroundTransferCompletionGroup {
     pub fn Trigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Trigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
         }
     }
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -567,7 +567,7 @@ impl BackgroundTransferCompletionGroupTriggerDetails {
     pub fn Downloads(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DownloadOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Downloads)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<DownloadOperation>>(result__)
         }
     }
@@ -576,7 +576,7 @@ impl BackgroundTransferCompletionGroupTriggerDetails {
     pub fn Uploads(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UploadOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Uploads)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<UploadOperation>>(result__)
         }
     }
@@ -684,7 +684,7 @@ impl BackgroundTransferContentPart {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTransferContentPart>(result__)
         })
     }
@@ -694,7 +694,7 @@ impl BackgroundTransferContentPart {
         P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithNameAndFileName)(::windows::core::Interface::as_raw(this), name.into().abi(), filename.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTransferContentPart>(result__)
         })
     }
@@ -808,7 +808,7 @@ impl BackgroundTransferError {
     #[cfg(feature = "Web")]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus> {
         Self::IBackgroundTransferErrorStaticMethods(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Web::WebErrorStatus>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, result__.as_mut_ptr()).from_abi::<super::super::Web::WebErrorStatus>(result__)
         })
     }
@@ -866,14 +866,14 @@ impl BackgroundTransferGroup {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn TransferBehavior(&self) -> ::windows::core::Result<BackgroundTransferBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferBehavior>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TransferBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferBehavior>(result__)
         }
     }
@@ -886,7 +886,7 @@ impl BackgroundTransferGroup {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundTransferGroupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateGroup)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         })
     }
@@ -1000,7 +1000,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
     pub fn WasDownloadRestarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).WasDownloadRestarted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -1009,7 +1009,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
     pub fn AddedRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AddedRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>>(result__)
         }
     }
@@ -1018,7 +1018,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
@@ -1194,7 +1194,7 @@ impl BackgroundUploader {
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
@@ -1212,7 +1212,7 @@ impl BackgroundUploader {
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
@@ -1228,7 +1228,7 @@ impl BackgroundUploader {
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1244,7 +1244,7 @@ impl BackgroundUploader {
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Group)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1260,7 +1260,7 @@ impl BackgroundUploader {
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferCostPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CostPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
@@ -1278,7 +1278,7 @@ impl BackgroundUploader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateUpload)(::windows::core::Interface::as_raw(this), uri.into().abi(), sourcefile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<UploadOperation>(result__)
         }
     }
@@ -1292,7 +1292,7 @@ impl BackgroundUploader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateUploadFromStreamAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), sourcestream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
@@ -1306,7 +1306,7 @@ impl BackgroundUploader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateUploadWithFormDataAndAutoBoundaryAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), parts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
@@ -1321,7 +1321,7 @@ impl BackgroundUploader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateUploadWithSubTypeAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), parts.try_into().map_err(|e| e.into())?.abi(), subtype.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
@@ -1337,14 +1337,14 @@ impl BackgroundUploader {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateUploadWithSubTypeAndBoundaryAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), parts.try_into().map_err(|e| e.into())?.abi(), subtype.into().abi(), boundary.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TransferGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
@@ -1360,7 +1360,7 @@ impl BackgroundUploader {
     pub fn SuccessToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SuccessToastNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
@@ -1378,7 +1378,7 @@ impl BackgroundUploader {
     pub fn FailureToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FailureToastNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
@@ -1396,7 +1396,7 @@ impl BackgroundUploader {
     pub fn SuccessTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SuccessTileNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
@@ -1414,7 +1414,7 @@ impl BackgroundUploader {
     pub fn FailureTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).FailureTileNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
@@ -1430,7 +1430,7 @@ impl BackgroundUploader {
     pub fn CompletionGroup(&self) -> ::windows::core::Result<BackgroundTransferCompletionGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CompletionGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCompletionGroup>(result__)
         }
     }
@@ -1439,7 +1439,7 @@ impl BackgroundUploader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferCompletionGroup>>,
     {
         Self::IBackgroundUploaderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithCompletionGroup)(::windows::core::Interface::as_raw(this), completiongroup.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundUploader>(result__)
         })
     }
@@ -1447,7 +1447,7 @@ impl BackgroundUploader {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentUploadsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentUploadsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
@@ -1458,7 +1458,7 @@ impl BackgroundUploader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentUploadsForGroupAsync)(::windows::core::Interface::as_raw(this), group.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
@@ -1469,7 +1469,7 @@ impl BackgroundUploader {
         P0: ::std::convert::Into<::windows::core::InParam<'a, BackgroundTransferGroup>>,
     {
         Self::IBackgroundUploaderStaticMethods2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetCurrentUploadsForTransferGroupAsync)(::windows::core::Interface::as_raw(this), group.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
@@ -1481,7 +1481,7 @@ impl BackgroundUploader {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IBackgroundUploaderUserConsent(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestUnconstrainedUploadsAsync)(::windows::core::Interface::as_raw(this), operations.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>(result__)
         })
     }
@@ -1595,7 +1595,7 @@ impl ContentPrefetcher {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContentUris() -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         Self::IContentPrefetcher(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ContentUris)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         })
     }
@@ -1611,7 +1611,7 @@ impl ContentPrefetcher {
     #[cfg(feature = "Foundation")]
     pub fn IndirectContentUri() -> ::windows::core::Result<super::super::Foundation::Uri> {
         Self::IContentPrefetcher(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IndirectContentUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         })
     }
@@ -1619,7 +1619,7 @@ impl ContentPrefetcher {
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulPrefetchTime() -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         Self::IContentPrefetcherTime(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).LastSuccessfulPrefetchTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         })
     }
@@ -1644,7 +1644,7 @@ impl DownloadOperation {
     pub fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Guid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
@@ -1653,14 +1653,14 @@ impl DownloadOperation {
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestedUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -1669,14 +1669,14 @@ impl DownloadOperation {
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Group)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferCostPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CostPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
@@ -1689,21 +1689,21 @@ impl DownloadOperation {
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResultStreamAt)(::windows::core::Interface::as_raw(this), position, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     pub fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResponseInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ResponseInformation>(result__)
         }
     }
     pub fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferPriority>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Priority)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferPriority>(result__)
         }
     }
@@ -1716,14 +1716,14 @@ impl DownloadOperation {
     pub fn ResultFile(&self) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ResultFile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::IStorageFile>(result__)
         }
     }
     pub fn Progress(&self) -> ::windows::core::Result<BackgroundDownloadProgress> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundDownloadProgress>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundDownloadProgress>(result__)
         }
     }
@@ -1732,7 +1732,7 @@ impl DownloadOperation {
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>>(result__)
         }
     }
@@ -1741,7 +1741,7 @@ impl DownloadOperation {
     pub fn AttachAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttachAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>>(result__)
         }
     }
@@ -1756,14 +1756,14 @@ impl DownloadOperation {
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TransferGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
     pub fn IsRandomAccessRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsRandomAccessRequired)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -1776,7 +1776,7 @@ impl DownloadOperation {
     pub fn GetResultRandomAccessStreamReference(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResultRandomAccessStreamReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
@@ -1785,7 +1785,7 @@ impl DownloadOperation {
     pub fn GetDownloadedRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetDownloadedRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>>(result__)
         }
     }
@@ -1797,7 +1797,7 @@ impl DownloadOperation {
     {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RangesDownloaded)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
@@ -1821,7 +1821,7 @@ impl DownloadOperation {
     pub fn RecoverableWebErrorStatuses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RecoverableWebErrorStatuses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>>(result__)
         }
     }
@@ -1830,7 +1830,7 @@ impl DownloadOperation {
     pub fn CurrentWebErrorStatus(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Web::WebErrorStatus>> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CurrentWebErrorStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Web::WebErrorStatus>>(result__)
         }
     }
@@ -2122,7 +2122,7 @@ impl IBackgroundTransferBase {
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
@@ -2140,7 +2140,7 @@ impl IBackgroundTransferBase {
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
@@ -2156,7 +2156,7 @@ impl IBackgroundTransferBase {
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2172,7 +2172,7 @@ impl IBackgroundTransferBase {
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Group)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2188,7 +2188,7 @@ impl IBackgroundTransferBase {
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferCostPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CostPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
@@ -2354,7 +2354,7 @@ impl IBackgroundTransferContentPartFactory {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTransferContentPart>(result__)
         }
     }
@@ -2365,7 +2365,7 @@ impl IBackgroundTransferContentPartFactory {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithNameAndFileName)(::windows::core::Interface::as_raw(this), name.into().abi(), filename.into().abi(), result__.as_mut_ptr()).from_abi::<BackgroundTransferContentPart>(result__)
         }
     }
@@ -2485,7 +2485,7 @@ impl IBackgroundTransferOperation {
     pub fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Guid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
@@ -2494,14 +2494,14 @@ impl IBackgroundTransferOperation {
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestedUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -2510,14 +2510,14 @@ impl IBackgroundTransferOperation {
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Group)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferCostPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CostPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
@@ -2530,14 +2530,14 @@ impl IBackgroundTransferOperation {
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResultStreamAt)(::windows::core::Interface::as_raw(this), position, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     pub fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResponseInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ResponseInformation>(result__)
         }
     }
@@ -2628,7 +2628,7 @@ impl IBackgroundTransferOperationPriority {
     pub fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferPriority>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Priority)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferPriority>(result__)
         }
     }
@@ -3143,7 +3143,7 @@ impl ResponseInformation {
     pub fn IsResumable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsResumable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3152,14 +3152,14 @@ impl ResponseInformation {
     pub fn ActualUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).ActualUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     pub fn StatusCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StatusCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -3168,7 +3168,7 @@ impl ResponseInformation {
     pub fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
@@ -3246,7 +3246,7 @@ impl UnconstrainedTransferRequestResult {
     pub fn IsUnconstrained(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).IsUnconstrained)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
@@ -3335,7 +3335,7 @@ impl UploadOperation {
     pub fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Guid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
@@ -3344,14 +3344,14 @@ impl UploadOperation {
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).RequestedUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -3360,14 +3360,14 @@ impl UploadOperation {
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Group)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferCostPolicy>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).CostPolicy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
@@ -3380,21 +3380,21 @@ impl UploadOperation {
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResultStreamAt)(::windows::core::Interface::as_raw(this), position, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     pub fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).GetResponseInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ResponseInformation>(result__)
         }
     }
     pub fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundTransferPriority>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Priority)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferPriority>(result__)
         }
     }
@@ -3407,14 +3407,14 @@ impl UploadOperation {
     pub fn SourceFile(&self) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).SourceFile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::IStorageFile>(result__)
         }
     }
     pub fn Progress(&self) -> ::windows::core::Result<BackgroundUploadProgress> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<BackgroundUploadProgress>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundUploadProgress>(result__)
         }
     }
@@ -3423,7 +3423,7 @@ impl UploadOperation {
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>>(result__)
         }
     }
@@ -3432,14 +3432,14 @@ impl UploadOperation {
     pub fn AttachAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).AttachAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>>(result__)
         }
     }
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IUploadOperation2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
             (::windows::core::Interface::vtable(this).TransferGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BackgroundTransferGroup>(result__)
         }
     }

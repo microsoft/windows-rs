@@ -7,7 +7,7 @@ pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IU
     extern "system" {
         fn CreateAudioReverb(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateAudioReverb(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -17,7 +17,7 @@ pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::cor
     extern "system" {
         fn CreateAudioVolumeMeter(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateAudioVolumeMeter(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::core::Result
     extern "system" {
         fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateHrtfApo(::core::mem::transmute(init), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXAPO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -582,15 +582,15 @@ impl ::core::default::Default for HrtfPosition {
 pub struct IXAPO(::windows::core::IUnknown);
 impl IXAPO {
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut XAPO_REGISTRATION_PROPERTIES>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRegistrationProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut XAPO_REGISTRATION_PROPERTIES>(result__)
     }
     pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::WAVEFORMATEX>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poutputformat), ::core::mem::transmute(prequestedinputformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::WAVEFORMATEX>(result__)
     }
     pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::WAVEFORMATEX>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsOutputFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinputformat), ::core::mem::transmute(prequestedoutputformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::WAVEFORMATEX>(result__)
     }
     pub unsafe fn Initialize(&self, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::core::Result<()> {
@@ -1076,7 +1076,7 @@ impl IXAudio2MasteringVoice {
         (::windows::core::Interface::vtable(self).base__.DestroyVoice)(::windows::core::Interface::as_raw(self))
     }
     pub unsafe fn GetChannelMask(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetChannelMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }

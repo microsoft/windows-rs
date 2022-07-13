@@ -15,7 +15,7 @@ impl IDesktopWindowXamlSourceNative {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WindowHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
@@ -82,7 +82,7 @@ impl IDesktopWindowXamlSourceNative2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.WindowHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -219,7 +219,7 @@ impl IReferenceTracker {
         (::windows::core::Interface::vtable(self).FindTrackerTargets)(::windows::core::Interface::as_raw(self), callback.into().abi()).ok()
     }
     pub unsafe fn GetReferenceTrackerManager(&self) -> ::windows::core::Result<IReferenceTrackerManager> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetReferenceTrackerManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IReferenceTrackerManager>(result__)
     }
     pub unsafe fn AddRefFromTrackerSource(&self) -> ::windows::core::Result<()> {
@@ -340,7 +340,7 @@ impl IReferenceTrackerHost {
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTrackerTarget)(::windows::core::Interface::as_raw(self), unknown.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IReferenceTrackerTarget>(result__)
     }
     pub unsafe fn AddMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()> {
@@ -919,7 +919,7 @@ pub struct ISwapChainPanelNative2_Vtbl {
 pub struct ITrackerOwner(::windows::core::IUnknown);
 impl ITrackerOwner {
     pub unsafe fn CreateTrackerHandle(&self) -> ::windows::core::Result<*mut TrackerHandle__> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut TrackerHandle__>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateTrackerHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TrackerHandle__>(result__)
     }
     pub unsafe fn DeleteTrackerHandle(&self, handle: *const TrackerHandle__) -> ::windows::core::Result<()> {
@@ -1005,7 +1005,7 @@ impl IVirtualSurfaceImageSourceNative {
         (::windows::core::Interface::vtable(self).Invalidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect)).ok()
     }
     pub unsafe fn GetUpdateRectCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUpdateRectCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1016,7 +1016,7 @@ impl IVirtualSurfaceImageSourceNative {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVisibleBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::RECT> {
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::RECT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVisibleBounds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::RECT>(result__)
     }
     pub unsafe fn RegisterForUpdatesNeeded<'a, P0>(&self, callback: P0) -> ::windows::core::Result<()>
