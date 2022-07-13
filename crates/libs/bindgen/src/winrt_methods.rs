@@ -19,7 +19,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
     let where_clause = gen.where_clause(params);
     let mut cfg = gen.reader.signature_cfg(&signature);
     gen.reader.type_def_cfg_combine(def, generic_types, &mut cfg);
-    let doc = gen.cfg_doc(&cfg);
+    let doc = gen.cfg_method_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let args = gen_winrt_abi_args(gen, params);
     let params = gen_winrt_params(gen, params);
