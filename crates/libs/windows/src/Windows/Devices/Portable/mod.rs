@@ -32,14 +32,12 @@ pub struct IStorageDeviceStatics_Vtbl {
 #[doc = "*Required features: `\"Devices_Portable\"`*"]
 pub struct ServiceDevice;
 impl ServiceDevice {
-    #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), servicetype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelectorFromServiceId(serviceid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
@@ -97,7 +95,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
 #[doc = "*Required features: `\"Devices_Portable\"`*"]
 pub struct StorageDevice;
 impl StorageDevice {
-    #[doc = "*Required features: `\"Devices_Portable\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn FromId<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Storage::StorageFolder>
     where
@@ -108,7 +106,6 @@ impl StorageDevice {
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFolder>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();

@@ -2648,7 +2648,6 @@ pub const GUID_EapHost_Repair_User_SelectValidCert: ::windows::core::GUID = ::wi
 #[repr(transparent)]
 pub struct IAccountingProviderConfig(::windows::core::IUnknown);
 impl IAccountingProviderConfig {
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, P0>(&self, pszmachinename: P0) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2656,11 +2655,10 @@ impl IAccountingProviderConfig {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pszmachinename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self), uconnectionparam).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configure<'a, P0>(&self, uconnectionparam: usize, hwnd: P0, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>
     where
@@ -2668,11 +2666,9 @@ impl IAccountingProviderConfig {
     {
         (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), uconnectionparam, hwnd.into(), dwflags, ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deactivate)(::windows::core::Interface::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
@@ -2729,7 +2725,6 @@ pub struct IAccountingProviderConfig_Vtbl {
 #[repr(transparent)]
 pub struct IAuthenticationProviderConfig(::windows::core::IUnknown);
 impl IAuthenticationProviderConfig {
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, P0>(&self, pszmachinename: P0) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2737,11 +2732,10 @@ impl IAuthenticationProviderConfig {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pszmachinename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self), uconnectionparam).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configure<'a, P0>(&self, uconnectionparam: usize, hwnd: P0, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>
     where
@@ -2749,11 +2743,9 @@ impl IAuthenticationProviderConfig {
     {
         (::windows::core::Interface::vtable(self).Configure)(::windows::core::Interface::as_raw(self), uconnectionparam, hwnd.into(), dwflags, ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deactivate)(::windows::core::Interface::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
@@ -2810,7 +2802,6 @@ pub struct IAuthenticationProviderConfig_Vtbl {
 #[repr(transparent)]
 pub struct IEAPProviderConfig(::windows::core::IUnknown);
 impl IEAPProviderConfig {
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2818,11 +2809,10 @@ impl IEAPProviderConfig {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pszmachinename.into(), dweaptypeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>
     where
@@ -2830,7 +2820,7 @@ impl IEAPProviderConfig {
     {
         (::windows::core::Interface::vtable(self).ServerInvokeConfigUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into(), ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -2838,7 +2828,7 @@ impl IEAPProviderConfig {
     {
         (::windows::core::Interface::vtable(self).RouterInvokeConfigUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into(), dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -2905,7 +2895,6 @@ pub struct IEAPProviderConfig_Vtbl {
 #[repr(transparent)]
 pub struct IEAPProviderConfig2(::windows::core::IUnknown);
 impl IEAPProviderConfig2 {
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2913,11 +2902,10 @@ impl IEAPProviderConfig2 {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), pszmachinename.into(), dweaptypeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Uninitialize)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>
     where
@@ -2925,7 +2913,7 @@ impl IEAPProviderConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.ServerInvokeConfigUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into(), ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -2933,7 +2921,7 @@ impl IEAPProviderConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.RouterInvokeConfigUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into(), dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -2941,7 +2929,7 @@ impl IEAPProviderConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.RouterInvokeCredentialsUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into(), dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI2<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -2949,7 +2937,6 @@ impl IEAPProviderConfig2 {
     {
         (::windows::core::Interface::vtable(self).ServerInvokeConfigUI2)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into(), ::core::mem::transmute(pconfigdatain), dwsizeofconfigdatain, ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetGlobalConfig)(::windows::core::Interface::as_raw(self), dweaptypeid, ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
@@ -3018,7 +3005,6 @@ pub struct IEAPProviderConfig2_Vtbl {
 #[repr(transparent)]
 pub struct IEAPProviderConfig3(::windows::core::IUnknown);
 impl IEAPProviderConfig3 {
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Initialize<'a, P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows::core::Result<usize>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3026,11 +3012,10 @@ impl IEAPProviderConfig3 {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), pszmachinename.into(), dweaptypeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Uninitialize)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>
     where
@@ -3038,7 +3023,7 @@ impl IEAPProviderConfig3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.ServerInvokeConfigUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into(), ureserved1, ureserved2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -3046,7 +3031,7 @@ impl IEAPProviderConfig3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.RouterInvokeConfigUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into(), dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(ppconnectiondataout), ::core::mem::transmute(pdwsizeofconnectiondataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RouterInvokeCredentialsUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -3054,7 +3039,7 @@ impl IEAPProviderConfig3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.RouterInvokeCredentialsUI)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into(), dwflags, ::core::mem::transmute(::windows::core::as_ptr_or_null(pconnectiondatain)), pconnectiondatain.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(puserdatain)), puserdatain.len() as _, ::core::mem::transmute(ppuserdataout), ::core::mem::transmute(pdwsizeofuserdataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeConfigUI2<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()>
     where
@@ -3062,11 +3047,10 @@ impl IEAPProviderConfig3 {
     {
         (::windows::core::Interface::vtable(self).base__.ServerInvokeConfigUI2)(::windows::core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into(), ::core::mem::transmute(pconfigdatain), dwsizeofconfigdatain, ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
     pub unsafe fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetGlobalConfig)(::windows::core::Interface::as_raw(self), dweaptypeid, ::core::mem::transmute(ppconfigdataout), ::core::mem::transmute(pdwsizeofconfigdataout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerInvokeCertificateConfigUI<'a, P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::Result<()>
     where
@@ -3153,7 +3137,7 @@ pub struct IEAPProviderConfig3_Vtbl {
 #[repr(transparent)]
 pub struct IRouterProtocolConfig(::windows::core::IUnknown);
 impl IRouterProtocolConfig {
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddProtocol<'a, P0, P1, P2>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P1, dwflags: u32, prouter: P2, ureserved1: usize) -> ::windows::core::Result<()>
     where
@@ -3163,7 +3147,7 @@ impl IRouterProtocolConfig {
     {
         (::windows::core::Interface::vtable(self).AddProtocol)(::windows::core::Interface::as_raw(self), pszmachinename.into(), dwtransportid, dwprotocolid, hwnd.into(), dwflags, prouter.into().abi(), ureserved1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveProtocol<'a, P0, P1, P2>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P1, dwflags: u32, prouter: P2, ureserved1: usize) -> ::windows::core::Result<()>
     where

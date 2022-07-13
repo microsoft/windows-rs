@@ -28,7 +28,7 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
 #[repr(transparent)]
 pub struct ISysStorageProviderEventSource(::windows::core::IUnknown);
 impl ISysStorageProviderEventSource {
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EventReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -40,7 +40,7 @@ impl ISysStorageProviderEventSource {
             (::windows::core::Interface::vtable(this).EventReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEventReceived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -121,7 +121,6 @@ pub struct ISysStorageProviderEventSource_Vtbl {
 #[repr(transparent)]
 pub struct ISysStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl ISysStorageProviderHandlerFactory {
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
     pub fn GetHttpRequestProvider<'a, P0>(&self, syncrootid: P0) -> ::windows::core::Result<ISysStorageProviderHttpRequestProvider>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -132,7 +131,6 @@ impl ISysStorageProviderHandlerFactory {
             (::windows::core::Interface::vtable(this).GetHttpRequestProvider)(::windows::core::Interface::as_raw(this), syncrootid.into().abi(), result__.as_mut_ptr()).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
     pub fn GetEventSource<'a, P0, P1>(&self, syncrootid: P0, eventname: P1) -> ::windows::core::Result<ISysStorageProviderEventSource>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -213,7 +211,7 @@ pub struct ISysStorageProviderHandlerFactory_Vtbl {
 #[repr(transparent)]
 pub struct ISysStorageProviderHttpRequestProvider(::windows::core::IUnknown);
 impl ISysStorageProviderHttpRequestProvider {
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"Web_Http\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Web_Http\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
     pub fn SendRequestAsync<'a, P0>(&self, request: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
     where
@@ -296,7 +294,6 @@ pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
 #[repr(transparent)]
 pub struct SysStorageProviderEventReceivedEventArgs(::windows::core::IUnknown);
 impl SysStorageProviderEventReceivedEventArgs {
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
     pub fn Json(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -304,7 +301,6 @@ impl SysStorageProviderEventReceivedEventArgs {
             (::windows::core::Interface::vtable(this).Json)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`*"]
     pub fn CreateInstance<'a, P0>(json: P0) -> ::windows::core::Result<SysStorageProviderEventReceivedEventArgs>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,

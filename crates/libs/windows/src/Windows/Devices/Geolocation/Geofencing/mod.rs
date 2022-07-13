@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct Geofence(::windows::core::IUnknown);
 impl Geofence {
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -11,7 +11,7 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).StartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -20,7 +20,7 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DwellTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -29,7 +29,6 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).DwellTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -37,7 +36,6 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn MonitoredStates(&self) -> ::windows::core::Result<MonitoredGeofenceStates> {
         let this = self;
         unsafe {
@@ -45,7 +43,6 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).MonitoredStates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MonitoredGeofenceStates>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Geoshape(&self) -> ::windows::core::Result<super::IGeoshape> {
         let this = self;
         unsafe {
@@ -53,7 +50,6 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).Geoshape)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::IGeoshape>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn SingleUse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -61,7 +57,6 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).SingleUse)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Create<'a, P0, P1, E1>(id: P0, geoshape: P1) -> ::windows::core::Result<Geofence>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -73,7 +68,6 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn CreateWithMonitorStates<'a, P0, P1, E1>(id: P0, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -85,7 +79,7 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).CreateWithMonitorStates)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates, singleuse, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithMonitorStatesAndDwellTime<'a, P0, P1, E1>(id: P0, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
     where
@@ -98,7 +92,7 @@ impl Geofence {
             (::windows::core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates, singleuse, dwelltime, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<'a, P0, P1, E1>(id: P0, geoshape: P1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence>
     where
@@ -183,7 +177,6 @@ unsafe impl ::core::marker::Sync for Geofence {}
 #[repr(transparent)]
 pub struct GeofenceMonitor(::windows::core::IUnknown);
 impl GeofenceMonitor {
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<GeofenceMonitorStatus> {
         let this = self;
         unsafe {
@@ -191,7 +184,7 @@ impl GeofenceMonitor {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeofenceMonitorStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Geofences(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<Geofence>> {
         let this = self;
@@ -200,7 +193,6 @@ impl GeofenceMonitor {
             (::windows::core::Interface::vtable(this).Geofences)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<Geofence>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn LastKnownGeoposition(&self) -> ::windows::core::Result<super::Geoposition> {
         let this = self;
         unsafe {
@@ -208,7 +200,7 @@ impl GeofenceMonitor {
             (::windows::core::Interface::vtable(this).LastKnownGeoposition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Geoposition>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GeofenceStateChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -220,13 +212,13 @@ impl GeofenceMonitor {
             (::windows::core::Interface::vtable(this).GeofenceStateChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGeofenceStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGeofenceStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadReports(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>> {
         let this = self;
@@ -235,7 +227,7 @@ impl GeofenceMonitor {
             (::windows::core::Interface::vtable(this).ReadReports)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -247,13 +239,12 @@ impl GeofenceMonitor {
             (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Current() -> ::windows::core::Result<GeofenceMonitor> {
         Self::IGeofenceMonitorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -468,7 +459,6 @@ unsafe impl ::windows::core::RuntimeType for GeofenceState {
 #[repr(transparent)]
 pub struct GeofenceStateChangeReport(::windows::core::IUnknown);
 impl GeofenceStateChangeReport {
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn NewState(&self) -> ::windows::core::Result<GeofenceState> {
         let this = self;
         unsafe {
@@ -476,7 +466,6 @@ impl GeofenceStateChangeReport {
             (::windows::core::Interface::vtable(this).NewState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeofenceState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Geofence(&self) -> ::windows::core::Result<Geofence> {
         let this = self;
         unsafe {
@@ -484,7 +473,6 @@ impl GeofenceStateChangeReport {
             (::windows::core::Interface::vtable(this).Geofence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Geoposition(&self) -> ::windows::core::Result<super::Geoposition> {
         let this = self;
         unsafe {
@@ -492,7 +480,6 @@ impl GeofenceStateChangeReport {
             (::windows::core::Interface::vtable(this).Geoposition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Geoposition>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn RemovalReason(&self) -> ::windows::core::Result<GeofenceRemovalReason> {
         let this = self;
         unsafe {

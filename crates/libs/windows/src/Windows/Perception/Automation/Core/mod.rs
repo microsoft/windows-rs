@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Perception_Automation_Core\"`*"]
 pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
-    #[doc = "*Required features: `\"Perception_Automation_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActivationFactoryProvider<'a, P0, E0>(provider: P0) -> ::windows::core::Result<()>
     where

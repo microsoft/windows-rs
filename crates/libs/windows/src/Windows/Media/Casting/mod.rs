@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct CastingConnection(::windows::core::IUnknown);
 impl CastingConnection {
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn State(&self) -> ::windows::core::Result<CastingConnectionState> {
         let this = self;
         unsafe {
@@ -10,7 +9,6 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CastingConnectionState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Device(&self) -> ::windows::core::Result<CastingDevice> {
         let this = self;
         unsafe {
@@ -18,7 +16,6 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CastingDevice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<CastingSource> {
         let this = self;
         unsafe {
@@ -26,7 +23,6 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CastingSource>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SetSource<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, CastingSource>>,
@@ -34,7 +30,7 @@ impl CastingConnection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -46,13 +42,13 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -64,13 +60,13 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStartCastingAsync<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>
     where
@@ -82,7 +78,7 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).RequestStartCastingAsync)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisconnectAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
@@ -91,7 +87,7 @@ impl CastingConnection {
             (::windows::core::Interface::vtable(this).DisconnectAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -186,7 +182,6 @@ unsafe impl ::core::marker::Sync for CastingConnection {}
 #[repr(transparent)]
 pub struct CastingConnectionErrorOccurredEventArgs(::windows::core::IUnknown);
 impl CastingConnectionErrorOccurredEventArgs {
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn ErrorStatus(&self) -> ::windows::core::Result<CastingConnectionErrorStatus> {
         let this = self;
         unsafe {
@@ -194,7 +189,6 @@ impl CastingConnectionErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).ErrorStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CastingConnectionErrorStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -345,7 +339,6 @@ unsafe impl ::windows::core::RuntimeType for CastingConnectionState {
 #[repr(transparent)]
 pub struct CastingDevice(::windows::core::IUnknown);
 impl CastingDevice {
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -353,7 +346,6 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -361,7 +353,7 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Icon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -370,7 +362,7 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).Icon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>> {
         let this = self;
@@ -379,7 +371,6 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).GetSupportedCastingPlaybackTypesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn CreateCastingConnection(&self) -> ::windows::core::Result<CastingConnection> {
         let this = self;
         unsafe {
@@ -387,14 +378,13 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).CreateCastingConnection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CastingConnection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn GetDeviceSelector(r#type: CastingPlaybackTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeviceSelectorFromCastingSourceAsync<'a, P0>(castingsource: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
@@ -405,7 +395,7 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromCastingSourceAsync)(::windows::core::Interface::as_raw(this), castingsource.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, P0>(value: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>>
     where
@@ -416,7 +406,7 @@ impl CastingDevice {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CastingDevice>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn DeviceInfoSupportsCastingAsync<'a, P0>(device: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -506,7 +496,6 @@ impl CastingDevicePicker {
         static SHARED: ::windows::core::FactoryCache<CastingDevicePicker, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Filter(&self) -> ::windows::core::Result<CastingDevicePickerFilter> {
         let this = self;
         unsafe {
@@ -514,7 +503,7 @@ impl CastingDevicePicker {
             (::windows::core::Interface::vtable(this).Filter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CastingDevicePickerFilter>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Devices_Enumeration\"`*"]
+    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn Appearance(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
@@ -523,7 +512,7 @@ impl CastingDevicePicker {
             (::windows::core::Interface::vtable(this).Appearance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Enumeration::DevicePickerAppearance>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CastingDeviceSelected<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -535,13 +524,13 @@ impl CastingDevicePicker {
             (::windows::core::Interface::vtable(this).CastingDeviceSelected)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCastingDeviceSelected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCastingDeviceSelected)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CastingDevicePickerDismissed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -553,25 +542,24 @@ impl CastingDevicePicker {
             (::windows::core::Interface::vtable(this).CastingDevicePickerDismissed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCastingDevicePickerDismissed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCastingDevicePickerDismissed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Show(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Show)(::windows::core::Interface::as_raw(this), selection).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowWithPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn Hide(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this)).ok() }
@@ -643,7 +631,6 @@ unsafe impl ::core::marker::Sync for CastingDevicePicker {}
 #[repr(transparent)]
 pub struct CastingDevicePickerFilter(::windows::core::IUnknown);
 impl CastingDevicePickerFilter {
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SupportsAudio(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -651,12 +638,10 @@ impl CastingDevicePickerFilter {
             (::windows::core::Interface::vtable(this).SupportsAudio)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SetSupportsAudio(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSupportsAudio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SupportsVideo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -664,12 +649,10 @@ impl CastingDevicePickerFilter {
             (::windows::core::Interface::vtable(this).SupportsVideo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SetSupportsVideo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSupportsVideo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SupportsPictures(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -677,12 +660,11 @@ impl CastingDevicePickerFilter {
             (::windows::core::Interface::vtable(this).SupportsPictures)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SetSupportsPictures(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSupportsPictures)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCastingSources(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<CastingSource>> {
         let this = self;
@@ -758,7 +740,6 @@ unsafe impl ::core::marker::Sync for CastingDevicePickerFilter {}
 #[repr(transparent)]
 pub struct CastingDeviceSelectedEventArgs(::windows::core::IUnknown);
 impl CastingDeviceSelectedEventArgs {
-    #[doc = "*Required features: `\"Media_Casting\"`*"]
     pub fn SelectedCastingDevice(&self) -> ::windows::core::Result<CastingDevice> {
         let this = self;
         unsafe {
@@ -897,7 +878,7 @@ unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
 #[repr(transparent)]
 pub struct CastingSource(::windows::core::IUnknown);
 impl CastingSource {
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PreferredSourceUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -906,7 +887,7 @@ impl CastingSource {
             (::windows::core::Interface::vtable(this).PreferredSourceUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Casting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredSourceUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where

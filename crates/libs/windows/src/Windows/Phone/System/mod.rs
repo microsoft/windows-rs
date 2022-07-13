@@ -33,14 +33,12 @@ pub struct ISystemProtectionUnlockStatics_Vtbl {
 #[doc = "*Required features: `\"Phone_System\"`*"]
 pub struct SystemProtection;
 impl SystemProtection {
-    #[doc = "*Required features: `\"Phone_System\"`*"]
     pub fn ScreenLocked() -> ::windows::core::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).ScreenLocked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_System\"`*"]
     pub fn RequestScreenUnlock() -> ::windows::core::Result<()> {
         Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RequestScreenUnlock)(::windows::core::Interface::as_raw(this)).ok() })
     }

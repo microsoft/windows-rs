@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct IDisplayDeviceInterop(::windows::core::IUnknown);
 impl IDisplayDeviceInterop {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn CreateSharedHandle<'a, P0, P1>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: P1) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
     where
@@ -12,7 +12,7 @@ impl IDisplayDeviceInterop {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
         (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(psecurityattributes), access, name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenSharedHandle<'a, P0>(&self, nthandle: P0, riid: ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void>
     where
@@ -74,13 +74,12 @@ pub struct IDisplayDeviceInterop_Vtbl {
 #[repr(transparent)]
 pub struct IDisplayPathInterop(::windows::core::IUnknown);
 impl IDisplayPathInterop {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
         (::windows::core::Interface::vtable(self).CreateSourcePresentationHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`*"]
     pub unsafe fn GetSourceId(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetSourceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)

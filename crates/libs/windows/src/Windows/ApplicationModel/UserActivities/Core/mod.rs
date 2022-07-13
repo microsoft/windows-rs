@@ -1,7 +1,6 @@
 #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
 pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
-    #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
     pub fn CreateUserActivitySessionInBackground<'a, P0>(activity: P0) -> ::windows::core::Result<super::UserActivitySession>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::UserActivity>>,
@@ -11,7 +10,7 @@ impl CoreUserActivityManager {
             (::windows::core::Interface::vtable(this).CreateUserActivitySessionInBackground)(::windows::core::Interface::as_raw(this), activity.into().abi(), result__.as_mut_ptr()).from_abi::<super::UserActivitySession>(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteUserActivitySessionsInTimeRangeAsync<'a, P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where

@@ -1,7 +1,6 @@
 #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
 pub struct ClassicAppManager;
 impl ClassicAppManager {
-    #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn FindInstalledApp<'a, P0>(appuninstallkey: P0) -> ::windows::core::Result<InstalledClassicAppInfo>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -51,7 +50,6 @@ pub struct IInstalledClassicAppInfo_Vtbl {
 #[repr(transparent)]
 pub struct InstalledClassicAppInfo(::windows::core::IUnknown);
 impl InstalledClassicAppInfo {
-    #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -59,7 +57,6 @@ impl InstalledClassicAppInfo {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn DisplayVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {

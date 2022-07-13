@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct IWebApplicationActivation(::windows::core::IUnknown);
 impl IWebApplicationActivation {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn CancelPendingActivation(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CancelPendingActivation)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -54,12 +53,12 @@ pub struct IWebApplicationActivation_Vtbl {
 pub struct IWebApplicationAuthoringMode(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWebApplicationAuthoringMode {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.QueryService)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AuthoringClientBinary(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::super::Foundation::BSTR>>::zeroed();
@@ -141,29 +140,26 @@ pub struct IWebApplicationAuthoringMode_Vtbl {
 #[repr(transparent)]
 pub struct IWebApplicationHost(::windows::core::IUnknown);
 impl IWebApplicationHost {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HWND(&self, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HWND)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwnd)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn Document(&self) -> ::windows::core::Result<super::super::super::super::Web::MsHtml::IHTMLDocument2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Document)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Web::MsHtml::IHTMLDocument2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn Advise<'a, P0>(&self, interfaceid: *const ::windows::core::GUID, callback: P0, cookie: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interfaceid), callback.into().abi(), ::core::mem::transmute(cookie)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn Unadvise(&self, cookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self), cookie).ok()
     }
@@ -223,7 +219,7 @@ pub struct IWebApplicationHost_Vtbl {
 #[repr(transparent)]
 pub struct IWebApplicationNavigationEvents(::windows::core::IUnknown);
 impl IWebApplicationNavigationEvents {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn BeforeNavigate<'a, P0, P1, P2>(&self, htmlwindow: P0, url: P1, navigationflags: u32, targetframename: P2) -> ::windows::core::Result<()>
     where
@@ -233,7 +229,7 @@ impl IWebApplicationNavigationEvents {
     {
         (::windows::core::Interface::vtable(self).BeforeNavigate)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), navigationflags, targetframename.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn NavigateComplete<'a, P0, P1>(&self, htmlwindow: P0, url: P1) -> ::windows::core::Result<()>
     where
@@ -242,7 +238,7 @@ impl IWebApplicationNavigationEvents {
     {
         (::windows::core::Interface::vtable(self).NavigateComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn NavigateError<'a, P0, P1, P2>(&self, htmlwindow: P0, url: P1, targetframename: P2, statuscode: u32) -> ::windows::core::Result<()>
     where
@@ -252,7 +248,7 @@ impl IWebApplicationNavigationEvents {
     {
         (::windows::core::Interface::vtable(self).NavigateError)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into(), targetframename.into(), statuscode).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn DocumentComplete<'a, P0, P1>(&self, htmlwindow: P0, url: P1) -> ::windows::core::Result<()>
     where
@@ -261,11 +257,9 @@ impl IWebApplicationNavigationEvents {
     {
         (::windows::core::Interface::vtable(self).DocumentComplete)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi(), url.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn DownloadBegin(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DownloadBegin)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn DownloadComplete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DownloadComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -332,7 +326,7 @@ pub struct IWebApplicationNavigationEvents_Vtbl {
 #[repr(transparent)]
 pub struct IWebApplicationScriptEvents(::windows::core::IUnknown);
 impl IWebApplicationScriptEvents {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn BeforeScriptExecute<'a, P0>(&self, htmlwindow: P0) -> ::windows::core::Result<()>
     where
@@ -340,7 +334,7 @@ impl IWebApplicationScriptEvents {
     {
         (::windows::core::Interface::vtable(self).BeforeScriptExecute)(::windows::core::Interface::as_raw(self), htmlwindow.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn ScriptError<'a, P0, P1, P2, P3>(&self, htmlwindow: P0, scripterror: P1, url: P2, errorhandled: P3) -> ::windows::core::Result<()>
     where
@@ -404,7 +398,6 @@ pub struct IWebApplicationScriptEvents_Vtbl {
 #[repr(transparent)]
 pub struct IWebApplicationUIEvents(::windows::core::IUnknown);
 impl IWebApplicationUIEvents {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn SecurityProblem(&self, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SecurityProblem)(::windows::core::Interface::as_raw(self), securityproblem, ::core::mem::transmute(result)).ok()
     }
@@ -454,11 +447,9 @@ pub struct IWebApplicationUIEvents_Vtbl {
 #[repr(transparent)]
 pub struct IWebApplicationUpdateEvents(::windows::core::IUnknown);
 impl IWebApplicationUpdateEvents {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn OnPaint(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnPaint)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
     pub unsafe fn OnCssChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnCssChanged)(::windows::core::Interface::as_raw(self)).ok()
     }

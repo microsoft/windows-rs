@@ -1289,15 +1289,13 @@ pub const HELPMSGSTRINGW: &str = "commdlg_help";
 #[repr(transparent)]
 pub struct IPrintDialogCallback(::windows::core::IUnknown);
 impl IPrintDialogCallback {
-    #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
     pub unsafe fn InitDone(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitDone)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
     pub unsafe fn SelectionChange(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SelectionChange)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandleMessage<'a, P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
@@ -1358,16 +1356,14 @@ pub struct IPrintDialogCallback_Vtbl {
 #[repr(transparent)]
 pub struct IPrintDialogServices(::windows::core::IUnknown);
 impl IPrintDialogServices {
-    #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentDevMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
     pub unsafe fn GetCurrentPrinterName(&self, pprintername: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPrinterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
     pub unsafe fn GetCurrentPortName(&self, pportname: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentPortName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
     }

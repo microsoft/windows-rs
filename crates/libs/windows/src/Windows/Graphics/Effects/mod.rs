@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct IGraphicsEffect(::windows::core::IUnknown);
 impl IGraphicsEffect {
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10,7 +9,6 @@ impl IGraphicsEffect {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     pub fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,

@@ -8,7 +8,7 @@ impl HostMessageReceivedCallback {
         let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
     where
@@ -569,7 +569,6 @@ pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironment(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironment {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -577,7 +576,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartProcessSilentlyAsync<'a, P0, P1>(&self, hostexepath: P0, arguments: P1, activator: IsolatedWindowsEnvironmentActivator) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
@@ -590,7 +589,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartProcessSilentlyWithTelemetryAsync<'a, P0, P1, P2>(&self, hostexepath: P0, arguments: P1, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
@@ -604,7 +603,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator, telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFolderAsync<'a, P0, P1>(&self, hostfolder: P0, requestoptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
@@ -617,7 +616,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).ShareFolderAsync)(::windows::core::Interface::as_raw(this), hostfolder.into().abi(), requestoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFolderWithTelemetryAsync<'a, P0, P1, P2>(&self, hostfolder: P0, requestoptions: P1, telemetryparameters: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
@@ -631,7 +630,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostfolder.into().abi(), requestoptions.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFileWithUIAsync<'a, P0, P1, P2>(&self, appexepath: P0, argumentstemplate: P1, filepath: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
     where
@@ -645,7 +644,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).LaunchFileWithUIAsync)(::windows::core::Interface::as_raw(this), appexepath.into().abi(), argumentstemplate.into().abi(), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFileWithUIAndTelemetryAsync<'a, P0, P1, P2, P3>(&self, appexepath: P0, argumentstemplate: P1, filepath: P2, telemetryparameters: P3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
     where
@@ -660,7 +659,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows::core::Interface::as_raw(this), appexepath.into().abi(), argumentstemplate.into().abi(), filepath.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TerminateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -669,7 +668,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).TerminateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TerminateWithTelemetryAsync<'a, P0>(&self, telemetryparameters: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -681,7 +680,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterMessageReceiver<'a, P0>(&self, receiverid: ::windows::core::GUID, messagereceivedcallback: P0) -> ::windows::core::Result<()>
     where
@@ -690,12 +689,11 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid, messagereceivedcallback.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn UnregisterMessageReceiver(&self, receiverid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnregisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverAsync<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
@@ -708,7 +706,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverWithTelemetryAsync<'a, P0, E0, P1>(&self, receiverid: ::windows::core::GUID, message: P0, telemetryparameters: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
@@ -722,7 +720,6 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn GetUserInfo(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentUserInfo> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
@@ -730,7 +727,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).GetUserInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentUserInfo>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFileAsync<'a, P0, P1>(&self, filepath: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
@@ -743,7 +740,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).ShareFileAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFileWithTelemetryAsync<'a, P0, P1, P2>(&self, filepath: P0, options: P1, telemetryparameters: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
@@ -757,7 +754,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), options.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync<'a, P0>(options: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
@@ -768,7 +765,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithTelemetryAsync<'a, P0, P1>(options: P0, telemetryparameters: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
@@ -780,7 +777,6 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn GetById<'a, P0>(environmentid: P0) -> ::windows::core::Result<IsolatedWindowsEnvironment>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -790,7 +786,7 @@ impl IsolatedWindowsEnvironment {
             (::windows::core::Interface::vtable(this).GetById)(::windows::core::Interface::as_raw(this), environmentid.into().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironment>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindByOwnerId<'a, P0>(environmentownerid: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>
     where
@@ -1136,7 +1132,6 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentCreateResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentCreateStatus> {
         let this = self;
         unsafe {
@@ -1144,7 +1139,6 @@ impl IsolatedWindowsEnvironmentCreateResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentCreateStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1152,7 +1146,6 @@ impl IsolatedWindowsEnvironmentCreateResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Environment(&self) -> ::windows::core::Result<IsolatedWindowsEnvironment> {
         let this = self;
         unsafe {
@@ -1262,7 +1255,6 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateSta
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentFile(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentFile {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -1270,7 +1262,6 @@ impl IsolatedWindowsEnvironmentFile {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn HostPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1278,12 +1269,10 @@ impl IsolatedWindowsEnvironmentFile {
             (::windows::core::Interface::vtable(this).HostPath)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn GuestPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
@@ -1291,7 +1280,6 @@ impl IsolatedWindowsEnvironmentFile {
             (::windows::core::Interface::vtable(this).GuestPath)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
@@ -1365,14 +1353,13 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentFile {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsEnvironmentHost;
 impl IsolatedWindowsEnvironmentHost {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn IsReady() -> ::windows::core::Result<bool> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsReady)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HostErrors() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
@@ -1430,7 +1417,6 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentLaunchFileResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentLaunchFileStatus> {
         let this = self;
         unsafe {
@@ -1438,7 +1424,6 @@ impl IsolatedWindowsEnvironmentLaunchFileResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentLaunchFileStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1446,7 +1431,6 @@ impl IsolatedWindowsEnvironmentLaunchFileResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn File(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentFile> {
         let this = self;
         unsafe {
@@ -1566,7 +1550,6 @@ impl IsolatedWindowsEnvironmentOptions {
         static SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn EnvironmentOwnerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1574,7 +1557,6 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).EnvironmentOwnerId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetEnvironmentOwnerId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1582,7 +1564,6 @@ impl IsolatedWindowsEnvironmentOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEnvironmentOwnerId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AllowedClipboardFormats(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = self;
         unsafe {
@@ -1590,12 +1571,10 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).AllowedClipboardFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentAllowedClipboardFormats>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetAllowedClipboardFormats(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowedClipboardFormats)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ClipboardCopyPasteDirections(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentClipboardCopyPasteDirections> {
         let this = self;
         unsafe {
@@ -1603,12 +1582,10 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).ClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetClipboardCopyPasteDirections(&self, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AvailablePrinters(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAvailablePrinters> {
         let this = self;
         unsafe {
@@ -1616,12 +1593,10 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).AvailablePrinters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentAvailablePrinters>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetAvailablePrinters(&self, value: IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAvailablePrinters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SharedHostFolderPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1629,7 +1604,6 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).SharedHostFolderPath)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SharedFolderNameInEnvironment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1637,7 +1611,6 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).SharedFolderNameInEnvironment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ShareHostFolderForUntrustedItems<'a, P0, P1>(&self, sharedhostfolderpath: P0, sharefoldernameinenvironment: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1646,7 +1619,6 @@ impl IsolatedWindowsEnvironmentOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShareHostFolderForUntrustedItems)(::windows::core::Interface::as_raw(this), sharedhostfolderpath.into().abi(), sharefoldernameinenvironment.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn PersistUserProfile(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1654,12 +1626,10 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).PersistUserProfile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetPersistUserProfile(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPersistUserProfile)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AllowGraphicsHardwareAcceleration(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1667,12 +1637,10 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).AllowGraphicsHardwareAcceleration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetAllowGraphicsHardwareAcceleration(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowGraphicsHardwareAcceleration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AllowCameraAndMicrophoneAccess(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1680,12 +1648,10 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).AllowCameraAndMicrophoneAccess)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetAllowCameraAndMicrophoneAccess(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowCameraAndMicrophoneAccess)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn WindowAnnotationOverride(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
         unsafe {
@@ -1693,7 +1659,6 @@ impl IsolatedWindowsEnvironmentOptions {
             (::windows::core::Interface::vtable(this).WindowAnnotationOverride)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetWindowAnnotationOverride<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1767,7 +1732,6 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Register<'a, P0, P1>(ownername: P0, ownerregistrationdata: P1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1778,7 +1742,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistration {
             (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), ownername.into().abi(), ownerregistrationdata.into().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentOwnerRegistrationResult>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Unregister<'a, P0>(ownername: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1805,7 +1768,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
         static SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShareableFolders(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1814,7 +1777,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows::core::Interface::vtable(this).ShareableFolders)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessesRunnableAsSystem(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1823,7 +1786,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows::core::Interface::vtable(this).ProcessesRunnableAsSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessesRunnableAsUser(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1832,7 +1795,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows::core::Interface::vtable(this).ProcessesRunnableAsUser)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActivationFileExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1908,7 +1871,6 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistration
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationStatus> {
         let this = self;
         unsafe {
@@ -1916,7 +1878,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentOwnerRegistrationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -2028,7 +1989,6 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegi
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentPostMessageResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentPostMessageStatus> {
         let this = self;
         unsafe {
@@ -2036,7 +1996,6 @@ impl IsolatedWindowsEnvironmentPostMessageResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentPostMessageStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -2146,7 +2105,6 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessa
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcess(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentProcess {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn State(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentProcessState> {
         let this = self;
         unsafe {
@@ -2154,7 +2112,6 @@ impl IsolatedWindowsEnvironmentProcess {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentProcessState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExitCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2162,17 +2119,15 @@ impl IsolatedWindowsEnvironmentProcess {
             (::windows::core::Interface::vtable(this).ExitCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn WaitForExit(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WaitForExit)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn WaitForExitWithTimeout(&self, timeoutmilliseconds: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WaitForExitWithTimeout)(::windows::core::Interface::as_raw(this), timeoutmilliseconds).ok() }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WaitForExitAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2325,7 +2280,6 @@ impl IsolatedWindowsEnvironmentShareFileRequestOptions {
         static SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentShareFileRequestOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AllowWrite(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2333,7 +2287,6 @@ impl IsolatedWindowsEnvironmentShareFileRequestOptions {
             (::windows::core::Interface::vtable(this).AllowWrite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetAllowWrite(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowWrite)(::windows::core::Interface::as_raw(this), value).ok() }
@@ -2405,7 +2358,6 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestO
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFileResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentShareFileStatus> {
         let this = self;
         unsafe {
@@ -2413,7 +2365,6 @@ impl IsolatedWindowsEnvironmentShareFileResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentShareFileStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -2421,7 +2372,6 @@ impl IsolatedWindowsEnvironmentShareFileResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn File(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentFile> {
         let this = self;
         unsafe {
@@ -2541,7 +2491,6 @@ impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
         static SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentShareFolderRequestOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AllowWrite(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2549,7 +2498,6 @@ impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
             (::windows::core::Interface::vtable(this).AllowWrite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetAllowWrite(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowWrite)(::windows::core::Interface::as_raw(this), value).ok() }
@@ -2621,7 +2569,6 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderReques
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFolderResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentShareFolderStatus> {
         let this = self;
         unsafe {
@@ -2629,7 +2576,6 @@ impl IsolatedWindowsEnvironmentShareFolderResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentShareFolderStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -2741,7 +2687,6 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFold
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentStartProcessResult {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentStartProcessStatus> {
         let this = self;
         unsafe {
@@ -2749,7 +2694,6 @@ impl IsolatedWindowsEnvironmentStartProcessResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentStartProcessStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -2757,7 +2701,6 @@ impl IsolatedWindowsEnvironmentStartProcessResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Process(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentProcess> {
         let this = self;
         unsafe {
@@ -2876,7 +2819,6 @@ impl IsolatedWindowsEnvironmentTelemetryParameters {
         static SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironmentTelemetryParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -2884,7 +2826,6 @@ impl IsolatedWindowsEnvironmentTelemetryParameters {
             (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SetCorrelationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), value).ok() }
@@ -2956,7 +2897,6 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentTelemetryParamete
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentUserInfo(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentUserInfo {
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn EnvironmentUserSid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2964,7 +2904,6 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (::windows::core::Interface::vtable(this).EnvironmentUserSid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn EnvironmentUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2972,7 +2911,7 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (::windows::core::Interface::vtable(this).EnvironmentUserName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryWaitForSignInAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3047,7 +2986,7 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiver<'a, P0, E0>(receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
     where
@@ -3056,7 +2995,6 @@ impl IsolatedWindowsHostMessenger {
     {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).PostMessageToReceiver)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn GetFileId<'a, P0>(filepath: P0) -> ::windows::core::Result<::windows::core::GUID>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3066,7 +3004,7 @@ impl IsolatedWindowsHostMessenger {
             (::windows::core::Interface::vtable(this).GetFileId)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterHostMessageReceiver<'a, P0>(receiverid: ::windows::core::GUID, hostmessagereceivedcallback: P0) -> ::windows::core::Result<()>
     where
@@ -3074,7 +3012,6 @@ impl IsolatedWindowsHostMessenger {
     {
         Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid, hostmessagereceivedcallback.into().abi()).ok() })
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn UnregisterHostMessageReceiver(receiverid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid).ok() })
     }
@@ -3102,7 +3039,7 @@ impl MessageReceivedCallback {
         let com = MessageReceivedCallbackBox::<F> { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
     where

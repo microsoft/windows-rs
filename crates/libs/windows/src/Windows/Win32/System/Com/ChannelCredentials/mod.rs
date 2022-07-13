@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct IChannelCredentials(::windows::core::IUnknown);
 impl IChannelCredentials {
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWindowsCredential<'a, P0, P1, P2, P3>(&self, domain: P0, username: P1, password: P2, impersonationlevel: i32, allowntlm: P3) -> ::windows::core::Result<()>
     where
@@ -13,7 +13,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetWindowsCredential)(::windows::core::Interface::as_raw(self), domain.into().abi(), username.into().abi(), password.into().abi(), impersonationlevel, allowntlm.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserNameCredential<'a, P0, P1>(&self, username: P0, password: P1) -> ::windows::core::Result<()>
     where
@@ -22,7 +22,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetUserNameCredential)(::windows::core::Interface::as_raw(self), username.into().abi(), password.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn SetClientCertificateFromStore<'a, P0, P1, P2, P3>(&self, storelocation: P0, storename: P1, findyype: P2, findvalue: P3) -> ::windows::core::Result<()>
     where
@@ -33,7 +33,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetClientCertificateFromStore)(::windows::core::Interface::as_raw(self), storelocation.into().abi(), storename.into().abi(), findyype.into().abi(), findvalue.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientCertificateFromStoreByName<'a, P0, P1, P2>(&self, subjectname: P0, storelocation: P1, storename: P2) -> ::windows::core::Result<()>
     where
@@ -43,7 +43,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetClientCertificateFromStoreByName)(::windows::core::Interface::as_raw(self), subjectname.into().abi(), storelocation.into().abi(), storename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientCertificateFromFile<'a, P0, P1, P2>(&self, filename: P0, password: P1, keystorageflags: P2) -> ::windows::core::Result<()>
     where
@@ -53,7 +53,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetClientCertificateFromFile)(::windows::core::Interface::as_raw(self), filename.into().abi(), password.into().abi(), keystorageflags.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDefaultServiceCertificateFromStore<'a, P0, P1, P2, P3>(&self, storelocation: P0, storename: P1, findtype: P2, findvalue: P3) -> ::windows::core::Result<()>
     where
@@ -64,7 +64,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetDefaultServiceCertificateFromStore)(::windows::core::Interface::as_raw(self), storelocation.into().abi(), storename.into().abi(), findtype.into().abi(), findvalue.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefaultServiceCertificateFromStoreByName<'a, P0, P1, P2>(&self, subjectname: P0, storelocation: P1, storename: P2) -> ::windows::core::Result<()>
     where
@@ -74,7 +74,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetDefaultServiceCertificateFromStoreByName)(::windows::core::Interface::as_raw(self), subjectname.into().abi(), storelocation.into().abi(), storename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefaultServiceCertificateFromFile<'a, P0, P1, P2>(&self, filename: P0, password: P1, keystorageflags: P2) -> ::windows::core::Result<()>
     where
@@ -84,7 +84,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetDefaultServiceCertificateFromFile)(::windows::core::Interface::as_raw(self), filename.into().abi(), password.into().abi(), keystorageflags.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServiceCertificateAuthentication<'a, P0, P1, P2>(&self, storelocation: P0, revocationmode: P1, certificatevalidationmode: P2) -> ::windows::core::Result<()>
     where
@@ -94,7 +94,7 @@ impl IChannelCredentials {
     {
         (::windows::core::Interface::vtable(self).SetServiceCertificateAuthentication)(::windows::core::Interface::as_raw(self), storelocation.into().abi(), revocationmode.into().abi(), certificatevalidationmode.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIssuedToken<'a, P0, P1, P2>(&self, localissueraddres: P0, localissuerbindingtype: P1, localissuerbinding: P2) -> ::windows::core::Result<()>
     where

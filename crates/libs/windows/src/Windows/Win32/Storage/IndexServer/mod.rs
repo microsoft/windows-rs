@@ -684,26 +684,24 @@ impl ::core::fmt::Debug for IFILTER_INIT {
 #[repr(transparent)]
 pub struct IFilter(::windows::core::IUnknown);
 impl IFilter {
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(aattributes)), ::core::mem::transmute(pflags)))
     }
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetChunk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstat)))
     }
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: ::windows::core::PWSTR) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcwcbuffer), ::core::mem::transmute(awcbuffer)))
     }
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppropvalue)))
     }
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).BindRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(origpos), ::core::mem::transmute(riid), ::core::mem::transmute(ppunk)))
     }
@@ -766,7 +764,6 @@ pub struct IFilter_Vtbl {
 #[repr(transparent)]
 pub struct IPhraseSink(::windows::core::IUnknown);
 impl IPhraseSink {
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     pub unsafe fn PutSmallPhrase<'a, P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -774,7 +771,6 @@ impl IPhraseSink {
     {
         (::windows::core::Interface::vtable(self).PutSmallPhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into(), cwcnoun, pwcmodifier.into(), cwcmodifier, ulattachmenttype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
     pub unsafe fn PutPhrase<'a, P0>(&self, pwcphrase: P0, cwcphrase: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,

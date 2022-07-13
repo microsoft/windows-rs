@@ -7927,19 +7927,19 @@ where
 pub struct IDiskQuotaControl(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumConnectionPoints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindConnectionPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, pszpath: P0, breadwrite: P1) -> ::windows::core::Result<()>
     where
@@ -7948,53 +7948,43 @@ impl IDiskQuotaControl {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pszpath.into(), breadwrite.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetQuotaState)(::windows::core::Interface::as_raw(self), dwstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstate)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetQuotaLogFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaLogFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultQuotaThreshold)(::windows::core::Interface::as_raw(self), llthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDefaultQuotaThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pllthreshold)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetDefaultQuotaThresholdText<'a, P0>(&self, psztext: P0, cchtext: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetDefaultQuotaThresholdText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDefaultQuotaLimit)(::windows::core::Interface::as_raw(self), lllimit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDefaultQuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plllimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetDefaultQuotaLimitText<'a, P0>(&self, psztext: P0, cchtext: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetDefaultQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddUserSid<'a, P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
@@ -8003,7 +7993,6 @@ impl IDiskQuotaControl {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), fnameresolution, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn AddUserName<'a, P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8011,14 +8000,13 @@ impl IDiskQuotaControl {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), fnameresolution, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn DeleteUser<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDiskQuotaUser>>,
     {
         (::windows::core::Interface::vtable(self).DeleteUser)(::windows::core::Interface::as_raw(self), puser.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindUserSid<'a, P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
@@ -8027,7 +8015,6 @@ impl IDiskQuotaControl {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindUserSid)(::windows::core::Interface::as_raw(self), pusersid.into(), fnameresolution, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn FindUserName<'a, P0>(&self, pszlogonname: P0) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8035,28 +8022,24 @@ impl IDiskQuotaControl {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateEnumUsers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgpusersids), cpsids, fnameresolution, ::core::mem::transmute(ppenum)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateUserBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUserBatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn InvalidateSidNameCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InvalidateSidNameCache)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GiveUserNameResolutionPriority<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDiskQuotaUser>>,
     {
         (::windows::core::Interface::vtable(self).GiveUserNameResolutionPriority)(::windows::core::Interface::as_raw(self), puser.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn ShutdownNameResolution(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShutdownNameResolution)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -8165,7 +8148,6 @@ pub struct IDiskQuotaControl_Vtbl {
 #[repr(transparent)]
 pub struct IDiskQuotaEvents(::windows::core::IUnknown);
 impl IDiskQuotaEvents {
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn OnUserNameChanged<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDiskQuotaUser>>,
@@ -8218,11 +8200,9 @@ pub struct IDiskQuotaEvents_Vtbl {
 #[repr(transparent)]
 pub struct IDiskQuotaUser(::windows::core::IUnknown);
 impl IDiskQuotaUser {
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pulid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetName<'a, P0, P1, P2>(&self, pszaccountcontainer: P0, cchaccountcontainer: u32, pszlogonname: P1, cchlogonname: u32, pszdisplayname: P2, cchdisplayname: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -8231,52 +8211,43 @@ impl IDiskQuotaUser {
     {
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), pszaccountcontainer.into(), cchaccountcontainer, pszlogonname.into(), cchlogonname, pszdisplayname.into(), cchdisplayname).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSidLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlength)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsidbuffer), cbsidbuffer).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pllthreshold)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaThresholdText<'a, P0>(&self, psztext: P0, cchtext: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetQuotaThresholdText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plllimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaLimitText<'a, P0>(&self, psztext: P0, cchtext: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pllused)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaUsedText<'a, P0>(&self, psztext: P0, cchtext: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetQuotaUsedText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbquotainfo), cbquotainfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQuotaThreshold<'a, P0>(&self, llthreshold: i64, fwritethrough: P0) -> ::windows::core::Result<()>
     where
@@ -8284,7 +8255,7 @@ impl IDiskQuotaUser {
     {
         (::windows::core::Interface::vtable(self).SetQuotaThreshold)(::windows::core::Interface::as_raw(self), llthreshold, fwritethrough.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, lllimit: i64, fwritethrough: P0) -> ::windows::core::Result<()>
     where
@@ -8292,11 +8263,9 @@ impl IDiskQuotaUser {
     {
         (::windows::core::Interface::vtable(self).SetQuotaLimit)(::windows::core::Interface::as_raw(self), lllimit, fwritethrough.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Invalidate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Invalidate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAccountStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstatus)).ok()
     }
@@ -8366,25 +8335,21 @@ pub struct IDiskQuotaUser_Vtbl {
 #[repr(transparent)]
 pub struct IDiskQuotaUserBatch(::windows::core::IUnknown);
 impl IDiskQuotaUserBatch {
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Add<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDiskQuotaUser>>,
     {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), puser.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Remove<'a, P0>(&self, puser: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDiskQuotaUser>>,
     {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), puser.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn RemoveAll(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAll)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn FlushToDisk(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FlushToDisk)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -8437,19 +8402,15 @@ pub struct IDiskQuotaUserBatch_Vtbl {
 #[repr(transparent)]
 pub struct IEnumDiskQuotaUsers(::windows::core::IUnknown);
 impl IEnumDiskQuotaUsers {
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), cusers, ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Skip(&self, cusers: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), cusers).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDiskQuotaUsers> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDiskQuotaUsers>(result__)

@@ -40,7 +40,7 @@ pub struct IScreenReaderService_Vtbl {
 #[repr(transparent)]
 pub struct ScreenReaderPositionChangedEventArgs(::windows::core::IUnknown);
 impl ScreenReaderPositionChangedEventArgs {
-    #[doc = "*Required features: `\"UI_Accessibility\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenPositionInRawPixels(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -49,7 +49,6 @@ impl ScreenReaderPositionChangedEventArgs {
             (::windows::core::Interface::vtable(this).ScreenPositionInRawPixels)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Accessibility\"`*"]
     pub fn IsReadingText(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -131,7 +130,6 @@ impl ScreenReaderService {
         static SHARED: ::windows::core::FactoryCache<ScreenReaderService, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"UI_Accessibility\"`*"]
     pub fn CurrentScreenReaderPosition(&self) -> ::windows::core::Result<ScreenReaderPositionChangedEventArgs> {
         let this = self;
         unsafe {
@@ -139,7 +137,7 @@ impl ScreenReaderService {
             (::windows::core::Interface::vtable(this).CurrentScreenReaderPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ScreenReaderPositionChangedEventArgs>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Accessibility\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenReaderPositionChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -151,7 +149,7 @@ impl ScreenReaderService {
             (::windows::core::Interface::vtable(this).ScreenReaderPositionChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Accessibility\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenReaderPositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;

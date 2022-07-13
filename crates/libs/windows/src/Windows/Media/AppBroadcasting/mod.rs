@@ -9,7 +9,6 @@ impl AppBroadcastingMonitor {
         static SHARED: ::windows::core::FactoryCache<AppBroadcastingMonitor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsCurrentAppBroadcasting(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -17,7 +16,7 @@ impl AppBroadcastingMonitor {
             (::windows::core::Interface::vtable(this).IsCurrentAppBroadcasting)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsCurrentAppBroadcastingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -29,7 +28,7 @@ impl AppBroadcastingMonitor {
             (::windows::core::Interface::vtable(this).IsCurrentAppBroadcastingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -102,7 +101,6 @@ unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
 #[repr(transparent)]
 pub struct AppBroadcastingStatus(::windows::core::IUnknown);
 impl AppBroadcastingStatus {
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn CanStartBroadcast(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -110,7 +108,6 @@ impl AppBroadcastingStatus {
             (::windows::core::Interface::vtable(this).CanStartBroadcast)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn Details(&self) -> ::windows::core::Result<AppBroadcastingStatusDetails> {
         let this = self;
         unsafe {
@@ -185,7 +182,6 @@ unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
 #[repr(transparent)]
 pub struct AppBroadcastingStatusDetails(::windows::core::IUnknown);
 impl AppBroadcastingStatusDetails {
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsAnyAppBroadcasting(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -193,7 +189,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsAnyAppBroadcasting)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsCaptureResourceUnavailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -201,7 +196,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsCaptureResourceUnavailable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsGameStreamInProgress(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -209,7 +203,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsGameStreamInProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsGpuConstrained(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -217,7 +210,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsGpuConstrained)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsAppInactive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -225,7 +217,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsAppInactive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsBlockedForApp(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -233,7 +224,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsBlockedForApp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsDisabledByUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -241,7 +231,6 @@ impl AppBroadcastingStatusDetails {
             (::windows::core::Interface::vtable(this).IsDisabledByUser)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn IsDisabledBySystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -316,7 +305,6 @@ unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
 #[repr(transparent)]
 pub struct AppBroadcastingUI(::windows::core::IUnknown);
 impl AppBroadcastingUI {
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn GetStatus(&self) -> ::windows::core::Result<AppBroadcastingStatus> {
         let this = self;
         unsafe {
@@ -324,19 +312,17 @@ impl AppBroadcastingUI {
             (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppBroadcastingStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn ShowBroadcastUI(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowBroadcastUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AppBroadcastingUI> {
         Self::IAppBroadcastingUIStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppBroadcastingUI>(result__)
         })
     }
-    #[doc = "*Required features: `\"Media_AppBroadcasting\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<AppBroadcastingUI>
     where

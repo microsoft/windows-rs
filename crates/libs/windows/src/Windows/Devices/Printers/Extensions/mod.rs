@@ -169,7 +169,6 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct Print3DWorkflow(::windows::core::IUnknown);
 impl Print3DWorkflow {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn DeviceID(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -177,7 +176,6 @@ impl Print3DWorkflow {
             (::windows::core::Interface::vtable(this).DeviceID)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn GetPrintModelPackage(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -185,7 +183,6 @@ impl Print3DWorkflow {
             (::windows::core::Interface::vtable(this).GetPrintModelPackage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn IsPrintReady(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -193,12 +190,11 @@ impl Print3DWorkflow {
             (::windows::core::Interface::vtable(this).IsPrintReady)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn SetIsPrintReady(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPrintReady)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PrintRequested<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -210,13 +206,13 @@ impl Print3DWorkflow {
             (::windows::core::Interface::vtable(this).PrintRequested)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrintRequested(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePrintRequested)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PrinterChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -228,7 +224,7 @@ impl Print3DWorkflow {
             (::windows::core::Interface::vtable(this).PrinterChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrinterChanged(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrint3DWorkflow2>(self)?;
@@ -340,7 +336,6 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
 #[repr(transparent)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowPrintRequestedEventArgs {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<Print3DWorkflowStatus> {
         let this = self;
         unsafe {
@@ -348,12 +343,10 @@ impl Print3DWorkflowPrintRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Print3DWorkflowStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn SetExtendedStatus(&self, value: Print3DWorkflowDetail) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExtendedStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn SetSource<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
@@ -361,7 +354,6 @@ impl Print3DWorkflowPrintRequestedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), source.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn SetSourceChanged(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSourceChanged)(::windows::core::Interface::as_raw(this), value).ok() }
@@ -433,7 +425,6 @@ unsafe impl ::core::marker::Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[repr(transparent)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowPrinterChangedEventArgs {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn NewDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -544,7 +535,6 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 pub struct PrintExtensionContext;
 impl PrintExtensionContext {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn FromDeviceId<'a, P0>(deviceid: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -567,7 +557,6 @@ impl ::windows::core::RuntimeName for PrintExtensionContext {
 #[repr(transparent)]
 pub struct PrintNotificationEventDetails(::windows::core::IUnknown);
 impl PrintNotificationEventDetails {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn PrinterName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -575,7 +564,6 @@ impl PrintNotificationEventDetails {
             (::windows::core::Interface::vtable(this).PrinterName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn EventData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -583,7 +571,6 @@ impl PrintNotificationEventDetails {
             (::windows::core::Interface::vtable(this).EventData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn SetEventData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -658,7 +645,6 @@ unsafe impl ::core::marker::Sync for PrintNotificationEventDetails {}
 #[repr(transparent)]
 pub struct PrintTaskConfiguration(::windows::core::IUnknown);
 impl PrintTaskConfiguration {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn PrinterExtensionContext(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -666,7 +652,7 @@ impl PrintTaskConfiguration {
             (::windows::core::Interface::vtable(this).PrinterExtensionContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveRequested<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -678,7 +664,7 @@ impl PrintTaskConfiguration {
             (::windows::core::Interface::vtable(this).SaveRequested)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSaveRequested(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -749,12 +735,10 @@ impl ::core::convert::From<&PrintTaskConfiguration> for &::windows::core::IInspe
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequest(::windows::core::IUnknown);
 impl PrintTaskConfigurationSaveRequest {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn Save<'a, P0>(&self, printerextensioncontext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
@@ -762,7 +746,6 @@ impl PrintTaskConfigurationSaveRequest {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Save)(::windows::core::Interface::as_raw(this), printerextensioncontext.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;
         unsafe {
@@ -770,7 +753,7 @@ impl PrintTaskConfigurationSaveRequest {
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTaskConfigurationSaveRequestedDeferral>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -844,7 +827,6 @@ impl ::core::convert::From<&PrintTaskConfigurationSaveRequest> for &::windows::c
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequestedDeferral(::windows::core::IUnknown);
 impl PrintTaskConfigurationSaveRequestedDeferral {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
@@ -914,7 +896,6 @@ impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedDeferral> for &::
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(::windows::core::IUnknown);
 impl PrintTaskConfigurationSaveRequestedEventArgs {
-    #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<PrintTaskConfigurationSaveRequest> {
         let this = self;
         unsafe {

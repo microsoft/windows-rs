@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct CompositionDebugHeatMaps(::windows::core::IUnknown);
 impl CompositionDebugHeatMaps {
-    #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn Hide<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
@@ -10,7 +9,6 @@ impl CompositionDebugHeatMaps {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowMemoryUsage<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
@@ -18,7 +16,6 @@ impl CompositionDebugHeatMaps {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowOverdraw<'a, P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
@@ -26,7 +23,6 @@ impl CompositionDebugHeatMaps {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into().abi(), contentkinds).ok() }
     }
-    #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowRedraw<'a, P0>(&self, subtree: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>,
@@ -170,7 +166,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugOverdrawContentKind
 #[repr(transparent)]
 pub struct CompositionDebugSettings(::windows::core::IUnknown);
 impl CompositionDebugSettings {
-    #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn HeatMaps(&self) -> ::windows::core::Result<CompositionDebugHeatMaps> {
         let this = self;
         unsafe {
@@ -178,7 +173,6 @@ impl CompositionDebugSettings {
             (::windows::core::Interface::vtable(this).HeatMaps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionDebugHeatMaps>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn TryGetSettings<'a, P0>(compositor: P0) -> ::windows::core::Result<CompositionDebugSettings>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,

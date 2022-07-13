@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct IRadialControllerConfigurationInterop(::windows::core::IUnknown);
 impl IRadialControllerConfigurationInterop {
-    #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
     where
@@ -76,7 +76,7 @@ pub struct IRadialControllerConfigurationInterop_Vtbl {
 #[repr(transparent)]
 pub struct IRadialControllerIndependentInputSourceInterop(::windows::core::IUnknown);
 impl IRadialControllerIndependentInputSourceInterop {
-    #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
     where
@@ -150,7 +150,7 @@ pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
 #[repr(transparent)]
 pub struct IRadialControllerInterop(::windows::core::IUnknown);
 impl IRadialControllerInterop {
-    #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
     where

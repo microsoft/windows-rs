@@ -595,7 +595,7 @@ pub struct IVisualElementsRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct JumpList(::windows::core::IUnknown);
 impl JumpList {
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<JumpListItem>> {
         let this = self;
@@ -604,7 +604,6 @@ impl JumpList {
             (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<JumpListItem>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SystemGroupKind(&self) -> ::windows::core::Result<JumpListSystemGroupKind> {
         let this = self;
         unsafe {
@@ -612,12 +611,11 @@ impl JumpList {
             (::windows::core::Interface::vtable(this).SystemGroupKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<JumpListSystemGroupKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetSystemGroupKind(&self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSystemGroupKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -626,7 +624,7 @@ impl JumpList {
             (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadCurrentAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<JumpList>> {
         Self::IJumpListStatics(|this| unsafe {
@@ -634,7 +632,6 @@ impl JumpList {
             (::windows::core::Interface::vtable(this).LoadCurrentAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<JumpList>>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IJumpListStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -713,7 +710,6 @@ unsafe impl ::core::marker::Sync for JumpList {}
 #[repr(transparent)]
 pub struct JumpListItem(::windows::core::IUnknown);
 impl JumpListItem {
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<JumpListItemKind> {
         let this = self;
         unsafe {
@@ -721,7 +717,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<JumpListItemKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -729,7 +724,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn RemovedByUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -737,7 +731,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).RemovedByUser)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -745,7 +738,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -753,7 +745,6 @@ impl JumpListItem {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -761,7 +752,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -769,7 +759,6 @@ impl JumpListItem {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn GroupName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -777,7 +766,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).GroupName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetGroupName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -785,7 +773,7 @@ impl JumpListItem {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGroupName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -794,7 +782,7 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLogo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -803,7 +791,6 @@ impl JumpListItem {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn CreateWithArguments<'a, P0, P1>(arguments: P0, displayname: P1) -> ::windows::core::Result<JumpListItem>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -814,7 +801,6 @@ impl JumpListItem {
             (::windows::core::Interface::vtable(this).CreateWithArguments)(::windows::core::Interface::as_raw(this), arguments.into().abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<JumpListItem>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn CreateSeparator() -> ::windows::core::Result<JumpListItem> {
         Self::IJumpListItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -969,7 +955,6 @@ impl SecondaryTile {
         static SHARED: ::windows::core::FactoryCache<SecondaryTile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetTileId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -977,7 +962,6 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTileId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -985,7 +969,6 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetArguments<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -993,7 +976,6 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetArguments)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1001,7 +983,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetShortName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1010,7 +992,7 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetShortName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ShortName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1019,7 +1001,6 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).ShortName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1027,7 +1008,6 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1035,7 +1015,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetLogo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1044,7 +1024,7 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1053,7 +1033,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetSmallLogo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1062,7 +1042,7 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSmallLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SmallLogo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1071,7 +1051,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).SmallLogo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetWideLogo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1080,7 +1060,7 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWideLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn WideLogo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1089,7 +1069,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).WideLogo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLockScreenBadgeLogo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1098,7 +1078,7 @@ impl SecondaryTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLockScreenBadgeLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LockScreenBadgeLogo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1107,12 +1087,10 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).LockScreenBadgeLogo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetLockScreenDisplayBadgeAndTileText(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLockScreenDisplayBadgeAndTileText)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn LockScreenDisplayBadgeAndTileText(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1120,13 +1098,13 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).LockScreenDisplayBadgeAndTileText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetTileOptions(&self, value: TileOptions) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTileOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TileOptions(&self) -> ::windows::core::Result<TileOptions> {
         let this = self;
@@ -1135,13 +1113,13 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).TileOptions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TileOptions>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ForegroundText(&self) -> ::windows::core::Result<ForegroundText> {
         let this = self;
@@ -1150,13 +1128,13 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).ForegroundText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ForegroundText>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetBackgroundColor(&self, value: super::Color) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::Color> {
         let this = self;
@@ -1165,7 +1143,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1174,7 +1152,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestCreateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCreateAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1183,7 +1161,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestCreateAsyncWithPoint)(::windows::core::Interface::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCreateAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1192,7 +1170,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRect)(::windows::core::Interface::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn RequestCreateAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1201,7 +1179,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1210,7 +1188,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestDeleteAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestDeleteAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1219,7 +1197,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithPoint)(::windows::core::Interface::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestDeleteAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1228,7 +1206,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRect)(::windows::core::Interface::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn RequestDeleteAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1237,7 +1215,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1246,7 +1224,6 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).UpdateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetPhoneticName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1254,7 +1231,6 @@ impl SecondaryTile {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPhoneticName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn PhoneticName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
@@ -1262,7 +1238,6 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).PhoneticName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn VisualElements(&self) -> ::windows::core::Result<SecondaryTileVisualElements> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
@@ -1270,12 +1245,10 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).VisualElements)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SecondaryTileVisualElements>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetRoamingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRoamingEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn RoamingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
@@ -1283,7 +1256,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).RoamingEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn VisualElementsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1295,13 +1268,13 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).VisualElementsRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisualElementsRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVisualElementsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateTile<'a, P0, P1, P2, P3, P4>(tileid: P0, shortname: P1, displayname: P2, arguments: P3, tileoptions: TileOptions, logoreference: P4) -> ::windows::core::Result<SecondaryTile>
     where
@@ -1316,7 +1289,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).CreateTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions, logoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateWideTile<'a, P0, P1, P2, P3, P4, P5>(tileid: P0, shortname: P1, displayname: P2, arguments: P3, tileoptions: TileOptions, logoreference: P4, widelogoreference: P5) -> ::windows::core::Result<SecondaryTile>
     where
@@ -1332,7 +1305,6 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).CreateWideTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions, logoreference.into().abi(), widelogoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn CreateWithId<'a, P0>(tileid: P0) -> ::windows::core::Result<SecondaryTile>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1342,7 +1314,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).CreateWithId)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateMinimalTile<'a, P0, P1, P2, P3>(tileid: P0, displayname: P1, arguments: P2, square150x150logo: P3, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile>
     where
@@ -1356,7 +1328,6 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).CreateMinimalTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), displayname.into().abi(), arguments.into().abi(), square150x150logo.into().abi(), desiredsize, result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Exists<'a, P0>(tileid: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1366,7 +1337,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).Exists)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
@@ -1374,7 +1345,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllForApplicationAsync<'a, P0>(applicationid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>
     where
@@ -1385,7 +1356,7 @@ impl SecondaryTile {
             (::windows::core::Interface::vtable(this).FindAllForApplicationAsync)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllForPackageAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
@@ -1475,7 +1446,7 @@ unsafe impl ::core::marker::Sync for SecondaryTile {}
 #[repr(transparent)]
 pub struct SecondaryTileVisualElements(::windows::core::IUnknown);
 impl SecondaryTileVisualElements {
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetSquare30x30Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1484,7 +1455,7 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare30x30Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Square30x30Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1493,7 +1464,7 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Square30x30Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetSquare70x70Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1502,7 +1473,7 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare70x70Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Square70x70Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1511,7 +1482,7 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Square70x70Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSquare150x150Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1520,7 +1491,7 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare150x150Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Square150x150Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1529,7 +1500,7 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Square150x150Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetWide310x150Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1538,7 +1509,7 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWide310x150Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Wide310x150Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1547,7 +1518,7 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Wide310x150Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSquare310x310Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1556,7 +1527,7 @@ impl SecondaryTileVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare310x310Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Square310x310Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1565,12 +1536,10 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Square310x310Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ForegroundText(&self) -> ::windows::core::Result<ForegroundText> {
         let this = self;
         unsafe {
@@ -1578,12 +1547,10 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).ForegroundText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ForegroundText>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetBackgroundColor(&self, value: super::Color) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::Color> {
         let this = self;
         unsafe {
@@ -1591,12 +1558,10 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Color>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetShowNameOnSquare150x150Logo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetShowNameOnSquare150x150Logo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ShowNameOnSquare150x150Logo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1604,12 +1569,10 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).ShowNameOnSquare150x150Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetShowNameOnWide310x150Logo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetShowNameOnWide310x150Logo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ShowNameOnWide310x150Logo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1617,12 +1580,10 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).ShowNameOnWide310x150Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetShowNameOnSquare310x310Logo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetShowNameOnSquare310x310Logo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ShowNameOnSquare310x310Logo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1630,7 +1591,7 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).ShowNameOnSquare310x310Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSquare71x71Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1639,7 +1600,7 @@ impl SecondaryTileVisualElements {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare71x71Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Square71x71Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
@@ -1648,7 +1609,7 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Square71x71Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSquare44x44Logo<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1657,7 +1618,7 @@ impl SecondaryTileVisualElements {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare44x44Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Square44x44Logo(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
@@ -1666,7 +1627,6 @@ impl SecondaryTileVisualElements {
             (::windows::core::Interface::vtable(this).Square44x44Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn MixedRealityModel(&self) -> ::windows::core::Result<TileMixedRealityModel> {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements4>(self)?;
         unsafe {
@@ -1741,7 +1701,7 @@ unsafe impl ::core::marker::Sync for SecondaryTileVisualElements {}
 #[repr(transparent)]
 pub struct StartScreenManager(::windows::core::IUnknown);
 impl StartScreenManager {
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -1750,7 +1710,7 @@ impl StartScreenManager {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"ApplicationModel_Core\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn SupportsAppListEntry<'a, P0>(&self, applistentry: P0) -> ::windows::core::Result<bool>
     where
@@ -1762,7 +1722,7 @@ impl StartScreenManager {
             (::windows::core::Interface::vtable(this).SupportsAppListEntry)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn ContainsAppListEntryAsync<'a, P0>(&self, applistentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1774,7 +1734,7 @@ impl StartScreenManager {
             (::windows::core::Interface::vtable(this).ContainsAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn RequestAddAppListEntryAsync<'a, P0>(&self, applistentry: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1786,7 +1746,7 @@ impl StartScreenManager {
             (::windows::core::Interface::vtable(this).RequestAddAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContainsSecondaryTileAsync<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1798,7 +1758,7 @@ impl StartScreenManager {
             (::windows::core::Interface::vtable(this).ContainsSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryRemoveSecondaryTileAsync<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1810,14 +1770,13 @@ impl StartScreenManager {
             (::windows::core::Interface::vtable(this).TryRemoveSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<StartScreenManager> {
         Self::IStartScreenManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StartScreenManager>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<StartScreenManager>
     where
@@ -1900,7 +1859,7 @@ unsafe impl ::core::marker::Sync for StartScreenManager {}
 #[repr(transparent)]
 pub struct TileMixedRealityModel(::windows::core::IUnknown);
 impl TileMixedRealityModel {
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1909,7 +1868,7 @@ impl TileMixedRealityModel {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1918,7 +1877,7 @@ impl TileMixedRealityModel {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetBoundingBox<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1928,7 +1887,7 @@ impl TileMixedRealityModel {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBoundingBox)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn BoundingBox(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {
         let this = self;
@@ -1937,12 +1896,10 @@ impl TileMixedRealityModel {
             (::windows::core::Interface::vtable(this).BoundingBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITileMixedRealityModel2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetActivationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ActivationBehavior(&self) -> ::windows::core::Result<TileMixedRealityModelActivationBehavior> {
         let this = &::windows::core::Interface::cast::<ITileMixedRealityModel2>(self)?;
         unsafe {
@@ -2155,7 +2112,6 @@ unsafe impl ::windows::core::RuntimeType for TileSize {
 #[repr(transparent)]
 pub struct VisualElementsRequest(::windows::core::IUnknown);
 impl VisualElementsRequest {
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn VisualElements(&self) -> ::windows::core::Result<SecondaryTileVisualElements> {
         let this = self;
         unsafe {
@@ -2163,7 +2119,7 @@ impl VisualElementsRequest {
             (::windows::core::Interface::vtable(this).VisualElements)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SecondaryTileVisualElements>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AlternateVisualElements(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>> {
         let this = self;
@@ -2172,7 +2128,7 @@ impl VisualElementsRequest {
             (::windows::core::Interface::vtable(this).AlternateVisualElements)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2181,7 +2137,6 @@ impl VisualElementsRequest {
             (::windows::core::Interface::vtable(this).Deadline)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<VisualElementsRequestDeferral> {
         let this = self;
         unsafe {
@@ -2256,7 +2211,6 @@ unsafe impl ::core::marker::Sync for VisualElementsRequest {}
 #[repr(transparent)]
 pub struct VisualElementsRequestDeferral(::windows::core::IUnknown);
 impl VisualElementsRequestDeferral {
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
@@ -2328,7 +2282,6 @@ unsafe impl ::core::marker::Sync for VisualElementsRequestDeferral {}
 #[repr(transparent)]
 pub struct VisualElementsRequestedEventArgs(::windows::core::IUnknown);
 impl VisualElementsRequestedEventArgs {
-    #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<VisualElementsRequest> {
         let this = self;
         unsafe {

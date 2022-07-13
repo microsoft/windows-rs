@@ -211,7 +211,6 @@ pub struct IWorkflowPrintTicketValidationResult_Vtbl {
 #[repr(transparent)]
 pub struct PrintTicketCapabilities(::windows::core::IUnknown);
 impl PrintTicketCapabilities {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -219,7 +218,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -227,7 +225,7 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).XmlNamespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -236,7 +234,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).XmlNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentBindingFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -244,7 +241,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentBindingFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentCollateFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -252,7 +248,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentCollateFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentDuplexFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -260,7 +255,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentDuplexFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentHolePunchFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -268,7 +262,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentHolePunchFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentInputBinFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -276,7 +269,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentInputBinFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentNUpFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -284,7 +276,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentNUpFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentStapleFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -292,7 +283,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).DocumentStapleFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn JobPasscodeFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -300,7 +290,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).JobPasscodeFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageBorderlessFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -308,7 +297,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageBorderlessFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageMediaSizeFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -316,7 +304,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageMediaSizeFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageMediaTypeFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -324,7 +311,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageMediaTypeFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageOrientationFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -332,7 +318,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageOrientationFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageOutputColorFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -340,7 +325,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageOutputColorFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageOutputQualityFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -348,7 +332,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageOutputQualityFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageResolutionFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -356,7 +339,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).PageResolutionFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetFeature<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketFeature>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -368,7 +350,6 @@ impl PrintTicketCapabilities {
             (::windows::core::Interface::vtable(this).GetFeature)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetParameterDefinition<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketParameterDefinition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -447,7 +428,6 @@ unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
 #[repr(transparent)]
 pub struct PrintTicketFeature(::windows::core::IUnknown);
 impl PrintTicketFeature {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -455,7 +435,6 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -463,7 +442,7 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).XmlNamespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -472,7 +451,6 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).XmlNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -480,7 +458,6 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetOption<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketOption>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -492,7 +469,7 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).GetOption)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketOption>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>> {
         let this = self;
@@ -501,7 +478,6 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).Options)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetSelectedOption(&self) -> ::windows::core::Result<PrintTicketOption> {
         let this = self;
         unsafe {
@@ -509,7 +485,6 @@ impl PrintTicketFeature {
             (::windows::core::Interface::vtable(this).GetSelectedOption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketOption>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn SetSelectedOption<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketOption>>,
@@ -517,7 +492,6 @@ impl PrintTicketFeature {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectedOption)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn SelectionType(&self) -> ::windows::core::Result<PrintTicketFeatureSelectionType> {
         let this = self;
         unsafe {
@@ -626,7 +600,6 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
 #[repr(transparent)]
 pub struct PrintTicketOption(::windows::core::IUnknown);
 impl PrintTicketOption {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -634,7 +607,6 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -642,7 +614,7 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).XmlNamespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -651,7 +623,6 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).XmlNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -659,7 +630,7 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetPropertyNode<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>
     where
@@ -672,7 +643,7 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).GetPropertyNode)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetScoredPropertyNode<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode>
     where
@@ -685,7 +656,6 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).GetScoredPropertyNode)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetPropertyValue<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -697,7 +667,6 @@ impl PrintTicketOption {
             (::windows::core::Interface::vtable(this).GetPropertyValue)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetScoredPropertyValue<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -811,7 +780,6 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
 #[repr(transparent)]
 pub struct PrintTicketParameterDefinition(::windows::core::IUnknown);
 impl PrintTicketParameterDefinition {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -819,7 +787,6 @@ impl PrintTicketParameterDefinition {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -827,7 +794,7 @@ impl PrintTicketParameterDefinition {
             (::windows::core::Interface::vtable(this).XmlNamespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -836,7 +803,6 @@ impl PrintTicketParameterDefinition {
             (::windows::core::Interface::vtable(this).XmlNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DataType(&self) -> ::windows::core::Result<PrintTicketParameterDataType> {
         let this = self;
         unsafe {
@@ -844,7 +810,6 @@ impl PrintTicketParameterDefinition {
             (::windows::core::Interface::vtable(this).DataType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketParameterDataType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn UnitType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -852,7 +817,6 @@ impl PrintTicketParameterDefinition {
             (::windows::core::Interface::vtable(this).UnitType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn RangeMin(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -860,7 +824,6 @@ impl PrintTicketParameterDefinition {
             (::windows::core::Interface::vtable(this).RangeMin)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn RangeMax(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -935,7 +898,6 @@ unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
 #[repr(transparent)]
 pub struct PrintTicketParameterInitializer(::windows::core::IUnknown);
 impl PrintTicketParameterInitializer {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -943,7 +905,6 @@ impl PrintTicketParameterInitializer {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -951,7 +912,7 @@ impl PrintTicketParameterInitializer {
             (::windows::core::Interface::vtable(this).XmlNamespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -960,7 +921,6 @@ impl PrintTicketParameterInitializer {
             (::windows::core::Interface::vtable(this).XmlNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketValue>>,
@@ -968,7 +928,6 @@ impl PrintTicketParameterInitializer {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<PrintTicketValue> {
         let this = self;
         unsafe {
@@ -1043,7 +1002,6 @@ unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
 #[repr(transparent)]
 pub struct PrintTicketValue(::windows::core::IUnknown);
 impl PrintTicketValue {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PrintTicketValueType> {
         let this = self;
         unsafe {
@@ -1051,7 +1009,6 @@ impl PrintTicketValue {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketValueType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetValueAsInteger(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1059,7 +1016,6 @@ impl PrintTicketValue {
             (::windows::core::Interface::vtable(this).GetValueAsInteger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetValueAsString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1169,7 +1125,6 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketValueType {
 #[repr(transparent)]
 pub struct WorkflowPrintTicket(::windows::core::IUnknown);
 impl WorkflowPrintTicket {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1177,7 +1132,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn XmlNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1185,7 +1139,7 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).XmlNamespace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -1194,7 +1148,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).XmlNode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetCapabilities(&self) -> ::windows::core::Result<PrintTicketCapabilities> {
         let this = self;
         unsafe {
@@ -1202,7 +1155,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).GetCapabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentBindingFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1210,7 +1162,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentBindingFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentCollateFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1218,7 +1169,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentCollateFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentDuplexFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1226,7 +1176,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentDuplexFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentHolePunchFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1234,7 +1183,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentHolePunchFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentInputBinFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1242,7 +1190,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentInputBinFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentNUpFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1250,7 +1197,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentNUpFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn DocumentStapleFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1258,7 +1204,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).DocumentStapleFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn JobPasscodeFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1266,7 +1211,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).JobPasscodeFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageBorderlessFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1274,7 +1218,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageBorderlessFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageMediaSizeFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1282,7 +1225,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageMediaSizeFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageMediaTypeFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1290,7 +1232,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageMediaTypeFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageOrientationFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1298,7 +1239,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageOrientationFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageOutputColorFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1306,7 +1246,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageOutputColorFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageOutputQualityFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1314,7 +1253,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageOutputQualityFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn PageResolutionFeature(&self) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
@@ -1322,7 +1260,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).PageResolutionFeature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetFeature<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketFeature>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1334,7 +1271,7 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).GetFeature)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyXmlChangedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1343,7 +1280,7 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).NotifyXmlChangedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ValidateAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>> {
         let this = self;
@@ -1352,7 +1289,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).ValidateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn GetParameterInitializer<'a, P0, P1>(&self, name: P0, xmlnamespace: P1) -> ::windows::core::Result<PrintTicketParameterInitializer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1364,7 +1300,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).GetParameterInitializer)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn SetParameterInitializerAsInteger<'a, P0, P1>(&self, name: P0, xmlnamespace: P1, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1376,7 +1311,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).SetParameterInitializerAsInteger)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), integervalue, result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn SetParameterInitializerAsString<'a, P0, P1, P2>(&self, name: P0, xmlnamespace: P1, stringvalue: P2) -> ::windows::core::Result<PrintTicketParameterInitializer>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1389,7 +1323,6 @@ impl WorkflowPrintTicket {
             (::windows::core::Interface::vtable(this).SetParameterInitializerAsString)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), stringvalue.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn MergeAndValidateTicket<'a, P0>(&self, deltashematicket: P0) -> ::windows::core::Result<WorkflowPrintTicket>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, WorkflowPrintTicket>>,
@@ -1467,7 +1400,6 @@ unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
 #[repr(transparent)]
 pub struct WorkflowPrintTicketValidationResult(::windows::core::IUnknown);
 impl WorkflowPrintTicketValidationResult {
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Validated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1475,7 +1407,6 @@ impl WorkflowPrintTicketValidationResult {
             (::windows::core::Interface::vtable(this).Validated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {

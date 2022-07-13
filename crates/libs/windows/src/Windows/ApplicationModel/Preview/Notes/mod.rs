@@ -135,7 +135,6 @@ pub struct INotesWindowManagerPreviewStatics_Vtbl {
 #[repr(transparent)]
 pub struct NotePlacementChangedPreviewEventArgs(::windows::core::IUnknown);
 impl NotePlacementChangedPreviewEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn ViewId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -210,7 +209,6 @@ unsafe impl ::core::marker::Sync for NotePlacementChangedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct NoteVisibilityChangedPreviewEventArgs(::windows::core::IUnknown);
 impl NoteVisibilityChangedPreviewEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn ViewId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -218,7 +216,6 @@ impl NoteVisibilityChangedPreviewEventArgs {
             (::windows::core::Interface::vtable(this).ViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -293,7 +290,6 @@ unsafe impl ::core::marker::Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[repr(transparent)]
 pub struct NotesWindowManagerPreview(::windows::core::IUnknown);
 impl NotesWindowManagerPreview {
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn IsScreenLocked(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -301,17 +297,15 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).IsScreenLocked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn ShowNote(&self, noteviewid: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowNote)(::windows::core::Interface::as_raw(this), noteviewid).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn ShowNoteRelativeTo(&self, noteviewid: i32, anchornoteviewid: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowNoteRelativeTo)(::windows::core::Interface::as_raw(this), noteviewid, anchornoteviewid).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacement<'a, P0, E0>(&self, noteviewid: i32, data: P0) -> ::windows::core::Result<()>
     where
@@ -321,12 +315,11 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ShowNoteWithPlacement)(::windows::core::Interface::as_raw(this), noteviewid, data.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn HideNote(&self, noteviewid: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).HideNote)(::windows::core::Interface::as_raw(this), noteviewid).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetNotePlacement(&self, noteviewid: i32) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -335,7 +328,7 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).GetNotePlacement)(::windows::core::Interface::as_raw(this), noteviewid, result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetNoteSize(&self, noteviewid: i32, size: super::super::super::Foundation::Size) -> ::windows::core::Result<bool> {
         let this = self;
@@ -344,12 +337,11 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).TrySetNoteSize)(::windows::core::Interface::as_raw(this), noteviewid, size, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn SetFocusToNextView(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFocusToNextView)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SetNotesThumbnailAsync<'a, P0, E0>(&self, thumbnail: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -362,7 +354,7 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).SetNotesThumbnailAsync)(::windows::core::Interface::as_raw(this), thumbnail.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SystemLockStateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -374,13 +366,13 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).SystemLockStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemLockStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSystemLockStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotePlacementChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -392,13 +384,13 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).NotePlacementChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNotePlacementChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveNotePlacementChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NoteVisibilityChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -410,13 +402,12 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).NoteVisibilityChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNoteVisibilityChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveNoteVisibilityChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn ShowNoteRelativeToWithOptions<'a, P0>(&self, noteviewid: i32, anchornoteviewid: i32, options: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, NotesWindowManagerPreviewShowNoteOptions>>,
@@ -424,7 +415,7 @@ impl NotesWindowManagerPreview {
         let this = &::windows::core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(::windows::core::Interface::as_raw(this), noteviewid, anchornoteviewid, options.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ShowNoteWithPlacementWithOptions<'a, P0, E0, P1>(&self, noteviewid: i32, data: P0, options: P1) -> ::windows::core::Result<()>
     where
@@ -435,12 +426,11 @@ impl NotesWindowManagerPreview {
         let this = &::windows::core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ShowNoteWithPlacementWithOptions)(::windows::core::Interface::as_raw(this), noteviewid, data.try_into().map_err(|e| e.into())?.abi(), options.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn SetFocusToPreviousView(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFocusToPreviousView)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn SetThumbnailImageForTaskSwitcherAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -452,7 +442,6 @@ impl NotesWindowManagerPreview {
             (::windows::core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn GetForCurrentApp() -> ::windows::core::Result<NotesWindowManagerPreview> {
         Self::INotesWindowManagerPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -538,7 +527,6 @@ impl NotesWindowManagerPreviewShowNoteOptions {
         static SHARED: ::windows::core::FactoryCache<NotesWindowManagerPreviewShowNoteOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn ShowWithFocus(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -546,7 +534,6 @@ impl NotesWindowManagerPreviewShowNoteOptions {
             (::windows::core::Interface::vtable(this).ShowWithFocus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Preview_Notes\"`*"]
     pub fn SetShowWithFocus(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetShowWithFocus)(::windows::core::Interface::as_raw(this), value).ok() }

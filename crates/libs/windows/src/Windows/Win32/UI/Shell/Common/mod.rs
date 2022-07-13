@@ -90,12 +90,10 @@ impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
 #[repr(transparent)]
 pub struct IObjectArray(::windows::core::IUnknown);
 impl IObjectArray {
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -150,12 +148,10 @@ pub struct IObjectArray_Vtbl {
 #[repr(transparent)]
 pub struct IObjectCollection(::windows::core::IUnknown);
 impl IObjectCollection {
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -163,25 +159,21 @@ impl IObjectCollection {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetAt)(::windows::core::Interface::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddObject<'a, P0>(&self, punk: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         (::windows::core::Interface::vtable(self).AddObject)(::windows::core::Interface::as_raw(self), punk.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddFromArray<'a, P0>(&self, poasource: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IObjectArray>>,
     {
         (::windows::core::Interface::vtable(self).AddFromArray)(::windows::core::Interface::as_raw(self), poasource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveObjectAt)(::windows::core::Interface::as_raw(self), uiindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }

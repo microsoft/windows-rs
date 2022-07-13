@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
 pub struct ContactPartnerProvisioningManager;
 impl ContactPartnerProvisioningManager {
-    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AssociateNetworkAccountAsync<'a, P0, P1, P2>(store: P0, networkname: P1, networkaccountid: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -14,7 +14,7 @@ impl ContactPartnerProvisioningManager {
             (::windows::core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), networkname.into().abi(), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ImportVcardToSystemAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -26,7 +26,7 @@ impl ContactPartnerProvisioningManager {
             (::windows::core::Interface::vtable(this).ImportVcardToSystemAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AssociateSocialNetworkAccountAsync<'a, P0, P1, P2>(store: P0, networkname: P1, networkaccountid: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -112,7 +112,7 @@ pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
 #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
 pub struct MessagePartnerProvisioningManager;
 impl MessagePartnerProvisioningManager {
-    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportSmsToSystemAsync<'a, P0, P1, P2, E2>(incoming: bool, read: bool, body: P0, sender: P1, recipients: P2, deliverytime: super::super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -126,7 +126,7 @@ impl MessagePartnerProvisioningManager {
             (::windows::core::Interface::vtable(this).ImportSmsToSystemAsync)(::windows::core::Interface::as_raw(this), incoming, read, body.into().abi(), sender.into().abi(), recipients.try_into().map_err(|e| e.into())?.abi(), deliverytime, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportMmsToSystemAsync<'a, P0, P1, P2, E2, P3, E3>(incoming: bool, read: bool, subject: P0, sender: P1, recipients: P2, deliverytime: super::super::super::Foundation::DateTime, attachments: P3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where

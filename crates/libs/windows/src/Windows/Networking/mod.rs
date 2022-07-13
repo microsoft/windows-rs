@@ -54,7 +54,6 @@ unsafe impl ::windows::core::RuntimeType for DomainNameType {
 #[repr(transparent)]
 pub struct EndpointPair(::windows::core::IUnknown);
 impl EndpointPair {
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn LocalHostName(&self) -> ::windows::core::Result<HostName> {
         let this = self;
         unsafe {
@@ -62,7 +61,6 @@ impl EndpointPair {
             (::windows::core::Interface::vtable(this).LocalHostName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HostName>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn SetLocalHostName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
@@ -70,7 +68,6 @@ impl EndpointPair {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalHostName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn LocalServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -78,7 +75,6 @@ impl EndpointPair {
             (::windows::core::Interface::vtable(this).LocalServiceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn SetLocalServiceName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -86,7 +82,6 @@ impl EndpointPair {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocalServiceName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn RemoteHostName(&self) -> ::windows::core::Result<HostName> {
         let this = self;
         unsafe {
@@ -94,7 +89,6 @@ impl EndpointPair {
             (::windows::core::Interface::vtable(this).RemoteHostName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HostName>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn SetRemoteHostName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
@@ -102,7 +96,6 @@ impl EndpointPair {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteHostName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn RemoteServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -110,7 +103,6 @@ impl EndpointPair {
             (::windows::core::Interface::vtable(this).RemoteServiceName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn SetRemoteServiceName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -118,7 +110,6 @@ impl EndpointPair {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRemoteServiceName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn CreateEndpointPair<'a, P0, P1, P2, P3>(localhostname: P0, localservicename: P1, remotehostname: P2, remoteservicename: P3) -> ::windows::core::Result<EndpointPair>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
@@ -203,7 +194,7 @@ unsafe impl ::core::marker::Sync for EndpointPair {}
 #[repr(transparent)]
 pub struct HostName(::windows::core::IUnknown);
 impl HostName {
-    #[doc = "*Required features: `\"Networking\"`, `\"Networking_Connectivity\"`*"]
+    #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn IPInformation(&self) -> ::windows::core::Result<Connectivity::IPInformation> {
         let this = self;
@@ -212,7 +203,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).IPInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Connectivity::IPInformation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn RawName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -220,7 +210,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).RawName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -228,7 +217,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn CanonicalName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -236,7 +224,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).CanonicalName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<HostNameType> {
         let this = self;
         unsafe {
@@ -244,7 +231,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HostNameType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn IsEqual<'a, P0>(&self, hostname: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>,
@@ -255,7 +241,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).IsEqual)(::windows::core::Interface::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn CreateHostName<'a, P0>(hostname: P0) -> ::windows::core::Result<HostName>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -265,7 +250,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).CreateHostName)(::windows::core::Interface::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<HostName>(result__)
         })
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     pub fn Compare<'a, P0, P1>(value1: P0, value2: P1) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -276,7 +260,7 @@ impl HostName {
             (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), value1.into().abi(), value2.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Networking\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IStringable>(self)?;

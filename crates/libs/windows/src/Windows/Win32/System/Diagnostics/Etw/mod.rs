@@ -3888,54 +3888,42 @@ pub unsafe fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64 {
 #[repr(transparent)]
 pub struct ITraceEvent(::windows::core::IUnknown);
 impl ITraceEvent {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITraceEvent> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITraceEvent>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetUserContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut EVENT_RECORD>::zeroed();
         (::windows::core::Interface::vtable(self).GetEventRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut EVENT_RECORD>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetPayload(&self, payload: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPayload)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(payload)), payload.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEventDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetProcessId(&self, processid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProcessId)(::windows::core::Interface::as_raw(self), processid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetProcessorIndex(&self, processorindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProcessorIndex)(::windows::core::Interface::as_raw(self), processorindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetThreadId(&self, threadid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetThreadId)(::windows::core::Interface::as_raw(self), threadid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetThreadTimes(&self, kerneltime: u32, usertime: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetThreadTimes)(::windows::core::Interface::as_raw(self), kerneltime, usertime).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetActivityId(&self, activityid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetActivityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(activityid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetTimeStamp(&self, timestamp: *const i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTimeStamp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timestamp)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn SetProviderId(&self, providerid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProviderId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
@@ -3996,7 +3984,6 @@ pub struct ITraceEvent_Vtbl {
 #[repr(transparent)]
 pub struct ITraceEventCallback(::windows::core::IUnknown);
 impl ITraceEventCallback {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn OnBeginProcessTrace<'a, P0, P1>(&self, headerevent: P0, relogger: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITraceEvent>>,
@@ -4004,14 +3991,12 @@ impl ITraceEventCallback {
     {
         (::windows::core::Interface::vtable(self).OnBeginProcessTrace)(::windows::core::Interface::as_raw(self), headerevent.into().abi(), relogger.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn OnFinalizeProcessTrace<'a, P0>(&self, relogger: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITraceRelogger>>,
     {
         (::windows::core::Interface::vtable(self).OnFinalizeProcessTrace)(::windows::core::Interface::as_raw(self), relogger.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn OnEvent<'a, P0, P1>(&self, event: P0, relogger: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITraceEvent>>,
@@ -4067,7 +4052,7 @@ pub struct ITraceEventCallback_Vtbl {
 #[repr(transparent)]
 pub struct ITraceRelogger(::windows::core::IUnknown);
 impl ITraceRelogger {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddLogfileTraceStream<'a, P0>(&self, logfilename: P0, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>
     where
@@ -4076,7 +4061,7 @@ impl ITraceRelogger {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).AddLogfileTraceStream)(::windows::core::Interface::as_raw(self), logfilename.into().abi(), ::core::mem::transmute(usercontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddRealtimeTraceStream<'a, P0>(&self, loggername: P0, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>
     where
@@ -4085,30 +4070,26 @@ impl ITraceRelogger {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).AddRealtimeTraceStream)(::windows::core::Interface::as_raw(self), loggername.into().abi(), ::core::mem::transmute(usercontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn RegisterCallback<'a, P0>(&self, callback: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITraceEventCallback>>,
     {
         (::windows::core::Interface::vtable(self).RegisterCallback)(::windows::core::Interface::as_raw(self), callback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn Inject<'a, P0>(&self, event: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ITraceEvent>>,
     {
         (::windows::core::Interface::vtable(self).Inject)(::windows::core::Interface::as_raw(self), event.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn CreateEventInstance(&self, tracehandle: u64, flags: u32) -> ::windows::core::Result<ITraceEvent> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateEventInstance)(::windows::core::Interface::as_raw(self), tracehandle, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITraceEvent>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn ProcessTrace(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProcessTrace)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOutputFilename<'a, P0>(&self, logfilename: P0) -> ::windows::core::Result<()>
     where
@@ -4116,7 +4097,7 @@ impl ITraceRelogger {
     {
         (::windows::core::Interface::vtable(self).SetOutputFilename)(::windows::core::Interface::as_raw(self), logfilename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCompressionMode<'a, P0>(&self, compressionmode: P0) -> ::windows::core::Result<()>
     where
@@ -4124,7 +4105,6 @@ impl ITraceRelogger {
     {
         (::windows::core::Interface::vtable(self).SetCompressionMode)(::windows::core::Interface::as_raw(self), compressionmode.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }

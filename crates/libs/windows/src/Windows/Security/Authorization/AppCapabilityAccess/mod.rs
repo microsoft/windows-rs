@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct AppCapability(::windows::core::IUnknown);
 impl AppCapability {
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
     pub fn CapabilityName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10,7 +9,7 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).CapabilityName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = self;
@@ -19,7 +18,7 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>> {
         let this = self;
@@ -28,7 +27,6 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
     pub fn CheckAccess(&self) -> ::windows::core::Result<AppCapabilityAccessStatus> {
         let this = self;
         unsafe {
@@ -36,7 +34,7 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).CheckAccess)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppCapabilityAccessStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AccessChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -48,13 +46,13 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).AccessChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccessChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAccessChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAccessForCapabilitiesAsync<'a, P0, E0>(capabilitynames: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
     where
@@ -66,7 +64,7 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows::core::Interface::as_raw(this), capabilitynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"Foundation_Collections\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn RequestAccessForCapabilitiesForUserAsync<'a, P0, P1, E1>(user: P0, capabilitynames: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>
     where
@@ -79,7 +77,6 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), capabilitynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, AppCapabilityAccessStatus>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
     pub fn Create<'a, P0>(capabilityname: P0) -> ::windows::core::Result<AppCapability>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -89,7 +86,7 @@ impl AppCapability {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capabilityname.into().abi(), result__.as_mut_ptr()).from_abi::<AppCapability>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn CreateWithProcessIdForUser<'a, P0, P1>(user: P0, capabilityname: P1, pid: u32) -> ::windows::core::Result<AppCapability>
     where

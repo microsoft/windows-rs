@@ -1,7 +1,6 @@
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 pub struct ApplicationProfile;
 impl ApplicationProfile {
-    #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<ApplicationProfileModes>::zeroed();

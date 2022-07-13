@@ -51,7 +51,6 @@ pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
 #[repr(transparent)]
 pub struct RadialControllerIndependentInputSource(::windows::core::IUnknown);
 impl RadialControllerIndependentInputSource {
-    #[doc = "*Required features: `\"UI_Input_Core\"`*"]
     pub fn Controller(&self) -> ::windows::core::Result<super::RadialController> {
         let this = self;
         unsafe {
@@ -59,7 +58,7 @@ impl RadialControllerIndependentInputSource {
             (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::RadialController>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Input_Core\"`, `\"UI_Core\"`*"]
+    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = self;
@@ -68,7 +67,7 @@ impl RadialControllerIndependentInputSource {
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Input_Core\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
@@ -77,7 +76,7 @@ impl RadialControllerIndependentInputSource {
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::DispatcherQueue>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Input_Core\"`, `\"ApplicationModel_Core\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateForView<'a, P0>(view: P0) -> ::windows::core::Result<RadialControllerIndependentInputSource>
     where

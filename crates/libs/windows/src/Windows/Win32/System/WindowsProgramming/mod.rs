@@ -2931,7 +2931,7 @@ impl ::core::default::Default for HW_PROFILE_INFOW {
 #[repr(transparent)]
 pub struct ICameraUIControl(::windows::core::IUnknown);
 impl ICameraUIControl {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0, P1, P2>(&self, pwindow: P0, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: P1, peventcallback: P2) -> ::windows::core::Result<()>
     where
@@ -2941,38 +2941,34 @@ impl ICameraUIControl {
     {
         (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), pwindow.into().abi(), mode, selectionmode, capturemode, photoformat, videoformat, bhasclosebutton.into(), peventcallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
         (::windows::core::Interface::vtable(self).Suspend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType> {
         let mut result__ = ::core::mem::MaybeUninit::<CameraUIControlViewType>::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrentViewType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CameraUIControlViewType>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetActiveItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).GetActiveItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
         (::windows::core::Interface::vtable(self).GetSelectedItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn RemoveCapturedItem<'a, P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3044,29 +3040,24 @@ pub struct ICameraUIControl_Vtbl {
 #[repr(transparent)]
 pub struct ICameraUIControlEventCallback(::windows::core::IUnknown);
 impl ICameraUIControlEventCallback {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn OnStartupComplete(&self) {
         (::windows::core::Interface::vtable(self).OnStartupComplete)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn OnSuspendComplete(&self) {
         (::windows::core::Interface::vtable(self).OnSuspendComplete)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn OnItemCaptured<'a, P0>(&self, pszpath: P0)
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).OnItemCaptured)(::windows::core::Interface::as_raw(self), pszpath.into())
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn OnItemDeleted<'a, P0>(&self, pszpath: P0)
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).OnItemDeleted)(::windows::core::Interface::as_raw(self), pszpath.into())
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn OnClosed(&self) {
         (::windows::core::Interface::vtable(self).OnClosed)(::windows::core::Interface::as_raw(self))
     }
@@ -3120,7 +3111,7 @@ pub struct ICameraUIControlEventCallback_Vtbl {
 #[repr(transparent)]
 pub struct IClipServiceNotificationHelper(::windows::core::IUnknown);
 impl IClipServiceNotificationHelper {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowToast<'a, P0, P1, P2, P3, P4>(&self, titletext: P0, bodytext: P1, packagename: P2, appid: P3, launchcommand: P4) -> ::windows::core::Result<()>
     where
@@ -3181,7 +3172,6 @@ pub struct IClipServiceNotificationHelper_Vtbl {
 #[repr(transparent)]
 pub struct IContainerActivationHelper(::windows::core::IUnknown);
 impl IContainerActivationHelper {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn CanActivateClientVM(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
         (::windows::core::Interface::vtable(self).CanActivateClientVM)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
@@ -3232,7 +3222,7 @@ pub struct IContainerActivationHelper_Vtbl {
 #[repr(transparent)]
 pub struct IDefaultBrowserSyncSettings(::windows::core::IUnknown);
 impl IDefaultBrowserSyncSettings {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self)))
@@ -3286,7 +3276,6 @@ pub struct IDefaultBrowserSyncSettings_Vtbl {
 #[repr(transparent)]
 pub struct IDeleteBrowsingHistory(::windows::core::IUnknown);
 impl IDeleteBrowsingHistory {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteBrowsingHistory)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
@@ -3378,11 +3367,10 @@ pub const IE_OPEN: i32 = -2i32;
 #[repr(transparent)]
 pub struct IEditionUpgradeBroker(::windows::core::IUnknown);
 impl IEditionUpgradeBroker {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeParentWindow)(::windows::core::Interface::as_raw(self), parenthandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOperatingSystem<'a, P0>(&self, parameter: P0) -> ::windows::core::Result<()>
     where
@@ -3390,11 +3378,9 @@ impl IEditionUpgradeBroker {
     {
         (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), parameter.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CanUpgrade)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -3450,29 +3436,26 @@ pub struct IEditionUpgradeBroker_Vtbl {
 #[repr(transparent)]
 pub struct IEditionUpgradeHelper(::windows::core::IUnknown);
 impl IEditionUpgradeHelper {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
         (::windows::core::Interface::vtable(self).CanUpgrade)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn UpdateOperatingSystem<'a, P0>(&self, contentid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).UpdateOperatingSystem)(::windows::core::Interface::as_raw(self), contentid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn ShowProductKeyUI(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShowProductKeyUI)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub unsafe fn GetOsProductContentId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).GetOsProductContentId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
@@ -4131,7 +4114,7 @@ pub const IR_UNDETERMINE: u32 = 368u32;
 #[repr(transparent)]
 pub struct IWindowsLockModeHelper(::windows::core::IUnknown);
 impl IWindowsLockModeHelper {
-    #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();

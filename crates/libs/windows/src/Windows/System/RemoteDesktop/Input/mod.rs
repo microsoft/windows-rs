@@ -32,13 +32,12 @@ pub struct IRemoteTextConnectionFactory_Vtbl {
 #[repr(transparent)]
 pub struct RemoteTextConnection(::windows::core::IUnknown);
 impl RemoteTextConnection {
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -46,27 +45,22 @@ impl RemoteTextConnection {
             (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn RegisterThread(&self, threadid: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RegisterThread)(::windows::core::Interface::as_raw(this), threadid).ok() }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn UnregisterThread(&self, threadid: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnregisterThread)(::windows::core::Interface::as_raw(this), threadid).ok() }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn ReportDataReceived(&self, pdudata: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn CreateInstance<'a, P0>(connectionid: ::windows::core::GUID, pduforwarder: P0) -> ::windows::core::Result<RemoteTextConnection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, RemoteTextConnectionDataHandler>>,
@@ -174,7 +168,6 @@ impl RemoteTextConnectionDataHandler {
         let com = RemoteTextConnectionDataHandlerBox::<F> { vtable: &RemoteTextConnectionDataHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn Invoke(&self, pdudata: &[u8]) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {

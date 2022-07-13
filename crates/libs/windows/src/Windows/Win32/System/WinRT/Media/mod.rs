@@ -4,7 +4,6 @@ pub const CLSID_VideoFrameNativeFactory: ::windows::core::GUID = ::windows::core
 #[repr(transparent)]
 pub struct IAudioFrameNative(::windows::core::IUnknown);
 impl IAudioFrameNative {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
     pub unsafe fn GetData<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -73,7 +72,7 @@ pub struct IAudioFrameNative_Vtbl {
 #[repr(transparent)]
 pub struct IAudioFrameNativeFactory(::windows::core::IUnknown);
 impl IAudioFrameNativeFactory {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMFSample<'a, P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
     where
@@ -148,7 +147,6 @@ pub struct IAudioFrameNativeFactory_Vtbl {
 #[repr(transparent)]
 pub struct IVideoFrameNative(::windows::core::IUnknown);
 impl IVideoFrameNative {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
     pub unsafe fn GetData<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -156,7 +154,6 @@ impl IVideoFrameNative {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
     pub unsafe fn GetDevice<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -226,7 +223,7 @@ pub struct IVideoFrameNative_Vtbl {
 #[repr(transparent)]
 pub struct IVideoFrameNativeFactory(::windows::core::IUnknown);
 impl IVideoFrameNativeFactory {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMFSample<'a, P0, P1, P2, T>(&self, data: P0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: P2) -> ::windows::core::Result<T>
     where

@@ -3,7 +3,7 @@
 pub struct BackgroundEnergyDiagnostics;
 #[cfg(feature = "deprecated")]
 impl BackgroundEnergyDiagnostics {
-    #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -11,7 +11,7 @@ impl BackgroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).DeviceSpecificConversionFactor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -19,7 +19,7 @@ impl BackgroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).ComputeTotalEnergyUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ResetTotalEnergyUsage)(::windows::core::Interface::as_raw(this)).ok() })
@@ -40,7 +40,7 @@ impl ::windows::core::RuntimeName for BackgroundEnergyDiagnostics {
 pub struct ForegroundEnergyDiagnostics;
 #[cfg(feature = "deprecated")]
 impl ForegroundEnergyDiagnostics {
-    #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -48,7 +48,7 @@ impl ForegroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).DeviceSpecificConversionFactor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -56,7 +56,7 @@ impl ForegroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).ComputeTotalEnergyUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ResetTotalEnergyUsage)(::windows::core::Interface::as_raw(this)).ok() })

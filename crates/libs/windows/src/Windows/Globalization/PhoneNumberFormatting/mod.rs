@@ -125,7 +125,6 @@ impl PhoneNumberFormatter {
         static SHARED: ::windows::core::FactoryCache<PhoneNumberFormatter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn Format<'a, P0>(&self, number: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
@@ -136,7 +135,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn FormatWithOutputFormat<'a, P0>(&self, number: P0, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
@@ -147,7 +145,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).FormatWithOutputFormat)(::windows::core::Interface::as_raw(this), number.into().abi(), numberformat, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn FormatPartialString<'a, P0>(&self, number: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -158,7 +155,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).FormatPartialString)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn FormatString<'a, P0>(&self, number: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -169,7 +165,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).FormatString)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn FormatStringWithLeftToRightMarkers<'a, P0>(&self, number: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -180,14 +175,12 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).FormatStringWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn TryCreate<'a, P0>(regioncode: P0, phonenumber: &mut ::core::option::Option<PhoneNumberFormatter>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         Self::IPhoneNumberFormatterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), regioncode.into().abi(), phonenumber as *mut _ as _).ok() })
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn GetCountryCodeForRegion<'a, P0>(regioncode: P0) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -197,7 +190,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).GetCountryCodeForRegion)(::windows::core::Interface::as_raw(this), regioncode.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn GetNationalDirectDialingPrefixForRegion<'a, P0>(regioncode: P0, stripnondigit: bool) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -207,7 +199,6 @@ impl PhoneNumberFormatter {
             (::windows::core::Interface::vtable(this).GetNationalDirectDialingPrefixForRegion)(::windows::core::Interface::as_raw(this), regioncode.into().abi(), stripnondigit, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn WrapWithLeftToRightMarkers<'a, P0>(number: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -289,7 +280,6 @@ unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
 #[repr(transparent)]
 pub struct PhoneNumberInfo(::windows::core::IUnknown);
 impl PhoneNumberInfo {
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn CountryCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -297,7 +287,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).CountryCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -305,7 +294,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).PhoneNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn GetLengthOfGeographicalAreaCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -313,7 +301,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).GetLengthOfGeographicalAreaCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn GetNationalSignificantNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -321,7 +308,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).GetNationalSignificantNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn GetLengthOfNationalDestinationCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -329,7 +315,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).GetLengthOfNationalDestinationCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn PredictNumberKind(&self) -> ::windows::core::Result<PredictedPhoneNumberKind> {
         let this = self;
         unsafe {
@@ -337,7 +322,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).PredictNumberKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PredictedPhoneNumberKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn GetGeographicRegionCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -345,7 +329,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).GetGeographicRegionCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn CheckNumberMatch<'a, P0>(&self, othernumber: P0) -> ::windows::core::Result<PhoneNumberMatchResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>,
@@ -356,7 +339,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).CheckNumberMatch)(::windows::core::Interface::as_raw(this), othernumber.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberMatchResult>(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn Create<'a, P0>(number: P0) -> ::windows::core::Result<PhoneNumberInfo>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -366,7 +348,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberInfo>(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn TryParse<'a, P0>(input: P0, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -376,7 +357,6 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), phonenumber as *mut _ as _, result__.as_mut_ptr()).from_abi::<PhoneNumberParseResult>(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
     pub fn TryParseWithRegion<'a, P0, P1>(input: P0, regioncode: P1, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -387,7 +367,7 @@ impl PhoneNumberInfo {
             (::windows::core::Interface::vtable(this).TryParseWithRegion)(::windows::core::Interface::as_raw(this), input.into().abi(), regioncode.into().abi(), phonenumber as *mut _ as _, result__.as_mut_ptr()).from_abi::<PhoneNumberParseResult>(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;

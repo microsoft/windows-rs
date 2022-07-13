@@ -30,7 +30,6 @@ where
 #[repr(transparent)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows::core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
-    #[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]
     pub unsafe fn GetInterface<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,

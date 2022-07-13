@@ -2,12 +2,10 @@
 #[repr(transparent)]
 pub struct IWsbApplicationAsync(::windows::core::IUnknown);
 impl IWsbApplicationAsync {
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
     pub unsafe fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
         (::windows::core::Interface::vtable(self).QueryStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -58,7 +56,6 @@ pub struct IWsbApplicationAsync_Vtbl {
 #[repr(transparent)]
 pub struct IWsbApplicationBackupSupport(::windows::core::IUnknown);
 impl IWsbApplicationBackupSupport {
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
     pub unsafe fn CheckConsistency<'a, P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -114,7 +111,7 @@ pub struct IWsbApplicationBackupSupport_Vtbl {
 #[repr(transparent)]
 pub struct IWsbApplicationRestoreSupport(::windows::core::IUnknown);
 impl IWsbApplicationRestoreSupport {
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRestore<'a, P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows::core::Result<()>
     where
@@ -125,7 +122,7 @@ impl IWsbApplicationRestoreSupport {
     {
         (::windows::core::Interface::vtable(self).PreRestore)(::windows::core::Interface::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), bnorollforward.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostRestore<'a, P0, P1, P2, P3>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, bnorollforward: P3) -> ::windows::core::Result<()>
     where
@@ -136,11 +133,9 @@ impl IWsbApplicationRestoreSupport {
     {
         (::windows::core::Interface::vtable(self).PostRestore)(::windows::core::Interface::as_raw(self), wszwritermetadata.into(), wszcomponentname.into(), wszcomponentlogicalpath.into(), bnorollforward.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const ::windows::core::PWSTR, rgcomponentlogicalpaths: *const ::windows::core::PWSTR, prgcomponentname: *mut *mut ::windows::core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OrderComponents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ccomponents), ::core::mem::transmute(rgcomponentname), ::core::mem::transmute(rgcomponentlogicalpaths), ::core::mem::transmute(prgcomponentname), ::core::mem::transmute(prgcomponentlogicalpath)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
         (::windows::core::Interface::vtable(self).IsRollForwardSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)

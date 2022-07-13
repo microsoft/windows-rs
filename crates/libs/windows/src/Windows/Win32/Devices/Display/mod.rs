@@ -7041,28 +7041,25 @@ pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct ICloneViewHelper(::windows::core::IUnknown);
 impl ICloneViewHelper {
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetConnectedIDs<'a, P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ulflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn SetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, ::core::mem::transmute(pultargetid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<'a, P0>(&self, ffinalcall: P0) -> ::windows::core::Result<()>
     where
@@ -7880,32 +7877,28 @@ pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 #[repr(transparent)]
 pub struct IViewHelper(::windows::core::IUnknown);
 impl IViewHelper {
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetConnectedIDs<'a, P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ulflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn SetActiveTopology<'a, P0>(&self, wszadaptorname: P0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into(), ulsourceid, ulcount, ::core::mem::transmute(pultargetid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetConfiguration<'a, P0>(&self, pistream: P0) -> ::windows::core::Result<u32>
     where
@@ -7914,7 +7907,6 @@ impl IViewHelper {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Interface::as_raw(self)).ok()
     }

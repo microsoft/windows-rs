@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn CreateFromWin32Handle<T>(&self, win32handle: u64, enableaboutdata: u8) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -71,7 +70,6 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
-    #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).Win32Handle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -137,7 +135,6 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn CreateFromWin32Handle<T>(&self, win32handle: u64) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -206,21 +203,18 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectInterop {
-    #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn AddPropertyGetHandler<'a, P0>(&self, context: *const ::core::ffi::c_void, interfacename: P0, callback: isize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         (::windows::core::Interface::vtable(self).AddPropertyGetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), callback).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn AddPropertySetHandler<'a, P0>(&self, context: *const ::core::ffi::c_void, interfacename: P0, callback: isize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
     {
         (::windows::core::Interface::vtable(self).AddPropertySetHandler)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), interfacename.into().abi(), callback).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
     pub unsafe fn Win32Handle(&self) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).Win32Handle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)

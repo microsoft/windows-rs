@@ -92,7 +92,6 @@ pub struct IPwmPin_Vtbl {
 #[repr(transparent)]
 pub struct PwmController(::windows::core::IUnknown);
 impl PwmController {
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn PinCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -100,7 +99,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).PinCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn ActualFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -108,7 +106,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).ActualFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn SetDesiredFrequency(&self, desiredfrequency: f64) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -116,7 +113,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).SetDesiredFrequency)(::windows::core::Interface::as_raw(this), desiredfrequency, result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn MinFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -124,7 +120,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).MinFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn MaxFrequency(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -132,7 +127,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).MaxFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn OpenPin(&self, pinnumber: i32) -> ::windows::core::Result<PwmPin> {
         let this = self;
         unsafe {
@@ -140,7 +134,7 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).OpenPin)(::windows::core::Interface::as_raw(this), pinnumber, result__.as_mut_ptr()).from_abi::<PwmPin>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
     where
@@ -152,7 +146,7 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics2(|this| unsafe {
@@ -160,14 +154,12 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, P0>(friendlyname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -177,7 +169,7 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>>
     where
@@ -270,13 +262,12 @@ unsafe impl ::core::marker::Sync for PwmController {}
 #[repr(transparent)]
 pub struct PwmPin(::windows::core::IUnknown);
 impl PwmPin {
-    #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Controller(&self) -> ::windows::core::Result<PwmController> {
         let this = self;
         unsafe {
@@ -284,7 +275,6 @@ impl PwmPin {
             (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PwmController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn GetActiveDutyCyclePercentage(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -292,12 +282,10 @@ impl PwmPin {
             (::windows::core::Interface::vtable(this).GetActiveDutyCyclePercentage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn SetActiveDutyCyclePercentage(&self, dutycyclepercentage: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetActiveDutyCyclePercentage)(::windows::core::Interface::as_raw(this), dutycyclepercentage).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Polarity(&self) -> ::windows::core::Result<PwmPulsePolarity> {
         let this = self;
         unsafe {
@@ -305,22 +293,18 @@ impl PwmPin {
             (::windows::core::Interface::vtable(this).Polarity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PwmPulsePolarity>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn SetPolarity(&self, value: PwmPulsePolarity) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPolarity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn IsStarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {

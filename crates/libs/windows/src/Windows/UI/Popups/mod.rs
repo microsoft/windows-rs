@@ -74,7 +74,6 @@ pub struct IPopupMenu_Vtbl {
 #[repr(transparent)]
 pub struct IUICommand(::windows::core::IUnknown);
 impl IUICommand {
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -82,7 +81,6 @@ impl IUICommand {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -90,7 +88,6 @@ impl IUICommand {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -98,7 +95,6 @@ impl IUICommand {
             (::windows::core::Interface::vtable(this).Invoked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UICommandInvokedHandler>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetInvoked<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
@@ -106,7 +102,6 @@ impl IUICommand {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInvoked)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -114,7 +109,6 @@ impl IUICommand {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
@@ -210,7 +204,6 @@ pub struct IUICommandFactory_Vtbl {
 #[repr(transparent)]
 pub struct MessageDialog(::windows::core::IUnknown);
 impl MessageDialog {
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -218,7 +211,6 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetTitle<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -226,7 +218,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -235,7 +227,6 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Commands)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn DefaultCommandIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -243,12 +234,10 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).DefaultCommandIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetDefaultCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDefaultCommandIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn CancelCommandIndex(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -256,12 +245,10 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).CancelCommandIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetCancelCommandIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCancelCommandIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Content(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -269,7 +256,6 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetContent<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -277,7 +263,7 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -286,7 +272,6 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).ShowAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Options(&self) -> ::windows::core::Result<MessageDialogOptions> {
         let this = self;
         unsafe {
@@ -294,12 +279,10 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Options)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MessageDialogOptions>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetOptions(&self, value: MessageDialogOptions) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Create<'a, P0>(content: P0) -> ::windows::core::Result<MessageDialog>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -309,7 +292,6 @@ impl MessageDialog {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<MessageDialog>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn CreateWithTitle<'a, P0, P1>(content: P0, title: P1) -> ::windows::core::Result<MessageDialog>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -496,7 +478,7 @@ impl PopupMenu {
         static SHARED: ::windows::core::FactoryCache<PopupMenu, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -505,7 +487,7 @@ impl PopupMenu {
             (::windows::core::Interface::vtable(this).Commands)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -514,7 +496,7 @@ impl PopupMenu {
             (::windows::core::Interface::vtable(this).ShowAsync)(::windows::core::Interface::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -523,7 +505,7 @@ impl PopupMenu {
             (::windows::core::Interface::vtable(this).ShowAsyncWithRect)(::windows::core::Interface::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -604,7 +586,6 @@ impl UICommand {
         static SHARED: ::windows::core::FactoryCache<UICommand, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -612,7 +593,6 @@ impl UICommand {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -620,7 +600,6 @@ impl UICommand {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -628,7 +607,6 @@ impl UICommand {
             (::windows::core::Interface::vtable(this).Invoked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UICommandInvokedHandler>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetInvoked<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
@@ -636,7 +614,6 @@ impl UICommand {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInvoked)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -644,7 +621,6 @@ impl UICommand {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
@@ -652,7 +628,6 @@ impl UICommand {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Create<'a, P0>(label: P0) -> ::windows::core::Result<UICommand>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -662,7 +637,6 @@ impl UICommand {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), label.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn CreateWithHandler<'a, P0, P1>(label: P0, action: P1) -> ::windows::core::Result<UICommand>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -673,7 +647,6 @@ impl UICommand {
             (::windows::core::Interface::vtable(this).CreateWithHandler)(::windows::core::Interface::as_raw(this), label.into().abi(), action.into().abi(), result__.as_mut_ptr()).from_abi::<UICommand>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn CreateWithHandlerAndId<'a, P0, P1, P2>(label: P0, action: P1, commandid: P2) -> ::windows::core::Result<UICommand>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -780,7 +753,6 @@ impl UICommandInvokedHandler {
         let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Invoke<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IUICommand>, Error = E0>,
@@ -872,7 +844,6 @@ impl UICommandSeparator {
         static SHARED: ::windows::core::FactoryCache<UICommandSeparator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -880,7 +851,6 @@ impl UICommandSeparator {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetLabel<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -888,7 +858,6 @@ impl UICommandSeparator {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLabel)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler> {
         let this = self;
         unsafe {
@@ -896,7 +865,6 @@ impl UICommandSeparator {
             (::windows::core::Interface::vtable(this).Invoked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UICommandInvokedHandler>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetInvoked<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, UICommandInvokedHandler>>,
@@ -904,7 +872,6 @@ impl UICommandSeparator {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInvoked)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -912,7 +879,6 @@ impl UICommandSeparator {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Popups\"`*"]
     pub fn SetId<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,

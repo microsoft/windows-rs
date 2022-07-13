@@ -51,7 +51,6 @@ pub struct IPreviewBuildsState_Vtbl {
 #[repr(transparent)]
 pub struct PreviewBuildsManager(::windows::core::IUnknown);
 impl PreviewBuildsManager {
-    #[doc = "*Required features: `\"Management_Update\"`*"]
     pub fn ArePreviewBuildsAllowed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -59,12 +58,10 @@ impl PreviewBuildsManager {
             (::windows::core::Interface::vtable(this).ArePreviewBuildsAllowed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Management_Update\"`*"]
     pub fn SetArePreviewBuildsAllowed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetArePreviewBuildsAllowed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Management_Update\"`*"]
     pub fn GetCurrentState(&self) -> ::windows::core::Result<PreviewBuildsState> {
         let this = self;
         unsafe {
@@ -72,7 +69,7 @@ impl PreviewBuildsManager {
             (::windows::core::Interface::vtable(this).GetCurrentState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PreviewBuildsState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Management_Update\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -81,14 +78,12 @@ impl PreviewBuildsManager {
             (::windows::core::Interface::vtable(this).SyncAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Management_Update\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<PreviewBuildsManager> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PreviewBuildsManager>(result__)
         })
     }
-    #[doc = "*Required features: `\"Management_Update\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -167,7 +162,7 @@ unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 #[repr(transparent)]
 pub struct PreviewBuildsState(::windows::core::IUnknown);
 impl PreviewBuildsState {
-    #[doc = "*Required features: `\"Management_Update\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;

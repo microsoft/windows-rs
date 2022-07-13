@@ -102,7 +102,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
 #[repr(transparent)]
 pub struct WalletItemSystemStore(::windows::core::IUnknown);
 impl WalletItemSystemStore {
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
         let this = self;
@@ -111,7 +111,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).GetItemsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync<'a, P0>(&self, item: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -123,7 +123,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ImportItemAsync<'a, P0, E0>(&self, stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>
     where
@@ -136,7 +136,6 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).ImportItemAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
     pub fn GetAppStatusForItem<'a, P0>(&self, item: P0) -> ::windows::core::Result<WalletItemAppAssociation>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::WalletItem>>,
@@ -147,7 +146,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).GetAppStatusForItem)(::windows::core::Interface::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<WalletItemAppAssociation>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchAppForItemAsync<'a, P0>(&self, item: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -159,7 +158,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).LaunchAppForItemAsync)(::windows::core::Interface::as_raw(this), item.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -171,7 +170,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).ItemsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemsChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWalletItemSystemStore2>(self)?;
@@ -243,7 +242,7 @@ unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
 pub struct WalletManagerSystem;
 impl WalletManagerSystem {
-    #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>> {
         Self::IWalletManagerSystemStatics(|this| unsafe {

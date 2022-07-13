@@ -8,7 +8,6 @@ pub mod TraceReporting;
 #[repr(transparent)]
 pub struct DiagnosticActionResult(::windows::core::IUnknown);
 impl DiagnosticActionResult {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -16,7 +15,7 @@ impl DiagnosticActionResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Results(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -131,7 +130,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
 #[repr(transparent)]
 pub struct DiagnosticInvoker(::windows::core::IUnknown);
 impl DiagnosticInvoker {
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Data_Json\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
     pub fn RunDiagnosticActionAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
@@ -143,7 +142,7 @@ impl DiagnosticInvoker {
             (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RunDiagnosticActionFromStringAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
@@ -155,14 +154,12 @@ impl DiagnosticInvoker {
             (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<DiagnosticInvoker>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
@@ -172,7 +169,6 @@ impl DiagnosticInvoker {
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -591,7 +587,6 @@ pub struct ISystemMemoryUsageReport_Vtbl {
 #[repr(transparent)]
 pub struct ProcessCpuUsage(::windows::core::IUnknown);
 impl ProcessCpuUsage {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetReport(&self) -> ::windows::core::Result<ProcessCpuUsageReport> {
         let this = self;
         unsafe {
@@ -666,7 +661,7 @@ unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[repr(transparent)]
 pub struct ProcessCpuUsageReport(::windows::core::IUnknown);
 impl ProcessCpuUsageReport {
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -675,7 +670,7 @@ impl ProcessCpuUsageReport {
             (::windows::core::Interface::vtable(this).KernelTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -751,7 +746,6 @@ unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[repr(transparent)]
 pub struct ProcessDiagnosticInfo(::windows::core::IUnknown);
 impl ProcessDiagnosticInfo {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn ProcessId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -759,7 +753,6 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).ProcessId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -767,7 +760,6 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).ExecutableFileName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn Parent(&self) -> ::windows::core::Result<ProcessDiagnosticInfo> {
         let this = self;
         unsafe {
@@ -775,7 +767,7 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProcessDiagnosticInfo>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProcessStartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -784,7 +776,6 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).ProcessStartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn DiskUsage(&self) -> ::windows::core::Result<ProcessDiskUsage> {
         let this = self;
         unsafe {
@@ -792,7 +783,6 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).DiskUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProcessDiskUsage>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn MemoryUsage(&self) -> ::windows::core::Result<ProcessMemoryUsage> {
         let this = self;
         unsafe {
@@ -800,7 +790,6 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).MemoryUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProcessMemoryUsage>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn CpuUsage(&self) -> ::windows::core::Result<ProcessCpuUsage> {
         let this = self;
         unsafe {
@@ -808,7 +797,7 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).CpuUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProcessCpuUsage>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppDiagnosticInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
         let this = &::windows::core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
@@ -817,7 +806,6 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).GetAppDiagnosticInfos)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn IsPackaged(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
@@ -825,7 +813,7 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).IsPackaged)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetForProcesses() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
@@ -833,14 +821,12 @@ impl ProcessDiagnosticInfo {
             (::windows::core::Interface::vtable(this).GetForProcesses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetForCurrentProcess() -> ::windows::core::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForCurrentProcess)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProcessDiagnosticInfo>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn TryGetForProcessId(processid: u32) -> ::windows::core::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -924,7 +910,6 @@ unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[repr(transparent)]
 pub struct ProcessDiskUsage(::windows::core::IUnknown);
 impl ProcessDiskUsage {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetReport(&self) -> ::windows::core::Result<ProcessDiskUsageReport> {
         let this = self;
         unsafe {
@@ -999,7 +984,6 @@ unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[repr(transparent)]
 pub struct ProcessDiskUsageReport(::windows::core::IUnknown);
 impl ProcessDiskUsageReport {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn ReadOperationCount(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1007,7 +991,6 @@ impl ProcessDiskUsageReport {
             (::windows::core::Interface::vtable(this).ReadOperationCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn WriteOperationCount(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1015,7 +998,6 @@ impl ProcessDiskUsageReport {
             (::windows::core::Interface::vtable(this).WriteOperationCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn OtherOperationCount(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1023,7 +1005,6 @@ impl ProcessDiskUsageReport {
             (::windows::core::Interface::vtable(this).OtherOperationCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn BytesReadCount(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1031,7 +1012,6 @@ impl ProcessDiskUsageReport {
             (::windows::core::Interface::vtable(this).BytesReadCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn BytesWrittenCount(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1039,7 +1019,6 @@ impl ProcessDiskUsageReport {
             (::windows::core::Interface::vtable(this).BytesWrittenCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn OtherBytesCount(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1114,7 +1093,6 @@ unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[repr(transparent)]
 pub struct ProcessMemoryUsage(::windows::core::IUnknown);
 impl ProcessMemoryUsage {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetReport(&self) -> ::windows::core::Result<ProcessMemoryUsageReport> {
         let this = self;
         unsafe {
@@ -1189,7 +1167,6 @@ unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[repr(transparent)]
 pub struct ProcessMemoryUsageReport(::windows::core::IUnknown);
 impl ProcessMemoryUsageReport {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn NonPagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1197,7 +1174,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).NonPagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PageFaultCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1205,7 +1181,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PageFaultCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PageFileSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1213,7 +1188,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PageFileSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1221,7 +1195,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PeakNonPagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1229,7 +1202,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PeakNonPagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PeakPageFileSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1237,7 +1209,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PeakPageFileSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PeakPagedPoolSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1245,7 +1216,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PeakPagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PeakVirtualMemorySizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1253,7 +1223,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PeakVirtualMemorySizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PeakWorkingSetSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1261,7 +1230,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PeakWorkingSetSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PrivatePageCount(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1269,7 +1237,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).PrivatePageCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn VirtualMemorySizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1277,7 +1244,6 @@ impl ProcessMemoryUsageReport {
             (::windows::core::Interface::vtable(this).VirtualMemorySizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn WorkingSetSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1352,7 +1318,6 @@ unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[repr(transparent)]
 pub struct SystemCpuUsage(::windows::core::IUnknown);
 impl SystemCpuUsage {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetReport(&self) -> ::windows::core::Result<SystemCpuUsageReport> {
         let this = self;
         unsafe {
@@ -1427,7 +1392,7 @@ unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[repr(transparent)]
 pub struct SystemCpuUsageReport(::windows::core::IUnknown);
 impl SystemCpuUsageReport {
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1436,7 +1401,7 @@ impl SystemCpuUsageReport {
             (::windows::core::Interface::vtable(this).KernelTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1445,7 +1410,7 @@ impl SystemCpuUsageReport {
             (::windows::core::Interface::vtable(this).UserTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IdleTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1521,7 +1486,6 @@ unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[repr(transparent)]
 pub struct SystemDiagnosticInfo(::windows::core::IUnknown);
 impl SystemDiagnosticInfo {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn MemoryUsage(&self) -> ::windows::core::Result<SystemMemoryUsage> {
         let this = self;
         unsafe {
@@ -1529,7 +1493,6 @@ impl SystemDiagnosticInfo {
             (::windows::core::Interface::vtable(this).MemoryUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemMemoryUsage>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn CpuUsage(&self) -> ::windows::core::Result<SystemCpuUsage> {
         let this = self;
         unsafe {
@@ -1537,21 +1500,18 @@ impl SystemDiagnosticInfo {
             (::windows::core::Interface::vtable(this).CpuUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemCpuUsage>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetForCurrentSystem() -> ::windows::core::Result<SystemDiagnosticInfo> {
         Self::ISystemDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForCurrentSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemDiagnosticInfo>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> ::windows::core::Result<bool> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
             (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PreferredArchitecture() -> ::windows::core::Result<super::ProcessorArchitecture> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::ProcessorArchitecture>::zeroed();
@@ -1635,7 +1595,6 @@ unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[repr(transparent)]
 pub struct SystemMemoryUsage(::windows::core::IUnknown);
 impl SystemMemoryUsage {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetReport(&self) -> ::windows::core::Result<SystemMemoryUsageReport> {
         let this = self;
         unsafe {
@@ -1710,7 +1669,6 @@ unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[repr(transparent)]
 pub struct SystemMemoryUsageReport(::windows::core::IUnknown);
 impl SystemMemoryUsageReport {
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn TotalPhysicalSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1718,7 +1676,6 @@ impl SystemMemoryUsageReport {
             (::windows::core::Interface::vtable(this).TotalPhysicalSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn AvailableSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -1726,7 +1683,6 @@ impl SystemMemoryUsageReport {
             (::windows::core::Interface::vtable(this).AvailableSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn CommittedSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {

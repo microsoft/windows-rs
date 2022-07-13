@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct HidBooleanControl(::windows::core::IUnknown);
 impl HidBooleanControl {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -10,7 +9,6 @@ impl HidBooleanControl {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -18,7 +16,6 @@ impl HidBooleanControl {
             (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -26,7 +23,6 @@ impl HidBooleanControl {
             (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -34,12 +30,10 @@ impl HidBooleanControl {
             (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn SetIsActive(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsActive)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ControlDescription(&self) -> ::windows::core::Result<HidBooleanControlDescription> {
         let this = self;
         unsafe {
@@ -114,7 +108,6 @@ unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[repr(transparent)]
 pub struct HidBooleanControlDescription(::windows::core::IUnknown);
 impl HidBooleanControlDescription {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -122,7 +115,6 @@ impl HidBooleanControlDescription {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ReportId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -130,7 +122,6 @@ impl HidBooleanControlDescription {
             (::windows::core::Interface::vtable(this).ReportId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ReportType(&self) -> ::windows::core::Result<HidReportType> {
         let this = self;
         unsafe {
@@ -138,7 +129,6 @@ impl HidBooleanControlDescription {
             (::windows::core::Interface::vtable(this).ReportType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HidReportType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -146,7 +136,6 @@ impl HidBooleanControlDescription {
             (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -154,7 +143,7 @@ impl HidBooleanControlDescription {
             (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ParentCollections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
         let this = self;
@@ -163,7 +152,6 @@ impl HidBooleanControlDescription {
             (::windows::core::Interface::vtable(this).ParentCollections)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidCollection>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn IsAbsolute(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IHidBooleanControlDescription2>(self)?;
         unsafe {
@@ -238,7 +226,6 @@ unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[repr(transparent)]
 pub struct HidCollection(::windows::core::IUnknown);
 impl HidCollection {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -246,7 +233,6 @@ impl HidCollection {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<HidCollectionType> {
         let this = self;
         unsafe {
@@ -254,7 +240,6 @@ impl HidCollection {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HidCollectionType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsagePage(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -262,7 +247,6 @@ impl HidCollection {
             (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsageId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -377,13 +361,12 @@ unsafe impl ::windows::core::RuntimeType for HidCollectionType {
 #[repr(transparent)]
 pub struct HidDevice(::windows::core::IUnknown);
 impl HidDevice {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn VendorId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -391,7 +374,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).VendorId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ProductId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -399,7 +381,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Version(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -407,7 +388,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -415,7 +395,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -423,7 +402,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetInputReportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidInputReport>> {
         let this = self;
@@ -432,7 +411,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).GetInputReportAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidInputReport>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetInputReportByIdAsync(&self, reportid: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidInputReport>> {
         let this = self;
@@ -441,7 +420,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).GetInputReportByIdAsync)(::windows::core::Interface::as_raw(this), reportid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidInputReport>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFeatureReportAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>> {
         let this = self;
@@ -450,7 +429,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).GetFeatureReportAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFeatureReportByIdAsync(&self, reportid: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidFeatureReport>> {
         let this = self;
@@ -459,7 +438,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).GetFeatureReportByIdAsync)(::windows::core::Interface::as_raw(this), reportid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HidFeatureReport>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn CreateOutputReport(&self) -> ::windows::core::Result<HidOutputReport> {
         let this = self;
         unsafe {
@@ -467,7 +445,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).CreateOutputReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HidOutputReport>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn CreateOutputReportById(&self, reportid: u16) -> ::windows::core::Result<HidOutputReport> {
         let this = self;
         unsafe {
@@ -475,7 +452,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).CreateOutputReportById)(::windows::core::Interface::as_raw(this), reportid, result__.as_mut_ptr()).from_abi::<HidOutputReport>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn CreateFeatureReport(&self) -> ::windows::core::Result<HidFeatureReport> {
         let this = self;
         unsafe {
@@ -483,7 +459,6 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).CreateFeatureReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HidFeatureReport>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn CreateFeatureReportById(&self, reportid: u16) -> ::windows::core::Result<HidFeatureReport> {
         let this = self;
         unsafe {
@@ -491,7 +466,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).CreateFeatureReportById)(::windows::core::Interface::as_raw(this), reportid, result__.as_mut_ptr()).from_abi::<HidFeatureReport>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SendOutputReportAsync<'a, P0>(&self, outputreport: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -503,7 +478,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).SendOutputReportAsync)(::windows::core::Interface::as_raw(this), outputreport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SendFeatureReportAsync<'a, P0>(&self, featurereport: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -515,7 +490,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).SendFeatureReportAsync)(::windows::core::Interface::as_raw(this), featurereport.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
         let this = self;
@@ -524,7 +499,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
         let this = self;
@@ -533,7 +508,7 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).GetNumericControlDescriptions)(::windows::core::Interface::as_raw(this), reporttype, usagepage, usageid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InputReportReceived<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -545,27 +520,25 @@ impl HidDevice {
             (::windows::core::Interface::vtable(this).InputReportReceived)(::windows::core::Interface::as_raw(this), reporthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputReportReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveInputReportReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetDeviceSelector(usagepage: u16, usageid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetDeviceSelectorVidPid(usagepage: u16, usageid: u16, vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorVidPid)(::windows::core::Interface::as_raw(this), usagepage, usageid, vendorid, productid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn FromIdAsync<'a, P0>(deviceid: P0, accessmode: super::super::Storage::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HidDevice>>
     where
@@ -670,7 +643,6 @@ unsafe impl ::core::marker::Sync for HidDevice {}
 #[repr(transparent)]
 pub struct HidFeatureReport(::windows::core::IUnknown);
 impl HidFeatureReport {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -678,7 +650,7 @@ impl HidFeatureReport {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -687,7 +659,7 @@ impl HidFeatureReport {
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -697,7 +669,6 @@ impl HidFeatureReport {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
@@ -705,7 +676,6 @@ impl HidFeatureReport {
             (::windows::core::Interface::vtable(this).GetBooleanControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
@@ -716,7 +686,6 @@ impl HidFeatureReport {
             (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
@@ -724,7 +693,6 @@ impl HidFeatureReport {
             (::windows::core::Interface::vtable(this).GetNumericControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
@@ -802,7 +770,6 @@ unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[repr(transparent)]
 pub struct HidInputReport(::windows::core::IUnknown);
 impl HidInputReport {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -810,7 +777,7 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -819,7 +786,7 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActivatedBooleanControls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
         let this = self;
@@ -828,7 +795,7 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).ActivatedBooleanControls)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TransitionedBooleanControls(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
         let this = self;
@@ -837,7 +804,6 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).TransitionedBooleanControls)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HidBooleanControl>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
@@ -845,7 +811,6 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).GetBooleanControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
@@ -856,7 +821,6 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
@@ -864,7 +828,6 @@ impl HidInputReport {
             (::windows::core::Interface::vtable(this).GetNumericControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,
@@ -942,7 +905,6 @@ unsafe impl ::core::marker::Sync for HidInputReport {}
 #[repr(transparent)]
 pub struct HidInputReportReceivedEventArgs(::windows::core::IUnknown);
 impl HidInputReportReceivedEventArgs {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Report(&self) -> ::windows::core::Result<HidInputReport> {
         let this = self;
         unsafe {
@@ -1017,7 +979,6 @@ unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[repr(transparent)]
 pub struct HidNumericControl(::windows::core::IUnknown);
 impl HidNumericControl {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1025,7 +986,6 @@ impl HidNumericControl {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn IsGrouped(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1033,7 +993,6 @@ impl HidNumericControl {
             (::windows::core::Interface::vtable(this).IsGrouped)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1041,7 +1000,6 @@ impl HidNumericControl {
             (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1049,7 +1007,6 @@ impl HidNumericControl {
             (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1057,12 +1014,10 @@ impl HidNumericControl {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn SetValue(&self, value: i64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ScaledValue(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -1070,12 +1025,10 @@ impl HidNumericControl {
             (::windows::core::Interface::vtable(this).ScaledValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn SetScaledValue(&self, value: i64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaledValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ControlDescription(&self) -> ::windows::core::Result<HidNumericControlDescription> {
         let this = self;
         unsafe {
@@ -1150,7 +1103,6 @@ unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[repr(transparent)]
 pub struct HidNumericControlDescription(::windows::core::IUnknown);
 impl HidNumericControlDescription {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1158,7 +1110,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ReportId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1166,7 +1117,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).ReportId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ReportType(&self) -> ::windows::core::Result<HidReportType> {
         let this = self;
         unsafe {
@@ -1174,7 +1124,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).ReportType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HidReportType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ReportSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1182,7 +1131,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).ReportSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn ReportCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1190,7 +1138,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).ReportCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsagePage(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1198,7 +1145,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).UsagePage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UsageId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1206,7 +1152,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).UsageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn LogicalMinimum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1214,7 +1159,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).LogicalMinimum)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn LogicalMaximum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1222,7 +1166,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).LogicalMaximum)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn PhysicalMinimum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1230,7 +1173,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).PhysicalMinimum)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn PhysicalMaximum(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1238,7 +1180,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).PhysicalMaximum)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn UnitExponent(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1246,7 +1187,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).UnitExponent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Unit(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1254,7 +1194,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn IsAbsolute(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1262,7 +1201,6 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).IsAbsolute)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn HasNull(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1270,7 +1208,7 @@ impl HidNumericControlDescription {
             (::windows::core::Interface::vtable(this).HasNull)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ParentCollections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
         let this = self;
@@ -1346,7 +1284,6 @@ unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[repr(transparent)]
 pub struct HidOutputReport(::windows::core::IUnknown);
 impl HidOutputReport {
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1354,7 +1291,7 @@ impl HidOutputReport {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1363,7 +1300,7 @@ impl HidOutputReport {
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1373,7 +1310,6 @@ impl HidOutputReport {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidBooleanControl> {
         let this = self;
         unsafe {
@@ -1381,7 +1317,6 @@ impl HidOutputReport {
             (::windows::core::Interface::vtable(this).GetBooleanControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetBooleanControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidBooleanControl>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HidBooleanControlDescription>>,
@@ -1392,7 +1327,6 @@ impl HidOutputReport {
             (::windows::core::Interface::vtable(this).GetBooleanControlByDescription)(::windows::core::Interface::as_raw(this), controldescription.into().abi(), result__.as_mut_ptr()).from_abi::<HidBooleanControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<HidNumericControl> {
         let this = self;
         unsafe {
@@ -1400,7 +1334,6 @@ impl HidOutputReport {
             (::windows::core::Interface::vtable(this).GetNumericControl)(::windows::core::Interface::as_raw(this), usagepage, usageid, result__.as_mut_ptr()).from_abi::<HidNumericControl>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
     pub fn GetNumericControlByDescription<'a, P0>(&self, controldescription: P0) -> ::windows::core::Result<HidNumericControl>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HidNumericControlDescription>>,

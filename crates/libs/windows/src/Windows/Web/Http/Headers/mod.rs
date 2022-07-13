@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct HttpCacheDirectiveHeaderValueCollection(::windows::core::IUnknown);
 impl HttpCacheDirectiveHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxAge(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -11,7 +11,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).MaxAge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxAge<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -21,7 +21,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxAge)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxStale(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -30,7 +30,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).MaxStale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxStale<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -40,7 +40,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxStale)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinFresh(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -49,7 +49,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).MinFresh)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMinFresh<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -59,7 +59,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMinFresh)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SharedMaxAge(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -68,7 +68,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).SharedMaxAge)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSharedMaxAge<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -78,7 +78,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSharedMaxAge)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -86,7 +85,6 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -97,7 +95,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpNameValueHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>>(self)?;
@@ -106,7 +104,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -115,7 +113,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpNameValueHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -124,7 +122,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -133,7 +131,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpNameValueHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -142,7 +140,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -154,7 +152,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -163,7 +161,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -172,13 +170,13 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -187,19 +185,19 @@ impl HttpCacheDirectiveHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpNameValueHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -208,7 +206,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpNameValueHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(self)?;
@@ -363,7 +361,7 @@ unsafe impl ::core::marker::Sync for HttpCacheDirectiveHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValue(::windows::core::IUnknown);
 impl HttpChallengeHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -372,7 +370,6 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Scheme(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -380,7 +377,6 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).Scheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -388,7 +384,6 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromScheme<'a, P0>(scheme: P0) -> ::windows::core::Result<HttpChallengeHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -398,7 +393,6 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromScheme)(::windows::core::Interface::as_raw(this), scheme.into().abi(), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromSchemeWithToken<'a, P0, P1>(scheme: P0, token: P1) -> ::windows::core::Result<HttpChallengeHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -409,7 +403,6 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromSchemeWithToken)(::windows::core::Interface::as_raw(this), scheme.into().abi(), token.into().abi(), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpChallengeHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -419,7 +412,6 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, challengeheadervalue: &mut ::core::option::Option<HttpChallengeHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -429,7 +421,7 @@ impl HttpChallengeHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), challengeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -537,7 +529,6 @@ unsafe impl ::core::marker::Sync for HttpChallengeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValueCollection(::windows::core::IUnknown);
 impl HttpChallengeHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -545,7 +536,6 @@ impl HttpChallengeHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -556,7 +546,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpChallengeHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>>(self)?;
@@ -565,7 +555,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpChallengeHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -574,7 +564,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpChallengeHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -583,7 +573,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -592,7 +582,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpChallengeHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -601,7 +591,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpChallengeHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -613,7 +603,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -622,7 +612,7 @@ impl HttpChallengeHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -631,13 +621,13 @@ impl HttpChallengeHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -646,19 +636,19 @@ impl HttpChallengeHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpChallengeHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -667,7 +657,7 @@ impl HttpChallengeHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpChallengeHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpChallengeHeaderValue>>(self)?;
@@ -822,7 +812,6 @@ unsafe impl ::core::marker::Sync for HttpChallengeHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValue(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -830,7 +819,6 @@ impl HttpConnectionOptionHeaderValue {
             (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Create<'a, P0>(token: P0) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -840,7 +828,6 @@ impl HttpConnectionOptionHeaderValue {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), token.into().abi(), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpConnectionOptionHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -850,7 +837,6 @@ impl HttpConnectionOptionHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, connectionoptionheadervalue: &mut ::core::option::Option<HttpConnectionOptionHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -860,7 +846,7 @@ impl HttpConnectionOptionHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), connectionoptionheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -968,7 +954,6 @@ unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValue {}
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValueCollection(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -976,7 +961,6 @@ impl HttpConnectionOptionHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -987,7 +971,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpConnectionOptionHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>>(self)?;
@@ -996,7 +980,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpConnectionOptionHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -1005,7 +989,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpConnectionOptionHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -1014,7 +998,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -1023,7 +1007,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpConnectionOptionHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -1032,7 +1016,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpConnectionOptionHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -1044,7 +1028,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -1053,7 +1037,7 @@ impl HttpConnectionOptionHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -1062,13 +1046,13 @@ impl HttpConnectionOptionHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1077,19 +1061,19 @@ impl HttpConnectionOptionHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpConnectionOptionHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -1098,7 +1082,7 @@ impl HttpConnectionOptionHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpConnectionOptionHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>>(self)?;
@@ -1253,7 +1237,6 @@ unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValueCollection {
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValue(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentCoding(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1261,7 +1244,6 @@ impl HttpContentCodingHeaderValue {
             (::windows::core::Interface::vtable(this).ContentCoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Create<'a, P0>(contentcoding: P0) -> ::windows::core::Result<HttpContentCodingHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1271,7 +1253,6 @@ impl HttpContentCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), contentcoding.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentCodingHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1281,7 +1262,6 @@ impl HttpContentCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, contentcodingheadervalue: &mut ::core::option::Option<HttpContentCodingHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1291,7 +1271,7 @@ impl HttpContentCodingHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentcodingheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -1399,7 +1379,6 @@ unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1407,7 +1386,6 @@ impl HttpContentCodingHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1418,7 +1396,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpContentCodingHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>>(self)?;
@@ -1427,7 +1405,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpContentCodingHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -1436,7 +1414,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpContentCodingHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -1445,7 +1423,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -1454,7 +1432,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpContentCodingHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -1463,7 +1441,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpContentCodingHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -1475,7 +1453,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -1484,7 +1462,7 @@ impl HttpContentCodingHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -1493,13 +1471,13 @@ impl HttpContentCodingHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1508,19 +1486,19 @@ impl HttpContentCodingHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpContentCodingHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -1529,7 +1507,7 @@ impl HttpContentCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpContentCodingHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingHeaderValue>>(self)?;
@@ -1684,7 +1662,6 @@ unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentCoding(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1692,7 +1669,7 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).ContentCoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Quality(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1701,7 +1678,6 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Quality)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromValue<'a, P0>(contentcoding: P0) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1711,7 +1687,6 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromValue)(::windows::core::Interface::as_raw(this), contentcoding.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromValueWithQuality<'a, P0>(contentcoding: P0, quality: f64) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1721,7 +1696,6 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromValueWithQuality)(::windows::core::Interface::as_raw(this), contentcoding.into().abi(), quality, result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1731,7 +1705,6 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, contentcodingwithqualityheadervalue: &mut ::core::option::Option<HttpContentCodingWithQualityHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1741,7 +1714,7 @@ impl HttpContentCodingWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentcodingwithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -1849,7 +1822,6 @@ unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1857,7 +1829,6 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1868,7 +1839,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpContentCodingWithQualityHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -1877,7 +1848,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpContentCodingWithQualityHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -1886,7 +1857,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -1895,7 +1866,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -1904,7 +1875,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpContentCodingWithQualityHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -1913,7 +1884,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpContentCodingWithQualityHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -1925,7 +1896,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -1934,7 +1905,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -1943,13 +1914,13 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1958,19 +1929,19 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpContentCodingWithQualityHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -1979,7 +1950,7 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpContentCodingWithQualityHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>>(self)?;
@@ -2134,7 +2105,6 @@ unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValueColl
 #[repr(transparent)]
 pub struct HttpContentDispositionHeaderValue(::windows::core::IUnknown);
 impl HttpContentDispositionHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn DispositionType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2142,7 +2112,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).DispositionType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetDispositionType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2150,7 +2119,6 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDispositionType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2158,7 +2126,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).FileName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetFileName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2166,7 +2133,6 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn FileNameStar(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2174,7 +2140,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).FileNameStar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetFileNameStar<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2182,7 +2147,6 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFileNameStar)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2190,7 +2154,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2198,7 +2161,7 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -2207,7 +2170,7 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -2216,7 +2179,7 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSize<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2226,7 +2189,6 @@ impl HttpContentDispositionHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Create<'a, P0>(dispositiontype: P0) -> ::windows::core::Result<HttpContentDispositionHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2236,7 +2198,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), dispositiontype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentDispositionHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2246,7 +2207,6 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, contentdispositionheadervalue: &mut ::core::option::Option<HttpContentDispositionHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2256,7 +2216,7 @@ impl HttpContentDispositionHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentdispositionheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -2371,7 +2331,6 @@ impl HttpContentHeaderCollection {
         static SHARED: ::windows::core::FactoryCache<HttpContentHeaderCollection, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentDisposition(&self) -> ::windows::core::Result<HttpContentDispositionHeaderValue> {
         let this = self;
         unsafe {
@@ -2379,7 +2338,6 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentDisposition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpContentDispositionHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetContentDisposition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpContentDispositionHeaderValue>>,
@@ -2387,7 +2345,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentDisposition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentEncoding(&self) -> ::windows::core::Result<HttpContentCodingHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -2395,7 +2352,6 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentEncoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpContentCodingHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentLanguage(&self) -> ::windows::core::Result<HttpLanguageHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -2403,7 +2359,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpLanguageHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentLength(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -2412,7 +2368,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentLength)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetContentLength<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2422,7 +2378,7 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentLength)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentLocation(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -2431,7 +2387,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetContentLocation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2440,7 +2396,7 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentLocation)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentMD5(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2449,7 +2405,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentMD5)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetContentMD5<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2459,7 +2415,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentMD5)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentRange(&self) -> ::windows::core::Result<HttpContentRangeHeaderValue> {
         let this = self;
         unsafe {
@@ -2467,7 +2422,6 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetContentRange<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpContentRangeHeaderValue>>,
@@ -2475,7 +2429,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentRange)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ContentType(&self) -> ::windows::core::Result<HttpMediaTypeHeaderValue> {
         let this = self;
         unsafe {
@@ -2483,7 +2436,6 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetContentType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpMediaTypeHeaderValue>>,
@@ -2491,7 +2443,7 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Expires(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -2500,7 +2452,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).Expires)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExpires<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2510,7 +2462,7 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExpires)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastModified(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -2519,7 +2471,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).LastModified)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastModified<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2529,7 +2481,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLastModified)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Append<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2538,7 +2489,6 @@ impl HttpContentHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryAppendWithoutValidation<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2550,7 +2500,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
@@ -2559,7 +2509,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -2571,7 +2521,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
@@ -2580,7 +2530,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
@@ -2592,7 +2542,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
@@ -2601,7 +2551,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
@@ -2614,7 +2564,7 @@ impl HttpContentHeaderCollection {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
@@ -2623,13 +2573,13 @@ impl HttpContentHeaderCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -2787,7 +2737,7 @@ unsafe impl ::core::marker::Sync for HttpContentHeaderCollection {}
 #[repr(transparent)]
 pub struct HttpContentRangeHeaderValue(::windows::core::IUnknown);
 impl HttpContentRangeHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FirstBytePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -2796,7 +2746,7 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).FirstBytePosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastBytePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -2805,7 +2755,7 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).LastBytePosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Length(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -2814,7 +2764,6 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Unit(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2822,7 +2771,6 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetUnit<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2830,28 +2778,24 @@ impl HttpContentRangeHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromLength(length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue> {
         Self::IHttpContentRangeHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromLength)(::windows::core::Interface::as_raw(this), length, result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromRange(from: u64, to: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue> {
         Self::IHttpContentRangeHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromRange)(::windows::core::Interface::as_raw(this), from, to, result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromRangeWithLength(from: u64, to: u64, length: u64) -> ::windows::core::Result<HttpContentRangeHeaderValue> {
         Self::IHttpContentRangeHeaderValueFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateFromRangeWithLength)(::windows::core::Interface::as_raw(this), from, to, length, result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpContentRangeHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2861,7 +2805,6 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpContentRangeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, contentrangeheadervalue: &mut ::core::option::Option<HttpContentRangeHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2871,7 +2814,7 @@ impl HttpContentRangeHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), contentrangeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -2979,7 +2922,6 @@ unsafe impl ::core::marker::Sync for HttpContentRangeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValue(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2987,7 +2929,6 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2995,7 +2936,6 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3003,7 +2943,6 @@ impl HttpCookiePairHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromName<'a, P0>(name: P0) -> ::windows::core::Result<HttpCookiePairHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3013,7 +2952,6 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromNameWithValue<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<HttpCookiePairHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3024,7 +2962,6 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpCookiePairHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3034,7 +2971,6 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, cookiepairheadervalue: &mut ::core::option::Option<HttpCookiePairHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3044,7 +2980,7 @@ impl HttpCookiePairHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), cookiepairheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -3152,7 +3088,6 @@ unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValue {}
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValueCollection(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3160,7 +3095,6 @@ impl HttpCookiePairHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3171,7 +3105,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpCookiePairHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpCookiePairHeaderValue>>(self)?;
@@ -3180,7 +3114,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpCookiePairHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -3189,7 +3123,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpCookiePairHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -3198,7 +3132,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -3207,7 +3141,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpCookiePairHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -3216,7 +3150,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpCookiePairHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -3228,7 +3162,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -3237,7 +3171,7 @@ impl HttpCookiePairHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -3246,13 +3180,13 @@ impl HttpCookiePairHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3261,19 +3195,19 @@ impl HttpCookiePairHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpCookiePairHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -3282,7 +3216,7 @@ impl HttpCookiePairHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpCookiePairHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpCookiePairHeaderValue>>(self)?;
@@ -3437,7 +3371,7 @@ unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpCredentialsHeaderValue(::windows::core::IUnknown);
 impl HttpCredentialsHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -3446,7 +3380,6 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Scheme(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3454,7 +3387,6 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).Scheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Token(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3462,7 +3394,6 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).Token)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromScheme<'a, P0>(scheme: P0) -> ::windows::core::Result<HttpCredentialsHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3472,7 +3403,6 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromScheme)(::windows::core::Interface::as_raw(this), scheme.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromSchemeWithToken<'a, P0, P1>(scheme: P0, token: P1) -> ::windows::core::Result<HttpCredentialsHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3483,7 +3413,6 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromSchemeWithToken)(::windows::core::Interface::as_raw(this), scheme.into().abi(), token.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpCredentialsHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3493,7 +3422,6 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, credentialsheadervalue: &mut ::core::option::Option<HttpCredentialsHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3503,7 +3431,7 @@ impl HttpCredentialsHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), credentialsheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -3611,7 +3539,7 @@ unsafe impl ::core::marker::Sync for HttpCredentialsHeaderValue {}
 #[repr(transparent)]
 pub struct HttpDateOrDeltaHeaderValue(::windows::core::IUnknown);
 impl HttpDateOrDeltaHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -3620,7 +3548,7 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows::core::Interface::vtable(this).Date)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Delta(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -3629,7 +3557,6 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows::core::Interface::vtable(this).Delta)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3639,7 +3566,6 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpDateOrDeltaHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, dateordeltaheadervalue: &mut ::core::option::Option<HttpDateOrDeltaHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3649,7 +3575,7 @@ impl HttpDateOrDeltaHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), dateordeltaheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -3752,7 +3678,6 @@ unsafe impl ::core::marker::Sync for HttpDateOrDeltaHeaderValue {}
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValue(::windows::core::IUnknown);
 impl HttpExpectationHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3760,7 +3685,6 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3768,7 +3692,6 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3776,7 +3699,7 @@ impl HttpExpectationHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -3785,7 +3708,6 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromName<'a, P0>(name: P0) -> ::windows::core::Result<HttpExpectationHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3795,7 +3717,6 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromNameWithValue<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<HttpExpectationHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3806,7 +3727,6 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpExpectationHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3816,7 +3736,6 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, expectationheadervalue: &mut ::core::option::Option<HttpExpectationHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3826,7 +3745,7 @@ impl HttpExpectationHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), expectationheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -3934,7 +3853,6 @@ unsafe impl ::core::marker::Sync for HttpExpectationHeaderValue {}
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValueCollection(::windows::core::IUnknown);
 impl HttpExpectationHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3942,7 +3860,6 @@ impl HttpExpectationHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3953,7 +3870,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpExpectationHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>>(self)?;
@@ -3962,7 +3879,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpExpectationHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -3971,7 +3888,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpExpectationHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -3980,7 +3897,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -3989,7 +3906,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpExpectationHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -3998,7 +3915,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpExpectationHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -4010,7 +3927,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -4019,7 +3936,7 @@ impl HttpExpectationHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -4028,13 +3945,13 @@ impl HttpExpectationHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4043,19 +3960,19 @@ impl HttpExpectationHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpExpectationHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -4064,7 +3981,7 @@ impl HttpExpectationHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpExpectationHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>>(self)?;
@@ -4219,7 +4136,6 @@ unsafe impl ::core::marker::Sync for HttpExpectationHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpLanguageHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4227,7 +4143,6 @@ impl HttpLanguageHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4238,7 +4153,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Globalization::Language>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>>(self)?;
@@ -4247,7 +4162,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Globalization::Language>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -4256,7 +4171,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::super::super::Globalization::Language> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -4265,7 +4180,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<super::super::super::Globalization::Language>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -4274,7 +4189,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Globalization::Language>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -4283,7 +4198,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Globalization::Language>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -4295,7 +4210,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -4304,7 +4219,7 @@ impl HttpLanguageHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -4313,13 +4228,13 @@ impl HttpLanguageHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4328,19 +4243,19 @@ impl HttpLanguageHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::super::super::Globalization::Language>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -4349,7 +4264,7 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<super::super::super::Globalization::Language>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
@@ -4504,7 +4419,6 @@ unsafe impl ::core::marker::Sync for HttpLanguageHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn LanguageRange(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4512,7 +4426,7 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).LanguageRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Quality(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4521,7 +4435,6 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Quality)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromLanguageRange<'a, P0>(languagerange: P0) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4531,7 +4444,6 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromLanguageRange)(::windows::core::Interface::as_raw(this), languagerange.into().abi(), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromLanguageRangeWithQuality<'a, P0>(languagerange: P0, quality: f64) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4541,7 +4453,6 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromLanguageRangeWithQuality)(::windows::core::Interface::as_raw(this), languagerange.into().abi(), quality, result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4551,7 +4462,6 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, languagerangewithqualityheadervalue: &mut ::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4561,7 +4471,7 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), languagerangewithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -4669,7 +4579,6 @@ unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4677,7 +4586,6 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4688,7 +4596,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpLanguageRangeWithQualityHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -4697,7 +4605,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpLanguageRangeWithQualityHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -4706,7 +4614,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -4715,7 +4623,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -4724,7 +4632,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpLanguageRangeWithQualityHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -4733,7 +4641,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpLanguageRangeWithQualityHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -4745,7 +4653,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -4754,7 +4662,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -4763,13 +4671,13 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4778,19 +4686,19 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -4799,7 +4707,7 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpLanguageRangeWithQualityHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>>(self)?;
@@ -4954,7 +4862,6 @@ unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValueColl
 #[repr(transparent)]
 pub struct HttpMediaTypeHeaderValue(::windows::core::IUnknown);
 impl HttpMediaTypeHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CharSet(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4962,7 +4869,6 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).CharSet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetCharSet<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4970,7 +4876,6 @@ impl HttpMediaTypeHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCharSet)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4978,7 +4883,6 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).MediaType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4986,7 +4890,7 @@ impl HttpMediaTypeHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -4995,7 +4899,6 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Create<'a, P0>(mediatype: P0) -> ::windows::core::Result<HttpMediaTypeHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5005,7 +4908,6 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), mediatype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpMediaTypeHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5015,7 +4917,6 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, mediatypeheadervalue: &mut ::core::option::Option<HttpMediaTypeHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5025,7 +4926,7 @@ impl HttpMediaTypeHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), mediatypeheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -5133,7 +5034,6 @@ unsafe impl ::core::marker::Sync for HttpMediaTypeHeaderValue {}
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CharSet(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5141,7 +5041,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CharSet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetCharSet<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5149,7 +5048,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCharSet)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn MediaType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5157,7 +5055,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).MediaType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetMediaType<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5165,7 +5062,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -5174,7 +5071,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Quality(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -5183,7 +5080,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Quality)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetQuality<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5193,7 +5090,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQuality)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromMediaType<'a, P0>(mediatype: P0) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5203,7 +5099,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromMediaType)(::windows::core::Interface::as_raw(this), mediatype.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromMediaTypeWithQuality<'a, P0>(mediatype: P0, quality: f64) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5213,7 +5108,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromMediaTypeWithQuality)(::windows::core::Interface::as_raw(this), mediatype.into().abi(), quality, result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5223,7 +5117,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, mediatypewithqualityheadervalue: &mut ::core::option::Option<HttpMediaTypeWithQualityHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5233,7 +5126,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), mediatypewithqualityheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -5341,7 +5234,6 @@ unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValue {}
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5349,7 +5241,6 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5360,7 +5251,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpMediaTypeWithQualityHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -5369,7 +5260,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpMediaTypeWithQualityHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -5378,7 +5269,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -5387,7 +5278,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -5396,7 +5287,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpMediaTypeWithQualityHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -5405,7 +5296,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpMediaTypeWithQualityHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -5417,7 +5308,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -5426,7 +5317,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -5435,13 +5326,13 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5450,19 +5341,19 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpMediaTypeWithQualityHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -5471,7 +5362,7 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpMediaTypeWithQualityHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>>(self)?;
@@ -5626,7 +5517,6 @@ unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValueCollecti
 #[repr(transparent)]
 pub struct HttpMethodHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMethodHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5634,7 +5524,6 @@ impl HttpMethodHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5645,7 +5534,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::HttpMethod>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::HttpMethod>>(self)?;
@@ -5654,7 +5543,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<super::HttpMethod>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -5663,7 +5552,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::HttpMethod> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
@@ -5672,7 +5561,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<super::HttpMethod>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
@@ -5681,7 +5570,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::HttpMethod>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
@@ -5690,7 +5579,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::HttpMethod>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -5702,7 +5591,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -5711,7 +5600,7 @@ impl HttpMethodHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -5720,13 +5609,13 @@ impl HttpMethodHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5735,19 +5624,19 @@ impl HttpMethodHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::HttpMethod>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
@@ -5756,7 +5645,7 @@ impl HttpMethodHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<super::HttpMethod>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::HttpMethod>>(self)?;
@@ -5911,7 +5800,6 @@ unsafe impl ::core::marker::Sync for HttpMethodHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpNameValueHeaderValue(::windows::core::IUnknown);
 impl HttpNameValueHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5919,7 +5807,6 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5927,7 +5814,6 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5935,7 +5821,6 @@ impl HttpNameValueHeaderValue {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromName<'a, P0>(name: P0) -> ::windows::core::Result<HttpNameValueHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5945,7 +5830,6 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromNameWithValue<'a, P0, P1>(name: P0, value: P1) -> ::windows::core::Result<HttpNameValueHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5956,7 +5840,6 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromNameWithValue)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpNameValueHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5966,7 +5849,6 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpNameValueHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, namevalueheadervalue: &mut ::core::option::Option<HttpNameValueHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -5976,7 +5858,7 @@ impl HttpNameValueHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), namevalueheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -6084,7 +5966,6 @@ unsafe impl ::core::marker::Sync for HttpNameValueHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductHeaderValue(::windows::core::IUnknown);
 impl HttpProductHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6092,7 +5973,6 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6100,7 +5980,6 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromName<'a, P0>(productname: P0) -> ::windows::core::Result<HttpProductHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6110,7 +5989,6 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromName)(::windows::core::Interface::as_raw(this), productname.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromNameWithVersion<'a, P0, P1>(productname: P0, productversion: P1) -> ::windows::core::Result<HttpProductHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6121,7 +5999,6 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromNameWithVersion)(::windows::core::Interface::as_raw(this), productname.into().abi(), productversion.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpProductHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6131,7 +6008,6 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, productheadervalue: &mut ::core::option::Option<HttpProductHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6141,7 +6017,7 @@ impl HttpProductHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), productheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -6249,7 +6125,6 @@ unsafe impl ::core::marker::Sync for HttpProductHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValue(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Product(&self) -> ::windows::core::Result<HttpProductHeaderValue> {
         let this = self;
         unsafe {
@@ -6257,7 +6132,6 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).Product)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpProductHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6265,7 +6139,6 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromComment<'a, P0>(productcomment: P0) -> ::windows::core::Result<HttpProductInfoHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6275,7 +6148,6 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromComment)(::windows::core::Interface::as_raw(this), productcomment.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CreateFromNameWithVersion<'a, P0, P1>(productname: P0, productversion: P1) -> ::windows::core::Result<HttpProductInfoHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6286,7 +6158,6 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).CreateFromNameWithVersion)(::windows::core::Interface::as_raw(this), productname.into().abi(), productversion.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpProductInfoHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6296,7 +6167,6 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, productinfoheadervalue: &mut ::core::option::Option<HttpProductInfoHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6306,7 +6176,7 @@ impl HttpProductInfoHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), productinfoheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -6414,7 +6284,6 @@ unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValue {}
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValueCollection(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6422,7 +6291,6 @@ impl HttpProductInfoHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6433,7 +6301,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpProductInfoHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>>(self)?;
@@ -6442,7 +6310,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpProductInfoHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -6451,7 +6319,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpProductInfoHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -6460,7 +6328,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -6469,7 +6337,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpProductInfoHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -6478,7 +6346,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpProductInfoHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -6490,7 +6358,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -6499,7 +6367,7 @@ impl HttpProductInfoHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -6508,13 +6376,13 @@ impl HttpProductInfoHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6523,19 +6391,19 @@ impl HttpProductInfoHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpProductInfoHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -6544,7 +6412,7 @@ impl HttpProductInfoHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpProductInfoHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>>(self)?;
@@ -6699,7 +6567,6 @@ unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValueCollection {}
 #[repr(transparent)]
 pub struct HttpRequestHeaderCollection(::windows::core::IUnknown);
 impl HttpRequestHeaderCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Accept(&self) -> ::windows::core::Result<HttpMediaTypeWithQualityHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6707,7 +6574,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Accept)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpMediaTypeWithQualityHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn AcceptEncoding(&self) -> ::windows::core::Result<HttpContentCodingWithQualityHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6715,7 +6581,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).AcceptEncoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpContentCodingWithQualityHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn AcceptLanguage(&self) -> ::windows::core::Result<HttpLanguageRangeWithQualityHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6723,7 +6588,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).AcceptLanguage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpLanguageRangeWithQualityHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Authorization(&self) -> ::windows::core::Result<HttpCredentialsHeaderValue> {
         let this = self;
         unsafe {
@@ -6731,7 +6595,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Authorization)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetAuthorization<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpCredentialsHeaderValue>>,
@@ -6739,7 +6602,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAuthorization)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CacheControl(&self) -> ::windows::core::Result<HttpCacheDirectiveHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6747,7 +6609,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).CacheControl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpCacheDirectiveHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Connection(&self) -> ::windows::core::Result<HttpConnectionOptionHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6755,7 +6616,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Cookie(&self) -> ::windows::core::Result<HttpCookiePairHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6763,7 +6623,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Cookie)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpCookiePairHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -6772,7 +6632,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Date)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6782,7 +6642,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Expect(&self) -> ::windows::core::Result<HttpExpectationHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6790,7 +6649,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Expect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpExpectationHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -6798,7 +6656,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).From)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetFrom<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6806,7 +6663,7 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Networking\"`*"]
+    #[doc = "*Required features: `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
     pub fn Host(&self) -> ::windows::core::Result<super::super::super::Networking::HostName> {
         let this = self;
@@ -6815,7 +6672,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Host)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::HostName>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Networking\"`*"]
+    #[doc = "*Required features: `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
     pub fn SetHost<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6824,7 +6681,7 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHost)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IfModifiedSince(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -6833,7 +6690,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).IfModifiedSince)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIfModifiedSince<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6843,7 +6700,7 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIfModifiedSince)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IfUnmodifiedSince(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -6852,7 +6709,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).IfUnmodifiedSince)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIfUnmodifiedSince<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6862,7 +6719,7 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIfUnmodifiedSince)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxForwards(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -6871,7 +6728,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).MaxForwards)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxForwards<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6881,7 +6738,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxForwards)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ProxyAuthorization(&self) -> ::windows::core::Result<HttpCredentialsHeaderValue> {
         let this = self;
         unsafe {
@@ -6889,7 +6745,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).ProxyAuthorization)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpCredentialsHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetProxyAuthorization<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpCredentialsHeaderValue>>,
@@ -6897,7 +6752,7 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProxyAuthorization)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Referer(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -6906,7 +6761,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Referer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetReferer<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6915,7 +6770,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReferer)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TransferEncoding(&self) -> ::windows::core::Result<HttpTransferCodingHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6923,7 +6777,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).TransferEncoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn UserAgent(&self) -> ::windows::core::Result<HttpProductInfoHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -6931,7 +6784,6 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).UserAgent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpProductInfoHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Append<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6940,7 +6792,6 @@ impl HttpRequestHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryAppendWithoutValidation<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -6952,7 +6803,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
@@ -6961,7 +6812,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -6973,7 +6824,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
@@ -6982,7 +6833,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
@@ -6994,7 +6845,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
@@ -7003,7 +6854,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
@@ -7016,7 +6867,7 @@ impl HttpRequestHeaderCollection {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
@@ -7025,13 +6876,13 @@ impl HttpRequestHeaderCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -7189,7 +7040,7 @@ unsafe impl ::core::marker::Sync for HttpRequestHeaderCollection {}
 #[repr(transparent)]
 pub struct HttpResponseHeaderCollection(::windows::core::IUnknown);
 impl HttpResponseHeaderCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Age(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -7198,7 +7049,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Age)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetAge<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -7208,7 +7059,6 @@ impl HttpResponseHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAge)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Allow(&self) -> ::windows::core::Result<HttpMethodHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -7216,7 +7066,6 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Allow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpMethodHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn CacheControl(&self) -> ::windows::core::Result<HttpCacheDirectiveHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -7224,7 +7073,6 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).CacheControl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpCacheDirectiveHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Connection(&self) -> ::windows::core::Result<HttpConnectionOptionHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -7232,7 +7080,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpConnectionOptionHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -7241,7 +7089,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Date)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -7251,7 +7099,7 @@ impl HttpResponseHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Location(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -7260,7 +7108,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLocation<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -7269,7 +7117,6 @@ impl HttpResponseHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ProxyAuthenticate(&self) -> ::windows::core::Result<HttpChallengeHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -7277,7 +7124,6 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).ProxyAuthenticate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn RetryAfter(&self) -> ::windows::core::Result<HttpDateOrDeltaHeaderValue> {
         let this = self;
         unsafe {
@@ -7285,7 +7131,6 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).RetryAfter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpDateOrDeltaHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn SetRetryAfter<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, HttpDateOrDeltaHeaderValue>>,
@@ -7293,7 +7138,6 @@ impl HttpResponseHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRetryAfter)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TransferEncoding(&self) -> ::windows::core::Result<HttpTransferCodingHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -7301,7 +7145,6 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).TransferEncoding)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn WwwAuthenticate(&self) -> ::windows::core::Result<HttpChallengeHeaderValueCollection> {
         let this = self;
         unsafe {
@@ -7309,7 +7152,6 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).WwwAuthenticate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HttpChallengeHeaderValueCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Append<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7318,7 +7160,6 @@ impl HttpResponseHeaderCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryAppendWithoutValidation<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7330,7 +7171,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).TryAppendWithoutValidation)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
@@ -7339,7 +7180,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -7351,7 +7192,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
@@ -7360,7 +7201,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
@@ -7372,7 +7213,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
@@ -7381,7 +7222,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
@@ -7394,7 +7235,7 @@ impl HttpResponseHeaderCollection {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
@@ -7403,13 +7244,13 @@ impl HttpResponseHeaderCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -7567,7 +7408,7 @@ unsafe impl ::core::marker::Sync for HttpResponseHeaderCollection {}
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValue(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValue {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Parameters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>> {
         let this = self;
@@ -7576,7 +7417,6 @@ impl HttpTransferCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Parameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -7584,7 +7424,6 @@ impl HttpTransferCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Create<'a, P0>(input: P0) -> ::windows::core::Result<HttpTransferCodingHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7594,7 +7433,6 @@ impl HttpTransferCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn Parse<'a, P0>(input: P0) -> ::windows::core::Result<HttpTransferCodingHeaderValue>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7604,7 +7442,6 @@ impl HttpTransferCodingHeaderValue {
             (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParse<'a, P0>(input: P0, transfercodingheadervalue: &mut ::core::option::Option<HttpTransferCodingHeaderValue>) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7614,7 +7451,7 @@ impl HttpTransferCodingHeaderValue {
             (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), transfercodingheadervalue as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -7722,7 +7559,6 @@ unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValue {}
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValueCollection {
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn ParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7730,7 +7566,6 @@ impl HttpTransferCodingHeaderValueCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`*"]
     pub fn TryParseAdd<'a, P0>(&self, input: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -7741,7 +7576,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<HttpTransferCodingHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<HttpTransferCodingHeaderValue>>(self)?;
@@ -7750,7 +7585,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<HttpTransferCodingHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
@@ -7759,7 +7594,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<HttpTransferCodingHeaderValue> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
@@ -7768,7 +7603,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<HttpTransferCodingHeaderValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
@@ -7777,7 +7612,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<HttpTransferCodingHeaderValue>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
@@ -7786,7 +7621,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<HttpTransferCodingHeaderValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -7798,7 +7633,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -7807,7 +7642,7 @@ impl HttpTransferCodingHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -7816,13 +7651,13 @@ impl HttpTransferCodingHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -7831,19 +7666,19 @@ impl HttpTransferCodingHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<HttpTransferCodingHeaderValue>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;
@@ -7852,7 +7687,7 @@ impl HttpTransferCodingHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<HttpTransferCodingHeaderValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>>(self)?;

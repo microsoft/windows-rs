@@ -1504,7 +1504,7 @@ pub struct IPerceptionVideoProfile_Vtbl {
 pub struct KnownCameraIntrinsicsProperties;
 #[cfg(feature = "deprecated")]
 impl KnownCameraIntrinsicsProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FocalLength() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownCameraIntrinsicsPropertiesStatics(|this| unsafe {
@@ -1512,7 +1512,7 @@ impl KnownCameraIntrinsicsProperties {
             (::windows::core::Interface::vtable(this).FocalLength)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn PrincipalPoint() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownCameraIntrinsicsPropertiesStatics(|this| unsafe {
@@ -1520,7 +1520,7 @@ impl KnownCameraIntrinsicsProperties {
             (::windows::core::Interface::vtable(this).PrincipalPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn RadialDistortion() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownCameraIntrinsicsPropertiesStatics(|this| unsafe {
@@ -1528,7 +1528,7 @@ impl KnownCameraIntrinsicsProperties {
             (::windows::core::Interface::vtable(this).RadialDistortion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TangentialDistortion() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownCameraIntrinsicsPropertiesStatics(|this| unsafe {
@@ -1552,7 +1552,7 @@ impl ::windows::core::RuntimeName for KnownCameraIntrinsicsProperties {
 pub struct KnownPerceptionColorFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionColorFrameSourceProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Exposure() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionColorFrameSourcePropertiesStatics(|this| unsafe {
@@ -1560,7 +1560,7 @@ impl KnownPerceptionColorFrameSourceProperties {
             (::windows::core::Interface::vtable(this).Exposure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AutoExposureEnabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionColorFrameSourcePropertiesStatics(|this| unsafe {
@@ -1568,7 +1568,7 @@ impl KnownPerceptionColorFrameSourceProperties {
             (::windows::core::Interface::vtable(this).AutoExposureEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ExposureCompensation() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionColorFrameSourcePropertiesStatics(|this| unsafe {
@@ -1592,7 +1592,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionColorFrameSourceProperties 
 pub struct KnownPerceptionDepthFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionDepthFrameSourceProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn MinDepth() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionDepthFrameSourcePropertiesStatics(|this| unsafe {
@@ -1600,7 +1600,7 @@ impl KnownPerceptionDepthFrameSourceProperties {
             (::windows::core::Interface::vtable(this).MinDepth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn MaxDepth() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionDepthFrameSourcePropertiesStatics(|this| unsafe {
@@ -1624,7 +1624,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionDepthFrameSourceProperties 
 pub struct KnownPerceptionFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionFrameSourceProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Id() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameSourcePropertiesStatics(|this| unsafe {
@@ -1632,7 +1632,7 @@ impl KnownPerceptionFrameSourceProperties {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn PhysicalDeviceIds() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameSourcePropertiesStatics(|this| unsafe {
@@ -1640,7 +1640,7 @@ impl KnownPerceptionFrameSourceProperties {
             (::windows::core::Interface::vtable(this).PhysicalDeviceIds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameKind() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameSourcePropertiesStatics(|this| unsafe {
@@ -1648,7 +1648,7 @@ impl KnownPerceptionFrameSourceProperties {
             (::windows::core::Interface::vtable(this).FrameKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceModelVersion() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameSourcePropertiesStatics(|this| unsafe {
@@ -1656,7 +1656,7 @@ impl KnownPerceptionFrameSourceProperties {
             (::windows::core::Interface::vtable(this).DeviceModelVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn EnclosureLocation() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameSourcePropertiesStatics(|this| unsafe {
@@ -1664,7 +1664,7 @@ impl KnownPerceptionFrameSourceProperties {
             (::windows::core::Interface::vtable(this).EnclosureLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceId() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionFrameSourcePropertiesStatics2(|this| unsafe {
@@ -1694,7 +1694,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionFrameSourceProperties {
 pub struct KnownPerceptionInfraredFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionInfraredFrameSourceProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Exposure() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1702,7 +1702,7 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).Exposure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AutoExposureEnabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1710,7 +1710,7 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).AutoExposureEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ExposureCompensation() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1718,7 +1718,7 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).ExposureCompensation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ActiveIlluminationEnabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1726,7 +1726,7 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).ActiveIlluminationEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AmbientSubtractionEnabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1734,7 +1734,7 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).AmbientSubtractionEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn StructureLightPatternEnabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1742,7 +1742,7 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).StructureLightPatternEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn InterleavedIlluminationEnabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionInfraredFrameSourcePropertiesStatics(|this| unsafe {
@@ -1766,7 +1766,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionInfraredFrameSourceProperti
 pub struct KnownPerceptionVideoFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionVideoFrameSourceProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn VideoProfile() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoFrameSourcePropertiesStatics(|this| unsafe {
@@ -1774,7 +1774,7 @@ impl KnownPerceptionVideoFrameSourceProperties {
             (::windows::core::Interface::vtable(this).VideoProfile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SupportedVideoProfiles() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoFrameSourcePropertiesStatics(|this| unsafe {
@@ -1782,7 +1782,7 @@ impl KnownPerceptionVideoFrameSourceProperties {
             (::windows::core::Interface::vtable(this).SupportedVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AvailableVideoProfiles() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoFrameSourcePropertiesStatics(|this| unsafe {
@@ -1790,7 +1790,7 @@ impl KnownPerceptionVideoFrameSourceProperties {
             (::windows::core::Interface::vtable(this).AvailableVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsMirrored() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoFrameSourcePropertiesStatics(|this| unsafe {
@@ -1798,7 +1798,7 @@ impl KnownPerceptionVideoFrameSourceProperties {
             (::windows::core::Interface::vtable(this).IsMirrored)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CameraIntrinsics() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoFrameSourcePropertiesStatics(|this| unsafe {
@@ -1822,7 +1822,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionVideoFrameSourceProperties 
 pub struct KnownPerceptionVideoProfileProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionVideoProfileProperties {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn BitmapPixelFormat() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoProfilePropertiesStatics(|this| unsafe {
@@ -1830,7 +1830,7 @@ impl KnownPerceptionVideoProfileProperties {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn BitmapAlphaMode() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoProfilePropertiesStatics(|this| unsafe {
@@ -1838,7 +1838,7 @@ impl KnownPerceptionVideoProfileProperties {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Width() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoProfilePropertiesStatics(|this| unsafe {
@@ -1846,7 +1846,7 @@ impl KnownPerceptionVideoProfileProperties {
             (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Height() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoProfilePropertiesStatics(|this| unsafe {
@@ -1854,7 +1854,7 @@ impl KnownPerceptionVideoProfileProperties {
             (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameDuration() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownPerceptionVideoProfilePropertiesStatics(|this| unsafe {
@@ -1879,13 +1879,13 @@ impl ::windows::core::RuntimeName for KnownPerceptionVideoProfileProperties {
 pub struct PerceptionColorFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrame {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Media\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame> {
         let this = self;
@@ -2000,7 +2000,7 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrame {}
 pub struct PerceptionColorFrameArrivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrameArrivedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2009,7 +2009,7 @@ impl PerceptionColorFrameArrivedEventArgs {
             (::windows::core::Interface::vtable(this).RelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TryOpenFrame(&self) -> ::windows::core::Result<PerceptionColorFrame> {
         let this = self;
@@ -2102,13 +2102,13 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrameArrivedEventArgs {}
 pub struct PerceptionColorFrameReader(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrameReader {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FrameArrived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2120,13 +2120,13 @@ impl PerceptionColorFrameReader {
             (::windows::core::Interface::vtable(this).FrameArrived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFrameArrived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Source(&self) -> ::windows::core::Result<PerceptionColorFrameSource> {
         let this = self;
@@ -2135,7 +2135,7 @@ impl PerceptionColorFrameReader {
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionColorFrameSource>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsPaused(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2144,13 +2144,13 @@ impl PerceptionColorFrameReader {
             (::windows::core::Interface::vtable(this).IsPaused)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsPaused(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPaused)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TryReadLatestFrame(&self) -> ::windows::core::Result<PerceptionColorFrame> {
         let this = self;
@@ -2265,7 +2265,7 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrameReader {}
 pub struct PerceptionColorFrameSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrameSource {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AvailableChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2277,13 +2277,13 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).AvailableChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAvailableChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ActiveChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2295,13 +2295,13 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).ActiveChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveActiveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PropertiesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2313,13 +2313,13 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).PropertiesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePropertiesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn VideoProfileChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2331,13 +2331,13 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).VideoProfileChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveVideoProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVideoProfileChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CameraIntrinsicsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2349,13 +2349,13 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).CameraIntrinsicsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveCameraIntrinsicsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCameraIntrinsicsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2364,7 +2364,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2373,7 +2373,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceKind(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2382,7 +2382,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).DeviceKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Available(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2391,7 +2391,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).Available)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Active(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2400,7 +2400,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).Active)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsControlled(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2409,7 +2409,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).IsControlled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
@@ -2418,7 +2418,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn SupportedVideoProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>> {
         let this = self;
@@ -2427,7 +2427,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).SupportedVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn AvailableVideoProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>> {
         let this = self;
@@ -2436,7 +2436,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).AvailableVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn VideoProfile(&self) -> ::windows::core::Result<PerceptionVideoProfile> {
         let this = self;
@@ -2445,7 +2445,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).VideoProfile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionVideoProfile>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Media_Devices_Core\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Devices_Core", feature = "deprecated"))]
     pub fn CameraIntrinsics(&self) -> ::windows::core::Result<super::super::Media::Devices::Core::CameraIntrinsics> {
         let this = self;
@@ -2454,7 +2454,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).CameraIntrinsics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Devices::Core::CameraIntrinsics>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AcquireControlSession(&self) -> ::windows::core::Result<PerceptionControlSession> {
         let this = self;
@@ -2463,7 +2463,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).AcquireControlSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionControlSession>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CanControlIndependentlyFrom<'a, P0>(&self, targetid: P0) -> ::windows::core::Result<bool>
     where
@@ -2475,7 +2475,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).CanControlIndependentlyFrom)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsCorrelatedWith<'a, P0>(&self, targetid: P0) -> ::windows::core::Result<bool>
     where
@@ -2487,7 +2487,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).IsCorrelatedWith)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn TryGetTransformTo<'a, P0>(&self, targetid: P0, result: &mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<bool>
     where
@@ -2499,7 +2499,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).TryGetTransformTo)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TryGetDepthCorrelatedCameraIntrinsicsAsync<'a, P0>(&self, correlateddepthframesource: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>>
     where
@@ -2511,7 +2511,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).TryGetDepthCorrelatedCameraIntrinsicsAsync)(::windows::core::Interface::as_raw(this), correlateddepthframesource.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TryGetDepthCorrelatedCoordinateMapperAsync<'a, P0, P1>(&self, targetsourceid: P0, correlateddepthframesource: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>>
     where
@@ -2524,7 +2524,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).TryGetDepthCorrelatedCoordinateMapperAsync)(::windows::core::Interface::as_raw(this), targetsourceid.into().abi(), correlateddepthframesource.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TrySetVideoProfileAsync<'a, P0, P1>(&self, controlsession: P0, profile: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>
     where
@@ -2537,7 +2537,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).TrySetVideoProfileAsync)(::windows::core::Interface::as_raw(this), controlsession.into().abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn OpenReader(&self) -> ::windows::core::Result<PerceptionColorFrameReader> {
         let this = self;
@@ -2546,7 +2546,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).OpenReader)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionColorFrameReader>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPerceptionColorFrameSource2>(self)?;
@@ -2555,7 +2555,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CreateWatcher() -> ::windows::core::Result<PerceptionColorFrameSourceWatcher> {
         Self::IPerceptionColorFrameSourceStatics(|this| unsafe {
@@ -2563,7 +2563,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionColorFrameSourceWatcher>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionColorFrameSource>>> {
         Self::IPerceptionColorFrameSourceStatics(|this| unsafe {
@@ -2571,7 +2571,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionColorFrameSource>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FromIdAsync<'a, P0>(id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionColorFrameSource>>
     where
@@ -2582,7 +2582,7 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionColorFrameSource>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>> {
         Self::IPerceptionColorFrameSourceStatics(|this| unsafe {
@@ -2680,7 +2680,7 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrameSource {}
 pub struct PerceptionColorFrameSourceAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrameSourceAddedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameSource(&self) -> ::windows::core::Result<PerceptionColorFrameSource> {
         let this = self;
@@ -2773,7 +2773,7 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceAddedEventArgs {}
 pub struct PerceptionColorFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrameSourceRemovedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameSource(&self) -> ::windows::core::Result<PerceptionColorFrameSource> {
         let this = self;
@@ -2866,7 +2866,7 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceRemovedEventArgs 
 pub struct PerceptionColorFrameSourceWatcher(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionColorFrameSourceWatcher {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2878,13 +2878,13 @@ impl PerceptionColorFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).SourceAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2896,13 +2896,13 @@ impl PerceptionColorFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).SourceRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2914,13 +2914,13 @@ impl PerceptionColorFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2932,13 +2932,13 @@ impl PerceptionColorFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Devices_Enumeration\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "deprecated"))]
     pub fn Status(&self) -> ::windows::core::Result<super::Enumeration::DeviceWatcherStatus> {
         let this = self;
@@ -2947,13 +2947,13 @@ impl PerceptionColorFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Enumeration::DeviceWatcherStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -3043,13 +3043,13 @@ unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceWatcher {}
 pub struct PerceptionControlSession(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionControlSession {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ControlLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3061,13 +3061,13 @@ impl PerceptionControlSession {
             (::windows::core::Interface::vtable(this).ControlLost)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveControlLost(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveControlLost)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TrySetPropertyAsync<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>
     where
@@ -3186,7 +3186,7 @@ unsafe impl ::core::marker::Sync for PerceptionControlSession {}
 pub struct PerceptionDepthCorrelatedCameraIntrinsics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthCorrelatedCameraIntrinsics {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectPixelAtCorrelatedDepth<'a, P0>(&self, pixelcoordinate: super::super::Foundation::Point, depthframe: P0) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3>
     where
@@ -3198,7 +3198,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
             (::windows::core::Interface::vtable(this).UnprojectPixelAtCorrelatedDepth)(::windows::core::Interface::as_raw(this), pixelcoordinate, depthframe.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectPixelsAtCorrelatedDepth<'a, P0>(&self, sourcecoordinates: &[super::super::Foundation::Point], depthframe: P0, results: &mut [super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<()>
     where
@@ -3207,7 +3207,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).UnprojectPixelsAtCorrelatedDepth)(::windows::core::Interface::as_raw(this), sourcecoordinates.len() as u32, ::core::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectRegionPixelsAtCorrelatedDepthAsync<'a, P0>(&self, region: super::super::Foundation::Rect, depthframe: P0, results: &mut [super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3219,7 +3219,7 @@ impl PerceptionDepthCorrelatedCameraIntrinsics {
             (::windows::core::Interface::vtable(this).UnprojectRegionPixelsAtCorrelatedDepthAsync)(::windows::core::Interface::as_raw(this), region, depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn UnprojectAllPixelsAtCorrelatedDepthAsync<'a, P0>(&self, depthframe: P0, results: &mut [super::super::Foundation::Numerics::Vector3]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3315,7 +3315,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthCorrelatedCameraIntrinsics {
 pub struct PerceptionDepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthCorrelatedCoordinateMapper {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn MapPixelToTarget<'a, P0>(&self, sourcepixelcoordinate: super::super::Foundation::Point, depthframe: P0) -> ::windows::core::Result<super::super::Foundation::Point>
     where
@@ -3327,7 +3327,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
             (::windows::core::Interface::vtable(this).MapPixelToTarget)(::windows::core::Interface::as_raw(this), sourcepixelcoordinate, depthframe.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn MapPixelsToTarget<'a, P0>(&self, sourcecoordinates: &[super::super::Foundation::Point], depthframe: P0, results: &mut [super::super::Foundation::Point]) -> ::windows::core::Result<()>
     where
@@ -3336,7 +3336,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).MapPixelsToTarget)(::windows::core::Interface::as_raw(this), sourcecoordinates.len() as u32, ::core::mem::transmute(sourcecoordinates.as_ptr()), depthframe.into().abi(), results.len() as u32, ::core::mem::transmute_copy(&results)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn MapRegionOfPixelsToTargetAsync<'a, P0>(&self, region: super::super::Foundation::Rect, depthframe: P0, targetcoordinates: &mut [super::super::Foundation::Point]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3348,7 +3348,7 @@ impl PerceptionDepthCorrelatedCoordinateMapper {
             (::windows::core::Interface::vtable(this).MapRegionOfPixelsToTargetAsync)(::windows::core::Interface::as_raw(this), region, depthframe.into().abi(), targetcoordinates.len() as u32, ::core::mem::transmute_copy(&targetcoordinates), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn MapAllPixelsToTargetAsync<'a, P0>(&self, depthframe: P0, targetcoordinates: &mut [super::super::Foundation::Point]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3444,13 +3444,13 @@ unsafe impl ::core::marker::Sync for PerceptionDepthCorrelatedCoordinateMapper {
 pub struct PerceptionDepthFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrame {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Media\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame> {
         let this = self;
@@ -3565,7 +3565,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrame {}
 pub struct PerceptionDepthFrameArrivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrameArrivedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -3574,7 +3574,7 @@ impl PerceptionDepthFrameArrivedEventArgs {
             (::windows::core::Interface::vtable(this).RelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TryOpenFrame(&self) -> ::windows::core::Result<PerceptionDepthFrame> {
         let this = self;
@@ -3667,13 +3667,13 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameArrivedEventArgs {}
 pub struct PerceptionDepthFrameReader(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrameReader {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FrameArrived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3685,13 +3685,13 @@ impl PerceptionDepthFrameReader {
             (::windows::core::Interface::vtable(this).FrameArrived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFrameArrived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Source(&self) -> ::windows::core::Result<PerceptionDepthFrameSource> {
         let this = self;
@@ -3700,7 +3700,7 @@ impl PerceptionDepthFrameReader {
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionDepthFrameSource>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsPaused(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -3709,13 +3709,13 @@ impl PerceptionDepthFrameReader {
             (::windows::core::Interface::vtable(this).IsPaused)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsPaused(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPaused)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TryReadLatestFrame(&self) -> ::windows::core::Result<PerceptionDepthFrame> {
         let this = self;
@@ -3830,7 +3830,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameReader {}
 pub struct PerceptionDepthFrameSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrameSource {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AvailableChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3842,13 +3842,13 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).AvailableChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAvailableChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ActiveChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3860,13 +3860,13 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).ActiveChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveActiveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PropertiesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3878,13 +3878,13 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).PropertiesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePropertiesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn VideoProfileChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3896,13 +3896,13 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).VideoProfileChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveVideoProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVideoProfileChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CameraIntrinsicsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3914,13 +3914,13 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).CameraIntrinsicsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveCameraIntrinsicsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCameraIntrinsicsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3929,7 +3929,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3938,7 +3938,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceKind(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -3947,7 +3947,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).DeviceKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Available(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -3956,7 +3956,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).Available)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Active(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -3965,7 +3965,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).Active)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsControlled(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -3974,7 +3974,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).IsControlled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
@@ -3983,7 +3983,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn SupportedVideoProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>> {
         let this = self;
@@ -3992,7 +3992,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).SupportedVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn AvailableVideoProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>> {
         let this = self;
@@ -4001,7 +4001,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).AvailableVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn VideoProfile(&self) -> ::windows::core::Result<PerceptionVideoProfile> {
         let this = self;
@@ -4010,7 +4010,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).VideoProfile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionVideoProfile>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Media_Devices_Core\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Devices_Core", feature = "deprecated"))]
     pub fn CameraIntrinsics(&self) -> ::windows::core::Result<super::super::Media::Devices::Core::CameraIntrinsics> {
         let this = self;
@@ -4019,7 +4019,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).CameraIntrinsics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Devices::Core::CameraIntrinsics>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AcquireControlSession(&self) -> ::windows::core::Result<PerceptionControlSession> {
         let this = self;
@@ -4028,7 +4028,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).AcquireControlSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionControlSession>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CanControlIndependentlyFrom<'a, P0>(&self, targetid: P0) -> ::windows::core::Result<bool>
     where
@@ -4040,7 +4040,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).CanControlIndependentlyFrom)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsCorrelatedWith<'a, P0>(&self, targetid: P0) -> ::windows::core::Result<bool>
     where
@@ -4052,7 +4052,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).IsCorrelatedWith)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn TryGetTransformTo<'a, P0>(&self, targetid: P0, result: &mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<bool>
     where
@@ -4064,7 +4064,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).TryGetTransformTo)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TryGetDepthCorrelatedCameraIntrinsicsAsync<'a, P0>(&self, target: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>>
     where
@@ -4076,7 +4076,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).TryGetDepthCorrelatedCameraIntrinsicsAsync)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TryGetDepthCorrelatedCoordinateMapperAsync<'a, P0, P1>(&self, targetid: P0, depthframesourcetomapwith: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>>
     where
@@ -4089,7 +4089,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).TryGetDepthCorrelatedCoordinateMapperAsync)(::windows::core::Interface::as_raw(this), targetid.into().abi(), depthframesourcetomapwith.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TrySetVideoProfileAsync<'a, P0, P1>(&self, controlsession: P0, profile: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>
     where
@@ -4102,7 +4102,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).TrySetVideoProfileAsync)(::windows::core::Interface::as_raw(this), controlsession.into().abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn OpenReader(&self) -> ::windows::core::Result<PerceptionDepthFrameReader> {
         let this = self;
@@ -4111,7 +4111,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).OpenReader)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionDepthFrameReader>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPerceptionDepthFrameSource2>(self)?;
@@ -4120,7 +4120,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CreateWatcher() -> ::windows::core::Result<PerceptionDepthFrameSourceWatcher> {
         Self::IPerceptionDepthFrameSourceStatics(|this| unsafe {
@@ -4128,7 +4128,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionDepthFrameSourceWatcher>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionDepthFrameSource>>> {
         Self::IPerceptionDepthFrameSourceStatics(|this| unsafe {
@@ -4136,7 +4136,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionDepthFrameSource>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FromIdAsync<'a, P0>(id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthFrameSource>>
     where
@@ -4147,7 +4147,7 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthFrameSource>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>> {
         Self::IPerceptionDepthFrameSourceStatics(|this| unsafe {
@@ -4245,7 +4245,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameSource {}
 pub struct PerceptionDepthFrameSourceAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrameSourceAddedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameSource(&self) -> ::windows::core::Result<PerceptionDepthFrameSource> {
         let this = self;
@@ -4338,7 +4338,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceAddedEventArgs {}
 pub struct PerceptionDepthFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrameSourceRemovedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameSource(&self) -> ::windows::core::Result<PerceptionDepthFrameSource> {
         let this = self;
@@ -4431,7 +4431,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceRemovedEventArgs 
 pub struct PerceptionDepthFrameSourceWatcher(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionDepthFrameSourceWatcher {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4443,13 +4443,13 @@ impl PerceptionDepthFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).SourceAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4461,13 +4461,13 @@ impl PerceptionDepthFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).SourceRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4479,13 +4479,13 @@ impl PerceptionDepthFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4497,13 +4497,13 @@ impl PerceptionDepthFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Devices_Enumeration\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "deprecated"))]
     pub fn Status(&self) -> ::windows::core::Result<super::Enumeration::DeviceWatcherStatus> {
         let this = self;
@@ -4512,13 +4512,13 @@ impl PerceptionDepthFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Enumeration::DeviceWatcherStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -4652,7 +4652,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourceAccessStatus {
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameSourcePropertiesChangedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn CollectionChange(&self) -> ::windows::core::Result<super::super::Foundation::Collections::CollectionChange> {
         let this = self;
@@ -4661,7 +4661,7 @@ impl PerceptionFrameSourcePropertiesChangedEventArgs {
             (::windows::core::Interface::vtable(this).CollectionChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::CollectionChange>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Key(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -4754,7 +4754,7 @@ unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertiesChangedEvent
 pub struct PerceptionFrameSourcePropertyChangeResult(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameSourcePropertyChangeResult {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Status(&self) -> ::windows::core::Result<PerceptionFrameSourcePropertyChangeStatus> {
         let this = self;
@@ -4763,7 +4763,7 @@ impl PerceptionFrameSourcePropertyChangeResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionFrameSourcePropertyChangeStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn NewValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
@@ -4902,13 +4902,13 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChange
 pub struct PerceptionInfraredFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrame {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Media\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media", feature = "deprecated"))]
     pub fn VideoFrame(&self) -> ::windows::core::Result<super::super::Media::VideoFrame> {
         let this = self;
@@ -5023,7 +5023,7 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrame {}
 pub struct PerceptionInfraredFrameArrivedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrameArrivedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RelativeTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -5032,7 +5032,7 @@ impl PerceptionInfraredFrameArrivedEventArgs {
             (::windows::core::Interface::vtable(this).RelativeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TryOpenFrame(&self) -> ::windows::core::Result<PerceptionInfraredFrame> {
         let this = self;
@@ -5125,13 +5125,13 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrameArrivedEventArgs {}
 pub struct PerceptionInfraredFrameReader(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrameReader {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FrameArrived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5143,13 +5143,13 @@ impl PerceptionInfraredFrameReader {
             (::windows::core::Interface::vtable(this).FrameArrived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveFrameArrived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFrameArrived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Source(&self) -> ::windows::core::Result<PerceptionInfraredFrameSource> {
         let this = self;
@@ -5158,7 +5158,7 @@ impl PerceptionInfraredFrameReader {
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionInfraredFrameSource>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsPaused(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -5167,13 +5167,13 @@ impl PerceptionInfraredFrameReader {
             (::windows::core::Interface::vtable(this).IsPaused)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsPaused(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsPaused)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TryReadLatestFrame(&self) -> ::windows::core::Result<PerceptionInfraredFrame> {
         let this = self;
@@ -5288,7 +5288,7 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrameReader {}
 pub struct PerceptionInfraredFrameSource(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrameSource {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AvailableChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5300,13 +5300,13 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).AvailableChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAvailableChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ActiveChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5318,13 +5318,13 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).ActiveChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveActiveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveActiveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PropertiesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5336,13 +5336,13 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).PropertiesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePropertiesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn VideoProfileChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5354,13 +5354,13 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).VideoProfileChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveVideoProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVideoProfileChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CameraIntrinsicsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5372,13 +5372,13 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).CameraIntrinsicsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveCameraIntrinsicsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCameraIntrinsicsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -5387,7 +5387,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -5396,7 +5396,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceKind(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -5405,7 +5405,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).DeviceKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Available(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -5414,7 +5414,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).Available)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Active(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -5423,7 +5423,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).Active)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsControlled(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -5432,7 +5432,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).IsControlled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
@@ -5441,7 +5441,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn SupportedVideoProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>> {
         let this = self;
@@ -5450,7 +5450,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).SupportedVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn AvailableVideoProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>> {
         let this = self;
@@ -5459,7 +5459,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).AvailableVideoProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PerceptionVideoProfile>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn VideoProfile(&self) -> ::windows::core::Result<PerceptionVideoProfile> {
         let this = self;
@@ -5468,7 +5468,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).VideoProfile)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionVideoProfile>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Media_Devices_Core\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Devices_Core", feature = "deprecated"))]
     pub fn CameraIntrinsics(&self) -> ::windows::core::Result<super::super::Media::Devices::Core::CameraIntrinsics> {
         let this = self;
@@ -5477,7 +5477,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).CameraIntrinsics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Devices::Core::CameraIntrinsics>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AcquireControlSession(&self) -> ::windows::core::Result<PerceptionControlSession> {
         let this = self;
@@ -5486,7 +5486,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).AcquireControlSession)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionControlSession>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CanControlIndependentlyFrom<'a, P0>(&self, targetid: P0) -> ::windows::core::Result<bool>
     where
@@ -5498,7 +5498,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).CanControlIndependentlyFrom)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsCorrelatedWith<'a, P0>(&self, targetid: P0) -> ::windows::core::Result<bool>
     where
@@ -5510,7 +5510,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).IsCorrelatedWith)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))]
     pub fn TryGetTransformTo<'a, P0>(&self, targetid: P0, result: &mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<bool>
     where
@@ -5522,7 +5522,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).TryGetTransformTo)(::windows::core::Interface::as_raw(this), targetid.into().abi(), result, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TryGetDepthCorrelatedCameraIntrinsicsAsync<'a, P0>(&self, target: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>>
     where
@@ -5534,7 +5534,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).TryGetDepthCorrelatedCameraIntrinsicsAsync)(::windows::core::Interface::as_raw(this), target.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCameraIntrinsics>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TryGetDepthCorrelatedCoordinateMapperAsync<'a, P0, P1>(&self, targetid: P0, depthframesourcetomapwith: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>>
     where
@@ -5547,7 +5547,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).TryGetDepthCorrelatedCoordinateMapperAsync)(::windows::core::Interface::as_raw(this), targetid.into().abi(), depthframesourcetomapwith.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionDepthCorrelatedCoordinateMapper>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TrySetVideoProfileAsync<'a, P0, P1>(&self, controlsession: P0, profile: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>
     where
@@ -5560,7 +5560,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).TrySetVideoProfileAsync)(::windows::core::Interface::as_raw(this), controlsession.into().abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionFrameSourcePropertyChangeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn OpenReader(&self) -> ::windows::core::Result<PerceptionInfraredFrameReader> {
         let this = self;
@@ -5569,7 +5569,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).OpenReader)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionInfraredFrameReader>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPerceptionInfraredFrameSource2>(self)?;
@@ -5578,7 +5578,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CreateWatcher() -> ::windows::core::Result<PerceptionInfraredFrameSourceWatcher> {
         Self::IPerceptionInfraredFrameSourceStatics(|this| unsafe {
@@ -5586,7 +5586,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PerceptionInfraredFrameSourceWatcher>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionInfraredFrameSource>>> {
         Self::IPerceptionInfraredFrameSourceStatics(|this| unsafe {
@@ -5594,7 +5594,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PerceptionInfraredFrameSource>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FromIdAsync<'a, P0>(id: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionInfraredFrameSource>>
     where
@@ -5605,7 +5605,7 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionInfraredFrameSource>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>> {
         Self::IPerceptionInfraredFrameSourceStatics(|this| unsafe {
@@ -5703,7 +5703,7 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSource {}
 pub struct PerceptionInfraredFrameSourceAddedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrameSourceAddedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameSource(&self) -> ::windows::core::Result<PerceptionInfraredFrameSource> {
         let this = self;
@@ -5796,7 +5796,7 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceAddedEventArgs
 pub struct PerceptionInfraredFrameSourceRemovedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrameSourceRemovedEventArgs {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn FrameSource(&self) -> ::windows::core::Result<PerceptionInfraredFrameSource> {
         let this = self;
@@ -5889,7 +5889,7 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceRemovedEventAr
 pub struct PerceptionInfraredFrameSourceWatcher(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionInfraredFrameSourceWatcher {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceAdded<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5901,13 +5901,13 @@ impl PerceptionInfraredFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).SourceAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SourceRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5919,13 +5919,13 @@ impl PerceptionInfraredFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).SourceRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSourceRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSourceRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5937,13 +5937,13 @@ impl PerceptionInfraredFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5955,13 +5955,13 @@ impl PerceptionInfraredFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Devices_Enumeration\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "deprecated"))]
     pub fn Status(&self) -> ::windows::core::Result<super::Enumeration::DeviceWatcherStatus> {
         let this = self;
@@ -5970,13 +5970,13 @@ impl PerceptionInfraredFrameSourceWatcher {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Enumeration::DeviceWatcherStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -6066,7 +6066,7 @@ unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceWatcher {}
 pub struct PerceptionVideoProfile(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PerceptionVideoProfile {
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
@@ -6075,7 +6075,7 @@ impl PerceptionVideoProfile {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::Imaging::BitmapAlphaMode> {
         let this = self;
@@ -6084,7 +6084,7 @@ impl PerceptionVideoProfile {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Imaging::BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Width(&self) -> ::windows::core::Result<i32> {
         let this = self;
@@ -6093,7 +6093,7 @@ impl PerceptionVideoProfile {
             (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Height(&self) -> ::windows::core::Result<i32> {
         let this = self;
@@ -6102,7 +6102,7 @@ impl PerceptionVideoProfile {
             (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FrameDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -6111,7 +6111,7 @@ impl PerceptionVideoProfile {
             (::windows::core::Interface::vtable(this).FrameDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsEqual<'a, P0>(&self, other: P0) -> ::windows::core::Result<bool>
     where

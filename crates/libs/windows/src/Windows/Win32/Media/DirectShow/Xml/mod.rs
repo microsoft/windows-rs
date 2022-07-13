@@ -3,7 +3,7 @@ pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::
 #[repr(transparent)]
 pub struct IXMLGraphBuilder(::windows::core::IUnknown);
 impl IXMLGraphBuilder {
-    #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn BuildFromXML<'a, P0, P1>(&self, pgraph: P0, pxml: P1) -> ::windows::core::Result<()>
     where
@@ -12,7 +12,7 @@ impl IXMLGraphBuilder {
     {
         (::windows::core::Interface::vtable(self).BuildFromXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), pxml.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
     where
@@ -20,7 +20,6 @@ impl IXMLGraphBuilder {
     {
         (::windows::core::Interface::vtable(self).SaveToXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), ::core::mem::transmute(pbstrxml)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
     pub unsafe fn BuildFromXMLFile<'a, P0, P1, P2>(&self, pgraph: P0, wszfilename: P1, wszbaseurl: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IGraphBuilder>>,

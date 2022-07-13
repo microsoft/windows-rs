@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
-    #[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
     pub unsafe fn Activate<'a, P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,

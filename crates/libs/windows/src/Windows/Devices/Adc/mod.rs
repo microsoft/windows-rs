@@ -4,7 +4,6 @@ pub mod Provider;
 #[repr(transparent)]
 pub struct AdcChannel(::windows::core::IUnknown);
 impl AdcChannel {
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn Controller(&self) -> ::windows::core::Result<AdcController> {
         let this = self;
         unsafe {
@@ -12,7 +11,6 @@ impl AdcChannel {
             (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdcController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn ReadValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -20,7 +18,6 @@ impl AdcChannel {
             (::windows::core::Interface::vtable(this).ReadValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn ReadRatio(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -28,7 +25,7 @@ impl AdcChannel {
             (::windows::core::Interface::vtable(this).ReadRatio)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -157,7 +154,6 @@ unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
 #[repr(transparent)]
 pub struct AdcController(::windows::core::IUnknown);
 impl AdcController {
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn ChannelCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -165,7 +161,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).ChannelCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn ResolutionInBits(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -173,7 +168,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).ResolutionInBits)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn MinValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -181,7 +175,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).MinValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn MaxValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -189,7 +182,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).MaxValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn ChannelMode(&self) -> ::windows::core::Result<AdcChannelMode> {
         let this = self;
         unsafe {
@@ -197,12 +189,10 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).ChannelMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdcChannelMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn SetChannelMode(&self, value: AdcChannelMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn IsChannelModeSupported(&self, channelmode: AdcChannelMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -210,7 +200,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::windows::core::Interface::as_raw(this), channelmode, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`*"]
     pub fn OpenChannel(&self, channelnumber: i32) -> ::windows::core::Result<AdcChannel> {
         let this = self;
         unsafe {
@@ -218,7 +207,7 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).OpenChannel)(::windows::core::Interface::as_raw(this), channelnumber, result__.as_mut_ptr()).from_abi::<AdcChannel>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`, `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
     where
@@ -230,7 +219,7 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_Adc\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {

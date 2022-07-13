@@ -48,7 +48,7 @@ impl ::core::default::Default for D3D11_RESOURCE_FLAGS {
 #[repr(transparent)]
 pub struct ID3D11On12Device(::windows::core::IUnknown);
 impl ID3D11On12Device {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateWrappedResource<'a, P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
@@ -57,12 +57,12 @@ impl ID3D11On12Device {
     {
         (::windows::core::Interface::vtable(self).CreateWrappedResource)(::windows::core::Interface::as_raw(self), presource12.into().abi(), ::core::mem::transmute(pflags11), instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
         (::windows::core::Interface::vtable(self).ReleaseWrappedResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ppresources.len() as _)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn AcquireWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
         (::windows::core::Interface::vtable(self).AcquireWrappedResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ppresources.len() as _)
@@ -126,7 +126,7 @@ pub struct ID3D11On12Device_Vtbl {
 #[repr(transparent)]
 pub struct ID3D11On12Device1(::windows::core::IUnknown);
 impl ID3D11On12Device1 {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateWrappedResource<'a, P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
@@ -135,17 +135,16 @@ impl ID3D11On12Device1 {
     {
         (::windows::core::Interface::vtable(self).base__.CreateWrappedResource)(::windows::core::Interface::as_raw(self), presource12.into().abi(), ::core::mem::transmute(pflags11), instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
         (::windows::core::Interface::vtable(self).base__.ReleaseWrappedResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ppresources.len() as _)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn AcquireWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
         (::windows::core::Interface::vtable(self).base__.AcquireWrappedResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ppresources.len() as _)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]
     pub unsafe fn GetD3D12Device<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -216,7 +215,7 @@ pub struct ID3D11On12Device1_Vtbl {
 #[repr(transparent)]
 pub struct ID3D11On12Device2(::windows::core::IUnknown);
 impl ID3D11On12Device2 {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateWrappedResource<'a, P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
     where
@@ -225,17 +224,16 @@ impl ID3D11On12Device2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.CreateWrappedResource)(::windows::core::Interface::as_raw(self), presource12.into().abi(), ::core::mem::transmute(pflags11), instate, outstate, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
         (::windows::core::Interface::vtable(self).base__.base__.ReleaseWrappedResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ppresources.len() as _)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn AcquireWrappedResources(&self, ppresources: &[::core::option::Option<super::Direct3D11::ID3D11Resource>]) {
         (::windows::core::Interface::vtable(self).base__.base__.AcquireWrappedResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppresources)), ppresources.len() as _)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]
     pub unsafe fn GetD3D12Device<T>(&self) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
@@ -243,7 +241,7 @@ impl ID3D11On12Device2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetD3D12Device)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn UnwrapUnderlyingResource<'a, P0, P1, T>(&self, presource11: P0, pcommandqueue: P1) -> ::windows::core::Result<T>
     where
@@ -254,7 +252,7 @@ impl ID3D11On12Device2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).UnwrapUnderlyingResource)(::windows::core::Interface::as_raw(self), presource11.into().abi(), pcommandqueue.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`, `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ReturnUnderlyingResource<'a, P0>(&self, presource11: P0, numsync: u32, psignalvalues: *const u64, ppfences: *const ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()>
     where

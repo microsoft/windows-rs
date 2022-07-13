@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct IDummyHICONIncluder(::windows::core::IUnknown);
 impl IDummyHICONIncluder {
-    #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn Dummy<'a, P0, P1>(&self, h1: P0, h2: P1) -> ::windows::core::Result<()>
     where
@@ -60,7 +60,7 @@ pub struct IDummyHICONIncluder_Vtbl {
 #[repr(transparent)]
 pub struct IThumbnailExtractor(::windows::core::IUnknown);
 impl IThumbnailExtractor {
-    #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ExtractThumbnail<'a, P0>(&self, pstg: P0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>
     where
@@ -68,7 +68,7 @@ impl IThumbnailExtractor {
     {
         (::windows::core::Interface::vtable(self).ExtractThumbnail)(::windows::core::Interface::as_raw(self), pstg.into().abi(), ullength, ulheight, ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn OnFileUpdated<'a, P0>(&self, pstg: P0) -> ::windows::core::Result<()>
     where

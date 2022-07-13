@@ -262,7 +262,7 @@ pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct UserDataTaskDataProviderConnection(::windows::core::IUnknown);
 impl UserDataTaskDataProviderConnection {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateOrUpdateTaskRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -274,13 +274,13 @@ impl UserDataTaskDataProviderConnection {
             (::windows::core::Interface::vtable(this).CreateOrUpdateTaskRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCreateOrUpdateTaskRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCreateOrUpdateTaskRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -292,13 +292,13 @@ impl UserDataTaskDataProviderConnection {
             (::windows::core::Interface::vtable(this).SyncRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSyncRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SkipOccurrenceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -310,13 +310,13 @@ impl UserDataTaskDataProviderConnection {
             (::windows::core::Interface::vtable(this).SkipOccurrenceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSkipOccurrenceRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSkipOccurrenceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CompleteTaskRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -328,13 +328,13 @@ impl UserDataTaskDataProviderConnection {
             (::windows::core::Interface::vtable(this).CompleteTaskRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleteTaskRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCompleteTaskRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteTaskRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -346,13 +346,12 @@ impl UserDataTaskDataProviderConnection {
             (::windows::core::Interface::vtable(this).DeleteTaskRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeleteTaskRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDeleteTaskRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
@@ -424,7 +423,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskDataProviderConnection {}
 #[repr(transparent)]
 pub struct UserDataTaskDataProviderTriggerDetails(::windows::core::IUnknown);
 impl UserDataTaskDataProviderTriggerDetails {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Connection(&self) -> ::windows::core::Result<UserDataTaskDataProviderConnection> {
         let this = self;
         unsafe {
@@ -499,7 +497,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskDataProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct UserDataTaskListCompleteTaskRequest(::windows::core::IUnknown);
 impl UserDataTaskListCompleteTaskRequest {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -507,7 +504,6 @@ impl UserDataTaskListCompleteTaskRequest {
             (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -515,7 +511,7 @@ impl UserDataTaskListCompleteTaskRequest {
             (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, P0>(&self, completedtaskid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -527,7 +523,7 @@ impl UserDataTaskListCompleteTaskRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), completedtaskid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -603,7 +599,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListCompleteTaskRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListCompleteTaskRequestEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<UserDataTaskListCompleteTaskRequest> {
         let this = self;
         unsafe {
@@ -611,7 +606,7 @@ impl UserDataTaskListCompleteTaskRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskListCompleteTaskRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -687,7 +682,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListCompleteTaskRequestEventArg
 #[repr(transparent)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequest(::windows::core::IUnknown);
 impl UserDataTaskListCreateOrUpdateTaskRequest {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -695,7 +689,6 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
             (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Task(&self) -> ::windows::core::Result<super::UserDataTask> {
         let this = self;
         unsafe {
@@ -703,7 +696,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
             (::windows::core::Interface::vtable(this).Task)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UserDataTask>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, P0>(&self, createdorupdateduserdatatask: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -715,7 +708,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), createdorupdateduserdatatask.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -791,7 +784,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequest {
 #[repr(transparent)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<UserDataTaskListCreateOrUpdateTaskRequest> {
         let this = self;
         unsafe {
@@ -799,7 +791,7 @@ impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskListCreateOrUpdateTaskRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -875,7 +867,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequestEv
 #[repr(transparent)]
 pub struct UserDataTaskListDeleteTaskRequest(::windows::core::IUnknown);
 impl UserDataTaskListDeleteTaskRequest {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -883,7 +874,6 @@ impl UserDataTaskListDeleteTaskRequest {
             (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -891,7 +881,7 @@ impl UserDataTaskListDeleteTaskRequest {
             (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -900,7 +890,7 @@ impl UserDataTaskListDeleteTaskRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -976,7 +966,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListDeleteTaskRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListDeleteTaskRequestEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<UserDataTaskListDeleteTaskRequest> {
         let this = self;
         unsafe {
@@ -984,7 +973,7 @@ impl UserDataTaskListDeleteTaskRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskListDeleteTaskRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1060,7 +1049,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListDeleteTaskRequestEventArgs 
 #[repr(transparent)]
 pub struct UserDataTaskListSkipOccurrenceRequest(::windows::core::IUnknown);
 impl UserDataTaskListSkipOccurrenceRequest {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1068,7 +1056,6 @@ impl UserDataTaskListSkipOccurrenceRequest {
             (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1076,7 +1063,7 @@ impl UserDataTaskListSkipOccurrenceRequest {
             (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1085,7 +1072,7 @@ impl UserDataTaskListSkipOccurrenceRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1161,7 +1148,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListSkipOccurrenceRequestEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<UserDataTaskListSkipOccurrenceRequest> {
         let this = self;
         unsafe {
@@ -1169,7 +1155,7 @@ impl UserDataTaskListSkipOccurrenceRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskListSkipOccurrenceRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1245,7 +1231,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListSkipOccurrenceRequestEventA
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManagerSyncRequest(::windows::core::IUnknown);
 impl UserDataTaskListSyncManagerSyncRequest {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn TaskListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1253,7 +1238,7 @@ impl UserDataTaskListSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).TaskListId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1262,7 +1247,7 @@ impl UserDataTaskListSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1338,7 +1323,6 @@ unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl UserDataTaskListSyncManagerSyncRequestEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<UserDataTaskListSyncManagerSyncRequest> {
         let this = self;
         unsafe {
@@ -1346,7 +1330,7 @@ impl UserDataTaskListSyncManagerSyncRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataTaskListSyncManagerSyncRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;

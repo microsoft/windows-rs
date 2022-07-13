@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct ErrorReceivedEventArgs(::windows::core::IUnknown);
 impl ErrorReceivedEventArgs {
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn Error(&self) -> ::windows::core::Result<SerialError> {
         let this = self;
         unsafe {
@@ -197,7 +196,6 @@ pub struct ISerialDeviceStatics_Vtbl {
 #[repr(transparent)]
 pub struct PinChangedEventArgs(::windows::core::IUnknown);
 impl PinChangedEventArgs {
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn PinChange(&self) -> ::windows::core::Result<SerialPinChange> {
         let this = self;
         unsafe {
@@ -272,13 +270,12 @@ unsafe impl ::core::marker::Sync for PinChangedEventArgs {}
 #[repr(transparent)]
 pub struct SerialDevice(::windows::core::IUnknown);
 impl SerialDevice {
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn BaudRate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -286,12 +283,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).BaudRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetBaudRate(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBaudRate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn BreakSignalState(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -299,12 +294,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).BreakSignalState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetBreakSignalState(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBreakSignalState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn BytesReceived(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -312,7 +305,6 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).BytesReceived)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn CarrierDetectState(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -320,7 +312,6 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).CarrierDetectState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn ClearToSendState(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -328,7 +319,6 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).ClearToSendState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn DataBits(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -336,12 +326,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).DataBits)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetDataBits(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDataBits)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn DataSetReadyState(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -349,7 +337,6 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).DataSetReadyState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn Handshake(&self) -> ::windows::core::Result<SerialHandshake> {
         let this = self;
         unsafe {
@@ -357,12 +344,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).Handshake)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SerialHandshake>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetHandshake(&self, value: SerialHandshake) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandshake)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn IsDataTerminalReadyEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -370,12 +355,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).IsDataTerminalReadyEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetIsDataTerminalReadyEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsDataTerminalReadyEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn IsRequestToSendEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -383,12 +366,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).IsRequestToSendEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetIsRequestToSendEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsRequestToSendEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn Parity(&self) -> ::windows::core::Result<SerialParity> {
         let this = self;
         unsafe {
@@ -396,12 +377,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).Parity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SerialParity>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetParity(&self, value: SerialParity) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetParity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn PortName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -409,7 +388,7 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).PortName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -418,13 +397,12 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).ReadTimeout)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetReadTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReadTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn StopBits(&self) -> ::windows::core::Result<SerialStopBitCount> {
         let this = self;
         unsafe {
@@ -432,12 +410,10 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).StopBits)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SerialStopBitCount>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn SetStopBits(&self, value: SerialStopBitCount) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBits)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn UsbVendorId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -445,7 +421,6 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).UsbVendorId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn UsbProductId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -453,7 +428,7 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).UsbProductId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -462,13 +437,13 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).WriteTimeout)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetWriteTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetWriteTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -477,7 +452,7 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -486,7 +461,7 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorReceived<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -498,13 +473,13 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).ErrorReceived)(::windows::core::Interface::as_raw(this), reporthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveErrorReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PinChanged<'a, P0>(&self, reporthandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -516,20 +491,18 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).PinChanged)(::windows::core::Interface::as_raw(this), reporthandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePinChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePinChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn GetDeviceSelectorFromPortName<'a, P0>(portname: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -539,14 +512,13 @@ impl SerialDevice {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromPortName)(::windows::core::Interface::as_raw(this), portname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
     pub fn GetDeviceSelectorFromUsbVidPid(vendorid: u16, productid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromUsbVidPid)(::windows::core::Interface::as_raw(this), vendorid, productid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Devices_SerialCommunication\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SerialDevice>>
     where
