@@ -6,27 +6,27 @@ use super::*;
 pub struct PWSTR(pub *mut u16);
 
 impl PWSTR {
-    /// Construct a new `PWSTR` from a raw pointer
+    /// Construct a new `PWSTR` from a raw pointer.
     pub const fn from_raw(ptr: *mut u16) -> Self {
         Self(ptr)
     }
 
-    /// Construct a null `PWSTR`
+    /// Construct a null `PWSTR`.
     pub fn null() -> Self {
         Self(core::ptr::null_mut())
     }
 
-    /// Returns a raw pointer to the `PWSTR`
+    /// Returns a raw pointer to the `PWSTR`.
     pub fn as_ptr(&self) -> *mut u16 {
         self.0
     }
 
-    /// Checks whether the `PWSTR` is null
+    /// Checks whether the `PWSTR` is null.
     pub fn is_null(&self) -> bool {
         self.0.is_null()
     }
 
-    /// String data without the trailing 0
+    /// String data without the trailing 0.
     ///
     /// # Safety
     ///
@@ -40,9 +40,18 @@ impl PWSTR {
     ///
     /// # Safety
     ///
-    /// See the safety information for `PWSTR::as_bytes`.
+    /// See the safety information for `PWSTR::as_wide`.
     pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf16Error> {
         String::from_utf16(self.as_wide().into())
+    }
+
+    /// Allow this string to be displayed.
+    ///
+    /// # Safety
+    ///
+    /// See the safety information for `PWSTR::as_wide`.
+    pub unsafe fn display<'a>(&'a self) -> impl core::fmt::Display + 'a {
+        Decode(move || core::char::decode_utf16(self.as_wide().iter().cloned()))
     }
 }
 

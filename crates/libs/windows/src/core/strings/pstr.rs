@@ -44,6 +44,15 @@ impl PSTR {
     pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf8Error> {
         String::from_utf8(self.as_bytes().into())
     }
+
+    /// Allow this string to be displayed.
+    ///
+    /// # Safety
+    ///
+    /// See the safety information for `PSTR::as_bytes`.
+    pub unsafe fn display<'a>(&'a self) -> impl core::fmt::Display + 'a {
+        Decode(move || std::str::from_utf8(self.as_bytes()).into_iter().flat_map(|s| s.chars().map(|s| Result::Ok(s))))
+    }
 }
 
 unsafe impl Abi for PSTR {

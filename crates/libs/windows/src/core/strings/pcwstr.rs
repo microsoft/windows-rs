@@ -44,6 +44,15 @@ impl PCWSTR {
     pub unsafe fn to_string(&self) -> core::result::Result<String, std::string::FromUtf16Error> {
         String::from_utf16(self.as_wide())
     }
+
+    /// Allow this string to be displayed.
+    ///
+    /// # Safety
+    ///
+    /// See the safety information for `PCWSTR::as_wide`.
+    pub unsafe fn display<'a>(&'a self) -> impl core::fmt::Display + 'a {
+        Decode(move || core::char::decode_utf16(self.as_wide().iter().cloned()))
+    }
 }
 
 unsafe impl Abi for PCWSTR {
