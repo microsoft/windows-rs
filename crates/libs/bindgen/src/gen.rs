@@ -886,56 +886,48 @@ impl<'a> Gen<'a> {
         let mut tokens = quote! {};
 
         for (position, param) in params.iter().enumerate() {
-            match kind {
+            let new = match kind {
                 SignatureKind::Query(query) if query.object == position => {
-                    tokens.combine(&quote! { &mut result__ as *mut _ as *mut _, });
+                    quote! { &mut result__ as *mut _ as *mut _, }
                 }
                 SignatureKind::QueryOptional(query) if query.object == position => {
-                    tokens.combine(&quote! { result__ as *mut _ as *mut _, });
+                    quote! { result__ as *mut _ as *mut _, }
                 }
                 SignatureKind::Query(query) | SignatureKind::QueryOptional(query) if query.guid == position => {
-                    tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
+                    quote! { &<T as ::windows::core::Interface>::IID, }
                 }
                 _ => {
                     let name = self.param_name(param.def);
-                    if let ArrayInfo::Fixed(fixed) = param.array_info {
-                        if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
-                            let signature = if self.reader.param_flags(param.def).output() {
+                    match param.array_info {
+                        ArrayInfo::Fixed(fixed) if fixed > 0 && self.reader.param_free_with(param.def).is_none() => {
+                            if self.reader.param_flags(param.def).output() {
                                 quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
                             } else {
                                 quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                            };
-
-                            tokens.combine(&signature);
-                            continue;
+                            }
                         }
+                        ArrayInfo::RelativeLen(_) => {
+                            if self.reader.param_flags(param.def).output() {
+                                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                            } else {
+                                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                            }
+                        }
+                        ArrayInfo::RelativePtr(relative) => {
+                            let name = self.param_name(params[relative].def);
+                            quote! { #name.len() as _, }
+                        }
+                        _ if self.reader.signature_param_is_borrowed(param) => {
+                            quote! { #name.into().abi(), }
+                        }
+                        _ if self.reader.signature_param_is_convertible(param) => {
+                            quote! { #name.into(), }
+                        }
+                        _ => quote! { ::core::mem::transmute(#name), },
                     }
-                    if let ArrayInfo::RelativeLen(_) = param.array_info {
-                        let signature = if self.reader.param_flags(param.def).output() {
-                            quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
-                        } else {
-                            quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                        };
-
-                        tokens.combine(&signature);
-                        continue;
-                    }
-                    if let ArrayInfo::RelativePtr(relative) = param.array_info {
-                        let name = self.param_name(params[relative].def);
-                        tokens.combine(&quote! { #name.len() as _, });
-                        continue;
-                    }
-                    if self.reader.signature_param_is_borrowed(param) {
-                        tokens.combine(&quote! { #name.into().abi(), });
-                        continue;
-                    }
-                    if self.reader.signature_param_is_convertible(param) {
-                        tokens.combine(&quote! { #name.into(), });
-                        continue;
-                    }
-                    tokens.combine(&quote! { ::core::mem::transmute(#name), });
                 }
-            }
+            };
+            tokens.combine(&new)
         }
 
         tokens
