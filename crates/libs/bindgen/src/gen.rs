@@ -923,6 +923,9 @@ impl<'a> Gen<'a> {
                         _ if self.reader.signature_param_is_convertible(param) => {
                             quote! { #name.into(), }
                         }
+                        _ if self.reader.signature_param_is_primitive(param) => {
+                            quote! { #name, }
+                        }
                         _ => quote! { ::core::mem::transmute(#name), },
                     }
                 }

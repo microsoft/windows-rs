@@ -1158,6 +1158,9 @@ impl<'a> Reader<'a> {
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.signature_param_maybe_generic(param) && self.type_is_convertible(&param.ty)
     }
+    pub fn signature_param_is_primitive(&self, param: &SignatureParam) -> bool {
+        self.signature_param_maybe_generic(param) && self.type_is_primitive(&param.ty)
+    }
     pub fn signature_param_is_generic(&self, param: &SignatureParam) -> bool {
         self.signature_param_maybe_generic(param) && (self.signature_param_is_borrowed(param) || self.signature_param_is_param(param) || self.signature_param_is_failible_param(param) || self.signature_param_is_convertible(param))
     }
