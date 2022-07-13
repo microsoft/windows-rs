@@ -22,19 +22,16 @@ pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
 #[repr(transparent)]
 pub struct IADesktopP2(::windows::core::IUnknown);
 impl IADesktopP2 {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn ReReadWallpaper(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReReadWallpaper)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetADObjectFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags), dwmask).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateAllDesktopSubscriptions)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn MakeDynamicChanges<'a, P0>(&self, poleobj: P0) -> ::windows::core::Result<()>
     where
@@ -94,22 +91,18 @@ pub struct IADesktopP2_Vtbl {
 #[repr(transparent)]
 pub struct IActiveDesktopP(::windows::core::IUnknown);
 impl IActiveDesktopP {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSafeMode)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn EnsureUpdateHTML(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnsureUpdateHTML)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetScheme<'a, P0>(&self, pwszschemename: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetScheme)(::windows::core::Interface::as_raw(self), pwszschemename.into(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetScheme(&self, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetScheme)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), dwflags).ok()
     }
@@ -162,7 +155,7 @@ pub struct IActiveDesktopP_Vtbl {
 #[repr(transparent)]
 pub struct IBriefcaseInitiator(::windows::core::IUnknown);
 impl IBriefcaseInitiator {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsMonikerInBriefcase<'a, P0>(&self, pmk: P0) -> ::windows::core::Result<()>
     where
@@ -219,7 +212,7 @@ pub struct IBriefcaseInitiator_Vtbl {
 #[repr(transparent)]
 pub struct IEmptyVolumeCache(::windows::core::IUnknown);
 impl IEmptyVolumeCache {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Registry\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()>
     where
@@ -228,21 +221,19 @@ impl IEmptyVolumeCache {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetSpaceUsed<'a, P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
         (::windows::core::Interface::vtable(self).GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn Purge<'a, P0>(&self, dwlspacetofree: u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
         (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
@@ -250,7 +241,6 @@ impl IEmptyVolumeCache {
     {
         (::windows::core::Interface::vtable(self).ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).Deactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -311,7 +301,7 @@ pub struct IEmptyVolumeCache_Vtbl {
 #[repr(transparent)]
 pub struct IEmptyVolumeCache2(::windows::core::IUnknown);
 impl IEmptyVolumeCache2 {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Registry\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()>
     where
@@ -320,21 +310,19 @@ impl IEmptyVolumeCache2 {
     {
         (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into(), pcwszvolume.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetSpaceUsed<'a, P0>(&self, pdwlspaceused: *mut u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
         (::windows::core::Interface::vtable(self).base__.GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn Purge<'a, P0>(&self, dwlspacetofree: u64, picb: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>,
     {
         (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
@@ -342,12 +330,11 @@ impl IEmptyVolumeCache2 {
     {
         (::windows::core::Interface::vtable(self).base__.ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.Deactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Registry\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn InitializeEx<'a, P0, P1, P2>(&self, hkregkey: P0, pcwszvolume: P1, pcwszkeyname: P2, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, ppwszbtntext: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()>
     where
@@ -421,14 +408,12 @@ pub struct IEmptyVolumeCache2_Vtbl {
 #[repr(transparent)]
 pub struct IEmptyVolumeCacheCallBack(::windows::core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn ScanProgress<'a, P0>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).ScanProgress)(::windows::core::Interface::as_raw(self), dwlspaceused, dwflags, pcwszstatus.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn PurgeProgress<'a, P0>(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -482,7 +467,7 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
 #[repr(transparent)]
 pub struct IReconcilableObject(::windows::core::IUnknown);
 impl IReconcilableObject {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Reconcile<'a, P0, P1, P2, P3>(&self, pinitiator: P0, dwflags: u32, hwndowner: P1, hwndprogressfeedback: P2, rgpmkotherinput: &mut [::core::option::Option<super::super::System::Com::IMoniker>], ploutindex: *mut i32, pstgnewresidues: P3, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -493,7 +478,6 @@ impl IReconcilableObject {
     {
         (::windows::core::Interface::vtable(self).Reconcile)(::windows::core::Interface::as_raw(self), pinitiator.into().abi(), dwflags, hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpmkotherinput)), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -548,14 +532,12 @@ pub struct IReconcilableObject_Vtbl {
 #[repr(transparent)]
 pub struct IReconcileInitiator(::windows::core::IUnknown);
 impl IReconcileInitiator {
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetAbortCallback<'a, P0>(&self, punkforabort: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
     {
         (::windows::core::Interface::vtable(self).SetAbortCallback)(::windows::core::Interface::as_raw(self), punkforabort.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProgressFeedback)(::windows::core::Interface::as_raw(self), ulprogress, ulprogressmax).ok()
     }

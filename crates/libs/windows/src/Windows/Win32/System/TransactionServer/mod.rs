@@ -8,7 +8,7 @@ pub const ComponentUtil: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub struct ICatalog(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICatalog {
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCollection<'a, P0>(&self, bstrcollname: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -17,7 +17,7 @@ impl ICatalog {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetCollection)(::windows::core::Interface::as_raw(self), bstrcollname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Connect<'a, P0>(&self, bstrconnectstring: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -26,11 +26,9 @@ impl ICatalog {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectstring.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
     pub unsafe fn MinorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retval)).ok()
     }
@@ -118,7 +116,7 @@ pub struct ICatalog_Vtbl {
 pub struct IComponentUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil {
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallComponent<'a, P0, P1, P2>(&self, bstrdllfile: P0, bstrtypelibfile: P1, bstrproxystubdllfile: P2) -> ::windows::core::Result<()>
     where
@@ -128,7 +126,7 @@ impl IComponentUtil {
     {
         (::windows::core::Interface::vtable(self).InstallComponent)(::windows::core::Interface::as_raw(self), bstrdllfile.into().abi(), bstrtypelibfile.into().abi(), bstrproxystubdllfile.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImportComponent<'a, P0>(&self, bstrclsid: P0) -> ::windows::core::Result<()>
     where
@@ -136,7 +134,7 @@ impl IComponentUtil {
     {
         (::windows::core::Interface::vtable(self).ImportComponent)(::windows::core::Interface::as_raw(self), bstrclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImportComponentByName<'a, P0>(&self, bstrprogid: P0) -> ::windows::core::Result<()>
     where
@@ -144,7 +142,7 @@ impl IComponentUtil {
     {
         (::windows::core::Interface::vtable(self).ImportComponentByName)(::windows::core::Interface::as_raw(self), bstrprogid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCLSIDs<'a, P0, P1>(&self, bstrdllfile: P0, bstrtypelibfile: P1, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -243,7 +241,7 @@ pub struct IComponentUtil_Vtbl {
 pub struct IPackageUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil {
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallPackage<'a, P0, P1>(&self, bstrpackagefile: P0, bstrinstallpath: P1, loptions: i32) -> ::windows::core::Result<()>
     where
@@ -252,7 +250,7 @@ impl IPackageUtil {
     {
         (::windows::core::Interface::vtable(self).InstallPackage)(::windows::core::Interface::as_raw(self), bstrpackagefile.into().abi(), bstrinstallpath.into().abi(), loptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExportPackage<'a, P0, P1>(&self, bstrpackageid: P0, bstrpackagefile: P1, loptions: i32) -> ::windows::core::Result<()>
     where
@@ -261,7 +259,7 @@ impl IPackageUtil {
     {
         (::windows::core::Interface::vtable(self).ExportPackage)(::windows::core::Interface::as_raw(self), bstrpackageid.into().abi(), bstrpackagefile.into().abi(), loptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShutdownPackage<'a, P0>(&self, bstrpackageid: P0) -> ::windows::core::Result<()>
     where
@@ -355,7 +353,7 @@ pub struct IPackageUtil_Vtbl {
 pub struct IRemoteComponentUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil {
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallRemoteComponent<'a, P0, P1, P2>(&self, bstrserver: P0, bstrpackageid: P1, bstrclsid: P2) -> ::windows::core::Result<()>
     where
@@ -365,7 +363,7 @@ impl IRemoteComponentUtil {
     {
         (::windows::core::Interface::vtable(self).InstallRemoteComponent)(::windows::core::Interface::as_raw(self), bstrserver.into().abi(), bstrpackageid.into().abi(), bstrclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallRemoteComponentByName<'a, P0, P1, P2>(&self, bstrserver: P0, bstrpackagename: P1, bstrprogid: P2) -> ::windows::core::Result<()>
     where
@@ -457,7 +455,7 @@ pub struct IRemoteComponentUtil_Vtbl {
 pub struct IRoleAssociationUtil(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil {
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AssociateRole<'a, P0>(&self, bstrroleid: P0) -> ::windows::core::Result<()>
     where
@@ -465,7 +463,7 @@ impl IRoleAssociationUtil {
     {
         (::windows::core::Interface::vtable(self).AssociateRole)(::windows::core::Interface::as_raw(self), bstrroleid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AssociateRoleByName<'a, P0>(&self, bstrrolename: P0) -> ::windows::core::Result<()>
     where

@@ -83,7 +83,6 @@ pub struct DRendezvousSessionEvents_Vtbl {
 #[repr(transparent)]
 pub struct IRendezvousApplication(::windows::core::IUnknown);
 impl IRendezvousApplication {
-    #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
     pub unsafe fn SetRendezvousSession<'a, P0>(&self, prendezvoussession: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
@@ -136,23 +135,21 @@ pub struct IRendezvousApplication_Vtbl {
 #[repr(transparent)]
 pub struct IRendezvousSession(::windows::core::IUnknown);
 impl IRendezvousSession {
-    #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<RENDEZVOUS_SESSION_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::<RENDEZVOUS_SESSION_STATE>::zeroed();
         (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RENDEZVOUS_SESSION_STATE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoteUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).RemoteUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendContextData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
     where
@@ -160,7 +157,7 @@ impl IRendezvousSession {
     {
         (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Terminate<'a, P0>(&self, hr: ::windows::core::HRESULT, bstrappdata: P0) -> ::windows::core::Result<()>
     where

@@ -2,7 +2,7 @@
 #[repr(transparent)]
 pub struct ApplicationDataManager(::windows::core::IUnknown);
 impl ApplicationDataManager {
-    #[doc = "*Required features: `\"Management_Core\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn CreateForPackageFamily<'a, P0>(packagefamilyname: P0) -> ::windows::core::Result<super::super::Storage::ApplicationData>
     where

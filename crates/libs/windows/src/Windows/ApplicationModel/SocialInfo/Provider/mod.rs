@@ -125,7 +125,7 @@ pub struct ISocialInfoProviderManagerStatics_Vtbl {
 pub struct SocialDashboardItemUpdater(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SocialDashboardItemUpdater {
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn OwnerRemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -134,7 +134,7 @@ impl SocialDashboardItemUpdater {
             (::windows::core::Interface::vtable(this).OwnerRemoteId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Content(&self) -> ::windows::core::Result<super::SocialFeedContent> {
         let this = self;
@@ -143,7 +143,7 @@ impl SocialDashboardItemUpdater {
             (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::SocialFeedContent>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -152,13 +152,13 @@ impl SocialDashboardItemUpdater {
             (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetTimestamp(&self, value: super::super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTimestamp)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetThumbnail<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -167,7 +167,7 @@ impl SocialDashboardItemUpdater {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::SocialItemThumbnail> {
         let this = self;
@@ -176,7 +176,7 @@ impl SocialDashboardItemUpdater {
             (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::SocialItemThumbnail>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CommitAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -185,7 +185,7 @@ impl SocialDashboardItemUpdater {
             (::windows::core::Interface::vtable(this).CommitAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn TargetUri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -194,7 +194,7 @@ impl SocialDashboardItemUpdater {
             (::windows::core::Interface::vtable(this).TargetUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetTargetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -287,7 +287,7 @@ unsafe impl ::core::marker::Sync for SocialDashboardItemUpdater {}
 pub struct SocialFeedUpdater(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SocialFeedUpdater {
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn OwnerRemoteId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -296,7 +296,7 @@ impl SocialFeedUpdater {
             (::windows::core::Interface::vtable(this).OwnerRemoteId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Kind(&self) -> ::windows::core::Result<super::SocialFeedKind> {
         let this = self;
@@ -305,7 +305,7 @@ impl SocialFeedUpdater {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::SocialFeedKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::SocialFeedItem>> {
         let this = self;
@@ -314,7 +314,7 @@ impl SocialFeedUpdater {
             (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<super::SocialFeedItem>>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CommitAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -406,7 +406,7 @@ unsafe impl ::core::marker::Sync for SocialFeedUpdater {}
 pub struct SocialInfoProviderManager;
 #[cfg(feature = "deprecated")]
 impl SocialInfoProviderManager {
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateSocialFeedUpdaterAsync<'a, P0>(kind: super::SocialFeedKind, mode: super::SocialFeedUpdateMode, ownerremoteid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>
     where
@@ -417,7 +417,7 @@ impl SocialInfoProviderManager {
             (::windows::core::Interface::vtable(this).CreateSocialFeedUpdaterAsync)(::windows::core::Interface::as_raw(this), kind, mode, ownerremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialFeedUpdater>>(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateDashboardItemUpdaterAsync<'a, P0>(ownerremoteid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>
     where
@@ -428,7 +428,7 @@ impl SocialInfoProviderManager {
             (::windows::core::Interface::vtable(this).CreateDashboardItemUpdaterAsync)(::windows::core::Interface::as_raw(this), ownerremoteid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SocialDashboardItemUpdater>>(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn UpdateBadgeCountValue<'a, P0>(itemremoteid: P0, newcount: i32) -> ::windows::core::Result<()>
     where
@@ -436,7 +436,7 @@ impl SocialInfoProviderManager {
     {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UpdateBadgeCountValue)(::windows::core::Interface::as_raw(this), itemremoteid.into().abi(), newcount).ok() })
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ReportNewContentAvailable<'a, P0>(contactremoteid: P0, kind: super::SocialFeedKind) -> ::windows::core::Result<()>
     where
@@ -444,7 +444,7 @@ impl SocialInfoProviderManager {
     {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ReportNewContentAvailable)(::windows::core::Interface::as_raw(this), contactremoteid.into().abi(), kind).ok() })
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ProvisionAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe {
@@ -452,7 +452,7 @@ impl SocialInfoProviderManager {
             (::windows::core::Interface::vtable(this).ProvisionAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn DeprovisionAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ISocialInfoProviderManagerStatics(|this| unsafe {

@@ -1905,11 +1905,9 @@ pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows::core::GUID = ::windows::core:
 #[repr(transparent)]
 pub struct ID3DBlob(::windows::core::IUnknown);
 impl ID3DBlob {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBufferPointer)(::windows::core::Interface::as_raw(self)))
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetBufferSize)(::windows::core::Interface::as_raw(self)))
     }
@@ -1962,12 +1960,10 @@ pub struct ID3DBlob_Vtbl {
 #[repr(transparent)]
 pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
 impl ID3DDestructionNotifier {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).RegisterDestructionCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(callbackfn), ::core::mem::transmute(pdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterDestructionCallback)(::windows::core::Interface::as_raw(self), callbackid).ok()
     }
@@ -2020,14 +2016,12 @@ pub struct ID3DDestructionNotifier_Vtbl {
 #[repr(transparent)]
 pub struct ID3DInclude(::windows::core::IUnknown);
 impl ID3DInclude {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn Open<'a, P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCSTR>,
     {
         (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), includetype, pfilename.into(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }

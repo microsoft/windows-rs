@@ -40,7 +40,7 @@ unsafe impl ::windows::core::RuntimeType for AuthenticationProtocol {
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 pub struct CredentialPicker;
 impl CredentialPicker {
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PickWithOptionsAsync<'a, P0>(options: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
     where
@@ -51,7 +51,7 @@ impl CredentialPicker {
             (::windows::core::Interface::vtable(this).PickWithOptionsAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PickWithMessageAsync<'a, P0, P1>(targetname: P0, message: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
     where
@@ -63,7 +63,7 @@ impl CredentialPicker {
             (::windows::core::Interface::vtable(this).PickWithMessageAsync)(::windows::core::Interface::as_raw(this), targetname.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PickWithCaptionAsync<'a, P0, P1, P2>(targetname: P0, message: P1, caption: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
     where
@@ -96,7 +96,6 @@ impl CredentialPickerOptions {
         static SHARED: ::windows::core::FactoryCache<CredentialPickerOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetCaption<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -104,7 +103,6 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCaption)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -112,7 +110,6 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).Caption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetMessage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -120,7 +117,6 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -128,12 +124,10 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetErrorCode(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorCode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -141,7 +135,6 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetTargetName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -149,7 +142,6 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTargetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -157,12 +149,10 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).TargetName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetAuthenticationProtocol(&self, value: AuthenticationProtocol) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn AuthenticationProtocol(&self) -> ::windows::core::Result<AuthenticationProtocol> {
         let this = self;
         unsafe {
@@ -170,7 +160,6 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).AuthenticationProtocol)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AuthenticationProtocol>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetCustomAuthenticationProtocol<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -178,7 +167,6 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CustomAuthenticationProtocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -186,7 +174,7 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).CustomAuthenticationProtocol)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPreviousCredential<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -196,7 +184,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPreviousCredential)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PreviousCredential(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -205,12 +193,10 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).PreviousCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetAlwaysDisplayDialog(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlwaysDisplayDialog)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn AlwaysDisplayDialog(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -218,12 +204,10 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).AlwaysDisplayDialog)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetCallerSavesCredential(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCallerSavesCredential)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CallerSavesCredential(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -231,12 +215,10 @@ impl CredentialPickerOptions {
             (::windows::core::Interface::vtable(this).CallerSavesCredential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCredentialSaveOption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption> {
         let this = self;
         unsafe {
@@ -309,7 +291,6 @@ impl ::core::convert::From<&CredentialPickerOptions> for &::windows::core::IInsp
 #[repr(transparent)]
 pub struct CredentialPickerResults(::windows::core::IUnknown);
 impl CredentialPickerResults {
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -317,7 +298,6 @@ impl CredentialPickerResults {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption> {
         let this = self;
         unsafe {
@@ -325,7 +305,6 @@ impl CredentialPickerResults {
             (::windows::core::Interface::vtable(this).CredentialSaveOption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CredentialSaveOption>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialSaved(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -333,7 +312,7 @@ impl CredentialPickerResults {
             (::windows::core::Interface::vtable(this).CredentialSaved)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Credential(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -342,7 +321,6 @@ impl CredentialPickerResults {
             (::windows::core::Interface::vtable(this).Credential)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialDomainName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -350,7 +328,6 @@ impl CredentialPickerResults {
             (::windows::core::Interface::vtable(this).CredentialDomainName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -358,7 +335,6 @@ impl CredentialPickerResults {
             (::windows::core::Interface::vtable(this).CredentialUserName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialPassword(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -608,7 +584,7 @@ unsafe impl ::windows::core::RuntimeType for UserConsentVerificationResult {
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 pub struct UserConsentVerifier;
 impl UserConsentVerifier {
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckAvailabilityAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
@@ -616,7 +592,7 @@ impl UserConsentVerifier {
             (::windows::core::Interface::vtable(this).CheckAvailabilityAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestVerificationAsync<'a, P0>(message: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>
     where

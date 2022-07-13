@@ -73,7 +73,6 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionResult {
 #[repr(transparent)]
 pub struct ExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);
 impl ExtendedExecutionRevokedEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionRevokedReason> {
         let this = self;
         unsafe {
@@ -189,13 +188,12 @@ impl ExtendedExecutionSession {
         static SHARED: ::windows::core::FactoryCache<ExtendedExecutionSession, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionReason> {
         let this = self;
         unsafe {
@@ -203,12 +201,10 @@ impl ExtendedExecutionSession {
             (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ExtendedExecutionReason>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn SetReason(&self, value: ExtendedExecutionReason) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReason)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -216,7 +212,6 @@ impl ExtendedExecutionSession {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn SetDescription<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -224,7 +219,6 @@ impl ExtendedExecutionSession {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn PercentProgress(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -232,12 +226,11 @@ impl ExtendedExecutionSession {
             (::windows::core::Interface::vtable(this).PercentProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`*"]
     pub fn SetPercentProgress(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPercentProgress)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Revoked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -249,13 +242,13 @@ impl ExtendedExecutionSession {
             (::windows::core::Interface::vtable(this).Revoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRevoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRevoked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestExtensionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ExtendedExecutionResult>> {
         let this = self;

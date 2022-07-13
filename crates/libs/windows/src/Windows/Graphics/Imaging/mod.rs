@@ -77,7 +77,6 @@ impl ::core::default::Default for BitmapBounds {
 #[repr(transparent)]
 pub struct BitmapBuffer(::windows::core::IUnknown);
 impl BitmapBuffer {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GetPlaneCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -85,7 +84,6 @@ impl BitmapBuffer {
             (::windows::core::Interface::vtable(this).GetPlaneCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GetPlaneDescription(&self, index: i32) -> ::windows::core::Result<BitmapPlaneDescription> {
         let this = self;
         unsafe {
@@ -93,13 +91,13 @@ impl BitmapBuffer {
             (::windows::core::Interface::vtable(this).GetPlaneDescription)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<BitmapPlaneDescription>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateReference(&self) -> ::windows::core::Result<super::super::Foundation::IMemoryBufferReference> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
@@ -254,7 +252,6 @@ unsafe impl ::windows::core::RuntimeType for BitmapBufferAccessMode {
 #[repr(transparent)]
 pub struct BitmapCodecInformation(::windows::core::IUnknown);
 impl BitmapCodecInformation {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn CodecId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -262,7 +259,7 @@ impl BitmapCodecInformation {
             (::windows::core::Interface::vtable(this).CodecId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FileExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -271,7 +268,6 @@ impl BitmapCodecInformation {
             (::windows::core::Interface::vtable(this).FileExtensions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -279,7 +275,7 @@ impl BitmapCodecInformation {
             (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MimeTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -355,7 +351,6 @@ unsafe impl ::core::marker::Sync for BitmapCodecInformation {}
 #[repr(transparent)]
 pub struct BitmapDecoder(::windows::core::IUnknown);
 impl BitmapDecoder {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapContainerProperties(&self) -> ::windows::core::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
@@ -363,7 +358,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).BitmapContainerProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPropertiesView>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DecoderInformation(&self) -> ::windows::core::Result<BitmapCodecInformation> {
         let this = self;
         unsafe {
@@ -371,7 +365,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).DecoderInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapCodecInformation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn FrameCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -379,7 +372,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).FrameCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
@@ -388,7 +381,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetPreviewAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetFrameAsync(&self, frameindex: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>> {
         let this = self;
@@ -397,56 +390,49 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetFrameAsync)(::windows::core::Interface::as_raw(this), frameindex, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapFrame>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BmpDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).BmpDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn JpegDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).JpegDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PngDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).PngDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn TiffDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).TiffDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GifDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).GifDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn JpegXRDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).JpegXRDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn IcoDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).IcoDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDecoderInformationEnumerator() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
@@ -454,7 +440,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetDecoderInformationEnumerator)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
     where
@@ -466,7 +452,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapDecoder>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateWithIdAsync<'a, P0, E0>(decoderid: ::windows::core::GUID, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
     where
@@ -478,21 +464,19 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).CreateWithIdAsync)(::windows::core::Interface::as_raw(this), decoderid, stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapDecoder>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn HeifDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).HeifDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn WebpDecoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).WebpDecoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
@@ -501,7 +485,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -509,7 +492,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).BitmapProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPropertiesView>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -517,7 +499,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -525,7 +506,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiX(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -533,7 +513,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).DpiX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiY(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -541,7 +520,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).DpiY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -549,7 +527,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).PixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -557,7 +534,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).PixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -565,7 +541,6 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).OrientedPixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -573,7 +548,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).OrientedPixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
@@ -582,7 +557,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetPixelDataAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
@@ -594,7 +569,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
@@ -603,7 +578,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
@@ -612,7 +587,7 @@ impl BitmapDecoder {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
@@ -739,7 +714,6 @@ unsafe impl ::core::marker::Sync for BitmapDecoder {}
 #[repr(transparent)]
 pub struct BitmapEncoder(::windows::core::IUnknown);
 impl BitmapEncoder {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn EncoderInformation(&self) -> ::windows::core::Result<BitmapCodecInformation> {
         let this = self;
         unsafe {
@@ -747,7 +721,6 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).EncoderInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapCodecInformation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapProperties(&self) -> ::windows::core::Result<BitmapProperties> {
         let this = self;
         unsafe {
@@ -755,7 +728,6 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).BitmapProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapProperties>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapContainerProperties(&self) -> ::windows::core::Result<BitmapProperties> {
         let this = self;
         unsafe {
@@ -763,7 +735,6 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).BitmapContainerProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapProperties>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn IsThumbnailGenerated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -771,12 +742,10 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).IsThumbnailGenerated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetIsThumbnailGenerated(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsThumbnailGenerated)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GeneratedThumbnailWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -784,12 +753,10 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).GeneratedThumbnailWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetGeneratedThumbnailWidth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGeneratedThumbnailWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GeneratedThumbnailHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -797,12 +764,10 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).GeneratedThumbnailHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetGeneratedThumbnailHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetGeneratedThumbnailHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapTransform(&self) -> ::windows::core::Result<BitmapTransform> {
         let this = self;
         unsafe {
@@ -810,12 +775,11 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).BitmapTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapTransform>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPixelData)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, width, height, dpix, dpiy, pixels.len() as u32, ::core::mem::transmute(pixels.as_ptr())).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GoToNextFrameAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -824,7 +788,7 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).GoToNextFrameAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GoToNextFrameWithEncodingOptionsAsync<'a, P0, E0>(&self, encodingoptions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -837,7 +801,7 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).GoToNextFrameWithEncodingOptionsAsync)(::windows::core::Interface::as_raw(this), encodingoptions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -846,49 +810,43 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).FlushAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BmpEncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).BmpEncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn JpegEncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).JpegEncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PngEncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).PngEncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn TiffEncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).TiffEncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GifEncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).GifEncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn JpegXREncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).JpegXREncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEncoderInformationEnumerator() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
@@ -896,7 +854,7 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).GetEncoderInformationEnumerator)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateAsync<'a, P0, E0>(encoderid: ::windows::core::GUID, stream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -908,7 +866,7 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), encoderid, stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapEncoder>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn CreateWithEncodingOptionsAsync<'a, P0, E0, P1, E1>(encoderid: ::windows::core::GUID, stream: P0, encodingoptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -922,7 +880,7 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).CreateWithEncodingOptionsAsync)(::windows::core::Interface::as_raw(this), encoderid, stream.try_into().map_err(|e| e.into())?.abi(), encodingoptions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapEncoder>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateForTranscodingAsync<'a, P0, E0, P1>(stream: P0, bitmapdecoder: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -935,7 +893,7 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).CreateForTranscodingAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), bitmapdecoder.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapEncoder>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateForInPlacePropertyEncodingAsync<'a, P0>(bitmapdecoder: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -946,14 +904,12 @@ impl BitmapEncoder {
             (::windows::core::Interface::vtable(this).CreateForInPlacePropertyEncodingAsync)(::windows::core::Interface::as_raw(this), bitmapdecoder.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BitmapEncoder>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn HeifEncoderId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IBitmapEncoderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).HeifEncoderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetSoftwareBitmap<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
@@ -1073,7 +1029,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapFlip {
 #[repr(transparent)]
 pub struct BitmapFrame(::windows::core::IUnknown);
 impl BitmapFrame {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
@@ -1082,7 +1038,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
@@ -1090,7 +1045,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).BitmapProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPropertiesView>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -1098,7 +1052,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -1106,7 +1059,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1114,7 +1066,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).DpiX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1122,7 +1073,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).DpiY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1130,7 +1080,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).PixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1138,7 +1087,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).PixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1146,7 +1094,6 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).OrientedPixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1154,7 +1101,7 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).OrientedPixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
@@ -1163,7 +1110,7 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).GetPixelDataAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
@@ -1175,7 +1122,7 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
@@ -1184,7 +1131,7 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
@@ -1193,7 +1140,7 @@ impl BitmapFrame {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
@@ -1427,7 +1374,7 @@ impl ::core::default::Default for BitmapPlaneDescription {
 #[repr(transparent)]
 pub struct BitmapProperties(::windows::core::IUnknown);
 impl BitmapProperties {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPropertiesAsync<'a, P0, E0>(&self, propertiestoset: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1440,7 +1387,7 @@ impl BitmapProperties {
             (::windows::core::Interface::vtable(this).SetPropertiesAsync)(::windows::core::Interface::as_raw(this), propertiestoset.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
@@ -1539,7 +1486,7 @@ unsafe impl ::core::marker::Sync for BitmapProperties {}
 #[repr(transparent)]
 pub struct BitmapPropertiesView(::windows::core::IUnknown);
 impl BitmapPropertiesView {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
@@ -1647,7 +1594,7 @@ impl BitmapPropertySet {
         static SHARED: ::windows::core::FactoryCache<BitmapPropertySet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>(self)?;
@@ -1656,7 +1603,7 @@ impl BitmapPropertySet {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<BitmapTypedValue>
     where
@@ -1668,7 +1615,7 @@ impl BitmapPropertySet {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<BitmapTypedValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -1677,7 +1624,7 @@ impl BitmapPropertySet {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
@@ -1689,7 +1636,7 @@ impl BitmapPropertySet {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, BitmapTypedValue>> {
         let this = self;
@@ -1698,7 +1645,7 @@ impl BitmapPropertySet {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, BitmapTypedValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
@@ -1711,7 +1658,7 @@ impl BitmapPropertySet {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
@@ -1720,7 +1667,7 @@ impl BitmapPropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -1949,7 +1896,6 @@ impl BitmapTransform {
         static SHARED: ::windows::core::FactoryCache<BitmapTransform, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn ScaledWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1957,12 +1903,10 @@ impl BitmapTransform {
             (::windows::core::Interface::vtable(this).ScaledWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetScaledWidth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaledWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn ScaledHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1970,12 +1914,10 @@ impl BitmapTransform {
             (::windows::core::Interface::vtable(this).ScaledHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetScaledHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaledHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn InterpolationMode(&self) -> ::windows::core::Result<BitmapInterpolationMode> {
         let this = self;
         unsafe {
@@ -1983,12 +1925,10 @@ impl BitmapTransform {
             (::windows::core::Interface::vtable(this).InterpolationMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapInterpolationMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetInterpolationMode(&self, value: BitmapInterpolationMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInterpolationMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Flip(&self) -> ::windows::core::Result<BitmapFlip> {
         let this = self;
         unsafe {
@@ -1996,12 +1936,10 @@ impl BitmapTransform {
             (::windows::core::Interface::vtable(this).Flip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapFlip>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetFlip(&self, value: BitmapFlip) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFlip)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Rotation(&self) -> ::windows::core::Result<BitmapRotation> {
         let this = self;
         unsafe {
@@ -2009,12 +1947,10 @@ impl BitmapTransform {
             (::windows::core::Interface::vtable(this).Rotation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapRotation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetRotation(&self, value: BitmapRotation) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Bounds(&self) -> ::windows::core::Result<BitmapBounds> {
         let this = self;
         unsafe {
@@ -2022,7 +1958,6 @@ impl BitmapTransform {
             (::windows::core::Interface::vtable(this).Bounds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapBounds>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetBounds(&self, value: BitmapBounds) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBounds)(::windows::core::Interface::as_raw(this), value).ok() }
@@ -2094,7 +2029,6 @@ unsafe impl ::core::marker::Sync for BitmapTransform {}
 #[repr(transparent)]
 pub struct BitmapTypedValue(::windows::core::IUnknown);
 impl BitmapTypedValue {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2102,7 +2036,7 @@ impl BitmapTypedValue {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Type(&self) -> ::windows::core::Result<super::super::Foundation::PropertyType> {
         let this = self;
@@ -2111,7 +2045,7 @@ impl BitmapTypedValue {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::PropertyType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Create<'a, P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> ::windows::core::Result<BitmapTypedValue>
     where
@@ -2465,7 +2399,7 @@ pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
 #[repr(transparent)]
 pub struct IBitmapFrame(::windows::core::IUnknown);
 impl IBitmapFrame {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
@@ -2474,7 +2408,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
@@ -2482,7 +2415,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).BitmapProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPropertiesView>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -2490,7 +2422,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -2498,7 +2429,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2506,7 +2436,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).DpiX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2514,7 +2443,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).DpiY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2522,7 +2450,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).PixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2530,7 +2457,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).PixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2538,7 +2464,6 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).OrientedPixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2546,7 +2471,7 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).OrientedPixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
@@ -2555,7 +2480,7 @@ impl IBitmapFrame {
             (::windows::core::Interface::vtable(this).GetPixelDataAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
@@ -2655,7 +2580,7 @@ pub struct IBitmapFrame_Vtbl {
 #[repr(transparent)]
 pub struct IBitmapFrameWithSoftwareBitmap(::windows::core::IUnknown);
 impl IBitmapFrameWithSoftwareBitmap {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
@@ -2664,7 +2589,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
@@ -2673,7 +2598,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSoftwareBitmapTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
@@ -2685,7 +2610,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows::core::Interface::as_raw(this), pixelformat, alphamode, transform.into().abi(), exiforientationmode, colormanagementmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
@@ -2694,7 +2619,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ImageStream>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2702,7 +2626,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).BitmapProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPropertiesView>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2710,7 +2633,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2718,7 +2640,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiX(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2726,7 +2647,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).DpiX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiY(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2734,7 +2654,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).DpiY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2742,7 +2661,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).PixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2750,7 +2668,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).PixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2758,7 +2675,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).OrientedPixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn OrientedPixelHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
@@ -2766,7 +2682,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).OrientedPixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows::core::Interface::cast::<IBitmapFrame>(self)?;
@@ -2775,7 +2691,7 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows::core::Interface::vtable(this).GetPixelDataAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PixelDataProvider>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPixelDataTransformedAsync<'a, P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
     where
@@ -2901,7 +2817,7 @@ pub struct IBitmapProperties_Vtbl {
 #[repr(transparent)]
 pub struct IBitmapPropertiesView(::windows::core::IUnknown);
 impl IBitmapPropertiesView {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<'a, P0, E0>(&self, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
@@ -3134,13 +3050,13 @@ pub struct ISoftwareBitmapStatics_Vtbl {
 pub struct ImageStream(::windows::core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl ImageStream {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
@@ -3149,7 +3065,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
@@ -3162,7 +3078,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -3175,7 +3091,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
@@ -3184,7 +3100,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).FlushAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Size(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3193,13 +3109,13 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3208,7 +3124,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).GetInputStreamAt)(::windows::core::Interface::as_raw(this), position, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3217,7 +3133,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).GetOutputStreamAt)(::windows::core::Interface::as_raw(this), position, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Position(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3226,13 +3142,13 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Seek)(::windows::core::Interface::as_raw(this), position).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CloneStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3241,7 +3157,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).CloneStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanRead(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3250,7 +3166,7 @@ impl ImageStream {
             (::windows::core::Interface::vtable(this).CanRead)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanWrite(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -3509,7 +3425,6 @@ unsafe impl ::windows::core::RuntimeType for JpegSubsamplingMode {
 #[repr(transparent)]
 pub struct PixelDataProvider(::windows::core::IUnknown);
 impl PixelDataProvider {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DetachPixelData(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
@@ -3623,13 +3538,12 @@ unsafe impl ::windows::core::RuntimeType for PngFilterMode {
 #[repr(transparent)]
 pub struct SoftwareBitmap(::windows::core::IUnknown);
 impl SoftwareBitmap {
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
@@ -3637,7 +3551,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
@@ -3645,7 +3558,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).BitmapAlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BitmapAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -3653,7 +3565,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).PixelWidth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -3661,7 +3572,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).PixelHeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3669,12 +3579,10 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).IsReadOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetDpiX(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDpiX)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3682,12 +3590,10 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).DpiX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn SetDpiY(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDpiY)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn DpiY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3695,7 +3601,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).DpiY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn LockBuffer(&self, mode: BitmapBufferAccessMode) -> ::windows::core::Result<BitmapBuffer> {
         let this = self;
         unsafe {
@@ -3703,7 +3608,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<BitmapBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn CopyTo<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
@@ -3711,7 +3615,7 @@ impl SoftwareBitmap {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).CopyTo)(::windows::core::Interface::as_raw(this), bitmap.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CopyFromBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
@@ -3721,7 +3625,7 @@ impl SoftwareBitmap {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).CopyFromBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CopyToBuffer<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<()>
     where
@@ -3731,7 +3635,6 @@ impl SoftwareBitmap {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).CopyToBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn GetReadOnlyView(&self) -> ::windows::core::Result<SoftwareBitmap> {
         let this = self;
         unsafe {
@@ -3739,21 +3642,18 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).GetReadOnlyView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Create(format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format, width, height, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn CreateWithAlpha(format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format, width, height, alpha, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Copy<'a, P0>(source: P0) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
@@ -3763,7 +3663,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).Copy)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn Convert<'a, P0>(source: P0, format: BitmapPixelFormat) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
@@ -3773,7 +3672,6 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).Convert)(::windows::core::Interface::as_raw(this), source.into().abi(), format, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     pub fn ConvertWithAlpha<'a, P0>(source: P0, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SoftwareBitmap>>,
@@ -3783,7 +3681,7 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).ConvertWithAlpha)(::windows::core::Interface::as_raw(this), source.into().abi(), format, alpha, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCopyFromBuffer<'a, P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<SoftwareBitmap>
     where
@@ -3795,7 +3693,7 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).CreateCopyFromBuffer)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), format, width, height, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCopyWithAlphaFromBuffer<'a, P0, E0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows::core::Result<SoftwareBitmap>
     where
@@ -3807,7 +3705,7 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).CreateCopyWithAlphaFromBuffer)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), format, width, height, alpha, result__.as_mut_ptr()).from_abi::<SoftwareBitmap>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateCopyFromSurfaceAsync<'a, P0, E0>(surface: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
@@ -3819,7 +3717,7 @@ impl SoftwareBitmap {
             (::windows::core::Interface::vtable(this).CreateCopyFromSurfaceAsync)(::windows::core::Interface::as_raw(this), surface.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateCopyWithAlphaFromSurfaceAsync<'a, P0, E0>(surface: P0, alpha: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where

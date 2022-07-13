@@ -9,12 +9,10 @@ impl DisplayRequest {
         static SHARED: ::windows::core::FactoryCache<DisplayRequest, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"System_Display\"`*"]
     pub fn RequestActive(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RequestActive)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"System_Display\"`*"]
     pub fn RequestRelease(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RequestRelease)(::windows::core::Interface::as_raw(this)).ok() }

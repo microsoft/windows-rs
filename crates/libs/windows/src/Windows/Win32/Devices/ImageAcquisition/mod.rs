@@ -341,25 +341,21 @@ pub const GUID_DEVINTERFACE_IMAGE: ::windows::core::GUID = ::windows::core::GUID
 #[repr(transparent)]
 pub struct IEnumWIA_DEV_CAPS(::windows::core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -417,24 +413,19 @@ pub struct IEnumWIA_DEV_CAPS_Vtbl {
 #[repr(transparent)]
 pub struct IEnumWIA_DEV_INFO(::windows::core::IUnknown);
 impl IEnumWIA_DEV_INFO {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_INFO>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -489,24 +480,19 @@ pub struct IEnumWIA_DEV_INFO_Vtbl {
 #[repr(transparent)]
 pub struct IEnumWIA_FORMAT_INFO(::windows::core::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -561,24 +547,19 @@ pub struct IEnumWIA_FORMAT_INFO_Vtbl {
 #[repr(transparent)]
 pub struct IEnumWiaItem(::windows::core::IUnknown);
 impl IEnumWiaItem {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem: *mut ::core::option::Option<IWiaItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWiaItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWiaItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -633,24 +614,19 @@ pub struct IEnumWiaItem_Vtbl {
 #[repr(transparent)]
 pub struct IEnumWiaItem2(::windows::core::IUnknown);
 impl IEnumWiaItem2 {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem2), ::core::mem::transmute(pceltfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumWiaItem2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -731,13 +707,12 @@ pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
 #[repr(transparent)]
 pub struct IWiaAppErrorHandler(::windows::core::IUnknown);
 impl IWiaAppErrorHandler {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HWND>::zeroed();
         (::windows::core::Interface::vtable(self).GetWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn ReportStatus<'a, P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaItem2>>,
@@ -794,7 +769,6 @@ pub struct IWiaAppErrorHandler_Vtbl {
 #[repr(transparent)]
 pub struct IWiaDataCallback(::windows::core::IUnknown);
 impl IWiaDataCallback {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BandedDataCallback)(::windows::core::Interface::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, ::core::mem::transmute(pbbuffer)).ok()
     }
@@ -844,7 +818,7 @@ pub struct IWiaDataCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWiaDataTransfer(::windows::core::IUnknown);
 impl IWiaDataTransfer {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn idtGetData<'a, P0>(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: P0) -> ::windows::core::Result<()>
     where
@@ -852,7 +826,7 @@ impl IWiaDataTransfer {
     {
         (::windows::core::Interface::vtable(self).idtGetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmedium), piwiadatacallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn idtGetBandedData<'a, P0>(&self, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: P0) -> ::windows::core::Result<()>
     where
@@ -860,16 +834,13 @@ impl IWiaDataTransfer {
     {
         (::windows::core::Interface::vtable(self).idtGetBandedData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwiadatatransinfo), piwiadatacallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn idtQueryGetData(&self, pfe: *const WIA_FORMAT_INFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).idtQueryGetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfe)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn idtEnumWIA_FORMAT_INFO(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).idtEnumWIA_FORMAT_INFO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn idtGetExtendedTransferInfo(&self) -> ::windows::core::Result<WIA_EXTENDED_TRANSFER_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<WIA_EXTENDED_TRANSFER_INFO>::zeroed();
         (::windows::core::Interface::vtable(self).idtGetExtendedTransferInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WIA_EXTENDED_TRANSFER_INFO>(result__)
@@ -930,12 +901,11 @@ pub struct IWiaDataTransfer_Vtbl {
 #[repr(transparent)]
 pub struct IWiaDevMgr(::windows::core::IUnknown);
 impl IWiaDevMgr {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumDeviceInfo)(::windows::core::Interface::as_raw(self), lflag, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_INFO>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDevice<'a, P0>(&self, bstrdeviceid: P0) -> ::windows::core::Result<IWiaItem>
     where
@@ -944,7 +914,7 @@ impl IWiaDevMgr {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), bstrdeviceid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlg<'a, P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>
     where
@@ -952,7 +922,7 @@ impl IWiaDevMgr {
     {
         (::windows::core::Interface::vtable(self).SelectDeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlgID<'a, P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
     where
@@ -960,7 +930,7 @@ impl IWiaDevMgr {
     {
         (::windows::core::Interface::vtable(self).SelectDeviceDlgID)(::windows::core::Interface::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageDlg<'a, P0, P1, P2>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: P1, bstrfilename: P2, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()>
     where
@@ -970,7 +940,7 @@ impl IWiaDevMgr {
     {
         (::windows::core::Interface::vtable(self).GetImageDlg)(::windows::core::Interface::as_raw(self), hwndparent.into(), ldevicetype, lflags, lintent, pitemroot.into().abi(), bstrfilename.into().abi(), ::core::mem::transmute(pguidformat)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterEventCallbackProgram<'a, P0, P1, P2, P3, P4>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const ::windows::core::GUID, bstrcommandline: P1, bstrname: P2, bstrdescription: P3, bstricon: P4) -> ::windows::core::Result<()>
     where
@@ -982,7 +952,7 @@ impl IWiaDevMgr {
     {
         (::windows::core::Interface::vtable(self).RegisterEventCallbackProgram)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(peventguid), bstrcommandline.into().abi(), bstrname.into().abi(), bstrdescription.into().abi(), bstricon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterEventCallbackInterface<'a, P0, P1>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const ::windows::core::GUID, piwiaeventcallback: P1) -> ::windows::core::Result<::windows::core::IUnknown>
     where
@@ -992,7 +962,7 @@ impl IWiaDevMgr {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RegisterEventCallbackInterface)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(peventguid), piwiaeventcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterEventCallbackCLSID<'a, P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: P1, bstrdescription: P2, bstricon: P3) -> ::windows::core::Result<()>
     where
@@ -1003,7 +973,7 @@ impl IWiaDevMgr {
     {
         (::windows::core::Interface::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(peventguid), ::core::mem::transmute(pclsid), bstrname.into().abi(), bstrdescription.into().abi(), bstricon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDeviceDlg<'a, P0>(&self, hwndparent: P0, lflags: i32) -> ::windows::core::Result<()>
     where
@@ -1089,12 +1059,11 @@ pub struct IWiaDevMgr_Vtbl {
 #[repr(transparent)]
 pub struct IWiaDevMgr2(::windows::core::IUnknown);
 impl IWiaDevMgr2 {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumDeviceInfo)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_INFO>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDevice<'a, P0>(&self, lflags: i32, bstrdeviceid: P0) -> ::windows::core::Result<IWiaItem2>
     where
@@ -1103,7 +1072,7 @@ impl IWiaDevMgr2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlg<'a, P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR, ppitemroot: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>
     where
@@ -1111,7 +1080,7 @@ impl IWiaDevMgr2 {
     {
         (::windows::core::Interface::vtable(self).SelectDeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid), ::core::mem::transmute(ppitemroot)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectDeviceDlgID<'a, P0>(&self, hwndparent: P0, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
     where
@@ -1119,7 +1088,7 @@ impl IWiaDevMgr2 {
     {
         (::windows::core::Interface::vtable(self).SelectDeviceDlgID)(::windows::core::Interface::as_raw(self), hwndparent.into(), ldevicetype, lflags, ::core::mem::transmute(pbstrdeviceid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterEventCallbackInterface<'a, P0, P1>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const ::windows::core::GUID, piwiaeventcallback: P1) -> ::windows::core::Result<::windows::core::IUnknown>
     where
@@ -1129,7 +1098,7 @@ impl IWiaDevMgr2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RegisterEventCallbackInterface)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(peventguid), piwiaeventcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterEventCallbackProgram<'a, P0, P1, P2, P3, P4, P5>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const ::windows::core::GUID, bstrfullappname: P1, bstrcommandlinearg: P2, bstrname: P3, bstrdescription: P4, bstricon: P5) -> ::windows::core::Result<()>
     where
@@ -1142,7 +1111,7 @@ impl IWiaDevMgr2 {
     {
         (::windows::core::Interface::vtable(self).RegisterEventCallbackProgram)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(peventguid), bstrfullappname.into().abi(), bstrcommandlinearg.into().abi(), bstrname.into().abi(), bstrdescription.into().abi(), bstricon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterEventCallbackCLSID<'a, P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, peventguid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, bstrname: P1, bstrdescription: P2, bstricon: P3) -> ::windows::core::Result<()>
     where
@@ -1153,7 +1122,7 @@ impl IWiaDevMgr2 {
     {
         (::windows::core::Interface::vtable(self).RegisterEventCallbackCLSID)(::windows::core::Interface::as_raw(self), lflags, bstrdeviceid.into().abi(), ::core::mem::transmute(peventguid), ::core::mem::transmute(pclsid), bstrname.into().abi(), bstrdescription.into().abi(), bstricon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageDlg<'a, P0, P1, P2, P3>(&self, lflags: i32, bstrdeviceid: P0, hwndparent: P1, bstrfoldername: P2, bstrfilename: P3, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>
     where
@@ -1238,44 +1207,39 @@ pub struct IWiaDevMgr2_Vtbl {
 #[repr(transparent)]
 pub struct IWiaDrvItem(::windows::core::IUnknown);
 impl IWiaDrvItem {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetItemFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).GetItemFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetDeviceSpecContext(&self) -> ::windows::core::Result<*mut u8> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut u8>::zeroed();
         (::windows::core::Interface::vtable(self).GetDeviceSpecContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u8>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFullItemName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).GetFullItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItemName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).GetItemName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn AddItemToFolder<'a, P0>(&self, __midl__iwiadrvitem0004: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaDrvItem>>,
     {
         (::windows::core::Interface::vtable(self).AddItemToFolder)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0004.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn UnlinkItemTree(&self, __midl__iwiadrvitem0005: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnlinkItemTree)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0005).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn RemoveItemFromFolder(&self, __midl__iwiadrvitem0006: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveItemFromFolder)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0006).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindItemByName<'a, P0>(&self, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: P0) -> ::windows::core::Result<IWiaDrvItem>
     where
@@ -1284,7 +1248,7 @@ impl IWiaDrvItem {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindItemByName)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0007, __midl__iwiadrvitem0008.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaDrvItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindChildItemByName<'a, P0>(&self, __midl__iwiadrvitem0010: P0) -> ::windows::core::Result<IWiaDrvItem>
     where
@@ -1293,22 +1257,19 @@ impl IWiaDrvItem {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindChildItemByName)(::windows::core::Interface::as_raw(self), __midl__iwiadrvitem0010.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaDrvItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetParentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaDrvItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetFirstChildItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetFirstChildItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaDrvItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetNextSiblingItem(&self) -> ::windows::core::Result<IWiaDrvItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetNextSiblingItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaDrvItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DumpItemData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
@@ -1387,7 +1348,7 @@ pub struct IWiaDrvItem_Vtbl {
 #[repr(transparent)]
 pub struct IWiaErrorHandler(::windows::core::IUnknown);
 impl IWiaErrorHandler {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReportStatus<'a, P0, P1>(&self, lflags: i32, hwndparent: P0, pwiaitem2: P1, hrstatus: ::windows::core::HRESULT, lpercentcomplete: i32) -> ::windows::core::Result<()>
     where
@@ -1396,7 +1357,7 @@ impl IWiaErrorHandler {
     {
         (::windows::core::Interface::vtable(self).ReportStatus)(::windows::core::Interface::as_raw(self), lflags, hwndparent.into(), pwiaitem2.into().abi(), hrstatus, lpercentcomplete).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStatusDescription<'a, P0>(&self, lflags: i32, pwiaitem2: P0, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -1458,7 +1419,7 @@ pub struct IWiaErrorHandler_Vtbl {
 #[repr(transparent)]
 pub struct IWiaEventCallback(::windows::core::IUnknown);
 impl IWiaEventCallback {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImageEventCallback<'a, P0, P1, P2, P3>(&self, peventguid: *const ::windows::core::GUID, bstreventdescription: P0, bstrdeviceid: P1, bstrdevicedescription: P2, dwdevicetype: u32, bstrfullitemname: P3, puleventtype: *mut u32, ulreserved: u32) -> ::windows::core::Result<()>
     where
@@ -1518,7 +1479,6 @@ pub struct IWiaEventCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWiaImageFilter(::windows::core::IUnknown);
 impl IWiaImageFilter {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn InitializeFilter<'a, P0, P1>(&self, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaItem2>>,
@@ -1526,14 +1486,13 @@ impl IWiaImageFilter {
     {
         (::windows::core::Interface::vtable(self).InitializeFilter)(::windows::core::Interface::as_raw(self), pwiaitem2.into().abi(), pwiatransfercallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn SetNewCallback<'a, P0>(&self, pwiatransfercallback: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaTransferCallback>>,
     {
         (::windows::core::Interface::vtable(self).SetNewCallback)(::windows::core::Interface::as_raw(self), pwiatransfercallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn FilterPreviewImage<'a, P0, P1>(&self, lflags: i32, pwiachilditem2: P0, inputimageextents: super::super::Foundation::RECT, pinputstream: P1) -> ::windows::core::Result<()>
     where
@@ -1542,7 +1501,6 @@ impl IWiaImageFilter {
     {
         (::windows::core::Interface::vtable(self).FilterPreviewImage)(::windows::core::Interface::as_raw(self), lflags, pwiachilditem2.into().abi(), ::core::mem::transmute(inputimageextents), pinputstream.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn ApplyProperties<'a, P0>(&self, pwiapropertystorage: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaPropertyStorage>>,
@@ -1601,25 +1559,21 @@ pub struct IWiaImageFilter_Vtbl {
 #[repr(transparent)]
 pub struct IWiaItem(::windows::core::IUnknown);
 impl IWiaItem {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).GetItemType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn AnalyzeItem(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AnalyzeItem)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumChildItems(&self) -> ::windows::core::Result<IEnumWiaItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumChildItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWiaItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateChildItem<'a, P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> ::windows::core::Result<IWiaItem>
     where
@@ -1629,12 +1583,11 @@ impl IWiaItem {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateChildItem)(::windows::core::Interface::as_raw(self), lflags, bstritemname.into().abi(), bstrfullitemname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterEventInfo)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(peventguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindItemByName<'a, P0>(&self, lflags: i32, bstrfullitemname: P0) -> ::windows::core::Result<IWiaItem>
     where
@@ -1643,7 +1596,7 @@ impl IWiaItem {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindItemByName)(::windows::core::Interface::as_raw(self), lflags, bstrfullitemname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDlg<'a, P0>(&self, hwndparent: P0, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()>
     where
@@ -1651,39 +1604,35 @@ impl IWiaItem {
     {
         (::windows::core::Interface::vtable(self).DeviceDlg)(::windows::core::Interface::as_raw(self), hwndparent.into(), lflags, lintent, ::core::mem::transmute(plitemcount), ::core::mem::transmute(ppiwiaitem)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const ::windows::core::GUID, piwiaitem: *mut ::core::option::Option<IWiaItem>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceCommand)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(pcmdguid), ::core::mem::transmute(piwiaitem)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetRootItem(&self) -> ::windows::core::Result<IWiaItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetRootItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumDeviceCapabilities)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DumpItemData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).DumpItemData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DumpDrvItemData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).DumpDrvItemData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DumpTreeItemData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).DumpTreeItemData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Diagnostic)(::windows::core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer))).ok()
     }
@@ -1765,7 +1714,7 @@ pub struct IWiaItem_Vtbl {
 #[repr(transparent)]
 pub struct IWiaItem2(::windows::core::IUnknown);
 impl IWiaItem2 {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateChildItem<'a, P0>(&self, litemflags: i32, lcreationflags: i32, bstritemname: P0) -> ::windows::core::Result<IWiaItem2>
     where
@@ -1774,16 +1723,14 @@ impl IWiaItem2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateChildItem)(::windows::core::Interface::as_raw(self), litemflags, lcreationflags, bstritemname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DeleteItem(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteItem)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumChildItems(&self, pcategoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWiaItem2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumChildItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcategoryguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindItemByName<'a, P0>(&self, lflags: i32, bstrfullitemname: P0) -> ::windows::core::Result<IWiaItem2>
     where
@@ -1792,17 +1739,15 @@ impl IWiaItem2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindItemByName)(::windows::core::Interface::as_raw(self), lflags, bstrfullitemname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetItemCategory(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
         (::windows::core::Interface::vtable(self).GetItemCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).GetItemType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDlg<'a, P0, P1, P2>(&self, lflags: i32, hwndparent: P0, bstrfoldername: P1, bstrfilename: P2, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()>
     where
@@ -1812,16 +1757,14 @@ impl IWiaItem2 {
     {
         (::windows::core::Interface::vtable(self).DeviceDlg)(::windows::core::Interface::as_raw(self), lflags, hwndparent.into(), bstrfoldername.into().abi(), bstrfilename.into().abi(), ::core::mem::transmute(plnumfiles), ::core::mem::transmute(ppbstrfilepaths), ::core::mem::transmute(ppitem)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DeviceCommand(&self, lflags: i32, pcmdguid: *const ::windows::core::GUID, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceCommand)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(pcmdguid), ::core::mem::transmute(ppiwiaitem2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumDeviceCapabilities(&self, lflags: i32) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumDeviceCapabilities)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckExtension<'a, P0>(&self, lflags: i32, bstrname: P0, riidextensioninterface: *const ::windows::core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -1829,7 +1772,7 @@ impl IWiaItem2 {
     {
         (::windows::core::Interface::vtable(self).CheckExtension)(::windows::core::Interface::as_raw(self), lflags, bstrname.into().abi(), ::core::mem::transmute(riidextensioninterface), ::core::mem::transmute(pbextensionexists)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtension<'a, P0>(&self, lflags: i32, bstrname: P0, riidextensioninterface: *const ::windows::core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -1837,27 +1780,22 @@ impl IWiaItem2 {
     {
         (::windows::core::Interface::vtable(self).GetExtension)(::windows::core::Interface::as_raw(self), lflags, bstrname.into().abi(), ::core::mem::transmute(riidextensioninterface), ::core::mem::transmute(ppout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetParentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetRootItem(&self) -> ::windows::core::Result<IWiaItem2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetRootItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaItem2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetPreviewComponent(&self, lflags: i32) -> ::windows::core::Result<IWiaPreview> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetPreviewComponent)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWiaPreview>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumRegisterEventInfo(&self, lflags: i32, peventguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumWIA_DEV_CAPS> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumRegisterEventInfo)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(peventguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_DEV_CAPS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Diagnostic(&self, pbuffer: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Diagnostic)(::windows::core::Interface::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbuffer))).ok()
     }
@@ -1937,17 +1875,15 @@ pub struct IWiaItem2_Vtbl {
 #[repr(transparent)]
 pub struct IWiaItemExtras(::windows::core::IUnknown);
 impl IWiaItemExtras {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExtendedErrorInfo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).GetExtendedErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Escape)(::windows::core::Interface::as_raw(self), dwescapecode, ::core::mem::transmute(::windows::core::as_ptr_or_null(lpindata)), lpindata.len() as _, ::core::mem::transmute(poutdata), dwoutdatasize, ::core::mem::transmute(pdwactualdatasize)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn CancelPendingIO(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CancelPendingIO)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -2002,15 +1938,13 @@ pub struct IWiaItemExtras_Vtbl {
 #[repr(transparent)]
 pub struct IWiaLog(::windows::core::IUnknown);
 impl IWiaLog {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn InitializeLog(&self, hinstance: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeLog)(::windows::core::Interface::as_raw(self), hinstance).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn hResult(&self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).hResult)(::windows::core::Interface::as_raw(self), hresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Log<'a, P0>(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: P0) -> ::windows::core::Result<()>
     where
@@ -2069,15 +2003,13 @@ pub struct IWiaLog_Vtbl {
 #[repr(transparent)]
 pub struct IWiaLogEx(::windows::core::IUnknown);
 impl IWiaLogEx {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn InitializeLogEx(&self, hinstance: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeLogEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hinstance)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn hResult(&self, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).hResult)(::windows::core::Interface::as_raw(self), hresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Log<'a, P0>(&self, lflags: i32, lresid: i32, ldetail: i32, bstrtext: P0) -> ::windows::core::Result<()>
     where
@@ -2085,11 +2017,10 @@ impl IWiaLogEx {
     {
         (::windows::core::Interface::vtable(self).Log)(::windows::core::Interface::as_raw(self), lflags, lresid, ldetail, bstrtext.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn hResultEx(&self, lmethodid: i32, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).hResultEx)(::windows::core::Interface::as_raw(self), lmethodid, hresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogEx<'a, P0>(&self, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: P0) -> ::windows::core::Result<()>
     where
@@ -2153,7 +2084,7 @@ pub struct IWiaLogEx_Vtbl {
 #[repr(transparent)]
 pub struct IWiaMiniDrv(::windows::core::IUnknown);
 impl IWiaMiniDrv {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvInitializeWia<'a, P0, P1, P2, P3>(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: P0, __midl__iwiaminidrv0003: P1, __midl__iwiaminidrv0004: P2, __midl__iwiaminidrv0005: P3, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows::core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows::core::Result<()>
     where
@@ -2164,75 +2095,65 @@ impl IWiaMiniDrv {
     {
         (::windows::core::Interface::vtable(self).drvInitializeWia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0000), __midl__iwiaminidrv0001, __midl__iwiaminidrv0002.into().abi(), __midl__iwiaminidrv0003.into().abi(), __midl__iwiaminidrv0004.into().abi(), __midl__iwiaminidrv0005.into().abi(), ::core::mem::transmute(__midl__iwiaminidrv0006), ::core::mem::transmute(__midl__iwiaminidrv0007), ::core::mem::transmute(__midl__iwiaminidrv0008)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvAcquireItemData(&self, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvAcquireItemData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0009), __midl__iwiaminidrv0010, ::core::mem::transmute(__midl__iwiaminidrv0011), ::core::mem::transmute(__midl__iwiaminidrv0012)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvInitItemProperties(&self, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvInitItemProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0013), __midl__iwiaminidrv0014, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvValidateItemProperties(&self, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvValidateItemProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0016), __midl__iwiaminidrv0017, __midl__iwiaminidrv0018, ::core::mem::transmute(__midl__iwiaminidrv0019), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvWriteItemProperties(&self, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvWriteItemProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0021), __midl__iwiaminidrv0022, ::core::mem::transmute(__midl__iwiaminidrv0023), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn drvReadItemProperties(&self, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvReadItemProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0025), __midl__iwiaminidrv0026, __midl__iwiaminidrv0027, ::core::mem::transmute(__midl__iwiaminidrv0028), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvLockWiaDevice(&self, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvLockWiaDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0030), __midl__iwiaminidrv0031, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvUnLockWiaDevice(&self, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvUnLockWiaDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0033), __midl__iwiaminidrv0034, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvAnalyzeItem(&self, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvAnalyzeItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0036), __midl__iwiaminidrv0037, ::core::mem::transmute(__midl__iwiaminidrv0038)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvGetDeviceErrorStr(&self, __midl__iwiaminidrv0039: i32, __midl__iwiaminidrv0040: i32, __midl__iwiaminidrv0041: *mut ::windows::core::PWSTR, __midl__iwiaminidrv0042: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvGetDeviceErrorStr)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0039, __midl__iwiaminidrv0040, ::core::mem::transmute(__midl__iwiaminidrv0041), ::core::mem::transmute(__midl__iwiaminidrv0042)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvDeviceCommand(&self, __midl__iwiaminidrv0043: *const u8, __midl__iwiaminidrv0044: i32, __midl__iwiaminidrv0045: *const ::windows::core::GUID, __midl__iwiaminidrv0046: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0047: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvDeviceCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0043), __midl__iwiaminidrv0044, ::core::mem::transmute(__midl__iwiaminidrv0045), ::core::mem::transmute(__midl__iwiaminidrv0046), ::core::mem::transmute(__midl__iwiaminidrv0047)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvGetCapabilities(&self, __midl__iwiaminidrv0048: *const u8, __midl__iwiaminidrv0049: i32, __midl__iwiaminidrv0050: *mut i32, __midl__iwiaminidrv0051: *mut *mut WIA_DEV_CAP_DRV, __midl__iwiaminidrv0052: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvGetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0048), __midl__iwiaminidrv0049, ::core::mem::transmute(__midl__iwiaminidrv0050), ::core::mem::transmute(__midl__iwiaminidrv0051), ::core::mem::transmute(__midl__iwiaminidrv0052)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvDeleteItem(&self, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvDeleteItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0053), __midl__iwiaminidrv0054, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvFreeDrvItemContext(&self, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).drvFreeDrvItemContext)(::windows::core::Interface::as_raw(self), __midl__iwiaminidrv0056, ::core::mem::transmute(__midl__iwiaminidrv0057), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvGetWiaFormatInfo(&self, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvGetWiaFormatInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0059), __midl__iwiaminidrv0060, ::core::mem::transmute(__midl__iwiaminidrv0061), ::core::mem::transmute(__midl__iwiaminidrv0062), ::core::mem::transmute(__midl__iwiaminidrv0063)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn drvNotifyPnpEvent<'a, P0>(&self, peventguid: *const ::windows::core::GUID, bstrdeviceid: P0, ulreserved: u32) -> ::windows::core::Result<()>
     where
@@ -2240,7 +2161,6 @@ impl IWiaMiniDrv {
     {
         (::windows::core::Interface::vtable(self).drvNotifyPnpEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(peventguid), bstrdeviceid.into().abi(), ulreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn drvUnInitializeWia(&self, __midl__iwiaminidrv0064: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).drvUnInitializeWia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0064)).ok()
     }
@@ -2324,7 +2244,7 @@ pub struct IWiaMiniDrv_Vtbl {
 #[repr(transparent)]
 pub struct IWiaMiniDrvCallBack(::windows::core::IUnknown);
 impl IWiaMiniDrvCallBack {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MiniDrvCallback)(::windows::core::Interface::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ::core::mem::transmute(ptranctx), lreserved).ok()
@@ -2378,7 +2298,7 @@ pub struct IWiaMiniDrvCallBack_Vtbl {
 #[repr(transparent)]
 pub struct IWiaMiniDrvTransferCallback(::windows::core::IUnknown);
 impl IWiaMiniDrvTransferCallback {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetNextStream<'a, P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> ::windows::core::Result<super::super::System::Com::IStream>
     where
@@ -2388,7 +2308,6 @@ impl IWiaMiniDrvTransferCallback {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetNextStream)(::windows::core::Interface::as_raw(self), lflags, bstritemname.into().abi(), bstrfullitemname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn SendMessage(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(pwiatransferparams)).ok()
     }
@@ -2442,7 +2361,6 @@ pub struct IWiaMiniDrvTransferCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWiaNotifyDevMgr(::windows::core::IUnknown);
 impl IWiaNotifyDevMgr {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn NewDeviceArrival(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NewDeviceArrival)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -2492,7 +2410,6 @@ pub struct IWiaNotifyDevMgr_Vtbl {
 #[repr(transparent)]
 pub struct IWiaPreview(::windows::core::IUnknown);
 impl IWiaPreview {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetNewPreview<'a, P0, P1>(&self, lflags: i32, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaItem2>>,
@@ -2500,7 +2417,6 @@ impl IWiaPreview {
     {
         (::windows::core::Interface::vtable(self).GetNewPreview)(::windows::core::Interface::as_raw(self), lflags, pwiaitem2.into().abi(), pwiatransfercallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn UpdatePreview<'a, P0, P1>(&self, lflags: i32, pchildwiaitem2: P0, pwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaItem2>>,
@@ -2508,11 +2424,9 @@ impl IWiaPreview {
     {
         (::windows::core::Interface::vtable(self).UpdatePreview)(::windows::core::Interface::as_raw(self), lflags, pchildwiaitem2.into().abi(), pwiatransfercallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DetectRegions(&self, lflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DetectRegions)(::windows::core::Interface::as_raw(self), lflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -2565,78 +2479,71 @@ pub struct IWiaPreview_Vtbl {
 #[repr(transparent)]
 pub struct IWiaPropertyStorage(::windows::core::IUnknown);
 impl IWiaPropertyStorage {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadMultiple)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cpspec), ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgpropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteMultiple)(::windows::core::Interface::as_raw(self), cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgpropvar), propidnamefirst).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn DeleteMultiple(&self, rgpspec: &[super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteMultiple)(::windows::core::Interface::as_raw(self), rgpspec.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReadPropertyNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cpropid), ::core::mem::transmute(rgpropid), ::core::mem::transmute(rglpwstrname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WritePropertyNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cpropid), ::core::mem::transmute(rgpropid), ::core::mem::transmute(rglpwstrname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DeletePropertyNames(&self, rgpropid: &[u32]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeletePropertyNames)(::windows::core::Interface::as_raw(self), rgpropid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpropid))).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Commit(&self, grfcommitflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), grfcommitflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Revert)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Enum(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Enum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTimes(&self, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTimes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctime), ::core::mem::transmute(patime), ::core::mem::transmute(pmtime)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn SetClass(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clsid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Stat(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::STATPROPSETSTG> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::System::Com::StructuredStorage::STATPROPSETSTG>::zeroed();
         (::windows::core::Interface::vtable(self).Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::STATPROPSETSTG>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cpspec), ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgflags), ::core::mem::transmute(rgpropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyStream(&self, pcompatibilityid: *mut ::windows::core::GUID, ppistream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcompatibilityid), ::core::mem::transmute(ppistream)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertyStream<'a, P0>(&self, pcompatibilityid: *mut ::windows::core::GUID, pistream: P0) -> ::windows::core::Result<()>
     where
@@ -2732,7 +2639,7 @@ pub struct IWiaPropertyStorage_Vtbl {
 #[repr(transparent)]
 pub struct IWiaSegmentationFilter(::windows::core::IUnknown);
 impl IWiaSegmentationFilter {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectRegions<'a, P0, P1>(&self, lflags: i32, pinputstream: P0, pwiaitem2: P1) -> ::windows::core::Result<()>
     where
@@ -2790,14 +2697,13 @@ pub struct IWiaSegmentationFilter_Vtbl {
 #[repr(transparent)]
 pub struct IWiaTransfer(::windows::core::IUnknown);
 impl IWiaTransfer {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Download<'a, P0>(&self, lflags: i32, piwiatransfercallback: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IWiaTransferCallback>>,
     {
         (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), lflags, piwiatransfercallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Upload<'a, P0, P1>(&self, lflags: i32, psource: P0, piwiatransfercallback: P1) -> ::windows::core::Result<()>
     where
@@ -2806,11 +2712,9 @@ impl IWiaTransfer {
     {
         (::windows::core::Interface::vtable(self).Upload)(::windows::core::Interface::as_raw(self), lflags, psource.into().abi(), piwiatransfercallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn EnumWIA_FORMAT_INFO(&self) -> ::windows::core::Result<IEnumWIA_FORMAT_INFO> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
@@ -2867,11 +2771,10 @@ pub struct IWiaTransfer_Vtbl {
 #[repr(transparent)]
 pub struct IWiaTransferCallback(::windows::core::IUnknown);
 impl IWiaTransferCallback {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransferCallback)(::windows::core::Interface::as_raw(self), lflags, ::core::mem::transmute(pwiatransferparams)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetNextStream<'a, P0, P1>(&self, lflags: i32, bstritemname: P0, bstrfullitemname: P1) -> ::windows::core::Result<super::super::System::Com::IStream>
     where
@@ -2931,12 +2834,12 @@ pub struct IWiaTransferCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWiaUIExtension(::windows::core::IUnknown);
 impl IWiaUIExtension {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceDialog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevicedialogdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetDeviceIcon<'a, P0>(&self, bstrdeviceid: P0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()>
     where
@@ -2944,7 +2847,7 @@ impl IWiaUIExtension {
     {
         (::windows::core::Interface::vtable(self).GetDeviceIcon)(::windows::core::Interface::as_raw(self), bstrdeviceid.into().abi(), ::core::mem::transmute(phicon), nsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDeviceBitmapLogo<'a, P0>(&self, bstrdeviceid: P0, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows::core::Result<()>
     where
@@ -3009,12 +2912,12 @@ pub struct IWiaUIExtension_Vtbl {
 #[repr(transparent)]
 pub struct IWiaUIExtension2(::windows::core::IUnknown);
 impl IWiaUIExtension2 {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeviceDialog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevicedialogdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetDeviceIcon<'a, P0>(&self, bstrdeviceid: P0, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows::core::Result<()>
     where
@@ -3075,13 +2978,13 @@ pub struct IWiaUIExtension2_Vtbl {
 #[repr(transparent)]
 pub struct IWiaVideo(::windows::core::IUnknown);
 impl IWiaVideo {
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreviewVisible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
         (::windows::core::Interface::vtable(self).PreviewVisible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPreviewVisible<'a, P0>(&self, bpreviewvisible: P0) -> ::windows::core::Result<()>
     where
@@ -3089,13 +2992,13 @@ impl IWiaVideo {
     {
         (::windows::core::Interface::vtable(self).SetPreviewVisible)(::windows::core::Interface::as_raw(self), bpreviewvisible.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImagesDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).ImagesDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetImagesDirectory<'a, P0>(&self, bstrimagedirectory: P0) -> ::windows::core::Result<()>
     where
@@ -3103,7 +3006,7 @@ impl IWiaVideo {
     {
         (::windows::core::Interface::vtable(self).SetImagesDirectory)(::windows::core::Interface::as_raw(self), bstrimagedirectory.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByWiaDevID<'a, P0, P1, P2, P3>(&self, bstrwiadeviceid: P0, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> ::windows::core::Result<()>
     where
@@ -3114,7 +3017,7 @@ impl IWiaVideo {
     {
         (::windows::core::Interface::vtable(self).CreateVideoByWiaDevID)(::windows::core::Interface::as_raw(self), bstrwiadeviceid.into().abi(), hwndparent.into(), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByDevNum<'a, P0, P1, P2>(&self, uidevicenumber: u32, hwndparent: P0, bstretchtofitparent: P1, bautobeginplayback: P2) -> ::windows::core::Result<()>
     where
@@ -3124,7 +3027,7 @@ impl IWiaVideo {
     {
         (::windows::core::Interface::vtable(self).CreateVideoByDevNum)(::windows::core::Interface::as_raw(self), uidevicenumber, hwndparent.into(), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVideoByName<'a, P0, P1, P2, P3>(&self, bstrfriendlyname: P0, hwndparent: P1, bstretchtofitparent: P2, bautobeginplayback: P3) -> ::windows::core::Result<()>
     where
@@ -3135,25 +3038,22 @@ impl IWiaVideo {
     {
         (::windows::core::Interface::vtable(self).CreateVideoByName)(::windows::core::Interface::as_raw(self), bstrfriendlyname.into().abi(), hwndparent.into(), bstretchtofitparent.into(), bautobeginplayback.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn DestroyVideo(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DestroyVideo)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Play(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Play)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TakePicture(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).TakePicture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResizeVideo<'a, P0>(&self, bstretchtofitparent: P0) -> ::windows::core::Result<()>
     where
@@ -3161,7 +3061,6 @@ impl IWiaVideo {
     {
         (::windows::core::Interface::vtable(self).ResizeVideo)(::windows::core::Interface::as_raw(self), bstretchtofitparent.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
     pub unsafe fn GetCurrentState(&self) -> ::windows::core::Result<WIAVIDEO_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::<WIAVIDEO_STATE>::zeroed();
         (::windows::core::Interface::vtable(self).GetCurrentState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WIAVIDEO_STATE>(result__)

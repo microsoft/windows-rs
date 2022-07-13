@@ -1380,7 +1380,6 @@ where
 #[repr(transparent)]
 pub struct IBindCallbackRedirect(::windows::core::IUnknown);
 impl IBindCallbackRedirect {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Redirect<'a, P0>(&self, lpcurl: P0) -> ::windows::core::Result<i16>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1434,7 +1433,6 @@ pub struct IBindCallbackRedirect_Vtbl {
 #[repr(transparent)]
 pub struct IBindHttpSecurity(::windows::core::IUnknown);
 impl IBindHttpSecurity {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetIgnoreCertMask(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetIgnoreCertMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -1485,7 +1483,6 @@ pub struct IBindHttpSecurity_Vtbl {
 #[repr(transparent)]
 pub struct IBindProtocol(::windows::core::IUnknown);
 impl IBindProtocol {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateBinding<'a, P0, P1>(&self, szurl: P0, pbc: P1) -> ::windows::core::Result<super::IBinding>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1540,12 +1537,10 @@ pub struct IBindProtocol_Vtbl {
 #[repr(transparent)]
 pub struct ICatalogFileInfo(::windows::core::IUnknown);
 impl ICatalogFileInfo {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetCatalogFile(&self) -> ::windows::core::Result<::windows::core::PSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
         (::windows::core::Interface::vtable(self).GetCatalogFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetJavaTrust(&self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetJavaTrust)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppjavatrust)).ok()
     }
@@ -1596,13 +1591,12 @@ pub struct ICatalogFileInfo_Vtbl {
 #[repr(transparent)]
 pub struct ICodeInstall(::windows::core::IUnknown);
 impl ICodeInstall {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn OnCodeInstallProblem<'a, P0, P1>(&self, ulstatuscode: u32, szdestination: P0, szsource: P1, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1671,15 +1665,12 @@ pub struct ICodeInstall_Vtbl {
 #[repr(transparent)]
 pub struct IDataFilter(::windows::core::IUnknown);
 impl IDataFilter {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn DoEncode(&self, dwflags: u32, pbinbuffer: &[u8], pboutbuffer: &mut [u8], linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DoEncode)(::windows::core::Interface::as_raw(self), dwflags, pbinbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbinbuffer)), pboutbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pboutbuffer)), linbytesavailable, ::core::mem::transmute(plinbytesread), ::core::mem::transmute(ploutbyteswritten), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn DoDecode(&self, dwflags: u32, pbinbuffer: &[u8], pboutbuffer: &mut [u8], linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DoDecode)(::windows::core::Interface::as_raw(self), dwflags, pbinbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbinbuffer)), pboutbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pboutbuffer)), linbytesavailable, ::core::mem::transmute(plinbytesread), ::core::mem::transmute(ploutbyteswritten), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetEncodingLevel(&self, dwenclevel: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEncodingLevel)(::windows::core::Interface::as_raw(self), dwenclevel).ok()
     }
@@ -1789,7 +1780,6 @@ impl ::core::fmt::Debug for IEObjectType {
 #[repr(transparent)]
 pub struct IEncodingFilterFactory(::windows::core::IUnknown);
 impl IEncodingFilterFactory {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn FindBestFilter<'a, P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1, info: DATAINFO) -> ::windows::core::Result<IDataFilter>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1798,7 +1788,6 @@ impl IEncodingFilterFactory {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).FindBestFilter)(::windows::core::Interface::as_raw(self), pwzcodein.into(), pwzcodeout.into(), ::core::mem::transmute(info), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDataFilter>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetDefaultFilter<'a, P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> ::windows::core::Result<IDataFilter>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1854,7 +1843,7 @@ pub struct IEncodingFilterFactory_Vtbl {
 #[repr(transparent)]
 pub struct IGetBindHandle(::windows::core::IUnknown);
 impl IGetBindHandle {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
@@ -1909,7 +1898,6 @@ pub struct IGetBindHandle_Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate(::windows::core::IUnknown);
 impl IHttpNegotiate {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn BeginningTransaction<'a, P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1918,7 +1906,6 @@ impl IHttpNegotiate {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).BeginningTransaction)(::windows::core::Interface::as_raw(self), szurl.into(), szheaders.into(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn OnResponse<'a, P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1974,7 +1961,6 @@ pub struct IHttpNegotiate_Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate2(::windows::core::IUnknown);
 impl IHttpNegotiate2 {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn BeginningTransaction<'a, P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1983,7 +1969,6 @@ impl IHttpNegotiate2 {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).base__.BeginningTransaction)(::windows::core::Interface::as_raw(self), szurl.into(), szheaders.into(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn OnResponse<'a, P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1992,7 +1977,6 @@ impl IHttpNegotiate2 {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).base__.OnResponse)(::windows::core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into(), szrequestheaders.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRootSecurityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
@@ -2057,7 +2041,6 @@ pub struct IHttpNegotiate2_Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate3(::windows::core::IUnknown);
 impl IHttpNegotiate3 {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn BeginningTransaction<'a, P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2066,7 +2049,6 @@ impl IHttpNegotiate3 {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.BeginningTransaction)(::windows::core::Interface::as_raw(self), szurl.into(), szheaders.into(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn OnResponse<'a, P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows::core::Result<::windows::core::PWSTR>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2075,11 +2057,9 @@ impl IHttpNegotiate3 {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.OnResponse)(::windows::core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into(), szrequestheaders.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRootSecurityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSerializedClientCertContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbcert), ::core::mem::transmute(pcbcert)).ok()
     }
@@ -2159,13 +2139,12 @@ pub struct IHttpNegotiate3_Vtbl {
 #[repr(transparent)]
 pub struct IHttpSecurity(::windows::core::IUnknown);
 impl IHttpSecurity {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnSecurityProblem)(::windows::core::Interface::as_raw(self), dwproblem).ok()
     }
@@ -2274,12 +2253,11 @@ pub struct IInternet_Vtbl {
 #[repr(transparent)]
 pub struct IInternetBindInfo(::windows::core::IUnknown);
 impl IInternetBindInfo {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBindInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut ::windows::core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBindString)(::windows::core::Interface::as_raw(self), ulstringtype, ::core::mem::transmute(ppwzstr), cel, ::core::mem::transmute(pcelfetched)).ok()
     }
@@ -2333,16 +2311,15 @@ pub struct IInternetBindInfo_Vtbl {
 #[repr(transparent)]
 pub struct IInternetBindInfoEx(::windows::core::IUnknown);
 impl IInternetBindInfoEx {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetBindInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut ::windows::core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetBindString)(::windows::core::Interface::as_raw(self), ulstringtype, ::core::mem::transmute(ppwzstr), cel, ::core::mem::transmute(pcelfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBindInfoEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo), ::core::mem::transmute(grfbindf2), ::core::mem::transmute(pdwreserved)).ok()
@@ -2411,15 +2388,12 @@ pub struct IInternetBindInfoEx_Vtbl {
 #[repr(transparent)]
 pub struct IInternetHostSecurityManager(::windows::core::IUnknown);
 impl IInternetHostSecurityManager {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSecurityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlAction(&self, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: &[u8], dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProcessUrlAction)(::windows::core::Interface::as_raw(self), dwaction, ::core::mem::transmute(ppolicy), cbpolicy, ::core::mem::transmute(::windows::core::as_ptr_or_null(pcontext)), pcontext.len() as _, dwflags, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryCustomPolicy(&self, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: &[u8], dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcontext)), pcontext.len() as _, dwreserved).ok()
     }
@@ -2471,11 +2445,9 @@ pub struct IInternetHostSecurityManager_Vtbl {
 #[repr(transparent)]
 pub struct IInternetPriority(::windows::core::IUnknown);
 impl IInternetPriority {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetPriority(&self, npriority: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), npriority).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
         (::windows::core::Interface::vtable(self).GetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -2527,7 +2499,7 @@ pub struct IInternetPriority_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocol(::windows::core::IUnknown);
 impl IInternetProtocol {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<'a, P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
@@ -2538,40 +2510,31 @@ impl IInternetProtocol {
     {
         (::windows::core::Interface::vtable(self).base__.Start)(::windows::core::Interface::as_raw(self), szurl.into(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Continue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Abort)(::windows::core::Interface::as_raw(self), hrreason, dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self), dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Suspend)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Read(&self, pv: &mut [u8], pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pv)), pv.len() as _, ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).Seek)(::windows::core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LockRequest)(::windows::core::Interface::as_raw(self), dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn UnlockRequest(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnlockRequest)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -2639,7 +2602,7 @@ pub struct IInternetProtocol_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolEx(::windows::core::IUnknown);
 impl IInternetProtocolEx {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<'a, P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
@@ -2650,44 +2613,35 @@ impl IInternetProtocolEx {
     {
         (::windows::core::Interface::vtable(self).base__.base__.Start)(::windows::core::Interface::as_raw(self), szurl.into(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Continue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Abort)(::windows::core::Interface::as_raw(self), hrreason, dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Terminate)(::windows::core::Interface::as_raw(self), dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Suspend)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Read(&self, pv: &mut [u8], pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pv)), pv.len() as _, ::core::mem::transmute(pcbread)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.LockRequest)(::windows::core::Interface::as_raw(self), dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn UnlockRequest(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.UnlockRequest)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartEx<'a, P0, P1, P2, P3>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
@@ -2777,14 +2731,12 @@ pub struct IInternetProtocolEx_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolInfo(::windows::core::IUnknown);
 impl IInternetProtocolInfo {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ParseUrl<'a, P0>(&self, pwzurl: P0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).ParseUrl)(::windows::core::Interface::as_raw(self), pwzurl.into(), parseaction, dwparseflags, ::core::mem::transmute(pwzresult), cchresult, ::core::mem::transmute(pcchresult), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CombineUrl<'a, P0, P1, P2>(&self, pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pwzresult: P2, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2793,7 +2745,6 @@ impl IInternetProtocolInfo {
     {
         (::windows::core::Interface::vtable(self).CombineUrl)(::windows::core::Interface::as_raw(self), pwzbaseurl.into(), pwzrelativeurl.into(), dwcombineflags, pwzresult.into(), cchresult, ::core::mem::transmute(pcchresult), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CompareUrl<'a, P0, P1>(&self, pwzurl1: P0, pwzurl2: P1, dwcompareflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2801,7 +2752,6 @@ impl IInternetProtocolInfo {
     {
         (::windows::core::Interface::vtable(self).CompareUrl)(::windows::core::Interface::as_raw(self), pwzurl1.into(), pwzurl2.into(), dwcompareflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryInfo<'a, P0>(&self, pwzurl: P0, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2857,7 +2807,7 @@ pub struct IInternetProtocolInfo_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolRoot(::windows::core::IUnknown);
 impl IInternetProtocolRoot {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<'a, P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows::core::Result<()>
     where
@@ -2868,23 +2818,18 @@ impl IInternetProtocolRoot {
     {
         (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), szurl.into(), poiprotsink.into().abi(), poibindinfo.into().abi(), grfpi, dwreserved.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Continue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self), hrreason, dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self), dwoptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Suspend)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -2942,22 +2887,18 @@ pub struct IInternetProtocolRoot_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolSink(::windows::core::IUnknown);
 impl IInternetProtocolSink {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Switch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprotocoldata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ReportProgress<'a, P0>(&self, ulstatuscode: u32, szstatustext: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).ReportProgress)(::windows::core::Interface::as_raw(self), ulstatuscode, szstatustext.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ReportData(&self, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReportData)(::windows::core::Interface::as_raw(self), grfbscf, ulprogress, ulprogressmax).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ReportResult<'a, P0>(&self, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3013,18 +2954,15 @@ pub struct IInternetProtocolSink_Vtbl {
 #[repr(transparent)]
 pub struct IInternetProtocolSinkStackable(::windows::core::IUnknown);
 impl IInternetProtocolSinkStackable {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SwitchSink<'a, P0>(&self, poiprotsink: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetProtocolSink>>,
     {
         (::windows::core::Interface::vtable(self).SwitchSink)(::windows::core::Interface::as_raw(self), poiprotsink.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CommitSwitch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CommitSwitch)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn RollbackSwitch(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RollbackSwitch)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -3076,54 +3014,46 @@ pub struct IInternetProtocolSinkStackable_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManager(::windows::core::IUnknown);
 impl IInternetSecurityManager {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetSecuritySite<'a, P0>(&self, psite: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityMgrSite>>,
     {
         (::windows::core::Interface::vtable(self).SetSecuritySite)(::windows::core::Interface::as_raw(self), psite.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSecuritySite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInternetSecurityMgrSite>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn MapUrlToZone<'a, P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).MapUrlToZone)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(pdwzone), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecurityId<'a, P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).GetSecurityId)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlAction<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).ProcessUrlAction)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(pcontext), cbcontext, dwflags, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryCustomPolicy<'a, P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).QueryCustomPolicy)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), cbcontext, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneMapping<'a, P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetZoneMapping)(::windows::core::Interface::as_raw(self), dwzone, lpszpattern.into(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneMappings)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(ppenumstring), dwflags).ok()
     }
@@ -3180,58 +3110,49 @@ pub struct IInternetSecurityManager_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx(::windows::core::IUnknown);
 impl IInternetSecurityManagerEx {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetSecuritySite<'a, P0>(&self, psite: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityMgrSite>>,
     {
         (::windows::core::Interface::vtable(self).base__.SetSecuritySite)(::windows::core::Interface::as_raw(self), psite.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSecuritySite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInternetSecurityMgrSite>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn MapUrlToZone<'a, P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.MapUrlToZone)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(pdwzone), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecurityId<'a, P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.GetSecurityId)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlAction<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.ProcessUrlAction)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(pcontext), cbcontext, dwflags, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryCustomPolicy<'a, P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.QueryCustomPolicy)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), cbcontext, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneMapping<'a, P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.SetZoneMapping)(::windows::core::Interface::as_raw(self), dwzone, lpszpattern.into(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetZoneMappings)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(ppenumstring), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlActionEx<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3299,86 +3220,73 @@ pub struct IInternetSecurityManagerEx_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx2(::windows::core::IUnknown);
 impl IInternetSecurityManagerEx2 {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetSecuritySite<'a, P0>(&self, psite: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IInternetSecurityMgrSite>>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetSecuritySite)(::windows::core::Interface::as_raw(self), psite.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetSecuritySite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInternetSecurityMgrSite>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn MapUrlToZone<'a, P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.MapUrlToZone)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(pdwzone), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecurityId<'a, P0>(&self, pwszurl: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.GetSecurityId)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlAction<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.ProcessUrlAction)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(pcontext), cbcontext, dwflags, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryCustomPolicy<'a, P0>(&self, pwszurl: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.QueryCustomPolicy)(::windows::core::Interface::as_raw(self), pwszurl.into(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), cbcontext, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneMapping<'a, P0>(&self, dwzone: u32, lpszpattern: P0, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetZoneMapping)(::windows::core::Interface::as_raw(self), dwzone, lpszpattern.into(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetZoneMappings)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(ppenumstring), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlActionEx<'a, P0>(&self, pwszurl: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.ProcessUrlActionEx)(::windows::core::Interface::as_raw(self), pwszurl.into(), dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(pcontext), cbcontext, dwflags, dwreserved, ::core::mem::transmute(pdwoutflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn MapUrlToZoneEx2<'a, P0>(&self, puri: P0, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut ::windows::core::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
     {
         (::windows::core::Interface::vtable(self).MapUrlToZoneEx2)(::windows::core::Interface::as_raw(self), puri.into().abi(), ::core::mem::transmute(pdwzone), dwflags, ::core::mem::transmute(ppwszmappedurl), ::core::mem::transmute(pdwoutflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn ProcessUrlActionEx2<'a, P0>(&self, puri: P0, dwaction: u32, ppolicy: &mut [u8], pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
     {
         (::windows::core::Interface::vtable(self).ProcessUrlActionEx2)(::windows::core::Interface::as_raw(self), puri.into().abi(), dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, ::core::mem::transmute(pcontext), cbcontext, dwflags, dwreserved, ::core::mem::transmute(pdwoutflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSecurityIdEx2<'a, P0>(&self, puri: P0, pbsecurityid: &mut [u8; 512], pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
     {
         (::windows::core::Interface::vtable(self).GetSecurityIdEx2)(::windows::core::Interface::as_raw(self), puri.into().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbsecurityid)), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryCustomPolicyEx2<'a, P0>(&self, puri: P0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IUri>>,
@@ -3464,13 +3372,13 @@ pub struct IInternetSecurityManagerEx2_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityMgrSite(::windows::core::IUnknown);
 impl IInternetSecurityMgrSite {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
         (::windows::core::Interface::vtable(self).GetWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableModeless<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -3531,7 +3439,6 @@ pub struct IInternetSecurityMgrSite_Vtbl {
 #[repr(transparent)]
 pub struct IInternetSession(::windows::core::IUnknown);
 impl IInternetSession {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn RegisterNameSpace<'a, P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwzprotocol: P1, cpatterns: u32, ppwzpatterns: *const ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
@@ -3539,7 +3446,6 @@ impl IInternetSession {
     {
         (::windows::core::Interface::vtable(self).RegisterNameSpace)(::windows::core::Interface::as_raw(self), pcf.into().abi(), ::core::mem::transmute(rclsid), pwzprotocol.into(), cpatterns, ::core::mem::transmute(ppwzpatterns), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn UnregisterNameSpace<'a, P0, P1>(&self, pcf: P0, pszprotocol: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
@@ -3547,7 +3453,6 @@ impl IInternetSession {
     {
         (::windows::core::Interface::vtable(self).UnregisterNameSpace)(::windows::core::Interface::as_raw(self), pcf.into().abi(), pszprotocol.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn RegisterMimeFilter<'a, P0, P1>(&self, pcf: P0, rclsid: *const ::windows::core::GUID, pwztype: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
@@ -3555,7 +3460,6 @@ impl IInternetSession {
     {
         (::windows::core::Interface::vtable(self).RegisterMimeFilter)(::windows::core::Interface::as_raw(self), pcf.into().abi(), ::core::mem::transmute(rclsid), pwztype.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn UnregisterMimeFilter<'a, P0, P1>(&self, pcf: P0, pwztype: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IClassFactory>>,
@@ -3563,7 +3467,6 @@ impl IInternetSession {
     {
         (::windows::core::Interface::vtable(self).UnregisterMimeFilter)(::windows::core::Interface::as_raw(self), pcf.into().abi(), pwztype.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateBinding<'a, P0, P1, P2>(&self, pbc: P0, szurl: P1, punkouter: P2, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
@@ -3572,11 +3475,9 @@ impl IInternetSession {
     {
         (::windows::core::Interface::vtable(self).CreateBinding)(::windows::core::Interface::as_raw(self), pbc.into().abi(), szurl.into(), punkouter.into().abi(), ::core::mem::transmute(ppunk), ::core::mem::transmute(ppoinetprot), dwoption).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetSessionOption(&self, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSessionOption)(::windows::core::Interface::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), dwbufferlength, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetSessionOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSessionOption)(::windows::core::Interface::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwbufferlength), dwreserved).ok()
     }
@@ -3632,11 +3533,9 @@ pub struct IInternetSession_Vtbl {
 #[repr(transparent)]
 pub struct IInternetThreadSwitch(::windows::core::IUnknown);
 impl IInternetThreadSwitch {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Prepare(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Prepare)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Continue(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Continue)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -3687,31 +3586,25 @@ pub struct IInternetThreadSwitch_Vtbl {
 #[repr(transparent)]
 pub struct IInternetZoneManager(::windows::core::IUnknown);
 impl IInternetZoneManager {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneAttributes)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetZoneAttributes)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptAction<'a, P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
     where
@@ -3721,7 +3614,6 @@ impl IInternetZoneManager {
     {
         (::windows::core::Interface::vtable(self).PromptAction)(::windows::core::Interface::as_raw(self), dwaction, hwndparent.into(), pwszurl.into(), pwsztext.into(), dwpromptflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn LogAction<'a, P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3729,20 +3621,16 @@ impl IInternetZoneManager {
     {
         (::windows::core::Interface::vtable(self).LogAction)(::windows::core::Interface::as_raw(self), dwaction, pwszurl.into(), pwsztext.into(), dwlogflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateZoneEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetZoneAt)(::windows::core::Interface::as_raw(self), dwenum, dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DestroyZoneEnumerator)(::windows::core::Interface::as_raw(self), dwenum).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CopyTemplatePoliciesToZone)(::windows::core::Interface::as_raw(self), dwtemplate, dwzone, dwreserved).ok()
     }
@@ -3806,31 +3694,25 @@ pub struct IInternetZoneManager_Vtbl {
 #[repr(transparent)]
 pub struct IInternetZoneManagerEx(::windows::core::IUnknown);
 impl IInternetZoneManagerEx {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetZoneAttributes)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetZoneAttributes)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptAction<'a, P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
     where
@@ -3840,7 +3722,6 @@ impl IInternetZoneManagerEx {
     {
         (::windows::core::Interface::vtable(self).base__.PromptAction)(::windows::core::Interface::as_raw(self), dwaction, hwndparent.into(), pwszurl.into(), pwsztext.into(), dwpromptflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn LogAction<'a, P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3848,28 +3729,22 @@ impl IInternetZoneManagerEx {
     {
         (::windows::core::Interface::vtable(self).base__.LogAction)(::windows::core::Interface::as_raw(self), dwaction, pwszurl.into(), pwsztext.into(), dwlogflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CreateZoneEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetZoneAt)(::windows::core::Interface::as_raw(self), dwenum, dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DestroyZoneEnumerator)(::windows::core::Interface::as_raw(self), dwenum).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyTemplatePoliciesToZone)(::windows::core::Interface::as_raw(self), dwtemplate, dwzone, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg, dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg, dwflags).ok()
     }
@@ -3935,31 +3810,25 @@ pub struct IInternetZoneManagerEx_Vtbl {
 #[repr(transparent)]
 pub struct IInternetZoneManagerEx2(::windows::core::IUnknown);
 impl IInternetZoneManagerEx2 {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetZoneAttributes)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetZoneAttributes)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetZoneCustomPolicy)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(guidkey), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetZoneActionPolicy)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetZoneActionPolicy)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptAction<'a, P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows::core::Result<()>
     where
@@ -3969,7 +3838,6 @@ impl IInternetZoneManagerEx2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.PromptAction)(::windows::core::Interface::as_raw(self), dwaction, hwndparent.into(), pwszurl.into(), pwsztext.into(), dwpromptflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn LogAction<'a, P0, P1>(&self, dwaction: u32, pwszurl: P0, pwsztext: P1, dwlogflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -3977,36 +3845,29 @@ impl IInternetZoneManagerEx2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.LogAction)(::windows::core::Interface::as_raw(self), dwaction, pwszurl.into(), pwsztext.into(), dwlogflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.CreateZoneEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetZoneAt)(::windows::core::Interface::as_raw(self), dwenum, dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.DestroyZoneEnumerator)(::windows::core::Interface::as_raw(self), dwenum).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.CopyTemplatePoliciesToZone)(::windows::core::Interface::as_raw(self), dwtemplate, dwzone, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg, dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetZoneActionPolicyEx)(::windows::core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppolicy)), ppolicy.len() as _, urlzonereg, dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneAttributesEx)(::windows::core::Interface::as_raw(self), dwzone, ::core::mem::transmute(pzoneattributes), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetZoneSecurityState<'a, P0>(&self, dwzoneindex: u32, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -4014,7 +3875,7 @@ impl IInternetZoneManagerEx2 {
     {
         (::windows::core::Interface::vtable(self).GetZoneSecurityState)(::windows::core::Interface::as_raw(self), dwzoneindex, frespectpolicy.into(), ::core::mem::transmute(pdwstate), ::core::mem::transmute(pfpolicyencountered)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIESecurityState<'a, P0, P1>(&self, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: P1) -> ::windows::core::Result<()>
     where
@@ -4023,7 +3884,6 @@ impl IInternetZoneManagerEx2 {
     {
         (::windows::core::Interface::vtable(self).GetIESecurityState)(::windows::core::Interface::as_raw(self), frespectpolicy.into(), ::core::mem::transmute(pdwstate), ::core::mem::transmute(pfpolicyencountered), fnocache.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn FixUnsecureSettings(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FixUnsecureSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -4112,7 +3972,6 @@ pub struct IInternetZoneManagerEx2_Vtbl {
 #[repr(transparent)]
 pub struct IMonikerProp(::windows::core::IUnknown);
 impl IMonikerProp {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn PutProperty<'a, P0>(&self, mkp: MONIKERPROPERTY, val: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4373,16 +4232,14 @@ impl ::core::fmt::Debug for INTERNETFEATURELIST {
 #[repr(transparent)]
 pub struct IPersistMoniker(::windows::core::IUnknown);
 impl IPersistMoniker {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
         (::windows::core::Interface::vtable(self).GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::windows::core::Interface::as_raw(self)))
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Load<'a, P0, P1, P2>(&self, ffullyavailable: P0, pimkname: P1, pibc: P2, grfmode: u32) -> ::windows::core::Result<()>
     where
@@ -4392,7 +4249,7 @@ impl IPersistMoniker {
     {
         (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), ffullyavailable.into(), pimkname.into().abi(), pibc.into().abi(), grfmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<'a, P0, P1, P2>(&self, pimkname: P0, pbc: P1, fremember: P2) -> ::windows::core::Result<()>
     where
@@ -4402,7 +4259,6 @@ impl IPersistMoniker {
     {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), pimkname.into().abi(), pbc.into().abi(), fremember.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SaveCompleted<'a, P0, P1>(&self, pimkname: P0, pibc: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IMoniker>>,
@@ -4410,7 +4266,6 @@ impl IPersistMoniker {
     {
         (::windows::core::Interface::vtable(self).SaveCompleted)(::windows::core::Interface::as_raw(self), pimkname.into().abi(), pibc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetCurMoniker(&self) -> ::windows::core::Result<super::IMoniker> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetCurMoniker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IMoniker>(result__)
@@ -4472,7 +4327,7 @@ pub struct IPersistMoniker_Vtbl {
 #[repr(transparent)]
 pub struct ISoftDistExt(::windows::core::IUnknown);
 impl ISoftDistExt {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Data_Xml_MsXml\"`*"]
+    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
     pub unsafe fn ProcessSoftDist<'a, P0, P1>(&self, szcdfurl: P0, psoftdistelement: P1, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>
     where
@@ -4481,15 +4336,12 @@ impl ISoftDistExt {
     {
         (::windows::core::Interface::vtable(self).ProcessSoftDist)(::windows::core::Interface::as_raw(self), szcdfurl.into(), psoftdistelement.into().abi(), ::core::mem::transmute(lpsdi)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetFirstCodeBase(&self, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFirstCodeBase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szcodebase), ::core::mem::transmute(dwmaxsize)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNextCodeBase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szcodebase), ::core::mem::transmute(dwmaxsize)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn AsyncInstallDistributionUnit<'a, P0>(&self, pbc: P0, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::IBindCtx>>,
@@ -4548,12 +4400,10 @@ pub struct ISoftDistExt_Vtbl {
 #[repr(transparent)]
 pub struct IUriBuilderFactory(::windows::core::IUnknown);
 impl IUriBuilderFactory {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateIUriBuilder)(::windows::core::Interface::as_raw(self), dwflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IUriBuilder>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateInitializedIUriBuilder)(::windows::core::Interface::as_raw(self), dwflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IUriBuilder>(result__)
@@ -4605,7 +4455,6 @@ pub struct IUriBuilderFactory_Vtbl {
 #[repr(transparent)]
 pub struct IUriContainer(::windows::core::IUnknown);
 impl IUriContainer {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetIUri(&self) -> ::windows::core::Result<super::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetIUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IUri>(result__)
@@ -4656,7 +4505,6 @@ pub struct IUriContainer_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetCacheHints(::windows::core::IUnknown);
 impl IWinInetCacheHints {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetCacheExtension<'a, P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4709,14 +4557,12 @@ pub struct IWinInetCacheHints_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetCacheHints2(::windows::core::IUnknown);
 impl IWinInetCacheHints2 {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetCacheExtension<'a, P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).base__.SetCacheExtension)(::windows::core::Interface::as_raw(self), pwzext.into(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetCacheExtension2<'a, P0>(&self, pwzext: P0, pwzcachefile: ::windows::core::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4784,11 +4630,9 @@ pub struct IWinInetCacheHints2_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetFileStream(::windows::core::IUnknown);
 impl IWinInetFileStream {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHandleForUnlock)(::windows::core::Interface::as_raw(self), hwininetlockhandle, dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetDeleteFile(&self, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDeleteFile)(::windows::core::Interface::as_raw(self), dwreserved).ok()
     }
@@ -4839,11 +4683,9 @@ pub struct IWinInetFileStream_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetHttpInfo(::windows::core::IUnknown);
 impl IWinInetHttpInfo {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.QueryOption)(::windows::core::Interface::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryInfo(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryInfo)(::windows::core::Interface::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwreserved)).ok()
     }
@@ -4908,7 +4750,6 @@ pub struct IWinInetHttpInfo_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetHttpTimeouts(::windows::core::IUnknown);
 impl IWinInetHttpTimeouts {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRequestTimeouts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwconnecttimeout), ::core::mem::transmute(pdwsendtimeout), ::core::mem::transmute(pdwreceivetimeout)).ok()
     }
@@ -4958,7 +4799,6 @@ pub struct IWinInetHttpTimeouts_Vtbl {
 #[repr(transparent)]
 pub struct IWinInetInfo(::windows::core::IUnknown);
 impl IWinInetInfo {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryOption)(::windows::core::Interface::as_raw(self), dwoption, ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
     }
@@ -5008,7 +4848,7 @@ pub struct IWinInetInfo_Vtbl {
 #[repr(transparent)]
 pub struct IWindowForBindingUI(::windows::core::IUnknown);
 impl IWindowForBindingUI {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
@@ -5063,7 +4903,6 @@ pub struct IWindowForBindingUI_Vtbl {
 #[repr(transparent)]
 pub struct IWrappedProtocol(::windows::core::IUnknown);
 impl IWrappedProtocol {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWrapperCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pncode), dwreserved).ok()
     }
@@ -5113,16 +4952,13 @@ pub struct IWrappedProtocol_Vtbl {
 #[repr(transparent)]
 pub struct IZoneIdentifier(::windows::core::IUnknown);
 impl IZoneIdentifier {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), dwzone).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Remove(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -5174,45 +5010,36 @@ pub struct IZoneIdentifier_Vtbl {
 #[repr(transparent)]
 pub struct IZoneIdentifier2(::windows::core::IUnknown);
 impl IZoneIdentifier2 {
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), dwzone).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn Remove(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetLastWriterPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         (::windows::core::Interface::vtable(self).GetLastWriterPackageFamilyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetLastWriterPackageFamilyName<'a, P0>(&self, packagefamilyname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetLastWriterPackageFamilyName)(::windows::core::Interface::as_raw(self), packagefamilyname.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn RemoveLastWriterPackageFamilyName(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveLastWriterPackageFamilyName)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn GetAppZoneId(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetAppZoneId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn SetAppZoneId(&self, zone: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAppZoneId)(::windows::core::Interface::as_raw(self), zone).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub unsafe fn RemoveAppZoneId(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAppZoneId)(::windows::core::Interface::as_raw(self)).ok()
     }

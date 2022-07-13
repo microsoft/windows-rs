@@ -130,7 +130,7 @@ impl ::core::default::Default for HTHREAD_NETWORK_CONTEXT {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop(::windows::core::IUnknown);
 impl IProtectionPolicyManagerInterop {
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForWindowAsync<'a, P0, P1, P2, T>(&self, appwindow: P0, sourceidentity: P1, targetidentity: P2) -> ::windows::core::Result<T>
     where
@@ -142,7 +142,7 @@ impl IProtectionPolicyManagerInterop {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), targetidentity.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -220,7 +220,7 @@ pub struct IProtectionPolicyManagerInterop_Vtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop2(::windows::core::IUnknown);
 impl IProtectionPolicyManagerInterop2 {
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithWindowAsync<'a, P0, P1, P2, T>(&self, appwindow: P0, sourceidentity: P1, apppackagefamilyname: P2) -> ::windows::core::Result<T>
     where
@@ -232,7 +232,7 @@ impl IProtectionPolicyManagerInterop2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessForAppWithWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), apppackagefamilyname.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<'a, P0, P1, P2, P3, T>(&self, appwindow: P0, sourceidentity: P1, targetidentity: P2, auditinfounk: P3) -> ::windows::core::Result<T>
     where
@@ -245,7 +245,7 @@ impl IProtectionPolicyManagerInterop2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessWithAuditingInfoForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), targetidentity.into().abi(), auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessWithMessageForWindowAsync<'a, P0, P1, P2, P3, P4, T>(&self, appwindow: P0, sourceidentity: P1, targetidentity: P2, auditinfounk: P3, messagefromapp: P4) -> ::windows::core::Result<T>
     where
@@ -259,7 +259,7 @@ impl IProtectionPolicyManagerInterop2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessWithMessageForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), targetidentity.into().abi(), auditinfounk.into().abi(), messagefromapp.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<'a, P0, P1, P2, P3, T>(&self, appwindow: P0, sourceidentity: P1, apppackagefamilyname: P2, auditinfounk: P3) -> ::windows::core::Result<T>
     where
@@ -272,7 +272,7 @@ impl IProtectionPolicyManagerInterop2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessForAppWithAuditingInfoForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), apppackagefamilyname.into().abi(), auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<'a, P0, P1, P2, P3, P4, T>(&self, appwindow: P0, sourceidentity: P1, apppackagefamilyname: P2, auditinfounk: P3, messagefromapp: P4) -> ::windows::core::Result<T>
     where
@@ -366,7 +366,7 @@ pub struct IProtectionPolicyManagerInterop2_Vtbl {
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop3(::windows::core::IUnknown);
 impl IProtectionPolicyManagerInterop3 {
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessWithBehaviorForWindowAsync<'a, P0, P1, P2, P3, P4, T>(&self, appwindow: P0, sourceidentity: P1, targetidentity: P2, auditinfounk: P3, messagefromapp: P4, behavior: u32) -> ::windows::core::Result<T>
     where
@@ -380,7 +380,7 @@ impl IProtectionPolicyManagerInterop3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessWithBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), targetidentity.into().abi(), auditinfounk.into().abi(), messagefromapp.into().abi(), behavior, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<'a, P0, P1, P2, P3, P4, T>(&self, appwindow: P0, sourceidentity: P1, apppackagefamilyname: P2, auditinfounk: P3, messagefromapp: P4, behavior: u32) -> ::windows::core::Result<T>
     where
@@ -394,7 +394,7 @@ impl IProtectionPolicyManagerInterop3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessForAppWithBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceidentity.into().abi(), apppackagefamilyname.into().abi(), auditinfounk.into().abi(), messagefromapp.into().abi(), behavior, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForAppForWindowAsync<'a, P0, P1, P2, P3, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: P2, auditinfounk: P3) -> ::windows::core::Result<T>
     where
@@ -407,7 +407,7 @@ impl IProtectionPolicyManagerInterop3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessToFilesForAppForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), apppackagefamilyname.into().abi(), auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<'a, P0, P1, P2, P3, P4, T>(&self, appwindow: P0, sourceitemlistunk: P1, apppackagefamilyname: P2, auditinfounk: P3, messagefromapp: P4, behavior: u32) -> ::windows::core::Result<T>
     where
@@ -421,7 +421,7 @@ impl IProtectionPolicyManagerInterop3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), apppackagefamilyname.into().abi(), auditinfounk.into().abi(), messagefromapp.into().abi(), behavior, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<'a, P0, P1, P2, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P2) -> ::windows::core::Result<T>
     where
@@ -433,7 +433,7 @@ impl IProtectionPolicyManagerInterop3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestAccessToFilesForProcessForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), processid, auditinfounk.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<'a, P0, P1, P2, P3, T>(&self, appwindow: P0, sourceitemlistunk: P1, processid: u32, auditinfounk: P2, messagefromapp: P3, behavior: u32) -> ::windows::core::Result<T>
     where

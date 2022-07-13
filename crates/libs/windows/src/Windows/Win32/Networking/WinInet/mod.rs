@@ -4232,14 +4232,13 @@ pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
 #[repr(transparent)]
 pub struct IDialBranding(::windows::core::IUnknown);
 impl IDialBranding {
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn Initialize<'a, P0>(&self, pwzconnectoid: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pwzconnectoid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Graphics::Gdi::HBITMAP>::zeroed();
@@ -4295,7 +4294,6 @@ pub struct IDialBranding_Vtbl {
 #[repr(transparent)]
 pub struct IDialEngine(::windows::core::IUnknown);
 impl IDialEngine {
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn Initialize<'a, P0, P1>(&self, pwzconnectoid: P0, pides: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4303,7 +4301,6 @@ impl IDialEngine {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pwzconnectoid.into(), pides.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetProperty<'a, P0, P1>(&self, pwzproperty: P0, pwzvalue: P1, dwbufsize: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4311,7 +4308,6 @@ impl IDialEngine {
     {
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwzproperty.into(), pwzvalue.into(), dwbufsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn SetProperty<'a, P0, P1>(&self, pwzproperty: P0, pwzvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -4319,20 +4315,16 @@ impl IDialEngine {
     {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwzproperty.into(), pwzvalue.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn Dial(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Dial)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn HangUp(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HangUp)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetConnectedState(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetConnectedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetConnectHandle(&self) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
         (::windows::core::Interface::vtable(self).GetConnectHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
@@ -4389,7 +4381,6 @@ pub struct IDialEngine_Vtbl {
 #[repr(transparent)]
 pub struct IDialEventSink(::windows::core::IUnknown);
 impl IDialEventSink {
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), dwevent, dwstatus).ok()
     }
@@ -7181,7 +7172,6 @@ impl ::core::default::Default for INTERNET_VERSION_INFO {
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager(::windows::core::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetCookieInfoForUri<'a, P0>(&self, uri: P0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -7234,7 +7224,6 @@ pub struct IProofOfPossessionCookieInfoManager_Vtbl {
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager2(::windows::core::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
-    #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetCookieInfoWithUriForAccount<'a, P0, P1>(&self, webaccount: P0, uri: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,

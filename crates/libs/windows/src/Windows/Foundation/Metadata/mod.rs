@@ -1,7 +1,6 @@
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 pub struct ApiInformation;
 impl ApiInformation {
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsTypePresent<'a, P0>(typename: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -11,7 +10,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsTypePresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsMethodPresent<'a, P0, P1>(typename: P0, methodname: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -22,7 +20,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsMethodPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), methodname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsMethodPresentWithArity<'a, P0, P1>(typename: P0, methodname: P1, inputparametercount: u32) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -33,7 +30,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsMethodPresentWithArity)(::windows::core::Interface::as_raw(this), typename.into().abi(), methodname.into().abi(), inputparametercount, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsEventPresent<'a, P0, P1>(typename: P0, eventname: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -44,7 +40,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsEventPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), eventname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsPropertyPresent<'a, P0, P1>(typename: P0, propertyname: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -55,7 +50,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsPropertyPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsReadOnlyPropertyPresent<'a, P0, P1>(typename: P0, propertyname: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -66,7 +60,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsReadOnlyPropertyPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsWriteablePropertyPresent<'a, P0, P1>(typename: P0, propertyname: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -77,7 +70,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsWriteablePropertyPresent)(::windows::core::Interface::as_raw(this), typename.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsEnumNamedValuePresent<'a, P0, P1>(enumtypename: P0, valuename: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -88,7 +80,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsEnumNamedValuePresent)(::windows::core::Interface::as_raw(this), enumtypename.into().abi(), valuename.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsApiContractPresentByMajor<'a, P0>(contractname: P0, majorversion: u16) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -98,7 +89,6 @@ impl ApiInformation {
             (::windows::core::Interface::vtable(this).IsApiContractPresentByMajor)(::windows::core::Interface::as_raw(this), contractname.into().abi(), majorversion, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsApiContractPresentByMajorAndMinor<'a, P0>(contractname: P0, majorversion: u16, minorversion: u16) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,

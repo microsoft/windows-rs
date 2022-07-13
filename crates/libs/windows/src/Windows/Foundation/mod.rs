@@ -14,7 +14,6 @@ impl AsyncActionCompletedHandler {
         let com = AsyncActionCompletedHandlerBox::<F> { vtable: &AsyncActionCompletedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncAction>, Error = E0>,
@@ -105,7 +104,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionProgressHandl
         let com = AsyncActionProgressHandlerBox::<TProgress, F> { vtable: &AsyncActionProgressHandlerBox::<TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
@@ -205,7 +203,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> AsyncActionWithProgressC
         let com = AsyncActionWithProgressCompletedHandlerBox::<TProgress, F> { vtable: &AsyncActionWithProgressCompletedHandlerBox::<TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncActionWithProgress<TProgress>>, Error = E0>,
@@ -304,7 +301,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> AsyncOperationCompletedHan
         let com = AsyncOperationCompletedHandlerBox::<TResult, F> { vtable: &AsyncOperationCompletedHandlerBox::<TResult, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperation<TResult>>, Error = E0>,
@@ -404,7 +400,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let com = AsyncOperationProgressHandlerBox::<TResult, TProgress, F> { vtable: &AsyncOperationProgressHandlerBox::<TResult, TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, E0, P1>(&self, asyncinfo: P0, progressinfo: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
@@ -509,7 +504,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let com = AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F> { vtable: &AsyncOperationWithProgressCompletedHandlerBox::<TResult, TProgress, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, E0>(&self, asyncinfo: P0, asyncstatus: AsyncStatus) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IAsyncOperationWithProgress<TResult, TProgress>>, Error = E0>,
@@ -679,17 +673,14 @@ impl ::core::default::Default for DateTime {
 #[repr(transparent)]
 pub struct Deferral(::windows::core::IUnknown);
 impl Deferral {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Create<'a, P0>(handler: P0) -> ::windows::core::Result<Deferral>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, DeferralCompletedHandler>>,
@@ -794,7 +785,6 @@ impl DeferralCompletedHandler {
         let com = DeferralCompletedHandlerBox::<F> { vtable: &DeferralCompletedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this)).ok() }
@@ -881,7 +871,6 @@ impl<T: ::windows::core::RuntimeType + 'static> EventHandler<T> {
         let com = EventHandlerBox::<T, F> { vtable: &EventHandlerBox::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
@@ -1010,21 +999,18 @@ impl ::core::default::Default for EventRegistrationToken {
 #[doc = "*Required features: `\"Foundation\"`*"]
 pub struct GuidHelper;
 impl GuidHelper {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateNewGuid() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGuidHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).CreateNewGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Empty() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGuidHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
             (::windows::core::Interface::vtable(this).Empty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Equals(target: ::windows::core::GUID, value: ::windows::core::GUID) -> ::windows::core::Result<bool> {
         Self::IGuidHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
@@ -1044,7 +1030,6 @@ impl ::windows::core::RuntimeName for GuidHelper {
 #[repr(transparent)]
 pub struct IAsyncAction(::windows::core::IUnknown);
 impl IAsyncAction {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionCompletedHandler>>,
@@ -1052,7 +1037,6 @@ impl IAsyncAction {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
@@ -1060,12 +1044,10 @@ impl IAsyncAction {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionCompletedHandler>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1073,7 +1055,6 @@ impl IAsyncAction {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1081,7 +1062,6 @@ impl IAsyncAction {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1089,12 +1069,10 @@ impl IAsyncAction {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -1221,7 +1199,6 @@ pub struct IAsyncActionWithProgress<TProgress>(::windows::core::IUnknown, ::core
 where
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress<TProgress> {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionProgressHandler<TProgress>>>,
@@ -1229,7 +1206,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Progress(&self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>> {
         let this = self;
         unsafe {
@@ -1237,7 +1213,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionProgressHandler<TProgress>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncActionWithProgressCompletedHandler<TProgress>>>,
@@ -1245,7 +1220,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>> {
         let this = self;
         unsafe {
@@ -1253,12 +1227,10 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionWithProgressCompletedHandler<TProgress>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1266,7 +1238,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1274,7 +1245,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1282,12 +1252,10 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -1418,7 +1386,6 @@ where
 #[repr(transparent)]
 pub struct IAsyncInfo(::windows::core::IUnknown);
 impl IAsyncInfo {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1426,7 +1393,6 @@ impl IAsyncInfo {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = self;
         unsafe {
@@ -1434,7 +1400,6 @@ impl IAsyncInfo {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1442,12 +1407,10 @@ impl IAsyncInfo {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -1526,7 +1489,6 @@ pub struct IAsyncOperation<TResult>(::windows::core::IUnknown, ::core::marker::P
 where
     TResult: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationCompletedHandler<TResult>>>,
@@ -1534,7 +1496,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>> {
         let this = self;
         unsafe {
@@ -1542,7 +1503,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationCompletedHandler<TResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<TResult> {
         let this = self;
         unsafe {
@@ -1550,7 +1510,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
             (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TResult>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1558,7 +1517,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1566,7 +1524,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1574,12 +1531,10 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -1711,7 +1666,6 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static;
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> IAsyncOperationWithProgress<TResult, TProgress> {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SetProgress<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationProgressHandler<TResult, TProgress>>>,
@@ -1719,7 +1673,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Progress(&self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>> {
         let this = self;
         unsafe {
@@ -1727,7 +1680,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationProgressHandler<TResult, TProgress>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>>,
@@ -1735,7 +1687,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>> {
         let this = self;
         unsafe {
@@ -1743,7 +1694,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<TResult> {
         let this = self;
         unsafe {
@@ -1751,7 +1701,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TResult>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1759,7 +1708,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1767,7 +1715,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
@@ -1775,12 +1722,10 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -1913,7 +1858,6 @@ where
 #[repr(transparent)]
 pub struct IClosable(::windows::core::IUnknown);
 impl IClosable {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -2012,7 +1956,6 @@ pub struct IDeferralFactory_Vtbl {
 #[repr(transparent)]
 pub struct IGetActivationFactory(::windows::core::IUnknown);
 impl IGetActivationFactory {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetActivationFactory<'a, P0>(&self, activatableclassid: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2106,7 +2049,6 @@ pub struct IGuidHelperStatics_Vtbl {
 #[repr(transparent)]
 pub struct IMemoryBuffer(::windows::core::IUnknown);
 impl IMemoryBuffer {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference> {
         let this = self;
         unsafe {
@@ -2114,7 +2056,6 @@ impl IMemoryBuffer {
             (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -2219,7 +2160,6 @@ pub struct IMemoryBufferFactory_Vtbl {
 #[repr(transparent)]
 pub struct IMemoryBufferReference(::windows::core::IUnknown);
 impl IMemoryBufferReference {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Capacity(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2227,7 +2167,6 @@ impl IMemoryBufferReference {
             (::windows::core::Interface::vtable(this).Capacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>>,
@@ -2238,12 +2177,10 @@ impl IMemoryBufferReference {
             (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn RemoveClosed(&self, cookie: EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
@@ -2337,7 +2274,6 @@ pub struct IMemoryBufferReference_Vtbl {
 #[repr(transparent)]
 pub struct IPropertyValue(::windows::core::IUnknown);
 impl IPropertyValue {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyType> {
         let this = self;
         unsafe {
@@ -2345,7 +2281,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PropertyType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn IsNumericScalar(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2353,7 +2288,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
@@ -2361,7 +2295,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16(&self) -> ::windows::core::Result<i16> {
         let this = self;
         unsafe {
@@ -2369,7 +2302,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -2377,7 +2309,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2385,7 +2316,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2393,7 +2323,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
@@ -2401,7 +2330,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -2409,7 +2337,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingle(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -2417,7 +2344,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDouble(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -2425,7 +2351,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -2433,7 +2358,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBoolean(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2441,7 +2365,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2449,7 +2372,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -2457,7 +2379,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTime(&self) -> ::windows::core::Result<DateTime> {
         let this = self;
         unsafe {
@@ -2465,7 +2386,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan> {
         let this = self;
         unsafe {
@@ -2473,7 +2393,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPoint(&self) -> ::windows::core::Result<Point> {
         let this = self;
         unsafe {
@@ -2481,7 +2400,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Point>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSize(&self) -> ::windows::core::Result<Size> {
         let this = self;
         unsafe {
@@ -2489,7 +2407,6 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRect(&self) -> ::windows::core::Result<Rect> {
         let this = self;
         unsafe {
@@ -2497,97 +2414,78 @@ impl IPropertyValue {
             (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8Array(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt8Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16Array(&self, value: &mut ::windows::core::Array<i16>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetInt16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32Array(&self, value: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetInt32Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32Array(&self, value: &mut ::windows::core::Array<u32>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt32Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64Array(&self, value: &mut ::windows::core::Array<i64>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetInt64Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64Array(&self, value: &mut ::windows::core::Array<u64>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt64Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingleArray(&self, value: &mut ::windows::core::Array<f32>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetSingleArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDoubleArray(&self, value: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetDoubleArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetChar16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBooleanArray(&self, value: &mut ::windows::core::Array<bool>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetBooleanArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetStringArray(&self, value: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetStringArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInspectableArray(&self, value: &mut ::windows::core::Array<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetInspectableArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuidArray(&self, value: &mut ::windows::core::Array<::windows::core::GUID>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetGuidArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTimeArray(&self, value: &mut ::windows::core::Array<DateTime>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetDateTimeArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpanArray(&self, value: &mut ::windows::core::Array<TimeSpan>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetTimeSpanArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPointArray(&self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetPointArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSizeArray(&self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetSizeArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRectArray(&self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetRectArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
@@ -2751,7 +2649,6 @@ pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
@@ -2759,7 +2656,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyType> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2767,7 +2663,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PropertyType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn IsNumericScalar(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2775,7 +2670,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8(&self) -> ::windows::core::Result<u8> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2783,7 +2677,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16(&self) -> ::windows::core::Result<i16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2791,7 +2684,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2799,7 +2691,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2807,7 +2698,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2815,7 +2705,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64(&self) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2823,7 +2712,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2831,7 +2719,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingle(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2839,7 +2726,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDouble(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2847,7 +2733,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2855,7 +2740,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBoolean(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2863,7 +2747,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2871,7 +2754,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2879,7 +2761,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTime(&self) -> ::windows::core::Result<DateTime> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2887,7 +2768,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2895,7 +2775,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPoint(&self) -> ::windows::core::Result<Point> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2903,7 +2782,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Point>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSize(&self) -> ::windows::core::Result<Size> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2911,7 +2789,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRect(&self) -> ::windows::core::Result<Rect> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -2919,97 +2796,78 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
             (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8Array(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt8Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16Array(&self, value: &mut ::windows::core::Array<i16>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInt16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32Array(&self, value: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInt32Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32Array(&self, value: &mut ::windows::core::Array<u32>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt32Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64Array(&self, value: &mut ::windows::core::Array<i64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInt64Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64Array(&self, value: &mut ::windows::core::Array<u64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt64Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingleArray(&self, value: &mut ::windows::core::Array<f32>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetSingleArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDoubleArray(&self, value: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetDoubleArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetChar16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBooleanArray(&self, value: &mut ::windows::core::Array<bool>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetBooleanArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetStringArray(&self, value: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetStringArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInspectableArray(&self, value: &mut ::windows::core::Array<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInspectableArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuidArray(&self, value: &mut ::windows::core::Array<::windows::core::GUID>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetGuidArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTimeArray(&self, value: &mut ::windows::core::Array<DateTime>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetDateTimeArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpanArray(&self, value: &mut ::windows::core::Array<TimeSpan>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetTimeSpanArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPointArray(&self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetPointArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSizeArray(&self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetSizeArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRectArray(&self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetRectArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
@@ -3107,7 +2965,6 @@ pub struct IReferenceArray<T>(::windows::core::IUnknown, ::core::marker::Phantom
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::Array<T>> {
         let this = self;
         unsafe {
@@ -3115,7 +2972,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<T>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyType> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3123,7 +2979,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PropertyType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn IsNumericScalar(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3131,7 +2986,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8(&self) -> ::windows::core::Result<u8> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3139,7 +2993,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16(&self) -> ::windows::core::Result<i16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3147,7 +3000,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3155,7 +3007,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3163,7 +3014,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3171,7 +3021,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64(&self) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3179,7 +3028,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3187,7 +3035,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingle(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3195,7 +3042,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDouble(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3203,7 +3049,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3211,7 +3056,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBoolean(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3219,7 +3063,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3227,7 +3070,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3235,7 +3077,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTime(&self) -> ::windows::core::Result<DateTime> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3243,7 +3084,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3251,7 +3091,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPoint(&self) -> ::windows::core::Result<Point> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3259,7 +3098,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Point>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSize(&self) -> ::windows::core::Result<Size> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3267,7 +3105,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRect(&self) -> ::windows::core::Result<Rect> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
@@ -3275,97 +3112,78 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
             (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8Array(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt8Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16Array(&self, value: &mut ::windows::core::Array<i16>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInt16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32Array(&self, value: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInt32Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32Array(&self, value: &mut ::windows::core::Array<u32>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt32Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64Array(&self, value: &mut ::windows::core::Array<i64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInt64Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64Array(&self, value: &mut ::windows::core::Array<u64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetUInt64Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingleArray(&self, value: &mut ::windows::core::Array<f32>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetSingleArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDoubleArray(&self, value: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetDoubleArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetChar16Array)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBooleanArray(&self, value: &mut ::windows::core::Array<bool>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetBooleanArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetStringArray(&self, value: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetStringArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInspectableArray(&self, value: &mut ::windows::core::Array<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetInspectableArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuidArray(&self, value: &mut ::windows::core::Array<::windows::core::GUID>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetGuidArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTimeArray(&self, value: &mut ::windows::core::Array<DateTime>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetDateTimeArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpanArray(&self, value: &mut ::windows::core::Array<TimeSpan>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetTimeSpanArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPointArray(&self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetPointArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSizeArray(&self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetSizeArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRectArray(&self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetRectArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
@@ -3461,7 +3279,6 @@ where
 #[repr(transparent)]
 pub struct IStringable(::windows::core::IUnknown);
 impl IStringable {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3608,7 +3425,6 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
 #[repr(transparent)]
 pub struct IWwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl IWwwFormUrlDecoderEntry {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3616,7 +3432,6 @@ impl IWwwFormUrlDecoderEntry {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3719,12 +3534,10 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
 #[repr(transparent)]
 pub struct MemoryBuffer(::windows::core::IUnknown);
 impl MemoryBuffer {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference> {
         let this = self;
         unsafe {
@@ -3732,7 +3545,6 @@ impl MemoryBuffer {
             (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMemoryBufferReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Create(capacity: u32) -> ::windows::core::Result<MemoryBuffer> {
         Self::IMemoryBufferFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -3959,91 +3771,78 @@ unsafe impl ::windows::core::RuntimeType for PropertyType {
 #[doc = "*Required features: `\"Foundation\"`*"]
 pub struct PropertyValue;
 impl PropertyValue {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateEmpty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt8(value: u8) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt8)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt16(value: i16) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInt16)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt16)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt32(value: i32) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInt32)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt32(value: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt32)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt64(value: i64) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInt64)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt64(value: u64) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt64)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSingle(value: f32) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSingle)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDouble(value: f64) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDouble)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateChar16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateChar16)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateBoolean(value: bool) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBoolean)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateString<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4053,7 +3852,6 @@ impl PropertyValue {
             (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInspectable<'a, P0>(value: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
@@ -4063,175 +3861,150 @@ impl PropertyValue {
             (::windows::core::Interface::vtable(this).CreateInspectable)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateGuid(value: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateGuid)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDateTime(value: DateTime) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDateTime)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateTimeSpan(value: TimeSpan) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTimeSpan)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreatePoint(value: Point) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePoint)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSize(value: Size) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSize)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateRect(value: Rect) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRect)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt8Array(value: &[u8]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt8Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt16Array(value: &[i16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt16Array(value: &[u16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt32Array(value: &[i32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt32Array(value: &[u32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt64Array(value: &[i64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt64Array(value: &[u64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateUInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSingleArray(value: &[f32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSingleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDoubleArray(value: &[f64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDoubleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateChar16Array(value: &[u16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateChar16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateBooleanArray(value: &[bool]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBooleanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateStringArray(value: &[::windows::core::HSTRING]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStringArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInspectableArray(value: &[::core::option::Option<::windows::core::IInspectable>]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInspectableArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateGuidArray(value: &[::windows::core::GUID]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateGuidArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDateTimeArray(value: &[DateTime]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDateTimeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateTimeSpanArray(value: &[TimeSpan]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTimeSpanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreatePointArray(value: &[Point]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePointArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSizeArray(value: &[Size]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSizeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateRectArray(value: &[Rect]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -4383,7 +4156,6 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
         let com = TypedEventHandlerBox::<TSender, TResult, F> { vtable: &TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Invoke<'a, P0, P1>(&self, sender: P0, args: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, TSender>>,
@@ -4480,7 +4252,6 @@ where
 #[repr(transparent)]
 pub struct Uri(::windows::core::IUnknown);
 impl Uri {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IStringable>(self)?;
         unsafe {
@@ -4488,7 +4259,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn UnescapeComponent<'a, P0>(tounescape: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4498,7 +4268,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).UnescapeComponent)(::windows::core::Interface::as_raw(this), tounescape.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn EscapeComponent<'a, P0>(toescape: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4508,7 +4277,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).EscapeComponent)(::windows::core::Interface::as_raw(this), toescape.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn AbsoluteUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4516,7 +4284,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).AbsoluteUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn DisplayUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4524,7 +4291,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).DisplayUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4532,7 +4298,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Domain)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Extension(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4540,7 +4305,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Extension)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Fragment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4548,7 +4312,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Fragment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Host(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4556,7 +4319,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Host)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4564,7 +4326,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Password)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4572,7 +4333,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Query(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4580,7 +4340,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Query)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn QueryParsed(&self) -> ::windows::core::Result<WwwFormUrlDecoder> {
         let this = self;
         unsafe {
@@ -4588,7 +4347,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).QueryParsed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WwwFormUrlDecoder>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn RawUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4596,7 +4354,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).RawUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SchemeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4604,7 +4361,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).SchemeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4612,7 +4368,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).UserName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Port(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -4620,7 +4375,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Port)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Suspicious(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4628,7 +4382,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Suspicious)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Equals<'a, P0>(&self, puri: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, Uri>>,
@@ -4639,7 +4392,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).Equals)(::windows::core::Interface::as_raw(this), puri.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CombineUri<'a, P0>(&self, relativeuri: P0) -> ::windows::core::Result<Uri>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4650,7 +4402,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).CombineUri)(::windows::core::Interface::as_raw(this), relativeuri.into().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUri<'a, P0>(uri: P0) -> ::windows::core::Result<Uri>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4660,7 +4411,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).CreateUri)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateWithRelativeUri<'a, P0, P1>(baseuri: P0, relativeuri: P1) -> ::windows::core::Result<Uri>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4671,7 +4421,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).CreateWithRelativeUri)(::windows::core::Interface::as_raw(this), baseuri.into().abi(), relativeuri.into().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn AbsoluteCanonicalUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
@@ -4679,7 +4428,6 @@ impl Uri {
             (::windows::core::Interface::vtable(this).AbsoluteCanonicalUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn DisplayIri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
@@ -4783,7 +4531,7 @@ unsafe impl ::core::marker::Sync for Uri {}
 #[repr(transparent)]
 pub struct WwwFormUrlDecoder(::windows::core::IUnknown);
 impl WwwFormUrlDecoder {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows::core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4792,7 +4540,7 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Collections::IIterator<IWwwFormUrlDecoderEntry>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IWwwFormUrlDecoderEntry> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4801,7 +4549,7 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IWwwFormUrlDecoderEntry>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4810,7 +4558,7 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -4823,7 +4571,7 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IWwwFormUrlDecoderEntry>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4832,7 +4580,6 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetFirstValueByName<'a, P0>(&self, name: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4843,7 +4590,6 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).GetFirstValueByName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateWwwFormUrlDecoder<'a, P0>(query: P0) -> ::windows::core::Result<WwwFormUrlDecoder>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -4985,7 +4731,6 @@ unsafe impl ::core::marker::Sync for WwwFormUrlDecoder {}
 #[repr(transparent)]
 pub struct WwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl WwwFormUrlDecoderEntry {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4993,7 +4738,6 @@ impl WwwFormUrlDecoderEntry {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {

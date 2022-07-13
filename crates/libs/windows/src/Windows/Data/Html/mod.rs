@@ -1,7 +1,6 @@
 #[doc = "*Required features: `\"Data_Html\"`*"]
 pub struct HtmlUtilities;
 impl HtmlUtilities {
-    #[doc = "*Required features: `\"Data_Html\"`*"]
     pub fn ConvertToText<'a, P0>(html: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,

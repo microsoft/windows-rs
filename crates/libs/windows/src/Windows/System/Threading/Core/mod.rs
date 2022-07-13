@@ -78,7 +78,7 @@ pub struct ISignalNotifierStatics_Vtbl {
 #[repr(transparent)]
 pub struct PreallocatedWorkItem(::windows::core::IUnknown);
 impl PreallocatedWorkItem {
-    #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RunAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -87,7 +87,7 @@ impl PreallocatedWorkItem {
             (::windows::core::Interface::vtable(this).RunAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItem<'a, P0>(handler: P0) -> ::windows::core::Result<PreallocatedWorkItem>
     where
@@ -98,7 +98,7 @@ impl PreallocatedWorkItem {
             (::windows::core::Interface::vtable(this).CreateWorkItem)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriority<'a, P0>(handler: P0, priority: super::WorkItemPriority) -> ::windows::core::Result<PreallocatedWorkItem>
     where
@@ -109,7 +109,7 @@ impl PreallocatedWorkItem {
             (::windows::core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows::core::Interface::as_raw(this), handler.into().abi(), priority, result__.as_mut_ptr()).from_abi::<PreallocatedWorkItem>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriorityAndOptions<'a, P0>(handler: P0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::core::Result<PreallocatedWorkItem>
     where
@@ -196,7 +196,6 @@ impl SignalHandler {
         let com = SignalHandlerBox::<F> { vtable: &SignalHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`*"]
     pub fn Invoke<'a, P0>(&self, signalnotifier: P0, timedout: bool) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, SignalNotifier>>,
@@ -280,17 +279,14 @@ pub struct SignalHandler_Vtbl {
 #[repr(transparent)]
 pub struct SignalNotifier(::windows::core::IUnknown);
 impl SignalNotifier {
-    #[doc = "*Required features: `\"System_Threading_Core\"`*"]
     pub fn Enable(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Enable)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`*"]
     pub fn Terminate(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Terminate)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`*"]
     pub fn AttachToEvent<'a, P0, P1>(name: P0, handler: P1) -> ::windows::core::Result<SignalNotifier>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -301,7 +297,7 @@ impl SignalNotifier {
             (::windows::core::Interface::vtable(this).AttachToEvent)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachToEventWithTimeout<'a, P0, P1>(name: P0, handler: P1, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>
     where
@@ -313,7 +309,6 @@ impl SignalNotifier {
             (::windows::core::Interface::vtable(this).AttachToEventWithTimeout)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), timeout, result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`*"]
     pub fn AttachToSemaphore<'a, P0, P1>(name: P0, handler: P1) -> ::windows::core::Result<SignalNotifier>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -324,7 +319,7 @@ impl SignalNotifier {
             (::windows::core::Interface::vtable(this).AttachToSemaphore)(::windows::core::Interface::as_raw(this), name.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<SignalNotifier>(result__)
         })
     }
-    #[doc = "*Required features: `\"System_Threading_Core\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachToSemaphoreWithTimeout<'a, P0, P1>(name: P0, handler: P1, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier>
     where

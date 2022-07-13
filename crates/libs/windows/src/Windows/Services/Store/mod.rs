@@ -931,7 +931,6 @@ pub struct IStoreVideo_Vtbl {
 #[repr(transparent)]
 pub struct StoreAcquireLicenseResult(::windows::core::IUnknown);
 impl StoreAcquireLicenseResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn StorePackageLicense(&self) -> ::windows::core::Result<StorePackageLicense> {
         let this = self;
         unsafe {
@@ -939,7 +938,6 @@ impl StoreAcquireLicenseResult {
             (::windows::core::Interface::vtable(this).StorePackageLicense)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePackageLicense>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1014,7 +1012,6 @@ unsafe impl ::core::marker::Sync for StoreAcquireLicenseResult {}
 #[repr(transparent)]
 pub struct StoreAppLicense(::windows::core::IUnknown);
 impl StoreAppLicense {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SkuStoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1022,7 +1019,6 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).SkuStoreId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1030,7 +1026,6 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsTrial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1038,7 +1033,7 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1047,7 +1042,6 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).ExpirationDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1055,7 +1049,7 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddOnLicenses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreLicense>> {
         let this = self;
@@ -1064,7 +1058,7 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).AddOnLicenses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreLicense>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrialTimeRemaining(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1073,7 +1067,6 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).TrialTimeRemaining)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsTrialOwnedByThisUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1081,7 +1074,6 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).IsTrialOwnedByThisUser)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn TrialUniqueId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1089,7 +1081,6 @@ impl StoreAppLicense {
             (::windows::core::Interface::vtable(this).TrialUniqueId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsDiscLicense(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStoreAppLicense2>(self)?;
         unsafe {
@@ -1164,7 +1155,6 @@ unsafe impl ::core::marker::Sync for StoreAppLicense {}
 #[repr(transparent)]
 pub struct StoreAvailability(::windows::core::IUnknown);
 impl StoreAvailability {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1172,7 +1162,7 @@ impl StoreAvailability {
             (::windows::core::Interface::vtable(this).StoreId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1181,7 +1171,6 @@ impl StoreAvailability {
             (::windows::core::Interface::vtable(this).EndDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Price(&self) -> ::windows::core::Result<StorePrice> {
         let this = self;
         unsafe {
@@ -1189,7 +1178,6 @@ impl StoreAvailability {
             (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePrice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1197,7 +1185,7 @@ impl StoreAvailability {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -1206,7 +1194,7 @@ impl StoreAvailability {
             (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -1285,7 +1273,6 @@ unsafe impl ::core::marker::Sync for StoreAvailability {}
 #[repr(transparent)]
 pub struct StoreCanAcquireLicenseResult(::windows::core::IUnknown);
 impl StoreCanAcquireLicenseResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1293,7 +1280,6 @@ impl StoreCanAcquireLicenseResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn LicensableSku(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1301,7 +1287,6 @@ impl StoreCanAcquireLicenseResult {
             (::windows::core::Interface::vtable(this).LicensableSku)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<StoreCanLicenseStatus> {
         let this = self;
         unsafe {
@@ -1413,7 +1398,6 @@ unsafe impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
 #[repr(transparent)]
 pub struct StoreCollectionData(::windows::core::IUnknown);
 impl StoreCollectionData {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsTrial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1421,7 +1405,6 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn CampaignId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1429,7 +1412,6 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).CampaignId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn DeveloperOfferId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1437,7 +1419,7 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).DeveloperOfferId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AcquiredDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1446,7 +1428,7 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).AcquiredDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1455,7 +1437,7 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).StartDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1464,7 +1446,7 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).EndDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrialTimeRemaining(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1473,7 +1455,6 @@ impl StoreCollectionData {
             (::windows::core::Interface::vtable(this).TrialTimeRemaining)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1548,7 +1529,6 @@ unsafe impl ::core::marker::Sync for StoreCollectionData {}
 #[repr(transparent)]
 pub struct StoreConsumableResult(::windows::core::IUnknown);
 impl StoreConsumableResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<StoreConsumableStatus> {
         let this = self;
         unsafe {
@@ -1556,7 +1536,6 @@ impl StoreConsumableResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreConsumableStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn TrackingId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -1564,7 +1543,6 @@ impl StoreConsumableResult {
             (::windows::core::Interface::vtable(this).TrackingId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn BalanceRemaining(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1572,7 +1550,6 @@ impl StoreConsumableResult {
             (::windows::core::Interface::vtable(this).BalanceRemaining)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1683,7 +1660,7 @@ unsafe impl ::windows::core::RuntimeType for StoreConsumableStatus {
 #[repr(transparent)]
 pub struct StoreContext(::windows::core::IUnknown);
 impl StoreContext {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -1692,7 +1669,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OfflineLicensesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1704,13 +1681,13 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).OfflineLicensesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOfflineLicensesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveOfflineLicensesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomerPurchaseIdAsync<'a, P0, P1>(&self, serviceticket: P0, publisheruserid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
@@ -1723,7 +1700,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into().abi(), publisheruserid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomerCollectionsIdAsync<'a, P0, P1>(&self, serviceticket: P0, publisheruserid: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
@@ -1736,7 +1713,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into().abi(), publisheruserid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppLicenseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAppLicense>> {
         let this = self;
@@ -1745,7 +1722,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAppLicenseAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreAppLicense>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetStoreProductForCurrentAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>> {
         let this = self;
@@ -1754,7 +1731,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreProductForCurrentAppAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsAsync<'a, P0, E0, P1, E1>(&self, productkinds: P0, storeids: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1769,7 +1746,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreProductsAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), storeids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsAsync<'a, P0, E0>(&self, productkinds: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1782,7 +1759,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreProductsWithPagingAsync<'a, P0, E0>(&self, productkinds: P0, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>
     where
@@ -1795,7 +1772,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), maxitemstoretrieveperpage, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionAsync<'a, P0, E0>(&self, productkinds: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -1808,7 +1785,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetUserCollectionAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUserCollectionWithPagingAsync<'a, P0, E0>(&self, productkinds: P0, maxitemstoretrieveperpage: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>
     where
@@ -1821,7 +1798,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), maxitemstoretrieveperpage, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportConsumableFulfillmentAsync<'a, P0>(&self, productstoreid: P0, quantity: u32, trackingid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>
     where
@@ -1833,7 +1810,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), productstoreid.into().abi(), quantity, trackingid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetConsumableBalanceRemainingAsync<'a, P0>(&self, productstoreid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>
     where
@@ -1845,7 +1822,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetConsumableBalanceRemainingAsync)(::windows::core::Interface::as_raw(this), productstoreid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn AcquireStoreLicenseForOptionalPackageAsync<'a, P0>(&self, optionalpackage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>
     where
@@ -1857,7 +1834,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Interface::as_raw(this), optionalpackage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync<'a, P0>(&self, storeid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -1869,7 +1846,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), storeid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0, P1>(&self, storeid: P0, storepurchaseproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -1882,7 +1859,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storeid.into().abi(), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>> {
         let this = self;
@@ -1891,7 +1868,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAppAndOptionalStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadStorePackageUpdatesAsync<'a, P0, E0>(&self, storepackageupdates: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1904,7 +1881,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackageUpdatesAsync<'a, P0, E0>(&self, storepackageupdates: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1917,7 +1894,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesAsync<'a, P0, E0>(&self, storeids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1930,7 +1907,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(::windows::core::Interface::as_raw(this), storeids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindStoreProductForPackageAsync<'a, P0, E0, P1>(&self, productkinds: P0, package: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>>
     where
@@ -1944,7 +1921,6 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).FindStoreProductForPackageAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), package.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn CanSilentlyDownloadStorePackageUpdates(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
@@ -1952,7 +1928,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).CanSilentlyDownloadStorePackageUpdates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadStorePackageUpdatesAsync<'a, P0, E0>(&self, storepackageupdates: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1965,7 +1941,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrySilentDownloadAndInstallStorePackageUpdatesAsync<'a, P0, E0>(&self, storepackageupdates: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -1978,7 +1954,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn CanAcquireStoreLicenseForOptionalPackageAsync<'a, P0>(&self, optionalpackage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>
     where
@@ -1990,7 +1966,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Interface::as_raw(this), optionalpackage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CanAcquireStoreLicenseAsync<'a, P0>(&self, productstoreid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>
     where
@@ -2002,7 +1978,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseAsync)(::windows::core::Interface::as_raw(this), productstoreid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreProductsWithOptionsAsync<'a, P0, E0, P1, E1, P2>(&self, productkinds: P0, storeids: P1, storeproductoptions: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>
     where
@@ -2018,7 +1994,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(::windows::core::Interface::as_raw(this), productkinds.try_into().map_err(|e| e.into())?.abi(), storeids.try_into().map_err(|e| e.into())?.abi(), storeproductoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAssociatedStoreQueueItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
@@ -2027,7 +2003,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetAssociatedStoreQueueItemsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStoreQueueItemsAsync<'a, P0, E0>(&self, storeids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>
     where
@@ -2040,7 +2016,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).GetStoreQueueItemsAsync)(::windows::core::Interface::as_raw(this), storeids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync<'a, P0, E0, P1>(&self, storeids: P0, storepackageinstalloptions: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -2054,7 +2030,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::windows::core::Interface::as_raw(this), storeids.try_into().map_err(|e| e.into())?.abi(), storepackageinstalloptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DownloadAndInstallStorePackagesAsync<'a, P0, E0>(&self, storeids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>
     where
@@ -2067,7 +2043,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(::windows::core::Interface::as_raw(this), storeids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn RequestUninstallStorePackageAsync<'a, P0>(&self, package: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
@@ -2079,7 +2055,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestUninstallStorePackageAsync)(::windows::core::Interface::as_raw(this), package.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestUninstallStorePackageByStoreIdAsync<'a, P0>(&self, storeid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
@@ -2091,7 +2067,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestUninstallStorePackageByStoreIdAsync)(::windows::core::Interface::as_raw(this), storeid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn UninstallStorePackageAsync<'a, P0>(&self, package: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
@@ -2103,7 +2079,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).UninstallStorePackageAsync)(::windows::core::Interface::as_raw(this), package.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UninstallStorePackageByStoreIdAsync<'a, P0>(&self, storeid: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>
     where
@@ -2115,7 +2091,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).UninstallStorePackageByStoreIdAsync)(::windows::core::Interface::as_raw(this), storeid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestRateAndReviewAppAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>> {
         let this = &::windows::core::Interface::cast::<IStoreContext4>(self)?;
@@ -2124,7 +2100,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).RequestRateAndReviewAppAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetInstallOrderForAssociatedStoreQueueItemsAsync<'a, P0, E0>(&self, items: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>
     where
@@ -2137,14 +2113,13 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(::windows::core::Interface::as_raw(this), items.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreContext>(result__)
         })
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"System\"`*"]
+    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<StoreContext>
     where
@@ -2265,7 +2240,7 @@ unsafe impl ::windows::core::RuntimeType for StoreDurationUnit {
 #[repr(transparent)]
 pub struct StoreImage(::windows::core::IUnknown);
 impl StoreImage {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2274,7 +2249,6 @@ impl StoreImage {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ImagePurposeTag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2282,7 +2256,6 @@ impl StoreImage {
             (::windows::core::Interface::vtable(this).ImagePurposeTag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2290,7 +2263,6 @@ impl StoreImage {
             (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2298,7 +2270,6 @@ impl StoreImage {
             (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2373,7 +2344,6 @@ unsafe impl ::core::marker::Sync for StoreImage {}
 #[repr(transparent)]
 pub struct StoreLicense(::windows::core::IUnknown);
 impl StoreLicense {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SkuStoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2381,7 +2351,6 @@ impl StoreLicense {
             (::windows::core::Interface::vtable(this).SkuStoreId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsActive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2389,7 +2358,7 @@ impl StoreLicense {
             (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2398,7 +2367,6 @@ impl StoreLicense {
             (::windows::core::Interface::vtable(this).ExpirationDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2406,7 +2374,6 @@ impl StoreLicense {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2488,7 +2455,6 @@ impl StorePackageInstallOptions {
         static SHARED: ::windows::core::FactoryCache<StorePackageInstallOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn AllowForcedAppRestart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2496,7 +2462,6 @@ impl StorePackageInstallOptions {
             (::windows::core::Interface::vtable(this).AllowForcedAppRestart)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowForcedAppRestart)(::windows::core::Interface::as_raw(this), value).ok() }
@@ -2568,13 +2533,13 @@ unsafe impl ::core::marker::Sync for StorePackageInstallOptions {}
 #[repr(transparent)]
 pub struct StorePackageLicense(::windows::core::IUnknown);
 impl StorePackageLicense {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LicenseLost<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2586,13 +2551,13 @@ impl StorePackageLicense {
             (::windows::core::Interface::vtable(this).LicenseLost)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLicenseLost(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseLost)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Package(&self) -> ::windows::core::Result<super::super::ApplicationModel::Package> {
         let this = self;
@@ -2601,7 +2566,6 @@ impl StorePackageLicense {
             (::windows::core::Interface::vtable(this).Package)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsValid(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2609,7 +2573,6 @@ impl StorePackageLicense {
             (::windows::core::Interface::vtable(this).IsValid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ReleaseLicense(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReleaseLicense)(::windows::core::Interface::as_raw(this)).ok() }
@@ -2703,7 +2666,7 @@ unsafe impl ::core::marker::Sync for StorePackageLicense {}
 #[repr(transparent)]
 pub struct StorePackageUpdate(::windows::core::IUnknown);
 impl StorePackageUpdate {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`*"]
+    #[doc = "*Required features: `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Package(&self) -> ::windows::core::Result<super::super::ApplicationModel::Package> {
         let this = self;
@@ -2712,7 +2675,6 @@ impl StorePackageUpdate {
             (::windows::core::Interface::vtable(this).Package)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Mandatory(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2787,7 +2749,6 @@ unsafe impl ::core::marker::Sync for StorePackageUpdate {}
 #[repr(transparent)]
 pub struct StorePackageUpdateResult(::windows::core::IUnknown);
 impl StorePackageUpdateResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn OverallState(&self) -> ::windows::core::Result<StorePackageUpdateState> {
         let this = self;
         unsafe {
@@ -2795,7 +2756,7 @@ impl StorePackageUpdateResult {
             (::windows::core::Interface::vtable(this).OverallState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePackageUpdateState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorePackageUpdateStatuses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>> {
         let this = self;
@@ -2804,7 +2765,7 @@ impl StorePackageUpdateResult {
             (::windows::core::Interface::vtable(this).StorePackageUpdateStatuses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StoreQueueItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>> {
         let this = &::windows::core::Interface::cast::<IStorePackageUpdateResult2>(self)?;
@@ -2969,7 +2930,6 @@ impl ::core::default::Default for StorePackageUpdateStatus {
 #[repr(transparent)]
 pub struct StorePrice(::windows::core::IUnknown);
 impl StorePrice {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn FormattedBasePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2977,7 +2937,6 @@ impl StorePrice {
             (::windows::core::Interface::vtable(this).FormattedBasePrice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn FormattedPrice(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2985,7 +2944,6 @@ impl StorePrice {
             (::windows::core::Interface::vtable(this).FormattedPrice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsOnSale(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2993,7 +2951,7 @@ impl StorePrice {
             (::windows::core::Interface::vtable(this).IsOnSale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaleEndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -3002,7 +2960,6 @@ impl StorePrice {
             (::windows::core::Interface::vtable(this).SaleEndDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn CurrencyCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3010,7 +2967,6 @@ impl StorePrice {
             (::windows::core::Interface::vtable(this).CurrencyCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn FormattedRecurrencePrice(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3085,7 +3041,6 @@ unsafe impl ::core::marker::Sync for StorePrice {}
 #[repr(transparent)]
 pub struct StoreProduct(::windows::core::IUnknown);
 impl StoreProduct {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3093,7 +3048,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).StoreId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3101,7 +3055,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3109,7 +3062,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3117,7 +3069,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ProductKind(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3125,7 +3076,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).ProductKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn HasDigitalDownload(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3133,7 +3083,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).HasDigitalDownload)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -3142,7 +3092,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Keywords)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Images(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
@@ -3151,7 +3101,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Images)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StoreImage>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Videos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
@@ -3160,7 +3110,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Videos)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StoreVideo>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Skus(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreSku>> {
         let this = self;
@@ -3169,7 +3119,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Skus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StoreSku>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsInUserCollection(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3177,7 +3126,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).IsInUserCollection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Price(&self) -> ::windows::core::Result<StorePrice> {
         let this = self;
         unsafe {
@@ -3185,7 +3133,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePrice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3193,7 +3140,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LinkUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3202,7 +3149,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).LinkUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsAnySkuInstalledAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3211,7 +3158,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).GetIsAnySkuInstalledAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -3220,7 +3167,7 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -3232,7 +3179,6 @@ impl StoreProduct {
             (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn InAppOfferToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3314,7 +3260,7 @@ impl StoreProductOptions {
         static SHARED: ::windows::core::FactoryCache<StoreProductOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActionFilters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -3390,7 +3336,7 @@ unsafe impl ::core::marker::Sync for StoreProductOptions {}
 #[repr(transparent)]
 pub struct StoreProductPagedQueryResult(::windows::core::IUnknown);
 impl StoreProductPagedQueryResult {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Products(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>> {
         let this = self;
@@ -3399,7 +3345,6 @@ impl StoreProductPagedQueryResult {
             (::windows::core::Interface::vtable(this).Products)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn HasMoreResults(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3407,7 +3352,6 @@ impl StoreProductPagedQueryResult {
             (::windows::core::Interface::vtable(this).HasMoreResults)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3415,7 +3359,7 @@ impl StoreProductPagedQueryResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetNextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
@@ -3491,7 +3435,7 @@ unsafe impl ::core::marker::Sync for StoreProductPagedQueryResult {}
 #[repr(transparent)]
 pub struct StoreProductQueryResult(::windows::core::IUnknown);
 impl StoreProductQueryResult {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Products(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>> {
         let this = self;
@@ -3500,7 +3444,6 @@ impl StoreProductQueryResult {
             (::windows::core::Interface::vtable(this).Products)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3575,7 +3518,6 @@ unsafe impl ::core::marker::Sync for StoreProductQueryResult {}
 #[repr(transparent)]
 pub struct StoreProductResult(::windows::core::IUnknown);
 impl StoreProductResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Product(&self) -> ::windows::core::Result<StoreProduct> {
         let this = self;
         unsafe {
@@ -3583,7 +3525,6 @@ impl StoreProductResult {
             (::windows::core::Interface::vtable(this).Product)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreProduct>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3665,7 +3606,6 @@ impl StorePurchaseProperties {
         static SHARED: ::windows::core::FactoryCache<StorePurchaseProperties, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3673,7 +3613,6 @@ impl StorePurchaseProperties {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SetName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3681,7 +3620,6 @@ impl StorePurchaseProperties {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3689,7 +3627,6 @@ impl StorePurchaseProperties {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SetExtendedJsonData<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3697,7 +3634,6 @@ impl StorePurchaseProperties {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetExtendedJsonData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Create<'a, P0>(name: P0) -> ::windows::core::Result<StorePurchaseProperties>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -3779,7 +3715,6 @@ unsafe impl ::core::marker::Sync for StorePurchaseProperties {}
 #[repr(transparent)]
 pub struct StorePurchaseResult(::windows::core::IUnknown);
 impl StorePurchaseResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<StorePurchaseStatus> {
         let this = self;
         unsafe {
@@ -3787,7 +3722,6 @@ impl StorePurchaseResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePurchaseStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -3899,7 +3833,6 @@ unsafe impl ::windows::core::RuntimeType for StorePurchaseStatus {
 #[repr(transparent)]
 pub struct StoreQueueItem(::windows::core::IUnknown);
 impl StoreQueueItem {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3907,7 +3840,6 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3915,7 +3847,6 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn InstallKind(&self) -> ::windows::core::Result<StoreQueueItemKind> {
         let this = self;
         unsafe {
@@ -3923,7 +3854,6 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).InstallKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreQueueItemKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn GetCurrentStatus(&self) -> ::windows::core::Result<StoreQueueItemStatus> {
         let this = self;
         unsafe {
@@ -3931,7 +3861,7 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).GetCurrentStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreQueueItemStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3943,13 +3873,13 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3961,13 +3891,13 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CancelInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStoreQueueItem2>(self)?;
@@ -3976,7 +3906,7 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).CancelInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PauseInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStoreQueueItem2>(self)?;
@@ -3985,7 +3915,7 @@ impl StoreQueueItem {
             (::windows::core::Interface::vtable(this).PauseInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ResumeInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStoreQueueItem2>(self)?;
@@ -4061,7 +3991,6 @@ unsafe impl ::core::marker::Sync for StoreQueueItem {}
 #[repr(transparent)]
 pub struct StoreQueueItemCompletedEventArgs(::windows::core::IUnknown);
 impl StoreQueueItemCompletedEventArgs {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<StoreQueueItemStatus> {
         let this = self;
         unsafe {
@@ -4255,7 +4184,6 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemState {
 #[repr(transparent)]
 pub struct StoreQueueItemStatus(::windows::core::IUnknown);
 impl StoreQueueItemStatus {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn PackageInstallState(&self) -> ::windows::core::Result<StoreQueueItemState> {
         let this = self;
         unsafe {
@@ -4263,7 +4191,6 @@ impl StoreQueueItemStatus {
             (::windows::core::Interface::vtable(this).PackageInstallState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreQueueItemState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn PackageInstallExtendedState(&self) -> ::windows::core::Result<StoreQueueItemExtendedState> {
         let this = self;
         unsafe {
@@ -4271,7 +4198,6 @@ impl StoreQueueItemStatus {
             (::windows::core::Interface::vtable(this).PackageInstallExtendedState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreQueueItemExtendedState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn UpdateStatus(&self) -> ::windows::core::Result<StorePackageUpdateStatus> {
         let this = self;
         unsafe {
@@ -4279,7 +4205,6 @@ impl StoreQueueItemStatus {
             (::windows::core::Interface::vtable(this).UpdateStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePackageUpdateStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4354,7 +4279,6 @@ unsafe impl ::core::marker::Sync for StoreQueueItemStatus {}
 #[repr(transparent)]
 pub struct StoreRateAndReviewResult(::windows::core::IUnknown);
 impl StoreRateAndReviewResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4362,7 +4286,6 @@ impl StoreRateAndReviewResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4370,7 +4293,6 @@ impl StoreRateAndReviewResult {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn WasUpdated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4378,7 +4300,6 @@ impl StoreRateAndReviewResult {
             (::windows::core::Interface::vtable(this).WasUpdated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<StoreRateAndReviewStatus> {
         let this = self;
         unsafe {
@@ -4488,7 +4409,7 @@ unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
 #[doc = "*Required features: `\"Services_Store\"`*"]
 pub struct StoreRequestHelper;
 impl StoreRequestHelper {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SendRequestAsync<'a, P0, P1>(context: P0, requestkind: u32, parametersasjson: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>
     where
@@ -4513,7 +4434,6 @@ impl ::windows::core::RuntimeName for StoreRequestHelper {
 #[repr(transparent)]
 pub struct StoreSendRequestResult(::windows::core::IUnknown);
 impl StoreSendRequestResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Response(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4521,7 +4441,6 @@ impl StoreSendRequestResult {
             (::windows::core::Interface::vtable(this).Response)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4529,7 +4448,7 @@ impl StoreSendRequestResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Web_Http\"`*"]
+    #[doc = "*Required features: `\"Web_Http\"`*"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpStatusCode(&self) -> ::windows::core::Result<super::super::Web::Http::HttpStatusCode> {
         let this = &::windows::core::Interface::cast::<IStoreSendRequestResult2>(self)?;
@@ -4605,7 +4524,6 @@ unsafe impl ::core::marker::Sync for StoreSendRequestResult {}
 #[repr(transparent)]
 pub struct StoreSku(::windows::core::IUnknown);
 impl StoreSku {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn StoreId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4613,7 +4531,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).StoreId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4621,7 +4538,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4629,7 +4545,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4637,7 +4552,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsTrial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4645,7 +4559,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn CustomDeveloperData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4653,7 +4566,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).CustomDeveloperData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Images(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
@@ -4662,7 +4575,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Images)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StoreImage>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Videos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
@@ -4671,7 +4584,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Videos)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StoreVideo>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Availabilities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StoreAvailability>> {
         let this = self;
@@ -4680,7 +4593,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Availabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<StoreAvailability>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Price(&self) -> ::windows::core::Result<StorePrice> {
         let this = self;
         unsafe {
@@ -4688,7 +4600,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorePrice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4696,7 +4607,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsInUserCollection(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4704,7 +4614,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).IsInUserCollection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BundledSkus(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -4713,7 +4623,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).BundledSkus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn CollectionData(&self) -> ::windows::core::Result<StoreCollectionData> {
         let this = self;
         unsafe {
@@ -4721,7 +4630,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).CollectionData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreCollectionData>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsInstalledAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4730,7 +4639,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).GetIsInstalledAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
@@ -4739,7 +4648,7 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPurchaseWithPurchasePropertiesAsync<'a, P0>(&self, storepurchaseproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>
     where
@@ -4751,7 +4660,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storepurchaseproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn IsSubscription(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4759,7 +4667,6 @@ impl StoreSku {
             (::windows::core::Interface::vtable(this).IsSubscription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SubscriptionInfo(&self) -> ::windows::core::Result<StoreSubscriptionInfo> {
         let this = self;
         unsafe {
@@ -4834,7 +4741,6 @@ unsafe impl ::core::marker::Sync for StoreSku {}
 #[repr(transparent)]
 pub struct StoreSubscriptionInfo(::windows::core::IUnknown);
 impl StoreSubscriptionInfo {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn BillingPeriod(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4842,7 +4748,6 @@ impl StoreSubscriptionInfo {
             (::windows::core::Interface::vtable(this).BillingPeriod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn BillingPeriodUnit(&self) -> ::windows::core::Result<StoreDurationUnit> {
         let this = self;
         unsafe {
@@ -4850,7 +4755,6 @@ impl StoreSubscriptionInfo {
             (::windows::core::Interface::vtable(this).BillingPeriodUnit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StoreDurationUnit>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn HasTrialPeriod(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4858,7 +4762,6 @@ impl StoreSubscriptionInfo {
             (::windows::core::Interface::vtable(this).HasTrialPeriod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn TrialPeriod(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4866,7 +4769,6 @@ impl StoreSubscriptionInfo {
             (::windows::core::Interface::vtable(this).TrialPeriod)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn TrialPeriodUnit(&self) -> ::windows::core::Result<StoreDurationUnit> {
         let this = self;
         unsafe {
@@ -4941,7 +4843,6 @@ unsafe impl ::core::marker::Sync for StoreSubscriptionInfo {}
 #[repr(transparent)]
 pub struct StoreUninstallStorePackageResult(::windows::core::IUnknown);
 impl StoreUninstallStorePackageResult {
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -4949,7 +4850,6 @@ impl StoreUninstallStorePackageResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<StoreUninstallStorePackageStatus> {
         let this = self;
         unsafe {
@@ -5061,7 +4961,7 @@ unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
 #[repr(transparent)]
 pub struct StoreVideo(::windows::core::IUnknown);
 impl StoreVideo {
-    #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -5070,7 +4970,6 @@ impl StoreVideo {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn VideoPurposeTag(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5078,7 +4977,6 @@ impl StoreVideo {
             (::windows::core::Interface::vtable(this).VideoPurposeTag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -5086,7 +4984,6 @@ impl StoreVideo {
             (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -5094,7 +4991,6 @@ impl StoreVideo {
             (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -5102,7 +4998,6 @@ impl StoreVideo {
             (::windows::core::Interface::vtable(this).Caption)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn PreviewImage(&self) -> ::windows::core::Result<StoreImage> {
         let this = self;
         unsafe {

@@ -6,19 +6,15 @@ pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 #[repr(transparent)]
 pub struct IEnumVdsObject(::windows::core::IUnknown);
 impl IEnumVdsObject {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Next(&self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows::core::IUnknown>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(ppobjectarray), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
@@ -72,7 +68,6 @@ pub struct IEnumVdsObject_Vtbl {
 #[repr(transparent)]
 pub struct IVdsAdmin(::windows::core::IUnknown);
 impl IVdsAdmin {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn RegisterProvider<'a, P0, P1, P2>(&self, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: P0, r#type: VDS_PROVIDER_TYPE, pwszmachinename: P1, pwszversion: P2, guidversionid: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -81,7 +76,6 @@ impl IVdsAdmin {
     {
         (::windows::core::Interface::vtable(self).RegisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(providerclsid), pwszname.into(), r#type, pwszmachinename.into(), pwszversion.into(), ::core::mem::transmute(guidversionid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn UnregisterProvider(&self, providerid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
@@ -132,7 +126,6 @@ pub struct IVdsAdmin_Vtbl {
 #[repr(transparent)]
 pub struct IVdsAdviseSink(::windows::core::IUnknown);
 impl IVdsAdviseSink {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnNotify)(::windows::core::Interface::as_raw(self), pnotificationarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pnotificationarray))).ok()
     }
@@ -182,15 +175,12 @@ pub struct IVdsAdviseSink_Vtbl {
 #[repr(transparent)]
 pub struct IVdsAsync(::windows::core::IUnknown);
 impl IVdsAsync {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Wait(&self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Wait)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(pasyncout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(pulpercentcompleted)).ok()
     }
@@ -242,39 +232,31 @@ pub struct IVdsAsync_Vtbl {
 #[repr(transparent)]
 pub struct IVdsController(::windows::core::IUnknown);
 impl IVdsController {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_CONTROLLER_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_CONTROLLER_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_CONTROLLER_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSubSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsSubSystem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetPortProperties(&self, sportnumber: i16) -> ::windows::core::Result<VDS_PORT_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_PORT_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetPortProperties)(::windows::core::Interface::as_raw(self), sportnumber, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_PORT_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn FlushCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FlushCache)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn InvalidateCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InvalidateCache)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAssociatedLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status).ok()
     }
@@ -331,7 +313,6 @@ pub struct IVdsController_Vtbl {
 #[repr(transparent)]
 pub struct IVdsControllerControllerPort(::windows::core::IUnknown);
 impl IVdsControllerControllerPort {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryControllerPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
@@ -382,26 +363,21 @@ pub struct IVdsControllerControllerPort_Vtbl {
 #[repr(transparent)]
 pub struct IVdsControllerPort(::windows::core::IUnknown);
 impl IVdsControllerPort {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_PORT_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_PORT_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_PORT_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetController(&self) -> ::windows::core::Result<IVdsController> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetController)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsController>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAssociatedLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetStatus(&self, status: VDS_PORT_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status).ok()
     }
@@ -455,30 +431,25 @@ pub struct IVdsControllerPort_Vtbl {
 #[repr(transparent)]
 pub struct IVdsDrive(::windows::core::IUnknown);
 impl IVdsDrive {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_DRIVE_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_DRIVE_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_DRIVE_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSubSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsSubSystem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryExtents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppextentarray), ::core::mem::transmute(plnumberofextents)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetFlags(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ulflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn ClearFlags(&self, ulflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClearFlags)(::windows::core::Interface::as_raw(self), ulflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status).ok()
     }
@@ -536,7 +507,6 @@ pub struct IVdsDrive_Vtbl {
 #[repr(transparent)]
 pub struct IVdsDrive2(::windows::core::IUnknown);
 impl IVdsDrive2 {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_DRIVE_PROP2>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_DRIVE_PROP2>(result__)
@@ -587,16 +557,13 @@ pub struct IVdsDrive2_Vtbl {
 #[repr(transparent)]
 pub struct IVdsHwProvider(::windows::core::IUnknown);
 impl IVdsHwProvider {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QuerySubSystems(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QuerySubSystems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Reenumerate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reenumerate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
@@ -648,7 +615,7 @@ pub struct IVdsHwProvider_Vtbl {
 #[repr(transparent)]
 pub struct IVdsHwProviderPrivate(::windows::core::IUnknown);
 impl IVdsHwProviderPrivate {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryIfCreatedLun<'a, P0>(&self, pwszdevicepath: P0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>
     where
@@ -706,7 +673,6 @@ pub struct IVdsHwProviderPrivate_Vtbl {
 #[repr(transparent)]
 pub struct IVdsHwProviderPrivateMpio(::windows::core::IUnknown);
 impl IVdsHwProviderPrivateMpio {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllPathStatusesFromHbaPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hbaportprop), status).ok()
     }
@@ -756,13 +722,13 @@ pub struct IVdsHwProviderPrivateMpio_Vtbl {
 #[repr(transparent)]
 pub struct IVdsHwProviderStoragePools(::windows::core::IUnknown);
 impl IVdsHwProviderStoragePools {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryStoragePools)(::windows::core::Interface::as_raw(self), ulflags, ullremainingfreespace, ::core::mem::transmute(ppoolattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLunInStoragePool<'a, P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>
     where
@@ -771,7 +737,7 @@ impl IVdsHwProviderStoragePools {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateLunInStoragePool)(::windows::core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
@@ -834,7 +800,6 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
 #[repr(transparent)]
 pub struct IVdsHwProviderType(::windows::core::IUnknown);
 impl IVdsHwProviderType {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProviderType(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_HWPROVIDER_TYPE>::zeroed();
         (::windows::core::Interface::vtable(self).GetProviderType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HWPROVIDER_TYPE>(result__)
@@ -885,7 +850,6 @@ pub struct IVdsHwProviderType_Vtbl {
 #[repr(transparent)]
 pub struct IVdsHwProviderType2(::windows::core::IUnknown);
 impl IVdsHwProviderType2 {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProviderType2(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_HWPROVIDER_TYPE>::zeroed();
         (::windows::core::Interface::vtable(self).GetProviderType2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HWPROVIDER_TYPE>(result__)
@@ -936,35 +900,28 @@ pub struct IVdsHwProviderType2_Vtbl {
 #[repr(transparent)]
 pub struct IVdsIscsiPortal(::windows::core::IUnknown);
 impl IVdsIscsiPortal {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTAL_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_ISCSI_PORTAL_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_ISCSI_PORTAL_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSubSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsSubSystem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAssociatedPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAssociatedPortalGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIpsecTunnelAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptunneladdress), ::core::mem::transmute(pdestinationaddress)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).GetIpsecSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinitiatorportaladdress), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIpsecSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinitiatorportaladdress), ullsecurityflags, ::core::mem::transmute(pipseckey)).ok()
     }
@@ -1020,32 +977,26 @@ pub struct IVdsIscsiPortal_Vtbl {
 #[repr(transparent)]
 pub struct IVdsIscsiPortalGroup(::windows::core::IUnknown);
 impl IVdsIscsiPortalGroup {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_ISCSI_PORTALGROUP_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_ISCSI_PORTALGROUP_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetTarget(&self) -> ::windows::core::Result<IVdsIscsiTarget> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsIscsiTarget>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAssociatedPortals(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAssociatedPortals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn AddPortal(&self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddPortal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portalid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn RemovePortal(&self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RemovePortal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portalid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
@@ -1101,59 +1052,50 @@ pub struct IVdsIscsiPortalGroup_Vtbl {
 #[repr(transparent)]
 pub struct IVdsIscsiTarget(::windows::core::IUnknown);
 impl IVdsIscsiTarget {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_TARGET_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_ISCSI_TARGET_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_ISCSI_TARGET_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSubSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsSubSystem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryPortalGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAssociatedLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn CreatePortalGroup(&self) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreatePortalGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetFriendlyName<'a, P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetSharedSecret<'a, P0>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptargetsharedsecret), pwszinitiatorname.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn RememberInitiatorSharedSecret<'a, P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Interface::as_raw(self), pwszinitiatorname.into(), ::core::mem::transmute(pinitiatorsharedsecret)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConnectedInitiators)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppwszinitiatorlist), ::core::mem::transmute(plnumberofinitiators)).ok()
     }
@@ -1215,88 +1157,74 @@ pub struct IVdsIscsiTarget_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLun(::windows::core::IUnknown);
 impl IVdsLun {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_LUN_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_LUN_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetSubSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsSubSystem>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdentificationData(&self) -> ::windows::core::Result<VDS_LUN_INFORMATION> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_LUN_INFORMATION>::zeroed();
         (::windows::core::Interface::vtable(self).GetIdentificationData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_LUN_INFORMATION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryActiveControllers(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryActiveControllers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: &[::windows::core::GUID]) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Extend)(::windows::core::Interface::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Shrink)(::windows::core::Interface::as_raw(self), ullnumberofbytestoremove, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryPlexes(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryPlexes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn AddPlex(&self, lunid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).AddPlex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lunid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn RemovePlex(&self, plexid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).RemovePlex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plexid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Recover(&self) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Recover)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetMask<'a, P0>(&self, pwszunmaskinglist: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).SetMask)(::windows::core::Interface::as_raw(self), pwszunmaskinglist.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: &[::windows::core::GUID], pinactivecontrolleridarray: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AssociateControllers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pactivecontrolleridarray)), pactivecontrolleridarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinactivecontrolleridarray)), pinactivecontrolleridarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_HINTS>::zeroed();
         (::windows::core::Interface::vtable(self).QueryHints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HINTS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ApplyHints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phints)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: &[::windows::core::GUID]) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).QueryMaxLunExtendSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -1372,13 +1300,13 @@ pub struct IVdsLun_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLun2(::windows::core::IUnknown);
 impl IVdsLun2 {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHints2(&self) -> ::windows::core::Result<VDS_HINTS2> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_HINTS2>::zeroed();
         (::windows::core::Interface::vtable(self).QueryHints2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HINTS2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ApplyHints2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phints2)).ok()
@@ -1436,11 +1364,9 @@ pub struct IVdsLun2_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunControllerPorts(::windows::core::IUnknown);
 impl IVdsLunControllerPorts {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: &[::windows::core::GUID], pinactivecontrollerportidarray: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AssociateControllerPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pactivecontrollerportidarray)), pactivecontrollerportidarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinactivecontrollerportidarray)), pinactivecontrollerportidarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryActiveControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryActiveControllerPorts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
@@ -1492,11 +1418,9 @@ pub struct IVdsLunControllerPorts_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunIscsi(::windows::core::IUnknown);
 impl IVdsLunIscsi {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn AssociateTargets(&self, ptargetidarray: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AssociateTargets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptargetidarray)), ptargetidarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAssociatedTargets(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAssociatedTargets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
@@ -1548,21 +1472,19 @@ pub struct IVdsLunIscsi_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunMpio(::windows::core::IUnknown);
 impl IVdsLunMpio {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPathInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppaths), ::core::mem::transmute(plnumberofpaths)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLoadBalancePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppolicy), ::core::mem::transmute(pppaths), ::core::mem::transmute(plnumberofpaths)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLoadBalancePolicy)(::windows::core::Interface::as_raw(self), policy, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppaths)), ppaths.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSupportedLbPolicies(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetSupportedLbPolicies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -1622,7 +1544,6 @@ pub struct IVdsLunMpio_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunNaming(::windows::core::IUnknown);
 impl IVdsLunNaming {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetFriendlyName<'a, P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1675,7 +1596,6 @@ pub struct IVdsLunNaming_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunNumber(::windows::core::IUnknown);
 impl IVdsLunNumber {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetLunNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetLunNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -1726,28 +1646,26 @@ pub struct IVdsLunNumber_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunPlex(::windows::core::IUnknown);
 impl IVdsLunPlex {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PLEX_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_LUN_PLEX_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_LUN_PLEX_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetLun(&self) -> ::windows::core::Result<IVdsLun> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetLun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsLun>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryExtents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppextentarray), ::core::mem::transmute(plnumberofextents)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_HINTS>::zeroed();
         (::windows::core::Interface::vtable(self).QueryHints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HINTS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ApplyHints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phints)).ok()
@@ -1811,15 +1729,12 @@ pub struct IVdsLunPlex_Vtbl {
 #[repr(transparent)]
 pub struct IVdsMaintenance(::windows::core::IUnknown);
 impl IVdsMaintenance {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartMaintenance)(::windows::core::Interface::as_raw(self), operation).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StopMaintenance)(::windows::core::Interface::as_raw(self), operation).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PulseMaintenance)(::windows::core::Interface::as_raw(self), operation, ulcount).ok()
     }
@@ -1871,7 +1786,6 @@ pub struct IVdsMaintenance_Vtbl {
 #[repr(transparent)]
 pub struct IVdsProvider(::windows::core::IUnknown);
 impl IVdsProvider {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_PROVIDER_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_PROVIDER_PROP>(result__)
@@ -1922,12 +1836,10 @@ pub struct IVdsProvider_Vtbl {
 #[repr(transparent)]
 pub struct IVdsProviderPrivate(::windows::core::IUnknown);
 impl IVdsProviderPrivate {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetObject(&self, objectid: ::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(objectid), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn OnLoad<'a, P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -1935,7 +1847,7 @@ impl IVdsProviderPrivate {
     {
         (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), pwszmachinename.into(), pcallbackobject.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUnload<'a, P0>(&self, bforceunload: P0) -> ::windows::core::Result<()>
     where
@@ -1994,7 +1906,6 @@ pub struct IVdsProviderPrivate_Vtbl {
 #[repr(transparent)]
 pub struct IVdsProviderSupport(::windows::core::IUnknown);
 impl IVdsProviderSupport {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetVersionSupport(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetVersionSupport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -2045,33 +1956,29 @@ pub struct IVdsProviderSupport_Vtbl {
 #[repr(transparent)]
 pub struct IVdsStoragePool(::windows::core::IUnknown);
 impl IVdsStoragePool {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsProvider>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_STORAGE_POOL_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_STORAGE_POOL_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_STORAGE_POOL_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes(&self) -> ::windows::core::Result<VDS_POOL_ATTRIBUTES> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_POOL_ATTRIBUTES>::zeroed();
         (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_POOL_ATTRIBUTES>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryDriveExtents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppextentarray), ::core::mem::transmute(plnumberofextents)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAllocatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAllocatedLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryAllocatedStoragePools(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryAllocatedStoragePools)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
@@ -2133,45 +2040,37 @@ pub struct IVdsStoragePool_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystem(::windows::core::IUnknown);
 impl IVdsSubSystem {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_SUB_SYSTEM_PROP>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_SUB_SYSTEM_PROP>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsProvider>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryControllers(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryControllers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryLuns(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryDrives(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryDrives)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> ::windows::core::Result<IVdsDrive> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetDrive)(::windows::core::Interface::as_raw(self), sbusnumber, sslotnumber, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsDrive>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Reenumerate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reenumerate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[::windows::core::GUID], pofflinecontrolleridarray: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetControllerStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ponlinecontrolleridarray)), ponlinecontrolleridarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pofflinecontrolleridarray)), pofflinecontrolleridarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLun<'a, P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: P0, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync>
     where
@@ -2180,15 +2079,13 @@ impl IVdsSubSystem {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateLun)(::windows::core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, pwszunmaskinglist.into(), ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReplaceDrive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(drivetobereplaced), ::core::mem::transmute(replacementdrive)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows::core::GUID], phints: *const VDS_HINTS) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
@@ -2257,17 +2154,15 @@ pub struct IVdsSubSystem_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystem2(::windows::core::IUnknown);
 impl IVdsSubSystem2 {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetProperties2(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2> {
         let mut result__ = ::core::mem::MaybeUninit::<VDS_SUB_SYSTEM_PROP2>::zeroed();
         (::windows::core::Interface::vtable(self).GetProperties2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_SUB_SYSTEM_PROP2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetDrive2)(::windows::core::Interface::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsDrive>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLun2<'a, P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>
     where
@@ -2276,7 +2171,7 @@ impl IVdsSubSystem2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateLun2)(::windows::core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, pwszunmaskinglist.into(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows::core::GUID], phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
@@ -2337,7 +2232,6 @@ pub struct IVdsSubSystem2_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystemInterconnect(::windows::core::IUnknown);
 impl IVdsSubSystemInterconnect {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSupportedInterconnects(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetSupportedInterconnects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -2388,17 +2282,14 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystemIscsi(::windows::core::IUnknown);
 impl IVdsSubSystemIscsi {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryTargets(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryTargets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryPortals(&self) -> ::windows::core::Result<IEnumVdsObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).QueryPortals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn CreateTarget<'a, P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> ::windows::core::Result<IVdsAsync>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -2407,7 +2298,6 @@ impl IVdsSubSystemIscsi {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).CreateTarget)(::windows::core::Interface::as_raw(self), pwsziscsiname.into(), pwszfriendlyname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIpsecGroupPresharedKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pipseckey)).ok()
     }
@@ -2460,7 +2350,6 @@ pub struct IVdsSubSystemIscsi_Vtbl {
 #[repr(transparent)]
 pub struct IVdsSubSystemNaming(::windows::core::IUnknown);
 impl IVdsSubSystemNaming {
-    #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetFriendlyName<'a, P0>(&self, pwszfriendlyname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,

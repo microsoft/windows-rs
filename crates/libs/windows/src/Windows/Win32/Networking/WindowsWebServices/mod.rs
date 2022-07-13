@@ -2,14 +2,12 @@
 #[repr(transparent)]
 pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
-    #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
     pub unsafe fn TriggerContentPrefetcherTask<'a, P0>(&self, packagefullname: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
     pub unsafe fn IsRegisteredForContentPrefetch<'a, P0>(&self, packagefullname: P0) -> ::windows::core::Result<u8>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,

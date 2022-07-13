@@ -2,7 +2,6 @@
 #[repr(transparent)]
 pub struct AppRecordingManager(::windows::core::IUnknown);
 impl AppRecordingManager {
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn GetStatus(&self) -> ::windows::core::Result<AppRecordingStatus> {
         let this = self;
         unsafe {
@@ -10,7 +9,7 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppRecordingStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn StartRecordingToFileAsync<'a, P0>(&self, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
@@ -22,7 +21,7 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).StartRecordingToFileAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn RecordTimeSpanToFileAsync<'a, P0>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
@@ -34,7 +33,7 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows::core::Interface::as_raw(this), starttime, duration, file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -43,7 +42,7 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveScreenshotToFilesAsync<'a, P0, P1, P2, E2>(&self, folder: P0, filenameprefix: P1, option: AppRecordingSaveScreenshotOption, requestedformats: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
@@ -58,7 +57,6 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows::core::Interface::as_raw(this), folder.into().abi(), filenameprefix.into().abi(), option, requestedformats.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AppRecordingManager> {
         Self::IAppRecordingManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
@@ -137,7 +135,6 @@ unsafe impl ::core::marker::Sync for AppRecordingManager {}
 #[repr(transparent)]
 pub struct AppRecordingResult(::windows::core::IUnknown);
 impl AppRecordingResult {
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -145,7 +142,6 @@ impl AppRecordingResult {
             (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -153,7 +149,7 @@ impl AppRecordingResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -162,7 +158,6 @@ impl AppRecordingResult {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsFileTruncated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -271,7 +266,6 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotResult(::windows::core::IUnknown);
 impl AppRecordingSaveScreenshotResult {
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -279,7 +273,6 @@ impl AppRecordingSaveScreenshotResult {
             (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -287,7 +280,7 @@ impl AppRecordingSaveScreenshotResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation_Collections\"`*"]
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavedScreenshotInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
         let this = self;
@@ -363,7 +356,7 @@ unsafe impl ::core::marker::Sync for AppRecordingSaveScreenshotResult {}
 #[repr(transparent)]
 pub struct AppRecordingSavedScreenshotInfo(::windows::core::IUnknown);
 impl AppRecordingSavedScreenshotInfo {
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Storage\"`*"]
+    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -372,7 +365,6 @@ impl AppRecordingSavedScreenshotInfo {
             (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn MediaEncodingSubtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -447,7 +439,6 @@ unsafe impl ::core::marker::Sync for AppRecordingSavedScreenshotInfo {}
 #[repr(transparent)]
 pub struct AppRecordingStatus(::windows::core::IUnknown);
 impl AppRecordingStatus {
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn CanRecord(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -455,7 +446,6 @@ impl AppRecordingStatus {
             (::windows::core::Interface::vtable(this).CanRecord)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn CanRecordTimeSpan(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -463,7 +453,7 @@ impl AppRecordingStatus {
             (::windows::core::Interface::vtable(this).CanRecordTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn HistoricalBufferDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -472,7 +462,6 @@ impl AppRecordingStatus {
             (::windows::core::Interface::vtable(this).HistoricalBufferDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn Details(&self) -> ::windows::core::Result<AppRecordingStatusDetails> {
         let this = self;
         unsafe {
@@ -547,7 +536,6 @@ unsafe impl ::core::marker::Sync for AppRecordingStatus {}
 #[repr(transparent)]
 pub struct AppRecordingStatusDetails(::windows::core::IUnknown);
 impl AppRecordingStatusDetails {
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsAnyAppBroadcasting(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -555,7 +543,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsAnyAppBroadcasting)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsCaptureResourceUnavailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -563,7 +550,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsCaptureResourceUnavailable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsGameStreamInProgress(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -571,7 +557,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsGameStreamInProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsTimeSpanRecordingDisabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -579,7 +564,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsTimeSpanRecordingDisabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsGpuConstrained(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -587,7 +571,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsGpuConstrained)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsAppInactive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -595,7 +578,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsAppInactive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsBlockedForApp(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -603,7 +585,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsBlockedForApp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsDisabledByUser(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -611,7 +592,6 @@ impl AppRecordingStatusDetails {
             (::windows::core::Interface::vtable(this).IsDisabledByUser)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_AppRecording\"`*"]
     pub fn IsDisabledBySystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {

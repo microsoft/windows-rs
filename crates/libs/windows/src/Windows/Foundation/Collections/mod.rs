@@ -40,7 +40,6 @@ pub struct IIterable<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IIterable<T> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = self;
         unsafe {
@@ -136,7 +135,6 @@ pub struct IIterator<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IIterator<T> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Current(&self) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
@@ -144,7 +142,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator<T> {
             (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasCurrent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -152,7 +149,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator<T> {
             (::windows::core::Interface::vtable(this).HasCurrent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn MoveNext(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -160,7 +156,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterator<T> {
             (::windows::core::Interface::vtable(this).MoveNext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetMany(&self, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -256,7 +251,6 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IKeyValuePair<K, V> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Key(&self) -> ::windows::core::Result<K> {
         let this = self;
         unsafe {
@@ -264,7 +258,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<K>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<V> {
         let this = self;
         unsafe {
@@ -350,7 +343,6 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMap<K, V> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<V>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -361,7 +353,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -369,7 +360,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -380,7 +370,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<K, V>> {
         let this = self;
         unsafe {
@@ -388,7 +377,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<K, V>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -400,7 +388,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -408,12 +395,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
@@ -536,7 +521,6 @@ pub struct IMapChangedEventArgs<K>(::windows::core::IUnknown, ::core::marker::Ph
 where
     K: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgs<K> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange> {
         let this = self;
         unsafe {
@@ -544,7 +528,6 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgs<K> {
             (::windows::core::Interface::vtable(this).CollectionChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CollectionChange>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Key(&self) -> ::windows::core::Result<K> {
         let this = self;
         unsafe {
@@ -628,7 +611,6 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMapView<K, V> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<V>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -639,7 +621,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -647,7 +628,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -658,12 +638,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Split(&self, first: &mut ::core::option::Option<IMapView<K, V>>, second: &mut ::core::option::Option<IMapView<K, V>>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Split)(::windows::core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
@@ -784,7 +762,6 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IObservableMap<K, V> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn MapChanged<'a, P0>(&self, vhnd: P0) -> ::windows::core::Result<super::EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<K, V>>>,
@@ -795,12 +772,10 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
@@ -808,7 +783,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<K, V>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<V>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -819,7 +793,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -827,7 +800,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -838,7 +810,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<K, V>> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
@@ -846,7 +817,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<K, V>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -858,7 +828,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, K>>,
@@ -866,7 +835,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
@@ -1000,7 +968,6 @@ pub struct IObservableVector<T>(::windows::core::IUnknown, ::core::marker::Phant
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn VectorChanged<'a, P0>(&self, vhnd: P0) -> ::windows::core::Result<super::EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, VectorChangedEventHandler<T>>>,
@@ -1011,12 +978,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).VectorChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveVectorChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVectorChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = &::windows::core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
@@ -1024,7 +989,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<T>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<T> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1032,7 +996,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1040,7 +1003,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IVectorView<T>> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1048,7 +1010,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IVectorView<T>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1059,7 +1020,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1067,7 +1027,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1075,12 +1034,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1088,17 +1045,14 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
@@ -1106,7 +1060,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn ReplaceAll(&self, items: &[<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::windows::core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
@@ -1236,7 +1189,6 @@ where
 #[repr(transparent)]
 pub struct IPropertySet(::windows::core::IUnknown);
 impl IPropertySet {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
@@ -1244,7 +1196,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1255,7 +1206,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1263,7 +1213,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1274,7 +1223,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -1282,7 +1230,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1294,7 +1241,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -1302,12 +1248,10 @@ impl IPropertySet {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn MapChanged<'a, P0>(&self, vhnd: P0) -> ::windows::core::Result<super::EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>,
@@ -1318,7 +1262,6 @@ impl IPropertySet {
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
@@ -1463,7 +1406,6 @@ pub struct IVector<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
@@ -1471,7 +1413,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1479,7 +1420,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IVectorView<T>> {
         let this = self;
         unsafe {
@@ -1487,7 +1427,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IVectorView<T>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1498,7 +1437,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1506,7 +1444,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1514,12 +1451,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1527,17 +1462,14 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1545,12 +1477,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn ReplaceAll(&self, items: &[<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::windows::core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = &::windows::core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
@@ -1692,7 +1622,6 @@ where
 #[repr(transparent)]
 pub struct IVectorChangedEventArgs(::windows::core::IUnknown);
 impl IVectorChangedEventArgs {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange> {
         let this = self;
         unsafe {
@@ -1700,7 +1629,6 @@ impl IVectorChangedEventArgs {
             (::windows::core::Interface::vtable(this).CollectionChange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CollectionChange>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Index(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1779,7 +1707,6 @@ pub struct IVectorView<T>(::windows::core::IUnknown, ::core::marker::PhantomData
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
@@ -1787,7 +1714,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1795,7 +1721,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, T>>,
@@ -1806,7 +1731,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1814,7 +1738,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
         let this = &::windows::core::Interface::cast::<IIterable<T>>(self)?;
         unsafe {
@@ -1955,7 +1878,6 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Invoke<'a, P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableMap<K, V>>, Error = E0>,
@@ -2061,7 +1983,6 @@ impl PropertySet {
         static SHARED: ::windows::core::FactoryCache<PropertySet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
@@ -2069,7 +1990,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2080,7 +2000,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2088,7 +2007,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2099,7 +2017,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2107,7 +2024,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2119,7 +2035,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2127,12 +2042,10 @@ impl PropertySet {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn MapChanged<'a, P0>(&self, vhnd: P0) -> ::windows::core::Result<super::EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>,
@@ -2143,7 +2056,6 @@ impl PropertySet {
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
@@ -2312,7 +2224,6 @@ impl StringMap {
         static SHARED: ::windows::core::FactoryCache<StringMap, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
         unsafe {
@@ -2320,7 +2231,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2331,7 +2241,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2339,7 +2248,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2350,7 +2258,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -2358,7 +2265,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2370,7 +2276,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2378,12 +2283,10 @@ impl StringMap {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn MapChanged<'a, P0>(&self, vhnd: P0) -> ::windows::core::Result<super::EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::HSTRING>>>,
@@ -2394,7 +2297,6 @@ impl StringMap {
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
@@ -2544,7 +2446,6 @@ impl ValueSet {
         static SHARED: ::windows::core::FactoryCache<ValueSet, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
@@ -2552,7 +2453,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IIterator<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Lookup<'a, P0>(&self, key: P0) -> ::windows::core::Result<::windows::core::IInspectable>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2563,7 +2463,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2571,7 +2470,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn HasKey<'a, P0>(&self, key: P0) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2582,7 +2480,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn GetView(&self) -> ::windows::core::Result<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
@@ -2590,7 +2487,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Insert<'a, P0, P1>(&self, key: P0, value: P1) -> ::windows::core::Result<bool>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2602,7 +2498,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Remove<'a, P0>(&self, key: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -2610,12 +2505,10 @@ impl ValueSet {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn MapChanged<'a, P0>(&self, vhnd: P0) -> ::windows::core::Result<super::EventRegistrationToken>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>,
@@ -2626,7 +2519,6 @@ impl ValueSet {
             (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
@@ -2794,7 +2686,6 @@ impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
         let com = VectorChangedEventHandlerBox::<T, F> { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Invoke<'a, P0, E0, P1, E1>(&self, sender: P0, event: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableVector<T>>, Error = E0>,

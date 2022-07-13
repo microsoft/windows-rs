@@ -8,7 +8,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
     let where_clause = gen.where_clause(&signature.params);
     let mut cfg = gen.reader.signature_cfg(&signature);
     cfg.add_feature(gen.reader.type_def_namespace(def));
-    let doc = gen.cfg_doc(&cfg);
+    let doc = gen.cfg_method_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     if kind == InterfaceKind::None {

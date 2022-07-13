@@ -9,7 +9,6 @@ impl DualSimTile {
         static SHARED: ::windows::core::FactoryCache<DualSimTile, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`*"]
     pub fn SetDisplayName<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>,
@@ -17,7 +16,6 @@ impl DualSimTile {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -25,7 +23,6 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`*"]
     pub fn IsPinnedToStart(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -33,7 +30,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).IsPinnedToStart)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -42,7 +39,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -51,7 +48,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).UpdateAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -60,14 +57,13 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`*"]
     pub fn GetTileForSim2() -> ::windows::core::Result<DualSimTile> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetTileForSim2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DualSimTile>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"Foundation\"`*"]
+    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateDisplayNameForSim1Async<'a, P0>(name: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -78,7 +74,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).UpdateDisplayNameForSim1Async)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateTileUpdaterForSim1() -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -86,7 +82,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).CreateTileUpdaterForSim1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileUpdater>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateTileUpdaterForSim2() -> ::windows::core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -94,7 +90,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).CreateTileUpdaterForSim2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileUpdater>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateBadgeUpdaterForSim1() -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -102,7 +98,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSim1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::BadgeUpdater>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateBadgeUpdaterForSim2() -> ::windows::core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -110,7 +106,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSim2)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::BadgeUpdater>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateToastNotifierForSim1() -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -118,7 +114,7 @@ impl DualSimTile {
             (::windows::core::Interface::vtable(this).CreateToastNotifierForSim1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotifier>(result__)
         })
     }
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateToastNotifierForSim2() -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -264,7 +260,7 @@ pub struct IDualSimTileStatics_Vtbl {
 #[repr(transparent)]
 pub struct IToastNotificationManagerStatics3(::windows::core::IUnknown);
 impl IToastNotificationManagerStatics3 {
-    #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
+    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateToastNotifierForSecondaryTile<'a, P0>(&self, tileid: P0) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>
     where

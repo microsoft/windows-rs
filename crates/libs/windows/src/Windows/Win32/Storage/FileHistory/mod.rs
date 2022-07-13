@@ -440,11 +440,10 @@ where
 #[repr(transparent)]
 pub struct IFhConfigMgr(::windows::core::IUnknown);
 impl IFhConfigMgr {
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn LoadConfiguration(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadConfiguration)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDefaultConfiguration<'a, P0>(&self, overwriteifexists: P0) -> ::windows::core::Result<()>
     where
@@ -452,11 +451,10 @@ impl IFhConfigMgr {
     {
         (::windows::core::Interface::vtable(self).CreateDefaultConfiguration)(::windows::core::Interface::as_raw(self), overwriteifexists.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn SaveConfiguration(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SaveConfiguration)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddRemoveExcludeRule<'a, P0, P1>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P1) -> ::windows::core::Result<()>
     where
@@ -465,7 +463,7 @@ impl IFhConfigMgr {
     {
         (::windows::core::Interface::vtable(self).AddRemoveExcludeRule)(::windows::core::Interface::as_raw(self), add.into(), category, item.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIncludeExcludeRules<'a, P0>(&self, include: P0, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator>
     where
@@ -474,30 +472,25 @@ impl IFhConfigMgr {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetIncludeExcludeRules)(::windows::core::Interface::as_raw(self), include.into(), category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFhScopeIterator>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).GetLocalPolicy)(::windows::core::Interface::as_raw(self), localpolicytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLocalPolicy)(::windows::core::Interface::as_raw(self), localpolicytype, policyvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn GetBackupStatus(&self) -> ::windows::core::Result<FH_BACKUP_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::<FH_BACKUP_STATUS>::zeroed();
         (::windows::core::Interface::vtable(self).GetBackupStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FH_BACKUP_STATUS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBackupStatus)(::windows::core::Interface::as_raw(self), backupstatus).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn GetDefaultTarget(&self) -> ::windows::core::Result<IFhTarget> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFhTarget>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateTarget<'a, P0>(&self, targeturl: P0) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>
     where
@@ -506,7 +499,7 @@ impl IFhConfigMgr {
         let mut result__ = ::core::mem::MaybeUninit::<FH_DEVICE_VALIDATION_RESULT>::zeroed();
         (::windows::core::Interface::vtable(self).ValidateTarget)(::windows::core::Interface::as_raw(self), targeturl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FH_DEVICE_VALIDATION_RESULT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProvisionAndSetNewTarget<'a, P0, P1>(&self, targeturl: P0, targetname: P1) -> ::windows::core::Result<()>
     where
@@ -515,7 +508,7 @@ impl IFhConfigMgr {
     {
         (::windows::core::Interface::vtable(self).ProvisionAndSetNewTarget)(::windows::core::Interface::as_raw(self), targeturl.into().abi(), targetname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeDefaultTargetRecommendation<'a, P0>(&self, recommend: P0) -> ::windows::core::Result<()>
     where
@@ -523,7 +516,7 @@ impl IFhConfigMgr {
     {
         (::windows::core::Interface::vtable(self).ChangeDefaultTargetRecommendation)(::windows::core::Interface::as_raw(self), recommend.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryProtectionStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(protectionstate), ::core::mem::transmute(protecteduntiltime)).ok()
@@ -608,7 +601,7 @@ pub struct IFhConfigMgr_Vtbl {
 #[repr(transparent)]
 pub struct IFhReassociation(::windows::core::IUnknown);
 impl IFhReassociation {
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateTarget<'a, P0>(&self, targeturl: P0) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>
     where
@@ -617,7 +610,7 @@ impl IFhReassociation {
         let mut result__ = ::core::mem::MaybeUninit::<FH_DEVICE_VALIDATION_RESULT>::zeroed();
         (::windows::core::Interface::vtable(self).ValidateTarget)(::windows::core::Interface::as_raw(self), targeturl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FH_DEVICE_VALIDATION_RESULT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScanTargetForConfigurations<'a, P0>(&self, targeturl: P0) -> ::windows::core::Result<()>
     where
@@ -625,16 +618,15 @@ impl IFhReassociation {
     {
         (::windows::core::Interface::vtable(self).ScanTargetForConfigurations)(::windows::core::Interface::as_raw(self), targeturl.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConfigurationDetails(&self, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConfigurationDetails)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(username), ::core::mem::transmute(pcname), ::core::mem::transmute(backuptime)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn SelectConfiguration(&self, index: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SelectConfiguration)(::windows::core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformReassociation<'a, P0>(&self, overwriteifexists: P0) -> ::windows::core::Result<()>
     where
@@ -704,11 +696,10 @@ pub struct IFhReassociation_Vtbl {
 #[repr(transparent)]
 pub struct IFhScopeIterator(::windows::core::IUnknown);
 impl IFhScopeIterator {
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn MoveToNextItem(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MoveToNextItem)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
@@ -764,13 +755,12 @@ pub struct IFhScopeIterator_Vtbl {
 #[repr(transparent)]
 pub struct IFhTarget(::windows::core::IUnknown);
 impl IFhTarget {
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`*"]
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
         (::windows::core::Interface::vtable(self).GetStringProperty)(::windows::core::Interface::as_raw(self), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
     pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
         (::windows::core::Interface::vtable(self).GetNumericalProperty)(::windows::core::Interface::as_raw(self), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
