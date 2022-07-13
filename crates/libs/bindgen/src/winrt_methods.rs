@@ -57,7 +57,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
         if return_type.is_winrt_array() {
             (
                 quote! {
-                    let mut result__ = ::core::mem::MaybeUninit::<#return_type_tokens>::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
                     (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                         .and_then(|| result__.assume_init())
                 },
